@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>shevchenko.js - JavaScript бібліотека для відмінювання український прізвищ, імен та по батькові</title>
+    <link rel="stylesheet"
+          href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+          crossorigin="anonymous">
+</head>
+<body style="min-width: 320px;">
+<div class="container">
+    <nav class="navbar navbar-default navbar-static-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
+                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">shevchenko.js</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a href="https://github.com/tooleks/shevchenko-js#readme" target="_blank">Документація</a></li>
+                    <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Помилки</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div id="home" class="jumbotron">
+        <h1 style="font-size: 40px;">shevchenko.js</h1>
+        <p>JavaScript бібліотека для відмінювання український прізвищ, імен та по батькові</p>
+        <p>
+            <a class="btn btn-lg btn-primary" href="#demo" role="button">Спробувати »</a>
+        </p>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 id="installing">Встановлення</h2>
+            <hr>
+            <pre>npm install --save shevchenko</pre>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 id="usage">Підключення</h2>
+            <hr>
+            <h4>Node.js</h4>
+            <pre>var <var>shevchenko</var> = require("shevchenko");</pre>
+            <h4>Браузер</h4>
+            <pre><&zwj;script type="text/javascript" src="/path/to/shevchenko/dist/shevchenko.min.js"><&zwj;/script></pre>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 id="usage">Використання <a href="https://github.com/tooleks/shevchenko-js#readme" target="_blank"
+                                           class="btn btn-info">Повна версія</a></h2>
+            <hr>
+            <pre>var person = {
+    gender: shevchenko.genderMale,
+    lastName: "шевченко",
+    firstName: "тарас",
+    middleName: "григорович"
+};
+
+var result = shevchenko(person, shevchenko.caseNameVocative);
+
+console.log(result); // {lastName: 'шевченку', firstName: 'тарасе', middleName: 'григоровичу'}</pre>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 id="demo">Демо</h2>
+            <hr>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <div class="alert alert-success" role="alert">Введіть дані про особу в називному відмінку.</div>
+                    <form id="inflection-form">
+                        <div class="form-group">
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" value="male" checked="checked"> Чоловік
+                            </label>
+                            <label class="radio-inline">
+                                <input type="radio" name="gender" value="female"> Жінка
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label for="lastName">Прізвище</label>
+                            <input type="text" class="form-control" name="lastName" id="lastName"
+                                   placeholder="Прізвище">
+                        </div>
+                        <div class="form-group">
+                            <label for="firstName">Ім'я</label>
+                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Ім'я">
+                        </div>
+                        <div class="form-group">
+                            <label for="middleName">По батькові</label>
+                            <input type="text" class="form-control" name="middleName" id="middleName"
+                                   placeholder="По батькові">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Відмінити</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <table class="table table-striped table-bordered">
+                <tr>
+                    <th>Відмінок</th>
+                    <th>Прізвище</th>
+                    <th>Ім'я</th>
+                    <th>По батькові</th>
+                </tr>
+                <tr>
+                    <th>Називний (хто/що?)</th>
+                    <td id="nominativeLastName"></td>
+                    <td id="nominativeFirstName"></td>
+                    <td id="nominativeMiddleName"></td>
+                </tr>
+                <tr>
+                    <th>Родовий (кого/чого?)</th>
+                    <td id="genitiveLastName"></td>
+                    <td id="genitiveFirstName"></td>
+                    <td id="genitiveMiddleName"></td>
+                </tr>
+                <tr>
+                    <th>Давальний (кому/чому?)</th>
+                    <td id="dativeLastName"></td>
+                    <td id="dativeFirstName"></td>
+                    <td id="dativeMiddleName"></td>
+                </tr>
+                <tr>
+                    <th>Знахідний (кого/що?)</th>
+                    <td id="accusativeLastName"></td>
+                    <td id="accusativeFirstName"></td>
+                    <td id="accusativeMiddleName"></td>
+                </tr>
+                <tr>
+                    <th>Орудний (ким/чим?)</th>
+                    <td id="ablativeLastName"></td>
+                    <td id="ablativeFirstName"></td>
+                    <td id="ablativeMiddleName"></td>
+                </tr>
+                <tr>
+                    <th>Місцевий (при кому/чому?)</th>
+                    <td id="locativeLastName"></td>
+                    <td id="locativeFirstName"></td>
+                    <td id="locativeMiddleName"></td>
+                </tr>
+                <tr>
+                    <th>Кличний</th>
+                    <td id="vocativeLastName"></td>
+                    <td id="vocativeFirstName"></td>
+                    <td id="vocativeMiddleName"></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+        integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+<script src="../dist/shevchenko.min.js"></script>
+<script type="text/javascript">
+    (function () {
+
+        function buildPerson(gender, lastName, firstName, middleName) {
+            var person = {};
+            person.gender = gender;
+            person.lastName = lastName;
+            person.firstName = firstName;
+            person.middleName = middleName;
+            return person;
+        }
+
+        function process(person, successCallback) {
+            shevchenko.getCaseNames().forEach(function (caseName) {
+                console.log(person);
+                var result = shevchenko(person, caseName);
+                console.log(result);
+                successCallback(caseName, result);
+            });
+        }
+
+        function handleInflectionResult(caseName, result) {
+            var lastName = typeof result.lastName !== "undefined" ? result.lastName : "";
+            $("#" + caseName + "LastName").text(lastName);
+            var firstName = typeof result.firstName !== "undefined" ? result.firstName : "";
+            $("#" + caseName + "FirstName").text(firstName);
+            var middleName = typeof result.middleName !== "undefined" ? result.middleName : "";
+            $("#" + caseName + "MiddleName").text(middleName);
+        }
+
+        $(document).ready(function () {
+            var person = buildPerson("male", "Шевченко", "Тарас", "Григорович");
+            process(person, handleInflectionResult);
+        });
+
+        $("#inflection-form").submit(function (event) {
+            event.preventDefault();
+            var person = buildPerson(
+                $("[name=gender]:checked").val(),
+                $("[name=lastName]").val(),
+                $("[name=firstName]").val(),
+                $("[name=middleName]").val()
+            );
+            process(person, handleInflectionResult);
+        });
+
+    })();
+</script>
+</body>
+</html>

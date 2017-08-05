@@ -28,7 +28,7 @@ var shevchenko = require("shevchenko");
 
 ```JavaScript
 var person = {
-    gender: "male", // Or "female".
+    gender: shevchenko.genderMale,
     lastName: "шевченко",
     firstName: "тарас",
     middleName: "григорович"
@@ -36,13 +36,7 @@ var person = {
 
 var result = shevchenko(person, shevchenko.caseNameVocative);
 
-console.log(result);
-
-// {
-//     lastName: 'шевченку',
-//     firstName: 'тарасе',
-//     middleName: 'григоровичу'
-// }
+console.log(result); // {lastName: 'шевченку', firstName: 'тарасе', middleName: 'григоровичу'}
 ```
 
 #### Доступні опції

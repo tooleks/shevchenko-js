@@ -141,10 +141,10 @@
             result.middleName = inflectMiddleName(person.gender, person.middleName, caseName);
         }
 
-        if (person.hasOwnProperty("lastName") && typeof person.middleName !== "undefined" && (!result.hasOwnProperty("lastName") || typeof result.lastName === "undefined")) {
+        if (person.hasOwnProperty("lastName") && typeof person.lastName !== "undefined" && !result.hasOwnProperty("lastName")) {
             result.lastName = person.lastName;
         }
-        if (person.hasOwnProperty("fistName") && typeof person.middleName !== "undefined" && !result.hasOwnProperty("fistName")) {
+        if (person.hasOwnProperty("fistName") && typeof person.fistName !== "undefined" && !result.hasOwnProperty("fistName")) {
             result.fistName = person.fistName;
         }
         if (person.hasOwnProperty("middleName") && typeof person.middleName !== "undefined" && !result.hasOwnProperty("middleName")) {
@@ -194,8 +194,7 @@
     }
 
     function inflectLastName(gender, lastName, caseName) {
-        var result;
-        shevchenko.getRules().filter(function (rule) {
+        var results = shevchenko.getRules().filter(function (rule) {
             return filterRulesByGender(rule, gender);
         }).filter(function (rule) {
             return filterRulesByType(rule, "lastName");
@@ -203,16 +202,17 @@
             return filterRulesByRegexp(rule, lastName);
         }).sort(function (firstRule, secondRule) {
             return sortByTypeAndPriorityDesc(firstRule, secondRule, "lastName");
-        }).some(function (rule) {
-            result = inflectByRule(rule, caseName, lastName);
-            return true; // break;
+        }).map(function (rule) {
+            return inflectByRule(rule, caseName, lastName);
         });
-        return result;
+
+        return results.length
+            ? results.shift()
+            : undefined;
     }
 
     function inflectFirstName(gender, firstName, caseName) {
-        var result;
-        shevchenko.getRules().filter(function (rule) {
+        var results = shevchenko.getRules().filter(function (rule) {
             return filterRulesByGender(rule, gender);
         }).filter(function (rule) {
             return filterRulesByType(rule, "firstName");
@@ -220,16 +220,17 @@
             return filterRulesByRegexp(rule, firstName);
         }).sort(function (firstRule, secondRule) {
             return sortByTypeAndPriorityDesc(firstRule, secondRule, "firstName");
-        }).some(function (rule) {
-            result = inflectByRule(rule, caseName, firstName);
-            return true; // break;
+        }).map(function (rule) {
+            return inflectByRule(rule, caseName, firstName);
         });
-        return result;
+
+        return results.length
+            ? results.shift()
+            : undefined;
     }
 
     function inflectMiddleName(gender, middleName, caseName) {
-        var result;
-        shevchenko.getRules().filter(function (rule) {
+        var results = shevchenko.getRules().filter(function (rule) {
             return filterRulesByGender(rule, gender);
         }).filter(function (rule) {
             return filterRulesByType(rule, "middleName", true);
@@ -237,11 +238,13 @@
             return filterRulesByRegexp(rule, middleName);
         }).sort(function (firstRule, secondRule) {
             return sortByTypeAndPriorityDesc(firstRule, secondRule, "middleName");
-        }).some(function (rule) {
-            result = inflectByRule(rule, caseName, middleName);
-            return true; // break;
+        }).map(function (rule) {
+            return inflectByRule(rule, caseName, middleName);
         });
-        return result;
+
+        return results.length
+            ? results.shift()
+            : undefined;
     }
 
     function inflectByRule(rule, caseName, word) {
