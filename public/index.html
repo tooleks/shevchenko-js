@@ -59,7 +59,7 @@
     <div class="row">
         <div class="col-sm-12">
             <h2 id="usage">Використання <a href="https://github.com/tooleks/shevchenko-js#readme" target="_blank"
-                                           class="btn btn-info">Повна версія</a></h2>
+                                           class="btn btn-primary">Додаткова інформація</a></h2>
             <hr>
             <pre>var person = {
     gender: shevchenko.genderMale,
@@ -83,7 +83,9 @@ console.log(result); // {lastName: 'шевченку', firstName: 'тарасе'
         <div class="col-sm-6">
             <div class="panel panel-default">
                 <div class="panel-body">
-                    <div class="alert alert-success" role="alert">Введіть дані про особу в називному відмінку.</div>
+                    <div class="alert alert-success" role="alert">Введіть рід та дані про особу в називному відмінку
+                        однини.
+                    </div>
                     <form id="inflection-form">
                         <div class="form-group">
                             <label class="radio-inline">
@@ -95,17 +97,27 @@ console.log(result); // {lastName: 'шевченку', firstName: 'тарасе'
                         </div>
                         <div class="form-group">
                             <label for="lastName">Прізвище</label>
-                            <input type="text" class="form-control" name="lastName" id="lastName"
-                                   placeholder="Прізвище">
+                            <input type="text"
+                                   class="form-control"
+                                   name="lastName"
+                                   id="lastName"
+                                   placeholder="Шевченко">
                         </div>
                         <div class="form-group">
                             <label for="firstName">Ім'я</label>
-                            <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Ім'я">
+                            <input type="text"
+                                   class="form-control"
+                                   name="firstName"
+                                   id="firstName"
+                                   placeholder="Тарас">
                         </div>
                         <div class="form-group">
                             <label for="middleName">По батькові</label>
-                            <input type="text" class="form-control" name="middleName" id="middleName"
-                                   placeholder="По батькові">
+                            <input type="text"
+                                   class="form-control"
+                                   name="middleName"
+                                   id="middleName"
+                                   placeholder="Григорович">
                         </div>
                         <button type="submit" class="btn btn-primary">Відмінити</button>
                     </form>
