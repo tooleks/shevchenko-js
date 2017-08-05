@@ -1,0 +1,46 @@
+{
+  "name": "shevchenko-js",
+  "version": "0.0.0",
+  "description": "The JavaScript library to inflect Ukrainian first, last and middle names.",
+  "main": "./dist/shevchenko.js",
+  "scripts": {
+    "load:rules": "gulp load:rules",
+    "build": "gulp build && gulp minify",
+    "build:fresh": "npm run load:rules && npm run build && npm run test",
+    "test": "./node_modules/mocha/bin/mocha --recursive tests"
+  },
+  "keywords": [
+    "inflection",
+    "ukrainian",
+    "language",
+    "names",
+    "nominative",
+    "genitive",
+    "dative",
+    "accusative",
+    "ablative",
+    "locative",
+    "vocative"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tooleks/shevchenko-js.git"
+  },
+  "author": "Oleksandr Tolochko <tooleks@gmail.com>",
+  "contributors": [
+    "Anna Pohorielova <anya.pogorelova@gmail.com>",
+    "Tetyana Tolochko"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tooleks/shevchenko-js/issues"
+  },
+  "homepage": "https://github.com/tooleks/shevchenko-js#readme",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-minify": "^1.0.0",
+    "gulp-replace": "^0.6.1",
+    "mocha": "^3.5.0",
+    "request": "^2.81.0"
+  }
+}
