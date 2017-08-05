@@ -194,7 +194,7 @@
     }
 
     function inflectLastName(gender, lastName, caseName) {
-        var results = shevchenko.getRules().filter(function (rule) {
+        return shevchenko.getRules().filter(function (rule) {
             return filterRulesByGender(rule, gender);
         }).filter(function (rule) {
             return filterRulesByType(rule, "lastName");
@@ -204,15 +204,11 @@
             return sortByTypeAndPriorityDesc(firstRule, secondRule, "lastName");
         }).map(function (rule) {
             return inflectByRule(rule, caseName, lastName);
-        });
-
-        return results.length
-            ? results.shift()
-            : undefined;
+        }).shift();
     }
 
     function inflectFirstName(gender, firstName, caseName) {
-        var results = shevchenko.getRules().filter(function (rule) {
+        return shevchenko.getRules().filter(function (rule) {
             return filterRulesByGender(rule, gender);
         }).filter(function (rule) {
             return filterRulesByType(rule, "firstName");
@@ -222,15 +218,11 @@
             return sortByTypeAndPriorityDesc(firstRule, secondRule, "firstName");
         }).map(function (rule) {
             return inflectByRule(rule, caseName, firstName);
-        });
-
-        return results.length
-            ? results.shift()
-            : undefined;
+        }).shift();
     }
 
     function inflectMiddleName(gender, middleName, caseName) {
-        var results = shevchenko.getRules().filter(function (rule) {
+        return shevchenko.getRules().filter(function (rule) {
             return filterRulesByGender(rule, gender);
         }).filter(function (rule) {
             return filterRulesByType(rule, "middleName", true);
@@ -240,11 +232,7 @@
             return sortByTypeAndPriorityDesc(firstRule, secondRule, "middleName");
         }).map(function (rule) {
             return inflectByRule(rule, caseName, middleName);
-        });
-
-        return results.length
-            ? results.shift()
-            : undefined;
+        }).shift();
     }
 
     function inflectByRule(rule, caseName, word) {

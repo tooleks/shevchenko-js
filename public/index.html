@@ -185,9 +185,7 @@ console.log(result); // {lastName: 'шевченку', firstName: 'тарасе'
 
         function process(person, successCallback) {
             shevchenko.getCaseNames().forEach(function (caseName) {
-                console.log(person);
                 var result = shevchenko(person, caseName);
-                console.log(result);
                 successCallback(caseName, result);
             });
         }
