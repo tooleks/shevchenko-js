@@ -28,33 +28,26 @@ var shevchenko = require("shevchenko");
 
 ```JavaScript
 var person = {
-    gender: shevchenko.genderMale,
+    gender: "male", // or "female"
     lastName: "шевченко",
     firstName: "тарас",
     middleName: "григорович"
 };
 
-var result = shevchenko(person, shevchenko.caseNameVocative);
+var result = shevchenko.inVocative(person);
 
 console.log(result); // {lastName: 'шевченку', firstName: 'тарасе', middleName: 'григоровичу'}
 ```
 
-#### Доступні опції
+#### Доступні методи
 
-##### Роди
-
-- `shevchenko.genderMale` - чоловічий рід;
-- `shevchenko.genderFemale` - жіночий рід.
-
-##### Відмінки
-
-- `shevchenko.caseNameNominative` - називний відмінок;
-- `shevchenko.caseNameGenitive` - родовий відмінок;
-- `shevchenko.caseNameDative` - давальний відмінок;
-- `shevchenko.caseNameAccusative` - знахідний відмінок;
-- `shevchenko.caseNameAblative` - орудний відмінок;
-- `shevchenko.caseNameLocative` - місцевий відмінок;
-- `shevchenko.caseNameVocative` - кличний відмінок.
+- `shevchenko.inVocative(person)` - відмінити в називному відмінку;
+- `shevchenko.inGenitive(person)`- відмінити в родовому відмінку;
+- `shevchenko.inDative(person)`- відмінити в давальному відмінку;
+- `shevchenko.inAccusative(person)`- відмінити в знахідному відмінку;
+- `shevchenko.inAblative(person)`- відмінити в орудному відмінку;
+- `shevchenko.inLocative(person)`- відмінити в місцевому відмінку;
+- `shevchenko.inVocative(person)`- відмінити в кличному відмінку.
 
 ### Для розробників
 

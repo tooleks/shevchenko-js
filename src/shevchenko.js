@@ -111,6 +111,76 @@
     };
 
     /**
+     * Inflect the person first, last and middle names in nominative case. / Відмінити прізвище, ім'я та по батькові особи в називному відмінку.
+     *
+     * @param {object} person
+     * @returns {Object}
+     */
+    shevchenko.inNominative = function (person) {
+        return shevchenko(person, shevchenko.caseNameNominative);
+    };
+
+    /**
+     * Inflect the person first, last and middle names in genitive case. / Відмінити прізвище, ім'я та по батькові особи в родовому відмінку.
+     *
+     * @param {object} person
+     * @returns {Object}
+     */
+    shevchenko.inGenitive = function (person) {
+        return shevchenko(person, shevchenko.caseNameGenitive);
+    };
+
+    /**
+     * Inflect the person first, last and middle names in dative case. / Відмінити прізвище, ім'я та по батькові особи в давальному відмінку.
+     *
+     * @param {object} person
+     * @returns {Object}
+     */
+    shevchenko.inDative = function (person) {
+        return shevchenko(person, shevchenko.caseNameDative);
+    };
+
+    /**
+     * Inflect the person first, last and middle names in accusative case. / Відмінити прізвище, ім'я та по батькові особи в знахідному відмінку.
+     *
+     * @param {object} person
+     * @returns {Object}
+     */
+    shevchenko.inAccusative = function (person) {
+        return shevchenko(person, shevchenko.caseNameAccusative);
+    };
+
+    /**
+     * Inflect the person first, last and middle names in ablative case. / Відмінити прізвище, ім'я та по батькові особи в орудному відмінку.
+     *
+     * @param {object} person
+     * @returns {Object}
+     */
+    shevchenko.inAblative = function (person) {
+        return shevchenko(person, shevchenko.caseNameAblative);
+    };
+
+    /**
+     * Inflect the person first, last and middle names in locative case. / Відмінити прізвище, ім'я та по батькові особи в місцевому відмінку.
+     *
+     * @param {object} person
+     * @returns {Object}
+     */
+    shevchenko.inLocative = function (person) {
+        return shevchenko(person, shevchenko.caseNameLocative);
+    };
+
+    /**
+     * Inflect the person first, last and middle names in vocative case. / Відмінити прізвище, ім'я та по батькові особи в кличному відмінку.
+     *
+     * @param {object} person
+     * @returns {Object}
+     */
+    shevchenko.inVocative = function (person) {
+        return shevchenko(person, shevchenko.caseNameVocative);
+    };
+
+    /**
      * Inflect the person first, last and middle names. / Відмінити прізвище, ім'я та по батькові особи.
      *
      * @example var result = shevchenko({

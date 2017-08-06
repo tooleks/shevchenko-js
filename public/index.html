@@ -160,16 +160,16 @@
             <pre><&zwj;script type="text/javascript" src="/path/to/shevchenko/dist/shevchenko.min.js"><&zwj;/script></pre>
             <h3>Використання</h3>
             <hr>
-            <pre>var person = {
-    gender: shevchenko.genderMale,
+            <pre>var <var>person</var> = {
+    gender: "male", // or "female"
     lastName: "шевченко",
     firstName: "тарас",
     middleName: "григорович"
 };
 
-var result = shevchenko(person, shevchenko.caseNameVocative);
+var <var>result</var> = shevchenko.inVocative(<var>person</var>);
 
-console.log(result); // {lastName: 'шевченку', firstName: 'тарасе', middleName: 'григоровичу'}</pre>
+console.log(<var>result</var>); // {lastName: 'шевченку', firstName: 'тарасе', middleName: 'григоровичу'}</pre>
             <a href="https://github.com/tooleks/shevchenko-js#Використання" target="_blank"
                class="btn btn-primary">Детальніше</a>
         </div>

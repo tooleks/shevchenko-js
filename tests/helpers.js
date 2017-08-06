@@ -2,7 +2,8 @@ var assert = require("assert");
 var shevchenko = require("../dist/shevchenko");
 
 function testInflection(person, caseName, validResult) {
-    var result = shevchenko(person, caseName);
+    var methodName = "in" + caseName.charAt(0).toUpperCase() + caseName.slice(1);
+    var result = shevchenko[methodName](person);
     describe("#shevchenko()", function () {
         it("should inflect correctly \"" + person.lastName + " " + person.firstName + " " + person.middleName + "\" in " + caseName + " case\"", function () {
             assert.equal(result.lastName, validResult.lastName);

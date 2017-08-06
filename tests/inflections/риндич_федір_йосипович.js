@@ -1,8 +1,6 @@
 var assert = require("assert");
 var testInflections = require("../helpers").testInflections;
 
-describe("inflection риндич федір йосипович", function () {
-
     var person = {
         gender: "male",
         lastName: "риндич",
@@ -49,5 +47,3 @@ describe("inflection риндич федір йосипович", function () {
     };
 
     testInflections(person, validResults);
-
-});
