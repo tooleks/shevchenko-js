@@ -197,10 +197,11 @@
     function shevchenko(person, caseName) {
         assertPerson(person);
         assertCaseName(caseName);
-        normalizePerson(person);
+        formatPerson(person);
 
         var result = {};
 
+        // Inflect names using rules.
         if (typeof person.lastName !== "undefined") {
             result.lastName = inflectLastName(person.gender, person.lastName, caseName);
         }
@@ -211,6 +212,7 @@
             result.middleName = inflectMiddleName(person.gender, person.middleName, caseName);
         }
 
+        // Fallback to input values if no rules were applied.
         if (typeof person.lastName !== "undefined" && typeof result.lastName === "undefined") {
             result.lastName = person.lastName;
         }
@@ -220,6 +222,8 @@
         if (typeof person.middleName !== "undefined" && typeof result.middleName === "undefined") {
             result.middleName = person.middleName;
         }
+
+        formatResult(result);
 
         return result;
     }
@@ -251,16 +255,33 @@
         }
     }
 
-    function normalizePerson(person) {
-        if (person.hasOwnProperty("lastName") && typeof person.lastName !== "undefined") {
-            person.lastName = person.lastName.toLowerCase();
+    function formatPerson(person) {
+        person.lastName = formatInputName(person.lastName);
+        person.firstName = formatInputName(person.firstName);
+        person.middleName = formatInputName(person.middleName);
+    }
+
+    function formatResult(result) {
+        result.lastName = formatOutputName(result.lastName);
+        result.firstName = formatOutputName(result.firstName);
+        result.middleName = formatOutputName(result.middleName);
+    }
+
+    function formatInputName(string) {
+        if (typeof string === "string") {
+            string = string.toLowerCase();
         }
-        if (person.hasOwnProperty("firstName") && typeof person.firstName !== "undefined") {
-            person.firstName = person.firstName.toLowerCase();
+        return string;
+    }
+
+    function formatOutputName(string) {
+        if (typeof string !== "string") {
+            return string;
         }
-        if (person.hasOwnProperty("middleName") && typeof person.middleName !== "undefined") {
-            person.middleName = person.middleName.toLowerCase();
+        if (string.length === 0) {
+            return string;
         }
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
     }
 
     function inflectLastName(gender, lastName, caseName) {

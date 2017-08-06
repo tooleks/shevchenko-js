@@ -6,9 +6,9 @@ function testInflection(person, caseName, validResult) {
     var result = shevchenko[methodName](person);
     describe("#shevchenko()", function () {
         it("should inflect correctly \"" + person.lastName + " " + person.firstName + " " + person.middleName + "\" in " + caseName + " case\"", function () {
-            assert.equal(result.lastName, validResult.lastName);
-            assert.equal(result.firstName, validResult.firstName);
-            assert.equal(result.middleName, validResult.middleName);
+            assert.equal(result.lastName.toLowerCase(), validResult.lastName);
+            assert.equal(result.firstName.toLowerCase(), validResult.firstName);
+            assert.equal(result.middleName.toLowerCase(), validResult.middleName);
         });
     });
 }
