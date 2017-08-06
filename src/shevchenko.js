@@ -131,23 +131,23 @@
 
         var result = {};
 
-        if (person.hasOwnProperty("lastName") && typeof person.lastName !== "undefined") {
+        if (typeof person.lastName !== "undefined") {
             result.lastName = inflectLastName(person.gender, person.lastName, caseName);
         }
-        if (person.hasOwnProperty("firstName") && typeof person.firstName !== "undefined") {
+        if (typeof person.firstName !== "undefined") {
             result.firstName = inflectFirstName(person.gender, person.firstName, caseName);
         }
-        if (person.hasOwnProperty("middleName") && typeof person.middleName !== "undefined") {
+        if (typeof person.middleName !== "undefined") {
             result.middleName = inflectMiddleName(person.gender, person.middleName, caseName);
         }
 
-        if (person.hasOwnProperty("lastName") && typeof person.lastName !== "undefined" && !result.hasOwnProperty("lastName")) {
+        if (typeof person.lastName !== "undefined" && typeof result.lastName === "undefined") {
             result.lastName = person.lastName;
         }
-        if (person.hasOwnProperty("fistName") && typeof person.fistName !== "undefined" && !result.hasOwnProperty("fistName")) {
+        if (typeof person.fistName !== "undefined" && typeof result.lastName === "undefined") {
             result.fistName = person.fistName;
         }
-        if (person.hasOwnProperty("middleName") && typeof person.middleName !== "undefined" && !result.hasOwnProperty("middleName")) {
+        if (typeof person.middleName !== "undefined" && typeof result.lastName === "undefined") {
             result.middleName = person.middleName;
         }
 
