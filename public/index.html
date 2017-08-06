@@ -29,8 +29,10 @@
                     <li><a href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM пакет</a></li>
                     <li><a href="#demo">Демо</a></li>
                     <li><a href="#documentation">Документація</a></li>
-                    <li><a href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE" target="_blank">Ліцензія</a></li>
-                    <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Звіт про помилку</a></li>
+                    <li><a href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE"
+                           target="_blank">Ліцензія</a></li>
+                    <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Звіт про помилку</a>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -97,48 +99,56 @@
             <table class="table table-striped table-bordered">
                 <tr>
                     <th>Відмінок</th>
+                    <th>Рід</th>
                     <th>Прізвище</th>
                     <th>Ім'я</th>
                     <th>По батькові</th>
                 </tr>
                 <tr>
                     <th>Називний (хто/що?)</th>
+                    <td id="nominativeGender"></td>
                     <td id="nominativeLastName"></td>
                     <td id="nominativeFirstName"></td>
                     <td id="nominativeMiddleName"></td>
                 </tr>
                 <tr>
                     <th>Родовий (кого/чого?)</th>
+                    <td id="genitiveGender"></td>
                     <td id="genitiveLastName"></td>
                     <td id="genitiveFirstName"></td>
                     <td id="genitiveMiddleName"></td>
                 </tr>
                 <tr>
                     <th>Давальний (кому/чому?)</th>
+                    <td id="dativeGender"></td>
                     <td id="dativeLastName"></td>
                     <td id="dativeFirstName"></td>
                     <td id="dativeMiddleName"></td>
                 </tr>
                 <tr>
                     <th>Знахідний (кого/що?)</th>
+                    <td id="accusativeGender"></td>
                     <td id="accusativeLastName"></td>
                     <td id="accusativeFirstName"></td>
                     <td id="accusativeMiddleName"></td>
                 </tr>
                 <tr>
                     <th>Орудний (ким/чим?)</th>
+                    <td id="ablativeGender"></td>
                     <td id="ablativeLastName"></td>
                     <td id="ablativeFirstName"></td>
                     <td id="ablativeMiddleName"></td>
                 </tr>
                 <tr>
                     <th>Місцевий (при кому/чому?)</th>
+                    <td id="locativeGender"></td>
                     <td id="locativeLastName"></td>
                     <td id="locativeFirstName"></td>
                     <td id="locativeMiddleName"></td>
                 </tr>
                 <tr>
                     <th>Кличний</th>
+                    <td id="vocativeGender"></td>
                     <td id="vocativeLastName"></td>
                     <td id="vocativeFirstName"></td>
                     <td id="vocativeMiddleName"></td>
@@ -193,25 +203,36 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
             return person;
         }
 
-        function process(person, successCallback) {
+        function inflect(person, successCallback) {
             shevchenko.getCaseNames().forEach(function (caseName) {
                 var result = shevchenko(person, caseName);
-                successCallback(caseName, result);
+                successCallback(person, caseName, result);
             });
         }
 
-        function handleInflectionResult(caseName, result) {
+        function handleInflectionResult(person, caseName, result) {
+            var genderResultSelector = $("#" + caseName + "Gender");
+            var lastNameResultSelector = $("#" + caseName + "LastName");
+            var firstNameResultSelector = $("#" + caseName + "FirstName");
+            var middleNameResultSelector = $("#" + caseName + "MiddleName");
+            if (person.gender === "male") {
+                genderResultSelector.text("Чоловік");
+            } else if (person.gender === "female") {
+                genderResultSelector.text("Жінка");
+            } else {
+                genderResultSelector.text("");
+            }
             var lastName = typeof result.lastName !== "undefined" ? result.lastName : "";
-            $("#" + caseName + "LastName").text(lastName);
+            lastNameResultSelector.text(lastName);
             var firstName = typeof result.firstName !== "undefined" ? result.firstName : "";
-            $("#" + caseName + "FirstName").text(firstName);
+            firstNameResultSelector.text(firstName);
             var middleName = typeof result.middleName !== "undefined" ? result.middleName : "";
-            $("#" + caseName + "MiddleName").text(middleName);
+            middleNameResultSelector.text(middleName);
         }
 
         $(document).ready(function () {
             var person = buildPerson("male", "Шевченко", "Тарас", "Григорович");
-            process(person, handleInflectionResult);
+            inflect(person, handleInflectionResult);
         });
 
         $("#inflection-form").submit(function (event) {
@@ -222,7 +243,7 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
                 $("[name=firstName]").val(),
                 $("[name=middleName]").val()
             );
-            process(person, handleInflectionResult);
+            inflect(person, handleInflectionResult);
         });
 
     })();
