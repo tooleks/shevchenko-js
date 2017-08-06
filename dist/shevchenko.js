@@ -197,6 +197,7 @@
     function shevchenko(person, caseName) {
         assertPerson(person);
         assertCaseName(caseName);
+
         formatPerson(person);
 
         var result = {};

@@ -1,6 +1,6 @@
 {
-  "name": "shevchenko-js",
-  "version": "0.0.0",
+  "name": "shevchenko",
+  "version": "0.0.0-alpha.1",
   "description": "The JavaScript library to inflect Ukrainian first, last and middle names.",
   "main": "./dist/shevchenko.js",
   "scripts": {
