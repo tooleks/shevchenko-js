@@ -10,7 +10,7 @@
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
 </head>
-<body style="min-width: 320px;">
+<body style="min-width: 320px; margin-bottom: 20px;">
 <div class="container">
     <nav class="navbar navbar-default navbar-static-top">
         <div class="container-fluid">
@@ -22,11 +22,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">shevchenko.js</a>
+                <a class="navbar-brand" href="#home">shevchenko.js</a>
             </div>
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
-                    <li><a href="https://github.com/tooleks/shevchenko-js#readme" target="_blank">Документація</a></li>
+                    <li><a href="#demo">Демо</a></li>
+                    <li><a href="#documentation">Документація</a></li>
+                    <li><a href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE" target="_blank">Ліцензія</a></li>
                     <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Помилки</a></li>
                 </ul>
             </div>
@@ -38,40 +40,6 @@
         <p>
             <a class="btn btn-lg btn-primary" href="#demo" role="button">Спробувати »</a>
         </p>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <h2 id="installing">Встановлення</h2>
-            <hr>
-            <pre>npm install --save shevchenko</pre>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <h2 id="usage">Підключення</h2>
-            <hr>
-            <h4>Node.js</h4>
-            <pre>var <var>shevchenko</var> = require("shevchenko");</pre>
-            <h4>Браузер</h4>
-            <pre><&zwj;script type="text/javascript" src="/path/to/shevchenko/dist/shevchenko.min.js"><&zwj;/script></pre>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-sm-12">
-            <h2 id="usage">Використання <a href="https://github.com/tooleks/shevchenko-js#readme" target="_blank"
-                                           class="btn btn-primary">Додаткова інформація</a></h2>
-            <hr>
-            <pre>var person = {
-    gender: shevchenko.genderMale,
-    lastName: "шевченко",
-    firstName: "тарас",
-    middleName: "григорович"
-};
-
-var result = shevchenko(person, shevchenko.caseNameVocative);
-
-console.log(result); // {lastName: 'шевченку', firstName: 'тарасе', middleName: 'григоровичу'}</pre>
-        </div>
     </div>
     <div class="row">
         <div class="col-sm-12">
@@ -175,6 +143,35 @@ console.log(result); // {lastName: 'шевченку', firstName: 'тарасе'
                     <td id="vocativeMiddleName"></td>
                 </tr>
             </table>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <h2 id="documentation">Документація</h2>
+            <hr>
+            <h3>Встановлення</h3>
+            <hr>
+            <pre>npm install --save shevchenko</pre>
+            <h3>Підключення</h3>
+            <hr>
+            <h4>Node.js</h4>
+            <pre>var <var>shevchenko</var> = require("shevchenko");</pre>
+            <h4>Браузер</h4>
+            <pre><&zwj;script type="text/javascript" src="/path/to/shevchenko/dist/shevchenko.min.js"><&zwj;/script></pre>
+            <h3>Використання</h3>
+            <hr>
+            <pre>var person = {
+    gender: shevchenko.genderMale,
+    lastName: "шевченко",
+    firstName: "тарас",
+    middleName: "григорович"
+};
+
+var result = shevchenko(person, shevchenko.caseNameVocative);
+
+console.log(result); // {lastName: 'шевченку', firstName: 'тарасе', middleName: 'григоровичу'}</pre>
+            <a href="https://github.com/tooleks/shevchenko-js#Використання" target="_blank"
+               class="btn btn-primary">Детальніше</a>
         </div>
     </div>
 </div>
