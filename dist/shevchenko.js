@@ -214,10 +214,10 @@
         if (typeof person.lastName !== "undefined" && typeof result.lastName === "undefined") {
             result.lastName = person.lastName;
         }
-        if (typeof person.fistName !== "undefined" && typeof result.lastName === "undefined") {
-            result.fistName = person.fistName;
+        if (typeof person.firstName !== "undefined" && typeof result.firstName === "undefined") {
+            result.firstName = person.firstName;
         }
-        if (typeof person.middleName !== "undefined" && typeof result.lastName === "undefined") {
+        if (typeof person.middleName !== "undefined" && typeof result.middleName === "undefined") {
             result.middleName = person.middleName;
         }
 
