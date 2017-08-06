@@ -29,14 +29,14 @@ var shevchenko = require("shevchenko");
 ```JavaScript
 var person = {
     gender: "male", // or "female"
-    lastName: "шевченко",
-    firstName: "тарас",
-    middleName: "григорович"
+    lastName: "Шевченко",
+    firstName: "Тарас",
+    middleName: "Григорович"
 };
 
 var result = shevchenko.inVocative(person);
 
-console.log(result); // {lastName: 'шевченку', firstName: 'тарасе', middleName: 'григоровичу'}
+console.log(result); // {lastName: 'Шевченку', firstName: 'Тарасе', middleName: 'Григоровичу'}
 ```
 
 #### Доступні методи
