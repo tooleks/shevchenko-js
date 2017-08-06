@@ -6,7 +6,6 @@
   "scripts": {
     "load:rules": "gulp load:rules",
     "build": "gulp build && gulp minify",
-    "build:fresh": "npm run load:rules && npm run build && npm run test",
     "test": "./node_modules/mocha/bin/mocha --recursive tests"
   },
   "keywords": [
