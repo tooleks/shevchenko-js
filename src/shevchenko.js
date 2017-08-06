@@ -339,9 +339,7 @@
     }
 
     function sortByTypeAndPriorityDesc(firstRule, secondRule, type) {
-        return !firstRule.hasOwnProperty("types") && secondRule.hasOwnProperty("types") && secondRule.types.indexOf(type) !== -1
-            ? 1
-            : 0;
+        return !firstRule.hasOwnProperty("types") && secondRule.hasOwnProperty("types") && secondRule.types.indexOf(type) !== -1;
     }
 
     function filterRulesByType(rule, type, strict) {
