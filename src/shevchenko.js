@@ -352,10 +352,10 @@
 
     assert.caseNameParameter = function (caseName) {
         if (typeof caseName !== "string") {
-            throw new Error("Invalid caseName type.");
+            throw new Error("Invalid caseName parameter type.");
         }
         if (shevchenko.getCaseNames().indexOf(caseName) === -1) {
-            throw new Error("Invalid caseName value.");
+            throw new Error("Invalid caseName parameter value.");
         }
     };
 
