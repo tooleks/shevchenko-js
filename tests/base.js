@@ -65,40 +65,37 @@ describe("shevchenko", function () {
             }, Error);
         });
 
-        it("should return a valid result type", function () {
-            var result = shevchenko({
-                gender: "male",
-                lastName: undefined,
-                firstName: undefined,
-                middleName: undefined
-            }, shevchenko.caseNameGenitive);
-            assert(typeof result.lastName === "undefined");
-            assert(typeof result.firstName === "undefined");
-            assert(typeof result.middleName === "undefined");
+        it("should throw an error", function () {
+            assert.throws(function () {
+                shevchenko({
+                    gender: "male",
+                    lastName: undefined,
+                    firstName: undefined,
+                    middleName: undefined
+                }, shevchenko.caseNameGenitive)
+            }, Error);
         });
 
-        it("should return a valid result type", function () {
-            var result = shevchenko({
-                gender: "male",
-                lastName: "Шевченко",
-                firstName: undefined,
-                middleName: undefined
-            }, shevchenko.caseNameGenitive);
-            assert(typeof result.lastName === "string");
-            assert(typeof result.firstName === "undefined");
-            assert(typeof result.middleName === "undefined");
+        it("should throw an error", function () {
+            assert.throws(function () {
+                shevchenko({
+                    gender: "male",
+                    lastName: "Шевченко",
+                    firstName: undefined,
+                    middleName: undefined
+                }, shevchenko.caseNameGenitive)
+            }, Error);
         });
 
-        it("should return a valid result type", function () {
-            var result = shevchenko({
-                gender: "male",
-                lastName: "Шевченко",
-                firstName: "Тарас",
-                middleName: undefined
-            }, shevchenko.caseNameGenitive);
-            assert(typeof result.lastName === "string");
-            assert(typeof result.firstName === "string");
-            assert(typeof result.middleName === "undefined");
+        it("should throw an error", function () {
+            assert.throws(function () {
+                shevchenko({
+                    gender: "male",
+                    lastName: "Шевченко",
+                    firstName: "Тарас",
+                    middleName: undefined
+                }, shevchenko.caseNameGenitive)
+            }, Error);
         });
 
         it("should return a valid result type", function () {
@@ -110,6 +107,30 @@ describe("shevchenko", function () {
             }, shevchenko.caseNameGenitive);
             assert(typeof result.lastName === "string");
             assert(typeof result.firstName === "string");
+            assert(typeof result.middleName === "string");
+        });
+
+        it("should return a valid result type", function () {
+            var result = shevchenko({
+                gender: "male",
+                lastName: "Шевченко"
+            }, shevchenko.caseNameGenitive);
+            assert(typeof result.lastName === "string");
+        });
+
+        it("should return a valid result type", function () {
+            var result = shevchenko({
+                gender: "male",
+                firstName: "Тарас"
+            }, shevchenko.caseNameGenitive);
+            assert(typeof result.firstName === "string");
+        });
+
+        it("should return a valid result type", function () {
+            var result = shevchenko({
+                gender: "male",
+                middleName: "Григорович"
+            }, shevchenko.caseNameGenitive);
             assert(typeof result.middleName === "string");
         });
     });

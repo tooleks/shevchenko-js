@@ -195,150 +195,93 @@
      * @returns {object}
      */
     function shevchenko(person, caseName) {
-        assertPerson(person);
-        assertCaseName(caseName);
-
-        formatPerson(person);
+        assert.personParameter(person);
+        assert.caseNameParameter(caseName);
 
         var result = {};
 
-        // Inflect names using rules.
-        if (typeof person.lastName !== "undefined") {
-            result.lastName = inflectLastName(person.gender, person.lastName, caseName);
-        }
-        if (typeof person.firstName !== "undefined") {
-            result.firstName = inflectFirstName(person.gender, person.firstName, caseName);
-        }
-        if (typeof person.middleName !== "undefined") {
-            result.middleName = inflectMiddleName(person.gender, person.middleName, caseName);
+        if (typeof person.lastName === "string") {
+            result.lastName = inflector.inflectLastName(person.gender, person.lastName.toLowerCase(), caseName);
+            if (typeof result.lastName === "undefined") {
+                result.lastName = person.lastName;
+            }
         }
 
-        // Fallback to input values if no rules were applied.
-        if (typeof person.lastName !== "undefined" && typeof result.lastName === "undefined") {
-            result.lastName = person.lastName;
-        }
-        if (typeof person.firstName !== "undefined" && typeof result.firstName === "undefined") {
-            result.firstName = person.firstName;
-        }
-        if (typeof person.middleName !== "undefined" && typeof result.middleName === "undefined") {
-            result.middleName = person.middleName;
+        if (typeof person.firstName === "string") {
+            result.firstName = inflector.inflectFirstName(person.gender, person.firstName.toLowerCase(), caseName);
+            if (typeof result.firstName === "undefined") {
+                result.firstName = person.firstName;
+            }
         }
 
-        formatResult(result);
+        if (typeof person.middleName === "string") {
+            result.middleName = inflector.inflectMiddleName(person.gender, person.middleName.toLowerCase(), caseName);
+            if (typeof result.middleName === "undefined") {
+                result.middleName = person.middleName;
+            }
+        }
+
+        formatter.formatResult(result);
 
         return result;
     }
 
-    function assertPerson(person) {
-        if (typeof person !== "object") {
-            throw new Error("Invalid person object type.");
-        }
-        if (!person.hasOwnProperty("gender")) {
-            throw new Error("No gender property found in the person object.");
-        }
-        if (typeof person.gender !== "string") {
-            throw new Error("Invalid gender property type provided in the person object.");
-        }
-        if (shevchenko.getGenders().indexOf(person.gender) === -1) {
-            throw new Error("Invalid gender property value provided in the person object.");
-        }
-        if (!person.hasOwnProperty("firstName") && !person.hasOwnProperty("middleName") && !person.hasOwnProperty("lastName")) {
-            throw new Error("No name properties found in the person object.");
-        }
-    }
+    var inflector = {};
 
-    function assertCaseName(caseName) {
-        if (typeof caseName !== "string") {
-            throw new Error("Invalid caseName type.");
-        }
-        if (shevchenko.getCaseNames().indexOf(caseName) === -1) {
-            throw new Error("Invalid caseName value.");
-        }
-    }
-
-    function formatPerson(person) {
-        person.lastName = formatInputName(person.lastName);
-        person.firstName = formatInputName(person.firstName);
-        person.middleName = formatInputName(person.middleName);
-    }
-
-    function formatResult(result) {
-        result.lastName = formatOutputName(result.lastName);
-        result.firstName = formatOutputName(result.firstName);
-        result.middleName = formatOutputName(result.middleName);
-    }
-
-    function formatInputName(string) {
-        if (typeof string === "string") {
-            string = string.toLowerCase();
-        }
-        return string;
-    }
-
-    function formatOutputName(string) {
-        if (typeof string !== "string") {
-            return string;
-        }
-        if (string.length === 0) {
-            return string;
-        }
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
-    }
-
-    function inflectLastName(gender, lastName, caseName) {
+    inflector.inflectLastName = function (gender, lastName, caseName) {
         return shevchenko.getRules().filter(function (rule) {
-            return filterRulesByGender(rule, gender);
+            return filter.rulesByGender(rule, gender);
         }).filter(function (rule) {
-            return filterRulesByType(rule, "lastName");
+            return filter.rulesByType(rule, "lastName");
         }).filter(function (rule) {
-            return filterRulesByRegexp(rule, lastName);
+            return filter.rulesByRegexp(rule, lastName);
         }).sort(function (firstRule, secondRule) {
-            return sortByTypeAndPriorityDesc(firstRule, secondRule, "lastName");
+            return sort.rulesByTypeDesc(firstRule, secondRule, "lastName");
         }).map(function (rule) {
-            return inflectByRule(rule, caseName, lastName);
+            return inflector.inflectByRule(rule, caseName, lastName);
         }).shift();
-    }
+    };
 
-    function inflectFirstName(gender, firstName, caseName) {
+    inflector.inflectFirstName = function (gender, firstName, caseName) {
         return shevchenko.getRules().filter(function (rule) {
-            return filterRulesByGender(rule, gender);
+            return filter.rulesByGender(rule, gender);
         }).filter(function (rule) {
-            return filterRulesByType(rule, "firstName");
+            return filter.rulesByType(rule, "firstName");
         }).filter(function (rule) {
-            return filterRulesByRegexp(rule, firstName);
+            return filter.rulesByRegexp(rule, firstName);
         }).sort(function (firstRule, secondRule) {
-            return sortByTypeAndPriorityDesc(firstRule, secondRule, "firstName");
+            return sort.rulesByTypeDesc(firstRule, secondRule, "firstName");
         }).map(function (rule) {
-            return inflectByRule(rule, caseName, firstName);
+            return inflector.inflectByRule(rule, caseName, firstName);
         }).shift();
-    }
+    };
 
-    function inflectMiddleName(gender, middleName, caseName) {
+    inflector.inflectMiddleName = function (gender, middleName, caseName) {
         return shevchenko.getRules().filter(function (rule) {
-            return filterRulesByGender(rule, gender);
+            return filter.rulesByGender(rule, gender);
         }).filter(function (rule) {
-            return filterRulesByType(rule, "middleName", true);
+            return filter.rulesByType(rule, "middleName", true);
         }).filter(function (rule) {
-            return filterRulesByRegexp(rule, middleName);
+            return filter.rulesByRegexp(rule, middleName);
         }).sort(function (firstRule, secondRule) {
-            return sortByTypeAndPriorityDesc(firstRule, secondRule, "middleName");
+            return sort.rulesByTypeDesc(firstRule, secondRule, "middleName");
         }).map(function (rule) {
-            return inflectByRule(rule, caseName, middleName);
+            return inflector.inflectByRule(rule, caseName, middleName);
         }).shift();
-    }
+    };
 
-    function inflectByRule(rule, caseName, word) {
+    inflector.inflectByRule = function (rule, caseName, word) {
         var ruleType = rule.applyType;
         var regexp = rule.regexp.modify;
         var caseValue = rule.cases[caseName][0];
-        return getInflectionCallbacks()[ruleType](regexp, word, caseValue);
-    }
+        return inflector.getInflectionCallbacks()[ruleType](regexp, word, caseValue);
+    };
 
-    function getInflectionCallbacks() {
+    inflector.getInflectionCallbacks = function () {
         return {
             "append": function (regexp, word, caseValue) {
                 if (typeof caseValue !== "string") {
-                    throw new Error("Invalid parameter type exception.");
+                    throw new Error("Invalid caseValue parameter type exception.");
                 }
                 if (caseValue.length) {
                     return word + caseValue;
@@ -347,10 +290,10 @@
             },
             "replace": function (regexp, word, caseValue) {
                 if (typeof regexp !== "string") {
-                    throw new Error("Invalid parameter type exception.");
+                    throw new Error("Invalid regexp parameter type exception.");
                 }
                 if (typeof caseValue !== "string") {
-                    throw new Error("Invalid parameter type exception.");
+                    throw new Error("Invalid caseValue parameter type exception.");
                 }
                 if (caseValue.length) {
                     return word.replace(new RegExp(regexp, "gm"), caseValue);
@@ -358,28 +301,106 @@
                 return word;
             }
         };
-    }
+    };
 
-    function sortByTypeAndPriorityDesc(firstRule, secondRule, type) {
+    var assert = {};
+
+    assert.personParameter = function (person) {
+        if (typeof person !== "object") {
+            throw new Error("Invalid person parameter type.");
+        }
+        if (!person.hasOwnProperty("gender")) {
+            throw new Error("No gender property found in the person parameter.");
+        }
+        if (typeof person.gender !== "string") {
+            throw new Error("Invalid gender property type provided in the person parameter.");
+        }
+        if (shevchenko.getGenders().indexOf(person.gender) === -1) {
+            throw new Error("Invalid gender property value provided in the person parameter.");
+        }
+        if (!person.hasOwnProperty("firstName") && !person.hasOwnProperty("middleName") && !person.hasOwnProperty("lastName")) {
+            throw new Error("No name properties found in the person parameter.");
+        }
+        if (person.hasOwnProperty("lastName")) {
+            assert.personLastNameParameter(person.lastName);
+        }
+        if (person.hasOwnProperty("firstName")) {
+            assert.personFirstNameParameter(person.firstName);
+        }
+        if (person.hasOwnProperty("middleName")) {
+            assert.personMiddleNameParameter(person.middleName);
+        }
+    };
+
+    assert.personLastNameParameter = function (lastName) {
+        if (typeof lastName !== "string") {
+            throw new Error("Invalid person lastName parameter type.");
+        }
+    };
+
+    assert.personFirstNameParameter = function (firstName) {
+        if (typeof firstName !== "string") {
+            throw new Error("Invalid person firstName parameter type.");
+        }
+    };
+
+    assert.personMiddleNameParameter = function (middleName) {
+        if (typeof middleName !== "string") {
+            throw new Error("Invalid person middleName parameter type.");
+        }
+    };
+
+    assert.caseNameParameter = function (caseName) {
+        if (typeof caseName !== "string") {
+            throw new Error("Invalid caseName type.");
+        }
+        if (shevchenko.getCaseNames().indexOf(caseName) === -1) {
+            throw new Error("Invalid caseName value.");
+        }
+    };
+
+    var sort = {};
+
+    sort.rulesByTypeDesc = function (firstRule, secondRule, type) {
         return !firstRule.hasOwnProperty("types") && secondRule.hasOwnProperty("types") && secondRule.types.indexOf(type) !== -1;
-    }
+    };
 
-    function filterRulesByType(rule, type, strict) {
+    var filter = {};
+
+    filter.rulesByType = function (rule, type, strict) {
         if (!rule.hasOwnProperty("types")) {
             return !strict;
         }
         return rule.types.some(function (ruleType) {
             return ruleType === type;
         });
-    }
+    };
 
-    function filterRulesByGender(rule, gender) {
+    filter.rulesByGender = function (rule, gender) {
         return rule.gender.indexOf(gender) !== -1;
-    }
+    };
 
-    function filterRulesByRegexp(rule, value) {
+    filter.rulesByRegexp = function (rule, value) {
         return (new RegExp(rule.regexp.find, "gm")).test(value);
-    }
+    };
+
+    var formatter = {};
+
+    formatter.formatResult = function (result) {
+        result.lastName = formatter.capitalize(result.lastName);
+        result.firstName = formatter.capitalize(result.firstName);
+        result.middleName = formatter.capitalize(result.middleName);
+    };
+
+    formatter.capitalize = function (string) {
+        if (typeof string !== "string") {
+            return string;
+        }
+        if (string.length === 0) {
+            return string;
+        }
+        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+    };
 
     if (typeof module !== "undefined" && module.hasOwnProperty("exports")) { // Export for Node.js environment.
         module.exports = shevchenko;
