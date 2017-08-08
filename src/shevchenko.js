@@ -195,8 +195,8 @@
      * @returns {object}
      */
     function shevchenko(person, caseName) {
-        assert.personParameter(person);
-        assert.caseNameParameter(caseName);
+        validator.validatePersonParameter(person);
+        validator.validateCaseNameParameter(caseName);
 
         var result = {};
 
@@ -280,83 +280,60 @@
     inflector.getInflectionCallbacks = function () {
         return {
             "append": function (regexp, word, caseValue) {
-                if (typeof caseValue !== "string") {
-                    throw new Error("Invalid caseValue parameter type exception.");
-                }
-                if (caseValue.length) {
-                    return word + caseValue;
-                }
-                return word;
+                assert.string(regexp, "Invalid regexp type of the rule.");
+                assert.string(caseValue, "Invalid word type of the rule.");
+                assert.string(caseValue, "Invalid caseValue type of the rule.");
+                return caseValue.length
+                    ? word + caseValue
+                    : word;
             },
             "replace": function (regexp, word, caseValue) {
-                if (typeof regexp !== "string") {
-                    throw new Error("Invalid regexp parameter type exception.");
-                }
-                if (typeof caseValue !== "string") {
-                    throw new Error("Invalid caseValue parameter type exception.");
-                }
-                if (caseValue.length) {
-                    return word.replace(new RegExp(regexp, "gm"), caseValue);
-                }
-                return word;
+                assert.string(regexp, "Invalid regexp type of the rule.");
+                assert.string(caseValue, "Invalid word type of the rule.");
+                assert.string(caseValue, "Invalid caseValue type of the rule.");
+                return caseValue.length
+                    ? word.replace(new RegExp(regexp, "gm"), caseValue)
+                    : word;
             }
         };
     };
 
     var assert = {};
 
-    assert.personParameter = function (person) {
-        if (typeof person !== "object") {
-            throw new Error("Invalid person parameter type.");
-        }
-        if (!person.hasOwnProperty("gender")) {
-            throw new Error("No gender property found in the person parameter.");
-        }
-        if (typeof person.gender !== "string") {
-            throw new Error("Invalid gender property type provided in the person parameter.");
-        }
-        if (shevchenko.getGenders().indexOf(person.gender) === -1) {
-            throw new Error("Invalid gender property value provided in the person parameter.");
-        }
+    assert.object = function (value, error) {
+        if (typeof value !== "object") assert.throw(error);
+    };
+
+    assert.string = function (value, error) {
+        if (typeof value !== "string") assert.throw(error);
+    };
+
+    assert.inArray = function (array, value, error) {
+        if (array.indexOf(value) === -1) assert.throw(error);
+    };
+
+    assert.throw = function (error) {
+        throw new Error(error);
+    };
+
+    var validator = {};
+
+    validator.validatePersonParameter = function (person) {
+        assert.object(person, "Invalid person parameter type.");
+        if (!person.hasOwnProperty("gender")) assert.throw("No gender property found in the person parameter.");
+        assert.string(person.gender, "Invalid gender property type provided in the person parameter.");
+        assert.inArray(shevchenko.getGenders(), person.gender, "Invalid gender property value provided in the person parameter.");
         if (!person.hasOwnProperty("firstName") && !person.hasOwnProperty("middleName") && !person.hasOwnProperty("lastName")) {
-            throw new Error("No name properties found in the person parameter.");
+            assert.throw("No name properties found in the person parameter.");
         }
-        if (person.hasOwnProperty("lastName")) {
-            assert.personLastNameParameter(person.lastName);
-        }
-        if (person.hasOwnProperty("firstName")) {
-            assert.personFirstNameParameter(person.firstName);
-        }
-        if (person.hasOwnProperty("middleName")) {
-            assert.personMiddleNameParameter(person.middleName);
-        }
+        if (person.hasOwnProperty("lastName")) assert.string(person.lastName, "Invalid person lastName parameter type.");
+        if (person.hasOwnProperty("firstName")) assert.string(person.firstName, "Invalid person firstName parameter type.");
+        if (person.hasOwnProperty("middleName")) assert.string(person.middleName, "Invalid person middleName parameter type.");
     };
 
-    assert.personLastNameParameter = function (lastName) {
-        if (typeof lastName !== "string") {
-            throw new Error("Invalid person lastName parameter type.");
-        }
-    };
-
-    assert.personFirstNameParameter = function (firstName) {
-        if (typeof firstName !== "string") {
-            throw new Error("Invalid person firstName parameter type.");
-        }
-    };
-
-    assert.personMiddleNameParameter = function (middleName) {
-        if (typeof middleName !== "string") {
-            throw new Error("Invalid person middleName parameter type.");
-        }
-    };
-
-    assert.caseNameParameter = function (caseName) {
-        if (typeof caseName !== "string") {
-            throw new Error("Invalid caseName parameter type.");
-        }
-        if (shevchenko.getCaseNames().indexOf(caseName) === -1) {
-            throw new Error("Invalid caseName parameter value.");
-        }
+    validator.validateCaseNameParameter = function (caseName) {
+        assert.string(caseName, "Invalid caseName parameter type.");
+        assert.inArray(shevchenko.getCaseNames(), caseName, "Invalid caseName parameter value.");
     };
 
     var sort = {};
