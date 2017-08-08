@@ -205,6 +205,7 @@
             if (typeof result.lastName === "undefined") {
                 result.lastName = person.lastName;
             }
+            result.lastName = formatter.capitalize(result.lastName);
         }
 
         if (typeof person.firstName === "string") {
@@ -212,6 +213,7 @@
             if (typeof result.firstName === "undefined") {
                 result.firstName = person.firstName;
             }
+            result.firstName = formatter.capitalize(result.firstName);
         }
 
         if (typeof person.middleName === "string") {
@@ -219,9 +221,8 @@
             if (typeof result.middleName === "undefined") {
                 result.middleName = person.middleName;
             }
+            result.middleName = formatter.capitalize(result.middleName);
         }
-
-        formatter.formatResult(result);
 
         return result;
     }
@@ -363,20 +364,10 @@
 
     var formatter = {};
 
-    formatter.formatResult = function (result) {
-        result.lastName = formatter.capitalize(result.lastName);
-        result.firstName = formatter.capitalize(result.firstName);
-        result.middleName = formatter.capitalize(result.middleName);
-    };
-
     formatter.capitalize = function (string) {
-        if (typeof string !== "string") {
-            return string;
-        }
-        if (string.length === 0) {
-            return string;
-        }
-        return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+        return typeof string === "string"
+            ? string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
+            : string;
     };
 
     if (typeof module !== "undefined" && module.hasOwnProperty("exports")) { // Export for Node.js environment.
