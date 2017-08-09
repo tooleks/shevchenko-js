@@ -271,30 +271,30 @@
         }).shift();
     };
 
-    inflector.inflectByRule = function (rule, caseName, word) {
+    inflector.inflectByRule = function (rule, caseName, value) {
         var ruleType = rule.applyType;
         var regexp = rule.regexp.modify;
         var modifier = rule.cases[caseName][0];
-        return inflector.getInflectionCallbacks()[ruleType](regexp, modifier, word);
+        return inflector.getInflectionCallbacks()[ruleType](regexp, modifier, value);
     };
 
     inflector.getInflectionCallbacks = function () {
         return {
-            "append": function (regexp, modifier, word) {
+            "append": function (regexp, modifier, value) {
                 assert.string(regexp, "Invalid regexp type of the rule.");
-                assert.string(modifier, "Invalid word type of the rule.");
-                assert.string(modifier, "Invalid caseValue type of the rule.");
+                assert.string(modifier, "Invalid modifier type of the rule.");
+                assert.string(value, "Invalid value provided into the inflection function.");
                 return modifier.length
-                    ? word + modifier
-                    : word;
+                    ? value + modifier
+                    : value;
             },
-            "replace": function (regexp, modifier, word) {
+            "replace": function (regexp, modifier, value) {
                 assert.string(regexp, "Invalid regexp type of the rule.");
-                assert.string(modifier, "Invalid word type of the rule.");
-                assert.string(modifier, "Invalid caseValue type of the rule.");
+                assert.string(modifier, "Invalid modifier type of the rule.");
+                assert.string(value, "Invalid value provided into the inflection function.");
                 return modifier.length
-                    ? word.replace(new RegExp(regexp, "gm"), modifier)
-                    : word;
+                    ? value.replace(new RegExp(regexp, "gm"), modifier)
+                    : value;
             }
         };
     };
