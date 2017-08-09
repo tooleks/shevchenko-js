@@ -274,26 +274,26 @@
     inflector.inflectByRule = function (rule, caseName, word) {
         var ruleType = rule.applyType;
         var regexp = rule.regexp.modify;
-        var caseValue = rule.cases[caseName][0];
-        return inflector.getInflectionCallbacks()[ruleType](regexp, word, caseValue);
+        var modifier = rule.cases[caseName][0];
+        return inflector.getInflectionCallbacks()[ruleType](regexp, modifier, word);
     };
 
     inflector.getInflectionCallbacks = function () {
         return {
-            "append": function (regexp, word, caseValue) {
+            "append": function (regexp, modifier, word) {
                 assert.string(regexp, "Invalid regexp type of the rule.");
-                assert.string(caseValue, "Invalid word type of the rule.");
-                assert.string(caseValue, "Invalid caseValue type of the rule.");
-                return caseValue.length
-                    ? word + caseValue
+                assert.string(modifier, "Invalid word type of the rule.");
+                assert.string(modifier, "Invalid caseValue type of the rule.");
+                return modifier.length
+                    ? word + modifier
                     : word;
             },
-            "replace": function (regexp, word, caseValue) {
+            "replace": function (regexp, modifier, word) {
                 assert.string(regexp, "Invalid regexp type of the rule.");
-                assert.string(caseValue, "Invalid word type of the rule.");
-                assert.string(caseValue, "Invalid caseValue type of the rule.");
-                return caseValue.length
-                    ? word.replace(new RegExp(regexp, "gm"), caseValue)
+                assert.string(modifier, "Invalid word type of the rule.");
+                assert.string(modifier, "Invalid caseValue type of the rule.");
+                return modifier.length
+                    ? word.replace(new RegExp(regexp, "gm"), modifier)
                     : word;
             }
         };
@@ -346,12 +346,12 @@
     var filter = {};
 
     filter.rulesByType = function (rule, type, strict) {
-        if (!rule.hasOwnProperty("types")) {
-            return !strict;
+        if (rule.hasOwnProperty("types")) {
+            return rule.types.some(function (ruleType) {
+                return ruleType === type;
+            });
         }
-        return rule.types.some(function (ruleType) {
-            return ruleType === type;
-        });
+        return !strict;
     };
 
     filter.rulesByGender = function (rule, gender) {
