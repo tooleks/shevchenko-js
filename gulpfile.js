@@ -14,8 +14,7 @@ gulp.task("load:rules", function () {
 gulp.task("build", function () {
     gulp.src(["./src/shevchenko.js"])
         .pipe(replace("[] /* gulp build:rules */", JSON.stringify(require("./rules"))))
-        .pipe(gulp.dest("./dist/"))
-        .pipe(gulp.dest("./public/"));
+        .pipe(gulp.dest("./dist/"));
 });
 
 gulp.task("minify", function () {
@@ -26,6 +25,5 @@ gulp.task("minify", function () {
                 min: ".min.js"
             }
         }))
-        .pipe(gulp.dest("dist"))
-        .pipe(gulp.dest("./public/"));
+        .pipe(gulp.dest("./dist/"));
 });

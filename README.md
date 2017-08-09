@@ -66,5 +66,5 @@ npm install
 #### Доступні команди
 
 - `npm run load:rules` - завантажити актуальний набір правил відмінювання з [репозиторія](https://github.com/tooleks/shevchenko-rules);
-- `npm run build` - побудувати вихідні файли в директорію `./dist`;
+- `npm run build` - побудувати вихідні файли в директорію `./dist/`;
 - `npm run test` - запустити тести.
