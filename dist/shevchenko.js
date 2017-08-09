@@ -184,10 +184,10 @@
      * Inflect the person first, last and middle names. / Відмінити прізвище, ім'я та по батькові особи.
      *
      * @example var result = shevchenko({
-     *     gender: "male",
-     *     lastName: "Петренко",
-     *     firstName: "Петро",
-     *     middleName: "Петрович"
+     *     gender: "male",  // or "female"
+     *     lastName: "Шевченко",
+     *     firstName: "Тарас",
+     *     middleName: "Григорович"
      * }, shevchenko.caseNameVocative);
      *
      * @param {object} person
