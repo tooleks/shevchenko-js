@@ -6,27 +6,6 @@
 
 [http://shevchenko-js.tooleks.com/#demo](http://shevchenko-js.tooleks.com/#demo)
 
-### Встановлення
-
-Запустіть наступну команду (в директорії `./`) для встановлення бібліотеки.
-
-```
-npm install --save shevchenko
-```
-
-### Підключення
-
-#### Node.js
-
-```JavaScript
-var shevchenko = require("shevchenko");
-```
-
-#### Браузер
-
-```HTML
-<script type="text/javascript" src="/path/to/shevchenko/dist/shevchenko.min.js"></script>
-```
 
 ### Використання
 
@@ -52,6 +31,28 @@ console.log(result); // {lastName: 'Шевченку', firstName: 'Тарасе'
 - `shevchenko.inAblative(person)`- відмінити в орудному відмінку;
 - `shevchenko.inLocative(person)`- відмінити в місцевому відмінку;
 - `shevchenko.inVocative(person)`- відмінити в кличному відмінку.
+
+### Встановлення
+
+Запустіть наступну команду (в директорії `./`) для встановлення бібліотеки.
+
+```
+npm install --save shevchenko
+```
+
+### Підключення
+
+#### Node.js
+
+```JavaScript
+var shevchenko = require("shevchenko");
+```
+
+#### Браузер
+
+```HTML
+<script type="text/javascript" src="/path/to/shevchenko/dist/shevchenko.min.js"></script>
+```
 
 ### Для розробників
 
