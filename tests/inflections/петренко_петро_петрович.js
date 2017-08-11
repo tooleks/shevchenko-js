@@ -1,14 +1,14 @@
-var assert = require("assert");
-var testInflections = require("../helpers").testInflections;
+const assert = require("assert");
+const testInflections = require("../helpers").testInflections;
 
-var person = {
+const person = {
     gender: "male",
     lastName: "петренко",
     firstName: "петро",
     middleName: "петрович"
 };
 
-var validResults = {
+const validResults = {
     nominative: {
         lastName: "петренко",
         firstName: "петро",

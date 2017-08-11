@@ -1,11 +1,11 @@
-var assert = require("assert");
-var shevchenko = require("../dist/shevchenko");
+const assert = require("assert");
+const shevchenko = require("../dist/shevchenko");
 
 describe("shevchenko", function () {
 
     describe("#shevchenko.getRules()", function () {
         it("should return a new instance of array on every call", function () {
-            var rules = shevchenko.getRules();
+            const rules = shevchenko.getRules();
             assert(rules instanceof Array);
             rules.push({});
             assert(shevchenko.getRules().length === rules.length - 1);
@@ -14,16 +14,16 @@ describe("shevchenko", function () {
 
     describe("#shevchenko.getGenders()", function () {
         it("should return valid values", function () {
-            var genders = shevchenko.getGenders();
-            var validGenders = ["male", "female"];
+            const genders = shevchenko.getGenders();
+            const validGenders = ["male", "female"];
             assert.equal(genders.join(","), validGenders.join(","));
         });
     });
 
     describe("#shevchenko.getCaseNames()", function () {
         it("should return valid values", function () {
-            var caseNames = shevchenko.getCaseNames();
-            var validCaseNames = [
+            const caseNames = shevchenko.getCaseNames();
+            const validCaseNames = [
                 "nominative",
                 "genitive",
                 "dative",
@@ -99,7 +99,7 @@ describe("shevchenko", function () {
         });
 
         it("should return a valid result type", function () {
-            var result = shevchenko({
+            const result = shevchenko({
                 gender: "male",
                 lastName: "Шевченко",
                 firstName: "Тарас",
@@ -111,7 +111,7 @@ describe("shevchenko", function () {
         });
 
         it("should return a valid result type", function () {
-            var result = shevchenko({
+            const result = shevchenko({
                 gender: "male",
                 lastName: "Шевченко"
             }, shevchenko.caseNameGenitive);
@@ -119,7 +119,7 @@ describe("shevchenko", function () {
         });
 
         it("should return a valid result type", function () {
-            var result = shevchenko({
+            const result = shevchenko({
                 gender: "male",
                 firstName: "Тарас"
             }, shevchenko.caseNameGenitive);
@@ -127,7 +127,7 @@ describe("shevchenko", function () {
         });
 
         it("should return a valid result type", function () {
-            var result = shevchenko({
+            const result = shevchenko({
                 gender: "male",
                 middleName: "Григорович"
             }, shevchenko.caseNameGenitive);

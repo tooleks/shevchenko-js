@@ -1,9 +1,9 @@
-var assert = require("assert");
-var shevchenko = require("../dist/shevchenko");
+const assert = require("assert");
+const shevchenko = require("../dist/shevchenko");
 
 function testInflection(person, caseName, validResult) {
-    var methodName = "in" + caseName.charAt(0).toUpperCase() + caseName.slice(1);
-    var result = shevchenko[methodName](person);
+    const methodName = "in" + caseName.charAt(0).toUpperCase() + caseName.slice(1);
+    const result = shevchenko[methodName](person);
     describe("#shevchenko()", function () {
         it("should inflect correctly \"" + person.lastName + " " + person.firstName + " " + person.middleName + "\" in " + caseName + " case\"", function () {
             assert.equal(result.lastName.toLowerCase(), validResult.lastName);
@@ -14,7 +14,7 @@ function testInflection(person, caseName, validResult) {
 }
 
 function testInflections(person, validResults) {
-    for (var caseName in validResults) {
+    for (const caseName in validResults) {
         if (validResults.hasOwnProperty(caseName)) {
             testInflection(person, caseName, validResults[caseName]);
         }

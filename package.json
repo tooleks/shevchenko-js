@@ -36,7 +36,10 @@
   },
   "homepage": "https://github.com/tooleks/shevchenko-js#readme",
   "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-preset-env": "^1.6.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
     "gulp-minify": "^1.0.0",
     "gulp-replace": "^0.6.1",
     "mocha": "^3.5.0",

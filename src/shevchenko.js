@@ -1,6 +1,6 @@
 "use strict";
 
-(function () {
+(() => {
 
     /**
      * Inflection rules. / Правила відмінювання.
@@ -116,9 +116,7 @@
      * @param {object} person
      * @returns {Object}
      */
-    shevchenko.inNominative = function (person) {
-        return shevchenko(person, shevchenko.caseNameNominative);
-    };
+    shevchenko.inNominative = (person) => shevchenko(person, shevchenko.caseNameNominative);
 
     /**
      * Inflect the person first, last and middle names in genitive case. / Відмінити прізвище, ім'я та по батькові особи в родовому відмінку.
@@ -126,9 +124,7 @@
      * @param {object} person
      * @returns {Object}
      */
-    shevchenko.inGenitive = function (person) {
-        return shevchenko(person, shevchenko.caseNameGenitive);
-    };
+    shevchenko.inGenitive = (person) => shevchenko(person, shevchenko.caseNameGenitive);
 
     /**
      * Inflect the person first, last and middle names in dative case. / Відмінити прізвище, ім'я та по батькові особи в давальному відмінку.
@@ -136,9 +132,7 @@
      * @param {object} person
      * @returns {Object}
      */
-    shevchenko.inDative = function (person) {
-        return shevchenko(person, shevchenko.caseNameDative);
-    };
+    shevchenko.inDative = (person) => shevchenko(person, shevchenko.caseNameDative);
 
     /**
      * Inflect the person first, last and middle names in accusative case. / Відмінити прізвище, ім'я та по батькові особи в знахідному відмінку.
@@ -146,9 +140,7 @@
      * @param {object} person
      * @returns {Object}
      */
-    shevchenko.inAccusative = function (person) {
-        return shevchenko(person, shevchenko.caseNameAccusative);
-    };
+    shevchenko.inAccusative = (person) => shevchenko(person, shevchenko.caseNameAccusative);
 
     /**
      * Inflect the person first, last and middle names in ablative case. / Відмінити прізвище, ім'я та по батькові особи в орудному відмінку.
@@ -156,9 +148,7 @@
      * @param {object} person
      * @returns {Object}
      */
-    shevchenko.inAblative = function (person) {
-        return shevchenko(person, shevchenko.caseNameAblative);
-    };
+    shevchenko.inAblative = (person) => shevchenko(person, shevchenko.caseNameAblative);
 
     /**
      * Inflect the person first, last and middle names in locative case. / Відмінити прізвище, ім'я та по батькові особи в місцевому відмінку.
@@ -166,9 +156,7 @@
      * @param {object} person
      * @returns {Object}
      */
-    shevchenko.inLocative = function (person) {
-        return shevchenko(person, shevchenko.caseNameLocative);
-    };
+    shevchenko.inLocative = (person) => shevchenko(person, shevchenko.caseNameLocative);
 
     /**
      * Inflect the person first, last and middle names in vocative case. / Відмінити прізвище, ім'я та по батькові особи в кличному відмінку.
@@ -176,9 +164,7 @@
      * @param {object} person
      * @returns {Object}
      */
-    shevchenko.inVocative = function (person) {
-        return shevchenko(person, shevchenko.caseNameVocative);
-    };
+    shevchenko.inVocative = (person) => shevchenko(person, shevchenko.caseNameVocative);
 
     /**
      * Inflect the person first, last and middle names. / Відмінити прізвище, ім'я та по батькові особи.
@@ -198,7 +184,7 @@
         validator.validatePersonParameter(person);
         validator.validateCaseNameParameter(caseName);
 
-        var result = {};
+        const result = {};
 
         if (typeof person.lastName === "string") {
             result.lastName = inflector.inflectLastName(person.gender, person.lastName.toLowerCase(), caseName);
@@ -227,67 +213,56 @@
         return result;
     }
 
-    var inflector = {};
+    const inflector = {};
 
     inflector.inflectLastName = function (gender, lastName, caseName) {
-        var lastNames = lastName.split("-");
+        const lastNames = lastName.split("-");
         if (lastNames.length > 1) {
             // Inflect recursively each part of the double last name.
-            return lastNames.map(function (lastName) {
-                return inflector.inflectLastName(gender, lastName, caseName);
-            }).join("-");
+            return lastNames.map((lastName) => inflector.inflectLastName(gender, lastName, caseName)).join("-");
         }
-        return shevchenko.getRules().filter(function (rule) {
-            return filter.rulesByGender(rule, gender);
-        }).filter(function (rule) {
-            return filter.rulesByType(rule, "lastName");
-        }).filter(function (rule) {
-            return filter.rulesByRegexp(rule, lastName);
-        }).sort(function (firstRule, secondRule) {
-            return sort.rulesByTypeDesc(firstRule, secondRule, "lastName");
-        }).map(function (rule) {
-            return inflector.inflectByRule(rule, caseName, lastName);
-        }).shift();
+        return shevchenko
+            .getRules()
+            .filter((rule) => filter.rulesByGender(rule, gender))
+            .filter((rule) => filter.rulesByType(rule, "lastName"))
+            .filter((rule) => filter.rulesByRegexp(rule, lastName))
+            .sort((firstRule, secondRule) => sort.rulesByTypeDesc(firstRule, secondRule, "lastName"))
+            .map((rule) => inflector.inflectByRule(rule, caseName, lastName))
+            .shift();
     };
 
     inflector.inflectFirstName = function (gender, firstName, caseName) {
-        return shevchenko.getRules().filter(function (rule) {
-            return filter.rulesByGender(rule, gender);
-        }).filter(function (rule) {
-            return filter.rulesByType(rule, "firstName");
-        }).filter(function (rule) {
-            return filter.rulesByRegexp(rule, firstName);
-        }).sort(function (firstRule, secondRule) {
-            return sort.rulesByTypeDesc(firstRule, secondRule, "firstName");
-        }).map(function (rule) {
-            return inflector.inflectByRule(rule, caseName, firstName);
-        }).shift();
+        return shevchenko
+            .getRules()
+            .filter((rule) => filter.rulesByGender(rule, gender))
+            .filter((rule) => filter.rulesByType(rule, "firstName"))
+            .filter((rule) => filter.rulesByRegexp(rule, firstName))
+            .sort((firstRule, secondRule) => sort.rulesByTypeDesc(firstRule, secondRule, "firstName"))
+            .map((rule) => inflector.inflectByRule(rule, caseName, firstName))
+            .shift();
     };
 
     inflector.inflectMiddleName = function (gender, middleName, caseName) {
-        return shevchenko.getRules().filter(function (rule) {
-            return filter.rulesByGender(rule, gender);
-        }).filter(function (rule) {
-            return filter.rulesByType(rule, "middleName", true);
-        }).filter(function (rule) {
-            return filter.rulesByRegexp(rule, middleName);
-        }).sort(function (firstRule, secondRule) {
-            return sort.rulesByTypeDesc(firstRule, secondRule, "middleName");
-        }).map(function (rule) {
-            return inflector.inflectByRule(rule, caseName, middleName);
-        }).shift();
+        return shevchenko
+            .getRules()
+            .filter((rule) => filter.rulesByGender(rule, gender))
+            .filter((rule) => filter.rulesByType(rule, "middleName", true))
+            .filter((rule) => filter.rulesByRegexp(rule, middleName))
+            .sort((firstRule, secondRule) => sort.rulesByTypeDesc(firstRule, secondRule, "middleName"))
+            .map((rule) => inflector.inflectByRule(rule, caseName, middleName))
+            .shift();
     };
 
     inflector.inflectByRule = function (rule, caseName, value) {
-        var ruleType = rule.applyType;
-        var regexp = rule.regexp.modify;
-        var modifier = rule.cases[caseName][0];
+        const ruleType = rule.applyType;
+        const regexp = rule.regexp.modify;
+        const modifier = rule.cases[caseName][0];
         return inflector.getInflectionCallbacks()[ruleType](regexp, modifier, value);
     };
 
     inflector.getInflectionCallbacks = function () {
         return {
-            "append": function (regexp, modifier, value) {
+            "append": (regexp, modifier, value) => {
                 assert.string(regexp, "Invalid regexp type of the rule.");
                 assert.string(modifier, "Invalid modifier type of the rule.");
                 assert.string(value, "Invalid value provided into the inflection function.");
@@ -295,7 +270,7 @@
                     ? value + modifier
                     : value;
             },
-            "replace": function (regexp, modifier, value) {
+            "replace": (regexp, modifier, value) => {
                 assert.string(regexp, "Invalid regexp type of the rule.");
                 assert.string(modifier, "Invalid modifier type of the rule.");
                 assert.string(value, "Invalid value provided into the inflection function.");
@@ -306,7 +281,7 @@
         };
     };
 
-    var assert = {};
+    const assert = {};
 
     assert.object = function (value, error) {
         if (typeof value !== "object") assert.throw(error);
@@ -324,7 +299,7 @@
         throw new Error(error);
     };
 
-    var validator = {};
+    const validator = {};
 
     validator.validatePersonParameter = function (person) {
         assert.object(person, "Invalid person parameter type.");
@@ -344,19 +319,17 @@
         assert.inArray(shevchenko.getCaseNames(), caseName, "Invalid caseName parameter value.");
     };
 
-    var sort = {};
+    const sort = {};
 
     sort.rulesByTypeDesc = function (firstRule, secondRule, type) {
         return !firstRule.hasOwnProperty("types") && secondRule.hasOwnProperty("types") && secondRule.types.indexOf(type) !== -1;
     };
 
-    var filter = {};
+    const filter = {};
 
     filter.rulesByType = function (rule, type, strict) {
         if (rule.hasOwnProperty("types")) {
-            return rule.types.some(function (ruleType) {
-                return ruleType === type;
-            });
+            return rule.types.some((ruleType) => ruleType === type);
         }
         return !strict;
     };
@@ -369,14 +342,12 @@
         return (new RegExp(rule.regexp.find, "gm")).test(value);
     };
 
-    var formatter = {};
+    const formatter = {};
 
     formatter.capitalize = function (string) {
-        var strings = string.split("-");
+        const strings = string.split("-");
         if (strings.length > 1) {
-            return strings.map(function (string) {
-                return formatter.capitalize(string);
-            }).join("-");
+            return strings.map((string) => formatter.capitalize(string)).join("-");
         }
         return typeof string === "string"
             ? string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
