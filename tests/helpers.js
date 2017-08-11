@@ -2,10 +2,10 @@ const assert = require("assert");
 const shevchenko = require("../dist/shevchenko");
 
 function testInflection(person, caseName, validResult) {
-    const methodName = "in" + caseName.charAt(0).toUpperCase() + caseName.slice(1);
-    const result = shevchenko[methodName](person);
     describe("#shevchenko()", () => {
         it("should inflect correctly \"" + person.lastName + " " + person.firstName + " " + person.middleName + "\" in " + caseName + " case\"", () => {
+            const methodName = "in" + caseName.charAt(0).toUpperCase() + caseName.slice(1);
+            const result = shevchenko[methodName](person);
             assert.equal(result.lastName.toLowerCase(), validResult.lastName);
             assert.equal(result.firstName.toLowerCase(), validResult.firstName);
             assert.equal(result.middleName.toLowerCase(), validResult.middleName);
