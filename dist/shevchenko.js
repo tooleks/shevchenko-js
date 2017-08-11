@@ -230,6 +230,13 @@
     var inflector = {};
 
     inflector.inflectLastName = function (gender, lastName, caseName) {
+        var lastNames = lastName.split("-");
+        if (lastNames.length > 1) {
+            // Inflect recursively each part of the double last name.
+            return lastNames.map(function (lastName) {
+                return inflector.inflectLastName(gender, lastName, caseName);
+            }).join("-");
+        }
         return shevchenko.getRules().filter(function (rule) {
             return filter.rulesByGender(rule, gender);
         }).filter(function (rule) {
@@ -365,6 +372,12 @@
     var formatter = {};
 
     formatter.capitalize = function (string) {
+        var strings = string.split("-");
+        if (strings.length > 1) {
+            return strings.map(function (string) {
+                return formatter.capitalize(string);
+            }).join("-");
+        }
         return typeof string === "string"
             ? string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
             : string;
