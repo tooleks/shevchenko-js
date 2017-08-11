@@ -14,7 +14,7 @@ function testInflection(person, caseName, validResult) {
 }
 
 function testInflections(person, validResults) {
-    for (const caseName in validResults) {
+    for (let caseName in validResults) {
         if (validResults.hasOwnProperty(caseName)) {
             testInflection(person, caseName, validResults[caseName]);
         }
