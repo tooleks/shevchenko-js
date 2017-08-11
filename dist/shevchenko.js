@@ -281,13 +281,13 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
             "append": function append(regexp, modifier, value) {
                 assert.string(regexp, "Invalid regexp type of the rule.");
                 assert.string(modifier, "Invalid modifier type of the rule.");
-                assert.string(value, "Invalid value provided into the inflection function.");
+                assert.string(value, "Invalid value type provided into the inflection function.");
                 return modifier.length ? value + modifier : value;
             },
             "replace": function replace(regexp, modifier, value) {
                 assert.string(regexp, "Invalid regexp type of the rule.");
                 assert.string(modifier, "Invalid modifier type of the rule.");
-                assert.string(value, "Invalid value provided into the inflection function.");
+                assert.string(value, "Invalid value type provided into the inflection function.");
                 return modifier.length ? value.replace(new RegExp(regexp, "gm"), modifier) : value;
             }
         };
