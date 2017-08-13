@@ -187,32 +187,32 @@
         const result = {};
 
         if (typeof person.lastName === "string") {
-            const mask = caseMask.load(person.lastName);
-            result.lastName = inflector.inflectLastName(person.gender, person.lastName.toLowerCase(), caseName);
-            result.lastName = caseMask.apply(mask, result.lastName || person.lastName);
+            let mask = stringCaseMask.load(person.lastName);
+            let inflectedName = personInflector.inflectLastName(person.gender, person.lastName.toLowerCase(), caseName);
+            result.lastName = stringCaseMask.apply(mask, inflectedName || person.lastName);
         }
 
         if (typeof person.firstName === "string") {
-            const mask = caseMask.load(person.firstName);
-            result.firstName = inflector.inflectFirstName(person.gender, person.firstName.toLowerCase(), caseName);
-            result.firstName = caseMask.apply(mask, result.firstName || person.firstName);
+            let mask = stringCaseMask.load(person.firstName);
+            let inflectedName = personInflector.inflectFirstName(person.gender, person.firstName.toLowerCase(), caseName);
+            result.firstName = stringCaseMask.apply(mask, inflectedName || person.firstName);
         }
 
         if (typeof person.middleName === "string") {
-            const mask = caseMask.load(person.middleName);
-            result.middleName = inflector.inflectMiddleName(person.gender, person.middleName.toLowerCase(), caseName);
-            result.middleName = caseMask.apply(mask, result.middleName || person.middleName);
+            let mask = stringCaseMask.load(person.middleName);
+            let inflectedName = personInflector.inflectMiddleName(person.gender, person.middleName.toLowerCase(), caseName);
+            result.middleName = stringCaseMask.apply(mask, inflectedName || person.middleName);
         }
 
         return result;
     }
 
-    const inflector = {};
+    const personInflector = {};
 
-    inflector.inflectLastName = function (gender, lastName, caseName) {
-        const lastNames = lastName.split("-");
-        if (lastNames.length > 1) {
-            return lastNames.map((lastName) => inflector.inflectLastName(gender, lastName, caseName)).join("-");
+    personInflector.inflectLastName = function (gender, lastName, caseName) {
+        const doubleLastName = lastName.split("-");
+        if (doubleLastName.length > 1) {
+            return doubleLastName.map((lastName) => personInflector.inflectLastName(gender, lastName, caseName)).join("-");
         }
 
         const rule = shevchenko
@@ -226,7 +226,7 @@
         return inflector.inflectByRule(rule, caseName, lastName);
     };
 
-    inflector.inflectFirstName = function (gender, firstName, caseName) {
+    personInflector.inflectFirstName = function (gender, firstName, caseName) {
         const rule = shevchenko
             .getRules()
             .filter((rule) => filter.rulesByGender(rule, gender))
@@ -238,7 +238,7 @@
         return inflector.inflectByRule(rule, caseName, firstName);
     };
 
-    inflector.inflectMiddleName = function (gender, middleName, caseName) {
+    personInflector.inflectMiddleName = function (gender, middleName, caseName) {
         const rule = shevchenko
             .getRules()
             .filter((rule) => filter.rulesByGender(rule, gender))
@@ -249,6 +249,8 @@
 
         return inflector.inflectByRule(rule, caseName, middleName);
     };
+
+    const inflector = {};
 
     /**
      * Inflect a value by inflection rule.
@@ -391,7 +393,7 @@
         return (new RegExp(rule.regexp.find, "gm")).test(value);
     };
 
-    const caseMask = {};
+    const stringCaseMask = {};
 
     /**
      * Load the case mask from the string.
@@ -399,7 +401,7 @@
      * @param {string} string
      * @returns {Array}
      */
-    caseMask.load = function (string) {
+    stringCaseMask.load = function (string) {
         assert.string(string);
         const mask = [];
         let pointer = 0;
@@ -420,7 +422,7 @@
      * @param {string} string
      * @returns {string}
      */
-    caseMask.apply = function (mask, string) {
+    stringCaseMask.apply = function (mask, string) {
         let result = "";
         let pointer = 0;
         while (pointer < string.length) {
