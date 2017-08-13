@@ -3,77 +3,77 @@
 (() => {
 
     /**
-     * Inflection rules. / Правила відмінювання.
+     * Inflection rules.
      *
      * @type {Array<object>}
      */
-    shevchenko.rules = [] /* gulp build:rules */;
+    shevchenko.rules = __rules__;
 
     /**
-     * Male gender. / Чоловічий рід.
+     * Male gender.
      *
      * @type {string}
      */
     shevchenko.genderMale = "male";
 
     /**
-     * Female gender. / Жіночий рід.
+     * Female gender.
      *
      * @type {string}
      */
     shevchenko.genderFemale = "female";
 
     /**
-     * Nominative case. / Називний відмінок.
+     * Nominative case.
      *
      * @type {string}
      */
     shevchenko.caseNameNominative = "nominative";
 
     /**
-     * Genitive case. / Родовий відмінок.
+     * Genitive case.
      *
      * @type {string}
      */
     shevchenko.caseNameGenitive = "genitive";
 
     /**
-     * Dative case. / Давальний відмінок.
+     * Dative case.
      *
      * @type {string}
      */
     shevchenko.caseNameDative = "dative";
 
     /**
-     * Accusative case. / Знахідний відмінок.
+     * Accusative case.
      *
      * @type {string}
      */
     shevchenko.caseNameAccusative = "accusative";
 
     /**
-     * Ablative case. / Орудний відмінок.
+     * Ablative case.
      *
      * @type {string}
      */
     shevchenko.caseNameAblative = "ablative";
 
     /**
-     * Locative case. / Місцевий відмінок.
+     * Locative case.
      *
      * @type {string}
      */
     shevchenko.caseNameLocative = "locative";
 
     /**
-     * Vocative case. / Кличний відмінок.
+     * Vocative case.
      *
      * @type {string}
      */
     shevchenko.caseNameVocative = "vocative";
 
     /**
-     * Get available rules. / Отримати доступні правила.
+     * Get available rules.
      *
      * @returns {Array<object>}
      */
@@ -82,7 +82,7 @@
     };
 
     /**
-     * Get available genders. / Отримати доступні роди.
+     * Get available genders.
      *
      * @returns {Array<string>}
      */
@@ -94,7 +94,7 @@
     };
 
     /**
-     * Get available case names. / Отримати доступні відмінки.
+     * Get available case names.
      *
      * @returns {Array<string>}
      */
@@ -111,7 +111,7 @@
     };
 
     /**
-     * Inflect the person first, last and middle names in nominative case. / Відмінити прізвище, ім'я та по батькові особи в називному відмінку.
+     * Inflect the person first, last and middle names in nominative case.
      *
      * @param {object} person
      * @returns {Object}
@@ -119,7 +119,7 @@
     shevchenko.inNominative = (person) => shevchenko(person, shevchenko.caseNameNominative);
 
     /**
-     * Inflect the person first, last and middle names in genitive case. / Відмінити прізвище, ім'я та по батькові особи в родовому відмінку.
+     * Inflect the person first, last and middle names in genitive case.
      *
      * @param {object} person
      * @returns {Object}
@@ -127,7 +127,7 @@
     shevchenko.inGenitive = (person) => shevchenko(person, shevchenko.caseNameGenitive);
 
     /**
-     * Inflect the person first, last and middle names in dative case. / Відмінити прізвище, ім'я та по батькові особи в давальному відмінку.
+     * Inflect the person first, last and middle names in dative case.
      *
      * @param {object} person
      * @returns {Object}
@@ -135,7 +135,7 @@
     shevchenko.inDative = (person) => shevchenko(person, shevchenko.caseNameDative);
 
     /**
-     * Inflect the person first, last and middle names in accusative case. / Відмінити прізвище, ім'я та по батькові особи в знахідному відмінку.
+     * Inflect the person first, last and middle names in accusative case.
      *
      * @param {object} person
      * @returns {Object}
@@ -143,7 +143,7 @@
     shevchenko.inAccusative = (person) => shevchenko(person, shevchenko.caseNameAccusative);
 
     /**
-     * Inflect the person first, last and middle names in ablative case. / Відмінити прізвище, ім'я та по батькові особи в орудному відмінку.
+     * Inflect the person first, last and middle names in ablative case.
      *
      * @param {object} person
      * @returns {Object}
@@ -151,7 +151,7 @@
     shevchenko.inAblative = (person) => shevchenko(person, shevchenko.caseNameAblative);
 
     /**
-     * Inflect the person first, last and middle names in locative case. / Відмінити прізвище, ім'я та по батькові особи в місцевому відмінку.
+     * Inflect the person first, last and middle names in locative case.
      *
      * @param {object} person
      * @returns {Object}
@@ -159,7 +159,7 @@
     shevchenko.inLocative = (person) => shevchenko(person, shevchenko.caseNameLocative);
 
     /**
-     * Inflect the person first, last and middle names in vocative case. / Відмінити прізвище, ім'я та по батькові особи в кличному відмінку.
+     * Inflect the person first, last and middle names in vocative case.
      *
      * @param {object} person
      * @returns {Object}
@@ -167,7 +167,7 @@
     shevchenko.inVocative = (person) => shevchenko(person, shevchenko.caseNameVocative);
 
     /**
-     * Inflect the person first, last and middle names. / Відмінити прізвище, ім'я та по батькові особи.
+     * Inflect the person first, last and middle names.
      *
      * @example var result = shevchenko({
      *     gender: "male",  // or "female"
@@ -218,83 +218,138 @@
     inflector.inflectLastName = function (gender, lastName, caseName) {
         const lastNames = lastName.split("-");
         if (lastNames.length > 1) {
-            // Inflect recursively each part of the double last name.
             return lastNames.map((lastName) => inflector.inflectLastName(gender, lastName, caseName)).join("-");
         }
-        return shevchenko
+
+        const rule = shevchenko
             .getRules()
             .filter((rule) => filter.rulesByGender(rule, gender))
-            .filter((rule) => filter.rulesByType(rule, "lastName"))
+            .filter((rule) => filter.rulesByApplication(rule, "lastName"))
             .filter((rule) => filter.rulesByRegexp(rule, lastName))
-            .sort((firstRule, secondRule) => sort.rulesByTypeDesc(firstRule, secondRule, "lastName"))
-            .map((rule) => inflector.inflectByRule(rule, caseName, lastName))
+            .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "lastName"))
             .shift();
+
+        return inflector.inflectByRule(rule, caseName, lastName);
     };
 
     inflector.inflectFirstName = function (gender, firstName, caseName) {
-        return shevchenko
+        const rule = shevchenko
             .getRules()
             .filter((rule) => filter.rulesByGender(rule, gender))
-            .filter((rule) => filter.rulesByType(rule, "firstName"))
+            .filter((rule) => filter.rulesByApplication(rule, "firstName"))
             .filter((rule) => filter.rulesByRegexp(rule, firstName))
-            .sort((firstRule, secondRule) => sort.rulesByTypeDesc(firstRule, secondRule, "firstName"))
-            .map((rule) => inflector.inflectByRule(rule, caseName, firstName))
+            .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "firstName"))
             .shift();
+
+        return inflector.inflectByRule(rule, caseName, firstName);
     };
 
     inflector.inflectMiddleName = function (gender, middleName, caseName) {
-        return shevchenko
+        const rule = shevchenko
             .getRules()
             .filter((rule) => filter.rulesByGender(rule, gender))
-            .filter((rule) => filter.rulesByType(rule, "middleName", true))
+            .filter((rule) => filter.rulesByApplication(rule, "middleName", true))
             .filter((rule) => filter.rulesByRegexp(rule, middleName))
-            .sort((firstRule, secondRule) => sort.rulesByTypeDesc(firstRule, secondRule, "middleName"))
-            .map((rule) => inflector.inflectByRule(rule, caseName, middleName))
+            .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "middleName"))
             .shift();
+
+        return inflector.inflectByRule(rule, caseName, middleName);
     };
 
+    /**
+     * Inflect a value by inflection rule.
+     *
+     * @param {object} rule
+     * @param {string} caseName
+     * @param {string} value
+     * @returns {string}
+     */
     inflector.inflectByRule = function (rule, caseName, value) {
-        const ruleType = rule.applyType;
+        if (typeof rule === "undefined") return value;
         const regexp = rule.regexp.modify;
-        const modifier = rule.cases[caseName][0];
-        return inflector.getInflectionCallbacks()[ruleType](regexp, modifier, value);
+        const modifiers = rule.cases[caseName][0]; // Retrieve the first group modifiers object by case name.
+        return value.replace(new RegExp(regexp, "gm"), (match, ...groups) => {
+            let replacement = "";
+            const count = inflector.countRegexpGroups(regexp);
+            for (let index = 0; index < count; index++) {
+                replacement += inflector.applyGroupModifier(
+                    typeof modifiers === "undefined" ? modifiers : modifiers[index],
+                    groups[index]
+                );
+            }
+            return replacement;
+        });
     };
 
-    inflector.getInflectionCallbacks = function () {
-        return {
-            "append": (regexp, modifier, value) => {
-                assert.string(regexp, "Invalid regexp type of the rule.");
-                assert.string(modifier, "Invalid modifier type of the rule.");
-                assert.string(value, "Invalid value type provided into the inflection function.");
-                return modifier.length
-                    ? value + modifier
-                    : value;
-            },
-            "replace": (regexp, modifier, value) => {
-                assert.string(regexp, "Invalid regexp type of the rule.");
-                assert.string(modifier, "Invalid modifier type of the rule.");
-                assert.string(value, "Invalid value type provided into the inflection function.");
-                return modifier.length
-                    ? value.replace(new RegExp(regexp, "gm"), modifier)
-                    : value;
-            }
-        };
+    /**
+     * Apply a group modifier to the value.
+     *
+     * @see inflector.inflectByRule
+     *
+     * @param {object} modifier
+     * @param {string} value
+     * @returns {string}
+     */
+    inflector.applyGroupModifier = function (modifier, value) {
+        if (typeof modifier === "undefined") return value;
+        switch (modifier.type) {
+            case "append":
+                return value + modifier.value;
+            case "replace":
+                return modifier.value;
+            default:
+                return value;
+        }
+    };
+
+    /**
+     * Count a number of groups in regular expression string.
+     *
+     * @param {string} regexp
+     * @returns {number}
+     */
+    inflector.countRegexpGroups = function (regexp) {
+        return (new RegExp(regexp.toString() + "|")).exec("").length - 1;
     };
 
     const assert = {};
 
+    /**
+     * Assert than a value is an object.
+     *
+     * @param value
+     * @param {string} error
+     */
     assert.object = function (value, error) {
         if (typeof value !== "object") assert.throw(error);
     };
 
+    /**
+     * Assert than a value is a string.
+     *
+     * @param value
+     * @param {string} error
+     */
     assert.string = function (value, error) {
         if (typeof value !== "string") assert.throw(error);
     };
 
+    /**
+     * Assert than a value exists in array.
+     *
+     * @param {Array} array
+     * @param value
+     * @param {string} error
+     */
     assert.inArray = function (array, value, error) {
         if (array.indexOf(value) === -1) assert.throw(error);
     };
 
+    /**
+     * Throw an assertion error.
+     *
+     * @param {string} error
+     */
     assert.throw = function (error) {
         throw new Error(error);
     };
@@ -321,15 +376,15 @@
 
     const sort = {};
 
-    sort.rulesByTypeDesc = function (firstRule, secondRule, type) {
-        return !firstRule.hasOwnProperty("types") && secondRule.hasOwnProperty("types") && secondRule.types.indexOf(type) !== -1;
+    sort.rulesByApplicationDesc = function (firstRule, secondRule, application) {
+        return !firstRule.applications.length && secondRule.applications.length && secondRule.applications.indexOf(application) !== -1;
     };
 
     const filter = {};
 
-    filter.rulesByType = function (rule, type, strict) {
-        if (rule.hasOwnProperty("types")) {
-            return rule.types.some((ruleType) => ruleType === type);
+    filter.rulesByApplication = function (rule, application, strict) {
+        if (rule.applications.length) {
+            return rule.applications.some((ruleApplication) => ruleApplication === application);
         }
         return !strict;
     };

@@ -35,7 +35,7 @@ const validResults = {
         middleName: "ревуновичем"
     },
     locative: {
-        lastName: "кривоносу",
+        lastName: "кривоносі",
         firstName: "чіпці",
         middleName: "ревуновичу"
     },

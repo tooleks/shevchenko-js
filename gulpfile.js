@@ -14,7 +14,7 @@ gulp.task("load:rules", () => {
 
 gulp.task("build", () => {
     gulp.src(["./src/**/*.js"])
-        .pipe(replace("[] /* gulp build:rules */", JSON.stringify(require("./rules"))))
+        .pipe(replace("__rules__", JSON.stringify(require("./rules"))))
         .pipe(babel({
             presets: ["env"]
         }))
