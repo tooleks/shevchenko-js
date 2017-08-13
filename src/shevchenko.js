@@ -77,7 +77,7 @@
      *
      * @returns {Array<object>}
      */
-    shevchenko.getRules = function () {
+    shevchenko.getRules = () => {
         return shevchenko.rules.slice(0);
     };
 
@@ -86,7 +86,7 @@
      *
      * @returns {Array<string>}
      */
-    shevchenko.getGenders = function () {
+    shevchenko.getGenders = () => {
         return [
             shevchenko.genderMale,
             shevchenko.genderFemale
@@ -98,7 +98,7 @@
      *
      * @returns {Array<string>}
      */
-    shevchenko.getCaseNames = function () {
+    shevchenko.getCaseNames = () => {
         return [
             shevchenko.caseNameNominative,
             shevchenko.caseNameGenitive,
@@ -206,7 +206,7 @@
 
     const personInflector = {};
 
-    personInflector.inflectLastName = function (gender, lastName, caseName) {
+    personInflector.inflectLastName = (gender, lastName, caseName) => {
         const doubleLastName = lastName.split("-");
         if (doubleLastName.length > 1) {
             return doubleLastName.map((lastName) => personInflector.inflectLastName(gender, lastName, caseName)).join("-");
@@ -223,7 +223,7 @@
         return inflector.inflectByRule(rule, caseName, lastName);
     };
 
-    personInflector.inflectFirstName = function (gender, firstName, caseName) {
+    personInflector.inflectFirstName = (gender, firstName, caseName) => {
         const rule = shevchenko
             .getRules()
             .filter((rule) => filter.rulesByGender(rule, gender))
@@ -235,7 +235,7 @@
         return inflector.inflectByRule(rule, caseName, firstName);
     };
 
-    personInflector.inflectMiddleName = function (gender, middleName, caseName) {
+    personInflector.inflectMiddleName = (gender, middleName, caseName) => {
         const rule = shevchenko
             .getRules()
             .filter((rule) => filter.rulesByGender(rule, gender))
@@ -257,7 +257,7 @@
      * @param {string} value
      * @returns {string}
      */
-    inflector.inflectByRule = function (rule, caseName, value) {
+    inflector.inflectByRule = (rule, caseName, value) => {
         if (typeof rule === "undefined") return value;
         const regexp = rule.regexp.modify;
         const modifiers = rule.cases[caseName][0]; // Retrieve the first group modifiers object by case name.
@@ -283,7 +283,7 @@
      * @param {string} value
      * @returns {string}
      */
-    inflector.applyGroupModifier = function (modifier, value) {
+    inflector.applyGroupModifier = (modifier, value) => {
         if (typeof modifier === "undefined") return value;
         switch (modifier.type) {
             case "append":
@@ -301,7 +301,7 @@
      * @param {string} regexp
      * @returns {number}
      */
-    inflector.countRegexpGroups = function (regexp) {
+    inflector.countRegexpGroups = (regexp) => {
         return (new RegExp(regexp.toString() + "|")).exec("").length - 1;
     };
 
@@ -313,7 +313,7 @@
      * @param value
      * @param {string} error
      */
-    assert.object = function (value, error) {
+    assert.object = (value, error) => {
         if (typeof value !== "object") assert.throw(error);
     };
 
@@ -323,7 +323,7 @@
      * @param value
      * @param {string} error
      */
-    assert.string = function (value, error) {
+    assert.string = (value, error) => {
         if (typeof value !== "string") assert.throw(error);
     };
 
@@ -334,7 +334,7 @@
      * @param value
      * @param {string} error
      */
-    assert.inArray = function (array, value, error) {
+    assert.inArray = (array, value, error) => {
         if (array.indexOf(value) === -1) assert.throw(error);
     };
 
@@ -343,13 +343,13 @@
      *
      * @param {string} error
      */
-    assert.throw = function (error) {
+    assert.throw = (error) => {
         throw new Error(error);
     };
 
     const validator = {};
 
-    validator.validatePersonParameter = function (person) {
+    validator.validatePersonParameter = (person) => {
         assert.object(person, "Invalid person parameter type.");
         if (!person.hasOwnProperty("gender")) assert.throw("No gender property found in the person parameter.");
         assert.string(person.gender, "Invalid gender property type provided in the person parameter.");
@@ -362,31 +362,31 @@
         if (person.hasOwnProperty("middleName")) assert.string(person.middleName, "Invalid person middleName parameter type.");
     };
 
-    validator.validateCaseNameParameter = function (caseName) {
+    validator.validateCaseNameParameter = (caseName) => {
         assert.string(caseName, "Invalid caseName parameter type.");
         assert.inArray(shevchenko.getCaseNames(), caseName, "Invalid caseName parameter value.");
     };
 
     const sort = {};
 
-    sort.rulesByApplicationDesc = function (firstRule, secondRule, application) {
+    sort.rulesByApplicationDesc = (firstRule, secondRule, application) => {
         return !firstRule.applications.length && secondRule.applications.length && secondRule.applications.indexOf(application) !== -1;
     };
 
     const filter = {};
 
-    filter.rulesByApplication = function (rule, application, strict) {
+    filter.rulesByApplication = (rule, application, strict) => {
         if (rule.applications.length) {
             return rule.applications.some((ruleApplication) => ruleApplication === application);
         }
         return !strict;
     };
 
-    filter.rulesByGender = function (rule, gender) {
+    filter.rulesByGender = (rule, gender) => {
         return rule.gender.indexOf(gender) !== -1;
     };
 
-    filter.rulesByRegexp = function (rule, value) {
+    filter.rulesByRegexp = (rule, value) => {
         return (new RegExp(rule.regexp.find, "gm")).test(value);
     };
 
@@ -398,7 +398,7 @@
      * @param {string} string
      * @returns {Array}
      */
-    stringCaseMask.loadMask = function (string) {
+    stringCaseMask.loadMask = (string) => {
         assert.string(string);
         const mask = [];
         let index = 0;
@@ -419,7 +419,7 @@
      * @param {string} string
      * @returns {string}
      */
-    stringCaseMask.applyByMask = function (mask, string) {
+    stringCaseMask.applyByMask = (mask, string) => {
         let result = "";
         let index = 0;
         while (index < string.length) {
@@ -441,7 +441,7 @@
      * @param {string} string
      * @returns {string}
      */
-    stringCaseMask.applyByExample = function (exampleString, string) {
+    stringCaseMask.applyByExample = (exampleString, string) => {
         const mask = stringCaseMask.loadMask(exampleString);
         let result = "";
         let index = 0;
