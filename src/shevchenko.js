@@ -113,7 +113,7 @@
     /**
      * Inflect the person first, last and middle names in nominative case.
      *
-     * @param {object} person
+     * @param {Object} person
      * @returns {Object}
      */
     shevchenko.inNominative = (person) => shevchenko(person, shevchenko.caseNameNominative);
@@ -121,7 +121,7 @@
     /**
      * Inflect the person first, last and middle names in genitive case.
      *
-     * @param {object} person
+     * @param {Object} person
      * @returns {Object}
      */
     shevchenko.inGenitive = (person) => shevchenko(person, shevchenko.caseNameGenitive);
@@ -129,7 +129,7 @@
     /**
      * Inflect the person first, last and middle names in dative case.
      *
-     * @param {object} person
+     * @param {Object} person
      * @returns {Object}
      */
     shevchenko.inDative = (person) => shevchenko(person, shevchenko.caseNameDative);
@@ -137,7 +137,7 @@
     /**
      * Inflect the person first, last and middle names in accusative case.
      *
-     * @param {object} person
+     * @param {Object} person
      * @returns {Object}
      */
     shevchenko.inAccusative = (person) => shevchenko(person, shevchenko.caseNameAccusative);
@@ -145,7 +145,7 @@
     /**
      * Inflect the person first, last and middle names in ablative case.
      *
-     * @param {object} person
+     * @param {Object} person
      * @returns {Object}
      */
     shevchenko.inAblative = (person) => shevchenko(person, shevchenko.caseNameAblative);
@@ -153,7 +153,7 @@
     /**
      * Inflect the person first, last and middle names in locative case.
      *
-     * @param {object} person
+     * @param {Object} person
      * @returns {Object}
      */
     shevchenko.inLocative = (person) => shevchenko(person, shevchenko.caseNameLocative);
@@ -161,7 +161,7 @@
     /**
      * Inflect the person first, last and middle names in vocative case.
      *
-     * @param {object} person
+     * @param {Object} person
      * @returns {Object}
      */
     shevchenko.inVocative = (person) => shevchenko(person, shevchenko.caseNameVocative);
@@ -176,9 +176,9 @@
      *     middleName: "Григорович"
      * }, shevchenko.caseNameVocative);
      *
-     * @param {object} person
+     * @param {Object} person
      * @param {string} caseName
-     * @returns {object}
+     * @returns {Object}
      */
     function shevchenko(person, caseName) {
         validator.validatePersonParameter(person);
@@ -187,21 +187,18 @@
         const result = {};
 
         if (typeof person.lastName === "string") {
-            let mask = stringCaseMask.load(person.lastName);
             let inflectedName = personInflector.inflectLastName(person.gender, person.lastName.toLowerCase(), caseName);
-            result.lastName = stringCaseMask.apply(mask, inflectedName || person.lastName);
+            result.lastName = stringCaseMask.applyByExample(person.lastName, inflectedName || person.lastName);
         }
 
         if (typeof person.firstName === "string") {
-            let mask = stringCaseMask.load(person.firstName);
             let inflectedName = personInflector.inflectFirstName(person.gender, person.firstName.toLowerCase(), caseName);
-            result.firstName = stringCaseMask.apply(mask, inflectedName || person.firstName);
+            result.firstName = stringCaseMask.applyByExample(person.firstName, inflectedName || person.firstName);
         }
 
         if (typeof person.middleName === "string") {
-            let mask = stringCaseMask.load(person.middleName);
             let inflectedName = personInflector.inflectMiddleName(person.gender, person.middleName.toLowerCase(), caseName);
-            result.middleName = stringCaseMask.apply(mask, inflectedName || person.middleName);
+            result.middleName = stringCaseMask.applyByExample(person.middleName, inflectedName || person.middleName);
         }
 
         return result;
@@ -255,7 +252,7 @@
     /**
      * Inflect a value by inflection rule.
      *
-     * @param {object} rule
+     * @param {Object} rule
      * @param {string} caseName
      * @param {string} value
      * @returns {string}
@@ -267,11 +264,11 @@
         return value.replace(new RegExp(regexp, "gm"), (match, ...groups) => {
             let replacement = "";
             const count = inflector.countRegexpGroups(regexp);
-            for (let index = 0; index < count; index++) {
-                replacement += inflector.applyGroupModifier(
-                    typeof modifiers === "undefined" ? modifiers : modifiers[index],
-                    groups[index]
-                );
+            let index = 0;
+            while (index < count) {
+                let modifier = typeof modifiers === "undefined" ? modifiers : modifiers[index];
+                replacement += inflector.applyGroupModifier(modifier, groups[index]);
+                index++;
             }
             return replacement;
         });
@@ -282,7 +279,7 @@
      *
      * @see inflector.inflectByRule
      *
-     * @param {object} modifier
+     * @param {Object} modifier
      * @param {string} value
      * @returns {string}
      */
@@ -401,16 +398,16 @@
      * @param {string} string
      * @returns {Array}
      */
-    stringCaseMask.load = function (string) {
+    stringCaseMask.loadMask = function (string) {
         assert.string(string);
         const mask = [];
-        let pointer = 0;
-        while (pointer < string.length) {
-            let char = string.charAt(pointer);
+        let index = 0;
+        while (index < string.length) {
+            let char = string.charAt(index);
             if (char === char.toUpperCase()) mask.push("u");
             else if (char === char.toLowerCase()) mask.push("l");
             else mask.push(null);
-            pointer++;
+            index++;
         }
         return mask;
     };
@@ -422,17 +419,40 @@
      * @param {string} string
      * @returns {string}
      */
-    stringCaseMask.apply = function (mask, string) {
+    stringCaseMask.applyByMask = function (mask, string) {
         let result = "";
-        let pointer = 0;
-        while (pointer < string.length) {
-            let char = string.charAt(pointer);
-            let charMask = mask[pointer];
+        let index = 0;
+        while (index < string.length) {
+            let char = string.charAt(index);
+            let charMask = mask[index];
             if (typeof charMask === "undefined") charMask = mask[mask.length - 1];
             if (charMask === "u") char = char.toUpperCase();
             else if (charMask === "l") char = char.toLowerCase();
             result += char;
-            pointer++;
+            index++;
+        }
+        return result;
+    };
+
+    /**
+     * Apply the case mask of the example string to the string.
+     *
+     * @param {string} exampleString
+     * @param {string} string
+     * @returns {string}
+     */
+    stringCaseMask.applyByExample = function (exampleString, string) {
+        const mask = stringCaseMask.loadMask(exampleString);
+        let result = "";
+        let index = 0;
+        while (index < string.length) {
+            let char = string.charAt(index);
+            let charMask = mask[index];
+            if (typeof charMask === "undefined") charMask = mask[mask.length - 1];
+            if (charMask === "u") char = char.toUpperCase();
+            else if (charMask === "l") char = char.toLowerCase();
+            result += char;
+            index++;
         }
         return result;
     };
