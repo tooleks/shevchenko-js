@@ -187,27 +187,21 @@
         const result = {};
 
         if (typeof person.lastName === "string") {
+            const mask = caseMask.load(person.lastName);
             result.lastName = inflector.inflectLastName(person.gender, person.lastName.toLowerCase(), caseName);
-            if (typeof result.lastName === "undefined") {
-                result.lastName = person.lastName;
-            }
-            result.lastName = formatter.capitalize(result.lastName);
+            result.lastName = caseMask.apply(mask, result.lastName || person.lastName);
         }
 
         if (typeof person.firstName === "string") {
+            const mask = caseMask.load(person.firstName);
             result.firstName = inflector.inflectFirstName(person.gender, person.firstName.toLowerCase(), caseName);
-            if (typeof result.firstName === "undefined") {
-                result.firstName = person.firstName;
-            }
-            result.firstName = formatter.capitalize(result.firstName);
+            result.firstName = caseMask.apply(mask, result.firstName || person.firstName);
         }
 
         if (typeof person.middleName === "string") {
+            const mask = caseMask.load(person.middleName);
             result.middleName = inflector.inflectMiddleName(person.gender, person.middleName.toLowerCase(), caseName);
-            if (typeof result.middleName === "undefined") {
-                result.middleName = person.middleName;
-            }
-            result.middleName = formatter.capitalize(result.middleName);
+            result.middleName = caseMask.apply(mask, result.middleName || person.middleName);
         }
 
         return result;
@@ -397,16 +391,48 @@
         return (new RegExp(rule.regexp.find, "gm")).test(value);
     };
 
-    const formatter = {};
+    const caseMask = {};
 
-    formatter.capitalize = function (string) {
-        const strings = string.split("-");
-        if (strings.length > 1) {
-            return strings.map((string) => formatter.capitalize(string)).join("-");
+    /**
+     * Load the case mask from the string.
+     *
+     * @param {string} string
+     * @returns {Array}
+     */
+    caseMask.load = function (string) {
+        assert.string(string);
+        const mask = [];
+        let pointer = 0;
+        while (pointer < string.length) {
+            let char = string.charAt(pointer);
+            if (char === char.toUpperCase()) mask.push("u");
+            else if (char === char.toLowerCase()) mask.push("l");
+            else mask.push(null);
+            pointer++;
         }
-        return typeof string === "string"
-            ? string.charAt(0).toUpperCase() + string.slice(1).toLowerCase()
-            : string;
+        return mask;
+    };
+
+    /**
+     * Apply the case mask to the string.
+     *
+     * @param {Array} mask
+     * @param {string} string
+     * @returns {string}
+     */
+    caseMask.apply = function (mask, string) {
+        let result = "";
+        let pointer = 0;
+        while (pointer < string.length) {
+            let char = string.charAt(pointer);
+            let charMask = mask[pointer];
+            if (typeof charMask === "undefined") charMask = mask[mask.length - 1];
+            if (charMask === "u") char = char.toUpperCase();
+            else if (charMask === "l") char = char.toLowerCase();
+            result += char;
+            pointer++;
+        }
+        return result;
     };
 
     if (typeof module !== "undefined" && module.hasOwnProperty("exports")) { // Export for Node.js environment.
