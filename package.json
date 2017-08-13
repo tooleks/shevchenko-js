@@ -1,6 +1,6 @@
 {
   "name": "shevchenko",
-  "version": "0.0.0-alpha.13",
+  "version": "0.0.0-alpha.14",
   "description": "The JavaScript library to inflect Ukrainian first, middle and last names",
   "main": "./dist/shevchenko.js",
   "scripts": {
@@ -10,16 +10,27 @@
   },
   "keywords": [
     "inflection",
+    "відмінювання",
     "ukrainian",
+    "українська",
     "language",
+    "мова",
     "names",
+    "імена",
     "nominative",
+    "називний",
     "genitive",
+    "родовий",
     "dative",
+    "давальний",
     "accusative",
+    "знахідний",
     "ablative",
+    "орудний",
     "locative",
-    "vocative"
+    "місцевий",
+    "vocative",
+    "кличний"
   ],
   "repository": {
     "type": "git",
