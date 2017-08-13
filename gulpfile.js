@@ -1,11 +1,11 @@
 "use strict";
 
+const fs = require("fs");
 const gulp = require("gulp");
 const babel = require("gulp-babel");
 const replace = require("gulp-replace");
 const minify = require("gulp-minify");
 const request = require("request");
-const fs = require("fs");
 
 gulp.task("load:rules", () => {
     request("https://raw.githubusercontent.com/tooleks/shevchenko-rules/master/dist/rules.json")
