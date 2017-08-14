@@ -54,6 +54,46 @@ var shevchenko = require("shevchenko");
 <script type="text/javascript" src="/path/to/shevchenko/dist/shevchenko.min.js"></script>
 ```
 
+### Використання в інших мовах програмування
+
+Щоб використовувати бібліотеку в інших мовах програмування можна скористатися мікросервісом. Для цього встановіть бібліотеку описаним вище способом на веб-сервері з Node.js. Створіть файл за прикладом `./examples/shevchenko-microservice.js`.
+
+```JavaScript
+const shevchenko = require("shevchenko");
+const http = require("http");
+
+const port = process.env.port || 8000;
+
+const server = http.createServer((request, response) => {
+    const chunks = [];
+    request.on("data", (chunk) => chunks.push(chunk));
+    request.on("end", () => {
+        response.setHeader("Content-Type", "application/json");
+        try {
+            const body = JSON.parse(Buffer.concat(chunks));
+            const result = shevchenko(body.person, body.caseName);
+            response.end(JSON.stringify(result));
+        } catch (error) {
+            response.statusCode = 422;
+            response.end(JSON.stringify(error.message));
+        }
+    });
+});
+
+server.listen(port, (error) => {
+    if (error) return console.log("An error was occurred.", error);
+    console.log(`Server is listening on ${port} port.`)
+});
+```
+
+Запустіть сервер командою `node shevchenko-microservice.js`.
+
+Запустіть наступну команду для тестування роботи мікросервіса.
+
+```
+curl --data '{"person":{"gender":"male","lastName":"Шевченко","firstName":"Тарас","middleName":"Григорович"},"caseName":"vocative"}' http://localhost:8000
+```
+
 ### Для розробників
 
 #### Встановлення

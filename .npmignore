@@ -1,5 +1,8 @@
 # The demo page file
 /dist/index.html
 
+# The examples directory
+/examples
+
 # The tests directory
 /tests

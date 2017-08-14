@@ -350,21 +350,21 @@
     const validator = {};
 
     validator.validatePersonParameter = (person) => {
-        assert.object(person, "Invalid person parameter type.");
-        if (!person.hasOwnProperty("gender")) assert.throw("No gender property found in the person parameter.");
-        assert.string(person.gender, "Invalid gender property type provided in the person parameter.");
-        assert.inArray(shevchenko.getGenders(), person.gender, "Invalid gender property value provided in the person parameter.");
+        assert.object(person, "Invalid 'person' type.");
+        if (!person.hasOwnProperty("gender")) assert.throw("Missed 'person.gender' property.");
+        assert.string(person.gender, "Invalid 'person.gender' type.");
+        assert.inArray(shevchenko.getGenders(), person.gender, "Invalid 'person.gender' value.");
         if (!person.hasOwnProperty("firstName") && !person.hasOwnProperty("middleName") && !person.hasOwnProperty("lastName")) {
-            assert.throw("No name properties found in the person parameter.");
+            assert.throw("Missed 'person.lastName', 'person.firstName', 'person.middleName' properties.");
         }
-        if (person.hasOwnProperty("lastName")) assert.string(person.lastName, "Invalid person lastName parameter type.");
-        if (person.hasOwnProperty("firstName")) assert.string(person.firstName, "Invalid person firstName parameter type.");
-        if (person.hasOwnProperty("middleName")) assert.string(person.middleName, "Invalid person middleName parameter type.");
+        if (person.hasOwnProperty("lastName")) assert.string(person.lastName, "Invalid 'person.lastName' type.");
+        if (person.hasOwnProperty("firstName")) assert.string(person.firstName, "Invalid 'person.firstName' type.");
+        if (person.hasOwnProperty("middleName")) assert.string(person.middleName, "Invalid 'person.middleName' type.");
     };
 
     validator.validateCaseNameParameter = (caseName) => {
-        assert.string(caseName, "Invalid caseName parameter type.");
-        assert.inArray(shevchenko.getCaseNames(), caseName, "Invalid caseName parameter value.");
+        assert.string(caseName, "Invalid 'caseName' type.");
+        assert.inArray(shevchenko.getCaseNames(), caseName, "Invalid 'caseName' value.");
     };
 
     const sort = {};
