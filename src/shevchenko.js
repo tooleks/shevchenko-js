@@ -5,7 +5,7 @@
     /**
      * Inflection rules.
      *
-     * @type {Array<object>}
+     * @type {Array<Object>}
      */
     shevchenko.rules = __rules__;
 
@@ -75,7 +75,7 @@
     /**
      * Get available rules.
      *
-     * @returns {Array<object>}
+     * @returns {Array<Object>}
      */
     shevchenko.getRules = () => {
         return shevchenko.rules.slice(0);
