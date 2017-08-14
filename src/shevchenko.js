@@ -416,7 +416,7 @@
     /**
      * Detect if a character is a segment break character.
      *
-     * Used in the double last names such as: "Нечуй-Левицький".
+     * Used in the double last names such as "Нечуй-Левицький", to create case mask segments for each word.
      *
      * @param {string} char
      * @return {boolean}
@@ -450,7 +450,7 @@
         let stringIndex = 0;
         while (stringIndex < string.length) {
             let char = string.charAt(stringIndex++);
-            // If the current character is a segment break character move to the next segment.
+            // If the current character is a segment break character go to the next segment.
             if (stringCaseMask.isSegmentBreakCharacter(char)) {
                 segmentNumber++;
                 continue;
@@ -481,14 +481,14 @@
         let stringIndex = 0;
         while (stringIndex < string.length) {
             let char = string.charAt(stringIndex++);
-            // If the current character is a segment break character move to the next segment and reset the segment index.
+            // If the current character is a segment break character go to the next segment and reset the segment index.
             if (stringCaseMask.isSegmentBreakCharacter(char)) {
                 segmentNumber++;
                 segmentIndex = -1;
             }
             let segment = mask[segmentNumber];
             let charMask = segment[segmentIndex++];
-            // If the string length is bigger than a segment length set the char mask to the last segment mask value.
+            // If the string length is bigger than a segment length set the character mask to the last segment character mask value.
             if (typeof charMask === "undefined") charMask = segment[segment.length - 1];
             // If a character mask equals the upper case identifier convert the character to upper case.
             if (charMask === stringCaseMask.upperCase) char = char.toUpperCase();
