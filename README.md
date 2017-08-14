@@ -24,7 +24,7 @@ console.log(result); // {lastName: 'Шевченку', firstName: 'Тарасе'
 
 #### Доступні методи
 
-- `shevchenko.inVocative(person)` - відмінити в називному відмінку;
+- `shevchenko.inNominative(person)` - відмінити в називному відмінку;
 - `shevchenko.inGenitive(person)`- відмінити в родовому відмінку;
 - `shevchenko.inDative(person)`- відмінити в давальному відмінку;
 - `shevchenko.inAccusative(person)`- відмінити в знахідному відмінку;
@@ -59,8 +59,8 @@ var shevchenko = require("shevchenko");
 Щоб використовувати бібліотеку в інших мовах програмування можна скористатися мікросервісом. Для цього встановіть бібліотеку описаним вище способом на веб-сервері з Node.js. Створіть файл за прикладом `./examples/shevchenko-microservice.js`.
 
 ```JavaScript
-const shevchenko = require("shevchenko");
 const http = require("http");
+const shevchenko = require("shevchenko");
 
 const port = process.env.port || 8000;
 
