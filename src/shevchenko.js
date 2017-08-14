@@ -404,8 +404,8 @@
         let index = 0;
         while (index < string.length) {
             let char = string.charAt(index);
-            if (char === char.toUpperCase()) mask.push("u");
-            else if (char === char.toLowerCase()) mask.push("l");
+            if (char === char.toUpperCase() && char !== char.toLowerCase()) mask.push("u");
+            else if (char === char.toLowerCase() && char !== char.toUpperCase()) mask.push("l");
             else mask.push(null);
             index++;
         }
