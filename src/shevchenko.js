@@ -393,21 +393,40 @@
     const stringCaseMask = {};
 
     /**
+     * Detect if a character is in the upper case.
+     *
+     * @param {string} char
+     */
+    stringCaseMask.isUpperCase = (char) => char === char.toUpperCase() && char !== char.toLowerCase();
+
+    /**
+     * Detect if a character is in the lower case.
+     *
+     * @param {string} char
+     */
+    stringCaseMask.isLowerCase = (char) => char === char.toLowerCase() && char !== char.toUpperCase();
+
+    /**
      * Load the case mask from the string.
      *
      * @param {string} string
-     * @returns {Array}
+     * @returns {Object}
      */
     stringCaseMask.loadMask = (string) => {
         assert.string(string);
-        const mask = [];
+        const mask = {};
+        let segment = 0;
         let index = 0;
         while (index < string.length) {
-            let char = string.charAt(index);
-            if (char === char.toUpperCase() && char !== char.toLowerCase()) mask.push("u");
-            else if (char === char.toLowerCase() && char !== char.toUpperCase()) mask.push("l");
-            else mask.push(null);
-            index++;
+            let char = string.charAt(index++);
+            if (char === "-") {
+                segment++;
+                continue;
+            }
+            if (typeof mask[segment] === "undefined") mask[segment] = [];
+            if (stringCaseMask.isUpperCase(char)) mask[segment].push("u");
+            else if (stringCaseMask.isLowerCase(char)) mask[segment].push("l");
+            else mask[segment].push(null);
         }
         return mask;
     };
@@ -415,21 +434,26 @@
     /**
      * Apply the case mask to the string.
      *
-     * @param {Array} mask
+     * @param {Object} mask
      * @param {string} string
      * @returns {string}
      */
     stringCaseMask.applyByMask = (mask, string) => {
         let result = "";
+        let segment = 0;
+        let segmentIndex = 0;
         let index = 0;
         while (index < string.length) {
-            let char = string.charAt(index);
-            let charMask = mask[index];
-            if (typeof charMask === "undefined") charMask = mask[mask.length - 1];
+            let char = string.charAt(index++);
+            if (char === "-") {
+                segment++;
+                segmentIndex = -1;
+            }
+            let charMask = mask[segment][segmentIndex++];
+            if (typeof charMask === "undefined") charMask = mask[segment][mask[segment].length - 1];
             if (charMask === "u") char = char.toUpperCase();
             else if (charMask === "l") char = char.toLowerCase();
             result += char;
-            index++;
         }
         return result;
     };
@@ -443,18 +467,7 @@
      */
     stringCaseMask.applyByExample = (exampleString, string) => {
         const mask = stringCaseMask.loadMask(exampleString);
-        let result = "";
-        let index = 0;
-        while (index < string.length) {
-            let char = string.charAt(index);
-            let charMask = mask[index];
-            if (typeof charMask === "undefined") charMask = mask[mask.length - 1];
-            if (charMask === "u") char = char.toUpperCase();
-            else if (charMask === "l") char = char.toLowerCase();
-            result += char;
-            index++;
-        }
-        return result;
+        return stringCaseMask.applyByMask(mask, string);
     };
 
     if (typeof module !== "undefined" && module.hasOwnProperty("exports")) { // Export for Node.js environment.

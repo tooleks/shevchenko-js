@@ -408,19 +408,42 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     var stringCaseMask = {};
 
     /**
+     * Detect if a character is in the upper case.
+     *
+     * @param {string} char
+     */
+    stringCaseMask.isUpperCase = function (char) {
+        return char === char.toUpperCase() && char !== char.toLowerCase();
+    };
+
+    /**
+     * Detect if a character is in the lower case.
+     *
+     * @param {string} char
+     */
+    stringCaseMask.isLowerCase = function (char) {
+        return char === char.toLowerCase() && char !== char.toUpperCase();
+    };
+
+    /**
      * Load the case mask from the string.
      *
      * @param {string} string
-     * @returns {Array}
+     * @returns {Object}
      */
     stringCaseMask.loadMask = function (string) {
         assert.string(string);
-        var mask = [];
+        var mask = {};
+        var segment = 0;
         var index = 0;
         while (index < string.length) {
-            var char = string.charAt(index);
-            if (char === char.toUpperCase()) mask.push("u");else if (char === char.toLowerCase()) mask.push("l");else mask.push(null);
-            index++;
+            var char = string.charAt(index++);
+            if (char === "-") {
+                segment++;
+                continue;
+            }
+            if (typeof mask[segment] === "undefined") mask[segment] = [];
+            if (stringCaseMask.isUpperCase(char)) mask[segment].push("u");else if (stringCaseMask.isLowerCase(char)) mask[segment].push("l");else mask[segment].push(null);
         }
         return mask;
     };
@@ -428,20 +451,25 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     /**
      * Apply the case mask to the string.
      *
-     * @param {Array} mask
+     * @param {Object} mask
      * @param {string} string
      * @returns {string}
      */
     stringCaseMask.applyByMask = function (mask, string) {
         var result = "";
+        var segment = 0;
+        var segmentIndex = 0;
         var index = 0;
         while (index < string.length) {
-            var char = string.charAt(index);
-            var charMask = mask[index];
-            if (typeof charMask === "undefined") charMask = mask[mask.length - 1];
+            var char = string.charAt(index++);
+            if (char === "-") {
+                segment++;
+                segmentIndex = -1;
+            }
+            var charMask = mask[segment][segmentIndex++];
+            if (typeof charMask === "undefined") charMask = mask[segment][mask[segment].length - 1];
             if (charMask === "u") char = char.toUpperCase();else if (charMask === "l") char = char.toLowerCase();
             result += char;
-            index++;
         }
         return result;
     };
@@ -455,17 +483,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      */
     stringCaseMask.applyByExample = function (exampleString, string) {
         var mask = stringCaseMask.loadMask(exampleString);
-        var result = "";
-        var index = 0;
-        while (index < string.length) {
-            var char = string.charAt(index);
-            var charMask = mask[index];
-            if (typeof charMask === "undefined") charMask = mask[mask.length - 1];
-            if (charMask === "u") char = char.toUpperCase();else if (charMask === "l") char = char.toLowerCase();
-            result += char;
-            index++;
-        }
-        return result;
+        return stringCaseMask.applyByMask(mask, string);
     };
 
     if (typeof module !== "undefined" && module.hasOwnProperty("exports")) {
