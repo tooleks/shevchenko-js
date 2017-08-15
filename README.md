@@ -91,7 +91,7 @@ server.listen(port, (error) => {
 });
 ```
 
-Запустіть сервіс командою `node shevchenko-microservice.js`. Відтепер бібліотека буде доступна через інтерфейс `HTTP POST` запитів за адресою `http://localhost:8000`.
+Запустити сервіс можна командою `node shevchenko-microservice.js`. Відтоді бібліотека буде доступна через інтерфейс `HTTP POST` запитів за адресою `http://localhost:8000`.
 
 ```
 curl --data '{"person":{"gender":"male","lastName":"Шевченко","firstName":"Тарас","middleName":"Григорович"},"caseName":"vocative"}' http://localhost:8000
