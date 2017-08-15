@@ -56,7 +56,7 @@ var shevchenko = require("shevchenko");
 
 ### Використання в інших мовах програмування
 
-Щоб використовувати бібліотеку в інших мовах програмування можна скористатися мікросервісом. Для цього встановіть бібліотеку описаним вище способом на веб-сервері з Node.js. Створіть файл за прикладом `./examples/shevchenko-microservice.js`.
+Щоб використовувати бібліотеку в інших мовах програмування можна скористатися інтерфейсом мікросервіса. Для цього встановіть бібліотеку описаним вище способом на веб-сервері з Node.js. Створіть файл за прикладом `./examples/shevchenko-microservice.js`.
 
 ```JavaScript
 const http = require("http");
@@ -65,19 +65,24 @@ const shevchenko = require("shevchenko");
 const port = process.env.port || 8000;
 
 const server = http.createServer((request, response) => {
-    const chunks = [];
-    request.on("data", (chunk) => chunks.push(chunk));
-    request.on("end", () => {
-        response.setHeader("Content-Type", "application/json");
-        try {
-            const body = JSON.parse(Buffer.concat(chunks));
-            const result = shevchenko(body.person, body.caseName);
-            response.end(JSON.stringify(result));
-        } catch (error) {
-            response.statusCode = 422;
-            response.end(JSON.stringify(error.message));
-        }
-    });
+    response.setHeader("Content-Type", "application/json");
+    if (request.method === "POST") {
+        const chunks = [];
+        request.on("data", (chunk) => chunks.push(chunk));
+        request.on("end", () => {
+            try {
+                const body = JSON.parse(Buffer.concat(chunks));
+                const result = shevchenko(body.person, body.caseName);
+                response.end(JSON.stringify(result));
+            } catch (error) {
+                response.statusCode = 422;
+                response.end(JSON.stringify(error.message));
+            }
+        });
+    } else {
+        response.statusCode = 405;
+        response.end(JSON.stringify("Method Not Allowed"));
+    }
 });
 
 server.listen(port, (error) => {
@@ -86,9 +91,7 @@ server.listen(port, (error) => {
 });
 ```
 
-Запустіть сервер командою `node shevchenko-microservice.js`.
-
-Запустіть наступну команду для тестування роботи мікросервіса.
+Запустіть сервіс командою `node shevchenko-microservice.js`. Відтепер бібліотека буде доступна через інтерфейс `HTTP POST` запитів за адресою `http://localhost:8000`.
 
 ```
 curl --data '{"person":{"gender":"male","lastName":"Шевченко","firstName":"Тарас","middleName":"Григорович"},"caseName":"vocative"}' http://localhost:8000
