@@ -20,7 +20,7 @@ const validResults = {
         middleName: "сергійовича"
     },
     dative: {
-        lastName: "іваньові",
+        lastName: "іваню",
         firstName: "янушу",
         middleName: "сергійовичу"
     },
@@ -35,7 +35,7 @@ const validResults = {
         middleName: "сергійовичем"
     },
     locative: {
-        lastName: "іваньові",
+        lastName: "іваню",
         firstName: "янушеві",
         middleName: "сергійовичу"
     },
