@@ -26,5 +26,5 @@ const server = http.createServer((request, response) => {
 
 server.listen(port, (error) => {
     if (error) return console.log("An error has occurred.", error);
-    console.log(`Server is listening on ${port} port.`)
+    console.log(`Server is listening on ${port} port.`);
 });
