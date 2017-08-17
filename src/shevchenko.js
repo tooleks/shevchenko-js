@@ -3,111 +3,107 @@
 (() => {
 
     /**
-     * Inflection rules.
-     *
-     * @type {Array<Object>}
-     */
-    shevchenko.rules = __rules__;
-
-    /**
-     * Male gender.
+     * Get a male gender name.
      *
      * @type {string}
      */
-    shevchenko.genderMale = "male";
+    shevchenko.getGenderNameMale = () => "male";
 
     /**
-     * Female gender.
+     * Get a female gender name.
      *
      * @type {string}
      */
-    shevchenko.genderFemale = "female";
+    shevchenko.getGenderNameFemale = () => "female";
 
     /**
-     * Nominative case.
+     * Get nominative case name.
      *
      * @type {string}
      */
-    shevchenko.caseNameNominative = "nominative";
+    shevchenko.getCaseNameNominative = () => "nominative";
 
     /**
-     * Genitive case.
+     * Get a genitive case name.
      *
      * @type {string}
      */
-    shevchenko.caseNameGenitive = "genitive";
+    shevchenko.getCaseNameGenitive = () => "genitive";
 
     /**
-     * Dative case.
+     * Get a dative case name.
      *
      * @type {string}
      */
-    shevchenko.caseNameDative = "dative";
+    shevchenko.getCaseNameDative = () => "dative";
 
     /**
-     * Accusative case.
+     * Get an accusative case name.
      *
      * @type {string}
      */
-    shevchenko.caseNameAccusative = "accusative";
+    shevchenko.getCaseNameAccusative = () => "accusative";
 
     /**
-     * Ablative case.
+     * Get an ablative case name.
      *
      * @type {string}
      */
-    shevchenko.caseNameAblative = "ablative";
+    shevchenko.getCaseNameAblative = () => "ablative";
 
     /**
-     * Locative case.
+     * Get a locative case name.
      *
      * @type {string}
      */
-    shevchenko.caseNameLocative = "locative";
+    shevchenko.getCaseNameLocative = () => "locative";
 
     /**
-     * Vocative case.
+     * Get a vocative case name.
      *
      * @type {string}
      */
-    shevchenko.caseNameVocative = "vocative";
+    shevchenko.getCaseNameVocative = () => "vocative";
 
     /**
-     * Get available rules.
+     * Get an array of rules.
      *
      * @returns {Array<Object>}
      */
     shevchenko.getRules = () => {
-        return shevchenko.rules.slice(0);
+        const rules = __rules__;
+        return rules.slice(0);
     };
 
     /**
-     * Get available genders.
+     * Get an array of available gender names.
      *
      * @returns {Array<string>}
      */
-    shevchenko.getGenders = () => {
-        return [
-            shevchenko.genderMale,
-            shevchenko.genderFemale
+    shevchenko.getGenderNames = () => {
+        const genders = [
+            shevchenko.getGenderNameMale(),
+            shevchenko.getGenderNameFemale(),
         ];
+        return genders.slice(0);
     };
 
     /**
-     * Get available case names.
+     * Get an array of available case names.
      *
      * @returns {Array<string>}
      */
     shevchenko.getCaseNames = () => {
-        return [
-            shevchenko.caseNameNominative,
-            shevchenko.caseNameGenitive,
-            shevchenko.caseNameDative,
-            shevchenko.caseNameAccusative,
-            shevchenko.caseNameAblative,
-            shevchenko.caseNameLocative,
-            shevchenko.caseNameVocative
+        const caseNames = [
+            shevchenko.getCaseNameNominative(),
+            shevchenko.getCaseNameGenitive(),
+            shevchenko.getCaseNameDative(),
+            shevchenko.getCaseNameAccusative(),
+            shevchenko.getCaseNameAblative(),
+            shevchenko.getCaseNameLocative(),
+            shevchenko.getCaseNameVocative(),
         ];
+        return caseNames.slice(0);
     };
 
     /**
@@ -116,7 +112,7 @@
      * @param {Object} person
      * @returns {Object}
      */
-    shevchenko.inNominative = (person) => shevchenko(person, shevchenko.caseNameNominative);
+    shevchenko.inNominative = (person) => shevchenko(person, shevchenko.getCaseNameNominative());
 
     /**
      * Inflect the person first, last and middle names in genitive case.
@@ -124,7 +120,7 @@
      * @param {Object} person
      * @returns {Object}
      */
-    shevchenko.inGenitive = (person) => shevchenko(person, shevchenko.caseNameGenitive);
+    shevchenko.inGenitive = (person) => shevchenko(person, shevchenko.getCaseNameGenitive());
 
     /**
      * Inflect the person first, last and middle names in dative case.
@@ -132,7 +128,7 @@
      * @param {Object} person
      * @returns {Object}
      */
-    shevchenko.inDative = (person) => shevchenko(person, shevchenko.caseNameDative);
+    shevchenko.inDative = (person) => shevchenko(person, shevchenko.getCaseNameDative());
 
     /**
      * Inflect the person first, last and middle names in accusative case.
@@ -140,7 +136,7 @@
      * @param {Object} person
      * @returns {Object}
      */
-    shevchenko.inAccusative = (person) => shevchenko(person, shevchenko.caseNameAccusative);
+    shevchenko.inAccusative = (person) => shevchenko(person, shevchenko.getCaseNameAccusative());
 
     /**
      * Inflect the person first, last and middle names in ablative case.
@@ -148,7 +144,7 @@
      * @param {Object} person
      * @returns {Object}
      */
-    shevchenko.inAblative = (person) => shevchenko(person, shevchenko.caseNameAblative);
+    shevchenko.inAblative = (person) => shevchenko(person, shevchenko.getCaseNameAblative());
 
     /**
      * Inflect the person first, last and middle names in locative case.
@@ -156,7 +152,7 @@
      * @param {Object} person
      * @returns {Object}
      */
-    shevchenko.inLocative = (person) => shevchenko(person, shevchenko.caseNameLocative);
+    shevchenko.inLocative = (person) => shevchenko(person, shevchenko.getCaseNameLocative());
 
     /**
      * Inflect the person first, last and middle names in vocative case.
@@ -164,7 +160,7 @@
      * @param {Object} person
      * @returns {Object}
      */
-    shevchenko.inVocative = (person) => shevchenko(person, shevchenko.caseNameVocative);
+    shevchenko.inVocative = (person) => shevchenko(person, shevchenko.getCaseNameVocative());
 
     /**
      * Inflect the person first, last and middle names.
@@ -353,7 +349,7 @@
         assert.object(person, "Invalid 'person' type.");
         if (!person.hasOwnProperty("gender")) assert.throw("Missed 'person.gender' property.");
         assert.string(person.gender, "Invalid 'person.gender' type.");
-        assert.inArray(shevchenko.getGenders(), person.gender, "Invalid 'person.gender' value.");
+        assert.inArray(shevchenko.getGenderNames(), person.gender, "Invalid 'person.gender' value.");
         if (!person.hasOwnProperty("firstName") && !person.hasOwnProperty("middleName") && !person.hasOwnProperty("lastName")) {
             assert.throw("Missed 'person.lastName', 'person.firstName', 'person.middleName' properties.");
         }

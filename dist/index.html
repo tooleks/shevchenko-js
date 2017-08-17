@@ -226,7 +226,8 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
 
         function inflect(person, successCallback) {
             shevchenko.getCaseNames().forEach(function (caseName) {
-                var result = shevchenko(person, caseName);
+                var methodName = "in" + caseName.charAt(0).toUpperCase() + caseName.slice(1);
+                var result = shevchenko[methodName](person);
                 successCallback(person, caseName, result);
             });
         }

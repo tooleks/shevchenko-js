@@ -12,9 +12,9 @@ describe("shevchenko", () => {
         });
     });
 
-    describe("#shevchenko.getGenders()", () => {
+    describe("#shevchenko.getGenderNames()", () => {
         it("should return valid values", () => {
-            const genders = shevchenko.getGenders();
+            const genders = shevchenko.getGenderNames();
             const validGenders = ["male", "female"];
             assert.equal(genders.join(","), validGenders.join(","));
         });
@@ -22,7 +22,7 @@ describe("shevchenko", () => {
 
     describe("#shevchenko.getCaseNames()", () => {
         it("should return valid values", () => {
-            const caseNames = shevchenko.getCaseNames();
+            const getCaseNames = shevchenko.getCaseNames();
             const validCaseNames = [
                 "nominative",
                 "genitive",
@@ -32,7 +32,7 @@ describe("shevchenko", () => {
                 "locative",
                 "vocative"
             ];
-            assert.equal(caseNames.join(","), validCaseNames.join(","));
+            assert.equal(getCaseNames.join(","), validCaseNames.join(","));
         });
     });
 
@@ -53,7 +53,7 @@ describe("shevchenko", () => {
             assert.throws(() => {
                 shevchenko({
                     gender: "bmale"
-                }, shevchenko.caseNameGenitive);
+                }, shevchenko.getCaseNameGenitive());
             }, Error);
         });
 
@@ -61,7 +61,7 @@ describe("shevchenko", () => {
             assert.throws(() => {
                 shevchenko({
                     gender: "male"
-                }, shevchenko.caseNameGenitive);
+                }, shevchenko.getCaseNameGenitive());
             }, Error);
         });
 
@@ -72,7 +72,7 @@ describe("shevchenko", () => {
                     lastName: undefined,
                     firstName: undefined,
                     middleName: undefined
-                }, shevchenko.caseNameGenitive)
+                }, shevchenko.getCaseNameGenitive())
             }, Error);
         });
 
@@ -83,7 +83,7 @@ describe("shevchenko", () => {
                     lastName: "Шевченко",
                     firstName: undefined,
                     middleName: undefined
-                }, shevchenko.caseNameGenitive)
+                }, shevchenko.getCaseNameGenitive())
             }, Error);
         });
 
@@ -94,7 +94,7 @@ describe("shevchenko", () => {
                     lastName: "Шевченко",
                     firstName: "Тарас",
                     middleName: undefined
-                }, shevchenko.caseNameGenitive)
+                }, shevchenko.getCaseNameGenitive())
             }, Error);
         });
 
@@ -104,7 +104,7 @@ describe("shevchenko", () => {
                 lastName: "Шевченко",
                 firstName: "Тарас",
                 middleName: "Григорович"
-            }, shevchenko.caseNameGenitive);
+            }, shevchenko.getCaseNameGenitive());
             assert(typeof result.lastName === "string");
             assert(typeof result.firstName === "string");
             assert(typeof result.middleName === "string");
@@ -114,7 +114,7 @@ describe("shevchenko", () => {
             const result = shevchenko({
                 gender: "male",
                 lastName: "Шевченко"
-            }, shevchenko.caseNameGenitive);
+            }, shevchenko.getCaseNameGenitive());
             assert(typeof result.lastName === "string");
         });
 
@@ -122,7 +122,7 @@ describe("shevchenko", () => {
             const result = shevchenko({
                 gender: "male",
                 firstName: "Тарас"
-            }, shevchenko.caseNameGenitive);
+            }, shevchenko.getCaseNameGenitive());
             assert(typeof result.firstName === "string");
         });
 
@@ -130,7 +130,7 @@ describe("shevchenko", () => {
             const result = shevchenko({
                 gender: "male",
                 middleName: "Григорович"
-            }, shevchenko.caseNameGenitive);
+            }, shevchenko.getCaseNameGenitive());
             assert(typeof result.middleName === "string");
         });
     });
