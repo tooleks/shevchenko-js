@@ -170,7 +170,7 @@
      *     lastName: "Шевченко",
      *     firstName: "Тарас",
      *     middleName: "Григорович"
-     * }, shevchenko.caseNameVocative);
+     * }, shevchenko.getCaseNameVocative());
      *
      * @param {Object} person
      * @param {string} caseName

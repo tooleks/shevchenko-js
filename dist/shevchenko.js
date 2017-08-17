@@ -193,7 +193,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      *     lastName: "Шевченко",
      *     firstName: "Тарас",
      *     middleName: "Григорович"
-     * }, shevchenko.caseNameVocative);
+     * }, shevchenko.getCaseNameVocative());
      *
      * @param {Object} person
      * @param {string} caseName
