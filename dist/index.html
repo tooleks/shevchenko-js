@@ -48,7 +48,8 @@
                 <ul class="nav navbar-nav">
                     <li><a href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM пакет</a></li>
                     <li><a href="#demo">Демо</a></li>
-                    <li><a href="#documentation">Документація</a></li>
+                    <li><a href="https://github.com/tooleks/shevchenko-js#Використання"
+                           target="_blank">Документація</a></li>
                     <li><a href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE"
                            target="_blank">Ліцензія</a></li>
                     <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Звіт про помилку <span
@@ -182,24 +183,24 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <h2 id="documentation">Документація</h2>
+            <h2 id="documentation">Документація <a href="https://github.com/tooleks/shevchenko-js#Використання"
+                                                   target="_blank"
+                                                   class="btn btn-default">Повна версія</a></h2>
             <hr>
             <h3 id="usage">Використання</h3>
-            <div id="usage-code">
-                var shevchenko = require("shevchenko");
+            <pre>var <var>person</var> = {
+    gender: "male", // or "female"
+    lastName: "Шевченко",
+    firstName: "Тарас",
+    middleName: "Григорович"
+};
 
-                var person = {
-                    gender: "male", // or "female"
-                    lastName: "Шевченко",
-                    firstName: "Тарас",
-                    middleName: "Григорович"
-                };
+var <var>result</var> = shevchenko.inVocative(<var>person</var>);
 
-                var result = shevchenko.inVocative(person);
-            </div>
-            <a href="https://github.com/tooleks/shevchenko-js#Використання"
+console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Тарасе', middleName: 'Григоровичу'}</pre>
+            <a href="https://npm.runkit.com/shevchenko"
                target="_blank"
-               class="btn btn-primary">Детальніше</a>
+               class="btn btn-default">Спробувати</a>
             <h3>Встановлення</h3>
             <pre>npm install --save shevchenko</pre>
             <h3>Підключення</h3>
@@ -214,7 +215,6 @@
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-<script src="https://embed.runkit.com" data-element-id="usage-code"></script>
 <script src="shevchenko.min.js"></script>
 <script type="text/javascript">
     (function () {
