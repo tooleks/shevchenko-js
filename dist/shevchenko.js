@@ -96,17 +96,17 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
     };
 
     /**
-     * Get an array of available gender names.
+     * Get an array of gender names.
      *
      * @returns {Array<string>}
      */
     shevchenko.getGenderNames = function () {
-        var genders = [shevchenko.getGenderNameMale(), shevchenko.getGenderNameFemale()];
-        return genders.slice(0);
+        var genderNames = [shevchenko.getGenderNameMale(), shevchenko.getGenderNameFemale()];
+        return genderNames.slice(0);
     };
 
     /**
-     * Get an array of available case names.
+     * Get an array of case names.
      *
      * @returns {Array<string>}
      */

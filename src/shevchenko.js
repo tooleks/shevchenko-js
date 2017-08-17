@@ -76,20 +76,20 @@
     };
 
     /**
-     * Get an array of available gender names.
+     * Get an array of gender names.
      *
      * @returns {Array<string>}
      */
     shevchenko.getGenderNames = () => {
-        const genders = [
+        const genderNames = [
             shevchenko.getGenderNameMale(),
             shevchenko.getGenderNameFemale(),
         ];
-        return genders.slice(0);
+        return genderNames.slice(0);
     };
 
     /**
-     * Get an array of available case names.
+     * Get an array of case names.
      *
      * @returns {Array<string>}
      */
