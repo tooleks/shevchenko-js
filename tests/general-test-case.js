@@ -1,9 +1,9 @@
 const assert = require("assert");
 const shevchenko = require("../dist/shevchenko");
 
-describe("shevchenko", () => {
+describe("#shevchenko() general", () => {
 
-    describe("#shevchenko.getRules()", () => {
+    describe("shevchenko.getRules()", () => {
         it("should return a new instance of array on every call", () => {
             const rules = shevchenko.getRules();
             assert(rules instanceof Array);
@@ -12,17 +12,29 @@ describe("shevchenko", () => {
         });
     });
 
-    describe("#shevchenko.getGenderNames()", () => {
+    describe("shevchenko.getGenderNames()", () => {
+        it("should return a new instance of array on every call", () => {
+            const genderNames = shevchenko.getGenderNames();
+            genderNames.push({});
+            assert(shevchenko.getGenderNames().length === genderNames.length - 1);
+        });
+
         it("should return valid values", () => {
-            const genders = shevchenko.getGenderNames();
+            const genderNames = shevchenko.getGenderNames();
             const validGenders = ["male", "female"];
-            assert.equal(genders.join(","), validGenders.join(","));
+            assert.equal(genderNames.join(","), validGenders.join(","));
         });
     });
 
-    describe("#shevchenko.getCaseNames()", () => {
+    describe("shevchenko.getCaseNames()", () => {
+        it("should return a new instance of array on every call", () => {
+            const caseNames = shevchenko.getCaseNames();
+            caseNames.push({});
+            assert(shevchenko.getCaseNames().length === caseNames.length - 1);
+        });
+
         it("should return valid values", () => {
-            const getCaseNames = shevchenko.getCaseNames();
+            const caseNames = shevchenko.getCaseNames();
             const validCaseNames = [
                 "nominative",
                 "genitive",
@@ -32,11 +44,11 @@ describe("shevchenko", () => {
                 "locative",
                 "vocative"
             ];
-            assert.equal(getCaseNames.join(","), validCaseNames.join(","));
+            assert.equal(caseNames.join(","), validCaseNames.join(","));
         });
     });
 
-    describe("#shevchenko()", () => {
+    describe("shevchenko()", () => {
         it("should throw an error", () => {
             assert.throws(() => {
                 shevchenko();

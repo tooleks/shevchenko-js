@@ -1,5 +1,4 @@
-const assert = require("assert");
-const testInflections = require("../helpers").testInflections;
+const testInflections = require("../helpers/test-inflections");
 
 const person = {
     gender: "male",
