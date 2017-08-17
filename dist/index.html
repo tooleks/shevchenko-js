@@ -58,11 +58,12 @@
             </div>
         </div>
     </nav>
-    <div id="home" class="jumbotron">
+        <div id="home" class="jumbotron">
         <h1>shevchenko</h1>
         <p>JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові</p>
         <p>
-            <a class="btn btn-lg btn-primary" href="#demo" role="button">Спробувати »</a>
+            <a class="btn btn-lg btn-primary" href="#demo" role="button">Демо</a>
+            <a class="btn btn-lg btn-default" href="#usage" role="button">Використання</a>
         </p>
     </div>
     <div class="row">
@@ -111,7 +112,7 @@
                                    id="middleName"
                                    placeholder="Григорович">
                         </div>
-                        <button type="submit" class="btn btn-primary">Відмінити</button>
+                        <button type="submit" class="btn btn-primary">Провідміняти</button>
                     </form>
                 </div>
             </div>
@@ -183,17 +184,19 @@
         <div class="col-sm-12">
             <h2 id="documentation">Документація</h2>
             <hr>
-            <h3>Використання</h3>
-            <pre>var <var>person</var> = {
-    gender: "male", // or "female"
-    lastName: "Шевченко",
-    firstName: "Тарас",
-    middleName: "Григорович"
-};
+            <h3 id="usage">Використання</h3>
+            <div id="usage-code">
+                var shevchenko = require("shevchenko");
 
-var <var>result</var> = shevchenko.inVocative(<var>person</var>);
+                var person = {
+                    gender: "male", // or "female"
+                    lastName: "Шевченко",
+                    firstName: "Тарас",
+                    middleName: "Григорович"
+                };
 
-console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Тарасе', middleName: 'Григоровичу'}</pre>
+                var result = shevchenko.inVocative(person);
+            </div>
             <a href="https://github.com/tooleks/shevchenko-js#Використання"
                target="_blank"
                class="btn btn-primary">Детальніше</a>
@@ -211,6 +214,7 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
+<script src="https://embed.runkit.com" data-element-id="usage-code"></script>
 <script src="shevchenko.min.js"></script>
 <script type="text/javascript">
     (function () {
@@ -264,10 +268,10 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
         $("#inflection-form").submit(function (event) {
             event.preventDefault();
             var person = buildPerson(
-                $("[name=gender]:checked").val(),
-                $("[name=lastName]").val(),
-                $("[name=firstName]").val(),
-                $("[name=middleName]").val()
+                $("[name=gender]:checked").val().trim(),
+                $("[name=lastName]").val().trim(),
+                $("[name=firstName]").val().trim(),
+                $("[name=middleName]").val().trim()
             );
             inflect(person, setInflectionResult);
         });
