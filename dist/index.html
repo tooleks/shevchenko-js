@@ -55,13 +55,13 @@
                     <li><a href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE"
                            target="_blank">Ліцензія</a></li>
                     <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Звіт про помилку <span
-                            id="issuesCount" class="badge">0</span></a>
+                            id="issuesCount" class="label label-success">0</span></a>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
-        <div id="home" class="jumbotron">
+    <div id="home" class="jumbotron">
         <h1>shevchenko</h1>
         <p>JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові</p>
         <p>
@@ -259,7 +259,13 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
         }
 
         function setIssuesCount(value) {
-            $("#issuesCount").text(parseInt(value));
+            value = parseInt(value);
+            var issuesCountSelector = $("#issuesCount");
+            issuesCountSelector.text(value);
+            if (value > 0) {
+                issuesCountSelector.addClass("label-danger");
+                issuesCountSelector.removeClass("label-success");
+            }
         }
 
         $(document).ready(function () {
