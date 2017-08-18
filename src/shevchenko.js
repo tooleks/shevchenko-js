@@ -169,9 +169,9 @@
      * @return {Object}
      */
     shevchenko.inAll = (person) => {
-        const result = {};
-        shevchenko.getCaseNames().forEach((caseName) => result[caseName] = shevchenko(person, caseName));
-        return result;
+        const results = {};
+        shevchenko.getCaseNames().forEach((caseName) => results[caseName] = shevchenko(person, caseName));
+        return results;
     };
 
     /**

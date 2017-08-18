@@ -192,11 +192,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
      * @return {Object}
      */
     shevchenko.inAll = function (person) {
-        var result = {};
+        var results = {};
         shevchenko.getCaseNames().forEach(function (caseName) {
-            return result[caseName] = shevchenko(person, caseName);
+            return results[caseName] = shevchenko(person, caseName);
         });
-        return result;
+        return results;
     };
 
     /**
