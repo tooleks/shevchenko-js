@@ -231,11 +231,12 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
         }
 
         function inflect(person, successCallback) {
-            shevchenko.getCaseNames().forEach(function (caseName) {
-                var methodName = "in" + caseName.charAt(0).toUpperCase() + caseName.slice(1);
-                var result = shevchenko[methodName](person);
-                successCallback(person, caseName, result);
-            });
+            const results = shevchenko.inAll(person);
+            for (let caseName in results) {
+                if (results.hasOwnProperty(caseName)) {
+                    successCallback(person, caseName, results[caseName]);
+                }
+            }
         }
 
         function setInflectionResult(person, caseName, result) {
