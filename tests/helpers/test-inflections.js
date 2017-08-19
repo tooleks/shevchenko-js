@@ -1,5 +1,5 @@
 const assert = require("assert");
-const shevchenko = require("../../dist/shevchenko");
+const shevchenko = require("../../dist/module/shevchenko");
 
 function testInflection(person, caseName, validResult) {
     it("should inflect correctly \"" + person.lastName + " " + person.firstName + " " + person.middleName + "\" in " + caseName + " case\" via \"in\" method", () => {

@@ -6,6 +6,9 @@
 
 [http://shevchenko-js.tooleks.com/#demo](http://shevchenko-js.tooleks.com/#demo)
 
+### Опис
+
+Бібліотека використовує набір правил відмінювання із [репозиторія](https://github.com/tooleks/shevchenko-rules). Для неоднозначних слів, з точки зору частин мови та будови, використовується [нейронна мережа прямого розповсюдження](https://en.wikipedia.org/wiki/Feedforward_neural_network), навчена на більш як 1500 словах, яка визначає частину мови слова. Наприклад, бібліотека зможе коректно відмінити жіночі прізвища Диня - Дині (що є іменником) та Синя - Синьої (що є прикметником), хоч і ці слова на 75% однакові.
 
 ### Використання
 
@@ -51,7 +54,7 @@ var shevchenko = require("shevchenko");
 #### Браузер
 
 ```HTML
-<script type="text/javascript" src="/path/to/shevchenko/dist/shevchenko.min.js"></script>
+<script type="text/javascript" src="/path/to/shevchenko/module/shevchenko.min.js"></script>
 ```
 
 ### Використання в інших мовах програмування
@@ -96,19 +99,3 @@ server.listen(port, (error) => {
 ```
 curl --data '{"person":{"gender":"male","lastName":"Шевченко","firstName":"Тарас","middleName":"Григорович"},"caseName":"vocative"}' http://localhost:8000
 ```
-
-### Для розробників
-
-#### Встановлення
-
-Запустіть наступну команду (в директорії `./`) для встановлення залежностей.
-
-```
-npm install
-```
-
-#### Доступні команди
-
-- `npm run load:rules` - завантажити актуальний набір правил відмінювання з [репозиторія](https://github.com/tooleks/shevchenko-rules);
-- `npm run build` - побудувати вихідні файли в директорію `./dist/`;
-- `npm run test` - запустити тести.

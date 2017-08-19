@@ -4,5 +4,14 @@
 # The examples directory
 /examples
 
+# The neural network directory
+/neural-network
+
+# The source files directory
+/src
+
 # The tests directory
 /tests
+
+# The rules source file
+/rules.json

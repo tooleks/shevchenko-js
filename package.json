@@ -1,12 +1,12 @@
 {
   "name": "shevchenko",
-  "version": "0.0.0-alpha.36",
+  "version": "0.0.0-beta.1",
   "description": "The JavaScript library to inflect Ukrainian first, middle and last names",
-  "main": "./dist/shevchenko.js",
+  "main": "./dist/module/shevchenko.js",
   "scripts": {
     "load:rules": "gulp load:rules",
-    "build": "gulp build && gulp minify",
-    "test": "./node_modules/mocha/bin/mocha --recursive tests"
+    "build": "gulp clear && gulp build && gulp minify",
+    "test": "./node_modules/mocha/bin/mocha --recursive --timeout 5000 tests"
   },
   "keywords": [
     "inflection",
@@ -51,9 +51,14 @@
     "babel-preset-env": "^1.6.0",
     "gulp": "^3.9.1",
     "gulp-babel": "^7.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-clean": "^0.3.2",
     "gulp-minify": "^1.0.0",
     "gulp-replace": "^0.6.1",
     "mocha": "^3.5.0",
     "request": "^2.81.0"
+  },
+  "dependencies": {
+    "synaptic": "^1.0.12"
   }
 }
