@@ -55,7 +55,7 @@
                     <li><a href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE"
                            target="_blank">Ліцензія</a></li>
                     <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Звіт про помилку <span
-                            id="issuesCount" class="label label-success">0</span></a>
+                            id="issuesCount" class="badge">0</span></a>
                     </li>
                 </ul>
             </div>
@@ -209,6 +209,8 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
             <h4>Node.js</h4>
             <pre>var <var>shevchenko</var> = require("shevchenko");</pre>
             <h4>Браузер</h4>
+            <p class="alert alert-warning"><strong>Увага!</strong> З огляду на те, що бібліотека містить в собі велику кількість правил та цілу структуру
+                нейромережі, при використанні в браузері можуть виникати проблеми зі швидкодією.</p>
             <pre><&zwj;script type="text/javascript" src="/path/to/shevchenko/dist/shevchenko.min.js"><&zwj;/script></pre>
         </div>
     </div>
@@ -260,13 +262,7 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
         }
 
         function setIssuesCount(value) {
-            value = parseInt(value);
-            var issuesCountSelector = $("#issuesCount");
-            issuesCountSelector.text(value);
-            if (value > 0) {
-                issuesCountSelector.addClass("label-danger");
-                issuesCountSelector.removeClass("label-success");
-            }
+            $("#issuesCount").text(parseInt(value));
         }
 
         $(document).ready(function () {
