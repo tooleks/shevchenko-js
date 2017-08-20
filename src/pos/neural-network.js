@@ -2,9 +2,13 @@
 
 const synaptic = require("synaptic");
 
-const pos = {
-    noun: [1, 0],
+const NETWORK_LAYER_SIZE_INPUT = 360;
+const NETWORK_LAYER_SIZE_HIDDEN = 100;
+const NETWORK_LAYER_SIZE_OUTPUT = 2;
+
+const POS = {
     adjective: [0, 1],
+    noun: [1, 0],
 };
 
 /**
@@ -42,18 +46,18 @@ function NeuralNetwork(structure) {
  * @return {Object}
  */
 NeuralNetwork.build = (samples, options) => {
-    const network = new synaptic.Architect.Perceptron(__pos_neural_network_input_layer_size__, 100, NeuralNetwork.getPos().length);
+    const network = new synaptic.Architect.Perceptron(NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT);
     const trainer = new synaptic.Trainer(network);
     trainer.train(samples, options);
     return network.toJSON();
 };
 
 /**
- * Get an array of part of speech.
+ * Get an array of part of speech names.
  *
  * @return {Array<string>}
  */
-NeuralNetwork.getPos = () => Object.keys(pos);
+NeuralNetwork.getPosNames = () => Object.keys(POS);
 
 /**
  * Normalize the input for the neural network. Human-readable -> Machine-readable.
@@ -76,7 +80,7 @@ NeuralNetwork.normalizeInput = (value) => {
      * @param {string} symbol
      * @return {string}
      */
-    const stringFillLeft = (string, length = __pos_neural_network_input_layer_size__, symbol = "0") => {
+    const stringFillLeft = (string, length = NETWORK_LAYER_SIZE_INPUT, symbol = "0") => {
         const filler = (new Array(length + 1)).join(symbol);
         return filler.substring(0, filler.length - string.length) + string;
     };
@@ -90,7 +94,7 @@ NeuralNetwork.normalizeInput = (value) => {
  * @param {string} value
  * @return {Array<number>|null}
  */
-NeuralNetwork.normalizeOutput = (value) => pos[value];
+NeuralNetwork.normalizeOutput = (value) => POS[value];
 
 /**
  * Denormalize the output of the neural network. Machine-readable -> Human-readable.
@@ -101,8 +105,8 @@ NeuralNetwork.normalizeOutput = (value) => pos[value];
 NeuralNetwork.denormalizeOutput = (value) => {
     const maxValueIndex = value.reduce((accumulator, value, index, array) => (value > array[accumulator]) ? index : accumulator, 0);
     const normalizedValue = value.map((value, index) => Number(index === maxValueIndex));
-    const posIndex = Object.values(pos).map((value) => value.join("")).indexOf(normalizedValue.join(""));
-    return Object.keys(pos)[posIndex];
+    const posIndex = Object.values(POS).map((value) => value.join("")).indexOf(normalizedValue.join(""));
+    return Object.keys(POS)[posIndex];
 };
 
 module.exports = NeuralNetwork;

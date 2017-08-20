@@ -316,7 +316,7 @@ function inflectMiddleName(gender, middleName, caseName) {
 }
 
 module.exports = shevchenko;
-}).call(this,_dereq_("rH1JPG"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},_dereq_("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_7752b724.js","/")
+}).call(this,_dereq_("rH1JPG"),typeof self !== "undefined" ? self : typeof window !== "undefined" ? window : {},_dereq_("buffer").Buffer,arguments[3],arguments[4],arguments[5],arguments[6],"/fake_9fd2418f.js","/")
 },{"./helpers":3,"./pos":5,"./rules":9,"buffer":13,"rH1JPG":15}],2:[function(_dereq_,module,exports){
 (function (process,global,Buffer,__argument0,__argument1,__argument2,__argument3,__filename,__dirname){
 "use strict";
@@ -561,9 +561,13 @@ module.exports = {
 
 var synaptic = _dereq_("synaptic");
 
-var pos = {
-  noun: [1, 0],
-  adjective: [0, 1]
+var NETWORK_LAYER_SIZE_INPUT = 360;
+var NETWORK_LAYER_SIZE_HIDDEN = 100;
+var NETWORK_LAYER_SIZE_OUTPUT = 2;
+
+var POS = {
+  adjective: [0, 1],
+  noun: [1, 0]
 };
 
 /**
@@ -603,19 +607,19 @@ function NeuralNetwork(structure) {
  * @return {Object}
  */
 NeuralNetwork.build = function (samples, options) {
-  var network = new synaptic.Architect.Perceptron(360, 100, NeuralNetwork.getPos().length);
+  var network = new synaptic.Architect.Perceptron(NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT);
   var trainer = new synaptic.Trainer(network);
   trainer.train(samples, options);
   return network.toJSON();
 };
 
 /**
- * Get an array of part of speech.
+ * Get an array of part of speech names.
  *
  * @return {Array<string>}
  */
-NeuralNetwork.getPos = function () {
-  return Object.keys(pos);
+NeuralNetwork.getPosNames = function () {
+  return Object.keys(POS);
 };
 
 /**
@@ -642,7 +646,7 @@ NeuralNetwork.normalizeInput = function (value) {
    * @return {string}
    */
   var stringFillLeft = function stringFillLeft(string) {
-    var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 360;
+    var length = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : NETWORK_LAYER_SIZE_INPUT;
     var symbol = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "0";
 
     var filler = new Array(length + 1).join(symbol);
@@ -659,7 +663,7 @@ NeuralNetwork.normalizeInput = function (value) {
  * @return {Array<number>|null}
  */
 NeuralNetwork.normalizeOutput = function (value) {
-  return pos[value];
+  return POS[value];
 };
 
 /**
@@ -675,10 +679,10 @@ NeuralNetwork.denormalizeOutput = function (value) {
   var normalizedValue = value.map(function (value, index) {
     return Number(index === maxValueIndex);
   });
-  var posIndex = Object.values(pos).map(function (value) {
+  var posIndex = Object.values(POS).map(function (value) {
     return value.join("");
   }).indexOf(normalizedValue.join(""));
-  return Object.keys(pos)[posIndex];
+  return Object.keys(POS)[posIndex];
 };
 
 module.exports = NeuralNetwork;

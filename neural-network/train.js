@@ -4,7 +4,7 @@ const fs = require("fs");
 const NeuralNetwork = require("../dist/module/pos/neural-network");
 
 const samples = require("./input/pos.json")
-    .filter((sample) => NeuralNetwork.getPos().indexOf(sample.pos) !== -1)
+    .filter((sample) => NeuralNetwork.getPosNames().indexOf(sample.pos) !== -1)
     .map((sample) => {
         return {
             input: NeuralNetwork.normalizeInput(sample.value),
