@@ -2,7 +2,7 @@
 
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
-var Assert = {};
+var assert = {};
 
 /**
  * Assert than a value is a string.
@@ -10,10 +10,10 @@ var Assert = {};
  * @param value
  * @param {string|null} errorMessage
  */
-Assert.number = function (value) {
+assert.number = function (value) {
   var errorMessage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-  if (typeof value !== "number") Assert.throw(errorMessage);
+  if (typeof value !== "number") assert.throw(errorMessage);
 };
 
 /**
@@ -22,10 +22,10 @@ Assert.number = function (value) {
  * @param value
  * @param {string|null} errorMessage
  */
-Assert.string = function (value) {
+assert.string = function (value) {
   var errorMessage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-  if (typeof value !== "string") Assert.throw(errorMessage);
+  if (typeof value !== "string") assert.throw(errorMessage);
 };
 
 /**
@@ -34,10 +34,10 @@ Assert.string = function (value) {
  * @param value
  * @param {string|null} errorMessage
  */
-Assert.object = function (value) {
+assert.object = function (value) {
   var errorMessage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-  if ((typeof value === "undefined" ? "undefined" : _typeof(value)) !== "object") Assert.throw(errorMessage);
+  if ((typeof value === "undefined" ? "undefined" : _typeof(value)) !== "object") assert.throw(errorMessage);
 };
 
 /**
@@ -46,10 +46,10 @@ Assert.object = function (value) {
  * @param value
  * @param {string|null} errorMessage
  */
-Assert.array = function (value) {
+assert.array = function (value) {
   var errorMessage = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
 
-  if (!(value instanceof Array)) Assert.throw(errorMessage);
+  if (!(value instanceof Array)) assert.throw(errorMessage);
 };
 
 /**
@@ -59,10 +59,10 @@ Assert.array = function (value) {
  * @param value
  * @param {string|null} errorMessage
  */
-Assert.inArray = function (array, value) {
+assert.inArray = function (array, value) {
   var errorMessage = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : null;
 
-  if (array.indexOf(value) === -1) Assert.throw(errorMessage);
+  if (array.indexOf(value) === -1) assert.throw(errorMessage);
 };
 
 /**
@@ -70,8 +70,8 @@ Assert.inArray = function (array, value) {
  *
  * @param {string|null} errorMessage
  */
-Assert.throw = function (errorMessage) {
+assert.throw = function (errorMessage) {
   throw new Error(errorMessage || "Invalid value.");
 };
 
-module.exports = Assert;
+module.exports = assert;

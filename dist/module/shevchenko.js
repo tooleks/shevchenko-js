@@ -1,14 +1,14 @@
 "use strict";
 
-var Helpers = require("./helpers");
-var Rules = require("./rules");
-var Pos = require("./pos");
+var helpers = require("./helpers");
+var rules = require("./rules");
+var pos = require("./pos");
 
-var Assert = Helpers.Assert;
-var StringCaseMask = Helpers.StringCaseMask;
-var Inflector = Rules.Inflector;
-var Filter = Rules.Filter;
-var Sort = Rules.Sort;
+var assert = helpers.assert;
+var stringCaseMask = helpers.stringCaseMask;
+var inflector = rules.inflector;
+var filter = rules.filter;
+var sort = rules.sort;
 
 /**
  * Get a male gender name.
@@ -227,38 +227,38 @@ function shevchenko(person, caseName) {
 
   if (typeof person.lastName === "string") {
     var inflectedName = inflectLastName(person.gender, person.lastName.toLowerCase(), caseName);
-    result.lastName = StringCaseMask.applyByExample(person.lastName, inflectedName || person.lastName);
+    result.lastName = stringCaseMask.applyByExample(person.lastName, inflectedName || person.lastName);
   }
 
   if (typeof person.firstName === "string") {
     var _inflectedName = inflectFirstName(person.gender, person.firstName.toLowerCase(), caseName);
-    result.firstName = StringCaseMask.applyByExample(person.firstName, _inflectedName || person.firstName);
+    result.firstName = stringCaseMask.applyByExample(person.firstName, _inflectedName || person.firstName);
   }
 
   if (typeof person.middleName === "string") {
     var _inflectedName2 = inflectMiddleName(person.gender, person.middleName.toLowerCase(), caseName);
-    result.middleName = StringCaseMask.applyByExample(person.middleName, _inflectedName2 || person.middleName);
+    result.middleName = stringCaseMask.applyByExample(person.middleName, _inflectedName2 || person.middleName);
   }
 
   return result;
 }
 
 function validatePersonParameter(person) {
-  Assert.object(person, "Invalid 'person' type.");
-  if (!person.hasOwnProperty("gender")) Assert.throw("Missed 'person.gender' property.");
-  Assert.string(person.gender, "Invalid 'person.gender' type.");
-  Assert.inArray(shevchenko.getGenderNames(), person.gender, "Invalid 'person.gender' value.");
+  assert.object(person, "Invalid 'person' type.");
+  if (!person.hasOwnProperty("gender")) assert.throw("Missed 'person.gender' property.");
+  assert.string(person.gender, "Invalid 'person.gender' type.");
+  assert.inArray(shevchenko.getGenderNames(), person.gender, "Invalid 'person.gender' value.");
   if (!person.hasOwnProperty("firstName") && !person.hasOwnProperty("middleName") && !person.hasOwnProperty("lastName")) {
-    Assert.throw("Missed 'person.lastName', 'person.firstName', 'person.middleName' properties.");
+    assert.throw("Missed 'person.lastName', 'person.firstName', 'person.middleName' properties.");
   }
-  if (person.hasOwnProperty("lastName")) Assert.string(person.lastName, "Invalid 'person.lastName' type.");
-  if (person.hasOwnProperty("firstName")) Assert.string(person.firstName, "Invalid 'person.firstName' type.");
-  if (person.hasOwnProperty("middleName")) Assert.string(person.middleName, "Invalid 'person.middleName' type.");
+  if (person.hasOwnProperty("lastName")) assert.string(person.lastName, "Invalid 'person.lastName' type.");
+  if (person.hasOwnProperty("firstName")) assert.string(person.firstName, "Invalid 'person.firstName' type.");
+  if (person.hasOwnProperty("middleName")) assert.string(person.middleName, "Invalid 'person.middleName' type.");
 }
 
 function validateCaseNameParameter(caseName) {
-  Assert.string(caseName, "Invalid 'caseName' type.");
-  Assert.inArray(shevchenko.getCaseNames(), caseName, "Invalid 'caseName' value.");
+  assert.string(caseName, "Invalid 'caseName' type.");
+  assert.inArray(shevchenko.getCaseNames(), caseName, "Invalid 'caseName' value.");
 }
 
 function inflectLastName(gender, lastName, caseName) {
@@ -270,47 +270,47 @@ function inflectLastName(gender, lastName, caseName) {
   }
 
   var rule = shevchenko.getRules().filter(function (rule) {
-    return Filter.byGender(rule, gender);
+    return filter.byGender(rule, gender);
   }).filter(function (rule) {
-    return gender === shevchenko.getGenderNameMale() || Filter.byPos(rule, Pos.resolve(lastName));
+    return gender === shevchenko.getGenderNameMale() || filter.byPos(rule, pos.resolve(lastName));
   }) // #pos_limits
   .filter(function (rule) {
-    return Filter.byApplication(rule, "lastName");
+    return filter.byApplication(rule, "lastName");
   }).filter(function (rule) {
-    return Filter.byRegexp(rule, lastName);
+    return filter.byRegexp(rule, lastName);
   }).sort(function (firstRule, secondRule) {
-    return Sort.rulesByApplicationDesc(firstRule, secondRule, "lastName");
+    return sort.rulesByApplicationDesc(firstRule, secondRule, "lastName");
   }).shift();
 
-  return Inflector.inflectByRule(rule, caseName, lastName);
+  return inflector.inflectByRule(rule, caseName, lastName);
 }
 
 function inflectFirstName(gender, firstName, caseName) {
   var rule = shevchenko.getRules().filter(function (rule) {
-    return Filter.byGender(rule, gender);
+    return filter.byGender(rule, gender);
   }).filter(function (rule) {
-    return Filter.byApplication(rule, "firstName");
+    return filter.byApplication(rule, "firstName");
   }).filter(function (rule) {
-    return Filter.byRegexp(rule, firstName);
+    return filter.byRegexp(rule, firstName);
   }).sort(function (firstRule, secondRule) {
-    return Sort.rulesByApplicationDesc(firstRule, secondRule, "firstName");
+    return sort.rulesByApplicationDesc(firstRule, secondRule, "firstName");
   }).shift();
 
-  return Inflector.inflectByRule(rule, caseName, firstName);
+  return inflector.inflectByRule(rule, caseName, firstName);
 }
 
 function inflectMiddleName(gender, middleName, caseName) {
   var rule = shevchenko.getRules().filter(function (rule) {
-    return Filter.byGender(rule, gender);
+    return filter.byGender(rule, gender);
   }).filter(function (rule) {
-    return Filter.byApplication(rule, "middleName", true);
+    return filter.byApplication(rule, "middleName", true);
   }).filter(function (rule) {
-    return Filter.byRegexp(rule, middleName);
+    return filter.byRegexp(rule, middleName);
   }).sort(function (firstRule, secondRule) {
-    return Sort.rulesByApplicationDesc(firstRule, secondRule, "middleName");
+    return sort.rulesByApplicationDesc(firstRule, secondRule, "middleName");
   }).shift();
 
-  return Inflector.inflectByRule(rule, caseName, middleName);
+  return inflector.inflectByRule(rule, caseName, middleName);
 }
 
 module.exports = shevchenko;

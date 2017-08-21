@@ -1,6 +1,6 @@
 "use strict";
 
-const Filter = {};
+const filter = {};
 
 /**
  * Filter by the rule part of speech.
@@ -9,7 +9,7 @@ const Filter = {};
  * @param {string} value
  * @return {boolean}
  */
-Filter.byPos = (rule, value) => {
+filter.byPos = (rule, value) => {
     return value ? rule.pos === value : true;
 };
 
@@ -21,7 +21,7 @@ Filter.byPos = (rule, value) => {
  * @param {boolean} strict
  * @return {*}
  */
-Filter.byApplication = (rule, value, strict = false) => {
+filter.byApplication = (rule, value, strict = false) => {
     if (rule.applications.length) {
         return rule.applications.some((ruleValue) => ruleValue === value);
     }
@@ -35,7 +35,7 @@ Filter.byApplication = (rule, value, strict = false) => {
  * @param {string} value
  * @return {boolean}
  */
-Filter.byGender = (rule, value) => {
+filter.byGender = (rule, value) => {
     return rule.gender.indexOf(value) !== -1;
 };
 
@@ -46,8 +46,8 @@ Filter.byGender = (rule, value) => {
  * @param {string} value
  * @return {boolean}
  */
-Filter.byRegexp = (rule, value) => {
+filter.byRegexp = (rule, value) => {
     return (new RegExp(rule.regexp.find, "gm")).test(value);
 };
 
-module.exports = Filter;
+module.exports = filter;

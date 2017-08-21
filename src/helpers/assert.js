@@ -1,6 +1,6 @@
 "use strict";
 
-const Assert = {};
+const assert = {};
 
 /**
  * Assert than a value is a string.
@@ -8,8 +8,8 @@ const Assert = {};
  * @param value
  * @param {string|null} errorMessage
  */
-Assert.number = (value, errorMessage = null) => {
-    if (typeof value !== "number") Assert.throw(errorMessage);
+assert.number = (value, errorMessage = null) => {
+    if (typeof value !== "number") assert.throw(errorMessage);
 };
 
 /**
@@ -18,8 +18,8 @@ Assert.number = (value, errorMessage = null) => {
  * @param value
  * @param {string|null} errorMessage
  */
-Assert.string = (value, errorMessage = null) => {
-    if (typeof value !== "string") Assert.throw(errorMessage);
+assert.string = (value, errorMessage = null) => {
+    if (typeof value !== "string") assert.throw(errorMessage);
 };
 
 /**
@@ -28,8 +28,8 @@ Assert.string = (value, errorMessage = null) => {
  * @param value
  * @param {string|null} errorMessage
  */
-Assert.object = (value, errorMessage = null) => {
-    if (typeof value !== "object") Assert.throw(errorMessage);
+assert.object = (value, errorMessage = null) => {
+    if (typeof value !== "object") assert.throw(errorMessage);
 };
 
 /**
@@ -38,8 +38,8 @@ Assert.object = (value, errorMessage = null) => {
  * @param value
  * @param {string|null} errorMessage
  */
-Assert.array = (value, errorMessage = null) => {
-    if (!(value instanceof Array)) Assert.throw(errorMessage);
+assert.array = (value, errorMessage = null) => {
+    if (!(value instanceof Array)) assert.throw(errorMessage);
 };
 
 /**
@@ -49,8 +49,8 @@ Assert.array = (value, errorMessage = null) => {
  * @param value
  * @param {string|null} errorMessage
  */
-Assert.inArray = (array, value, errorMessage = null) => {
-    if (array.indexOf(value) === -1) Assert.throw(errorMessage);
+assert.inArray = (array, value, errorMessage = null) => {
+    if (array.indexOf(value) === -1) assert.throw(errorMessage);
 };
 
 /**
@@ -58,8 +58,8 @@ Assert.inArray = (array, value, errorMessage = null) => {
  *
  * @param {string|null} errorMessage
  */
-Assert.throw = (errorMessage) => {
+assert.throw = (errorMessage) => {
     throw new Error(errorMessage || "Invalid value.");
 };
 
-module.exports = Assert;
+module.exports = assert;

@@ -1,9 +1,9 @@
 "use strict";
 
-var Assert = require("./assert");
-var StringCaseMask = require("./string-case-mask");
+var assert = require("./assert");
+var stringCaseMask = require("./string-case-mask");
 
 module.exports = {
-    Assert: Assert,
-    StringCaseMask: StringCaseMask
+    assert: assert,
+    stringCaseMask: stringCaseMask
 };

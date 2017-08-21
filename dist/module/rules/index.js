@@ -1,11 +1,11 @@
 "use strict";
 
-var Inflector = require("./inflector");
-var Filter = require("./filter");
-var Sort = require("./sort");
+var inflector = require("./inflector");
+var filter = require("./filter");
+var sort = require("./sort");
 
 module.exports = {
-    Inflector: Inflector,
-    Filter: Filter,
-    Sort: Sort
+    inflector: inflector,
+    filter: filter,
+    sort: sort
 };

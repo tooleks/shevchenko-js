@@ -1,9 +1,9 @@
 "use strict";
 
-const Sort = {};
+const sort = {};
 
-Sort.rulesByApplicationDesc = (firstRule, secondRule, application) => {
+sort.rulesByApplicationDesc = (firstRule, secondRule, application) => {
     return !firstRule.applications.length && secondRule.applications.length && secondRule.applications.indexOf(application) !== -1;
 };
 
-module.exports = Sort;
+module.exports = sort;
