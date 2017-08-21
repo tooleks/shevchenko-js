@@ -3,7 +3,7 @@
 const Pos = require("../dist/module/pos");
 const NeuralNetwork = require("../dist/module/pos/neural-network");
 
-const results = require("./input/pos.json")
+const results = require("./data/samples.json")
     .filter((sample) => NeuralNetwork.getPosNames().indexOf(sample.pos) !== -1)
     .map((sample) => Pos.resolve(sample.value) === sample.pos);
 

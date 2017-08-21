@@ -39,7 +39,7 @@ console.log(result); // {lastName: 'Шевченку', firstName: 'Тарасе'
 
 Запустіть наступну команду для встановлення бібліотеки.
 
-```
+```bash
 npm install --save shevchenko
 ```
 
@@ -56,7 +56,7 @@ var shevchenko = require("shevchenko");
 **Увага!** З огляду на те, що бібліотека містить в собі структуру нейромережі, при використанні в браузері можуть виникати проблеми зі швидкодією.
 
 ```HTML
-<script type="text/javascript" src="/path/to/shevchenko/module/shevchenko.min.js"></script>
+<script type="text/javascript" src="/path/to/shevchenko/dist/bundle/shevchenko.min.js"></script>
 ```
 
 ### Використання в інших мовах програмування
@@ -98,6 +98,6 @@ server.listen(port, (error) => {
 
 Запустити сервіс можна командою `node shevchenko-microservice.js`. Відтоді бібліотека буде доступна через інтерфейс `HTTP POST` запитів за адресою `http://localhost:8000`.
 
-```
+```bash
 curl --data '{"person":{"gender":"male","lastName":"Шевченко","firstName":"Тарас","middleName":"Григорович"},"caseName":"vocative"}' http://localhost:8000
 ```

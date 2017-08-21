@@ -41,7 +41,7 @@ function NeuralNetwork(structure) {
 }
 
 /**
- * Build the neural network on the sample data array.
+ * Build the neural network on the training data array.
  *
  * @param {Array<Object>} samples
  * @param {Object} options

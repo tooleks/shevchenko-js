@@ -3,7 +3,7 @@
 const fs = require("fs");
 const NeuralNetwork = require("../dist/module/pos/neural-network");
 
-const samples = require("./input/pos.json")
+const samples = require("./data/samples.json")
     .filter((sample) => NeuralNetwork.getPosNames().indexOf(sample.pos) !== -1)
     .map((sample) => {
         return {
@@ -20,6 +20,6 @@ const neuralNetworkStructure = NeuralNetwork.build(samples, {
     log: 1,
 });
 
-fs.writeFile(__dirname + "/output/pos.json", JSON.stringify(neuralNetworkStructure), (error) => {
+fs.writeFile(__dirname + "/data/structure.json", JSON.stringify(neuralNetworkStructure), (error) => {
     if (error) throw error;
 });

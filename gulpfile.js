@@ -16,7 +16,7 @@ gulp.task("load:rules", () => {
 });
 
 gulp.task("clear", () => {
-    return gulp.src("./dist/module/", {read: false})
+    return gulp.src(["./dist/module/", "./dist/bundle/"], {read: false})
         .pipe(clean());
 });
 
@@ -46,5 +46,5 @@ gulp.task("minify", () => {
                 min: ".min.js"
             }
         }))
-        .pipe(gulp.dest("./dist/module/"));
+        .pipe(gulp.dest("./dist/bundle/"));
 });
