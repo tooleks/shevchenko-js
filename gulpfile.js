@@ -41,10 +41,8 @@ gulp.task("minify", () => {
             standalone: "shevchenko",
         }))
         .pipe(minify({
-            ext: {
-                src: ".js",
-                min: ".min.js"
-            }
+            ext: {min: ".min.js"},
+            noSource: true,
         }))
         .pipe(gulp.dest("./dist/bundle/"));
 });
