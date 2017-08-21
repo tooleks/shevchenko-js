@@ -2,6 +2,4 @@
 
 const resolve = require("./resolve");
 
-module.exports = {
-    resolve: resolve,
-};
+module.exports = {resolve};

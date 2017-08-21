@@ -4,8 +4,4 @@ const inflector = require("./inflector");
 const filter = require("./filter");
 const sort = require("./sort");
 
-module.exports = {
-    inflector: inflector,
-    filter: filter,
-    sort: sort,
-};
+module.exports = {inflector, filter, sort};
