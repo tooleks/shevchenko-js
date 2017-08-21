@@ -1,7 +1,5 @@
 ## JavaScript бібліотека "shevchenko" для відмінювання українських прізвищ, імен та по батькові
 
-**Увага!** Бібліотека знаходиться на етапі розробки.
-
 ### Демо
 
 [http://shevchenko-js.tooleks.com/#demo](http://shevchenko-js.tooleks.com/#demo)
