@@ -1,3 +1,5 @@
+"use strict";
+
 const Pos = require("../dist/module/pos");
 const NeuralNetwork = require("../dist/module/pos/neural-network");
 
