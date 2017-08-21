@@ -53,8 +53,6 @@ var shevchenko = require("shevchenko");
 
 #### Браузер
 
-**Увага!** З огляду на те, що бібліотека містить в собі нейромережу, при використанні в браузері можуть виникати проблеми зі швидкодією.
-
 ```HTML
 <script type="text/javascript" src="/path/to/shevchenko/dist/bundle/shevchenko.min.js"></script>
 ```
