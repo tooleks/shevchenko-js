@@ -74,13 +74,13 @@ shevchenko.getCaseNameLocative = () => "locative";
 shevchenko.getCaseNameVocative = () => "vocative";
 
 /**
- * Get an array of Rules.
+ * Get an array of rules.
  *
  * @returns {Array<Object>}
  */
 shevchenko.getRules = () => {
-    const Rules = __rules__;
-    return Rules.slice(0);
+    const rules = __rules__;
+    return rules.slice(0);
 };
 
 /**
