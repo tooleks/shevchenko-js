@@ -10,7 +10,7 @@ const minify = require("gulp-minify");
 const request = require("request");
 const macro = require("./macro");
 
-gulp.task("load:rules", () => {
+gulp.task("update:rules", () => {
     request("https://raw.githubusercontent.com/tooleks/shevchenko-rules/master/dist/rules.json")
         .pipe(fs.createWriteStream("./rules.json"));
 });

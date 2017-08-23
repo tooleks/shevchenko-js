@@ -197,8 +197,8 @@ shevchenko.inAll = (person) => {
  * @returns {Object}
  */
 function shevchenko(person, caseName) {
-    validatePersonParameter(person);
-    validateCaseNameParameter(caseName);
+    assertPersonParameter(person);
+    assertCaseNameParameter(caseName);
 
     const result = {};
 
@@ -220,7 +220,12 @@ function shevchenko(person, caseName) {
     return result;
 }
 
-function validatePersonParameter(person) {
+/**
+ * Validate the person parameter.
+ *
+ * @param {Object} person
+ */
+function assertPersonParameter(person) {
     assert.object(person, "Invalid 'person' type.");
     if (!person.hasOwnProperty("gender")) assert.throw("Missed 'person.gender' property.");
     assert.string(person.gender, "Invalid 'person.gender' type.");
@@ -233,11 +238,24 @@ function validatePersonParameter(person) {
     if (person.hasOwnProperty("middleName")) assert.string(person.middleName, "Invalid 'person.middleName' type.");
 }
 
-function validateCaseNameParameter(caseName) {
+/**
+ * Validate the caseName parameter.
+ *
+ * @param {string} caseName
+ */
+function assertCaseNameParameter(caseName) {
     assert.string(caseName, "Invalid 'caseName' type.");
     assert.inArray(shevchenko.getCaseNames(), caseName, "Invalid 'caseName' value.");
 }
 
+/**
+ * Inflect the person's last name.
+ *
+ * @param {string} gender
+ * @param {string} lastName
+ * @param {string} caseName
+ * @return {string}
+ */
 function inflectLastName(gender, lastName, caseName) {
     const doubleLastName = lastName.split("-");
     if (doubleLastName.length > 1) {
@@ -256,6 +274,14 @@ function inflectLastName(gender, lastName, caseName) {
     return inflector.inflectByRule(rule, caseName, lastName);
 }
 
+/**
+ * Inflect the person's first name.
+ *
+ * @param {string} gender
+ * @param {string} firstName
+ * @param {string} caseName
+ * @return {string}
+ */
 function inflectFirstName(gender, firstName, caseName) {
     const rule = shevchenko
         .getRules()
@@ -268,6 +294,14 @@ function inflectFirstName(gender, firstName, caseName) {
     return inflector.inflectByRule(rule, caseName, firstName);
 }
 
+/**
+ * Inflect the person's middle name.
+ *
+ * @param {string} gender
+ * @param {string} middleName
+ * @param {string} caseName
+ * @return {string}
+ */
 function inflectMiddleName(gender, middleName, caseName) {
     const rule = shevchenko
         .getRules()

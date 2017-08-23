@@ -3,7 +3,4 @@
 var assert = require("./assert");
 var stringCaseMask = require("./string-case-mask");
 
-module.exports = {
-    assert: assert,
-    stringCaseMask: stringCaseMask
-};
+module.exports = { assert: assert, stringCaseMask: stringCaseMask };

@@ -2,44 +2,44 @@ const testInflections = require("../helpers/test-inflections");
 
 const person = {
     gender: "female",
-    lastName: "морока",
+    lastName: "сорока",
     firstName: "ірина",
     middleName: "василівна"
 };
 
 const validResults = {
     nominative: {
-        lastName: "морока",
+        lastName: "сорока",
         firstName: "ірина",
         middleName: "василівна"
     },
     genitive: {
-        lastName: "мороки",
+        lastName: "сороки",
         firstName: "ірини",
         middleName: "василівни"
     },
     dative: {
-        lastName: "мороці",
+        lastName: "сороці",
         firstName: "ірині",
         middleName: "василівні"
     },
     accusative: {
-        lastName: "мороку",
+        lastName: "сороку",
         firstName: "ірину",
         middleName: "василівну"
     },
     ablative: {
-        lastName: "морокою",
+        lastName: "сорокою",
         firstName: "іриною",
         middleName: "василівною"
     },
     locative: {
-        lastName: "мороці",
+        lastName: "сороці",
         firstName: "ірині",
         middleName: "василівні"
     },
     vocative: {
-        lastName: "мороко",
+        lastName: "сороко",
         firstName: "ірино",
         middleName: "василівно"
     }

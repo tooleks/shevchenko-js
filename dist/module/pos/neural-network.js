@@ -64,6 +64,15 @@ NeuralNetwork.getPosNames = function () {
 };
 
 /**
+ * Determine if a value is a valid part of speech name.
+ *
+ * @param value
+ */
+NeuralNetwork.isValidPosName = function (value) {
+  return NeuralNetwork.getPosNames().indexOf(value) !== -1;
+};
+
+/**
  * Normalize the input for the neural network. Human-readable -> Machine-readable.
  *
  * @param {string} value

@@ -1,10 +1,10 @@
 "use strict";
 
 const fs = require("fs");
-const NeuralNetwork = require("../../dist/module/pos/neural-network");
+const NeuralNetwork = require("../../src/pos/neural-network");
 
 const samples = require("./data/samples.json")
-    .filter((sample) => NeuralNetwork.getPosNames().indexOf(sample.pos) !== -1)
+    .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
     .map((sample) => {
         return {
             input: NeuralNetwork.normalizeInput(sample.value),
