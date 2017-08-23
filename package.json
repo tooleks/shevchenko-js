@@ -6,9 +6,7 @@
   "scripts": {
     "update:rules": "gulp update:rules",
     "build": "gulp clear && gulp build && gulp minify",
-    "test": "./node_modules/mocha/bin/mocha --recursive --timeout 25000 tests",
-    "prepublish": "npm run update:rules && npm run build && npm run test",
-    "publish": "npm run prepublish && npm publish"
+    "test": "./node_modules/mocha/bin/mocha --recursive --timeout 25000 tests"
   },
   "keywords": [
     "inflection",
