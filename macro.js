@@ -1,11 +1,12 @@
 const rules = require("./rules");
 const posNeuralNetworkStructure = require("./neural-networks/pos/data/structure.json");
-const posNeuralNetworkSamples = require("./neural-networks/pos/data/samples.json");
 const NeuralNetwork = require("./src/pos/neural-network");
 
 const posNeuralNetworkCache = {};
-posNeuralNetworkSamples
-    .filter((sample) => NeuralNetwork.getPosNames().indexOf(sample.pos) !== -1)
+[]
+    .concat(require("./neural-networks/pos/data/training-data.json"))
+    .concat(require("./neural-networks/pos/data/cache.json"))
+    .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
     .forEach((sample) => posNeuralNetworkCache[sample.value] = sample.pos);
 
 module.exports = {

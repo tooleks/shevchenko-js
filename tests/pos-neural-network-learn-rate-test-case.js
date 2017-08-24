@@ -1,7 +1,7 @@
 const assert = require("assert");
 const pos = require("../dist/module/pos");
 const NeuralNetwork = require("../dist/module/pos/neural-network");
-const samples = require("../neural-networks/pos/data/samples.json");
+const samples = require("../neural-networks/pos/data/training-data.json");
 
 describe("#pos.NeuralNetwork", () => {
     it("should have learn rate value >= 0.95", () => {
