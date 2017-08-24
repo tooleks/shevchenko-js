@@ -1,6 +1,12 @@
+.idea
+node_modules
+npm-debug.log
 /dist/index.html
 /examples
 /neural-networks
 /src
 /tests
 /rules.json
+/macro.js
+/test.js
+/gulpfile.js
