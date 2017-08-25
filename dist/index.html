@@ -308,7 +308,7 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
 
         function setPreview(value) {
             var previewSelector = $("#preview");
-            if (previewSelector.text() === value) return;
+            if (previewSelector.text() == value) return;
             previewSelector.fadeOut(400, function () {
                 previewSelector.text(value);
                 previewSelector.fadeIn(400);
