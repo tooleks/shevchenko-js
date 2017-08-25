@@ -1,5 +1,10 @@
 "use strict";
 
+/**
+ * Contains a set of methods for words inflection.
+ *
+ * @type {Object}
+ */
 const inflector = {};
 
 /**

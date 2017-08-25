@@ -1,5 +1,10 @@
 "use strict";
 
+/**
+ * Contains a set of methods for inflection rules filtering.
+ *
+ * @type {Object}
+ */
 const filter = {};
 
 /**

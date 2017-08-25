@@ -1,6 +1,9 @@
 "use strict";
 
 const synaptic = require("synaptic");
+const helpers = require("../helpers");
+
+const string = helpers.string;
 
 const NETWORK_LAYER_SIZE_INPUT = 360;
 const NETWORK_LAYER_SIZE_HIDDEN = 100;
@@ -32,10 +35,8 @@ function NeuralNetwork(structure) {
         const normalizedInput = NeuralNetwork.normalizeInput(value);
         const normalizedOutput = this.network.activate(normalizedInput);
         const denormalizedOutput = NeuralNetwork.denormalizeOutput(normalizedOutput);
-        return typeof denormalizedOutput !== "undefined" ? denormalizedOutput : null;
+        return denormalizedOutput || null;
     };
-
-    return this;
 }
 
 /**
@@ -64,7 +65,9 @@ NeuralNetwork.getPosNames = () => Object.keys(POS);
  *
  * @param value
  */
-NeuralNetwork.isValidPosName = (value) => NeuralNetwork.getPosNames().indexOf(value) !== -1;
+NeuralNetwork.isValidPosName = (value) => {
+    return NeuralNetwork.getPosNames().indexOf(value) !== -1;
+};
 
 /**
  * Normalize the input for the neural network. Human-readable -> Machine-readable.
@@ -73,26 +76,8 @@ NeuralNetwork.isValidPosName = (value) => NeuralNetwork.getPosNames().indexOf(va
  * @return {Array<number>}
  */
 NeuralNetwork.normalizeInput = (value) => {
-    /**
-     * @param {string} string
-     * @return {string}
-     */
-    const stringToBinary = (string) => {
-        return string.split("").map((char) => char.charCodeAt(0).toString(2)).join("");
-    };
-
-    /**
-     * @param {string} string
-     * @param {number} length
-     * @param {string} symbol
-     * @return {string}
-     */
-    const stringFillLeft = (string, length = NETWORK_LAYER_SIZE_INPUT, symbol = "0") => {
-        const filler = (new Array(length + 1)).join(symbol);
-        return filler.substring(0, filler.length - string.length) + string;
-    };
-
-    return stringFillLeft(stringToBinary(value)).split("")
+    const binaryValue = string.toBinary(value);
+    return string.padLeft(binaryValue, NETWORK_LAYER_SIZE_INPUT).split("");
 };
 
 /**

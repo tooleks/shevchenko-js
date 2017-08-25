@@ -1,5 +1,10 @@
 "use strict";
 
+/**
+ * Contains a set of methods for inflection rules sorting.
+ *
+ * @type {Object}
+ */
 const sort = {};
 
 sort.rulesByApplicationDesc = (firstRule, secondRule, application) => {

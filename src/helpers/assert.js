@@ -1,5 +1,10 @@
 "use strict";
 
+/**
+ * Contains a set of methods for a values assertions.
+ *
+ * @type {Object}
+ */
 const assert = {};
 
 /**

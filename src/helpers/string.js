@@ -2,28 +2,16 @@
 
 const assert = require("./assert");
 
+const UPPER_CASE = 'u';
+const LOWER_CASE = 'l';
+const NOT_RECOGNIZED_CASE = null;
+
+/**
+ * Contains a set of methods for manipulation of a string character cases.
+ *
+ * @type {Object}
+ */
 const stringCaseMask = {};
-
-/**
- * An upper case identifier.
- *
- * @type {string}
- */
-stringCaseMask.upperCase = "u";
-
-/**
- * A lower case identifier.
- *
- * @type {string}
- */
-stringCaseMask.lowerCase = "l";
-
-/**
- * Not recognized case identifier.
- *
- * @type {string}
- */
-stringCaseMask.notRecognizedCase = null;
 
 /**
  * Detect if a character is a segment break character.
@@ -36,32 +24,18 @@ stringCaseMask.notRecognizedCase = null;
 stringCaseMask.isSegmentBreakCharacter = (char) => char === "-";
 
 /**
- * Detect if a character is in the upper case.
- *
- * @param {string} char
- */
-stringCaseMask.isUpperCase = (char) => char === char.toUpperCase() && char !== char.toLowerCase();
-
-/**
- * Detect if a character is in the lower case.
- *
- * @param {string} char
- */
-stringCaseMask.isLowerCase = (char) => char === char.toLowerCase() && char !== char.toUpperCase();
-
-/**
  * Load the case mask from the string.
  *
- * @param {string} string
+ * @param {string} value
  * @returns {Object}
  */
-stringCaseMask.loadMask = (string) => {
-    assert.string(string);
+stringCaseMask.loadMask = (value) => {
+    assert.string(value);
     const mask = {};
     let segmentNumber = 0;
     let stringIndex = 0;
-    while (stringIndex < string.length) {
-        let char = string.charAt(stringIndex++);
+    while (stringIndex < value.length) {
+        let char = value.charAt(stringIndex++);
         // If the current character is a segment break character go to the next segment.
         if (stringCaseMask.isSegmentBreakCharacter(char)) {
             segmentNumber++;
@@ -70,11 +44,11 @@ stringCaseMask.loadMask = (string) => {
         // Initialize the default value (an empty array) for a new segment.
         if (typeof mask[segmentNumber] === "undefined") mask[segmentNumber] = [];
         // If a character is in the upper case push the uppercase identifier into the segment array.
-        if (stringCaseMask.isUpperCase(char)) mask[segmentNumber].push(stringCaseMask.upperCase);
+        if (string.isUpperCase(char)) mask[segmentNumber].push(UPPER_CASE);
         // If a character is in the lower case push the lowercase identifier into the segment array.
-        else if (stringCaseMask.isLowerCase(char)) mask[segmentNumber].push(stringCaseMask.lowerCase);
+        else if (string.isLowerCase(char)) mask[segmentNumber].push(LOWER_CASE);
         // If a character case is not recognized push the empty identifier into the segment array.
-        else mask[segmentNumber].push(stringCaseMask.notRecognizedCase);
+        else mask[segmentNumber].push(NOT_RECOGNIZED_CASE);
     }
     return mask;
 };
@@ -83,16 +57,16 @@ stringCaseMask.loadMask = (string) => {
  * Apply the case mask to the string.
  *
  * @param {Object} mask
- * @param {string} string
+ * @param {string} value
  * @returns {string}
  */
-stringCaseMask.applyByMask = (mask, string) => {
+stringCaseMask.applyByMask = (mask, value) => {
     let result = "";
     let segmentNumber = 0;
     let segmentIndex = 0;
     let stringIndex = 0;
-    while (stringIndex < string.length) {
-        let char = string.charAt(stringIndex++);
+    while (stringIndex < value.length) {
+        let char = value.charAt(stringIndex++);
         // If the current character is a segment break character go to the next segment and reset the segment index.
         if (stringCaseMask.isSegmentBreakCharacter(char)) {
             segmentNumber++;
@@ -103,13 +77,55 @@ stringCaseMask.applyByMask = (mask, string) => {
         // If the string length is bigger than a segment length set the character mask to the last segment character mask value.
         if (typeof charMask === "undefined") charMask = segment[segment.length - 1];
         // If a character mask equals the upper case identifier convert the character to upper case.
-        if (charMask === stringCaseMask.upperCase) char = char.toUpperCase();
+        if (charMask === UPPER_CASE) char = char.toUpperCase();
         // If a character mask equals the lower case identifier convert the character to lower case.
-        else if (charMask === stringCaseMask.lowerCase) char = char.toLowerCase();
+        else if (charMask === LOWER_CASE) char = char.toLowerCase();
         // Append the character to the resulting string.
         result += char;
     }
     return result;
+};
+
+/**
+ * Contains a set of methods for a string type.
+ *
+ * @type {Object}
+ */
+const string = {};
+
+/**
+ * Detect if a character is in the upper case.
+ *
+ * @param {string} char
+ */
+string.isUpperCase = (char) => char === char.toUpperCase() && char !== char.toLowerCase();
+
+/**
+ * Detect if a character is in the lower case.
+ *
+ * @param {string} char
+ */
+string.isLowerCase = (char) => char === char.toLowerCase() && char !== char.toUpperCase();
+
+/**
+ * Convert a string of characters to a binary string.
+ *
+ * @param {string} string
+ * @return {string}
+ */
+string.toBinary = (string) => string.split("").map((char) => char.charCodeAt(0).toString(2)).join("");
+
+/**
+ * Fill the left part of the string with a symbol to a given length.
+ *
+ * @param {string} string
+ * @param {number} length
+ * @param {string} symbol
+ * @return {string}
+ */
+string.padLeft = (string, length, symbol = "0") => {
+    const filler = (new Array(length + 1)).join(symbol);
+    return filler.substring(0, filler.length - string.length) + string;
 };
 
 /**
@@ -119,9 +135,9 @@ stringCaseMask.applyByMask = (mask, string) => {
  * @param {string} string
  * @returns {string}
  */
-stringCaseMask.applyByExample = (exampleString, string) => {
+string.applyCaseMask = (exampleString, string) => {
     const mask = stringCaseMask.loadMask(exampleString);
     return stringCaseMask.applyByMask(mask, string);
 };
 
-module.exports = stringCaseMask;
+module.exports = string;
