@@ -1,5 +1,11 @@
 "use strict";
 
+/**
+ * Contains a set of methods for inflection rules filtering.
+ *
+ * @type {Object}
+ */
+
 var filter = {};
 
 /**
@@ -10,7 +16,7 @@ var filter = {};
  * @return {boolean}
  */
 filter.byPos = function (rule, value) {
-    return value ? rule.pos === value : true;
+  return value ? rule.pos === value : true;
 };
 
 /**
@@ -22,14 +28,14 @@ filter.byPos = function (rule, value) {
  * @return {*}
  */
 filter.byApplication = function (rule, value) {
-    var strict = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
+  var strict = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
 
-    if (rule.applications.length) {
-        return rule.applications.some(function (ruleValue) {
-            return ruleValue === value;
-        });
-    }
-    return !strict;
+  if (rule.applications.length) {
+    return rule.applications.some(function (ruleValue) {
+      return ruleValue === value;
+    });
+  }
+  return !strict;
 };
 
 /**
@@ -40,7 +46,7 @@ filter.byApplication = function (rule, value) {
  * @return {boolean}
  */
 filter.byGender = function (rule, value) {
-    return rule.gender.indexOf(value) !== -1;
+  return rule.gender.indexOf(value) !== -1;
 };
 
 /**
@@ -51,7 +57,7 @@ filter.byGender = function (rule, value) {
  * @return {boolean}
  */
 filter.byRegexp = function (rule, value) {
-    return new RegExp(rule.regexp.find, "gm").test(value);
+  return new RegExp(rule.regexp.find, "gm").test(value);
 };
 
 module.exports = filter;

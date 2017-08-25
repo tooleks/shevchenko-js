@@ -5,7 +5,7 @@ var rules = require("./rules");
 var pos = require("./pos");
 
 var assert = helpers.assert;
-var stringCaseMask = helpers.stringCaseMask;
+var string = helpers.string;
 var inflector = rules.inflector;
 var filter = rules.filter;
 var sort = rules.sort;
@@ -227,17 +227,17 @@ function shevchenko(person, caseName) {
 
   if (typeof person.lastName === "string") {
     var inflectedName = inflectLastName(person.gender, person.lastName.toLowerCase(), caseName);
-    result.lastName = stringCaseMask.applyByExample(person.lastName, inflectedName || person.lastName);
+    result.lastName = string.applyCaseMask(person.lastName, inflectedName || person.lastName);
   }
 
   if (typeof person.firstName === "string") {
     var _inflectedName = inflectFirstName(person.gender, person.firstName.toLowerCase(), caseName);
-    result.firstName = stringCaseMask.applyByExample(person.firstName, _inflectedName || person.firstName);
+    result.firstName = string.applyCaseMask(person.firstName, _inflectedName || person.firstName);
   }
 
   if (typeof person.middleName === "string") {
     var _inflectedName2 = inflectMiddleName(person.gender, person.middleName.toLowerCase(), caseName);
-    result.middleName = stringCaseMask.applyByExample(person.middleName, _inflectedName2 || person.middleName);
+    result.middleName = string.applyCaseMask(person.middleName, _inflectedName2 || person.middleName);
   }
 
   return result;
