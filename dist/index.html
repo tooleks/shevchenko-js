@@ -30,6 +30,12 @@
         #home h1 {
             font-size: 40px;
         }
+
+        @media (max-width: 999px) {
+            .min-1000px {
+                display: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -38,7 +44,7 @@
         <div class="container-fluid">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
-                        data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                        data-target="#navbar-collapse" aria-expanded="false">
                     <span class="sr-only">Навігація</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
@@ -46,7 +52,7 @@
                 </button>
                 <a class="navbar-brand" href="#home">shevchenko</a>
             </div>
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="#demo">Демо</a></li>
                     <li><a href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM пакет</a></li>
@@ -63,7 +69,9 @@
         </div>
     </nav>
     <div id="home" class="jumbotron">
-        <h1>shevchenko</h1>
+        <h1>shevchenko
+            <span class="min-1000px"><small id="preview"></small></span>
+        </h1>
         <p>JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові</p>
         <p>
             <a class="btn btn-lg btn-primary" href="#demo" role="button">Демо</a>
@@ -222,6 +230,40 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
 <script type="text/javascript">
     (function () {
 
+        var persons = [
+            {"gender": "male", "lastName": "Шевченко", "firstName": "Тарас", "middleName": "Григорович"},
+            {"gender": "male", "lastName": "Франко", "firstName": "Іван", "middleName": "Якович"},
+            {"gender": "male", "lastName": "Нечуй-Левицький", "firstName": "Іван", "middleName": "Семенович"},
+            {"gender": "male", "lastName": "Рудченко", "firstName": "Панас", "middleName": "Якович"},
+            {"gender": "male", "lastName": "Рудченко", "firstName": "Іван", "middleName": "Якович"},
+            {"gender": "male", "lastName": "Лозов'яга", "firstName": "Іван", "middleName": "Павлович"},
+            {"gender": "male", "lastName": "Котляревський", "firstName": "Іван", "middleName": "Петрович"},
+            {"gender": "male", "lastName": "Сосюра", "firstName": "Володимир", "middleName": "Миколайович"},
+            {"gender": "male", "lastName": "Тичина", "firstName": "Павло", "middleName": "Григорович"},
+            {"gender": "male", "lastName": "Симоненко", "firstName": "Василь", "middleName": "Андрійович"},
+            {"gender": "male", "lastName": "Фітільов", "firstName": "Микола", "middleName": "Григорович"},
+            {"gender": "male", "lastName": "Коцюбинський", "firstName": "Михайло", "middleName": "Михайлович"},
+            {"gender": "male", "lastName": "Сковорода", "firstName": "Григорій", "middleName": "Савич"},
+            {"gender": "male", "lastName": "Куліш", "firstName": "Пантелеймон", "middleName": "Олександрович"},
+            {"gender": "male", "lastName": "Глібов", "firstName": "Леонід", "middleName": "Іванович"},
+            {"gender": "female", "lastName": "Косач-Квітка", "firstName": "Лариса", "middleName": "Петрівна"},
+            {"gender": "female", "lastName": "Косач", "firstName": "Ольга", "middleName": "Петрівна"},
+            {"gender": "female", "lastName": "Вілінська", "firstName": "Марія", "middleName": "Олександрівна"},
+            {"gender": "female", "lastName": "Кобилянська", "firstName": "Ольга", "middleName": "Юліанівна"},
+        ];
+
+        function initializePreview(index, callback) {
+            index = typeof index === "undefined" ? randomNumber(0, persons.length - 1) : 0;
+            var inflectedPerson = shevchenko.inVocative(persons[index]);
+            var value = inflectedPerson.lastName + " " + inflectedPerson.firstName + " " + inflectedPerson.middleName;
+            callback(value);
+        }
+
+        function randomNumber(min, max) {
+            var random = Math.floor(Math.random() * max);
+            return min ? random + min : random;
+        }
+
         function buildPerson(gender, lastName, firstName, middleName) {
             var person = {};
             person.gender = gender;
@@ -263,6 +305,21 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
         function setIssuesCount(value) {
             $("#issuesCount").text(parseInt(value));
         }
+
+        function setPreview(value) {
+            var previewSelector = $("#preview");
+            if (previewSelector.text() === value) return;
+            previewSelector.fadeOut(400, function () {
+                previewSelector.text(value);
+                previewSelector.fadeIn(400);
+            });
+        }
+
+        initializePreview(0, setPreview);
+        setInterval(function () {
+            var undefined;
+            initializePreview(undefined, setPreview);
+        }, 5000);
 
         $(document).ready(function () {
             var person = buildPerson("male", "Шевченко", "Тарас", "Григорович");
