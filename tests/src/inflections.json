@@ -4598,5 +4598,45 @@
         "middleName": "омелянівно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "голосиста",
+        "firstName": "ірена",
+        "middleName": "йовівна"
+      },
+      "genitive": {
+        "lastName": "голосистої",
+        "firstName": "ірени",
+        "middleName": "йовівни"
+      },
+      "dative": {
+        "lastName": "голосистій",
+        "firstName": "ірені",
+        "middleName": "йовівні"
+      },
+      "accusative": {
+        "lastName": "голосисту",
+        "firstName": "ірену",
+        "middleName": "йовівну"
+      },
+      "ablative": {
+        "lastName": "голосистою",
+        "firstName": "іреною",
+        "middleName": "йовівною"
+      },
+      "locative": {
+        "lastName": "голосистій",
+        "firstName": "ірені",
+        "middleName": "йовівні"
+      },
+      "vocative": {
+        "lastName": "голосиста",
+        "firstName": "ірено",
+        "middleName": "йовівно"
+      }
+    }
   }
 ]
