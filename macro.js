@@ -1,3 +1,5 @@
+"use strict";
+
 const rules = require("./rules");
 const posNeuralNetworkStructure = require("./neural-networks/pos/data/structure.json");
 const NeuralNetwork = require("./src/pos/neural-network");
