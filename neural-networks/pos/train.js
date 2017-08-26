@@ -12,14 +12,14 @@ const samples = require("./data/training-data.json")
         };
     });
 
-const neuralNetworkStructure = NeuralNetwork.build(samples, {
-    rate: 0.1 * (0.95 ** 24),
+const structure = NeuralNetwork.build(samples, {
+    rate: 0.02919890243387724,
     iterations: 300,
     shuffle: true,
     error: 0.01,
     log: 1,
 });
 
-fs.writeFile(__dirname + "/data/structure.json", JSON.stringify(neuralNetworkStructure), (error) => {
+fs.writeFile(__dirname + "/data/structure.json", JSON.stringify(structure), (error) => {
     if (error) throw error;
 });
