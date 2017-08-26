@@ -96,12 +96,8 @@ NeuralNetwork.normalizeOutput = (value) => POS[value];
  */
 NeuralNetwork.denormalizeOutput = (value) => {
     const normalizedValue = value.map((value) => value >= 0.5 ? 1 : 0);
-    let posIndex;
-    Object.values(POS).forEach((value, index) => {
-        if (value.join("") === normalizedValue.join("")) {
-            posIndex = index;
-        }
-    });
+    const posIndex = Object.values(POS)
+        .reduce((accumulator, value, index) => value.join("") === normalizedValue.join("") ? index : accumulator);
     return Object.keys(POS)[posIndex];
 };
 
