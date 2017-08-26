@@ -15,7 +15,7 @@ const filter = {};
  * @return {boolean}
  */
 filter.byPos = (rule, value) => {
-    return value ? rule.pos === value : true;
+    return value ? value === rule.pos : true;
 };
 
 /**
