@@ -7,11 +7,11 @@ var string = helpers.string;
 
 var NETWORK_LAYER_SIZE_INPUT = 360;
 var NETWORK_LAYER_SIZE_HIDDEN = 100;
-var NETWORK_LAYER_SIZE_OUTPUT = 2;
+var NETWORK_LAYER_SIZE_OUTPUT = 1;
 
 var POS = {
-  adjective: [0, 1],
-  noun: [1, 0]
+  noun: [0],
+  adjective: [1]
 };
 
 /**
@@ -101,15 +101,15 @@ NeuralNetwork.normalizeOutput = function (value) {
  * @return {string|null}
  */
 NeuralNetwork.denormalizeOutput = function (value) {
-  var maxValueIndex = value.reduce(function (accumulator, value, index, array) {
-    return value > array[accumulator] ? index : accumulator;
-  }, 0);
-  var normalizedValue = value.map(function (value, index) {
-    return Number(index === maxValueIndex);
+  var normalizedValue = value.map(function (value) {
+    return value >= 0.5 ? 1 : 0;
   });
-  var posIndex = Object.values(POS).map(function (value) {
-    return value.join("");
-  }).indexOf(normalizedValue.join(""));
+  var posIndex = void 0;
+  Object.values(POS).forEach(function (value, index) {
+    if (value.join("") === normalizedValue.join("")) {
+      posIndex = index;
+    }
+  });
   return Object.keys(POS)[posIndex];
 };
 

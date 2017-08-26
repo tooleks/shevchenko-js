@@ -1,3 +1,5 @@
+"use strict";
+
 const assert = require("assert");
 const pos = require("../dist/module/pos");
 const NeuralNetwork = require("../dist/module/pos/neural-network");

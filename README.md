@@ -63,6 +63,8 @@ var shevchenko = require("shevchenko");
 Щоб використовувати бібліотеку в інших мовах програмування можна скористатися інтерфейсом `HTTP`. Для цього встановіть бібліотеку описаним вище способом на веб-сервері з [Node.js](https://nodejs.org). Створіть файл `./shevchenko-microservice.js` із вмістом.
 
 ```JavaScript
+"use strict";
+
 const http = require("http");
 const shevchenko = require("shevchenko");
 

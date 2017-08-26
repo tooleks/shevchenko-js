@@ -14,12 +14,12 @@ const cache = __pos_neural_network_cache__;
  * @return {string|null}
  */
 module.exports = (value, cacheable = true) => {
-    // Fetch the value's part of speech from the cache.
+    // Fetch the value's part of speech using the cache.
     if (cacheable && cache.hasOwnProperty(value)) {
         return cache[value];
     }
 
-    // Process value's part of speech by the neural network.
+    // Fetch the value's part of speech using the neural network.
     // #pos_limits - The part of speech resolver works only with the female genus words ending with -а, -я.
     if (/[ая]$/.test(value)) {
         return cache[value] = posNeuralNetwork.run(value);

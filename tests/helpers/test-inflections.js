@@ -1,3 +1,5 @@
+"use strict";
+
 const assert = require("assert");
 const shevchenko = require("../../dist/module/shevchenko");
 

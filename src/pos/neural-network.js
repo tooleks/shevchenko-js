@@ -7,11 +7,11 @@ const string = helpers.string;
 
 const NETWORK_LAYER_SIZE_INPUT = 360;
 const NETWORK_LAYER_SIZE_HIDDEN = 100;
-const NETWORK_LAYER_SIZE_OUTPUT = 2;
+const NETWORK_LAYER_SIZE_OUTPUT = 1;
 
 const POS = {
-    adjective: [0, 1],
-    noun: [1, 0],
+    noun: [0],
+    adjective: [1],
 };
 
 /**
@@ -95,9 +95,13 @@ NeuralNetwork.normalizeOutput = (value) => POS[value];
  * @return {string|null}
  */
 NeuralNetwork.denormalizeOutput = (value) => {
-    const maxValueIndex = value.reduce((accumulator, value, index, array) => (value > array[accumulator]) ? index : accumulator, 0);
-    const normalizedValue = value.map((value, index) => Number(index === maxValueIndex));
-    const posIndex = Object.values(POS).map((value) => value.join("")).indexOf(normalizedValue.join(""));
+    const normalizedValue = value.map((value) => value >= 0.5 ? 1 : 0);
+    let posIndex;
+    Object.values(POS).forEach((value, index) => {
+        if (value.join("") === normalizedValue.join("")) {
+            posIndex = index;
+        }
+    });
     return Object.keys(POS)[posIndex];
 };
 

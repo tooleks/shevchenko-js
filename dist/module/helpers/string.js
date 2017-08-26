@@ -2,8 +2,8 @@
 
 var assert = require("./assert");
 
-var UPPER_CASE = 'u';
-var LOWER_CASE = 'l';
+var UPPER_CASE = "u";
+var LOWER_CASE = "l";
 var NOT_RECOGNIZED_CASE = null;
 
 /**
@@ -36,22 +36,22 @@ stringCaseMask.loadMask = function (value) {
   var mask = {};
   var segmentNumber = 0;
   var stringIndex = 0;
+
   while (stringIndex < value.length) {
     var char = value.charAt(stringIndex++);
-    // If the current character is a segment break character go to the next segment.
+    // If the current character is a segment break character
+    // go to the next segment.
     if (stringCaseMask.isSegmentBreakCharacter(char)) {
       segmentNumber++;
       continue;
     }
+
     // Initialize the default value (an empty array) for a new segment.
     if (typeof mask[segmentNumber] === "undefined") mask[segmentNumber] = [];
-    // If a character is in the upper case push the uppercase identifier into the segment array.
-    if (string.isUpperCase(char)) mask[segmentNumber].push(UPPER_CASE);
-    // If a character is in the lower case push the lowercase identifier into the segment array.
-    else if (string.isLowerCase(char)) mask[segmentNumber].push(LOWER_CASE);
-      // If a character case is not recognized push the empty identifier into the segment array.
-      else mask[segmentNumber].push(NOT_RECOGNIZED_CASE);
+
+    if (string.isUpperCase(char)) mask[segmentNumber].push(UPPER_CASE);else if (string.isLowerCase(char)) mask[segmentNumber].push(LOWER_CASE);else mask[segmentNumber].push(NOT_RECOGNIZED_CASE);
   }
+
   return mask;
 };
 
@@ -67,24 +67,27 @@ stringCaseMask.applyByMask = function (mask, value) {
   var segmentNumber = 0;
   var segmentIndex = 0;
   var stringIndex = 0;
+
   while (stringIndex < value.length) {
     var char = value.charAt(stringIndex++);
-    // If the current character is a segment break character go to the next segment and reset the segment index.
+    // If the current character is a segment break character
+    // go to the next segment and reset the segment index.
     if (stringCaseMask.isSegmentBreakCharacter(char)) {
       segmentNumber++;
       segmentIndex = -1;
     }
+
     var segment = mask[segmentNumber];
     var charMask = segment[segmentIndex++];
-    // If the string length is bigger than a segment length set the character mask to the last segment character mask value.
+    // If the string length is bigger than a segment length
+    // set the character mask to the last segment character mask value.
     if (typeof charMask === "undefined") charMask = segment[segment.length - 1];
-    // If a character mask equals the upper case identifier convert the character to upper case.
-    if (charMask === UPPER_CASE) char = char.toUpperCase();
-    // If a character mask equals the lower case identifier convert the character to lower case.
-    else if (charMask === LOWER_CASE) char = char.toLowerCase();
+
+    if (charMask === UPPER_CASE) char = char.toUpperCase();else if (charMask === LOWER_CASE) char = char.toLowerCase();
     // Append the character to the resulting string.
     result += char;
   }
+
   return result;
 };
 
