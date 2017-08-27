@@ -5,8 +5,10 @@
   "main": "./dist/module/shevchenko.js",
   "scripts": {
     "update:rules": "gulp update:rules",
-    "build": "gulp clear && gulp build && gulp minify",
-    "test": "./node_modules/mocha/bin/mocha --recursive --timeout 25000 tests"
+    "build:module": "gulp clear:module && gulp build:module",
+    "build:bundle": "gulp clear:bundle && gulp build:bundle",
+    "build": "npm run build:module && npm run build:bundle",
+    "test": "./node_modules/mocha/bin/mocha --recursive --timeout 60000 tests"
   },
   "keywords": [
     "inflection",

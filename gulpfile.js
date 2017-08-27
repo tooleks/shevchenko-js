@@ -15,13 +15,18 @@ gulp.task("update:rules", () => {
         .pipe(fs.createWriteStream("./rules.json"));
 });
 
-gulp.task("clear", () => {
-    return gulp.src(["./dist/module/", "./dist/bundle/"], {read: false})
+gulp.task("clear:module", () => {
+    return gulp.src("./dist/module/", {read: false})
         .pipe(clean());
 });
 
-gulp.task("build", () => {
-    const task = gulp.src(["./src/**/*.js"]);
+gulp.task("clear:bundle", () => {
+    return gulp.src("./dist/bundle/", {read: false})
+        .pipe(clean());
+});
+
+gulp.task("build:module", () => {
+    const task = gulp.src("./src/**/*.js");
     for (let macroName in macro) {
         if (macro.hasOwnProperty(macroName)) {
             task.pipe(replace(macroName, macro[macroName]));
@@ -34,7 +39,7 @@ gulp.task("build", () => {
         .pipe(gulp.dest("./dist/module/"));
 });
 
-gulp.task("minify", () => {
+gulp.task("build:bundle", () => {
     return gulp.src("./dist/module/shevchenko.js")
         .pipe(browserify({
             insertGlobals: true,

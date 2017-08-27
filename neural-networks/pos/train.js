@@ -3,7 +3,7 @@
 const fs = require("fs");
 const NeuralNetwork = require("../../src/pos/neural-network");
 
-const samples = require("./data/training-data.json")
+const samples = require("./data/samples.json")
     .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
     .map((sample) => {
         return {

@@ -28,6 +28,22 @@ function NeuralNetwork(structure) {
   this.network = synaptic.Network.fromJSON(structure);
 
   /**
+   * Get the neural network structure.
+   *
+   * @return {Object}
+   */
+  this.structure = function () {
+    return _this.network.toJSON();
+  };
+
+  /**
+   * @return {string}
+   */
+  this.toString = function () {
+    return JSON.stringify(_this.structure());
+  };
+
+  /**
    * Run the neural network on the input data.
    *
    * @param {string} value
@@ -38,6 +54,18 @@ function NeuralNetwork(structure) {
     var normalizedOutput = _this.network.activate(normalizedInput);
     var denormalizedOutput = NeuralNetwork.denormalizeOutput(normalizedOutput);
     return denormalizedOutput || null;
+  };
+
+  /**
+   * Train the neural network on the training data array.
+   *
+   * @param {Array<Object>} samples
+   * @param {Object} options
+   * @return {void}
+   */
+  this.train = function (samples, options) {
+    var trainer = new synaptic.Trainer(_this.network);
+    trainer.train(samples, options);
   };
 }
 
@@ -52,7 +80,7 @@ NeuralNetwork.build = function (samples, options) {
   var network = new synaptic.Architect.Perceptron(NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT);
   var trainer = new synaptic.Trainer(network);
   trainer.train(samples, options);
-  return network.toJSON();
+  return new NeuralNetwork(network.toJSON());
 };
 
 /**
@@ -102,7 +130,7 @@ NeuralNetwork.normalizeOutput = function (value) {
  */
 NeuralNetwork.denormalizeOutput = function (value) {
   var normalizedValue = value.map(function (value) {
-    return value >= 0.5 ? 1 : 0;
+    return Number(value >= 0.5);
   });
   var posIndex = Object.values(POS).reduce(function (accumulator, value, index) {
     return value.join("") === normalizedValue.join("") ? index : accumulator;

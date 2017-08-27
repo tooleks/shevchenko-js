@@ -4758,5 +4758,45 @@
         "middleName": "мирославівно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "дужа",
+        "firstName": "горпина",
+        "middleName": "єгорівна"
+      },
+      "genitive": {
+        "lastName": "дужої",
+        "firstName": "горпини",
+        "middleName": "єгорівни"
+      },
+      "dative": {
+        "lastName": "дужій",
+        "firstName": "горпині",
+        "middleName": "єгорівні"
+      },
+      "accusative": {
+        "lastName": "дужу",
+        "firstName": "горпину",
+        "middleName": "єгорівну"
+      },
+      "ablative": {
+        "lastName": "дужою",
+        "firstName": "горпиною",
+        "middleName": "єгорівною"
+      },
+      "locative": {
+        "lastName": "дужій",
+        "firstName": "горпині",
+        "middleName": "єгорівні"
+      },
+      "vocative": {
+        "lastName": "дужа",
+        "firstName": "горпино",
+        "middleName": "єгорівно"
+      }
+    }
   }
 ]
