@@ -84,7 +84,7 @@ NeuralNetwork.normalizeInput = (value) => {
  * Normalize the output for the neural network. Human-readable -> Machine-readable.
  *
  * @param {string} value
- * @return {Array<number>|null}
+ * @return {Array<number>|undefined}
  */
 NeuralNetwork.normalizeOutput = (value) => POS[value];
 
@@ -92,7 +92,7 @@ NeuralNetwork.normalizeOutput = (value) => POS[value];
  * Denormalize the output of the neural network. Machine-readable -> Human-readable.
  *
  * @param {Array<number>} value
- * @return {string|null}
+ * @return {string|undefined}
  */
 NeuralNetwork.denormalizeOutput = (value) => {
     const normalizedValue = value.map((value) => value >= 0.5 ? 1 : 0);
