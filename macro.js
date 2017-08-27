@@ -1,22 +1,19 @@
 "use strict";
 
-const rules = require("./rules");
-const posNeuralNetworkStructure = require("./neural-networks/pos/data/structure.json");
 const NeuralNetwork = require("./src/pos/neural-network");
-
-const posNeuralNetworkCache = []
-    .concat(require("./neural-networks/pos/data/samples.json"))
-    .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
-    .reduce((accumulator, sample) => (accumulator[sample.value] = sample.pos, accumulator), {});
 
 module.exports = {
     "__rules__": JSON.stringify(
-        rules
+        require("./rules")
     ),
     "__pos_neural_network_structure__": JSON.stringify(
-        posNeuralNetworkStructure
+        require("./neural-networks/pos-а_я/data/structure.json")
     ),
     "__pos_neural_network_cache__": JSON.stringify(
-        process.env.NODE_ENV !== "test" ? posNeuralNetworkCache : {}
+        process.env.NODE_ENV === "test"
+            ? {}
+            : require("./neural-networks/pos-а_я/data/samples.json")
+            .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
+            .reduce((accumulator, sample) => (accumulator[sample.value] = sample.pos, accumulator), {})
     ),
 };
