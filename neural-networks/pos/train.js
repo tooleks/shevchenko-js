@@ -14,9 +14,9 @@ const samples = require("./data/training-data.json")
 
 const structure = NeuralNetwork.build(samples, {
     rate: 0.02919890243387724,
-    iterations: 300,
+    iterations: 400,
     shuffle: true,
-    error: 0.01,
+    error: 0.009,
     log: 1,
 });
 

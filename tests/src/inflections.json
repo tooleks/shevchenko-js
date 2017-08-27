@@ -4638,5 +4638,125 @@
         "middleName": "йовівно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "туя",
+        "firstName": "тая",
+        "middleName": "бегмамбетівна"
+      },
+      "genitive": {
+        "lastName": "туї",
+        "firstName": "таї",
+        "middleName": "бегмамбетівни"
+      },
+      "dative": {
+        "lastName": "туї",
+        "firstName": "таї",
+        "middleName": "бегмамбетівні"
+      },
+      "accusative": {
+        "lastName": "тую",
+        "firstName": "таю",
+        "middleName": "бегмамбетівну"
+      },
+      "ablative": {
+        "lastName": "туєю",
+        "firstName": "таєю",
+        "middleName": "бегмамбетівною"
+      },
+      "locative": {
+        "lastName": "туї",
+        "firstName": "таї",
+        "middleName": "бегмамбетівні"
+      },
+      "vocative": {
+        "lastName": "тує",
+        "firstName": "тає",
+        "middleName": "бегмамбетівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "бадьора",
+        "firstName": "валентина",
+        "middleName": "ярославівна"
+      },
+      "genitive": {
+        "lastName": "бадьорої",
+        "firstName": "валентини",
+        "middleName": "ярославівни"
+      },
+      "dative": {
+        "lastName": "бадьорій",
+        "firstName": "валентині",
+        "middleName": "ярославівні"
+      },
+      "accusative": {
+        "lastName": "бадьору",
+        "firstName": "валентину",
+        "middleName": "ярославівну"
+      },
+      "ablative": {
+        "lastName": "бадьорою",
+        "firstName": "валентиною",
+        "middleName": "ярославівною"
+      },
+      "locative": {
+        "lastName": "бадьорій",
+        "firstName": "валентині",
+        "middleName": "ярославівні"
+      },
+      "vocative": {
+        "lastName": "бадьора",
+        "firstName": "валентино",
+        "middleName": "ярославівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "булава",
+        "firstName": "ірена",
+        "middleName": "мирославівна"
+      },
+      "genitive": {
+        "lastName": "булави",
+        "firstName": "ірени",
+        "middleName": "мирославівни"
+      },
+      "dative": {
+        "lastName": "булаві",
+        "firstName": "ірені",
+        "middleName": "мирославівні"
+      },
+      "accusative": {
+        "lastName": "булаву",
+        "firstName": "ірену",
+        "middleName": "мирославівну"
+      },
+      "ablative": {
+        "lastName": "булавою",
+        "firstName": "іреною",
+        "middleName": "мирославівною"
+      },
+      "locative": {
+        "lastName": "булаві",
+        "firstName": "ірені",
+        "middleName": "мирославівні"
+      },
+      "vocative": {
+        "lastName": "булаво",
+        "firstName": "ірено",
+        "middleName": "мирославівно"
+      }
+    }
   }
 ]
