@@ -12,14 +12,15 @@ const samples = require("./data/training-data.json")
         };
     });
 
-const structure = NeuralNetwork.build(samples, {
-    rate: 0.02919890243387724,
-    iterations: 400,
-    shuffle: true,
-    error: 0.009,
-    log: 1,
-});
+const posNeuralNetwork = NeuralNetwork
+    .build(samples, {
+        rate: 0.02919890243387724,
+        iterations: 400,
+        shuffle: true,
+        error: 0.009,
+        log: 1,
+    });
 
-fs.writeFile(__dirname + "/data/structure.json", JSON.stringify(structure), (error) => {
-    if (error) throw error;
-});
+fs.writeFileSync(__dirname + "/data/structure.json", posNeuralNetwork.toString());
+
+console.log("Done.");

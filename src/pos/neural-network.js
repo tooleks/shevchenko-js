@@ -26,6 +26,18 @@ function NeuralNetwork(structure) {
     this.network = synaptic.Network.fromJSON(structure);
 
     /**
+     * Get the neural network structure.
+     *
+     * @return {Object}
+     */
+    this.structure = () => this.network.toJSON();
+
+    /**
+     * @return {string}
+     */
+    this.toString = () => JSON.stringify(this.structure());
+
+    /**
      * Run the neural network on the input data.
      *
      * @param {string} value
@@ -36,6 +48,18 @@ function NeuralNetwork(structure) {
         const normalizedOutput = this.network.activate(normalizedInput);
         const denormalizedOutput = NeuralNetwork.denormalizeOutput(normalizedOutput);
         return denormalizedOutput || null;
+    };
+
+    /**
+     * Train the neural network on the training data array.
+     *
+     * @param {Array<Object>} samples
+     * @param {Object} options
+     * @return {void}
+     */
+    this.train = (samples, options) => {
+        const trainer = new synaptic.Trainer(this.network);
+        trainer.train(samples, options);
     };
 }
 
@@ -50,7 +74,7 @@ NeuralNetwork.build = (samples, options) => {
     const network = new synaptic.Architect.Perceptron(NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT);
     const trainer = new synaptic.Trainer(network);
     trainer.train(samples, options);
-    return network.toJSON();
+    return new NeuralNetwork(network.toJSON());
 };
 
 /**
