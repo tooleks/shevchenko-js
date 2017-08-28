@@ -1,11 +1,11 @@
 "use strict";
 
-var helpers = require("./helpers");
+var util = require("./util");
 var rules = require("./rules");
 var pos = require("./pos");
 
-var assert = helpers.assert;
-var string = helpers.string;
+var assert = util.assert;
+var string = util.string;
 var inflector = rules.inflector;
 var filter = rules.filter;
 var sort = rules.sort;

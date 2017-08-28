@@ -21,13 +21,14 @@ inflector.inflectByRule = function (rule, caseName, value) {
     var regexp = rule.regexp.modify;
     var modifiers = rule.cases[caseName][0]; // Retrieve the first group modifiers object by case name.
     return value.replace(new RegExp(regexp, "gm"), function (match) {
+        for (var _len = arguments.length, groups = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+            groups[_key - 1] = arguments[_key];
+        }
+
         var replacement = "";
         var count = inflector.countRegexpGroups(regexp);
-        var index = 0;
-        while (index < count) {
-            var modifier = typeof modifiers === "undefined" ? modifiers : modifiers[index];
-            replacement += inflector.applyGroupModifier(modifier, arguments.length <= index + 1 ? undefined : arguments[index + 1]);
-            index++;
+        for (var index = 0; index < count; index++) {
+            replacement += inflector.applyGroupModifier(modifiers && modifiers[index], groups[index]);
         }
         return replacement;
     });

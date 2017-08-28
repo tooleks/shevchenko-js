@@ -230,7 +230,7 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
 <script type="text/javascript">
     (function () {
 
-        var persons = [
+        var writers = [
             {"gender": "male", "lastName": "Шевченко", "firstName": "Тарас", "middleName": "Григорович"},
             {"gender": "male", "lastName": "Франко", "firstName": "Іван", "middleName": "Якович"},
             {"gender": "male", "lastName": "Нечуй-Левицький", "firstName": "Іван", "middleName": "Семенович"},
@@ -255,8 +255,8 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
         ];
 
         function initializePreview(index, callback) {
-            index = typeof index === "undefined" ? randomNumber(0, persons.length - 1) : 0;
-            var inflectedPerson = shevchenko.inVocative(persons[index]);
+            index = typeof index === "undefined" ? randomNumber(0, writers.length - 1) : 0;
+            var inflectedPerson = shevchenko.inVocative(writers[index]);
             var value = inflectedPerson.lastName + " " + inflectedPerson.firstName + " " + inflectedPerson.middleName;
             callback(value);
         }

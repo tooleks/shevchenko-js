@@ -22,11 +22,8 @@ inflector.inflectByRule = (rule, caseName, value) => {
     return value.replace(new RegExp(regexp, "gm"), (match, ...groups) => {
         let replacement = "";
         const count = inflector.countRegexpGroups(regexp);
-        let index = 0;
-        while (index < count) {
-            let modifier = typeof modifiers === "undefined" ? modifiers : modifiers[index];
-            replacement += inflector.applyGroupModifier(modifier, groups[index]);
-            index++;
+        for (let index = 0; index < count; index++) {
+            replacement += inflector.applyGroupModifier(modifiers && modifiers[index], groups[index]);
         }
         return replacement;
     });

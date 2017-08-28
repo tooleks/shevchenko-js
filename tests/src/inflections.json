@@ -4798,5 +4798,285 @@
         "middleName": "єгорівно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "мулява",
+        "firstName": "ада",
+        "middleName": "михайлівна"
+      },
+      "genitive": {
+        "lastName": "муляви",
+        "firstName": "ади",
+        "middleName": "михайлівни"
+      },
+      "dative": {
+        "lastName": "муляві",
+        "firstName": "аді",
+        "middleName": "михайлівні"
+      },
+      "accusative": {
+        "lastName": "муляву",
+        "firstName": "аду",
+        "middleName": "михайлівну"
+      },
+      "ablative": {
+        "lastName": "мулявою",
+        "firstName": "адою",
+        "middleName": "михайлівною"
+      },
+      "locative": {
+        "lastName": "муляві",
+        "firstName": "аді",
+        "middleName": "михайлівні"
+      },
+      "vocative": {
+        "lastName": "муляво",
+        "firstName": "адо",
+        "middleName": "михайлівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "житня",
+        "firstName": "алла",
+        "middleName": "сергіївна"
+      },
+      "genitive": {
+        "lastName": "житньої",
+        "firstName": "алли",
+        "middleName": "сергіївни"
+      },
+      "dative": {
+        "lastName": "житній",
+        "firstName": "аллі",
+        "middleName": "сергіївні"
+      },
+      "accusative": {
+        "lastName": "житню",
+        "firstName": "аллу",
+        "middleName": "сергіївну"
+      },
+      "ablative": {
+        "lastName": "житньою",
+        "firstName": "аллою",
+        "middleName": "сергіївною"
+      },
+      "locative": {
+        "lastName": "житній",
+        "firstName": "аллі",
+        "middleName": "сергіївні"
+      },
+      "vocative": {
+        "lastName": "житня",
+        "firstName": "алло",
+        "middleName": "сергіївно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "демура",
+        "firstName": "аріадна",
+        "middleName": "біловустівна"
+      },
+      "genitive": {
+        "lastName": "демури",
+        "firstName": "аріадни",
+        "middleName": "біловустівни"
+      },
+      "dative": {
+        "lastName": "демурі",
+        "firstName": "аріадні",
+        "middleName": "біловустівні"
+      },
+      "accusative": {
+        "lastName": "демуру",
+        "firstName": "аріадну",
+        "middleName": "біловустівну"
+      },
+      "ablative": {
+        "lastName": "демурою",
+        "firstName": "аріадною",
+        "middleName": "біловустівною"
+      },
+      "locative": {
+        "lastName": "демурі",
+        "firstName": "аріадні",
+        "middleName": "біловустівні"
+      },
+      "vocative": {
+        "lastName": "демуро",
+        "firstName": "аріадно",
+        "middleName": "біловустівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "джабара",
+        "firstName": "берта",
+        "middleName": "грозанівна"
+      },
+      "genitive": {
+        "lastName": "джабари",
+        "firstName": "берти",
+        "middleName": "грозанівни"
+      },
+      "dative": {
+        "lastName": "джабарі",
+        "firstName": "берті",
+        "middleName": "грозанівні"
+      },
+      "accusative": {
+        "lastName": "джабару",
+        "firstName": "берту",
+        "middleName": "грозанівну"
+      },
+      "ablative": {
+        "lastName": "джабарою",
+        "firstName": "бертою",
+        "middleName": "грозанівною"
+      },
+      "locative": {
+        "lastName": "джабарі",
+        "firstName": "берті",
+        "middleName": "грозанівні"
+      },
+      "vocative": {
+        "lastName": "джабаро",
+        "firstName": "берто",
+        "middleName": "грозанівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "дзябура",
+        "firstName": "біляна",
+        "middleName": "дарівна"
+      },
+      "genitive": {
+        "lastName": "дзябури",
+        "firstName": "біляни",
+        "middleName": "дарівни"
+      },
+      "dative": {
+        "lastName": "дзябурі",
+        "firstName": "біляні",
+        "middleName": "дарівні"
+      },
+      "accusative": {
+        "lastName": "дзябуру",
+        "firstName": "біляну",
+        "middleName": "дарівну"
+      },
+      "ablative": {
+        "lastName": "дзябурою",
+        "firstName": "біляною",
+        "middleName": "дарівною"
+      },
+      "locative": {
+        "lastName": "дзябурі",
+        "firstName": "біляні",
+        "middleName": "дарівні"
+      },
+      "vocative": {
+        "lastName": "дзябуро",
+        "firstName": "біляно",
+        "middleName": "дарівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "казанжа",
+        "firstName": "віра",
+        "middleName": "живородівна"
+      },
+      "genitive": {
+        "lastName": "казанжі",
+        "firstName": "віри",
+        "middleName": "живородівни"
+      },
+      "dative": {
+        "lastName": "казанжі",
+        "firstName": "вірі",
+        "middleName": "живородівні"
+      },
+      "accusative": {
+        "lastName": "казанжу",
+        "firstName": "віру",
+        "middleName": "живородівну"
+      },
+      "ablative": {
+        "lastName": "казанжею",
+        "firstName": "вірою",
+        "middleName": "живородівною"
+      },
+      "locative": {
+        "lastName": "казанжі",
+        "firstName": "вірі",
+        "middleName": "живородівні"
+      },
+      "vocative": {
+        "lastName": "казанжо",
+        "firstName": "віро",
+        "middleName": "живородівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "мулява",
+        "firstName": "дарина",
+        "middleName": "романівна"
+      },
+      "genitive": {
+        "lastName": "муляви",
+        "firstName": "дарини",
+        "middleName": "романівни"
+      },
+      "dative": {
+        "lastName": "муляві",
+        "firstName": "дарині",
+        "middleName": "романівні"
+      },
+      "accusative": {
+        "lastName": "муляву",
+        "firstName": "дарину",
+        "middleName": "романівну"
+      },
+      "ablative": {
+        "lastName": "мулявою",
+        "firstName": "дариною",
+        "middleName": "романівною"
+      },
+      "locative": {
+        "lastName": "муляві",
+        "firstName": "дарині",
+        "middleName": "романівні"
+      },
+      "vocative": {
+        "lastName": "муляво",
+        "firstName": "дарино",
+        "middleName": "романівно"
+      }
+    }
   }
 ]

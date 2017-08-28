@@ -7,7 +7,7 @@ const NeuralNetwork = require("./neural-network");
  *
  * @type {NeuralNetwork}
  */
-const pos_nn_a_ja = new NeuralNetwork(__pos_nn_structure__a_ja__);
+const pos_nn_a_ya = new NeuralNetwork(__pos_nn_structure__a_ya__);
 
 const cache = __pos_nn_cache__;
 
@@ -27,7 +27,7 @@ module.exports = (value, cacheable = true) => {
     // Fetch the value's part of speech using the neural network.
     // #pos_limits - The part of speech resolver works only with the female genus words ending with -а, -я.
     if (/[ая]$/.test(value)) {
-        return cache[value] = pos_nn_a_ja.run(value);
+        return cache[value] = pos_nn_a_ya.run(value);
     }
 
     return null;

@@ -1,11 +1,11 @@
 "use strict";
 
-const helpers = require("./helpers");
+const util = require("./util");
 const rules = require("./rules");
 const pos = require("./pos");
 
-const assert = helpers.assert;
-const string = helpers.string;
+const assert = util.assert;
+const string = util.string;
 const inflector = rules.inflector;
 const filter = rules.filter;
 const sort = rules.sort;

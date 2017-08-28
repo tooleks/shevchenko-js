@@ -1,9 +1,9 @@
 "use strict";
 
 var synaptic = require("synaptic");
-var helpers = require("../helpers");
+var util = require("../util");
 
-var string = helpers.string;
+var string = util.string;
 
 var NETWORK_LAYER_SIZE_INPUT = 360;
 var NETWORK_LAYER_SIZE_HIDDEN = 100;
