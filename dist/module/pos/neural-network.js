@@ -6,7 +6,7 @@ var util = require("../util");
 var string = util.string;
 
 var NETWORK_LAYER_SIZE_INPUT = 360;
-var NETWORK_LAYER_SIZE_HIDDEN = 100;
+var NETWORK_LAYER_SIZE_HIDDEN = 20;
 var NETWORK_LAYER_SIZE_OUTPUT = 1;
 
 var POS = {

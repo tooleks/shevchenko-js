@@ -5078,5 +5078,85 @@
         "middleName": "романівно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "трикоза",
+        "firstName": "діана",
+        "middleName": "сновидівна"
+      },
+      "genitive": {
+        "lastName": "трикози",
+        "firstName": "діани",
+        "middleName": "сновидівни"
+      },
+      "dative": {
+        "lastName": "трикозі",
+        "firstName": "діані",
+        "middleName": "сновидівні"
+      },
+      "accusative": {
+        "lastName": "трикозу",
+        "firstName": "діану",
+        "middleName": "сновидівну"
+      },
+      "ablative": {
+        "lastName": "трикозою",
+        "firstName": "діаною",
+        "middleName": "сновидівною"
+      },
+      "locative": {
+        "lastName": "трикозі",
+        "firstName": "діані",
+        "middleName": "сновидівні"
+      },
+      "vocative": {
+        "lastName": "трикозо",
+        "firstName": "діано",
+        "middleName": "сновидівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "красненька",
+        "firstName": "евеліна",
+        "middleName": "терентієвна"
+      },
+      "genitive": {
+        "lastName": "красненької",
+        "firstName": "евеліни",
+        "middleName": "терентієвни"
+      },
+      "dative": {
+        "lastName": "красненькій",
+        "firstName": "евеліні",
+        "middleName": "терентієвні"
+      },
+      "accusative": {
+        "lastName": "красненьку",
+        "firstName": "евеліну",
+        "middleName": "терентієвну"
+      },
+      "ablative": {
+        "lastName": "красненькою",
+        "firstName": "евеліною",
+        "middleName": "терентієвною"
+      },
+      "locative": {
+        "lastName": "красненькій",
+        "firstName": "евеліні",
+        "middleName": "терентієвні"
+      },
+      "vocative": {
+        "lastName": "красненька",
+        "firstName": "евеліно",
+        "middleName": "терентієвно"
+      }
+    }
   }
 ]

@@ -6,7 +6,7 @@ const util = require("../util");
 const string = util.string;
 
 const NETWORK_LAYER_SIZE_INPUT = 360;
-const NETWORK_LAYER_SIZE_HIDDEN = 100;
+const NETWORK_LAYER_SIZE_HIDDEN = 20;
 const NETWORK_LAYER_SIZE_OUTPUT = 1;
 
 const POS = {
