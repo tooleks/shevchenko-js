@@ -3,17 +3,17 @@
 const fs = require("fs");
 const NeuralNetwork = require("../../src/pos/neural-network");
 
-const samples = require("./data/samples.json")
-    .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
-    .map((sample) => {
+const trainingData = require("./data/samples.json")
+    .filter((item) => NeuralNetwork.isValidPosName(item.pos))
+    .map((item) => {
         return {
-            input: NeuralNetwork.normalizeInput(sample.value),
-            output: NeuralNetwork.normalizeOutput(sample.pos),
+            input: NeuralNetwork.normalizeInput(item.value),
+            output: NeuralNetwork.normalizeOutput(item.pos),
         };
     });
 
 const posNeuralNetwork = NeuralNetwork
-    .build(samples, {
+    .build(trainingData, {
         rate: 0.02919890243387724,
         iterations: 400,
         shuffle: true,

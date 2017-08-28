@@ -6,14 +6,15 @@ module.exports = {
     "__rules__": JSON.stringify(
         require("./rules")
     ),
-    "__pos_neural_network_structure__": JSON.stringify(
-        require("./neural-networks/pos-а_я/data/structure.json")
+    "__pos_nn_structure__a_ja__": JSON.stringify(
+        require("./nn/pos-a-ja/data/structure.json")
     ),
-    "__pos_neural_network_cache__": JSON.stringify(
+    "__pos_nn_cache__": JSON.stringify(
         process.env.NODE_ENV === "test"
             ? {}
-            : require("./neural-networks/pos-а_я/data/samples.json")
-            .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
-            .reduce((accumulator, sample) => (accumulator[sample.value] = sample.pos, accumulator), {})
+            : []
+            .concat(require("./nn/pos-a-ja/data/samples.json"))
+            .filter((item) => NeuralNetwork.isValidPosName(item.pos))
+            .reduce((accumulator, item) => (accumulator[item.value] = item.pos, accumulator), {})
     ),
 };

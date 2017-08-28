@@ -265,7 +265,7 @@ function inflectLastName(gender, lastName, caseName) {
     const rule = shevchenko
         .getRules()
         .filter((rule) => filter.byGender(rule, gender))
-        .filter((rule) => gender === shevchenko.getGenderNameMale() || filter.byPos(rule, pos.resolve(lastName))) // #pos_limits
+        .filter((rule) => gender === shevchenko.getGenderNameMale() || filter.byPos(rule, pos.recognize(lastName))) // #pos_limits
         .filter((rule) => filter.byApplication(rule, "lastName"))
         .filter((rule) => filter.byRegexp(rule, lastName))
         .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "lastName"))

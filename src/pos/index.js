@@ -1,5 +1,5 @@
 "use strict";
 
-const resolve = require("./resolve");
+const recognize = require("./recognize");
 
-module.exports = {resolve};
+module.exports = {recognize};

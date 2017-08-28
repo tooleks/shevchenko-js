@@ -1,5 +1,5 @@
 "use strict";
 
-var resolve = require("./resolve");
+var recognize = require("./recognize");
 
-module.exports = { resolve: resolve };
+module.exports = { recognize: recognize };

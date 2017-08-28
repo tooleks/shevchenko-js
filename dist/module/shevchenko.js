@@ -290,7 +290,7 @@ function inflectLastName(gender, lastName, caseName) {
   var rule = shevchenko.getRules().filter(function (rule) {
     return filter.byGender(rule, gender);
   }).filter(function (rule) {
-    return gender === shevchenko.getGenderNameMale() || filter.byPos(rule, pos.resolve(lastName));
+    return gender === shevchenko.getGenderNameMale() || filter.byPos(rule, pos.recognize(lastName));
   }) // #pos_limits
   .filter(function (rule) {
     return filter.byApplication(rule, "lastName");

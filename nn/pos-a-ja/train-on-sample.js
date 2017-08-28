@@ -12,17 +12,17 @@ if (typeof process.argv[2] === "undefined" || typeof process.argv[3] === "undefi
 const value = process.argv[2].toLowerCase().trim();
 const pos = process.argv[3].toLowerCase().trim();
 
-if (require("./data/samples.json").filter((sample) => sample.value === value).length) {
+if (require("./data/samples.json").filter((item) => item.value === value).length) {
     throw new Error("Value already exists.");
 }
 
 const samples = [{value, pos}];
 const trainingData = samples
-    .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
-    .map((sample) => {
+    .filter((item) => NeuralNetwork.isValidPosName(item.pos))
+    .map((item) => {
         return {
-            input: NeuralNetwork.normalizeInput(sample.value),
-            output: NeuralNetwork.normalizeOutput(sample.pos),
+            input: NeuralNetwork.normalizeInput(item.value),
+            output: NeuralNetwork.normalizeOutput(item.pos),
         };
     });
 

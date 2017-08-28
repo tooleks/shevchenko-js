@@ -3,7 +3,7 @@ node_modules
 npm-debug.log
 invalid-samples.json
 /dist/index.html
-/neural-networks
+/nn
 /tests
 /rules.json
 /macro.js

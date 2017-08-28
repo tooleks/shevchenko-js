@@ -4,13 +4,13 @@ const fs = require("fs");
 const assert = require("assert");
 const pos = require("../dist/module/pos");
 const NeuralNetwork = require("../dist/module/pos/neural-network");
-const samples = require("../neural-networks/pos-а_я/data/samples.json");
+const samples = require("../nn/pos-a-ja/data/samples.json");
 
 describe("#pos.NeuralNetwork learning rate", () => {
     it("should have learning rate value >= 0.95", () => {
         const predictions = samples
-            .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
-            .map((sample) => sample.pos === pos.resolve(sample.value, false));
+            .filter((item) => NeuralNetwork.isValidPosName(item.pos))
+            .map((item) => item.pos === pos.recognize(item.value, false));
 
         const correctPredictions = predictions.filter((prediction) => prediction);
         const learningRate = correctPredictions.length / predictions.length;
@@ -18,8 +18,8 @@ describe("#pos.NeuralNetwork learning rate", () => {
         assert(learningRate >= 0.95, `The learn rate value is too low: ${learningRate}.`);
 
         const invalidResults = samples
-            .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
-            .filter((sample) => sample.pos !== pos.resolve(sample.value, false));
+            .filter((item) => NeuralNetwork.isValidPosName(item.pos))
+            .filter((item) => item.pos !== pos.recognize(item.value, false));
         fs.writeFileSync("invalid-samples.json", JSON.stringify(invalidResults));
     });
 });
