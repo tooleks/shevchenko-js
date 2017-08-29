@@ -15,7 +15,7 @@ const trainingData = require("./data/samples.json")
 const posNeuralNetwork = NeuralNetwork
     .build(trainingData, {
         rate: 0.02919890243387724,
-        iterations: 400,
+        iterations: 1000,
         shuffle: true,
         error: 0.009,
         log: 1,

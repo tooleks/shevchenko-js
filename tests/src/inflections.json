@@ -5158,5 +5158,45 @@
         "middleName": "терентієвно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "скорина",
+        "firstName": "анастасія",
+        "middleName": "велесівна"
+      },
+      "genitive": {
+        "lastName": "скорини",
+        "firstName": "анастасії",
+        "middleName": "велесівни"
+      },
+      "dative": {
+        "lastName": "скорині",
+        "firstName": "анастасії",
+        "middleName": "велесівні"
+      },
+      "accusative": {
+        "lastName": "скорину",
+        "firstName": "анастасію",
+        "middleName": "велесівну"
+      },
+      "ablative": {
+        "lastName": "скориною",
+        "firstName": "анастасією",
+        "middleName": "велесівною"
+      },
+      "locative": {
+        "lastName": "скорині",
+        "firstName": "анастасії",
+        "middleName": "велесівні"
+      },
+      "vocative": {
+        "lastName": "скорино",
+        "firstName": "анастасіє",
+        "middleName": "велесівно"
+      }
+    }
   }
 ]

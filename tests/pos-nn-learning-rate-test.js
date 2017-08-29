@@ -16,10 +16,5 @@ describe("#pos.NeuralNetwork learning rate", () => {
         const learningRate = correctPredictions.length / predictions.length;
 
         assert(learningRate >= 0.95, `The learn rate value is too low: ${learningRate}.`);
-
-        const invalidResults = samples
-            .filter((item) => NeuralNetwork.isValidPosName(item.pos))
-            .filter((item) => item.pos !== pos.recognize(item.value, false));
-        fs.writeFileSync("invalid-samples.json", JSON.stringify(invalidResults));
     });
 });
