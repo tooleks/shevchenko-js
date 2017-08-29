@@ -3,10 +3,9 @@
 const assert = require("assert");
 const shevchenko = require("../dist/module/shevchenko");
 
-describe("#shevchenko() general", () => {
-
-    describe("shevchenko.getRules()", () => {
-        it("should return a new instance of array on every call", () => {
+describe("#shevchenko() general", function () {
+    describe("shevchenko.getRules()", function () {
+        it("should return a new instance of array on every call", function () {
             const rules = shevchenko.getRules();
             assert(rules instanceof Array);
             rules.push({});
@@ -14,28 +13,28 @@ describe("#shevchenko() general", () => {
         });
     });
 
-    describe("shevchenko.getGenderNames()", () => {
-        it("should return a new instance of array on every call", () => {
+    describe("shevchenko.getGenderNames()", function () {
+        it("should return a new instance of array on every call", function () {
             const genderNames = shevchenko.getGenderNames();
             genderNames.push({});
             assert(shevchenko.getGenderNames().length === genderNames.length - 1);
         });
 
-        it("should return valid values", () => {
+        it("should return valid values", function () {
             const genderNames = shevchenko.getGenderNames();
             const validGenders = ["male", "female"];
             assert.equal(genderNames.join(","), validGenders.join(","));
         });
     });
 
-    describe("shevchenko.getCaseNames()", () => {
-        it("should return a new instance of array on every call", () => {
+    describe("shevchenko.getCaseNames()", function () {
+        it("should return a new instance of array on every call", function () {
             const caseNames = shevchenko.getCaseNames();
             caseNames.push({});
             assert(shevchenko.getCaseNames().length === caseNames.length - 1);
         });
 
-        it("should return valid values", () => {
+        it("should return valid values", function () {
             const caseNames = shevchenko.getCaseNames();
             const validCaseNames = [
                 "nominative",
@@ -50,37 +49,37 @@ describe("#shevchenko() general", () => {
         });
     });
 
-    describe("shevchenko()", () => {
-        it("should throw an error", () => {
-            assert.throws(() => {
+    describe("shevchenko()", function () {
+        it("should throw an error", function () {
+            assert.throws(function () {
                 shevchenko();
             }, Error);
         });
 
-        it("should throw an error", () => {
-            assert.throws(() => {
+        it("should throw an error", function () {
+            assert.throws(function () {
                 shevchenko({});
             }, Error);
         });
 
-        it("should throw an error", () => {
-            assert.throws(() => {
+        it("should throw an error", function () {
+            assert.throws(function () {
                 shevchenko({
                     gender: "bmale"
                 }, shevchenko.getCaseNameGenitive());
             }, Error);
         });
 
-        it("should throw an error", () => {
-            assert.throws(() => {
+        it("should throw an error", function () {
+            assert.throws(function () {
                 shevchenko({
                     gender: "male"
                 }, shevchenko.getCaseNameGenitive());
             }, Error);
         });
 
-        it("should throw an error", () => {
-            assert.throws(() => {
+        it("should throw an error", function () {
+            assert.throws(function () {
                 shevchenko({
                     gender: "male",
                     lastName: undefined,
@@ -90,8 +89,8 @@ describe("#shevchenko() general", () => {
             }, Error);
         });
 
-        it("should throw an error", () => {
-            assert.throws(() => {
+        it("should throw an error", function () {
+            assert.throws(function () {
                 shevchenko({
                     gender: "male",
                     lastName: "Шевченко",
@@ -101,8 +100,8 @@ describe("#shevchenko() general", () => {
             }, Error);
         });
 
-        it("should throw an error", () => {
-            assert.throws(() => {
+        it("should throw an error", function () {
+            assert.throws(function () {
                 shevchenko({
                     gender: "male",
                     lastName: "Шевченко",
@@ -112,7 +111,7 @@ describe("#shevchenko() general", () => {
             }, Error);
         });
 
-        it("should return a valid result type", () => {
+        it("should return a valid result type", function () {
             const result = shevchenko({
                 gender: "male",
                 lastName: "Шевченко",
@@ -124,7 +123,7 @@ describe("#shevchenko() general", () => {
             assert(typeof result.middleName === "string");
         });
 
-        it("should return a valid result type", () => {
+        it("should return a valid result type", function () {
             const result = shevchenko({
                 gender: "male",
                 lastName: "Шевченко"
@@ -132,7 +131,7 @@ describe("#shevchenko() general", () => {
             assert(typeof result.lastName === "string");
         });
 
-        it("should return a valid result type", () => {
+        it("should return a valid result type", function () {
             const result = shevchenko({
                 gender: "male",
                 firstName: "Тарас"
@@ -140,7 +139,7 @@ describe("#shevchenko() general", () => {
             assert(typeof result.firstName === "string");
         });
 
-        it("should return a valid result type", () => {
+        it("should return a valid result type", function () {
             const result = shevchenko({
                 gender: "male",
                 middleName: "Григорович"
@@ -148,5 +147,4 @@ describe("#shevchenko() general", () => {
             assert(typeof result.middleName === "string");
         });
     });
-
 });

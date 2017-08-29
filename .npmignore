@@ -1,7 +1,6 @@
 .idea
 node_modules
 npm-debug.log
-invalid-samples.json
 /dist/index.html
 /nn
 /tests
