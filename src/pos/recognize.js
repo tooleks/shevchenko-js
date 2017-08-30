@@ -25,7 +25,6 @@ module.exports = (value, cacheable = true) => {
     }
 
     // Fetch the value's part of speech using the neural network.
-    // #pos_limits - The part of speech resolver works only with the female genus words ending with -а, -я.
     if (/[ая]$/.test(value)) {
         return cache[value] = pos_nn_a_ya.run(value);
     }

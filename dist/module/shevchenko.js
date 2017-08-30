@@ -291,8 +291,7 @@ function inflectLastName(gender, lastName, caseName) {
     return filter.byGender(rule, gender);
   }).filter(function (rule) {
     return gender === shevchenko.getGenderNameMale() || filter.byPos(rule, pos.recognize(lastName));
-  }) // #pos_limits
-  .filter(function (rule) {
+  }).filter(function (rule) {
     return filter.byApplication(rule, "lastName");
   }).filter(function (rule) {
     return filter.byRegexp(rule, lastName);

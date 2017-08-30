@@ -79,7 +79,7 @@ shevchenko.getCaseNameVocative = () => "vocative";
  * @returns {Array<Object>}
  */
 shevchenko.getRules = () => {
-    const rules = __rules__;
+    const rules = __inflection_rules__;
     return rules.slice(0);
 };
 
@@ -265,7 +265,7 @@ function inflectLastName(gender, lastName, caseName) {
     const rule = shevchenko
         .getRules()
         .filter((rule) => filter.byGender(rule, gender))
-        .filter((rule) => gender === shevchenko.getGenderNameMale() || filter.byPos(rule, pos.recognize(lastName))) // #pos_limits
+        .filter((rule) => gender === shevchenko.getGenderNameMale() || filter.byPos(rule, pos.recognize(lastName)))
         .filter((rule) => filter.byApplication(rule, "lastName"))
         .filter((rule) => filter.byRegexp(rule, lastName))
         .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "lastName"))

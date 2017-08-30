@@ -3,7 +3,7 @@
 const fs = require("fs");
 const NeuralNetwork = require("../../src/pos/neural-network");
 
-const posNeuralNetwork = new NeuralNetwork(require("./data/structure.json"));
+const posNn = new NeuralNetwork(require("./data/structure.json"));
 
 if (typeof process.argv[2] === "undefined" || typeof process.argv[3] === "undefined") {
     throw new Error("Missed value or pos parameter.");
@@ -26,7 +26,7 @@ const trainingData = samples
         };
     });
 
-posNeuralNetwork.train(trainingData, {
+posNn.train(trainingData, {
     rate: 0.00019890243387724,
     iterations: 4000,
     shuffle: true,
@@ -35,6 +35,6 @@ posNeuralNetwork.train(trainingData, {
 });
 
 fs.writeFileSync(__dirname + "/data/samples.json", JSON.stringify([].concat(require("./data/samples.json")).concat(samples)));
-fs.writeFileSync(__dirname + "/data/structure.json", posNeuralNetwork.toString());
+fs.writeFileSync(__dirname + "/data/structure.json", posNn.toString());
 
 console.log("Done.");

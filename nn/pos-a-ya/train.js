@@ -12,7 +12,7 @@ const trainingData = require("./data/samples.json")
         };
     });
 
-const posNeuralNetwork = NeuralNetwork
+const posNn = NeuralNetwork
     .build(trainingData, {
         rate: 0.02919890243387724,
         iterations: 1000,
@@ -21,6 +21,6 @@ const posNeuralNetwork = NeuralNetwork
         log: 1,
     });
 
-fs.writeFileSync(__dirname + "/data/structure.json", posNeuralNetwork.toString());
+fs.writeFileSync(__dirname + "/data/structure.json", posNn.toString());
 
 console.log("Done.");
