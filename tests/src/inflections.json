@@ -5198,5 +5198,45 @@
         "middleName": "велесівно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "дубеня",
+        "firstName": "земфіра",
+        "middleName": "ярівна"
+      },
+      "genitive": {
+        "lastName": "дубені",
+        "firstName": "земфіри",
+        "middleName": "ярівни"
+      },
+      "dative": {
+        "lastName": "дубені",
+        "firstName": "земфірі",
+        "middleName": "ярівні"
+      },
+      "accusative": {
+        "lastName": "дубеню",
+        "firstName": "земфіру",
+        "middleName": "ярівну"
+      },
+      "ablative": {
+        "lastName": "дубенею",
+        "firstName": "земфірою",
+        "middleName": "ярівною"
+      },
+      "locative": {
+        "lastName": "дубені",
+        "firstName": "земфірі",
+        "middleName": "ярівні"
+      },
+      "vocative": {
+        "lastName": "дубене",
+        "firstName": "земфіро",
+        "middleName": "ярівно"
+      }
+    }
   }
 ]
