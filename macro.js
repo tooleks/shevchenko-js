@@ -15,6 +15,6 @@ const posNnCache = [].concat(posNnAYaCache);
 
 module.exports = {
     "__inflection_rules__": JSON.stringify(inflectionRules),
-    "__pos_nn_structure__a_ya__": JSON.stringify(posNnAYaStructure),
+    "__pos_nn_a_ya_structure___": JSON.stringify(posNnAYaStructure),
     "__pos_nn_cache__": JSON.stringify(process.env.NODE_ENV === "test" ? {} : posNnCache),
 };

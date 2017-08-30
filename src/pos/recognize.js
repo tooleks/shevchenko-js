@@ -7,9 +7,9 @@ const NeuralNetwork = require("./neural-network");
  *
  * @type {NeuralNetwork}
  */
-const pos_nn_a_ya = new NeuralNetwork(__pos_nn_structure__a_ya__);
+const posNnAYa = new NeuralNetwork(__pos_nn_a_ya_structure___);
 
-const cache = __pos_nn_cache__;
+const posNnCache = __pos_nn_cache__;
 
 /**
  * Recognize the part of speech of the word.
@@ -20,13 +20,13 @@ const cache = __pos_nn_cache__;
  */
 module.exports = (value, cacheable = true) => {
     // Fetch the value's part of speech using the cache.
-    if (cacheable && cache.hasOwnProperty(value)) {
-        return cache[value];
+    if (cacheable && posNnCache.hasOwnProperty(value)) {
+        return posNnCache[value];
     }
 
     // Fetch the value's part of speech using the neural network.
     if (/[ая]$/.test(value)) {
-        return cache[value] = pos_nn_a_ya.run(value);
+        return posNnCache[value] = posNnAYa.run(value);
     }
 
     return null;
