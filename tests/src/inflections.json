@@ -5238,5 +5238,125 @@
         "middleName": "ярівно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "штендера",
+        "firstName": "лілія",
+        "middleName": "остапівна"
+      },
+      "genitive": {
+        "lastName": "штендери",
+        "firstName": "лілії",
+        "middleName": "остапівни"
+      },
+      "dative": {
+        "lastName": "штендері",
+        "firstName": "лілії",
+        "middleName": "остапівні"
+      },
+      "accusative": {
+        "lastName": "штендеру",
+        "firstName": "лілію",
+        "middleName": "остапівну"
+      },
+      "ablative": {
+        "lastName": "штендерою",
+        "firstName": "лілією",
+        "middleName": "остапівною"
+      },
+      "locative": {
+        "lastName": "штендері",
+        "firstName": "лілії",
+        "middleName": "остапівні"
+      },
+      "vocative": {
+        "lastName": "штендеро",
+        "firstName": "ліліє",
+        "middleName": "остапівно"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "лежень",
+        "firstName": "антон",
+        "middleName": "остапович"
+      },
+      "genitive": {
+        "lastName": "лежня",
+        "firstName": "антона",
+        "middleName": "остаповича"
+      },
+      "dative": {
+        "lastName": "лежню",
+        "firstName": "антону",
+        "middleName": "остаповичу"
+      },
+      "accusative": {
+        "lastName": "лежня",
+        "firstName": "антона",
+        "middleName": "остаповича"
+      },
+      "ablative": {
+        "lastName": "лежнем",
+        "firstName": "антоном",
+        "middleName": "остаповичем"
+      },
+      "locative": {
+        "lastName": "лежню",
+        "firstName": "антонові",
+        "middleName": "остаповичу"
+      },
+      "vocative": {
+        "lastName": "лежню",
+        "firstName": "антоне",
+        "middleName": "остаповичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "мжень",
+        "firstName": "сидір",
+        "middleName": "флорович"
+      },
+      "genitive": {
+        "lastName": "мженя",
+        "firstName": "сидора",
+        "middleName": "флоровича"
+      },
+      "dative": {
+        "lastName": "мженю",
+        "firstName": "сидору",
+        "middleName": "флоровичу"
+      },
+      "accusative": {
+        "lastName": "мженя",
+        "firstName": "сидора",
+        "middleName": "флоровича"
+      },
+      "ablative": {
+        "lastName": "мженем",
+        "firstName": "сидором",
+        "middleName": "флоровичем"
+      },
+      "locative": {
+        "lastName": "мженю",
+        "firstName": "сидорові",
+        "middleName": "флоровичу"
+      },
+      "vocative": {
+        "lastName": "мженю",
+        "firstName": "сидоре",
+        "middleName": "флоровичу"
+      }
+    }
   }
 ]

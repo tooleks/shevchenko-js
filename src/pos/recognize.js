@@ -15,12 +15,11 @@ const posNnCache = __pos_nn_cache__;
  * Recognize the part of speech of the word.
  *
  * @param {string} value
- * @param {boolean} cacheable
  * @return {string|null}
  */
-module.exports = (value, cacheable = true) => {
+module.exports = (value) => {
     // Fetch the value's part of speech using the cache.
-    if (cacheable && posNnCache.hasOwnProperty(value)) {
+    if (posNnCache.hasOwnProperty(value)) {
         return posNnCache[value];
     }
 
