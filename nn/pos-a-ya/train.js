@@ -4,11 +4,11 @@ const fs = require("fs");
 const NeuralNetwork = require("../../src/pos/neural-network");
 
 const trainingData = require("./data/samples.json")
-    .filter((item) => NeuralNetwork.isValidPosName(item.pos))
-    .map((item) => {
+    .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
+    .map((sample) => {
         return {
-            input: NeuralNetwork.normalizeInput(item.value),
-            output: NeuralNetwork.normalizeOutput(item.pos),
+            input: NeuralNetwork.normalizeInput(sample.value),
+            output: NeuralNetwork.normalizeOutput(sample.pos),
         };
     });
 

@@ -76,7 +76,7 @@ shevchenko.getCaseNameVocative = () => "vocative";
 /**
  * Get an array of rules.
  *
- * @returns {Array<Object>}
+ * @return {Array<Object>}
  */
 shevchenko.getRules = () => {
     const rules = __inflection_rules__;
@@ -86,7 +86,7 @@ shevchenko.getRules = () => {
 /**
  * Get an array of gender names.
  *
- * @returns {Array<string>}
+ * @return {Array<string>}
  */
 shevchenko.getGenderNames = () => {
     const genderNames = [
@@ -99,7 +99,7 @@ shevchenko.getGenderNames = () => {
 /**
  * Get an array of case names.
  *
- * @returns {Array<string>}
+ * @return {Array<string>}
  */
 shevchenko.getCaseNames = () => {
     const caseNames = [
@@ -118,7 +118,7 @@ shevchenko.getCaseNames = () => {
  * Inflect the person's first, last and middle names in a nominative case.
  *
  * @param {Object} person
- * @returns {Object}
+ * @return {Object}
  */
 shevchenko.inNominative = (person) => shevchenko(person, shevchenko.getCaseNameNominative());
 
@@ -126,7 +126,7 @@ shevchenko.inNominative = (person) => shevchenko(person, shevchenko.getCaseNameN
  * Inflect the person's first, last and middle names in a genitive case.
  *
  * @param {Object} person
- * @returns {Object}
+ * @return {Object}
  */
 shevchenko.inGenitive = (person) => shevchenko(person, shevchenko.getCaseNameGenitive());
 
@@ -134,7 +134,7 @@ shevchenko.inGenitive = (person) => shevchenko(person, shevchenko.getCaseNameGen
  * Inflect the person's first, last and middle names in a dative case.
  *
  * @param {Object} person
- * @returns {Object}
+ * @return {Object}
  */
 shevchenko.inDative = (person) => shevchenko(person, shevchenko.getCaseNameDative());
 
@@ -142,7 +142,7 @@ shevchenko.inDative = (person) => shevchenko(person, shevchenko.getCaseNameDativ
  * Inflect the person's first, last and middle names in an accusative case.
  *
  * @param {Object} person
- * @returns {Object}
+ * @return {Object}
  */
 shevchenko.inAccusative = (person) => shevchenko(person, shevchenko.getCaseNameAccusative());
 
@@ -150,7 +150,7 @@ shevchenko.inAccusative = (person) => shevchenko(person, shevchenko.getCaseNameA
  * Inflect the person's first, last and middle names in an ablative case.
  *
  * @param {Object} person
- * @returns {Object}
+ * @return {Object}
  */
 shevchenko.inAblative = (person) => shevchenko(person, shevchenko.getCaseNameAblative());
 
@@ -158,7 +158,7 @@ shevchenko.inAblative = (person) => shevchenko(person, shevchenko.getCaseNameAbl
  * Inflect the person's first, last and middle names in a locative case.
  *
  * @param {Object} person
- * @returns {Object}
+ * @return {Object}
  */
 shevchenko.inLocative = (person) => shevchenko(person, shevchenko.getCaseNameLocative());
 
@@ -166,7 +166,7 @@ shevchenko.inLocative = (person) => shevchenko(person, shevchenko.getCaseNameLoc
  * Inflect the person's first, last and middle names in a vocative case.
  *
  * @param {Object} person
- * @returns {Object}
+ * @return {Object}
  */
 shevchenko.inVocative = (person) => shevchenko(person, shevchenko.getCaseNameVocative());
 
@@ -194,7 +194,7 @@ shevchenko.inAll = (person) => {
  *
  * @param {Object} person
  * @param {string} caseName
- * @returns {Object}
+ * @return {Object}
  */
 function shevchenko(person, caseName) {
     assertPersonParameter(person);

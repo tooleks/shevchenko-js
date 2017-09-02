@@ -1,7 +1,5 @@
 "use strict";
 
-const assert = require("./assert");
-
 const UPPER_CASE = "u";
 const LOWER_CASE = "l";
 const NOT_RECOGNIZED_CASE = null;
@@ -27,10 +25,9 @@ stringCaseMask.isSegmentBreakCharacter = (char) => char === "-";
  * Load the case mask from the string.
  *
  * @param {string} value
- * @returns {Object}
+ * @return {Object}
  */
 stringCaseMask.loadMask = (value) => {
-    assert.string(value);
     const mask = {};
     let segmentNumber = 0;
     let stringIndex = 0;
@@ -60,7 +57,7 @@ stringCaseMask.loadMask = (value) => {
  *
  * @param {Object} mask
  * @param {string} value
- * @returns {string}
+ * @return {string}
  */
 stringCaseMask.applyByMask = (mask, value) => {
     let result = "";
@@ -139,7 +136,7 @@ string.padLeft = (string, length, symbol = "0") => {
  *
  * @param {string} exampleString
  * @param {string} string
- * @returns {string}
+ * @return {string}
  */
 string.applyCaseMask = (exampleString, string) => {
     const mask = stringCaseMask.loadMask(exampleString);

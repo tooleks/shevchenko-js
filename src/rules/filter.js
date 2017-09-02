@@ -24,7 +24,7 @@ filter.byPos = (rule, value) => {
  * @param {Object} rule
  * @param {string} value
  * @param {boolean} strict
- * @return {*}
+ * @return {boolean}
  */
 filter.byApplication = (rule, value, strict = false) => {
     if (rule.applications.length) {

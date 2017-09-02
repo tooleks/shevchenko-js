@@ -14,7 +14,7 @@ var inflector = {};
  * @param {Object} rule
  * @param {string} caseName
  * @param {string} value
- * @returns {string}
+ * @return {string}
  */
 inflector.inflectByRule = function (rule, caseName, value) {
     if (typeof rule === "undefined") return value;
@@ -41,7 +41,7 @@ inflector.inflectByRule = function (rule, caseName, value) {
  *
  * @param {Object} modifier
  * @param {string} value
- * @returns {string}
+ * @return {string}
  */
 inflector.applyGroupModifier = function (modifier, value) {
     if (typeof modifier === "undefined") return value;
@@ -59,7 +59,7 @@ inflector.applyGroupModifier = function (modifier, value) {
  * Count a number of groups in regular expression string.
  *
  * @param {string} regexp
- * @returns {number}
+ * @return {number}
  */
 inflector.countRegexpGroups = function (regexp) {
     return new RegExp(regexp.toString() + "|").exec("").length - 1;

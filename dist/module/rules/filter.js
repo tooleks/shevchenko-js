@@ -25,7 +25,7 @@ filter.byPos = function (rule, value) {
  * @param {Object} rule
  * @param {string} value
  * @param {boolean} strict
- * @return {*}
+ * @return {boolean}
  */
 filter.byApplication = function (rule, value) {
   var strict = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;

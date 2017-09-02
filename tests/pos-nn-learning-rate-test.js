@@ -9,8 +9,8 @@ describe("#pos learning rate", function () {
     it("posNnAYa should have learning rate value >= 0.95", function () {
         const posNnAYa = new NeuralNetwork(require("../nn/pos-a-ya/data/structure.json"));
         const predictions = require("../nn/pos-a-ya/data/samples.json")
-            .filter((item) => NeuralNetwork.isValidPosName(item.pos))
-            .map((item) => item.pos === posNnAYa.run(item.value));
+            .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
+            .map((sample) => sample.pos === posNnAYa.run(sample.value));
 
         const correctPredictions = predictions.filter((prediction) => prediction);
         const learningRate = correctPredictions.length / predictions.length;
