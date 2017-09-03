@@ -5358,5 +5358,45 @@
         "middleName": "флоровичу"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "неїжкаша",
+        "firstName": "олена",
+        "middleName": "ярмолівна"
+      },
+      "genitive": {
+        "lastName": "неїжкаші",
+        "firstName": "олени",
+        "middleName": "ярмолівни"
+      },
+      "dative": {
+        "lastName": "неїжкаші",
+        "firstName": "олені",
+        "middleName": "ярмолівні"
+      },
+      "accusative": {
+        "lastName": "неїжкашу",
+        "firstName": "олену",
+        "middleName": "ярмолівну"
+      },
+      "ablative": {
+        "lastName": "неїжкашею",
+        "firstName": "оленою",
+        "middleName": "ярмолівною"
+      },
+      "locative": {
+        "lastName": "неїжкаші",
+        "firstName": "олені",
+        "middleName": "ярмолівні"
+      },
+      "vocative": {
+        "lastName": "неїжкашо",
+        "firstName": "олено",
+        "middleName": "ярмолівно"
+      }
+    }
   }
 ]
