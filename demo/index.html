@@ -94,16 +94,16 @@
             <h2 id="demo">Демо
                 <span class="btn-group">
                     <a class="btn btn-lg btn-link"
-                       href="https://www.facebook.com/sharer/sharer.php?u=http://shevchenko-js.tooleks.com"
-                       title="Поділитися на Facebook"
+                       href="https://www.facebook.com/sharer/sharer.php?u=http://shevchenko-js.tooleks.com/#demo"
+                       title="Розповісти на Facebook"
                        target="_blank"><i class="fa fa-facebook color-facebook" aria-hidden="true"></i></a>
                     <a class="btn btn-lg btn-link"
-                       href="http://twitter.com/share?url=http://shevchenko-js.tooleks.com"
-                       title="Поділитися на Twitter"
+                       href="http://twitter.com/share?url=http://shevchenko-js.tooleks.com/#demo"
+                       title="Розповісти на Twitter"
                        target="_blank"><i class="fa fa-twitter color-twitter" aria-hidden="true"></i></a>
                     <a class="btn btn-lg btn-link"
-                       href="https://plus.google.com/share?url=http://shevchenko-js.tooleks.com"
-                       title="Поділитися на Google"
+                       href="https://plus.google.com/share?url=http://shevchenko-js.tooleks.com/#demo"
+                       title="Розповісти на Google+"
                        target="_blank"><i class="fa fa-google-plus color-google-plus" aria-hidden="true"></i></a>
                 </span>
             </h2>
@@ -252,7 +252,7 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
-<script src="bundle/shevchenko.min.js"></script>
+<script src="dist/bundle/shevchenko.min.js"></script>
 <script type="text/javascript">
     (function () {
 
@@ -280,7 +280,7 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
             {"gender": "female", "lastName": "Кобилянська", "firstName": "Ольга", "middleName": "Юліанівна"},
         ];
 
-        function initializePreview(index, callback) {
+        function initializeInflectionPreview(index, callback) {
             index = typeof index === "undefined" ? randomNumber(0, writers.length - 1) : 0;
             var inflectedPerson = shevchenko.inVocative(writers[index]);
             var value = inflectedPerson.lastName + " " + inflectedPerson.firstName + " " + inflectedPerson.middleName;
@@ -334,7 +334,11 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
             $("#issuesCount").text(parseInt(value));
         }
 
-        function setPreview(value) {
+        function setCurrentYear(value) {
+            $("#currentYear").text(value);
+        }
+
+        function setInflectionPreview(value) {
             var previewSelector = $("#preview");
             if (previewSelector.text() == value) return;
             previewSelector.fadeOut(400, function () {
@@ -343,15 +347,16 @@ console.log(<var>result</var>); // {lastName: 'Шевченку', firstName: 'Т
             });
         }
 
-        initializePreview(0, setPreview);
+        initializeInflectionPreview(0, setInflectionPreview);
         setInterval(function () {
             var undefined;
-            initializePreview(undefined, setPreview);
+            initializeInflectionPreview(undefined, setInflectionPreview);
         }, 5000);
 
         $(document).ready(function () {
             var person = buildPerson("male", "Шевченко", "Тарас", "Григорович");
             inflect(person, setInflectionResult);
+            setCurrentYear((new Date).getFullYear());
         });
 
         $("#inflection-form").submit(function (event) {

@@ -12,7 +12,7 @@ const macro = require("./macro");
 
 gulp.task("update:rules", () => {
     request("https://raw.githubusercontent.com/tooleks/shevchenko-rules/master/dist/rules.json")
-        .pipe(fs.createWriteStream("./rules.json"));
+        .pipe(fs.createWriteStream("./rules/rules.json"));
 });
 
 gulp.task("clear:module", () => {

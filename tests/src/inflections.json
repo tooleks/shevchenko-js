@@ -5398,5 +5398,165 @@
         "middleName": "ярмолівно"
       }
     }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "палій",
+        "firstName": "димитрій",
+        "middleName": "велесович"
+      },
+      "genitive": {
+        "lastName": "палія",
+        "firstName": "димитрія",
+        "middleName": "велесовича"
+      },
+      "dative": {
+        "lastName": "палію",
+        "firstName": "димитрію",
+        "middleName": "велесовичу"
+      },
+      "accusative": {
+        "lastName": "палія",
+        "firstName": "димитрія",
+        "middleName": "велесовича"
+      },
+      "ablative": {
+        "lastName": "палієм",
+        "firstName": "димитрієм",
+        "middleName": "велесовичем"
+      },
+      "locative": {
+        "lastName": "палієві",
+        "firstName": "димитрієві",
+        "middleName": "велесовичу"
+      },
+      "vocative": {
+        "lastName": "палію",
+        "firstName": "димитрію",
+        "middleName": "велесовичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "заболотній",
+        "firstName": "юрій",
+        "middleName": "костянтинович"
+      },
+      "genitive": {
+        "lastName": "заболотнього",
+        "firstName": "юрія",
+        "middleName": "костянтиновича"
+      },
+      "dative": {
+        "lastName": "заболотньому",
+        "firstName": "юрію",
+        "middleName": "костянтиновичу"
+      },
+      "accusative": {
+        "lastName": "заболотнього",
+        "firstName": "юрія",
+        "middleName": "костянтиновича"
+      },
+      "ablative": {
+        "lastName": "заболотнім",
+        "firstName": "юрієм",
+        "middleName": "костянтиновичем"
+      },
+      "locative": {
+        "lastName": "заболотньому",
+        "firstName": "юрієві",
+        "middleName": "костянтиновичу"
+      },
+      "vocative": {
+        "lastName": "заболотній",
+        "firstName": "юрію",
+        "middleName": "костянтиновичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "батий",
+        "firstName": "володимир",
+        "middleName": "вірович"
+      },
+      "genitive": {
+        "lastName": "батия",
+        "firstName": "володимира",
+        "middleName": "віровича"
+      },
+      "dative": {
+        "lastName": "батию",
+        "firstName": "володимиру",
+        "middleName": "віровичу"
+      },
+      "accusative": {
+        "lastName": "батия",
+        "firstName": "володимира",
+        "middleName": "віровича"
+      },
+      "ablative": {
+        "lastName": "батиєм",
+        "firstName": "володимиром",
+        "middleName": "віровичем"
+      },
+      "locative": {
+        "lastName": "батию",
+        "firstName": "володимирові",
+        "middleName": "віровичу"
+      },
+      "vocative": {
+        "lastName": "батию",
+        "firstName": "володимире",
+        "middleName": "віровичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "білоцький",
+        "firstName": "гаврило",
+        "middleName": "микитович"
+      },
+      "genitive": {
+        "lastName": "білоцького",
+        "firstName": "гаврила",
+        "middleName": "микитовича"
+      },
+      "dative": {
+        "lastName": "білоцькому",
+        "firstName": "гаврилу",
+        "middleName": "микитовичу"
+      },
+      "accusative": {
+        "lastName": "білоцького",
+        "firstName": "гаврила",
+        "middleName": "микитовича"
+      },
+      "ablative": {
+        "lastName": "білоцьким",
+        "firstName": "гаврилом",
+        "middleName": "микитовичем"
+      },
+      "locative": {
+        "lastName": "білоцькому",
+        "firstName": "гаврилові",
+        "middleName": "микитовичу"
+      },
+      "vocative": {
+        "lastName": "білоцький",
+        "firstName": "гавриле",
+        "middleName": "микитовичу"
+      }
+    }
   }
 ]
