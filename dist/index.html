@@ -34,7 +34,20 @@
                 display: none;
             }
         }
+
+        .color-facebook {
+            color: #4867AA;
+        }
+
+        .color-twitter {
+            color: #1DA1F2;
+        }
+
+        .color-google-plus {
+            color: #DD4F43;
+        }
     </style>
+    <script src="https://use.fontawesome.com/eb2025b7f7.js"></script>
 </head>
 <body>
 <div class="container">
@@ -53,8 +66,8 @@
             <div class="collapse navbar-collapse" id="navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="#demo">Демо</a></li>
-                    <li><a href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM пакет</a></li>
-                    <li><a href="https://github.com/tooleks/shevchenko-js" target="_blank">Репозиторій</a></li>
+                    <li><a href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM</a></li>
+                    <li><a href="https://github.com/tooleks/shevchenko-js" target="_blank">GitHub</a></li>
                     <li><a href="https://github.com/tooleks/shevchenko-js#Використання"
                            target="_blank">Документація</a></li>
                     <li><a href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE"
@@ -78,7 +91,22 @@
     </div>
     <div class="row">
         <div class="col-sm-12">
-            <h2 id="demo">Демо</h2>
+            <h2 id="demo">Демо
+                <span class="btn-group">
+                    <a class="btn btn-lg btn-link"
+                       href="https://www.facebook.com/sharer/sharer.php?u=http://shevchenko-js.tooleks.com"
+                       title="Поділитися на Facebook"
+                       target="_blank"><i class="fa fa-facebook color-facebook" aria-hidden="true"></i></a>
+                    <a class="btn btn-lg btn-link"
+                       href="http://twitter.com/share?url=http://shevchenko-js.tooleks.com"
+                       title="Поділитися на Twitter"
+                       target="_blank"><i class="fa fa-twitter color-twitter" aria-hidden="true"></i></a>
+                    <a class="btn btn-lg btn-link"
+                       href="https://plus.google.com/share?url=http://shevchenko-js.tooleks.com"
+                       title="Поділитися на Google"
+                       target="_blank"><i class="fa fa-google-plus color-google-plus" aria-hidden="true"></i></a>
+                </span>
+            </h2>
             <hr>
         </div>
     </div>
