@@ -7,5 +7,6 @@ npm-debug.log
 /nn
 /rules
 /tests
+/tmp
 /macro.js
 /gulpfile.js
