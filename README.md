@@ -74,15 +74,7 @@ POST  HTTP/1.1
 Host: localhost:8080
 Content-Type: application/json
 
-{
-	"person": {
-		"gender": "male",
-		"lastName": "Шевченко",
-		"firstName": "Тарас",
-		"middleName": "Григорович"
-	},
-	"caseName": "vocative"
-}
+{"person":{"gender":"male","lastName":"Шевченко","firstName":"Тарас","middleName":"Григорович"},"caseName":"vocative"}
 ```
 
 cURL
@@ -91,13 +83,5 @@ cURL
 curl -X POST \
   http://localhost:8080/ \
   -H 'content-type: application/json' \
-  -d '{
-	"person": {
-		"gender": "male",
-		"lastName": "Шевченко",
-		"firstName": "Тарас",
-		"middleName": "Григорович"
-	},
-	"caseName": "vocative"
-}'
+  -d '{"person":{"gender":"male","lastName":"Шевченко","firstName":"Тарас","middleName":"Григорович"},"caseName":"vocative"}'
 ```
