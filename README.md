@@ -55,9 +55,9 @@ var shevchenko = require("shevchenko");
 
 ### Використання в інших мовах програмування
 
-1. Встановіть бібліотеку описаним вище способом на веб-сервері з найновішою стабільною версією [Node.js](https://nodejs.org).
+* Встановіть бібліотеку описаним вище способом на веб-сервері з найновішою стабільною версією [Node.js](https://nodejs.org).
 
-2. Запустіть мікросервіс, виконавши наступну команду.
+* Запустіть мікросервіс, виконавши наступну команду.
  
 ```bash
 PORT=8080 node ./node_modules/shevchenko/examples/shevchenko-microservice.js
@@ -65,7 +65,7 @@ PORT=8080 node ./node_modules/shevchenko/examples/shevchenko-microservice.js
 
 Для виробничого середовища краще скористатися менеджером процесів, наприклад [PM2](http://pm2.keymetrics.io). 
 
-3. Надішліть `HTTP` `POST` запит за адресою `http://localhost:8080`, щоб провідміняти прізвище, ім'я та по батькові особи.
+* Надішліть `HTTP` `POST` запит за адресою `http://localhost:8080`, щоб провідміняти прізвище, ім'я та по батькові особи.
 
 HTTP
 
@@ -80,7 +80,6 @@ Content-Type: application/json
 		"lastName": "Шевченко",
 		"firstName": "Тарас",
 		"middleName": "Григорович"
-		
 	},
 	"caseName": "vocative"
 }
@@ -98,7 +97,6 @@ curl -X POST \
 		"lastName": "Шевченко",
 		"firstName": "Тарас",
 		"middleName": "Григорович"
-		
 	},
 	"caseName": "vocative"
 }'
