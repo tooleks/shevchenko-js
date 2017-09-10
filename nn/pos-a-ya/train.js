@@ -15,12 +15,12 @@ const trainingData = require("./data/samples.json")
 const posNn = NeuralNetwork
     .build(trainingData, {
         rate: 0.02919890243387724,
-        iterations: 1000,
+        iterations: 400,
         shuffle: true,
         error: 0.009,
         log: 1,
     });
 
-fs.writeFileSync(__dirname + "/data/structure.json", posNn.toString());
+fs.writeFileSync(__dirname + "/structure.json", posNn.toString());
 
 console.log("Done.");

@@ -55,45 +55,51 @@ var shevchenko = require("shevchenko");
 
 ### Використання в інших мовах програмування
 
-Щоб використовувати бібліотеку в інших мовах програмування можна скористатися інтерфейсом `HTTP`. Для цього встановіть бібліотеку описаним вище способом на веб-сервері з [Node.js](https://nodejs.org). Створіть файл `./shevchenko-microservice.js` із вмістом.
+1. Встановіть бібліотеку описаним вище способом на веб-сервері з найновішою стабільною версією [Node.js](https://nodejs.org) .
 
-```JavaScript
-"use strict";
-
-const http = require("http");
-const shevchenko = require("shevchenko");
-
-const port = process.env.port || 8000;
-
-const server = http.createServer((request, response) => {
-    response.setHeader("Content-Type", "application/json");
-    if (request.method === "POST") {
-        const chunks = [];
-        request.on("data", (chunk) => chunks.push(chunk));
-        request.on("end", () => {
-            try {
-                const body = JSON.parse(Buffer.concat(chunks));
-                const result = shevchenko(body.person, body.caseName);
-                response.end(JSON.stringify(result));
-            } catch (error) {
-                response.statusCode = 422;
-                response.end(JSON.stringify(error.message));
-            }
-        });
-    } else {
-        response.statusCode = 405;
-        response.end(JSON.stringify("Method Not Allowed"));
-    }
-});
-
-server.listen(port, (error) => {
-    if (error) return console.log("An error has occurred.", error);
-    console.log(`Server is listening on ${port} port.`);
-});
+2. Запустіть мікросервіс, виконавши наступну команду.
+ 
+```bash
+PORT=8080 node ./node_modules/shevchenko/examples/shevchenko-microservice.js
 ```
 
-Запустити сервіс можна командою `node shevchenko-microservice.js` (для виробничого середовища краще скористатися менеджером процесів, наприклад [PM2](http://pm2.keymetrics.io)). Відтоді отримати доступ до бібліотеки можна буде надіславши `HTTP` `POST` запит за адресою `http://localhost:8000`.
+Для виробничого середовища краще скористатися менеджером процесів, наприклад [PM2](http://pm2.keymetrics.io). 
+
+3. Надішліть `HTTP` `POST` запит за адресою `http://localhost:8080`, щоб провідміняти прізвище, ім'я та по батькові особи.
+
+HTTP
+
+```HTTP
+POST  HTTP/1.1
+Host: localhost:8080
+Content-Type: application/json
+
+{
+	"person": {
+		"gender": "male",
+		"lastName": "Шевченко",
+		"firstName": "Тарас",
+		"middleName": "Григорович"
+		
+	},
+	"caseName": "vocative"
+}
+```
+
+cURL
 
 ```bash
-curl --data '{"person":{"gender":"male","lastName":"Шевченко","firstName":"Тарас","middleName":"Григорович"},"caseName":"vocative"}' http://localhost:8000
+curl -X POST \
+  http://localhost:8080/ \
+  -H 'content-type: application/json' \
+  -d '{
+	"person": {
+		"gender": "male",
+		"lastName": "Шевченко",
+		"firstName": "Тарас",
+		"middleName": "Григорович"
+		
+	},
+	"caseName": "vocative"
+}'
 ```
