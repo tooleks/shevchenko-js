@@ -1,1 +1,3 @@
-dist
+*
+!.gitignore
+!index.html
