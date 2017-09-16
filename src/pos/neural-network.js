@@ -9,10 +9,7 @@ const NETWORK_LAYER_SIZE_INPUT = 360;
 const NETWORK_LAYER_SIZE_HIDDEN = 20;
 const NETWORK_LAYER_SIZE_OUTPUT = 1;
 
-const POS = {
-    noun: [0],
-    adjective: [1],
-};
+const POS = {noun: [0], adjective: [1]};
 
 /**
  * NeuralNetwork used for the part of speech recognizing.
@@ -55,11 +52,12 @@ function NeuralNetwork(structure) {
      *
      * @param {Array<Object>} samples
      * @param {Object} options
-     * @return {void}
+     * @return {NeuralNetwork}
      */
     this.train = (samples, options) => {
         const trainer = new synaptic.Trainer(this.network);
         trainer.train(samples, options);
+        return this;
     };
 }
 

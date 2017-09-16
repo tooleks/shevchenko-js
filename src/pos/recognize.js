@@ -11,12 +11,12 @@ const posNnAYa = new NeuralNetwork(__pos_nn_a_ya_structure___);
 const posNnAYaCache = __pos_nn_a_ya_cache__;
 
 /**
- * The neural network for recognizing the part of speech of the words ending with -ий, -ій (male gender).
+ * The neural network for recognizing the part of speech of the words ending with -ой, -ий, -ій (male gender).
  *
  * @type {NeuralNetwork}
  */
-const posNnYiIi = new NeuralNetwork(__pos_nn_yi_ii_structure___);
-const posNnYiIiCache = __pos_nn_yi_ii_cache__;
+const posNnOiYiIi = new NeuralNetwork(__pos_nn_oi_yi_ii_structure___);
+const posNnOiYiIiCache = __pos_nn_oi_yi_ii_cache__;
 
 /**
  * Recognize the part of speech of the word.
@@ -58,13 +58,13 @@ function recognizeFemaleGenderPos(value) {
  */
 function recognizeMaleGenderPos(value) {
     // Fetch the value's part of speech using the cache.
-    if (posNnYiIiCache.hasOwnProperty(value)) {
-        return posNnYiIiCache[value];
+    if (posNnOiYiIiCache.hasOwnProperty(value)) {
+        return posNnOiYiIiCache[value];
     }
 
     // Fetch the value's part of speech using the neural network.
-    if (/(ий|ій)$/.test(value)) {
-        return posNnYiIiCache[value] = posNnYiIi.run(value);
+    if (/(ой|ий|ій)$/.test(value)) {
+        return posNnOiYiIiCache[value] = posNnOiYiIi.run(value);
     }
 
     return null;

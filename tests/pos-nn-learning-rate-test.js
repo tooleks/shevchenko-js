@@ -17,11 +17,11 @@ describe("#pos learning rate", function () {
         assert(learningRate >= 0.95, `The learn rate value is too low: ${learningRate}.`);
     });
     
-    it("posNnYiIi should have learning rate value >= 0.95", function () {
-        const posNnYiIi = new NeuralNetwork(require("../nn/pos-yi-ii/structure.json"));
-        const predictions = require("../nn/pos-yi-ii/data/samples.json")
+    it("posNnOiYiIi should have learning rate value >= 0.95", function () {
+        const posNnOiYiIi = new NeuralNetwork(require("../nn/pos-oi-yi-ii/structure.json"));
+        const predictions = require("../nn/pos-oi-yi-ii/data/samples.json")
             .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
-            .map((sample) => sample.pos === posNnYiIi.run(sample.value));
+            .map((sample) => sample.pos === posNnOiYiIi.run(sample.value));
 
         const correctPredictions = predictions.filter((prediction) => prediction);
         const learningRate = correctPredictions.length / predictions.length;
