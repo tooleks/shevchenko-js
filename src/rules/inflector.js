@@ -1,5 +1,7 @@
 "use strict";
 
+const util = require("../util");
+
 /**
  * Contains a set of methods for words inflection.
  *
@@ -21,7 +23,7 @@ inflector.inflectByRule = (rule, caseName, value) => {
     const modifiers = rule.cases[caseName][0]; // Retrieve the first group modifiers object by case name.
     return value.replace(new RegExp(regexp, "gm"), (match, ...groups) => {
         let replacement = "";
-        const count = inflector.countRegexpGroups(regexp);
+        const count = util.regexp.countGroups(regexp);
         for (let index = 0; index < count; index++) {
             replacement += inflector.applyGroupModifier(modifiers && modifiers[index], groups[index]);
         }
@@ -48,16 +50,6 @@ inflector.applyGroupModifier = (modifier, value) => {
         default:
             return value;
     }
-};
-
-/**
- * Count a number of groups in regular expression string.
- *
- * @param {string} regexp
- * @return {number}
- */
-inflector.countRegexpGroups = (regexp) => {
-    return (new RegExp(regexp.toString() + "|")).exec("").length - 1;
 };
 
 module.exports = inflector;

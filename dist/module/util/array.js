@@ -1,7 +1,7 @@
 "use strict";
 
 /**
- * Contains a set of methods for a string type.
+ * Contains a set of methods for an array type.
  *
  * @type {Object}
  */

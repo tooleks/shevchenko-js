@@ -5718,5 +5718,165 @@
         "middleName": "яковичу"
       }
     }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "драй-хмара",
+        "firstName": "михайло",
+        "middleName": "опанасович"
+      },
+      "genitive": {
+        "lastName": "драй-хмари",
+        "firstName": "михайла",
+        "middleName": "опанасовича"
+      },
+      "dative": {
+        "lastName": "драй-хмарі",
+        "firstName": "михайлу",
+        "middleName": "опанасовичу"
+      },
+      "accusative": {
+        "lastName": "драй-хмару",
+        "firstName": "михайла",
+        "middleName": "опанасовича"
+      },
+      "ablative": {
+        "lastName": "драй-хмарою",
+        "firstName": "михайлом",
+        "middleName": "опанасовичем"
+      },
+      "locative": {
+        "lastName": "драй-хмарі",
+        "firstName": "михайлові",
+        "middleName": "опанасовичу"
+      },
+      "vocative": {
+        "lastName": "драй-хмаро",
+        "firstName": "михайле",
+        "middleName": "опанасовичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "драй",
+        "firstName": "валентин",
+        "middleName": "спірідонович"
+      },
+      "genitive": {
+        "lastName": "драя",
+        "firstName": "валентина",
+        "middleName": "спірідоновича"
+      },
+      "dative": {
+        "lastName": "драю",
+        "firstName": "валентину",
+        "middleName": "спірідоновичу"
+      },
+      "accusative": {
+        "lastName": "драя",
+        "firstName": "валентина",
+        "middleName": "спірідоновича"
+      },
+      "ablative": {
+        "lastName": "драєм",
+        "firstName": "валентином",
+        "middleName": "спірідоновичем"
+      },
+      "locative": {
+        "lastName": "драєві",
+        "firstName": "валентинові",
+        "middleName": "спірідоновичу"
+      },
+      "vocative": {
+        "lastName": "драю",
+        "firstName": "валентине",
+        "middleName": "спірідоновичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "сокіл",
+        "firstName": "любомир",
+        "middleName": "орестович"
+      },
+      "genitive": {
+        "lastName": "сокола",
+        "firstName": "любомира",
+        "middleName": "орестовича"
+      },
+      "dative": {
+        "lastName": "соколу",
+        "firstName": "любомиру",
+        "middleName": "орестовичу"
+      },
+      "accusative": {
+        "lastName": "сокола",
+        "firstName": "любомира",
+        "middleName": "орестовича"
+      },
+      "ablative": {
+        "lastName": "соколом",
+        "firstName": "любомиром",
+        "middleName": "орестовичем"
+      },
+      "locative": {
+        "lastName": "соколові",
+        "firstName": "любомирові",
+        "middleName": "орестовичу"
+      },
+      "vocative": {
+        "lastName": "соколе",
+        "firstName": "любомире",
+        "middleName": "орестовичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "щербій",
+        "firstName": "степан",
+        "middleName": "пилипович"
+      },
+      "genitive": {
+        "lastName": "щербія",
+        "firstName": "степана",
+        "middleName": "пилиповича"
+      },
+      "dative": {
+        "lastName": "щербію",
+        "firstName": "степану",
+        "middleName": "пилиповичу"
+      },
+      "accusative": {
+        "lastName": "щербія",
+        "firstName": "степана",
+        "middleName": "пилиповича"
+      },
+      "ablative": {
+        "lastName": "щербієм",
+        "firstName": "степаном",
+        "middleName": "пилиповичем"
+      },
+      "locative": {
+        "lastName": "щербієві",
+        "firstName": "степанові",
+        "middleName": "пилиповичу"
+      },
+      "vocative": {
+        "lastName": "щербію",
+        "firstName": "степане",
+        "middleName": "пилиповичу"
+      }
+    }
   }
 ]

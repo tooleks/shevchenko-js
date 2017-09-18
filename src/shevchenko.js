@@ -257,9 +257,15 @@ function assertCaseNameParameter(caseName) {
  * @return {string}
  */
 function inflectLastName(gender, lastName, caseName) {
-    const doubleLastName = lastName.split("-");
-    if (doubleLastName.length > 1) {
-        return doubleLastName.map((lastName) => inflectLastName(gender, lastName, caseName)).join("-");
+    const compoundLastName = lastName.split("-");
+    if (compoundLastName.length > 1) {
+        return compoundLastName
+            .map((lastName, index) => {
+                const isLastSegment = index === compoundLastName.length - 1;
+                const hasOneVowel = lastName.match(/(а|о|у|е|и|і|я|ю|є|ї)/g).length === 1;
+                return hasOneVowel && !isLastSegment ? lastName : inflectLastName(gender, lastName, caseName);
+            })
+            .join("-");
     }
 
     const rule = shevchenko

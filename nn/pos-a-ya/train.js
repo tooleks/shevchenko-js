@@ -14,7 +14,7 @@ const data = require("./data/samples.json")
 
 const options = {
     rate: 0.02,
-    iterations: 700,
+    iterations: 1000,
     shuffle: true,
     error: 0.005,
     log: 1,
