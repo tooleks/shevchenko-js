@@ -16,7 +16,7 @@ describe("#pos learning rate", function () {
 
         assert(learningRate >= 0.95, `The learn rate value is too low: ${learningRate}.`);
     });
-    
+
     it("posNnOiYiIi should have learning rate value >= 0.95", function () {
         const posNnOiYiIi = new NeuralNetwork(require("../nn/pos-oi-yi-ii/structure.json"));
         const predictions = require("../nn/pos-oi-yi-ii/data/samples.json")
