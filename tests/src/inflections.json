@@ -6038,5 +6038,45 @@
         "middleName": "івасевичу"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "заболотняя",
+        "firstName": "магдалина",
+        "middleName": "миколаївна"
+      },
+      "genitive": {
+        "lastName": "заболотньої",
+        "firstName": "магдалини",
+        "middleName": "миколаївни"
+      },
+      "dative": {
+        "lastName": "заболотній",
+        "firstName": "магдалині",
+        "middleName": "миколаївні"
+      },
+      "accusative": {
+        "lastName": "заболотню",
+        "firstName": "магдалину",
+        "middleName": "миколаївну"
+      },
+      "ablative": {
+        "lastName": "заболотньою",
+        "firstName": "магдалиною",
+        "middleName": "миколаївною"
+      },
+      "locative": {
+        "lastName": "заболотній",
+        "firstName": "магдалині",
+        "middleName": "миколаївні"
+      },
+      "vocative": {
+        "lastName": "заболотняя",
+        "firstName": "магдалино",
+        "middleName": "миколаївно"
+      }
+    }
   }
 ]
