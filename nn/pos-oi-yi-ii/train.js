@@ -16,7 +16,7 @@ const options = {
     rate: 0.02,
     iterations: 1000,
     shuffle: true,
-    error: 0.005,
+    error: 0.001,
     log: 1,
 };
 

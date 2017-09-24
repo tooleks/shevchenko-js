@@ -9,48 +9,7 @@
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
           crossorigin="anonymous">
-    <style type="text/css">
-        .jumbotron,
-        .btn,
-        .panel,
-        .alert,
-        .form-control,
-        .table,
-        pre {
-            border-radius: 2px !important;
-        }
-
-        body {
-            min-width: 320px;
-            margin-bottom: 20px;
-        }
-
-        #home h1 {
-            font-size: 40px;
-        }
-
-        @media (max-width: 999px) {
-            .min-1000px {
-                display: none;
-            }
-        }
-
-        .color-facebook {
-            color: #4867aa;
-        }
-
-        .color-twitter {
-            color: #1da1f2;
-        }
-
-        .color-google-plus {
-            color: #dd4f43;
-        }
-
-        .color-linkedin {
-            color: #0077b5;
-        }
-    </style>
+    <link rel="stylesheet" href="css/main.css">
 </head>
 <body>
 <div class="container">
@@ -64,10 +23,13 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#home">shevchenko</a>
+                <a class="navbar-brand" href="#">
+                    <img src="img/shevchenko_pixelized_305x305.jpg" alt="shevchenko">
+                    <span class="hidden-sm">shevchenko</span>
+                </a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">
-                <ul class="nav navbar-nav">
+                <ul class="nav navbar-nav pull-right">
                     <li><a href="#demo">Демо</a></li>
                     <li><a href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM</a></li>
                     <li><a href="https://github.com/tooleks/shevchenko-js" target="_blank">GitHub</a></li>
@@ -75,16 +37,20 @@
                            target="_blank">Документація</a></li>
                     <li><a href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE"
                            target="_blank">Ліцензія</a></li>
-                    <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Звіт про помилку <span
-                            id="issuesCount" class="badge">0</span></a>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Зворотній зв'язок <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Звіт про помилку <span
+                                    id="issuesCount" class="badge">0</span></a></li>
+                            <li><a href="mailto:tooleks@gmail.com">Написати автору</a></li>
+                        </ul>
                     </li>
                 </ul>
             </div>
         </div>
     </nav>
     <div id="home" class="jumbotron">
-        <h1>shevchenko
-            <span class="min-1000px"><small id="preview"></small></span>
+        <h1>shevchenko <span class="visible-md-inline visible-lg-inline"><small id="preview"></small></span>
         </h1>
         <p>JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові</p>
         <p>
@@ -263,128 +229,6 @@
         integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
         crossorigin="anonymous"></script>
 <script src="dist/bundle/shevchenko.min.js"></script>
-<script type="text/javascript">
-    (function () {
-
-        var writers = [
-            {"gender": "male", "lastName": "Шевченко", "firstName": "Тарас", "middleName": "Григорович"},
-            {"gender": "male", "lastName": "Франко", "firstName": "Іван", "middleName": "Якович"},
-            {"gender": "male", "lastName": "Нечуй-Левицький", "firstName": "Іван", "middleName": "Семенович"},
-            {"gender": "male", "lastName": "Рудченко", "firstName": "Панас", "middleName": "Якович"},
-            {"gender": "male", "lastName": "Рудченко", "firstName": "Іван", "middleName": "Якович"},
-            {"gender": "male", "lastName": "Лозов'яга", "firstName": "Іван", "middleName": "Павлович"},
-            {"gender": "male", "lastName": "Котляревський", "firstName": "Іван", "middleName": "Петрович"},
-            {"gender": "male", "lastName": "Сосюра", "firstName": "Володимир", "middleName": "Миколайович"},
-            {"gender": "male", "lastName": "Тичина", "firstName": "Павло", "middleName": "Григорович"},
-            {"gender": "male", "lastName": "Симоненко", "firstName": "Василь", "middleName": "Андрійович"},
-            {"gender": "male", "lastName": "Фітільов", "firstName": "Микола", "middleName": "Григорович"},
-            {"gender": "male", "lastName": "Коцюбинський", "firstName": "Михайло", "middleName": "Михайлович"},
-            {"gender": "male", "lastName": "Сковорода", "firstName": "Григорій", "middleName": "Савич"},
-            {"gender": "male", "lastName": "Куліш", "firstName": "Пантелеймон", "middleName": "Олександрович"},
-            {"gender": "male", "lastName": "Глібов", "firstName": "Леонід", "middleName": "Іванович"},
-            {"gender": "male", "lastName": "Гончар", "firstName": "Олександр", "middleName": "Терентійович"},
-            {"gender": "male", "lastName": "Довженко", "firstName": "Олександр", "middleName": "Петрович"},
-            {"gender": "female", "lastName": "Косач-Квітка", "firstName": "Лариса", "middleName": "Петрівна"},
-            {"gender": "female", "lastName": "Косач", "firstName": "Ольга", "middleName": "Петрівна"},
-            {"gender": "female", "lastName": "Вілінська", "firstName": "Марія", "middleName": "Олександрівна"},
-            {"gender": "female", "lastName": "Кобилянська", "firstName": "Ольга", "middleName": "Юліанівна"},
-        ];
-
-        function initializeInflectionPreview(index, callback) {
-            index = typeof index === "undefined" ? randomNumber(0, writers.length - 1) : 0;
-            var inflectedPerson = shevchenko.inVocative(writers[index]);
-            var value = inflectedPerson.lastName + " " + inflectedPerson.firstName + " " + inflectedPerson.middleName;
-            callback(value);
-        }
-
-        function randomNumber(min, max) {
-            var random = Math.floor(Math.random() * max);
-            return min ? random + min : random;
-        }
-
-        function buildPerson(gender, lastName, firstName, middleName) {
-            var person = {};
-            person.gender = gender;
-            person.lastName = lastName;
-            person.firstName = firstName;
-            person.middleName = middleName;
-            return person;
-        }
-
-        function inflect(person, successCallback) {
-            const results = shevchenko.inAll(person);
-            for (let caseName in results) {
-                if (results.hasOwnProperty(caseName)) {
-                    successCallback(person, caseName, results[caseName]);
-                }
-            }
-        }
-
-        function setInflectionResult(person, caseName, result) {
-            var genderResultSelector = $("#" + caseName + "Gender");
-            var lastNameResultSelector = $("#" + caseName + "LastName");
-            var firstNameResultSelector = $("#" + caseName + "FirstName");
-            var middleNameResultSelector = $("#" + caseName + "MiddleName");
-            if (person.gender === "male") {
-                genderResultSelector.text("Чоловік");
-            } else if (person.gender === "female") {
-                genderResultSelector.text("Жінка");
-            } else {
-                genderResultSelector.text("");
-            }
-            var lastName = typeof result.lastName !== "undefined" ? result.lastName : "";
-            lastNameResultSelector.text(lastName);
-            var firstName = typeof result.firstName !== "undefined" ? result.firstName : "";
-            firstNameResultSelector.text(firstName);
-            var middleName = typeof result.middleName !== "undefined" ? result.middleName : "";
-            middleNameResultSelector.text(middleName);
-        }
-
-        function setIssuesCount(value) {
-            $("#issuesCount").text(parseInt(value));
-        }
-
-        function setCurrentYear(value) {
-            $("#currentYear").text(value);
-        }
-
-        function setInflectionPreview(value) {
-            var previewSelector = $("#preview");
-            if (previewSelector.text() == value) return;
-            previewSelector.fadeOut(400, function () {
-                previewSelector.text(value);
-                previewSelector.fadeIn(400);
-            });
-        }
-
-        initializeInflectionPreview(0, setInflectionPreview);
-        setInterval(function () {
-            var undefined;
-            initializeInflectionPreview(undefined, setInflectionPreview);
-        }, 5000);
-
-        $(document).ready(function () {
-            var person = buildPerson("male", "Шевченко", "Тарас", "Григорович");
-            inflect(person, setInflectionResult);
-            setCurrentYear((new Date).getFullYear());
-        });
-
-        $("#inflection-form").submit(function (event) {
-            event.preventDefault();
-            var person = buildPerson(
-                $("[name=gender]:checked").val().trim(),
-                $("[name=lastName]").val().trim(),
-                $("[name=firstName]").val().trim(),
-                $("[name=middleName]").val().trim()
-            );
-            inflect(person, setInflectionResult);
-        });
-
-        $.get("https://api.github.com/repos/tooleks/shevchenko-js", function (data) {
-            setIssuesCount(data.open_issues_count);
-        });
-
-    })();
-</script>
+<script src="js/main.js"></script>
 </body>
 </html>

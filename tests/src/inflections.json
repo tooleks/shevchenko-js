@@ -4248,32 +4248,32 @@
         "middleName": "добрилович"
       },
       "genitive": {
-        "lastName": "хмеля",
+        "lastName": "хміля",
         "firstName": "дивозора",
         "middleName": "добриловича"
       },
       "dative": {
-        "lastName": "хмелю",
+        "lastName": "хмілю",
         "firstName": "дивозору",
         "middleName": "добриловичу"
       },
       "accusative": {
-        "lastName": "хмеля",
+        "lastName": "хміля",
         "firstName": "дивозора",
         "middleName": "добриловича"
       },
       "ablative": {
-        "lastName": "хмелем",
+        "lastName": "хмілем",
         "firstName": "дивозором",
         "middleName": "добриловичем"
       },
       "locative": {
-        "lastName": "хмелю",
+        "lastName": "хмілю",
         "firstName": "дивозорові",
         "middleName": "добриловичу"
       },
       "vocative": {
-        "lastName": "хмеле",
+        "lastName": "хмілю",
         "firstName": "дивозоре",
         "middleName": "добриловичу"
       }

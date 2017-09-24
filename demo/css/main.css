@@ -1,0 +1,50 @@
+body {
+    min-width: 320px;
+    margin-bottom: 20px;
+}
+
+a {
+    outline: 0;
+}
+
+.jumbotron,
+.btn,
+.panel,
+.alert,
+.form-control,
+.table,
+pre {
+    border-radius: 2px !important;
+}
+
+#home h1 {
+    font-size: 40px;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding: 0;
+}
+
+.navbar-brand > img {
+    display: inline;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+.color-facebook {
+    color: #4867aa;
+}
+
+.color-twitter {
+    color: #1da1f2;
+}
+
+.color-google-plus {
+    color: #dd4f43;
+}
+
+.color-linkedin {
+    color: #0077b5;
+}
