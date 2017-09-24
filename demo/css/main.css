@@ -21,6 +21,12 @@ pre {
     font-size: 40px;
 }
 
+@media (min-width: 768px) {
+    .pull-right-md-lg {
+        float: right;
+    }
+}
+
 .navbar-brand {
     display: inline-block;
     padding: 0;
