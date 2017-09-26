@@ -6078,5 +6078,85 @@
         "middleName": "миколаївно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "гуменна",
+        "firstName": "майя",
+        "middleName": "борисівна"
+      },
+      "genitive": {
+        "lastName": "гуменної",
+        "firstName": "майї",
+        "middleName": "борисівни"
+      },
+      "dative": {
+        "lastName": "гуменній",
+        "firstName": "майї",
+        "middleName": "борисівні"
+      },
+      "accusative": {
+        "lastName": "гуменну",
+        "firstName": "майю",
+        "middleName": "борисівну"
+      },
+      "ablative": {
+        "lastName": "гуменною",
+        "firstName": "майєю",
+        "middleName": "борисівною"
+      },
+      "locative": {
+        "lastName": "гуменній",
+        "firstName": "майї",
+        "middleName": "борисівні"
+      },
+      "vocative": {
+        "lastName": "гуменна",
+        "firstName": "майє",
+        "middleName": "борисівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "єреміца",
+        "firstName": "аврелья",
+        "middleName": "авраамівна"
+      },
+      "genitive": {
+        "lastName": "єреміци",
+        "firstName": "аврельї",
+        "middleName": "авраамівни"
+      },
+      "dative": {
+        "lastName": "єреміці",
+        "firstName": "аврельї",
+        "middleName": "авраамівні"
+      },
+      "accusative": {
+        "lastName": "єреміцу",
+        "firstName": "аврелью",
+        "middleName": "авраамівну"
+      },
+      "ablative": {
+        "lastName": "єреміцою",
+        "firstName": "аврельєю",
+        "middleName": "авраамівною"
+      },
+      "locative": {
+        "lastName": "єреміці",
+        "firstName": "аврельї",
+        "middleName": "авраамівні"
+      },
+      "vocative": {
+        "lastName": "єреміцо",
+        "firstName": "аврельє",
+        "middleName": "авраамівно"
+      }
+    }
   }
 ]
