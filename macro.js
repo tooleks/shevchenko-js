@@ -18,12 +18,22 @@ const posNnOiYiIiCache = require("./nn/pos-oi-yi-ii/data/samples.json")
     .filter((sample) => sample.pos !== posNnOiYiIi.run(sample.value))
     .reduce((cache, sample) => (cache[sample.value] = sample.pos, cache), {});
 
+const posNnYhStructure = require("./nn/pos-yh/structure.json");
+const posNnYh = new NeuralNetwork(posNnYhStructure);
+const posNnYhCache = require("./nn/pos-yh/data/samples.json")
+    .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
+    .filter((sample) => sample.pos !== posNnYh.run(sample.value))
+    .reduce((cache, sample) => (cache[sample.value] = sample.pos, cache), {});
+
 module.exports = {
     "__inflection_rules__": JSON.stringify(inflectionRules),
 
-    "__pos_nn_a_ya_structure___": JSON.stringify(posNnAYaStructure),
+    "__pos_nn_a_ya_structure__": JSON.stringify(posNnAYaStructure),
     "__pos_nn_a_ya_cache__": JSON.stringify(process.env.NODE_ENV === "test" ? {} : posNnAYaCache),
 
-    "__pos_nn_oi_yi_ii_structure___": JSON.stringify(posNnOiYiIiStructure),
+    "__pos_nn_oi_yi_ii_structure__": JSON.stringify(posNnOiYiIiStructure),
     "__pos_nn_oi_yi_ii_cache__": JSON.stringify(process.env.NODE_ENV === "test" ? {} : posNnOiYiIiCache),
+
+    "__pos_nn_yh_structure__": JSON.stringify(posNnYhStructure),
+    "__pos_nn_yh_cache__": JSON.stringify(process.env.NODE_ENV === "test" ? {} : posNnYhCache),
 };

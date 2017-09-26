@@ -5538,7 +5538,7 @@
         "middleName": "агапівні"
       },
       "accusative": {
-        "lastName": "толсту",
+        "lastName": "толстую",
         "firstName": "валентину",
         "middleName": "агапівну"
       },
@@ -6156,6 +6156,206 @@
         "lastName": "єреміцо",
         "firstName": "аврельє",
         "middleName": "авраамівно"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "мелих",
+        "firstName": "ярослав",
+        "middleName": "володимирович"
+      },
+      "genitive": {
+        "lastName": "мелиха",
+        "firstName": "ярослава",
+        "middleName": "володимировича"
+      },
+      "dative": {
+        "lastName": "мелиху",
+        "firstName": "ярославу",
+        "middleName": "володимировичу"
+      },
+      "accusative": {
+        "lastName": "мелиха",
+        "firstName": "ярослава",
+        "middleName": "володимировича"
+      },
+      "ablative": {
+        "lastName": "мелихом",
+        "firstName": "ярославом",
+        "middleName": "володимировичем"
+      },
+      "locative": {
+        "lastName": "мелихові",
+        "firstName": "ярославові",
+        "middleName": "володимировичу"
+      },
+      "vocative": {
+        "lastName": "мелиху",
+        "firstName": "ярославе",
+        "middleName": "володимировичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "бряних",
+        "firstName": "осмомисл",
+        "middleName": "ярославович"
+      },
+      "genitive": {
+        "lastName": "бряних",
+        "firstName": "осмомисла",
+        "middleName": "ярославовича"
+      },
+      "dative": {
+        "lastName": "бряних",
+        "firstName": "осмомислу",
+        "middleName": "ярославовичу"
+      },
+      "accusative": {
+        "lastName": "бряних",
+        "firstName": "осмомисла",
+        "middleName": "ярославовича"
+      },
+      "ablative": {
+        "lastName": "бряних",
+        "firstName": "осмомислом",
+        "middleName": "ярославовичем"
+      },
+      "locative": {
+        "lastName": "бряних",
+        "firstName": "осмомислові",
+        "middleName": "ярославовичу"
+      },
+      "vocative": {
+        "lastName": "бряних",
+        "firstName": "осмомисле",
+        "middleName": "ярославовичу"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "седих",
+        "firstName": "ярина",
+        "middleName": "остапівна"
+      },
+      "genitive": {
+        "lastName": "седих",
+        "firstName": "ярини",
+        "middleName": "остапівни"
+      },
+      "dative": {
+        "lastName": "седих",
+        "firstName": "ярині",
+        "middleName": "остапівні"
+      },
+      "accusative": {
+        "lastName": "седих",
+        "firstName": "ярину",
+        "middleName": "остапівну"
+      },
+      "ablative": {
+        "lastName": "седих",
+        "firstName": "яриною",
+        "middleName": "остапівною"
+      },
+      "locative": {
+        "lastName": "седих",
+        "firstName": "ярині",
+        "middleName": "остапівні"
+      },
+      "vocative": {
+        "lastName": "седих",
+        "firstName": "ярино",
+        "middleName": "остапівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "чмих",
+        "firstName": "ярослава",
+        "middleName": "олегівна"
+      },
+      "genitive": {
+        "lastName": "чмих",
+        "firstName": "ярослави",
+        "middleName": "олегівни"
+      },
+      "dative": {
+        "lastName": "чмих",
+        "firstName": "ярославі",
+        "middleName": "олегівні"
+      },
+      "accusative": {
+        "lastName": "чмих",
+        "firstName": "ярославу",
+        "middleName": "олегівну"
+      },
+      "ablative": {
+        "lastName": "чмих",
+        "firstName": "ярославою",
+        "middleName": "олегівною"
+      },
+      "locative": {
+        "lastName": "чмих",
+        "firstName": "ярославі",
+        "middleName": "олегівні"
+      },
+      "vocative": {
+        "lastName": "чмих",
+        "firstName": "ярославо",
+        "middleName": "олегівно"
+      }
+    }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "крутая",
+        "firstName": "мирослава",
+        "middleName": "ярославівна"
+      },
+      "genitive": {
+        "lastName": "крутої",
+        "firstName": "мирослави",
+        "middleName": "ярославівни"
+      },
+      "dative": {
+        "lastName": "крутій",
+        "firstName": "мирославі",
+        "middleName": "ярославівні"
+      },
+      "accusative": {
+        "lastName": "крутую",
+        "firstName": "мирославу",
+        "middleName": "ярославівну"
+      },
+      "ablative": {
+        "lastName": "крутою",
+        "firstName": "мирославою",
+        "middleName": "ярославівною"
+      },
+      "locative": {
+        "lastName": "крутій",
+        "firstName": "мирославі",
+        "middleName": "ярославівні"
+      },
+      "vocative": {
+        "lastName": "крутая",
+        "firstName": "мирославо",
+        "middleName": "ярославівно"
       }
     }
   }

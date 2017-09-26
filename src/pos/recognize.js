@@ -7,7 +7,7 @@ const NeuralNetwork = require("./neural-network");
  *
  * @type {NeuralNetwork}
  */
-const posNnAYa = new NeuralNetwork(__pos_nn_a_ya_structure___);
+const posNnAYa = new NeuralNetwork(__pos_nn_a_ya_structure__);
 const posNnAYaCache = __pos_nn_a_ya_cache__;
 
 /**
@@ -15,8 +15,16 @@ const posNnAYaCache = __pos_nn_a_ya_cache__;
  *
  * @type {NeuralNetwork}
  */
-const posNnOiYiIi = new NeuralNetwork(__pos_nn_oi_yi_ii_structure___);
+const posNnOiYiIi = new NeuralNetwork(__pos_nn_oi_yi_ii_structure__);
 const posNnOiYiIiCache = __pos_nn_oi_yi_ii_cache__;
+
+/**
+ * The neural network for recognizing the part of speech of the words ending with -их (male gender).
+ *
+ * @type {NeuralNetwork}
+ */
+const posNnYh = new NeuralNetwork(__pos_nn_yh_structure__);
+const posNnYhCache = __pos_nn_yh_cache__;
 
 /**
  * Recognize the part of speech of the word.
@@ -39,14 +47,10 @@ module.exports = (gender, value) => {
  * @return {string|null}
  */
 function recognizeFemaleGenderPos(value) {
-    // Fetch the value's part of speech using the cache.
-    if (posNnAYaCache.hasOwnProperty(value)) {
-        return posNnAYaCache[value];
-    }
-
-    // Fetch the value's part of speech using the neural network.
     if (/(а|я)$/.test(value)) {
-        return posNnAYaCache[value] = posNnAYa.run(value);
+        return posNnAYaCache.hasOwnProperty(value)
+            ? posNnAYaCache[value]
+            : posNnAYaCache[value] = posNnAYa.run(value);
     }
 
     return null;
@@ -57,14 +61,16 @@ function recognizeFemaleGenderPos(value) {
  * @return {string|null}
  */
 function recognizeMaleGenderPos(value) {
-    // Fetch the value's part of speech using the cache.
-    if (posNnOiYiIiCache.hasOwnProperty(value)) {
-        return posNnOiYiIiCache[value];
+    if (/(ой|ий|ій)$/.test(value)) {
+        return posNnOiYiIiCache.hasOwnProperty(value)
+            ? posNnOiYiIiCache[value]
+            : posNnOiYiIiCache[value] = posNnOiYiIi.run(value);
     }
 
-    // Fetch the value's part of speech using the neural network.
-    if (/(ой|ий|ій)$/.test(value)) {
-        return posNnOiYiIiCache[value] = posNnOiYiIi.run(value);
+    if (/(их)$/.test(value)) {
+        return posNnYhCache.hasOwnProperty(value)
+            ? posNnYhCache[value]
+            : posNnYhCache[value] = posNnYh.run(value);
     }
 
     return null;
