@@ -1,8 +1,14 @@
 ## JavaScript бібліотека "shevchenko" для відмінювання українських прізвищ, імен та по батькові
 
-### Демо
+* [Демо](http://shevchenko-js.tooleks.com/#demo)
+* [Документація](https://github.com/tooleks/shevchenko-js/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D1%96%D1%8F)
+* [Принцип роботи](https://github.com/tooleks/shevchenko-js/wiki/%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8)
 
-[http://shevchenko-js.tooleks.com/#demo](http://shevchenko-js.tooleks.com/#demo)
+### Встановлення
+
+```bash
+npm install --save shevchenko
+```
 
 ### Використання
 
@@ -17,69 +23,4 @@ var person = {
 var result = shevchenko.inVocative(person);
 
 console.log(result); // {lastName: 'Шевченку', firstName: 'Тарасе', middleName: 'Григоровичу'}
-```
-
-#### Доступні методи
-
-- `shevchenko.inNominative(person)` - відмінити в називному відмінку;
-- `shevchenko.inGenitive(person)`- відмінити в родовому відмінку;
-- `shevchenko.inDative(person)`- відмінити в давальному відмінку;
-- `shevchenko.inAccusative(person)`- відмінити в знахідному відмінку;
-- `shevchenko.inAblative(person)`- відмінити в орудному відмінку;
-- `shevchenko.inLocative(person)`- відмінити в місцевому відмінку;
-- `shevchenko.inVocative(person)`- відмінити в кличному відмінку.
-
-### Встановлення
-
-Запустіть наступну команду для встановлення бібліотеки.
-
-```bash
-npm install --save shevchenko
-```
-
-### Підключення
-
-#### Node.js
-
-```JavaScript
-var shevchenko = require("shevchenko");
-```
-
-#### Браузер
-
-```HTML
-<script type="text/javascript" src="/path/to/shevchenko/dist/bundle/shevchenko.min.js"></script>
-```
-
-### Використання в інших мовах програмування
-
-* Встановіть бібліотеку описаним вище способом на веб-сервері з найновішою стабільною версією [Node.js](https://nodejs.org).
-
-* Запустіть мікросервіс, виконавши наступну команду.
- 
-```bash
-PORT=8080 node ./node_modules/shevchenko/examples/shevchenko-microservice.js
-```
-
-Для виробничого середовища краще скористатися менеджером процесів, наприклад [PM2](http://pm2.keymetrics.io). 
-
-* Надішліть `HTTP` `POST` запит за адресою `http://localhost:8080`, щоб провідміняти прізвище, ім'я та по батькові особи.
-
-HTTP
-
-```HTTP
-POST  HTTP/1.1
-Host: localhost:8080
-Content-Type: application/json
-
-{"person":{"gender":"male","lastName":"Шевченко","firstName":"Тарас","middleName":"Григорович"},"caseName":"vocative"}
-```
-
-cURL
-
-```bash
-curl -X POST \
-  http://localhost:8080/ \
-  -H 'content-type: application/json' \
-  -d '{"person":{"gender":"male","lastName":"Шевченко","firstName":"Тарас","middleName":"Григорович"},"caseName":"vocative"}'
 ```
