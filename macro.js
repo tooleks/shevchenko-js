@@ -2,7 +2,7 @@
 
 const NeuralNetwork = require("./src/pos/neural-network");
 
-const inflectionRules = require("./rules");
+const rules = require("./rules");
 
 const posNnAYaStructure = require("./nn/pos-a-ya/structure.json");
 const posNnAYa = new NeuralNetwork(posNnAYaStructure);
@@ -26,7 +26,7 @@ const posNnYhCache = require("./nn/pos-yh/data/samples.json")
     .reduce((cache, sample) => (cache[sample.value] = sample.pos, cache), {});
 
 module.exports = {
-    "__inflection_rules__": JSON.stringify(inflectionRules),
+    "__rules__": JSON.stringify(rules),
 
     "__pos_nn_a_ya_structure__": JSON.stringify(posNnAYaStructure),
     "__pos_nn_a_ya_cache__": JSON.stringify(process.env.NODE_ENV === "test" ? {} : posNnAYaCache),

@@ -290,13 +290,7 @@ function inflectLastName(gender, lastName, caseName) {
   }
 
   var rule = shevchenko.getRules().filter(function (rule) {
-    return filter.byGender(rule, gender);
-  }).filter(function (rule) {
-    return filter.byPos(rule, pos.recognize(gender, lastName));
-  }).filter(function (rule) {
-    return filter.byApplication(rule, "lastName");
-  }).filter(function (rule) {
-    return filter.byRegexp(rule, lastName);
+    return filter.byGender(rule, gender) && filter.byApplication(rule, "lastName") && filter.byRegexp(rule, lastName) && filter.byPos(rule, pos.recognize(gender, lastName));
   }).sort(function (firstRule, secondRule) {
     return sort.rulesByApplicationDesc(firstRule, secondRule, "lastName");
   }).shift();
@@ -314,11 +308,7 @@ function inflectLastName(gender, lastName, caseName) {
  */
 function inflectFirstName(gender, firstName, caseName) {
   var rule = shevchenko.getRules().filter(function (rule) {
-    return filter.byGender(rule, gender);
-  }).filter(function (rule) {
-    return filter.byApplication(rule, "firstName");
-  }).filter(function (rule) {
-    return filter.byRegexp(rule, firstName);
+    return filter.byGender(rule, gender) && filter.byApplication(rule, "firstName") && filter.byRegexp(rule, firstName);
   }).sort(function (firstRule, secondRule) {
     return sort.rulesByApplicationDesc(firstRule, secondRule, "firstName");
   }).shift();
@@ -336,11 +326,7 @@ function inflectFirstName(gender, firstName, caseName) {
  */
 function inflectMiddleName(gender, middleName, caseName) {
   var rule = shevchenko.getRules().filter(function (rule) {
-    return filter.byGender(rule, gender);
-  }).filter(function (rule) {
-    return filter.byApplication(rule, "middleName", true);
-  }).filter(function (rule) {
-    return filter.byRegexp(rule, middleName);
+    return filter.byGender(rule, gender) && filter.byApplication(rule, "middleName", true) && filter.byRegexp(rule, middleName);
   }).sort(function (firstRule, secondRule) {
     return sort.rulesByApplicationDesc(firstRule, secondRule, "middleName");
   }).shift();

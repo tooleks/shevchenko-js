@@ -79,7 +79,7 @@ shevchenko.getCaseNameVocative = () => "vocative";
  * @return {Array<Object>}
  */
 shevchenko.getRules = () => {
-    const rules = __inflection_rules__;
+    const rules = __rules__;
     return rules.slice(0);
 };
 
@@ -270,10 +270,10 @@ function inflectLastName(gender, lastName, caseName) {
 
     const rule = shevchenko
         .getRules()
-        .filter((rule) => filter.byGender(rule, gender))
-        .filter((rule) => filter.byPos(rule, pos.recognize(gender, lastName)))
-        .filter((rule) => filter.byApplication(rule, "lastName"))
-        .filter((rule) => filter.byRegexp(rule, lastName))
+        .filter((rule) => filter.byGender(rule, gender) &&
+            filter.byApplication(rule, "lastName") &&
+            filter.byRegexp(rule, lastName) &&
+            filter.byPos(rule, pos.recognize(gender, lastName)))
         .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "lastName"))
         .shift();
 
@@ -291,9 +291,9 @@ function inflectLastName(gender, lastName, caseName) {
 function inflectFirstName(gender, firstName, caseName) {
     const rule = shevchenko
         .getRules()
-        .filter((rule) => filter.byGender(rule, gender))
-        .filter((rule) => filter.byApplication(rule, "firstName"))
-        .filter((rule) => filter.byRegexp(rule, firstName))
+        .filter((rule) => filter.byGender(rule, gender) &&
+            filter.byApplication(rule, "firstName") &&
+            filter.byRegexp(rule, firstName))
         .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "firstName"))
         .shift();
 
@@ -311,9 +311,9 @@ function inflectFirstName(gender, firstName, caseName) {
 function inflectMiddleName(gender, middleName, caseName) {
     const rule = shevchenko
         .getRules()
-        .filter((rule) => filter.byGender(rule, gender))
-        .filter((rule) => filter.byApplication(rule, "middleName", true))
-        .filter((rule) => filter.byRegexp(rule, middleName))
+        .filter((rule) => filter.byGender(rule, gender) &&
+            filter.byApplication(rule, "middleName", true) &&
+            filter.byRegexp(rule, middleName))
         .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "middleName"))
         .shift();
 
