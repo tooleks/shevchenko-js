@@ -7,7 +7,7 @@ a {
     outline: 0;
 }
 
-.jumbotron,
+.container .jumbotron,
 .btn,
 .panel,
 .alert,
