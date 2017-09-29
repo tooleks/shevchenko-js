@@ -1,6 +1,6 @@
 {
   "name": "shevchenko",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "The JavaScript library to inflect Ukrainian first, middle and last names",
   "main": "./dist/module/shevchenko.js",
   "scripts": {
@@ -8,7 +8,7 @@
     "build:module": "gulp clear:module && gulp build:module",
     "build:bundle": "gulp clear:bundle && gulp build:bundle",
     "build": "npm run build:module && npm run build:bundle",
-    "test": "./node_modules/mocha/bin/mocha --recursive --bail --timeout 60000 tests"
+    "test": "./node_modules/mocha/bin/mocha --recursive --bail --timeout 120000 tests"
   },
   "keywords": [
     "inflection",
