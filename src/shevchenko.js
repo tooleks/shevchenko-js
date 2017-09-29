@@ -257,27 +257,25 @@ function assertCaseNameParameter(caseName) {
  * @return {string}
  */
 function inflectLastName(gender, lastName, caseName) {
-    const compoundLastName = lastName.split("-");
-    if (compoundLastName.length > 1) {
-        return compoundLastName
-            .map((lastName, index) => {
-                const isLastSegment = index === compoundLastName.length - 1;
-                const hasOneVowel = lastName.match(/(а|о|у|е|и|і|я|ю|є|ї)/g).length === 1;
-                return hasOneVowel && !isLastSegment ? lastName : inflectLastName(gender, lastName, caseName);
-            })
-            .join("-");
-    }
+    return eachCompoundName(lastName, (segment, index, length) => {
+        const isLastSegment = index === length - 1;
+        // Don't inflect "one vowel" last name if it is not the last segment of the compound last name.
+        if (!isLastSegment && segment.match(/(а|о|у|е|и|і|я|ю|є|ї)/g).length === 1) {
+            return segment;
+        }
 
-    const rule = shevchenko
-        .getRules()
-        .filter((rule) => filter.byGender(rule, gender) &&
-            filter.byApplication(rule, "lastName") &&
-            filter.byRegexp(rule, lastName) &&
-            filter.byPos(rule, pos.recognize(gender, lastName)))
-        .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "lastName"))
-        .shift();
+        const rule = shevchenko
+            .getRules()
+            .filter((rule) => filter.byGender(rule, gender) &&
+                filter.byApplication(rule, "lastName") &&
+                filter.byRegexp(rule, segment) &&
+                filter.byPos(rule, pos.recognize(gender, segment)))
+            .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "lastName"))
+            .shift();
 
-    return inflector.inflectByRule(rule, caseName, lastName);
+        return inflector.inflectByRule(rule, caseName, segment);
+    });
+
 }
 
 /**
@@ -289,15 +287,17 @@ function inflectLastName(gender, lastName, caseName) {
  * @return {string}
  */
 function inflectFirstName(gender, firstName, caseName) {
-    const rule = shevchenko
-        .getRules()
-        .filter((rule) => filter.byGender(rule, gender) &&
-            filter.byApplication(rule, "firstName") &&
-            filter.byRegexp(rule, firstName))
-        .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "firstName"))
-        .shift();
+    return eachCompoundName(firstName, (segment) => {
+        const rule = shevchenko
+            .getRules()
+            .filter((rule) => filter.byGender(rule, gender) &&
+                filter.byApplication(rule, "firstName") &&
+                filter.byRegexp(rule, segment))
+            .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "firstName"))
+            .shift();
 
-    return inflector.inflectByRule(rule, caseName, firstName);
+        return inflector.inflectByRule(rule, caseName, segment);
+    });
 }
 
 /**
@@ -318,6 +318,19 @@ function inflectMiddleName(gender, middleName, caseName) {
         .shift();
 
     return inflector.inflectByRule(rule, caseName, middleName);
+}
+
+/**
+ * Apply a callback function on each name in compound name divided by a delimiter.
+ *
+ * @param {string} name
+ * @param {Function} callback
+ * @param {string} delimiter
+ * @return {string}
+ */
+function eachCompoundName(name, callback, delimiter = "-") {
+    const segments = name.split(delimiter);
+    return segments.map((value, index) => callback(value, index, segments.length)).join(delimiter);
 }
 
 module.exports = shevchenko;

@@ -6398,5 +6398,85 @@
         "middleName": "адольфовичу"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "весна",
+        "firstName": "анна-марія",
+        "middleName": "максимівна"
+      },
+      "genitive": {
+        "lastName": "весни",
+        "firstName": "анни-марії",
+        "middleName": "максимівни"
+      },
+      "dative": {
+        "lastName": "весні",
+        "firstName": "анні-марії",
+        "middleName": "максимівні"
+      },
+      "accusative": {
+        "lastName": "весну",
+        "firstName": "анну-марію",
+        "middleName": "максимівну"
+      },
+      "ablative": {
+        "lastName": "весною",
+        "firstName": "анною-марією",
+        "middleName": "максимівною"
+      },
+      "locative": {
+        "lastName": "весні",
+        "firstName": "анні-марії",
+        "middleName": "максимівні"
+      },
+      "vocative": {
+        "lastName": "весно",
+        "firstName": "анно-маріє",
+        "middleName": "максимівно"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "драй",
+        "firstName": "остап",
+        "middleName": "олексович"
+      },
+      "genitive": {
+        "lastName": "драя",
+        "firstName": "остапа",
+        "middleName": "олексовича"
+      },
+      "dative": {
+        "lastName": "драю",
+        "firstName": "остапу",
+        "middleName": "олексовичу"
+      },
+      "accusative": {
+        "lastName": "драя",
+        "firstName": "остапа",
+        "middleName": "олексовича"
+      },
+      "ablative": {
+        "lastName": "драєм",
+        "firstName": "остапом",
+        "middleName": "олексовичем"
+      },
+      "locative": {
+        "lastName": "драєві",
+        "firstName": "остапові",
+        "middleName": "олексовичу"
+      },
+      "vocative": {
+        "lastName": "драю",
+        "firstName": "остапе",
+        "middleName": "олексовичу"
+      }
+    }
   }
 ]
