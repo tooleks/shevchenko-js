@@ -6478,5 +6478,45 @@
         "middleName": "олексовичу"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "круча",
+        "firstName": "василина",
+        "middleName": "геннадіївна"
+      },
+      "genitive": {
+        "lastName": "кручі",
+        "firstName": "василини",
+        "middleName": "геннадіївни"
+      },
+      "dative": {
+        "lastName": "кручі",
+        "firstName": "василині",
+        "middleName": "геннадіївні"
+      },
+      "accusative": {
+        "lastName": "кручу",
+        "firstName": "василину",
+        "middleName": "геннадіївну"
+      },
+      "ablative": {
+        "lastName": "кручею",
+        "firstName": "василиною",
+        "middleName": "геннадіївною"
+      },
+      "locative": {
+        "lastName": "кручі",
+        "firstName": "василині",
+        "middleName": "геннадіївні"
+      },
+      "vocative": {
+        "lastName": "кручо",
+        "firstName": "василино",
+        "middleName": "геннадіївно"
+      }
+    }
   }
 ]
