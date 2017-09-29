@@ -6358,5 +6358,45 @@
         "middleName": "антонівно"
       }
     }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "голембо",
+        "firstName": "вадим",
+        "middleName": "адольфович"
+      },
+      "genitive": {
+        "lastName": "големби",
+        "firstName": "вадима",
+        "middleName": "адольфовича"
+      },
+      "dative": {
+        "lastName": "голембі",
+        "firstName": "вадиму",
+        "middleName": "адольфовичу"
+      },
+      "accusative": {
+        "lastName": "голембу",
+        "firstName": "вадима",
+        "middleName": "адольфовича"
+      },
+      "ablative": {
+        "lastName": "голембою",
+        "firstName": "вадимом",
+        "middleName": "адольфовичем"
+      },
+      "locative": {
+        "lastName": "голембі",
+        "firstName": "вадимові",
+        "middleName": "адольфовичу"
+      },
+      "vocative": {
+        "lastName": "голембо",
+        "firstName": "вадиме",
+        "middleName": "адольфовичу"
+      }
+    }
   }
 ]
