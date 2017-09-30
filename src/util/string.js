@@ -14,7 +14,7 @@ const stringCaseMask = {};
 /**
  * Detect if a character is a segment break character.
  *
- * Used in the double last names such as "Нечуй-Левицький", to create case mask segments for each word.
+ * Used in the double last names such as "Нечуй-Левицький", to create case masks for each word.
  *
  * @param {string} char
  * @return {boolean}

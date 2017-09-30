@@ -227,15 +227,30 @@ function shevchenko(person, caseName) {
  */
 function assertPersonParameter(person) {
     assert.object(person, "Invalid 'person' type.");
-    if (!person.hasOwnProperty("gender")) assert.throw("Missed 'person.gender' property.");
+
+    if (!person.hasOwnProperty("gender")) {
+        assert.throw("Missed 'person.gender' property.");
+    }
+
     assert.string(person.gender, "Invalid 'person.gender' type.");
+
     assert.inArray(shevchenko.getGenderNames(), person.gender, "Invalid 'person.gender' value.");
+
     if (!person.hasOwnProperty("firstName") && !person.hasOwnProperty("middleName") && !person.hasOwnProperty("lastName")) {
         assert.throw("Missed 'person.lastName', 'person.firstName', 'person.middleName' properties.");
     }
-    if (person.hasOwnProperty("lastName")) assert.string(person.lastName, "Invalid 'person.lastName' type.");
-    if (person.hasOwnProperty("firstName")) assert.string(person.firstName, "Invalid 'person.firstName' type.");
-    if (person.hasOwnProperty("middleName")) assert.string(person.middleName, "Invalid 'person.middleName' type.");
+
+    if (person.hasOwnProperty("lastName")) {
+        assert.string(person.lastName, "Invalid 'person.lastName' type.");
+    }
+
+    if (person.hasOwnProperty("firstName")) {
+        assert.string(person.firstName, "Invalid 'person.firstName' type.");
+    }
+
+    if (person.hasOwnProperty("middleName")) {
+        assert.string(person.middleName, "Invalid 'person.middleName' type.");
+    }
 }
 
 /**
@@ -245,6 +260,7 @@ function assertPersonParameter(person) {
  */
 function assertCaseNameParameter(caseName) {
     assert.string(caseName, "Invalid 'caseName' type.");
+
     assert.inArray(shevchenko.getCaseNames(), caseName, "Invalid 'caseName' value.");
 }
 
@@ -257,8 +273,8 @@ function assertCaseNameParameter(caseName) {
  * @return {string}
  */
 function inflectLastName(gender, lastName, caseName) {
-    return eachCompoundName(lastName, (segment, index, length) => {
-        const isLastSegment = index === length - 1;
+    return mapCompoundNameSegment(lastName, (segment, index, length) => {
+        const isLastSegment = (index === length - 1);
         // Don't inflect "one vowel" last name if it is not the last segment of the compound last name.
         if (!isLastSegment && segment.match(/(а|о|у|е|и|і|я|ю|є|ї)/g).length === 1) {
             return segment;
@@ -287,7 +303,7 @@ function inflectLastName(gender, lastName, caseName) {
  * @return {string}
  */
 function inflectFirstName(gender, firstName, caseName) {
-    return eachCompoundName(firstName, (segment) => {
+    return mapCompoundNameSegment(firstName, (segment) => {
         const rule = shevchenko
             .getRules()
             .filter((rule) => filter.byGender(rule, gender) &&
@@ -321,16 +337,16 @@ function inflectMiddleName(gender, middleName, caseName) {
 }
 
 /**
- * Apply a callback function on each name in compound name divided by a delimiter.
+ * Map the compound name segments with a callback function.
  *
  * @param {string} name
  * @param {Function} callback
  * @param {string} delimiter
  * @return {string}
  */
-function eachCompoundName(name, callback, delimiter = "-") {
+function mapCompoundNameSegment(name, callback, delimiter = "-") {
     const segments = name.split(delimiter);
-    return segments.map((value, index) => callback(value, index, segments.length)).join(delimiter);
+    return segments.map((segment, index) => callback(segment, index, segments.length)).join(delimiter);
 }
 
 module.exports = shevchenko;
