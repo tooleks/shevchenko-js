@@ -296,7 +296,7 @@ function assertCaseNameParameter(caseName) {
  * @return {string}
  */
 function inflectLastName(gender, lastName, caseName) {
-    return mapCompoundNameSegment(lastName, function (segment, index, length) {
+    return mapCompoundNameSegments(lastName, function (segment, index, length) {
         var isLastSegment = index === length - 1;
         // Don't inflect "one vowel" last name if it is not the last segment of the compound last name.
         if (!isLastSegment && segment.match(/(а|о|у|е|и|і|я|ю|є|ї)/g).length === 1) {
@@ -322,7 +322,7 @@ function inflectLastName(gender, lastName, caseName) {
  * @return {string}
  */
 function inflectFirstName(gender, firstName, caseName) {
-    return mapCompoundNameSegment(firstName, function (segment) {
+    return mapCompoundNameSegments(firstName, function (segment) {
         var rule = shevchenko.getRules().filter(function (rule) {
             return filter.byGender(rule, gender) && filter.byApplication(rule, "firstName") && filter.byRegexp(rule, segment);
         }).sort(function (firstRule, secondRule) {
@@ -359,7 +359,7 @@ function inflectMiddleName(gender, middleName, caseName) {
  * @param {string} delimiter
  * @return {string}
  */
-function mapCompoundNameSegment(name, callback) {
+function mapCompoundNameSegments(name, callback) {
     var delimiter = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "-";
 
     var segments = name.split(delimiter);
