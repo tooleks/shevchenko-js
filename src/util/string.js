@@ -1,5 +1,7 @@
 "use strict";
 
+const type = require("./type");
+
 const UPPER_CASE = "u";
 const LOWER_CASE = "l";
 const NOT_RECOGNIZED_CASE = null;
@@ -14,12 +16,12 @@ const stringCaseMask = {};
 /**
  * Detect if a character is a segment break character.
  *
- * Used in the double last names such as "Нечуй-Левицький", to create case masks for each word.
+ * Used in compound last names such as "Нечуй-Левицький", to create case masks for each word.
  *
  * @param {string} char
  * @return {boolean}
  */
-stringCaseMask.isSegmentBreakCharacter = (char) => char === "-";
+stringCaseMask.isSegmentBreakCharacter = (char) => ["-"].indexOf(char) !== -1;
 
 /**
  * Load the case mask from the string.
@@ -28,26 +30,30 @@ stringCaseMask.isSegmentBreakCharacter = (char) => char === "-";
  * @return {Object}
  */
 stringCaseMask.loadMask = (value) => {
-    const mask = {};
     let segmentNumber = 0;
-    let stringIndex = 0;
 
-    while (stringIndex < value.length) {
-        let char = value.charAt(stringIndex++);
-        // If the current character is a segment break character
-        // go to the next segment.
+    const mask = value.split("").reduce((mask, char) => {
+        // If the current character is a segment break character go to the next segment.
         if (stringCaseMask.isSegmentBreakCharacter(char)) {
             segmentNumber++;
-            continue;
+            return mask;
         }
 
         // Initialize the default value (an empty array) for a new segment.
-        if (typeof mask[segmentNumber] === "undefined") mask[segmentNumber] = [];
+        if (type.notValuable(mask[segmentNumber])) {
+            mask[segmentNumber] = [];
+        }
 
-        if (string.isUpperCase(char)) mask[segmentNumber].push(UPPER_CASE);
-        else if (string.isLowerCase(char)) mask[segmentNumber].push(LOWER_CASE);
-        else mask[segmentNumber].push(NOT_RECOGNIZED_CASE);
-    }
+        if (string.isUpperCase(char)) {
+            mask[segmentNumber].push(UPPER_CASE);
+        } else if (string.isLowerCase(char)) {
+            mask[segmentNumber].push(LOWER_CASE);
+        } else {
+            mask[segmentNumber].push(NOT_RECOGNIZED_CASE);
+        }
+
+        return mask;
+    }, {});
 
     return mask;
 };
@@ -60,13 +66,10 @@ stringCaseMask.loadMask = (value) => {
  * @return {string}
  */
 stringCaseMask.applyByMask = (mask, value) => {
-    let result = "";
     let segmentNumber = 0;
     let segmentIndex = 0;
-    let stringIndex = 0;
 
-    while (stringIndex < value.length) {
-        let char = value.charAt(stringIndex++);
+    const result = value.split("").reduce((result, char) => {
         // If the current character is a segment break character
         // go to the next segment and reset the segment index.
         if (stringCaseMask.isSegmentBreakCharacter(char)) {
@@ -76,15 +79,21 @@ stringCaseMask.applyByMask = (mask, value) => {
 
         let segment = mask[segmentNumber];
         let charMask = segment[segmentIndex++];
+
         // If the string length is bigger than a segment length
         // set the character mask to the last segment character mask value.
-        if (typeof charMask === "undefined") charMask = segment[segment.length - 1];
+        if (type.notValuable(charMask)) {
+            charMask = segment[segment.length - 1];
+        }
 
-        if (charMask === UPPER_CASE) char = char.toUpperCase();
-        else if (charMask === LOWER_CASE) char = char.toLowerCase();
-        // Append the character to the resulting string.
-        result += char;
-    }
+        if (charMask === UPPER_CASE) {
+            char = char.toUpperCase();
+        } else if (charMask === LOWER_CASE) {
+            char = char.toLowerCase();
+        }
+
+        return result + char;
+    }, "");
 
     return result;
 };

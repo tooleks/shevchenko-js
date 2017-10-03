@@ -1,8 +1,8 @@
 "use strict";
 
-const assert = require("./assert");
 const array = require("./array");
 const regexp = require("./regexp");
 const string = require("./string");
+const type = require("./type");
 
-module.exports = {assert, array, regexp, string};
+module.exports = {array, regexp, string, type};

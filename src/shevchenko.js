@@ -6,6 +6,7 @@ const pos = require("./pos");
 
 const assert = util.assert;
 const string = util.string;
+const type = util.type;
 const inflector = rules.inflector;
 const filter = rules.filter;
 const sort = rules.sort;
@@ -202,17 +203,17 @@ function shevchenko(person, caseName) {
 
     const result = {};
 
-    if (typeof person.lastName === "string") {
+    if (type.valuable(person.lastName)) {
         let inflectedName = inflectLastName(person.gender, person.lastName.toLowerCase(), caseName);
         result.lastName = string.applyCaseMask(person.lastName, inflectedName || person.lastName);
     }
 
-    if (typeof person.firstName === "string") {
+    if (type.valuable(person.firstName)) {
         let inflectedName = inflectFirstName(person.gender, person.firstName.toLowerCase(), caseName);
         result.firstName = string.applyCaseMask(person.firstName, inflectedName || person.firstName);
     }
 
-    if (typeof person.middleName === "string") {
+    if (type.valuable(person.middleName)) {
         let inflectedName = inflectMiddleName(person.gender, person.middleName.toLowerCase(), caseName);
         result.middleName = string.applyCaseMask(person.middleName, inflectedName || person.middleName);
     }
@@ -226,31 +227,16 @@ function shevchenko(person, caseName) {
  * @param {Object} person
  */
 function assertPersonParameter(person) {
-    assert.object(person, "Invalid 'person' type.");
-
-    if (!person.hasOwnProperty("gender")) {
-        assert.throw("Missed 'person.gender' property.");
-    }
-
-    assert.string(person.gender, "Invalid 'person.gender' type.");
-
-    assert.inArray(shevchenko.getGenderNames(), person.gender, "Invalid 'person.gender' value.");
-
+    if (type.notObject(person)) throw new Error("Invalid 'person' type.");
+    if (!person.hasOwnProperty("gender")) throw new Error("Missed 'person.gender' property.");
+    if (type.notString(person.gender)) throw new Error("Invalid 'person.gender' type.");
+    if (shevchenko.getGenderNames().indexOf(person.gender) === -1) throw new Error("Invalid 'person.gender' value.");
     if (!person.hasOwnProperty("firstName") && !person.hasOwnProperty("middleName") && !person.hasOwnProperty("lastName")) {
-        assert.throw("Missed 'person.lastName', 'person.firstName', 'person.middleName' properties.");
+        throw new Error("Missed 'person.lastName', 'person.firstName', 'person.middleName' properties.");
     }
-
-    if (person.hasOwnProperty("lastName")) {
-        assert.string(person.lastName, "Invalid 'person.lastName' type.");
-    }
-
-    if (person.hasOwnProperty("firstName")) {
-        assert.string(person.firstName, "Invalid 'person.firstName' type.");
-    }
-
-    if (person.hasOwnProperty("middleName")) {
-        assert.string(person.middleName, "Invalid 'person.middleName' type.");
-    }
+    if (person.hasOwnProperty("lastName") && type.notString(person.lastName)) throw new Error("Invalid 'person.lastName' type.");
+    if (person.hasOwnProperty("firstName") && type.notString(person.firstName)) throw new Error("Invalid 'person.firstName' type.");
+    if (person.hasOwnProperty("middleName") && type.notString(person.middleName)) throw new Error("Invalid 'person.middleName' type.");
 }
 
 /**
@@ -259,9 +245,8 @@ function assertPersonParameter(person) {
  * @param {string} caseName
  */
 function assertCaseNameParameter(caseName) {
-    assert.string(caseName, "Invalid 'caseName' type.");
-
-    assert.inArray(shevchenko.getCaseNames(), caseName, "Invalid 'caseName' value.");
+    if (type.notString(caseName)) throw new Error("Invalid 'caseName' type.");
+    if (shevchenko.getCaseNames().indexOf(caseName) === -1) throw new Error("Invalid 'caseName' value.");
 }
 
 /**

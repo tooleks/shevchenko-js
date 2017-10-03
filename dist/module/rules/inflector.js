@@ -18,7 +18,10 @@ var inflector = {};
  * @return {string}
  */
 inflector.inflectByRule = function (rule, caseName, value) {
-    if (typeof rule === "undefined") return value;
+    if (util.type.notValuable(rule)) {
+        return value;
+    }
+
     var regexp = rule.regexp.modify;
     var modifiers = rule.cases[caseName][0]; // Retrieve the first group modifiers object by case name.
     return value.replace(new RegExp(regexp, "gm"), function (match) {
@@ -45,7 +48,10 @@ inflector.inflectByRule = function (rule, caseName, value) {
  * @return {string}
  */
 inflector.applyGroupModifier = function (modifier, value) {
-    if (typeof modifier === "undefined") return value;
+    if (util.type.notValuable(modifier)) {
+        return value;
+    }
+
     switch (modifier.type) {
         case "append":
             return value + modifier.value;
