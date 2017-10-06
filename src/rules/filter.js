@@ -52,7 +52,7 @@ filter.byGender = (rule, value) => {
  * @return {boolean}
  */
 filter.byRegexp = (rule, value) => {
-    return (new RegExp(rule.regexp.find, "gm")).test(value);
+    return new RegExp(rule.regexp.find, "gm").test(value);
 };
 
 module.exports = filter;

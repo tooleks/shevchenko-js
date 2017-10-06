@@ -194,11 +194,9 @@ shevchenko.inVocative = function (person) {
  * @return {object}
  */
 shevchenko.inAll = function (person) {
-    var results = {};
-    shevchenko.getCaseNames().forEach(function (caseName) {
-        return results[caseName] = shevchenko(person, caseName);
-    });
-    return results;
+    return shevchenko.getCaseNames().reduce(function (results, caseName) {
+        return results[caseName] = shevchenko(person, caseName), results;
+    }, {});
 };
 
 /**
@@ -209,7 +207,7 @@ shevchenko.inAll = function (person) {
  *     lastName: "Шевченко",
  *     firstName: "Тарас",
  *     middleName: "Григорович"
- * }, shevchenko.getCaseNameVocative());
+ * }, "vocative");
  *
  * @param {object} person
  * @param {string} caseName

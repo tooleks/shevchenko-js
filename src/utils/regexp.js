@@ -14,7 +14,7 @@ const regexp = {};
  * @return {number}
  */
 regexp.countGroups = (regexp) => {
-    return (new RegExp(regexp.toString() + "|")).exec("").length - 1;
+    return new RegExp(regexp.toString() + "|").exec("").length - 1;
 };
 
 module.exports = regexp;

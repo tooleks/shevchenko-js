@@ -134,7 +134,7 @@ string.toBinary = (string) => string.split("").map((char) => char.charCodeAt(0).
  * @return {string}
  */
 string.padLeft = (string, length, symbol = "0") => {
-    const filler = (new Array(length + 1)).join(symbol);
+    const filler = new Array(length + 1).join(symbol);
     return filler.substring(0, filler.length - string.length) + string;
 };
 

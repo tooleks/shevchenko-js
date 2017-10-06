@@ -171,9 +171,9 @@ shevchenko.inVocative = (person) => shevchenko(person, shevchenko.getCaseNameVoc
  * @return {object}
  */
 shevchenko.inAll = (person) => {
-    const results = {};
-    shevchenko.getCaseNames().forEach((caseName) => results[caseName] = shevchenko(person, caseName));
-    return results;
+    return shevchenko
+        .getCaseNames()
+        .reduce((results, caseName) => (results[caseName] = shevchenko(person, caseName), results), {});
 };
 
 /**
@@ -184,7 +184,7 @@ shevchenko.inAll = (person) => {
  *     lastName: "Шевченко",
  *     firstName: "Тарас",
  *     middleName: "Григорович"
- * }, shevchenko.getCaseNameVocative());
+ * }, "vocative");
  *
  * @param {object} person
  * @param {string} caseName
