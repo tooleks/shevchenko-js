@@ -78,10 +78,6 @@
         $("#issuesCount").text(parseInt(value));
     }
 
-    function setCurrentYear(value) {
-        $("#currentYear").text(value);
-    }
-
     function setInflectionPreview(value) {
         var previewSelector = $("#preview");
         if (previewSelector.text() === value) return;
@@ -100,7 +96,6 @@
     $(document).ready(function () {
         var person = buildPerson("male", "Шевченко", "Тарас", "Григорович");
         inflect(person, setInflectionResult);
-        setCurrentYear((new Date).getFullYear());
     });
 
     $("#inflection-form").submit(function (event) {
