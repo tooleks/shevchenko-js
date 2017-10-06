@@ -47,7 +47,7 @@
 
     function inflect(person, successCallback) {
         const results = shevchenko.inAll(person);
-        for (let caseName in results) {
+        for (var caseName in results) {
             if (results.hasOwnProperty(caseName)) {
                 successCallback(person, caseName, results[caseName]);
             }
