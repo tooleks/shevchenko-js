@@ -3,7 +3,7 @@
 /**
  * Contains a set of methods for an array type.
  *
- * @type {Object}
+ * @type {object}
  */
 const array = {};
 

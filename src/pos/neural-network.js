@@ -25,7 +25,7 @@ function NeuralNetwork(structure) {
     /**
      * Get the neural network structure.
      *
-     * @return {Object}
+     * @return {object}
      */
     this.structure = () => this.network.toJSON();
 
@@ -51,7 +51,7 @@ function NeuralNetwork(structure) {
      * Train the neural network on the training data array.
      *
      * @param {Array<Object>} samples
-     * @param {Object} options
+     * @param {object} options
      * @return {NeuralNetwork}
      */
     this.train = (samples, options) => {
@@ -65,8 +65,8 @@ function NeuralNetwork(structure) {
  * Build the neural network on the training data array.
  *
  * @param {Array<Object>} samples
- * @param {Object} options
- * @return {Object}
+ * @param {object} options
+ * @return {object}
  */
 NeuralNetwork.build = (samples, options) => {
     const network = new synaptic.Architect.Perceptron(NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT);

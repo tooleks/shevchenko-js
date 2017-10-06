@@ -9,7 +9,7 @@ const NOT_RECOGNIZED_CASE = null;
 /**
  * Contains a set of methods for manipulation of a string character cases.
  *
- * @type {Object}
+ * @type {object}
  */
 const stringCaseMask = {};
 
@@ -27,7 +27,7 @@ stringCaseMask.isSegmentBreakCharacter = (char) => ["-"].indexOf(char) !== -1;
  * Load the case mask from the string.
  *
  * @param {string} value
- * @return {Object}
+ * @return {object}
  */
 stringCaseMask.loadMask = (value) => {
     let segmentNumber = 0;
@@ -61,7 +61,7 @@ stringCaseMask.loadMask = (value) => {
 /**
  * Apply the case mask to the string.
  *
- * @param {Object} mask
+ * @param {object} mask
  * @param {string} value
  * @return {string}
  */
@@ -101,7 +101,7 @@ stringCaseMask.applyByMask = (mask, value) => {
 /**
  * Contains a set of methods for a string type.
  *
- * @type {Object}
+ * @type {object}
  */
 const string = {};
 

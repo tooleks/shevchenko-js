@@ -3,15 +3,15 @@
 /**
  * Contains a set of methods for inflection rules sorting.
  *
- * @type {Object}
+ * @type {object}
  */
 const sort = {};
 
 /**
  * Sort by the rule applications ("noun", "adjective" etc.) descending.
  *
- * @param {Object} firstRule
- * @param {Object} secondRule
+ * @param {object} firstRule
+ * @param {object} secondRule
  * @param {string} value
  * @return {boolean}
  */

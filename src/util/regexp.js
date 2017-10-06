@@ -3,7 +3,7 @@
 /**
  * Contains a set of methods for regular expressions.
  *
- * @type {Object}
+ * @type {object}
  */
 const regexp = {};
 

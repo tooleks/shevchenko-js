@@ -3,7 +3,7 @@
 /**
  * Contains a set of methods for type checking.
  *
- * @type {Object}
+ * @type {object}
  */
 const type = {};
 

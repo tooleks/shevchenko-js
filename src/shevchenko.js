@@ -118,64 +118,64 @@ shevchenko.getCaseNames = () => {
 /**
  * Inflect the person's first, last and middle names in a nominative case.
  *
- * @param {Object} person
- * @return {Object}
+ * @param {object} person
+ * @return {object}
  */
 shevchenko.inNominative = (person) => shevchenko(person, shevchenko.getCaseNameNominative());
 
 /**
  * Inflect the person's first, last and middle names in a genitive case.
  *
- * @param {Object} person
- * @return {Object}
+ * @param {object} person
+ * @return {object}
  */
 shevchenko.inGenitive = (person) => shevchenko(person, shevchenko.getCaseNameGenitive());
 
 /**
  * Inflect the person's first, last and middle names in a dative case.
  *
- * @param {Object} person
- * @return {Object}
+ * @param {object} person
+ * @return {object}
  */
 shevchenko.inDative = (person) => shevchenko(person, shevchenko.getCaseNameDative());
 
 /**
  * Inflect the person's first, last and middle names in an accusative case.
  *
- * @param {Object} person
- * @return {Object}
+ * @param {object} person
+ * @return {object}
  */
 shevchenko.inAccusative = (person) => shevchenko(person, shevchenko.getCaseNameAccusative());
 
 /**
  * Inflect the person's first, last and middle names in an ablative case.
  *
- * @param {Object} person
- * @return {Object}
+ * @param {object} person
+ * @return {object}
  */
 shevchenko.inAblative = (person) => shevchenko(person, shevchenko.getCaseNameAblative());
 
 /**
  * Inflect the person's first, last and middle names in a locative case.
  *
- * @param {Object} person
- * @return {Object}
+ * @param {object} person
+ * @return {object}
  */
 shevchenko.inLocative = (person) => shevchenko(person, shevchenko.getCaseNameLocative());
 
 /**
  * Inflect the person's first, last and middle names in a vocative case.
  *
- * @param {Object} person
- * @return {Object}
+ * @param {object} person
+ * @return {object}
  */
 shevchenko.inVocative = (person) => shevchenko(person, shevchenko.getCaseNameVocative());
 
 /**
  * Inflect the person's first, last and middle names in all cases.
  *
- * @param {Object} person
- * @return {Object}
+ * @param {object} person
+ * @return {object}
  */
 shevchenko.inAll = (person) => {
     const results = {};
@@ -193,9 +193,9 @@ shevchenko.inAll = (person) => {
  *     middleName: "Григорович"
  * }, shevchenko.getCaseNameVocative());
  *
- * @param {Object} person
+ * @param {object} person
  * @param {string} caseName
- * @return {Object}
+ * @return {object}
  */
 function shevchenko(person, caseName) {
     assertPersonParameter(person);
@@ -224,7 +224,7 @@ function shevchenko(person, caseName) {
 /**
  * Validate the person parameter.
  *
- * @param {Object} person
+ * @param {object} person
  */
 function assertPersonParameter(person) {
     if (type.notObject(person)) throw new Error("Invalid 'person' type.");

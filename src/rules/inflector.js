@@ -5,14 +5,14 @@ const util = require("../util");
 /**
  * Contains a set of methods for words inflection.
  *
- * @type {Object}
+ * @type {object}
  */
 const inflector = {};
 
 /**
  * Inflect a value by inflection rule.
  *
- * @param {Object} rule
+ * @param {object} rule
  * @param {string} caseName
  * @param {string} value
  * @return {string}
@@ -39,7 +39,7 @@ inflector.inflectByRule = (rule, caseName, value) => {
  *
  * @see inflector.inflectByRule
  *
- * @param {Object} modifier
+ * @param {object} modifier
  * @param {string} value
  * @return {string}
  */
