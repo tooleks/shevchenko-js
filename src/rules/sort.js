@@ -8,14 +8,14 @@
 const sort = {};
 
 /**
- * Sort by the rule applications ("noun", "adjective" etc.) descending.
+ * Sort by rule applications ("noun", "adjective" etc.).
  *
  * @param {object} firstRule
  * @param {object} secondRule
  * @param {string} value
  * @return {boolean}
  */
-sort.rulesByApplicationDesc = (firstRule, secondRule, value) => {
+sort.rulesByApplication = (firstRule, secondRule, value) => {
     return !firstRule.applications.length && secondRule.applications.length && secondRule.applications.indexOf(value) !== -1;
 };
 

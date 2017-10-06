@@ -1,7 +1,7 @@
 "use strict";
 
-const buildPerson = require("./util/build-person");
-const testInflections = require("./util/test-inflections");
+const buildPerson = require("./utils/build-person");
+const testInflections = require("./utils/test-inflections");
 const inflections = require("./src/inflections");
 
 inflections.forEach((inflection) => {

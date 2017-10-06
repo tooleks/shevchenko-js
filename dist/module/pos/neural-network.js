@@ -1,9 +1,7 @@
 "use strict";
 
 var synaptic = require("synaptic");
-var util = require("../util");
-
-var string = util.string;
+var utils = require("../utils");
 
 var NETWORK_LAYER_SIZE_INPUT = 360;
 var NETWORK_LAYER_SIZE_HIDDEN = 20;
@@ -27,7 +25,7 @@ function NeuralNetwork(structure) {
   /**
    * Get the neural network structure.
    *
-   * @return {Object}
+   * @return {object}
    */
   this.structure = function () {
     return _this.network.toJSON();
@@ -57,12 +55,11 @@ function NeuralNetwork(structure) {
    * Train the neural network on the training data array.
    *
    * @param {Array<Object>} samples
-   * @param {Object} options
+   * @param {object} options
    * @return {NeuralNetwork}
    */
   this.train = function (samples, options) {
-    var trainer = new synaptic.Trainer(_this.network);
-    trainer.train(samples, options);
+    new synaptic.Trainer(_this.network).train(samples, options);
     return _this;
   };
 }
@@ -71,13 +68,12 @@ function NeuralNetwork(structure) {
  * Build the neural network on the training data array.
  *
  * @param {Array<Object>} samples
- * @param {Object} options
- * @return {Object}
+ * @param {object} options
+ * @return {object}
  */
 NeuralNetwork.build = function (samples, options) {
   var network = new synaptic.Architect.Perceptron(NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT);
-  var trainer = new synaptic.Trainer(network);
-  trainer.train(samples, options);
+  new synaptic.Trainer(network).train(samples, options);
   return new NeuralNetwork(network.toJSON());
 };
 
@@ -106,8 +102,8 @@ NeuralNetwork.isValidPosName = function (value) {
  * @return {Array<number>}
  */
 NeuralNetwork.normalizeInput = function (value) {
-  var binaryValue = string.toBinary(value);
-  return string.padLeft(binaryValue, NETWORK_LAYER_SIZE_INPUT).split("");
+  var binaryValue = utils.string.toBinary(value);
+  return utils.string.padLeft(binaryValue, NETWORK_LAYER_SIZE_INPUT).split("");
 };
 
 /**

@@ -1,15 +1,8 @@
 "use strict";
 
-const util = require("./util");
+const utils = require("./utils");
 const rules = require("./rules");
 const pos = require("./pos");
-
-const assert = util.assert;
-const string = util.string;
-const type = util.type;
-const inflector = rules.inflector;
-const filter = rules.filter;
-const sort = rules.sort;
 
 /**
  * Get a male gender name.
@@ -198,134 +191,164 @@ shevchenko.inAll = (person) => {
  * @return {object}
  */
 function shevchenko(person, caseName) {
-    assertPersonParameter(person);
-    assertCaseNameParameter(caseName);
+    validateInput({person, caseName});
+
+    const inflect = (type, name, gender, caseName) => {
+        const inflectedName = getInflectionFunctions()[type](name.toLowerCase(), gender, caseName);
+        return utils.string.applyCaseMask(name, inflectedName || name);
+    };
 
     const result = {};
 
-    if (type.valuable(person.lastName)) {
-        let inflectedName = inflectLastName(person.gender, person.lastName.toLowerCase(), caseName);
-        result.lastName = string.applyCaseMask(person.lastName, inflectedName || person.lastName);
+    if (typeof person.lastName === "string") {
+        result.lastName = inflect("lastName", person.lastName, person.gender, caseName);
     }
 
-    if (type.valuable(person.firstName)) {
-        let inflectedName = inflectFirstName(person.gender, person.firstName.toLowerCase(), caseName);
-        result.firstName = string.applyCaseMask(person.firstName, inflectedName || person.firstName);
+    if (typeof person.firstName === "string") {
+        result.firstName = inflect("firstName", person.firstName, person.gender, caseName);
     }
 
-    if (type.valuable(person.middleName)) {
-        let inflectedName = inflectMiddleName(person.gender, person.middleName.toLowerCase(), caseName);
-        result.middleName = string.applyCaseMask(person.middleName, inflectedName || person.middleName);
+    if (typeof person.middleName === "string") {
+        result.middleName = inflect("middleName", person.middleName, person.gender, caseName);
     }
 
     return result;
 }
 
 /**
- * Validate the person parameter.
+ * Validate the library input data.
  *
- * @param {object} person
+ * @param {object} input
+ * @return {void}
  */
-function assertPersonParameter(person) {
-    if (type.notObject(person)) throw new Error("Invalid 'person' type.");
-    if (!person.hasOwnProperty("gender")) throw new Error("Missed 'person.gender' property.");
-    if (type.notString(person.gender)) throw new Error("Invalid 'person.gender' type.");
-    if (shevchenko.getGenderNames().indexOf(person.gender) === -1) throw new Error("Invalid 'person.gender' value.");
-    if (!person.hasOwnProperty("firstName") && !person.hasOwnProperty("middleName") && !person.hasOwnProperty("lastName")) {
+function validateInput(input) {
+    if (typeof input.person !== "object") {
+        throw new Error("Invalid 'person' type.");
+    }
+
+    if (!input.person.hasOwnProperty("gender")) {
+        throw new Error("Missed 'person.gender' property.");
+    }
+
+    if (typeof input.person.gender !== "string") {
+        throw new Error("Invalid 'person.gender' type.");
+    }
+
+    if (shevchenko.getGenderNames().indexOf(input.person.gender) === -1) {
+        throw new Error("Invalid 'person.gender' value.");
+    }
+
+    if (!input.person.hasOwnProperty("firstName") &&
+        !input.person.hasOwnProperty("middleName") &&
+        !input.person.hasOwnProperty("lastName")) {
         throw new Error("Missed 'person.lastName', 'person.firstName', 'person.middleName' properties.");
     }
-    if (person.hasOwnProperty("lastName") && type.notString(person.lastName)) throw new Error("Invalid 'person.lastName' type.");
-    if (person.hasOwnProperty("firstName") && type.notString(person.firstName)) throw new Error("Invalid 'person.firstName' type.");
-    if (person.hasOwnProperty("middleName") && type.notString(person.middleName)) throw new Error("Invalid 'person.middleName' type.");
+
+    if (input.person.hasOwnProperty("lastName") && typeof input.person.lastName !== "string") {
+        throw new Error("Invalid 'person.lastName' type.");
+    }
+
+    if (input.person.hasOwnProperty("firstName") && typeof input.person.firstName !== "string") {
+        throw new Error("Invalid 'person.firstName' type.");
+    }
+
+    if (input.person.hasOwnProperty("middleName") && typeof input.person.middleName !== "string") {
+        throw new Error("Invalid 'person.middleName' type.");
+    }
+
+    if (typeof input.caseName !== "string") {
+        throw new Error("Invalid 'caseName' type.");
+    }
+
+    if (shevchenko.getCaseNames().indexOf(input.caseName) === -1) {
+        throw new Error("Invalid 'caseName' value.");
+    }
 }
 
 /**
- * Validate the caseName parameter.
+ * Get inflection functions for anthroponyms.
  *
- * @param {string} caseName
+ * @return {object}
  */
-function assertCaseNameParameter(caseName) {
-    if (type.notString(caseName)) throw new Error("Invalid 'caseName' type.");
-    if (shevchenko.getCaseNames().indexOf(caseName) === -1) throw new Error("Invalid 'caseName' value.");
+function getInflectionFunctions() {
+    return {
+        /**
+         * Inflect the person's last name.
+         *
+         * @param {string} name
+         * @param {string} gender
+         * @param {string} caseName
+         * @return {string}
+         */
+        lastName: (name, gender, caseName) => {
+            return mapCompoundNameSegments(name, (name, index, length) => {
+                // If the first (on practice, not the last) short part of the compound last name has only one vowel,
+                // it is not perceived as an independent surname and returned "as is".
+                const isLastSegment = index === length - 1;
+                if (!isLastSegment && name.match(/(а|о|у|е|и|і|я|ю|є|ї)/g).length === 1) {
+                    return name;
+                }
+
+                const rule = shevchenko
+                    .getRules()
+                    .filter((rule) => rules.filter.byGender(rule, gender) &&
+                        rules.filter.byApplication(rule, "lastName") &&
+                        rules.filter.byRegexp(rule, name) &&
+                        rules.filter.byPos(rule, pos.recognize(gender, name)))
+                    .sort((firstRule, secondRule) => rules.sort.rulesByApplication(firstRule, secondRule, "lastName"))
+                    .shift();
+
+                return rules.inflector.inflectByRule(rule, caseName, name);
+            });
+        },
+        /**
+         * Inflect the person's first name.
+         *
+         * @param {string} name
+         * @param {string} gender
+         * @param {string} caseName
+         * @return {string}
+         */
+        firstName: (name, gender, caseName) => {
+            return mapCompoundNameSegments(name, (name) => {
+                const rule = shevchenko
+                    .getRules()
+                    .filter((rule) => rules.filter.byGender(rule, gender) &&
+                        rules.filter.byApplication(rule, "firstName") &&
+                        rules.filter.byRegexp(rule, name))
+                    .sort((firstRule, secondRule) => rules.sort.rulesByApplication(firstRule, secondRule, "firstName"))
+                    .shift();
+
+                return rules.inflector.inflectByRule(rule, caseName, name);
+            });
+        },
+        /**
+         * Inflect the person's middle name.
+         *
+         * @param {string} name
+         * @param {string} gender
+         * @param {string} caseName
+         * @return {string}
+         */
+        middleName: (name, gender, caseName) => {
+            const rule = shevchenko
+                .getRules()
+                .filter((rule) => rules.filter.byGender(rule, gender) &&
+                    rules.filter.byApplication(rule, "middleName", true) &&
+                    rules.filter.byRegexp(rule, name))
+                .sort((firstRule, secondRule) => rules.sort.rulesByApplication(firstRule, secondRule, "middleName"))
+                .shift();
+
+            return rules.inflector.inflectByRule(rule, caseName, name);
+        },
+    };
 }
 
 /**
- * Inflect the person's last name.
- *
- * @param {string} gender
- * @param {string} lastName
- * @param {string} caseName
- * @return {string}
- */
-function inflectLastName(gender, lastName, caseName) {
-    return mapCompoundNameSegments(lastName, (segment, index, length) => {
-        const isLastSegment = (index === length - 1);
-        // Don't inflect "one vowel" last name if it is not the last segment of the compound last name.
-        if (!isLastSegment && segment.match(/(а|о|у|е|и|і|я|ю|є|ї)/g).length === 1) {
-            return segment;
-        }
-
-        const rule = shevchenko
-            .getRules()
-            .filter((rule) => filter.byGender(rule, gender) &&
-                filter.byApplication(rule, "lastName") &&
-                filter.byRegexp(rule, segment) &&
-                filter.byPos(rule, pos.recognize(gender, segment)))
-            .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "lastName"))
-            .shift();
-
-        return inflector.inflectByRule(rule, caseName, segment);
-    });
-
-}
-
-/**
- * Inflect the person's first name.
- *
- * @param {string} gender
- * @param {string} firstName
- * @param {string} caseName
- * @return {string}
- */
-function inflectFirstName(gender, firstName, caseName) {
-    return mapCompoundNameSegments(firstName, (segment) => {
-        const rule = shevchenko
-            .getRules()
-            .filter((rule) => filter.byGender(rule, gender) &&
-                filter.byApplication(rule, "firstName") &&
-                filter.byRegexp(rule, segment))
-            .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "firstName"))
-            .shift();
-
-        return inflector.inflectByRule(rule, caseName, segment);
-    });
-}
-
-/**
- * Inflect the person's middle name.
- *
- * @param {string} gender
- * @param {string} middleName
- * @param {string} caseName
- * @return {string}
- */
-function inflectMiddleName(gender, middleName, caseName) {
-    const rule = shevchenko
-        .getRules()
-        .filter((rule) => filter.byGender(rule, gender) &&
-            filter.byApplication(rule, "middleName", true) &&
-            filter.byRegexp(rule, middleName))
-        .sort((firstRule, secondRule) => sort.rulesByApplicationDesc(firstRule, secondRule, "middleName"))
-        .shift();
-
-    return inflector.inflectByRule(rule, caseName, middleName);
-}
-
-/**
- * Map the compound name segments with a callback function.
+ * Create a new compound name with the results of calling a provided function on every segment in the calling compound name.
  *
  * @param {string} name
- * @param {Function} callback
+ * @param {function} callback
  * @param {string} delimiter
  * @return {string}
  */

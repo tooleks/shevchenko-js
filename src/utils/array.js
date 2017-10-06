@@ -10,8 +10,8 @@ const array = {};
 /**
  * Remove duplicates from an array.
  *
- * @param {array} array
- * @return {array}
+ * @param {Array} array
+ * @return {Array}
  */
 array.unique = (array) => Array.from(new Set(array.map(JSON.stringify))).map(JSON.parse);
 

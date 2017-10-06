@@ -3,7 +3,7 @@
 /**
  * Contains a set of methods for inflection rules filtering.
  *
- * @type {Object}
+ * @type {object}
  */
 
 var filter = {};
@@ -11,7 +11,7 @@ var filter = {};
 /**
  * Filter by the rule part of speech.
  *
- * @param {Object} rule
+ * @param {object} rule
  * @param {string} value
  * @return {boolean}
  */
@@ -22,7 +22,7 @@ filter.byPos = function (rule, value) {
 /**
  * Filter by the rule applications.
  *
- * @param {Object} rule
+ * @param {object} rule
  * @param {string} value
  * @param {boolean} strict
  * @return {boolean}
@@ -41,7 +41,7 @@ filter.byApplication = function (rule, value) {
 /**
  * Filter by the rule gender.
  *
- * @param {Object} rule
+ * @param {object} rule
  * @param {string} value
  * @return {boolean}
  */
@@ -52,7 +52,7 @@ filter.byGender = function (rule, value) {
 /**
  * Filter by the rule find regular expression.
  *
- * @param {Object} rule
+ * @param {object} rule
  * @param {string} value
  * @return {boolean}
  */

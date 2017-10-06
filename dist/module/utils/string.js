@@ -1,17 +1,15 @@
 "use strict";
 
-const type = require("./type");
-
-const UPPER_CASE = "u";
-const LOWER_CASE = "l";
-const NOT_RECOGNIZED_CASE = null;
+var UPPER_CASE = "u";
+var LOWER_CASE = "l";
+var NOT_RECOGNIZED_CASE = null;
 
 /**
  * Contains a set of methods for manipulation of a string character cases.
  *
  * @type {object}
  */
-const stringCaseMask = {};
+var stringCaseMask = {};
 
 /**
  * Detect if a character is a segment break character.
@@ -21,7 +19,9 @@ const stringCaseMask = {};
  * @param {string} char
  * @return {boolean}
  */
-stringCaseMask.isSegmentBreakCharacter = (char) => ["-"].indexOf(char) !== -1;
+stringCaseMask.isSegmentBreakCharacter = function (char) {
+    return ["-"].indexOf(char) !== -1;
+};
 
 /**
  * Load the case mask from the string.
@@ -29,10 +29,10 @@ stringCaseMask.isSegmentBreakCharacter = (char) => ["-"].indexOf(char) !== -1;
  * @param {string} value
  * @return {object}
  */
-stringCaseMask.loadMask = (value) => {
-    let segmentNumber = 0;
+stringCaseMask.loadMask = function (value) {
+    var segmentNumber = 0;
 
-    const mask = value.split("").reduce((mask, char) => {
+    var mask = value.split("").reduce(function (mask, char) {
         // If the current character is a segment break character go to the next segment.
         if (stringCaseMask.isSegmentBreakCharacter(char)) {
             segmentNumber++;
@@ -40,7 +40,7 @@ stringCaseMask.loadMask = (value) => {
         }
 
         // Initialize the default value (an empty array) for a new segment.
-        if (type.notValuable(mask[segmentNumber])) {
+        if (typeof mask[segmentNumber] === "undefined") {
             mask[segmentNumber] = [];
         }
 
@@ -65,11 +65,11 @@ stringCaseMask.loadMask = (value) => {
  * @param {string} value
  * @return {string}
  */
-stringCaseMask.applyByMask = (mask, value) => {
-    let segmentNumber = 0;
-    let segmentIndex = 0;
+stringCaseMask.applyByMask = function (mask, value) {
+    var segmentNumber = 0;
+    var segmentIndex = 0;
 
-    const result = value.split("").reduce((result, char) => {
+    var result = value.split("").reduce(function (result, char) {
         // If the current character is a segment break character
         // go to the next segment and reset the segment index.
         if (stringCaseMask.isSegmentBreakCharacter(char)) {
@@ -77,12 +77,12 @@ stringCaseMask.applyByMask = (mask, value) => {
             segmentIndex = -1;
         }
 
-        let segment = mask[segmentNumber];
-        let charMask = segment[segmentIndex++];
+        var segment = mask[segmentNumber];
+        var charMask = segment[segmentIndex++];
 
         // If the string length is bigger than a segment length
         // set the character mask to the last segment character mask value.
-        if (type.notValuable(charMask)) {
+        if (typeof charMask === "undefined") {
             charMask = segment[segment.length - 1];
         }
 
@@ -103,21 +103,25 @@ stringCaseMask.applyByMask = (mask, value) => {
  *
  * @type {object}
  */
-const string = {};
+var string = {};
 
 /**
  * Detect if a character is in the upper case.
  *
  * @param {string} char
  */
-string.isUpperCase = (char) => char === char.toUpperCase() && char !== char.toLowerCase();
+string.isUpperCase = function (char) {
+    return char === char.toUpperCase() && char !== char.toLowerCase();
+};
 
 /**
  * Detect if a character is in the lower case.
  *
  * @param {string} char
  */
-string.isLowerCase = (char) => char === char.toLowerCase() && char !== char.toUpperCase();
+string.isLowerCase = function (char) {
+    return char === char.toLowerCase() && char !== char.toUpperCase();
+};
 
 /**
  * Convert a string of characters to a binary string.
@@ -125,7 +129,11 @@ string.isLowerCase = (char) => char === char.toLowerCase() && char !== char.toUp
  * @param {string} string
  * @return {string}
  */
-string.toBinary = (string) => string.split("").map((char) => char.charCodeAt(0).toString(2)).join("");
+string.toBinary = function (string) {
+    return string.split("").map(function (char) {
+        return char.charCodeAt(0).toString(2);
+    }).join("");
+};
 
 /**
  * Fill the left part of the string with a symbol to a given length.
@@ -135,8 +143,10 @@ string.toBinary = (string) => string.split("").map((char) => char.charCodeAt(0).
  * @param {string} symbol
  * @return {string}
  */
-string.padLeft = (string, length, symbol = "0") => {
-    const filler = (new Array(length + 1)).join(symbol);
+string.padLeft = function (string, length) {
+    var symbol = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "0";
+
+    var filler = new Array(length + 1).join(symbol);
     return filler.substring(0, filler.length - string.length) + string;
 };
 
@@ -147,8 +157,8 @@ string.padLeft = (string, length, symbol = "0") => {
  * @param {string} string
  * @return {string}
  */
-string.applyCaseMask = (exampleString, string) => {
-    const mask = stringCaseMask.loadMask(exampleString);
+string.applyCaseMask = function (exampleString, string) {
+    var mask = stringCaseMask.loadMask(exampleString);
     return stringCaseMask.applyByMask(mask, string);
 };
 

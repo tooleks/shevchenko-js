@@ -34,12 +34,13 @@ const posNnYhCache = __pos_nn_yh_cache__;
  * @return {string|null}
  */
 module.exports = (gender, value) => {
-    let pos = null;
+    if (gender === "female") {
+        return recognizeFemaleGenderPos(value);
+    } else if (gender === "male") {
+        return recognizeMaleGenderPos(value);
+    }
 
-    if (gender === "female") pos = recognizeFemaleGenderPos(value);
-    else if (gender === "male") pos = recognizeMaleGenderPos(value);
-
-    return pos;
+    return null;
 };
 
 /**

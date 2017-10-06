@@ -16,7 +16,7 @@
  * @param {string} gender
  * @param {string} value
  * @return {string|null}
- */module.exports=function(gender,value){var pos=null;if(gender==="female")pos=recognizeFemaleGenderPos(value);else if(gender==="male")pos=recognizeMaleGenderPos(value);return pos;};/**
+ */module.exports=function(gender,value){if(gender==="female"){return recognizeFemaleGenderPos(value);}else if(gender==="male"){return recognizeMaleGenderPos(value);}return null;};/**
  * @param {string} value
  * @return {string|null}
  */function recognizeFemaleGenderPos(value){if(/(а|я)$/.test(value)){return posNnAYaCache.hasOwnProperty(value)?posNnAYaCache[value]:posNnAYaCache[value]=posNnAYa.run(value);}return null;}/**

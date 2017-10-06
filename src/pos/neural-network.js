@@ -1,9 +1,7 @@
 "use strict";
 
 const synaptic = require("synaptic");
-const util = require("../util");
-
-const string = util.string;
+const utils = require("../utils");
 
 const NETWORK_LAYER_SIZE_INPUT = 360;
 const NETWORK_LAYER_SIZE_HIDDEN = 20;
@@ -55,8 +53,7 @@ function NeuralNetwork(structure) {
      * @return {NeuralNetwork}
      */
     this.train = (samples, options) => {
-        const trainer = new synaptic.Trainer(this.network);
-        trainer.train(samples, options);
+        new synaptic.Trainer(this.network).train(samples, options);
         return this;
     };
 }
@@ -70,8 +67,7 @@ function NeuralNetwork(structure) {
  */
 NeuralNetwork.build = (samples, options) => {
     const network = new synaptic.Architect.Perceptron(NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT);
-    const trainer = new synaptic.Trainer(network);
-    trainer.train(samples, options);
+    new synaptic.Trainer(network).train(samples, options);
     return new NeuralNetwork(network.toJSON());
 };
 
@@ -98,8 +94,8 @@ NeuralNetwork.isValidPosName = (value) => {
  * @return {Array<number>}
  */
 NeuralNetwork.normalizeInput = (value) => {
-    const binaryValue = string.toBinary(value);
-    return string.padLeft(binaryValue, NETWORK_LAYER_SIZE_INPUT).split("");
+    const binaryValue = utils.string.toBinary(value);
+    return utils.string.padLeft(binaryValue, NETWORK_LAYER_SIZE_INPUT).split("");
 };
 
 /**

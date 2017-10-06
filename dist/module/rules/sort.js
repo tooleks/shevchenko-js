@@ -3,20 +3,20 @@
 /**
  * Contains a set of methods for inflection rules sorting.
  *
- * @type {Object}
+ * @type {object}
  */
 
 var sort = {};
 
 /**
- * Sort by the rule applications ("noun", "adjective" etc.) descending.
+ * Sort by rule applications ("noun", "adjective" etc.).
  *
- * @param {Object} firstRule
- * @param {Object} secondRule
+ * @param {object} firstRule
+ * @param {object} secondRule
  * @param {string} value
  * @return {boolean}
  */
-sort.rulesByApplicationDesc = function (firstRule, secondRule, value) {
+sort.rulesByApplication = function (firstRule, secondRule, value) {
   return !firstRule.applications.length && secondRule.applications.length && secondRule.applications.indexOf(value) !== -1;
 };
 
