@@ -1,6 +1,5 @@
 "use strict";
 
-const utils = require("./utils");
 const rules = require("./rules");
 const pos = require("./pos");
 
@@ -70,7 +69,7 @@ shevchenko.getCaseNameVocative = () => "vocative";
 /**
  * Get an array of rules.
  *
- * @return {Array<Object>}
+ * @return {Array<object>}
  */
 shevchenko.getRules = () => {
     const rules = __rules__;
@@ -171,20 +170,14 @@ shevchenko.inVocative = (person) => shevchenko(person, shevchenko.getCaseNameVoc
  * @return {object}
  */
 shevchenko.inAll = (person) => {
-    return shevchenko
-        .getCaseNames()
-        .reduce((results, caseName) => (results[caseName] = shevchenko(person, caseName), results), {});
+    return shevchenko.getCaseNames().reduce((results, caseName) => {
+        results[caseName] = shevchenko(person, caseName);
+        return results;
+    }, {});
 };
 
 /**
  * Inflect the person's first, last and middle names.
- *
- * @example var result = shevchenko({
- *     gender: "male",  // or "female"
- *     lastName: "Шевченко",
- *     firstName: "Тарас",
- *     middleName: "Григорович"
- * }, "vocative");
  *
  * @param {object} person
  * @param {string} caseName
@@ -193,23 +186,18 @@ shevchenko.inAll = (person) => {
 function shevchenko(person, caseName) {
     validateInput({person, caseName});
 
-    const inflect = (type, name, gender, caseName) => {
-        const inflectedName = getInflectionFunctions()[type](name.toLowerCase(), gender, caseName);
-        return utils.string.applyCaseMask(name, inflectedName || name);
-    };
-
     const result = {};
 
-    if (typeof person.lastName === "string") {
-        result.lastName = inflect("lastName", person.lastName, person.gender, caseName);
+    if (person.hasOwnProperty("lastName")) {
+        result.lastName = getInflectionFunctions()["lastName"](person.lastName, person.gender, caseName);
     }
 
-    if (typeof person.firstName === "string") {
-        result.firstName = inflect("firstName", person.firstName, person.gender, caseName);
+    if (person.hasOwnProperty("firstName")) {
+        result.firstName = getInflectionFunctions()["firstName"](person.firstName, person.gender, caseName);
     }
 
-    if (typeof person.middleName === "string") {
-        result.middleName = inflect("middleName", person.middleName, person.gender, caseName);
+    if (person.hasOwnProperty("middleName")) {
+        result.middleName = getInflectionFunctions()["middleName"](person.middleName, person.gender, caseName);
     }
 
     return result;
@@ -281,14 +269,17 @@ function getInflectionFunctions() {
          * @return {string}
          */
         lastName: (name, gender, caseName) => {
-            return mapCompoundNameSegments(name, (name, index, length) => {
+            return mapCompoundNameParts(name, (name, index, length) => {
                 // If the first (on practice, not the last) short part of the compound last name has only one vowel,
                 // it is not perceived as an independent surname and returned "as is".
                 const isLastSegment = index === length - 1;
-                if (!isLastSegment && name.match(/(а|о|у|е|и|і|я|ю|є|ї)/g).length === 1) {
+                const vowels = name.toLowerCase().match(/(а|о|у|е|и|і|я|ю|є|ї)/g);
+                const hasOneVowel = vowels && vowels.length === 1;
+                if (!isLastSegment && hasOneVowel) {
                     return name;
                 }
 
+                // Get the most suitable inflection rule.
                 const rule = shevchenko
                     .getRules()
                     .filter((rule) => rules.filter.byGender(rule, gender) &&
@@ -298,6 +289,12 @@ function getInflectionFunctions() {
                     .sort((firstRule, secondRule) => rules.sort.rulesByApplication(firstRule, secondRule, "lastName"))
                     .shift();
 
+                // If no inflection rule found, return last name "as is".
+                if (typeof rule === "undefined") {
+                    return name;
+                }
+
+                // Inflect last name by inflection rule.
                 return rules.inflector.inflectByRule(rule, caseName, name);
             });
         },
@@ -310,7 +307,8 @@ function getInflectionFunctions() {
          * @return {string}
          */
         firstName: (name, gender, caseName) => {
-            return mapCompoundNameSegments(name, (name) => {
+            return mapCompoundNameParts(name, (name) => {
+                // Get the most suitable inflection rule.
                 const rule = shevchenko
                     .getRules()
                     .filter((rule) => rules.filter.byGender(rule, gender) &&
@@ -319,6 +317,12 @@ function getInflectionFunctions() {
                     .sort((firstRule, secondRule) => rules.sort.rulesByApplication(firstRule, secondRule, "firstName"))
                     .shift();
 
+                // If no inflection rule found, return first name "as is".
+                if (typeof rule === "undefined") {
+                    return name;
+                }
+
+                // Inflect first name by inflection rule.
                 return rules.inflector.inflectByRule(rule, caseName, name);
             });
         },
@@ -331,6 +335,7 @@ function getInflectionFunctions() {
          * @return {string}
          */
         middleName: (name, gender, caseName) => {
+            // Get the most suitable inflection rule.
             const rule = shevchenko
                 .getRules()
                 .filter((rule) => rules.filter.byGender(rule, gender) &&
@@ -339,22 +344,30 @@ function getInflectionFunctions() {
                 .sort((firstRule, secondRule) => rules.sort.rulesByApplication(firstRule, secondRule, "middleName"))
                 .shift();
 
+            // If no inflection rule found, return middle name "as is".
+            if (typeof rule === "undefined") {
+                return name;
+            }
+
+            // Inflect middle name by inflection rule.
             return rules.inflector.inflectByRule(rule, caseName, name);
         },
     };
 }
 
 /**
- * Create a new compound name with the results of calling a provided function on every segment in the calling compound name.
+ * Create a new compound name with the results of calling a provided function on every part in the compound name.
+ *
+ * For example, the compound last name "Нечуй-Левицький" includes two parts "Нечуй" and "Левицький" divided by a delimiter "-".
  *
  * @param {string} name
  * @param {function} callback
  * @param {string} delimiter
  * @return {string}
  */
-function mapCompoundNameSegments(name, callback, delimiter = "-") {
-    const segments = name.split(delimiter);
-    return segments.map((segment, index) => callback(segment, index, segments.length)).join(delimiter);
+function mapCompoundNameParts(name, callback, delimiter = "-") {
+    const parts = name.split(delimiter);
+    return parts.map((part, index) => callback(part, index, parts.length)).join(delimiter);
 }
 
 module.exports = shevchenko;

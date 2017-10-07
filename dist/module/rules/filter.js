@@ -57,7 +57,7 @@ filter.byGender = function (rule, value) {
  * @return {boolean}
  */
 filter.byRegexp = function (rule, value) {
-  return new RegExp(rule.regexp.find, "gm").test(value);
+  return new RegExp(rule.regexp.find, "gm").test(value.toLowerCase());
 };
 
 module.exports = filter;

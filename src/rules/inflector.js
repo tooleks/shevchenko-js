@@ -18,19 +18,18 @@ const inflector = {};
  * @return {string}
  */
 inflector.inflectByRule = (rule, caseName, value) => {
-    if (typeof rule === "object") {
-        const regexp = rule.regexp.modify;
-        const modifiers = rule.cases[caseName][0];
-        if (typeof modifiers === "object") {
-            return value.replace(new RegExp(regexp, "gm"), (match, ...groups) => {
-                let replacement = "";
-                const count = utils.regexp.countGroups(regexp);
-                for (let index = 0; index < count; index++) {
-                    replacement += inflector.applyGroupModifier(modifiers[index], groups[index]);
-                }
-                return replacement;
-            });
-        }
+    const regexp = rule.regexp.modify;
+    const modifiers = rule.cases[caseName][0];
+    if (typeof modifiers === "object") {
+        const inflectedValue = value.toLowerCase().replace(new RegExp(regexp, "gm"), (match, ...groups) => {
+            let replacement = "";
+            const count = utils.regexp.countGroups(regexp);
+            for (let index = 0; index < count; index++) {
+                replacement += inflector.applyGroupModifier(modifiers[index], groups[index]);
+            }
+            return replacement;
+        });
+        return utils.string.applyCaseMask(value, inflectedValue);
     }
     return value;
 };

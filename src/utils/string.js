@@ -12,48 +12,22 @@ const NOT_RECOGNIZED_CASE = null;
 const stringCaseMask = {};
 
 /**
- * Detect if a character is a segment break character.
- *
- * Used in compound last names such as "Нечуй-Левицький", to create case masks for each word.
- *
- * @param {string} char
- * @return {boolean}
- */
-stringCaseMask.isSegmentBreakCharacter = (char) => ["-"].indexOf(char) !== -1;
-
-/**
  * Load the case mask from the string.
  *
  * @param {string} value
  * @return {object}
  */
-stringCaseMask.loadMask = (value) => {
-    let segmentNumber = 0;
-
-    const mask = value.split("").reduce((mask, char) => {
-        // If the current character is a segment break character go to the next segment.
-        if (stringCaseMask.isSegmentBreakCharacter(char)) {
-            segmentNumber++;
-            return mask;
-        }
-
-        // Initialize the default value (an empty array) for a new segment.
-        if (typeof mask[segmentNumber] === "undefined") {
-            mask[segmentNumber] = [];
-        }
-
+stringCaseMask.load = (value) => {
+    return value.split("").reduce((mask, char) => {
         if (string.isUpperCase(char)) {
-            mask[segmentNumber].push(UPPER_CASE);
+            mask.push(UPPER_CASE);
         } else if (string.isLowerCase(char)) {
-            mask[segmentNumber].push(LOWER_CASE);
+            mask.push(LOWER_CASE);
         } else {
-            mask[segmentNumber].push(NOT_RECOGNIZED_CASE);
+            mask.push(NOT_RECOGNIZED_CASE);
         }
-
         return mask;
-    }, {});
-
-    return mask;
+    }, []);
 };
 
 /**
@@ -63,37 +37,19 @@ stringCaseMask.loadMask = (value) => {
  * @param {string} value
  * @return {string}
  */
-stringCaseMask.applyByMask = (mask, value) => {
-    let segmentNumber = 0;
-    let segmentIndex = 0;
-
-    const result = value.split("").reduce((result, char) => {
-        // If the current character is a segment break character
-        // go to the next segment and reset the segment index.
-        if (stringCaseMask.isSegmentBreakCharacter(char)) {
-            segmentNumber++;
-            segmentIndex = -1;
+stringCaseMask.apply = (mask, value) => {
+    return value.split("").reduce((result, char, index) => {
+        let charMask = mask[index];
+        if (typeof charMask === "undefined" && mask.length !== 0) {
+            charMask = mask[mask.length - 1];
         }
-
-        let segment = mask[segmentNumber];
-        let charMask = segment[segmentIndex++];
-
-        // If the string length is bigger than a segment length
-        // set the character mask to the last segment character mask value.
-        if (typeof charMask === "undefined") {
-            charMask = segment[segment.length - 1];
-        }
-
         if (charMask === UPPER_CASE) {
             char = char.toUpperCase();
         } else if (charMask === LOWER_CASE) {
             char = char.toLowerCase();
         }
-
         return result + char;
     }, "");
-
-    return result;
 };
 
 /**
@@ -146,8 +102,8 @@ string.padLeft = (string, length, symbol = "0") => {
  * @return {string}
  */
 string.applyCaseMask = (exampleString, string) => {
-    const mask = stringCaseMask.loadMask(exampleString);
-    return stringCaseMask.applyByMask(mask, string);
+    const mask = stringCaseMask.load(exampleString);
+    return stringCaseMask.apply(mask, string);
 };
 
 module.exports = string;

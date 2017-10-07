@@ -20,23 +20,22 @@ var inflector = {};
  * @return {string}
  */
 inflector.inflectByRule = function (rule, caseName, value) {
-    if ((typeof rule === "undefined" ? "undefined" : _typeof(rule)) === "object") {
-        var regexp = rule.regexp.modify;
-        var modifiers = rule.cases[caseName][0];
-        if ((typeof modifiers === "undefined" ? "undefined" : _typeof(modifiers)) === "object") {
-            return value.replace(new RegExp(regexp, "gm"), function (match) {
-                for (var _len = arguments.length, groups = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-                    groups[_key - 1] = arguments[_key];
-                }
+    var regexp = rule.regexp.modify;
+    var modifiers = rule.cases[caseName][0];
+    if ((typeof modifiers === "undefined" ? "undefined" : _typeof(modifiers)) === "object") {
+        var inflectedValue = value.toLowerCase().replace(new RegExp(regexp, "gm"), function (match) {
+            for (var _len = arguments.length, groups = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+                groups[_key - 1] = arguments[_key];
+            }
 
-                var replacement = "";
-                var count = utils.regexp.countGroups(regexp);
-                for (var index = 0; index < count; index++) {
-                    replacement += inflector.applyGroupModifier(modifiers[index], groups[index]);
-                }
-                return replacement;
-            });
-        }
+            var replacement = "";
+            var count = utils.regexp.countGroups(regexp);
+            for (var index = 0; index < count; index++) {
+                replacement += inflector.applyGroupModifier(modifiers[index], groups[index]);
+            }
+            return replacement;
+        });
+        return utils.string.applyCaseMask(value, inflectedValue);
     }
     return value;
 };

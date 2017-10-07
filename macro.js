@@ -9,21 +9,30 @@ const posNnAYa = new NeuralNetwork(posNnAYaStructure);
 const posNnAYaCache = require("./nn/pos-a-ya/data/samples.json")
     .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
     .filter((sample) => sample.pos !== posNnAYa.run(sample.value))
-    .reduce((cache, sample) => (cache[sample.value] = sample.pos, cache), {});
+    .reduce((cache, sample) => {
+        cache[sample.value] = sample.pos;
+        return cache;
+    }, {});
 
 const posNnOiYiIiStructure = require("./nn/pos-oi-yi-ii/structure.json");
 const posNnOiYiIi = new NeuralNetwork(posNnOiYiIiStructure);
 const posNnOiYiIiCache = require("./nn/pos-oi-yi-ii/data/samples.json")
     .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
     .filter((sample) => sample.pos !== posNnOiYiIi.run(sample.value))
-    .reduce((cache, sample) => (cache[sample.value] = sample.pos, cache), {});
+    .reduce((cache, sample) => {
+        cache[sample.value] = sample.pos;
+        return cache;
+    }, {});
 
 const posNnYhStructure = require("./nn/pos-yh/structure.json");
 const posNnYh = new NeuralNetwork(posNnYhStructure);
 const posNnYhCache = require("./nn/pos-yh/data/samples.json")
     .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
     .filter((sample) => sample.pos !== posNnYh.run(sample.value))
-    .reduce((cache, sample) => (cache[sample.value] = sample.pos, cache), {});
+    .reduce((cache, sample) => {
+        cache[sample.value] = sample.pos;
+        return cache;
+    }, {});
 
 module.exports = {
     "__rules__": JSON.stringify(rules),
