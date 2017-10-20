@@ -3,10 +3,6 @@ body {
     margin-bottom: 20px;
 }
 
-a {
-    outline: 0;
-}
-
 .container .jumbotron,
 .btn,
 .panel,
