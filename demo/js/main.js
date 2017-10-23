@@ -45,6 +45,10 @@
         return person;
     }
 
+    function getDefaultPerson() {
+        return buildPerson("male", "Шевченко", "Тарас", "Григорович");
+    }
+
     function inflect(person, successCallback) {
         const results = shevchenko.inAll(person);
         for (var caseName in results) {
@@ -94,7 +98,7 @@
     }, 5000);
 
     $(document).ready(function () {
-        var person = buildPerson("male", "Шевченко", "Тарас", "Григорович");
+        var person = getDefaultPerson();
         inflect(person, setInflectionResult);
     });
 
@@ -106,6 +110,9 @@
             $("[name=firstName]").val().trim(),
             $("[name=middleName]").val().trim()
         );
+        if (!person.firstName.length && !person.lastName.length && !person.middleName.length) {
+            person = getDefaultPerson();
+        }
         inflect(person, setInflectionResult);
     });
 
