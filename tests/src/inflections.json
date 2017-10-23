@@ -6518,5 +6518,45 @@
         "middleName": "геннадіївно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "шира",
+        "firstName": "антоніна",
+        "middleName": "романівна"
+      },
+      "genitive": {
+        "lastName": "шири",
+        "firstName": "антоніни",
+        "middleName": "романівни"
+      },
+      "dative": {
+        "lastName": "ширі",
+        "firstName": "антоніні",
+        "middleName": "романівні"
+      },
+      "accusative": {
+        "lastName": "ширу",
+        "firstName": "антоніну",
+        "middleName": "романівну"
+      },
+      "ablative": {
+        "lastName": "широю",
+        "firstName": "антоніною",
+        "middleName": "романівною"
+      },
+      "locative": {
+        "lastName": "ширі",
+        "firstName": "антоніні",
+        "middleName": "романівні"
+      },
+      "vocative": {
+        "lastName": "широ",
+        "firstName": "антоніно",
+        "middleName": "романівно"
+      }
+    }
   }
 ]
