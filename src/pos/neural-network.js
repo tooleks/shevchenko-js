@@ -20,43 +20,49 @@ function NeuralNetwork(structure) {
      */
     this.network = synaptic.Network.fromJSON(structure);
 
-    /**
-     * Get the neural network structure.
-     *
-     * @return {object}
-     */
-    this.structure = () => this.network.toJSON();
-
-    /**
-     * @return {string}
-     */
-    this.toString = () => JSON.stringify(this.structure());
-
-    /**
-     * Run the neural network on the input data.
-     *
-     * @param {string} value
-     * @return {string|null}
-     */
-    this.run = (value) => {
-        const normalizedInput = NeuralNetwork.normalizeInput(value);
-        const normalizedOutput = this.network.activate(normalizedInput);
-        const denormalizedOutput = NeuralNetwork.denormalizeOutput(normalizedOutput);
-        return denormalizedOutput || null;
-    };
-
-    /**
-     * Train the neural network on the training data array.
-     *
-     * @param {Array<object>} samples
-     * @param {object} options
-     * @return {NeuralNetwork}
-     */
-    this.train = (samples, options) => {
-        new synaptic.Trainer(this.network).train(samples, options);
-        return this;
-    };
+    return this;
 }
+
+/**
+ * Get the neural network structure.
+ *
+ * @return {object}
+ */
+NeuralNetwork.prototype.structure = function () {
+    return this.network.toJSON();
+};
+
+/**
+ * @return {string}
+ */
+NeuralNetwork.prototype.toString = function () {
+    return JSON.stringify(this.structure());
+};
+
+/**
+ * Run the neural network on the input data.
+ *
+ * @param {string} value
+ * @return {string|null}
+ */
+NeuralNetwork.prototype.run = function (value) {
+    const normalizedInput = NeuralNetwork.normalizeInput(value);
+    const normalizedOutput = this.network.activate(normalizedInput);
+    const denormalizedOutput = NeuralNetwork.denormalizeOutput(normalizedOutput);
+    return denormalizedOutput || null;
+};
+
+/**
+ * Train the neural network on the training data array.
+ *
+ * @param {Array<object>} samples
+ * @param {object} options
+ * @return {NeuralNetwork}
+ */
+NeuralNetwork.prototype.train = function (samples, options) {
+    new synaptic.Trainer(this.network).train(samples, options);
+    return this;
+};
 
 /**
  * Build the neural network on the training data array.
@@ -65,7 +71,7 @@ function NeuralNetwork(structure) {
  * @param {object} options
  * @return {object}
  */
-NeuralNetwork.build = (samples, options) => {
+NeuralNetwork.build = function (samples, options) {
     const network = new synaptic.Architect.Perceptron(NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT);
     new synaptic.Trainer(network).train(samples, options);
     return new NeuralNetwork(network.toJSON());

@@ -13,8 +13,6 @@ var POS = { noun: [0], adjective: [1] };
  * NeuralNetwork used for the part of speech recognizing.
  */
 function NeuralNetwork(structure) {
-  var _this = this;
-
   /**
    * Neural network instance.
    *
@@ -22,47 +20,49 @@ function NeuralNetwork(structure) {
    */
   this.network = synaptic.Network.fromJSON(structure);
 
-  /**
-   * Get the neural network structure.
-   *
-   * @return {object}
-   */
-  this.structure = function () {
-    return _this.network.toJSON();
-  };
-
-  /**
-   * @return {string}
-   */
-  this.toString = function () {
-    return JSON.stringify(_this.structure());
-  };
-
-  /**
-   * Run the neural network on the input data.
-   *
-   * @param {string} value
-   * @return {string|null}
-   */
-  this.run = function (value) {
-    var normalizedInput = NeuralNetwork.normalizeInput(value);
-    var normalizedOutput = _this.network.activate(normalizedInput);
-    var denormalizedOutput = NeuralNetwork.denormalizeOutput(normalizedOutput);
-    return denormalizedOutput || null;
-  };
-
-  /**
-   * Train the neural network on the training data array.
-   *
-   * @param {Array<object>} samples
-   * @param {object} options
-   * @return {NeuralNetwork}
-   */
-  this.train = function (samples, options) {
-    new synaptic.Trainer(_this.network).train(samples, options);
-    return _this;
-  };
+  return this;
 }
+
+/**
+ * Get the neural network structure.
+ *
+ * @return {object}
+ */
+NeuralNetwork.prototype.structure = function () {
+  return this.network.toJSON();
+};
+
+/**
+ * @return {string}
+ */
+NeuralNetwork.prototype.toString = function () {
+  return JSON.stringify(this.structure());
+};
+
+/**
+ * Run the neural network on the input data.
+ *
+ * @param {string} value
+ * @return {string|null}
+ */
+NeuralNetwork.prototype.run = function (value) {
+  var normalizedInput = NeuralNetwork.normalizeInput(value);
+  var normalizedOutput = this.network.activate(normalizedInput);
+  var denormalizedOutput = NeuralNetwork.denormalizeOutput(normalizedOutput);
+  return denormalizedOutput || null;
+};
+
+/**
+ * Train the neural network on the training data array.
+ *
+ * @param {Array<object>} samples
+ * @param {object} options
+ * @return {NeuralNetwork}
+ */
+NeuralNetwork.prototype.train = function (samples, options) {
+  new synaptic.Trainer(this.network).train(samples, options);
+  return this;
+};
 
 /**
  * Build the neural network on the training data array.
