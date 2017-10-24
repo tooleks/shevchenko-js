@@ -1,0 +1,16 @@
+{
+  "name": "shevchenko-js-demo",
+  "version": "0.0.0",
+  "description": "The demo page for the JavaScript library to inflect Ukrainian first, middle and last names",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Oleksandr Tolochko <tooleks@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "^4.0.0",
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
