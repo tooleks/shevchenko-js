@@ -2,6 +2,12 @@
 
 require("dotenv").config();
 
+const share = require("./app/share-links-provider");
+process.env.APP_SHARE_LINK_FACEBOOK = share.facebook();
+process.env.APP_SHARE_LINK_TWITTER = share.twitter();
+process.env.APP_SHARE_LINK_GOOGLE_PLUS = share.googlePlus();
+process.env.APP_SHARE_LINK_LINKED_IN = share.linkedIn();
+
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
