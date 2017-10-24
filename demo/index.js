@@ -60,6 +60,8 @@ app.post("/contact-me", (req, res) => {
             }
             res.redirect("/");
         });
+    } else {
+        res.redirect("/");
     }
 });
 
