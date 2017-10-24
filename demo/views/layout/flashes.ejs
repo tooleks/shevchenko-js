@@ -1,7 +1,5 @@
-<% if (typeof flashes !== "undefined") { %>
-<% flashes.forEach(function(flash) { %>
+<% flashes.forEach((flash) => { %>
 <div class="alert alert-<%= flash.type %> alert-dismissable" role="alert">
     <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a><%= flash.message %>
 </div>
 <% }); %>
-<% } %>
