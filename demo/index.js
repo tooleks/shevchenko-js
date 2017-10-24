@@ -12,7 +12,7 @@ app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 
 app.get("/", (req, res) => {
-    res.render("layout.ejs", {
+    res.render("home.ejs", {
         env: process.env,
         message: "Hello there!"
     })
