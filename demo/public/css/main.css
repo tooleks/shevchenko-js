@@ -3,12 +3,18 @@ body {
     margin-bottom: 20px;
 }
 
+.form-group.required label:after {
+    content: " * ";
+    color: #ff0000;
+}
+
 .container .jumbotron,
 .btn,
 .panel,
 .alert,
 .form-control,
 .table,
+.modal-content,
 pre {
     border-radius: 2px;
 }

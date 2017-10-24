@@ -27,7 +27,7 @@
     function initializeInflectionPreview(index, callback) {
         index = typeof index === "undefined" ? randomNumber(0, writers.length - 1) : 0;
         var inflectedPerson = shevchenko.inVocative(writers[index]);
-        var value = inflectedPerson.lastName + " " + inflectedPerson.firstName + " " + inflectedPerson.middleName;
+        var value = inflectedPerson.firstName + " " + inflectedPerson.middleName + " " + inflectedPerson.lastName;
         callback(value);
     }
 

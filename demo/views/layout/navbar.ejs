@@ -8,14 +8,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">
+            <a class="navbar-brand" href="<%= process.env.APP_URL %>">
                 <img src="<%= process.env.APP_LOGO_URL %>" alt="<%= process.env.APP_NAME %>">
                 <span class="hidden-sm"><%= process.env.APP_NAME %></span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav pull-right-md-lg">
-                <li><a href="#demo">Демо</a></li>
+                <li><a href="<%= process.env.APP_URL %>/#demo">Демо</a></li>
                 <li>
                     <a href="https://github.com/tooleks/shevchenko-js/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D1%96%D1%8F"
                        target="_blank">Документація</a></li>
@@ -53,10 +53,23 @@
                         <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Звіт про помилку
                                 <span
                                         id="issuesCount" class="badge">0</span></a></li>
-                        <li><a href="mailto:tooleks@gmail.com">Написати автору</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#contactMe">Написати автору</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
+<div class="modal fade" id="contactMe" tabindex="-1" role="dialog" aria-labelledby="contactMeLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="contactMeLabel">Написати автору</h4>
+            </div>
+            <div class="modal-body">
+                <%- include('./contact-me-form') -%>
+            </div>
+        </div>
+    </div>
+</div>
