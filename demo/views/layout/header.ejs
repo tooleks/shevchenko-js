@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="<%= env.APP_PREVIEW_URL %>">
-    <meta property="og:image:width" content="<%= env.APP_PREVIEW_WIDTH %>">
-    <meta property="og:image:height" content="<%= env.APP_PREVIEW_HEIGHT %>">
+    <meta property="og:image" content="<%= process.env.APP_PREVIEW_URL %>">
+    <meta property="og:image:width" content="<%= process.env.APP_PREVIEW_WIDTH %>">
+    <meta property="og:image:height" content="<%= process.env.APP_PREVIEW_HEIGHT %>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="<%= env.APP_URL %>">
-    <meta property="og:site_name" content="<%= env.APP_NAME %>">
-    <meta property="og:title" content="<%= env.APP_DESCRIPTION %>">
-    <meta property="og:description" content="<%= env.APP_DESCRIPTION %>">
-    <meta name="twitter:image" content="<%= env.APP_PREVIEW_URL %>">
+    <meta property="og:url" content="<%= process.env.APP_URL %>">
+    <meta property="og:site_name" content="<%= process.env.APP_NAME %>">
+    <meta property="og:title" content="<%= process.env.APP_DESCRIPTION %>">
+    <meta property="og:description" content="<%= process.env.APP_DESCRIPTION %>">
+    <meta name="twitter:image" content="<%= process.env.APP_PREVIEW_URL %>">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="<%= env.APP_DESCRIPTION %>">
+    <meta name="twitter:title" content="<%= process.env.APP_DESCRIPTION %>">
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -32,7 +32,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <title><%= env.APP_DESCRIPTION %></title>
+    <title><%= process.env.APP_DESCRIPTION %></title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
