@@ -17,8 +17,7 @@
             <ul class="nav navbar-nav pull-right-md-lg">
                 <li><a href="<%= process.env.APP_URL %>/#demo">Демо</a></li>
                 <li>
-                    <a href="https://github.com/tooleks/shevchenko-js/wiki/%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D1%96%D1%8F"
-                       target="_blank">Документація</a></li>
+                    <a href="<%= process.env.LIBRARY_DOCUMENTATION_URL %>" target="_blank">Документація</a></li>
                 <li class="dropdown">
                     <a href="#"
                        class="dropdown-toggle"
@@ -27,8 +26,8 @@
                        aria-haspopup="true"
                        aria-expanded="false">Посилання <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM</a></li>
-                        <li><a href="https://github.com/tooleks/shevchenko-js" target="_blank">GitHub</a></li>
+                        <li><a href="<%= process.env.LIBRARY_PACKAGE_NPM_URL %>" target="_blank">NPM</a></li>
+                        <li><a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_URL %>" target="_blank">GitHub</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -40,9 +39,9 @@
                        aria-expanded="false">Інформація <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
-                            <a href="https://github.com/tooleks/shevchenko-js/wiki/%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8"
+                            <a href="<%= process.env.LIBRARY_PACKAGE_ABOUT_URL %>"
                                target="_blank">Принцип роботи</a></li>
-                        <li><a href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE"
+                        <li><a href="<%= process.env.LIBRARY_PACKAGE_LICENCE_URL %>"
                                target="_blank">Ліцензія</a></li>
                     </ul>
                 </li>
@@ -50,7 +49,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false">Зворотній зв'язок <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">Звіт про помилку
+                        <li><a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_ISSUES_URL %>" target="_blank">Звіт про помилку
                                 <span
                                         id="issuesCount" class="badge">0</span></a></li>
                         <li><a href="#" data-toggle="modal" data-target="#contactMe">Написати автору</a></li>
@@ -60,16 +59,3 @@
         </div>
     </div>
 </nav>
-<div class="modal fade" id="contactMe" tabindex="-1" role="dialog" aria-labelledby="contactMeLabel">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h4 class="modal-title" id="contactMeLabel">Написати автору</h4>
-            </div>
-            <div class="modal-body">
-                <%- include('./contact-me-form') -%>
-            </div>
-        </div>
-    </div>
-</div>

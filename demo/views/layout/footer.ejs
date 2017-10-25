@@ -1,7 +1,11 @@
 <hr>
 <div class="row">
     <div class="col-sm-12">
-        &copy; <%= new Date().getFullYear() %> <%= process.env.APP_NAME %>
+        &copy; <%= new Date().getFullYear() %> <%= process.env.APP_NAME %> -
+        <a href="<%= process.env.LIBRARY_DOCUMENTATION_URL %>" target="_blank">Документація</a> -
+        <a href="<%= process.env.LIBRARY_PACKAGE_NPM_URL %>" target="_blank">NPM</a> -
+        <a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_URL %>" target="_blank">GitHub</a> -
+        <a href="#" data-toggle="modal" data-target="#contactMe">Написати автору</a>
     </div>
 </div>
 </div>
