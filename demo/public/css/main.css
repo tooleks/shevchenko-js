@@ -41,6 +41,13 @@ pre {
     margin-right: 5px;
 }
 
+@media (max-width: 360px) {
+    .btn-inflection-form {
+        display: block;
+        width: 100%;
+    }
+}
+
 .btn-share-link {
     width: 45px;
     border: 0;
