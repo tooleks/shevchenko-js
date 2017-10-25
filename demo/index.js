@@ -42,22 +42,19 @@ app.get("/", (req, res) => {
 });
 
 app.post("/contact-me", async (req, res) => {
-    if (req.body.name && req.body.email && req.body.message) {
-        try {
-            await mailer.send({
-                from: `${req.body.name} <${req.body.email}>`,
-                to: process.env.APP_EMAIL,
-                subject: `${process.env.APP_NAME} - Написати автору`,
-                html: req.body.message,
-            });
-            req.flash("flashes", {type: "success", message: "Ваше повідомлення було успішно відправлене."});
-        } catch (e) {
-            req.flash("flashes", {type: "danger", message: "Виникла помилка при відправці вашого повідомлення."});
-        }
-        res.redirect("/");
-    } else {
-        res.redirect("/");
+    try {
+        await mailer.send({
+            from: `${req.body.name} <${req.body.email}>`,
+            to: process.env.APP_EMAIL,
+            subject: `${process.env.APP_NAME} - Написати автору`,
+            html: req.body.message,
+        });
+        req.flash("flashes", {type: "success", message: "Ваше повідомлення було успішно відправлене."});
+    } catch (e) {
+        req.flash("flashes", {type: "danger", message: "Виникла помилка при відправці вашого повідомлення."});
     }
+
+    res.redirect("/");
 });
 
 app.get("*", (req, res) => {
