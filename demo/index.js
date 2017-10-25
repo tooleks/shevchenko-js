@@ -44,7 +44,7 @@ app.get("/", (req, res) => {
 app.post("/contact-me", async (req, res) => {
     if (req.body.name && req.body.email && req.body.message) {
         try {
-            const data = await mailer.send({
+            await mailer.send({
                 from: `${req.body.name} <${req.body.email}>`,
                 to: process.env.APP_EMAIL,
                 subject: `${process.env.APP_NAME} - Написати автору`,
