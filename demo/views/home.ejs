@@ -159,14 +159,14 @@
         <pre style="background:#fff;color:#3b3b3b"><span style="color:#ff5600">var</span> person <span
                     style="color:#069;font-weight:700">=</span> {
     gender: <span style="color:#666">"male"</span>, <span style="color:#af82d4">// or "female"</span>
-    lastName: <span style="color:#666">"Шевченко"</span>,
     firstName: <span style="color:#666">"Тарас"</span>,
-    middleName: <span style="color:#666">"Григорович"</span>
+    middleName: <span style="color:#666">"Григорович"</span>,
+    lastName: <span style="color:#666">"Шевченко"</span>
 };
 
 <span style="color:#ff5600">var</span> result <span style="color:#069;font-weight:700">=</span> shevchenko.inVocative(person);
 
-<span style="color:#21439c">console.log</span>(result); <span style="color:#af82d4">// {lastName: 'Шевченку', firstName: 'Тарасе', middleName: 'Григоровичу'}</span>
+<span style="color:#21439c">console.log</span>(result); <span style="color:#af82d4">// {firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку'}</span>
 </pre>
         <a href="<%= process.env.LIBRARY_DOCUMENTATION_URL %>"
            target="_blank"
