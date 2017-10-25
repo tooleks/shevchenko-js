@@ -16,12 +16,12 @@ npm install --save shevchenko
 ```JavaScript
 var person = {
     gender: "male", // or "female"
-    lastName: "Шевченко",
     firstName: "Тарас",
-    middleName: "Григорович"
+    middleName: "Григорович",
+    lastName: "Шевченко"
 };
 
 var result = shevchenko.inVocative(person);
 
-console.log(result); // {lastName: 'Шевченку', firstName: 'Тарасе', middleName: 'Григоровичу'}
+console.log(result); // {firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку'}
 ```
