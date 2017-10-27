@@ -1,6 +1,6 @@
-## JavaScript бібліотека "shevchenko" для відмінювання українських прізвищ, імен та по батькові
+## shevchenko - JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові 
 
-## The JavaScript library "shevchenko" to inflect Ukrainian first, middle and last names
+## shevchenko - The JavaScript library to inflect Ukrainian first, middle and last names
 
 * [Демо](http://shevchenko-js.tooleks.com/?lang=uk#demo) / [Demo](http://shevchenko-js.tooleks.com/?lang=en#demo)
 * [Документація](https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D1%96%D1%8F) / [Documentation](https://github.com/tooleks/shevchenko-js/wiki/%5Ben%5D-Documentation)
