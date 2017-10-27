@@ -31,8 +31,8 @@
                        aria-haspopup="true"
                        aria-expanded="false"><%= __('links') %> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<%= __('library-package-npm-url') %>" target="_blank">NPM</a></li>
-                        <li><a href="<%= __('library-package-github-url') %>" target="_blank">GitHub</a></li>
+                        <li><a href="<%= process.env.LIBRARY_PACKAGE_NPM_URL %>" target="_blank">NPM</a></li>
+                        <li><a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_URL %>" target="_blank">GitHub</a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
@@ -46,7 +46,7 @@
                         <li>
                             <a href="<%= __('library-how-it-works-url') %>"
                                target="_blank"><%= __('how-it-works') %></a></li>
-                        <li><a href="<%= __('library-licence-url') %>"
+                        <li><a href="<%= process.env.LIBRARY_LICENCE_URL %>"
                                target="_blank"><%= __('licence') %></a></li>
                     </ul>
                 </li>
@@ -54,7 +54,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><%= __('feedback') %> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<%= __('library-package-github-issues-url') %>" target="_blank"><%= __('issue-report') %>
+                        <li><a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_ISSUES_URL %>" target="_blank"><%= __('issue-report') %>
                                 <span
                                         id="issuesCount" class="badge">0</span></a></li>
                         <li><a href="#" data-toggle="modal" data-target="#contactMe"><%= __('contact-me') %></a></li>
