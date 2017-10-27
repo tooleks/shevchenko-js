@@ -59,17 +59,9 @@
     }
 
     function setInflectionResult(person, caseName, result) {
-        var genderResultSelector = $("#" + caseName + "Gender");
         var lastNameResultSelector = $("#" + caseName + "LastName");
         var firstNameResultSelector = $("#" + caseName + "FirstName");
         var middleNameResultSelector = $("#" + caseName + "MiddleName");
-        if (person.gender === "male") {
-            genderResultSelector.text("Чоловік");
-        } else if (person.gender === "female") {
-            genderResultSelector.text("Жінка");
-        } else {
-            genderResultSelector.text("");
-        }
         var lastName = typeof result.lastName !== "undefined" ? result.lastName : "";
         lastNameResultSelector.text(lastName);
         var firstName = typeof result.firstName !== "undefined" ? result.firstName : "";

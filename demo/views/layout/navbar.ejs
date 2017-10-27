@@ -3,7 +3,7 @@
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse"
                     data-target="#navbar-collapse" aria-expanded="false">
-                <span class="sr-only">Навігація</span>
+                <span class="sr-only"><%= __('navigation') %></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
@@ -14,17 +14,22 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
+            <form class="navbar-form navbar-right">
+                <a class="btn btn-default"
+                   href="<%= languageSwitcher.url %>"
+                   title="<%= __(`${languageSwitcher.locale}-language`) %>"><i class="fa fa-language" aria-hidden="true"></i> <%= languageSwitcher.locale %></a>
+            </form>
             <ul class="nav navbar-nav pull-right-md-lg">
-                <li><a href="<%= process.env.APP_URL %>/#demo">Демо</a></li>
+                <li><a href="<%= currentUrl %>#demo"><%= __('demo') %></a></li>
                 <li>
-                    <a href="<%= process.env.LIBRARY_DOCUMENTATION_URL %>" target="_blank">Документація</a></li>
+                    <a href="<%= process.env.LIBRARY_DOCUMENTATION_URL %>" target="_blank"><%= __('documentation') %></a></li>
                 <li class="dropdown">
                     <a href="#"
                        class="dropdown-toggle"
                        data-toggle="dropdown"
                        role="button"
                        aria-haspopup="true"
-                       aria-expanded="false">Посилання <span class="caret"></span></a>
+                       aria-expanded="false"><%= __('links') %> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li><a href="<%= process.env.LIBRARY_PACKAGE_NPM_URL %>" target="_blank">NPM</a></li>
                         <li><a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_URL %>" target="_blank">GitHub</a></li>
@@ -36,23 +41,23 @@
                        data-toggle="dropdown"
                        role="button"
                        aria-haspopup="true"
-                       aria-expanded="false">Інформація <span class="caret"></span></a>
+                       aria-expanded="false"><%= __('info') %> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
                         <li>
                             <a href="<%= process.env.LIBRARY_PACKAGE_ABOUT_URL %>"
-                               target="_blank">Принцип роботи</a></li>
+                               target="_blank"><%= __('how-it-works') %></a></li>
                         <li><a href="<%= process.env.LIBRARY_PACKAGE_LICENCE_URL %>"
-                               target="_blank">Ліцензія</a></li>
+                               target="_blank"><%= __('licence') %></a></li>
                     </ul>
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
-                       aria-expanded="false">Зворотній зв'язок <span class="caret"></span></a>
+                       aria-expanded="false"><%= __('feedback') %> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_ISSUES_URL %>" target="_blank">Звіт про помилку
+                        <li><a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_ISSUES_URL %>" target="_blank"><%= __('issue-report') %>
                                 <span
                                         id="issuesCount" class="badge">0</span></a></li>
-                        <li><a href="#" data-toggle="modal" data-target="#contactMe">Написати автору</a></li>
+                        <li><a href="#" data-toggle="modal" data-target="#contactMe"><%= __('contact-me') %></a></li>
                     </ul>
                 </li>
             </ul>
