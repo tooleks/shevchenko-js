@@ -18,6 +18,10 @@ const port = process.env.HTTP_PORT || 8080;
 
 i18n.configure({
     locales: ["uk", "en"],
+    fallbacks: {
+        "ru": "uk",
+        "by": "uk",
+    },
     directory: __dirname + "/locales",
     queryParameter: "lang",
     syncFiles: true,
