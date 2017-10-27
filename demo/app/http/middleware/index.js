@@ -1,7 +1,13 @@
 "use strict";
 
 const {URL} = require("url");
-const share = require("../../services/social/share-links-provider");
+const socialShareLinksProvider = require("../../services/social/share-links-provider");
+const urlService = require("../../services/url");
+
+const bindGenerateUrl = (req, res, next) => {
+    res.locals.generateUrl = (url) => urlService.generate(req, url);
+    next();
+};
 
 const bindCurrentUrl = (req, res, next) => {
     res.locals.currentUrl = new URL(process.env.APP_URL + req.url);
@@ -9,10 +15,10 @@ const bindCurrentUrl = (req, res, next) => {
 };
 
 const bindShareUrls = (req, res, next) => {
-    res.locals.shareOnFacebookUrl = share.facebook(res.locals.currentUrl, req.__('app.description'));
-    res.locals.shareOnTwitterUrl = share.twitter(res.locals.currentUrl, req.__('app.description'));
-    res.locals.shareOnGooglePlusUrl = share.googlePlus(res.locals.currentUrl, req.__('app.description'));
-    res.locals.shareOnLinkedInUrl = share.linkedIn(res.locals.currentUrl, req.__('app.description'));
+    res.locals.shareOnFacebookUrl = socialShareLinksProvider.facebook(res.locals.currentUrl, req.__("app.description"));
+    res.locals.shareOnTwitterUrl = socialShareLinksProvider.twitter(res.locals.currentUrl, req.__("app.description"));
+    res.locals.shareOnGooglePlusUrl = socialShareLinksProvider.googlePlus(res.locals.currentUrl, req.__("app.description"));
+    res.locals.shareOnLinkedInUrl = socialShareLinksProvider.linkedIn(res.locals.currentUrl, req.__("app.description"));
     next();
 };
 
@@ -24,4 +30,4 @@ const bindLanguageSwitcher = (req, res, next) => {
     next();
 };
 
-module.exports = {bindCurrentUrl, bindShareUrls, bindLanguageSwitcher};
+module.exports = {bindGenerateUrl, bindCurrentUrl, bindShareUrls, bindLanguageSwitcher};

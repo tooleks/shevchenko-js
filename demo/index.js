@@ -10,7 +10,8 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 
-const mailer = require("./app/services/mailer");
+const mailerService = require("./app/services/mailer");
+const urlService = require("./app/services/url");
 const middleware = require("./app/http/middleware");
 
 const port = process.env.HTTP_PORT || 8080;
@@ -44,6 +45,7 @@ app.use(flash());
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 
+app.use(middleware.bindGenerateUrl);
 app.use(middleware.bindCurrentUrl);
 app.use(middleware.bindShareUrls);
 app.use(middleware.bindLanguageSwitcher);
@@ -54,7 +56,7 @@ app.get("/", (req, res) => {
 
 app.post("/contact-me", async (req, res) => {
     try {
-        await mailer.send({
+        await mailerService.send({
             from: `${req.body.name} <${req.body.email}>`,
             to: process.env.APP_EMAIL,
             subject: `${process.env.APP_NAME} - ${req.__("contact-me")}`,
@@ -65,11 +67,11 @@ app.post("/contact-me", async (req, res) => {
         req.flash("flashes", {type: "danger", message: req.__("contact-me-form-fail-alert")});
     }
 
-    res.redirect("/");
+    res.redirect(urlService.generate(req, "/"));
 });
 
 app.get("*", (req, res) => {
-    res.redirect("/");
+    res.redirect(urlService.generate(req, "/"));
 });
 
 app.listen(port, () => {
