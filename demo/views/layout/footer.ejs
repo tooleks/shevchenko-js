@@ -2,9 +2,9 @@
 <div class="row">
     <div class="col-sm-12">
         &copy; <%= new Date().getFullYear() %> <%= process.env.APP_NAME %> -
-        <a href="<%= process.env.LIBRARY_DOCUMENTATION_URL %>" target="_blank"><%= __('documentation') %></a> -
-        <a href="<%= process.env.LIBRARY_PACKAGE_NPM_URL %>" target="_blank">NPM</a> -
-        <a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_URL %>" target="_blank">GitHub</a> -
+        <a href="<%= __('library-documentation-url') %>" target="_blank"><%= __('documentation') %></a> -
+        <a href="<%= __('library-package-npm-url') %>" target="_blank">NPM</a> -
+        <a href="<%= __('library-package-github-url') %>" target="_blank">GitHub</a> -
         <a href="#" data-toggle="modal" data-target="#contactMe"><%= __('contact-me') %></a>
     </div>
 </div>
