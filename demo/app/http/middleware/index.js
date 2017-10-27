@@ -10,10 +10,10 @@ const currentUrlProvider = (req, res, next) => {
 };
 
 const shareUrlProvider = (req, res, next) => {
-    res.locals.shareOnFacebookUrl = share.facebook(res.locals.currentUrl);
-    res.locals.shareOnTwitterUrl = share.twitter(res.locals.currentUrl);
-    res.locals.shareOnGooglePlusUrl = share.googlePlus(res.locals.currentUrl);
-    res.locals.shareOnLinkedInUrl = share.linkedIn(res.locals.currentUrl);
+    res.locals.shareOnFacebookUrl = share.facebook(res.locals.currentUrl, i18n.__('app.description'));
+    res.locals.shareOnTwitterUrl = share.twitter(res.locals.currentUrl, i18n.__('app.description'));
+    res.locals.shareOnGooglePlusUrl = share.googlePlus(res.locals.currentUrl, i18n.__('app.description'));
+    res.locals.shareOnLinkedInUrl = share.linkedIn(res.locals.currentUrl, i18n.__('app.description'));
     next();
 };
 
