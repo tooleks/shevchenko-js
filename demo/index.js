@@ -17,7 +17,6 @@ const port = process.env.HTTP_PORT || 8080;
 
 i18n.configure({
     locales: ["uk", "en"],
-    defaultLocale: "uk",
     directory: __dirname + "/locales",
     queryParameter: "lang",
     syncFiles: true,
@@ -45,9 +44,9 @@ app.use(flash());
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 
-app.use(middleware.currentUrlProvider);
-app.use(middleware.shareUrlProvider);
-app.use(middleware.languageSwitcherProvider);
+app.use(middleware.bindCurrentUrl);
+app.use(middleware.bindShareUrls);
+app.use(middleware.bindLanguageSwitcher);
 
 app.get("/", (req, res) => {
     res.render("home.ejs", {flashes: req.flash("flashes")});
@@ -58,12 +57,12 @@ app.post("/contact-me", async (req, res) => {
         await mailer.send({
             from: `${req.body.name} <${req.body.email}>`,
             to: process.env.APP_EMAIL,
-            subject: `${process.env.APP_NAME} - ${i18n.__("contact-me")}`,
+            subject: `${process.env.APP_NAME} - ${req.__("contact-me")}`,
             html: req.body.message,
         });
-        req.flash("flashes", {type: "success", message: i18n.__("contact-me-form-success-alert")});
+        req.flash("flashes", {type: "success", message: req.__("contact-me-form-success-alert")});
     } catch (e) {
-        req.flash("flashes", {type: "danger", message: i18n.__("contact-me-form-fail-alert")});
+        req.flash("flashes", {type: "danger", message: req.__("contact-me-form-fail-alert")});
     }
 
     res.redirect("/");
