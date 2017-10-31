@@ -31,7 +31,7 @@ module.exports = (req, res, next) => {
         url.searchParams.set("lang", locale);
         const title = i18n.__({phrase: `${locale}-language`, locale});
         return {url, title};
-    }, []);
+    });
 
     //
     next();
