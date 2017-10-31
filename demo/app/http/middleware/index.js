@@ -1,33 +1,38 @@
 "use strict";
 
 const {URL} = require("url");
-const socialShareLinksProvider = require("../../services/social/share-links-provider");
-const urlService = require("../../services/url");
+const i18n = require("i18n");
+const social = require("../../services/social/share-links-provider");
 
-const bindGenerateUrl = (req, res, next) => {
-    res.locals.generateUrl = (url) => urlService.generate(req, url);
-    next();
-};
+module.exports = (req, res, next) => {
+    // Apply generate URL API to req, res objects.
+    const generateUrl = (relativeUrl) => {
+        const absoluteUrl = new URL(process.env.APP_URL + relativeUrl);
+        if (!absoluteUrl.searchParams.has("lang")) {
+            absoluteUrl.searchParams.set("lang", req.getLocale());
+        }
+        return absoluteUrl;
+    };
+    req.generateUrl = generateUrl;
+    res.locals.generateUrl = generateUrl;
 
-const bindCurrentUrl = (req, res, next) => {
+    // Apply current URL API to res object.
     res.locals.currentUrl = new URL(process.env.APP_URL + req.url);
+
+    // Apply share on social URL's API to res object.
+    res.locals.shareOnFacebookUrl = social.facebook(res.locals.currentUrl, req.__("app.description"));
+    res.locals.shareOnTwitterUrl = social.twitter(res.locals.currentUrl, req.__("app.description"));
+    res.locals.shareOnGooglePlusUrl = social.googlePlus(res.locals.currentUrl, req.__("app.description"));
+    res.locals.shareOnLinkedInUrl = social.linkedIn(res.locals.currentUrl, req.__("app.description"));
+
+    // Apply language switcher API to res object.
+    res.locals.languageSwitcher = i18n.getLocales().map((locale) => {
+        const url = new URL(process.env.APP_URL + req.url);
+        url.searchParams.set("lang", locale);
+        const title = i18n.__({phrase: `${locale}-language`, locale});
+        return {url, title};
+    }, []);
+
+    //
     next();
 };
-
-const bindShareUrls = (req, res, next) => {
-    res.locals.shareOnFacebookUrl = socialShareLinksProvider.facebook(res.locals.currentUrl, req.__("app.description"));
-    res.locals.shareOnTwitterUrl = socialShareLinksProvider.twitter(res.locals.currentUrl, req.__("app.description"));
-    res.locals.shareOnGooglePlusUrl = socialShareLinksProvider.googlePlus(res.locals.currentUrl, req.__("app.description"));
-    res.locals.shareOnLinkedInUrl = socialShareLinksProvider.linkedIn(res.locals.currentUrl, req.__("app.description"));
-    next();
-};
-
-const bindLanguageSwitcher = (req, res, next) => {
-    const getSwitcherLocale = (req) => req.getLocale() !== "uk" ? "uk" : "en";
-    const url = new URL(process.env.APP_URL + req.url);
-    url.searchParams.set("lang", getSwitcherLocale(req));
-    res.locals.languageSwitcher = {url, locale: getSwitcherLocale(req)};
-    next();
-};
-
-module.exports = {bindGenerateUrl, bindCurrentUrl, bindShareUrls, bindLanguageSwitcher};

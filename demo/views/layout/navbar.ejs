@@ -14,11 +14,6 @@
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
-            <form class="navbar-form navbar-right">
-                <a class="btn btn-default"
-                   href="<%= languageSwitcher.url %>"
-                   title="<%= __(`${languageSwitcher.locale}-language`) %>"><i class="fa fa-language" aria-hidden="true"></i> <%= languageSwitcher.locale %></a>
-            </form>
             <ul class="nav navbar-nav pull-right-md-lg">
                 <li><a href="<%= currentUrl %>#demo"><%= __('demo') %></a></li>
                 <li>
@@ -54,10 +49,21 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
                        aria-expanded="false"><%= __('feedback') %> <span class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <li><a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_ISSUES_URL %>" target="_blank"><%= __('issue-report') %>
+                        <li><a href="<%= process.env.LIBRARY_PACKAGE_GITHUB_ISSUES_URL %>"
+                               target="_blank"><%= __('issue-report') %>
                                 <span
                                         id="issuesCount" class="badge">0</span></a></li>
                         <li><a href="#" data-toggle="modal" data-target="#contactMe"><%= __('contact-me') %></a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true"
+                       aria-expanded="false"><%= __('language') %> <span
+                                class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                        <% languageSwitcher.forEach((switcher) => { %>
+                        <li><a href="<%= switcher.url %>"><%= switcher.title %></a></li>
+                        <% }); %>
                     </ul>
                 </li>
             </ul>

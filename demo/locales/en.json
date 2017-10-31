@@ -46,5 +46,6 @@
 	"uk-language": "Ukrainian Language",
 	"en-language": "English Language",
 	"library-documentation-url": "https://github.com/tooleks/shevchenko-js/wiki/%5Ben%5D-Documentation",
-	"library-how-it-works-url": "https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8"
+	"library-how-it-works-url": "https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8",
+	"language": "Language"
 }
