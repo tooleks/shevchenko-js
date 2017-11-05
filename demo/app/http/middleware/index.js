@@ -6,7 +6,7 @@ const social = require("../../services/social/share-links-provider");
 
 module.exports = (req, res, next) => {
     // Apply generate URL API to req, res objects.
-    const generateUrl = (relativeUrl) => {
+    const generateUrl = (relativeUrl = '') => {
         const absoluteUrl = new URL(process.env.APP_URL + relativeUrl);
         if (!absoluteUrl.searchParams.has("lang")) {
             absoluteUrl.searchParams.set("lang", req.getLocale());
