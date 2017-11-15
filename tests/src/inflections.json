@@ -6558,5 +6558,45 @@
         "middleName": "романівно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "едемська",
+        "firstName": "світлана",
+        "middleName": "міхелівна-ангелівна"
+      },
+      "genitive": {
+        "lastName": "едемської",
+        "firstName": "світлани",
+        "middleName": "міхелівни-ангелівни"
+      },
+      "dative": {
+        "lastName": "едемській",
+        "firstName": "світлані",
+        "middleName": "міхелівні-ангелівні"
+      },
+      "accusative": {
+        "lastName": "едемську",
+        "firstName": "світлану",
+        "middleName": "міхелівну-ангелівну"
+      },
+      "ablative": {
+        "lastName": "едемською",
+        "firstName": "світланою",
+        "middleName": "міхелівною-ангелівною"
+      },
+      "locative": {
+        "lastName": "едемській",
+        "firstName": "світлані",
+        "middleName": "міхелівні-ангелівні"
+      },
+      "vocative": {
+        "lastName": "едемська",
+        "firstName": "світлано",
+        "middleName": "міхелівно-ангелівно"
+      }
+    }
   }
 ]

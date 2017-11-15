@@ -290,7 +290,7 @@ function getInflectionFunctions() {
          * @return {string}
          */
         lastName: function lastName(name, gender, caseName) {
-            return mapCompoundNameParts(name, function (name, index, length) {
+            return mapNameParts(name, function (name, index, length) {
                 // If the first (on practice, not the last) short part of the compound last name has only one vowel,
                 // it is not perceived as an independent surname and returned "as is".
                 var isLastSegment = index === length - 1;
@@ -325,7 +325,7 @@ function getInflectionFunctions() {
          * @return {string}
          */
         firstName: function firstName(name, gender, caseName) {
-            return mapCompoundNameParts(name, function (name) {
+            return mapNameParts(name, function (name) {
                 // Get the most suitable inflection rule.
                 var rule = shevchenko.getRules().filter(function (rule) {
                     return rules.filter.byGender(rule, gender) && rules.filter.byApplication(rule, "firstName") && rules.filter.byRegexp(rule, name);
@@ -351,20 +351,22 @@ function getInflectionFunctions() {
          * @return {string}
          */
         middleName: function middleName(name, gender, caseName) {
-            // Get the most suitable inflection rule.
-            var rule = shevchenko.getRules().filter(function (rule) {
-                return rules.filter.byGender(rule, gender) && rules.filter.byApplication(rule, "middleName", true) && rules.filter.byRegexp(rule, name);
-            }).sort(function (firstRule, secondRule) {
-                return rules.sort.rulesByApplication(firstRule, secondRule, "middleName");
-            }).shift();
+            return mapNameParts(name, function (name) {
+                // Get the most suitable inflection rule.
+                var rule = shevchenko.getRules().filter(function (rule) {
+                    return rules.filter.byGender(rule, gender) && rules.filter.byApplication(rule, "middleName", true) && rules.filter.byRegexp(rule, name);
+                }).sort(function (firstRule, secondRule) {
+                    return rules.sort.rulesByApplication(firstRule, secondRule, "middleName");
+                }).shift();
 
-            // If no inflection rule found, return middle name "as is".
-            if (typeof rule === "undefined") {
-                return name;
-            }
+                // If no inflection rule found, return middle name "as is".
+                if (typeof rule === "undefined") {
+                    return name;
+                }
 
-            // Inflect middle name by inflection rule.
-            return rules.inflector.inflectByRule(rule, caseName, name);
+                // Inflect middle name by inflection rule.
+                return rules.inflector.inflectByRule(rule, caseName, name);
+            });
         }
     };
 }
@@ -379,7 +381,7 @@ function getInflectionFunctions() {
  * @param {string} delimiter
  * @return {string}
  */
-function mapCompoundNameParts(name, callback) {
+function mapNameParts(name, callback) {
     var delimiter = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : "-";
 
     var parts = name.split(delimiter);
