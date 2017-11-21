@@ -30,6 +30,7 @@ app.use(i18n.init);
 
 app.use(express.static("public"));
 app.use(express.static("public/meta"));
+app.use("/js/shevchenko.min.js", express.static("node_modules/shevchenko/dist/bundle/shevchenko.min.js"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
