@@ -6598,5 +6598,85 @@
         "middleName": "міхелівно-ангелівно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "самотня",
+        "firstName": "саша",
+        "middleName": "михайлівна"
+      },
+      "genitive": {
+        "lastName": "самотньої",
+        "firstName": "саші",
+        "middleName": "михайлівни"
+      },
+      "dative": {
+        "lastName": "самотній",
+        "firstName": "саші",
+        "middleName": "михайлівні"
+      },
+      "accusative": {
+        "lastName": "самотню",
+        "firstName": "сашу",
+        "middleName": "михайлівну"
+      },
+      "ablative": {
+        "lastName": "самотньою",
+        "firstName": "сашею",
+        "middleName": "михайлівною"
+      },
+      "locative": {
+        "lastName": "самотній",
+        "firstName": "саші",
+        "middleName": "михайлівні"
+      },
+      "vocative": {
+        "lastName": "самотня",
+        "firstName": "сашо",
+        "middleName": "михайлівно"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "cases": {
+      "nominative": {
+        "lastName": "самотній",
+        "firstName": "віктор",
+        "middleName": "юхимович"
+      },
+      "genitive": {
+        "lastName": "самотнього",
+        "firstName": "віктора",
+        "middleName": "юхимовича"
+      },
+      "dative": {
+        "lastName": "самотньому",
+        "firstName": "віктору",
+        "middleName": "юхимовичу"
+      },
+      "accusative": {
+        "lastName": "самотнього",
+        "firstName": "віктора",
+        "middleName": "юхимовича"
+      },
+      "ablative": {
+        "lastName": "самотнім",
+        "firstName": "віктором",
+        "middleName": "юхимовичем"
+      },
+      "locative": {
+        "lastName": "самотньому",
+        "firstName": "вікторові",
+        "middleName": "юхимовичу"
+      },
+      "vocative": {
+        "lastName": "самотній",
+        "firstName": "вікторе",
+        "middleName": "юхимовичу"
+      }
+    }
   }
 ]
