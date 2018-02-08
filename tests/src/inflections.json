@@ -6678,5 +6678,45 @@
         "middleName": "юхимовичу"
       }
     }
+  },
+  {
+    "gender": "female",
+    "cases": {
+      "nominative": {
+        "lastName": "барна",
+        "firstName": "валентина",
+        "middleName": "любомирівна"
+      },
+      "genitive": {
+        "lastName": "барни",
+        "firstName": "валентини",
+        "middleName": "любомирівни"
+      },
+      "dative": {
+        "lastName": "барні",
+        "firstName": "валентині",
+        "middleName": "любомирівні"
+      },
+      "accusative": {
+        "lastName": "барну",
+        "firstName": "валентину",
+        "middleName": "любомирівну"
+      },
+      "ablative": {
+        "lastName": "барною",
+        "firstName": "валентиною",
+        "middleName": "любомирівною"
+      },
+      "locative": {
+        "lastName": "барні",
+        "firstName": "валентині",
+        "middleName": "любомирівні"
+      },
+      "vocative": {
+        "lastName": "барно",
+        "firstName": "валентино",
+        "middleName": "любомирівно"
+      }
+    }
   }
 ]
