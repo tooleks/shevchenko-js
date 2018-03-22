@@ -7,7 +7,7 @@
 * [Ліцензія](https://github.com/tooleks/shevchenko-js/blob/master/LICENSE) / [License](https://github.com/tooleks/shevchenko-js/blob/master/LICENSE)
 * [Принцип роботи](https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8)
 
-### Встановлення / Installing
+### Встановлення / Installation
 
 ```bash
 npm install --save shevchenko
