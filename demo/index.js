@@ -61,7 +61,7 @@ app.post("/contact-me", async (req, res) => {
             from: `${req.body.name} <${req.body.email}>`,
             to: process.env.APP_EMAIL,
             subject: `${process.env.APP_NAME} - ${req.__("contact-me")}`,
-            html: req.body.message,
+            text: req.body.message,
         });
         req.flash("flashes", {type: "success", message: req.__("contact-me-form-success-alert")});
     } catch (e) {
