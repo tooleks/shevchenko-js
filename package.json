@@ -6,7 +6,7 @@
   "scripts": {
     "update:rules": "gulp update:rules",
     "build": "./node_modules/.bin/webpack --config './webpack/webpack.config.js'",
-    "test": "./node_modules/mocha/bin/mocha --recursive --timeout 240000 tests",
+    "test": "./node_modules/mocha/bin/mocha --recursive --bail --timeout 240000 tests",
     "formatter": "./node_modules/.bin/prettier --write '{demo,examples,src,tests,webpack}/**/*.js'",
     "build-preparation": "npm run update:rules && npm run formatter && npm run build && npm run test"
   },

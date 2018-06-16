@@ -39,7 +39,11 @@ function encodeOutput(output) {
  * @return {string|null}
  */
 function decodeOutput(output) {
-    const value = output.map((value) => Math.ceil(value));
+    // Neural network output is an array of values in 0..1 range.
+    // We'll need to convert these values to integer values.
+    // If value greater than or equal to 0.5 - convert to 1.
+    // If value less than 0.5 - convert to 0.
+    const value = output.map((value) => Number(value >= 0.5));
     const posIndex = Object.values(POS_MAPPING).findIndex((posValue) => posValue.join("") === value.join(""));
     return Object.keys(POS_MAPPING)[posIndex] || null;
 }

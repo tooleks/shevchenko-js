@@ -6,13 +6,13 @@ const utils = require("../utils");
  * Inflect a value by inflection rule.
  *
  * @param {Object} rule
- * @param {string} caseName
+ * @param {string} inflectionCaseName
  * @param {string} value
  * @return {string}
  */
-function inflectByRule(rule, caseName, value) {
+function inflectByRule(rule, inflectionCaseName, value) {
     const regexp = rule.regexp.modify;
-    const modifiers = rule.cases[caseName][0];
+    const modifiers = rule.cases[inflectionCaseName][0];
     if (typeof modifiers === "object") {
         const inflectedValue = value.toLowerCase().replace(new RegExp(regexp, "gm"), (match, ...groups) => {
             let replacement = "";

@@ -40,9 +40,10 @@ class Inflector {
      * @param {string} person.lastName
      * @param {string} person.middleName
      * @param {string} person.gender
-     * @param {string} caseName
+     * @param {string} inflectionCaseName
+     * @return {Object}
      */
-    inflect(person, caseName) {
+    inflect(person, inflectionCaseName) {
         new Validator()
             .add(() => {
                 return typeof person === "object" && person !== null;
@@ -67,8 +68,8 @@ class Inflector {
                 return Object.values(Inflector.GENDER_NAMES).indexOf(person.gender) !== -1;
             }, `Invalid 'person.gender' value. Allowed values: ${Object.values(Inflector.GENDER_NAMES).join(", ")}.`)
             .add(() => {
-                return Object.values(Inflector.CASE_NAMES).indexOf(caseName) !== -1;
-            }, `Invalid 'caseName' value. Allowed values: ${Object.values(Inflector.CASE_NAMES).join(", ")}.`)
+                return Object.values(Inflector.INFLECTION_CASE_NAMES).indexOf(inflectionCaseName) !== -1;
+            }, `Invalid 'inflectionCaseName' value. Allowed values: ${Object.values(Inflector.INFLECTION_CASE_NAMES).join(", ")}.`)
             .validate();
 
         const {firstName, lastName, middleName, gender} = person;
@@ -76,15 +77,15 @@ class Inflector {
         const result = {};
 
         if (typeof lastName !== "undefined") {
-            result.lastName = this._inflectLastName(lastName, gender, caseName);
+            result.lastName = this._inflectLastName(lastName, gender, inflectionCaseName);
         }
 
         if (typeof firstName !== "undefined") {
-            result.firstName = this._inflectFirstName(firstName, gender, caseName);
+            result.firstName = this._inflectFirstName(firstName, gender, inflectionCaseName);
         }
 
         if (typeof middleName !== "undefined") {
-            result.middleName = this._inflectMiddleName(middleName, gender, caseName);
+            result.middleName = this._inflectMiddleName(middleName, gender, inflectionCaseName);
         }
 
         return result;
@@ -95,11 +96,11 @@ class Inflector {
      *
      * @param {string} name
      * @param {string} gender
-     * @param {string} caseName
+     * @param {string} inflectionCaseName
      * @return {string}
      * @private
      */
-    _inflectLastName(name, gender, caseName) {
+    _inflectLastName(name, gender, inflectionCaseName) {
         return mapNameParts(name, (name, index, length) => {
             // If the first (on practice, not the last) short part of the compound last name has only one vowel,
             // it is not perceived as an independent surname and returned "as is".
@@ -128,7 +129,7 @@ class Inflector {
                 return name;
             }
 
-            return inflector.inflectByRule(rule, caseName, name);
+            return inflector.inflectByRule(rule, inflectionCaseName, name);
         });
     }
 
@@ -137,11 +138,11 @@ class Inflector {
      *
      * @param {string} name
      * @param {string} gender
-     * @param {string} caseName
+     * @param {string} inflectionCaseName
      * @return {string}
      * @private
      */
-    _inflectFirstName(name, gender, caseName) {
+    _inflectFirstName(name, gender, inflectionCaseName) {
         return mapNameParts(name, (name) => {
             // Get the most suitable inflection rule.
             const rule = this.getRules()
@@ -160,7 +161,7 @@ class Inflector {
                 return name;
             }
 
-            return inflector.inflectByRule(rule, caseName, name);
+            return inflector.inflectByRule(rule, inflectionCaseName, name);
         });
     }
 
@@ -169,11 +170,11 @@ class Inflector {
      *
      * @param {string} name
      * @param {string} gender
-     * @param {string} caseName
+     * @param {string} inflectionCaseName
      * @return {string}
      * @private
      */
-    _inflectMiddleName(name, gender, caseName) {
+    _inflectMiddleName(name, gender, inflectionCaseName) {
         return mapNameParts(name, (name) => {
             // Get the most suitable inflection rule.
             const rule = this.getRules()
@@ -192,7 +193,7 @@ class Inflector {
                 return name;
             }
 
-            return inflector.inflectByRule(rule, caseName, name);
+            return inflector.inflectByRule(rule, inflectionCaseName, name);
         });
     }
 }
@@ -212,7 +213,7 @@ Inflector.GENDER_NAMES = Object.freeze({
  *
  * @type {Readonly}
  */
-Inflector.CASE_NAMES = Object.freeze({
+Inflector.INFLECTION_CASE_NAMES = Object.freeze({
     NOMINATIVE: "nominative",
     GENITIVE: "genitive",
     DATIVE: "dative",

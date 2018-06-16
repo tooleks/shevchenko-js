@@ -2,6 +2,6 @@
 
 const bundleConfig = require("./bundle.config");
 const moduleConfig = require("./module.config");
-const neuralNetwork = require("./neuralNetwork.config");
+const __neuralNetwork = require("./__neuralNetwork.config");
 
-module.exports = [bundleConfig, moduleConfig, neuralNetwork];
+module.exports = [bundleConfig, moduleConfig, __neuralNetwork];

@@ -15,9 +15,9 @@ providers.forEach((shevchenko) => {
             });
         });
 
-        describe("shevchenko.CASE_NAMES", function() {
+        describe("shevchenko.INFLECTION_CASE_NAMES", function() {
             it("should return a valid case names", function() {
-                expect(shevchenko.CASE_NAMES).to.be.deep.equal({
+                expect(shevchenko.INFLECTION_CASE_NAMES).to.be.deep.equal({
                     NOMINATIVE: "nominative",
                     GENITIVE: "genitive",
                     DATIVE: "dative",
@@ -53,7 +53,7 @@ providers.forEach((shevchenko) => {
                         {
                             gender: "bmale",
                         },
-                        shevchenko.CASE_NAMES.GENITIVE,
+                        shevchenko.INFLECTION_CASE_NAMES.GENITIVE,
                     );
                 }).to.throw(TypeError);
             });
@@ -67,7 +67,7 @@ providers.forEach((shevchenko) => {
                             firstName: undefined,
                             middleName: undefined,
                         },
-                        shevchenko.CASE_NAMES.GENITIVE,
+                        shevchenko.INFLECTION_CASE_NAMES.GENITIVE,
                     );
                 }).to.throw(TypeError);
             });
@@ -81,7 +81,7 @@ providers.forEach((shevchenko) => {
                             firstName: undefined,
                             middleName: undefined,
                         },
-                        shevchenko.CASE_NAMES.GENITIVE,
+                        shevchenko.INFLECTION_CASE_NAMES.GENITIVE,
                     );
                 }).to.throw(TypeError);
             });
@@ -95,7 +95,7 @@ providers.forEach((shevchenko) => {
                             firstName: "Тарас",
                             middleName: undefined,
                         },
-                        shevchenko.CASE_NAMES.GENITIVE,
+                        shevchenko.INFLECTION_CASE_NAMES.GENITIVE,
                     );
                 }).to.throw(TypeError);
             });
@@ -108,7 +108,7 @@ providers.forEach((shevchenko) => {
                         firstName: "Тарас",
                         middleName: "Григорович",
                     },
-                    shevchenko.CASE_NAMES.GENITIVE,
+                    shevchenko.INFLECTION_CASE_NAMES.GENITIVE,
                 );
                 expect(result.lastName).to.be.a("string");
                 expect(result.firstName).to.be.a("string");
@@ -121,7 +121,7 @@ providers.forEach((shevchenko) => {
                         gender: "male",
                         lastName: "Шевченко",
                     },
-                    shevchenko.CASE_NAMES.GENITIVE,
+                    shevchenko.INFLECTION_CASE_NAMES.GENITIVE,
                 );
                 expect(result.lastName).to.be.a("string");
             });
@@ -132,7 +132,7 @@ providers.forEach((shevchenko) => {
                         gender: "male",
                         firstName: "Тарас",
                     },
-                    shevchenko.CASE_NAMES.GENITIVE,
+                    shevchenko.INFLECTION_CASE_NAMES.GENITIVE,
                 );
                 expect(result.firstName).to.be.a("string");
             });
@@ -143,7 +143,7 @@ providers.forEach((shevchenko) => {
                         gender: "male",
                         middleName: "Григорович",
                     },
-                    shevchenko.CASE_NAMES.GENITIVE,
+                    shevchenko.INFLECTION_CASE_NAMES.GENITIVE,
                 );
                 expect(result.middleName).to.be.a("string");
             });
