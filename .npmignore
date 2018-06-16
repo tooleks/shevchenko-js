@@ -4,6 +4,7 @@ npm-debug.log
 
 /data
 /demo
+/dist/__neuralNetwork
 /nn
 /rules
 /tests

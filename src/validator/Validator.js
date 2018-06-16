@@ -29,8 +29,7 @@ class Validator {
      * @return {Validator}
      */
     add(validate, message) {
-        const rule = {validate, message};
-        this._rules.push(rule);
+        this._rules.push({validate, message});
         return this;
     }
 
@@ -46,7 +45,7 @@ class Validator {
                 throw new TypeError(rule.message);
             }
         });
-        return this.reset();
+        return this;
     }
 }
 

@@ -385,8 +385,7 @@ var Validator = function () {
     }, {
         key: "add",
         value: function add(validate, message) {
-            var rule = { validate: validate, message: message };
-            this._rules.push(rule);
+            this._rules.push({ validate: validate, message: message });
             return this;
         }
 
@@ -405,7 +404,7 @@ var Validator = function () {
                     throw new TypeError(rule.message);
                 }
             });
-            return this.reset();
+            return this;
         }
     }]);
 
@@ -3554,15 +3553,15 @@ var NeuralNetwork = function () {
         /**
          * Run the neural network on the input data.
          *
-         * @param {string} value
+         * @param {string} input
          * @return {string|null}
          */
 
     }, {
         key: "run",
-        value: function run(value) {
-            var input = encodeInput(value);
-            var output = this.network.activate(input);
+        value: function run(input) {
+            var value = encodeInput(input);
+            var output = this.network.activate(value);
             return decodeOutput(output);
         }
 

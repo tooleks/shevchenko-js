@@ -10,8 +10,8 @@ const session = require("express-session");
 const cookieParser = require("cookie-parser");
 const flash = require("connect-flash");
 
-const mailer = require("./app/services/mailer");
-const middleware = require("./app/http/middleware");
+const {errorHandler, redirectToHome, utils} = require("./src/http/middleware");
+const {contactMeController, homeController} = require("./src/http");
 
 const port = process.env.HTTP_PORT || 8080;
 
@@ -51,31 +51,11 @@ app.use(flash());
 app.engine("html", require("ejs").renderFile);
 app.set("view engine", "html");
 
-app.use(middleware);
-
-app.get("/", (req, res) => {
-    res.render("home.ejs", {flashes: req.flash("flashes")});
-});
-
-app.post("/contact-me", async (req, res) => {
-    const from = `${req.body.name} <${req.body.email}>`;
-    const to = process.env.APP_EMAIL;
-    const subject = `${process.env.APP_NAME} - ${req.__("contact-me")}`;
-    const text = req.body.message;
-
-    try {
-        await mailer.send({from, to, subject, text});
-        req.flash("flashes", {type: "success", message: req.__("contact-me-form-success-alert")});
-    } catch (e) {
-        req.flash("flashes", {type: "danger", message: req.__("contact-me-form-fail-alert")});
-    }
-
-    res.redirect(req.generateUrl("/"));
-});
-
-app.get("*", (req, res) => {
-    res.redirect(req.generateUrl("/"));
-});
+app.use(utils.handle);
+app.get("/", homeController.index);
+app.post("/contact-me", contactMeController.send);
+app.get("*", redirectToHome.handle);
+app.use(errorHandler.handle);
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}.`);

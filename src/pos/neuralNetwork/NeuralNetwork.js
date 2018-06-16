@@ -56,12 +56,12 @@ class NeuralNetwork {
     /**
      * Run the neural network on the input data.
      *
-     * @param {string} value
+     * @param {string} input
      * @return {string|null}
      */
-    run(value) {
-        const input = encodeInput(value);
-        const output = this.network.activate(input);
+    run(input) {
+        const value = encodeInput(input);
+        const output = this.network.activate(value);
         return decodeOutput(output);
     }
 
