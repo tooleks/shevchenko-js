@@ -18,8 +18,8 @@ const port = process.env.HTTP_PORT || 8080;
 i18n.configure({
     locales: ["uk", "en"],
     fallbacks: {
-        "ru": "uk",
-        "by": "uk",
+        ru: "uk",
+        by: "uk",
     },
     directory: __dirname + "/locales",
     queryParameter: "lang",
@@ -37,12 +37,14 @@ app.use(bodyParser.urlencoded({extended: true}));
 
 app.use(cookieParser(process.env.APP_SECRET));
 
-app.use(session({
-    secret: process.env.APP_SECRET,
-    cookie: {maxAge: 60000},
-    resave: true,
-    saveUninitialized: true,
-}));
+app.use(
+    session({
+        secret: process.env.APP_SECRET,
+        cookie: {maxAge: 60000},
+        resave: true,
+        saveUninitialized: true,
+    }),
+);
 
 app.use(flash());
 
@@ -56,13 +58,13 @@ app.get("/", (req, res) => {
 });
 
 app.post("/contact-me", async (req, res) => {
+    const from = `${req.body.name} <${req.body.email}>`;
+    const to = process.env.APP_EMAIL;
+    const subject = `${process.env.APP_NAME} - ${req.__("contact-me")}`;
+    const text = req.body.message;
+
     try {
-        await mailer.send({
-            from: `${req.body.name} <${req.body.email}>`,
-            to: process.env.APP_EMAIL,
-            subject: `${process.env.APP_NAME} - ${req.__("contact-me")}`,
-            text: req.body.message,
-        });
+        await mailer.send({from, to, subject, text});
         req.flash("flashes", {type: "success", message: req.__("contact-me-form-success-alert")});
     } catch (e) {
         req.flash("flashes", {type: "danger", message: req.__("contact-me-form-fail-alert")});

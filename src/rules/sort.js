@@ -1,22 +1,19 @@
 "use strict";
 
 /**
- * Contains a set of methods for inflection rules sorting.
- *
- * @type {object}
- */
-const sort = {};
-
-/**
  * Sort by rule applications ("noun", "adjective" etc.).
  *
- * @param {object} firstRule
- * @param {object} secondRule
+ * @param {Object} firstRule
+ * @param {Object} secondRule
  * @param {string} value
  * @return {boolean}
  */
-sort.rulesByApplication = (firstRule, secondRule, value) => {
-    return !firstRule.applications.length && secondRule.applications.length && secondRule.applications.indexOf(value) !== -1;
-};
+function byApplication(firstRule, secondRule, value) {
+    return (
+        !firstRule.applications.length &&
+        secondRule.applications.length &&
+        secondRule.applications.indexOf(value) !== -1
+    );
+}
 
-module.exports = sort;
+module.exports = {byApplication};

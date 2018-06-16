@@ -1,30 +1,73 @@
 "use strict";
 
-const NeuralNetwork = require("./neural-network");
+const {NeuralNetwork} = require("./neuralNetwork");
 
 /**
- * The neural network for recognizing the part of speech of the words ending with -а, -я (female gender).
+ * The neural network for recognizing the part of speech of the words ending with "-а", "-я" (female gender).
  *
  * @type {NeuralNetwork}
  */
-const posNnAYa = new NeuralNetwork(__pos_nn_a_ya_structure__);
-const posNnAYaCache = __pos_nn_a_ya_cache__;
+const posNnAYa = new NeuralNetwork(JSON.parse(process.env.POS_NN_A_YA_STRUCTURE));
+const posNnAYaCache = JSON.parse(process.env.POS_NN_A_YA_CACHE);
 
 /**
- * The neural network for recognizing the part of speech of the words ending with -ой, -ий, -ій (male gender).
+ * The neural network for recognizing the part of speech of the words ending with "-ой", "-ий", "-ій" (male gender).
  *
  * @type {NeuralNetwork}
  */
-const posNnOiYiIi = new NeuralNetwork(__pos_nn_oi_yi_ii_structure__);
-const posNnOiYiIiCache = __pos_nn_oi_yi_ii_cache__;
+const posNnOiYiIi = new NeuralNetwork(JSON.parse(process.env.POS_NN_OI_YI_II_STRUCTURE));
+const posNnOiYiIiCache = JSON.parse(process.env.POS_NN_OI_YI_II_CACHE);
 
 /**
- * The neural network for recognizing the part of speech of the words ending with -их (male gender).
+ * The neural network for recognizing the part of speech of the words ending with "-их" (male gender).
  *
  * @type {NeuralNetwork}
  */
-const posNnYh = new NeuralNetwork(__pos_nn_yh_structure__);
-const posNnYhCache = __pos_nn_yh_cache__;
+const posNnYh = new NeuralNetwork(JSON.parse(process.env.POS_NN_YH_STRUCTURE));
+const posNnYhCache = JSON.parse(process.env.POS_NN_YH_CACHE);
+
+/**
+ * @param {string} value
+ * @return {string|null}
+ */
+function recognizeFemaleGenderPos(value) {
+    // If value ends with "-а", "-я" look for a value in the cache.
+    // If value not found in the cache, pass the value to neural network and store result in the cache.
+    if (/(а|я)$/.test(value)) {
+        if (!posNnAYaCache.hasOwnProperty(value)) {
+            posNnAYaCache[value] = posNnAYa.run(value);
+        }
+        return posNnAYaCache[value];
+    }
+
+    return null;
+}
+
+/**
+ * @param {string} value
+ * @return {string|null}
+ */
+function recognizeMaleGenderPos(value) {
+    // If value ends with "-ой", "-ий", "-ій" look for a value in the cache.
+    // If value not found in the cache, pass the value to neural network and store result in the cache.
+    if (/(ой|ий|ій)$/.test(value)) {
+        if (!posNnOiYiIiCache.hasOwnProperty(value)) {
+            posNnOiYiIiCache[value] = posNnOiYiIi.run(value);
+        }
+        return posNnOiYiIiCache[value];
+    }
+
+    // If value ends with "-их" look for a value in the cache.
+    // If value not found in the cache, pass the value to neural network and store result in the cache.
+    if (/(их)$/.test(value)) {
+        if (!posNnYhCache.hasOwnProperty(value)) {
+            posNnYhCache[value] = posNnYh.run(value);
+        }
+        return posNnYhCache[value];
+    }
+
+    return null;
+}
 
 /**
  * Recognize the part of speech of the word.
@@ -42,37 +85,3 @@ module.exports = (gender, value) => {
 
     return null;
 };
-
-/**
- * @param {string} value
- * @return {string|null}
- */
-function recognizeFemaleGenderPos(value) {
-    if (/(а|я)$/.test(value)) {
-        return posNnAYaCache.hasOwnProperty(value)
-            ? posNnAYaCache[value]
-            : posNnAYaCache[value] = posNnAYa.run(value);
-    }
-
-    return null;
-}
-
-/**
- * @param {string} value
- * @return {string|null}
- */
-function recognizeMaleGenderPos(value) {
-    if (/(ой|ий|ій)$/.test(value)) {
-        return posNnOiYiIiCache.hasOwnProperty(value)
-            ? posNnOiYiIiCache[value]
-            : posNnOiYiIiCache[value] = posNnOiYiIi.run(value);
-    }
-
-    if (/(их)$/.test(value)) {
-        return posNnYhCache.hasOwnProperty(value)
-            ? posNnYhCache[value]
-            : posNnYhCache[value] = posNnYh.run(value);
-    }
-
-    return null;
-}

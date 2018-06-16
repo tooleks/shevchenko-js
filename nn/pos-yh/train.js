@@ -1,14 +1,14 @@
 "use strict";
 
 const fs = require("fs");
-const NeuralNetwork = require("../../src/pos/neural-network");
+const {isValidPos, encodeInput, encodeOutput, NeuralNetwork} = require("../../src/pos/neuralNetwork");
 
 const data = require("./data/samples.json")
-    .filter((sample) => NeuralNetwork.isValidPosName(sample.pos))
+    .filter((sample) => isValidPos(sample.pos))
     .map((sample) => {
         return {
-            input: NeuralNetwork.normalizeInput(sample.value),
-            output: NeuralNetwork.normalizeOutput(sample.pos),
+            input: encodeInput(sample.value),
+            output: encodeOutput(sample.pos),
         };
     });
 
@@ -20,8 +20,9 @@ const options = {
     log: 1,
 };
 
-const posNn = process.argv[2] !== "force"
-    ? new NeuralNetwork(require("./structure.json")).train(data, options)
-    : NeuralNetwork.build(data, options);
+const posNn =
+    process.argv[2] !== "force"
+        ? new NeuralNetwork(require("./structure.json")).train(data, options)
+        : NeuralNetwork.build(data, options);
 
 fs.writeFileSync(__dirname + "/structure.json", posNn.toString());

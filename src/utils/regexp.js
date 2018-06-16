@@ -1,20 +1,15 @@
 "use strict";
 
 /**
- * Contains a set of methods for regular expressions.
- *
- * @type {object}
- */
-const regexp = {};
-
-/**
  * Count a number of groups in a regular expression string.
+ *
+ * This is a kind of magic but this is a really handy function.
  *
  * @param {string} regexp
  * @return {number}
  */
-regexp.countGroups = (regexp) => {
-    return new RegExp(regexp.toString() + "|").exec("").length - 1;
-};
+function countGroups(regexp) {
+    return new RegExp(`${regexp.toString()}|`).exec("").length - 1;
+}
 
-module.exports = regexp;
+module.exports = {countGroups};

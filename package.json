@@ -1,14 +1,14 @@
 {
   "name": "shevchenko",
-  "version": "0.0.34",
+  "version": "1.0.0",
   "description": "The JavaScript library to inflect Ukrainian first, middle and last names",
   "main": "./dist/module/shevchenko.js",
   "scripts": {
     "update:rules": "gulp update:rules",
-    "build:module": "gulp clear:module && gulp build:module",
-    "build:bundle": "gulp clear:bundle && gulp build:bundle",
-    "build": "npm run build:module && npm run build:bundle",
-    "test": "./node_modules/mocha/bin/mocha --recursive --bail --timeout 240000 tests"
+    "build": "./node_modules/.bin/webpack --config './webpack/webpack.config.js'",
+    "test": "./node_modules/mocha/bin/mocha --recursive --timeout 240000 tests",
+    "formatter": "./node_modules/.bin/prettier --write '{demo,examples,src,tests,webpack}/**/*.js'",
+    "build-preparation": "npm run update:rules && npm run formatter && npm run build && npm run test"
   },
   "keywords": [
     "inflection",
@@ -49,20 +49,20 @@
     "url": "https://github.com/tooleks/shevchenko-js/issues"
   },
   "homepage": "https://github.com/tooleks/shevchenko-js#readme",
-  "dependencies": {
-    "synaptic": "^1.1.4"
-  },
   "devDependencies": {
-    "babel-core": "^6.26.0",
-    "babel-preset-env": "^1.6.1",
+    "babel-core": "^6.26.3",
+    "babel-loader": "^7.1.4",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
     "gulp": "^3.9.1",
-    "gulp-babel": "^7.0.1",
-    "gulp-browserify": "^0.5.1",
-    "gulp-clean": "^0.3.2",
-    "gulp-minify": "^1.0.0",
-    "gulp-replace": "^0.6.1",
     "mocha": "^3.5.3",
+    "prettier": "^1.13.5",
     "readline-sync": "^1.4.9",
-    "request": "^2.85.0"
+    "request": "^2.87.0",
+    "synaptic": "^1.1.4",
+    "webpack": "^4.12.0",
+    "webpack-cli": "^3.0.7",
+    "webpack-merge": "^4.1.3"
   }
 }

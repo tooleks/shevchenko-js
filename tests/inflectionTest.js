@@ -1,7 +1,6 @@
 "use strict";
 
-const buildPerson = require("./utils/build-person");
-const testInflections = require("./utils/test-inflections");
+const {buildPerson, testInflections} = require("./utils");
 const inflections = require("./src/inflections");
 
 inflections.forEach((inflection) => {
@@ -9,7 +8,7 @@ inflections.forEach((inflection) => {
         inflection.gender,
         inflection.cases.nominative.lastName,
         inflection.cases.nominative.firstName,
-        inflection.cases.nominative.middleName
+        inflection.cases.nominative.middleName,
     );
     testInflections(person, inflection.cases);
 });
