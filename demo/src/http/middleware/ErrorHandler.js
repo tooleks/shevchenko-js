@@ -6,8 +6,11 @@
 class ErrorHandler {
     /**
      * ErrorHandler constructor.
+     *
+     * @param {UrlService} urlService
      */
-    constructor() {
+    constructor(urlService) {
+        this._urlService = urlService;
         this.handle = this.handle.bind(this);
     }
 
@@ -22,7 +25,7 @@ class ErrorHandler {
     handle(err, req, res, next) {
         console.error(err);
         req.flash("flashes", {type: "danger", message: req.__("internal_server_error")});
-        res.redirect(req.generateUrl("/"));
+        res.redirect(this._urlService.genAbsoluteUrl("/", {locale: req.getLocale()}));
     }
 }
 

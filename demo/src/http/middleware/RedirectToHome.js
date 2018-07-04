@@ -6,8 +6,11 @@
 class RedirectToHome {
     /**
      * RedirectToHome constructor.
+     *
+     * @param {UrlService} urlService
      */
-    constructor() {
+    constructor(urlService) {
+        this._urlService = urlService;
         this.handle = this.handle.bind(this);
     }
 
@@ -18,7 +21,7 @@ class RedirectToHome {
      * @param res
      */
     handle(req, res) {
-        res.redirect(req.generateUrl("/"));
+        res.redirect(this._urlService.genAbsoluteUrl("/", {locale: req.getLocale()}));
     }
 }
 

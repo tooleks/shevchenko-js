@@ -8,9 +8,11 @@ class ContactMeController {
      * ContactMeController constructor.
      *
      * @param {Mailer} mailer
+     * @param {UrlService} urlService
      */
-    constructor(mailer) {
+    constructor(mailer, urlService) {
         this._mailer = mailer;
+        this._urlService = urlService;
         this.send = this.send.bind(this);
     }
 
@@ -35,7 +37,7 @@ class ContactMeController {
         }
 
         req.flash("flashes", {type: "success", message: req.__("contact_me_form_success_alert")});
-        res.redirect(req.generateUrl("/"));
+        res.redirect(this._urlService.genAbsoluteUrl("/", {locale: req.getLocale()}));
     }
 }
 

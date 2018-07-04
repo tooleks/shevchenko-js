@@ -1,6 +1,5 @@
 "use strict";
 
-const {URL} = require("url");
 const i18n = require("i18n");
 
 /**
@@ -10,9 +9,11 @@ class Utils {
     /**
      * Utils constructor.
      *
+     * @param {UrlService} urlService
      * @param {ShareLinksProvider} shareLinksProvider
      */
-    constructor(shareLinksProvider) {
+    constructor(urlService, shareLinksProvider) {
+        this._urlService = urlService;
         this._shareLinksProvider = shareLinksProvider;
         this.handle = this.handle.bind(this);
     }
@@ -25,19 +26,9 @@ class Utils {
      * @param next
      */
     handle(req, res, next) {
-        // Apply generate URL API to req, res objects.
-        const generateUrl = (relativeUrl = "") => {
-            const absoluteUrl = new URL(process.env.APP_URL + relativeUrl);
-            if (!absoluteUrl.searchParams.has("lang")) {
-                absoluteUrl.searchParams.set("lang", req.getLocale());
-            }
-            return absoluteUrl;
-        };
-        req.generateUrl = generateUrl;
-        res.locals.generateUrl = generateUrl;
-
-        // Apply current URL API to res object.
-        res.locals.currentUrl = new URL(process.env.APP_URL + req.url);
+        // Apply generate URL helper method.
+        res.locals.genUrl = (url) => this._urlService.genAbsoluteUrl(url, {locale: req.getLocale()});
+        res.locals.currentUrl = this._urlService.genAbsoluteUrl(req.url, {locale: req.getLocale()});
 
         // Apply share on social URL's API to res object.
         res.locals.shareOnFacebookUrl = this._shareLinksProvider.facebook(
@@ -59,13 +50,12 @@ class Utils {
 
         // Apply language switcher API to res object.
         res.locals.languageSwitcher = i18n.getLocales().map((locale) => {
-            const url = new URL(process.env.APP_URL + req.url);
+            const url = this._urlService.genAbsoluteUrl(req.url, {locale});
             url.searchParams.set("lang", locale);
             const title = i18n.__({phrase: `${locale}_language`, locale});
             return {url, title};
         });
 
-        //
         next();
     }
 }

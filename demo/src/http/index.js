@@ -1,11 +1,11 @@
 "use strict";
 
-const {mailer} = require("../services");
+const {mailer, urlService} = require("../services");
 
 const ContactMeController = require("./ContactMeController");
 const HomeController = require("./HomeController");
 
-const contactMeController = new ContactMeController(mailer);
+const contactMeController = new ContactMeController(mailer, urlService);
 const homeController = new HomeController();
 
 module.exports = {contactMeController, homeController};
