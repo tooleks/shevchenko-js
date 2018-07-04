@@ -31,6 +31,7 @@ class ContactMeController {
             await this._mailer.send({from, to, subject, text});
         } catch (err) {
             next(err);
+            return;
         }
 
         req.flash("flashes", {type: "success", message: req.__("contact_me_form_success_alert")});
