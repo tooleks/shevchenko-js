@@ -6,8 +6,8 @@
     </h1>
     <p><%= __('app_description') %></p>
     <p>
-        <a class="btn btn-lg btn-primary" href="<%= currentUrl %>#demo" role="button"><%= __('demo') %></a>
-        <a class="btn btn-lg btn-default" href="<%= currentUrl %>#usage" role="button"><%= __('usage') %></a>
+        <a class="btn btn-lg btn-primary" href="<%= __url.current %>#demo" role="button"><%= __('demo') %></a>
+        <a class="btn btn-lg btn-default" href="<%= __url.current %>#usage" role="button"><%= __('usage') %></a>
     </p>
 </div>
 <div class="row">
@@ -15,19 +15,19 @@
         <h2 id="demo"><%= __('demo') %>
             <span class="btn-group pull-right">
                     <a class="btn btn-lg btn-link btn-share-link"
-                       href="<%= shareOnFacebookUrl %>"
+                       href="<%= __shareUrl.facebook %>"
                        title="<%= __('share_on_facebook') %>"
                        target="_blank"><i class="fa fa-facebook color-facebook" aria-hidden="true"></i></a>
                     <a class="btn btn-lg btn-link btn-share-link"
-                       href="<%= shareOnTwitterUrl %>"
+                       href="<%= __shareUrl.twitter %>"
                        title="<%= __('share_on_twitter') %>"
                        target="_blank"><i class="fa fa-twitter color-twitter" aria-hidden="true"></i></a>
                     <a class="btn btn-lg btn-link btn-share-link"
-                       href="<%= shareOnGooglePlusUrl %>"
+                       href="<%= __shareUrl.googlePlus %>"
                        title="<%= __('share_on_google_plus') %>"
                        target="_blank"><i class="fa fa-google-plus color-google-plus" aria-hidden="true"></i></a>
                     <a class="btn btn-lg btn-link btn-share-link"
-                       href="<%= shareOnLinkedInUrl %>"
+                       href="<%= __shareUrl.linkedIn %>"
                        title="<%= __('share_on_linked_in') %>"
                        target="_blank"><i class="fa fa-linkedin color-linkedin" aria-hidden="true"></i></a>
                 </span>

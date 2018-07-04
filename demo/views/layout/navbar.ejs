@@ -8,14 +8,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<%= genUrl() %>">
+            <a class="navbar-brand" href="<%= __url.generate() %>">
                 <img src="<%= process.env.APP_LOGO_URL %>" alt="<%= process.env.APP_NAME %>">
                 <span class="hidden-sm"><%= process.env.APP_NAME %></span>
             </a>
         </div>
         <div class="collapse navbar-collapse" id="navbar-collapse">
             <ul class="nav navbar-nav pull-right-md-lg">
-                <li><a href="<%= currentUrl %>#demo"><%= __('demo') %></a></li>
+                <li><a href="<%= __url.current %>#demo"><%= __('demo') %></a></li>
                 <li>
                     <a href="<%= __('library_documentation_url') %>" target="_blank"><%= __('documentation') %></a></li>
                 <li class="dropdown">
@@ -61,7 +61,7 @@
                        aria-expanded="false"><%= __('language') %> <span
                                 class="caret"></span></a>
                     <ul class="dropdown-menu">
-                        <% languageSwitcher.forEach((switcher) => { %>
+                        <% __languageSwitcher.forEach((switcher) => { %>
                         <li><a href="<%= switcher.url %>"><%= switcher.title %></a></li>
                         <% }); %>
                     </ul>

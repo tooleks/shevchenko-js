@@ -26,30 +26,19 @@ class Utils {
      * @param next
      */
     handle(req, res, next) {
-        // Apply generate URL helper method.
-        res.locals.genUrl = (url) => this._urlService.genAbsoluteUrl(url, {locale: req.getLocale()});
-        res.locals.currentUrl = this._urlService.genAbsoluteUrl(req.url, {locale: req.getLocale()});
+        res.locals.__url = Object.freeze({
+            generate: (url) => this._urlService.genAbsoluteUrl(url, {locale: req.getLocale()}),
+            current: this._urlService.genAbsoluteUrl(req.url, {locale: req.getLocale()}),
+        });
 
-        // Apply share on social URL's API to res object.
-        res.locals.shareOnFacebookUrl = this._shareLinksProvider.facebook(
-            res.locals.currentUrl,
-            req.__("app_description"),
-        );
-        res.locals.shareOnTwitterUrl = this._shareLinksProvider.twitter(
-            res.locals.currentUrl,
-            req.__("app_description"),
-        );
-        res.locals.shareOnGooglePlusUrl = this._shareLinksProvider.googlePlus(
-            res.locals.currentUrl,
-            req.__("app_description"),
-        );
-        res.locals.shareOnLinkedInUrl = this._shareLinksProvider.linkedIn(
-            res.locals.currentUrl,
-            req.__("app_description"),
-        );
+        res.locals.__shareUrl = Object.freeze({
+            facebook: this._shareLinksProvider.facebook(res.locals.__url.current, req.__("app_description")),
+            twitter: this._shareLinksProvider.twitter(res.locals.__url.current, req.__("app_description")),
+            googlePlus: this._shareLinksProvider.googlePlus(res.locals.__url.current, req.__("app_description")),
+            linkedIn: this._shareLinksProvider.linkedIn(res.locals.__url.current, req.__("app_description")),
+        });
 
-        // Apply language switcher API to res object.
-        res.locals.languageSwitcher = i18n.getLocales().map((locale) => {
+        res.locals.__languageSwitcher = i18n.getLocales().map((locale) => {
             const url = this._urlService.genAbsoluteUrl(req.url, {locale});
             url.searchParams.set("lang", locale);
             const title = i18n.__({phrase: `${locale}_language`, locale});
