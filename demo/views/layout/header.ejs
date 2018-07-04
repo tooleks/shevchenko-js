@@ -10,11 +10,11 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="<%= currentUrl %>">
     <meta property="og:site_name" content="<%= process.env.APP_NAME %>">
-    <meta property="og:title" content="<%= `${process.env.APP_NAME} - ${__('app.description')}` %>">
-    <meta property="og:description" content="<%= `${process.env.APP_NAME} - ${__('app.description')}` %>">
+    <meta property="og:title" content="<%= `${process.env.APP_NAME} - ${__('app_description')}` %>">
+    <meta property="og:description" content="<%= `${process.env.APP_NAME} - ${__('app_description')}` %>">
     <meta name="twitter:image" content="<%= process.env.APP_PREVIEW_URL %>">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="<%= `${process.env.APP_NAME} - ${__('app.description')}` %>">
+    <meta name="twitter:title" content="<%= `${process.env.APP_NAME} - ${__('app_description')}` %>">
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-icon-72x72.png">
@@ -32,7 +32,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <title><%= `${process.env.APP_NAME} - ${__('app.description')}` %></title>
+    <title><%= `${process.env.APP_NAME} - ${__('app_description')}` %></title>
     <link rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -46,10 +46,10 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="contactMeLabel"><%= __('contact-me') %></h4>
+                    <h4 class="modal-title" id="contactMeLabel"><%= __('contact_me') %></h4>
                 </div>
                 <div class="modal-body">
-                    <%- include('./contact-me-form') -%>
+                    <%- include('./contact_me_form') -%>
                 </div>
             </div>
         </div>

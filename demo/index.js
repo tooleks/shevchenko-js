@@ -1,6 +1,8 @@
 "use strict";
 
-require("dotenv").config();
+const path = require("path");
+
+require("dotenv").config({path: path.join(__dirname, ".env")});
 
 const express = require("express");
 const app = express();
@@ -21,7 +23,7 @@ i18n.configure({
         ru: "uk",
         by: "uk",
     },
-    directory: __dirname + "/locales",
+    directory: path.join(__dirname, "locales"),
     queryParameter: "lang",
     syncFiles: true,
 });
@@ -53,7 +55,7 @@ app.set("view engine", "html");
 
 app.use(utils.handle);
 app.get("/", homeController.index);
-app.post("/contact-me", contactMeController.send);
+app.post("/contact_me", contactMeController.send);
 app.get("*", redirectToHome.handle);
 app.use(errorHandler.handle);
 

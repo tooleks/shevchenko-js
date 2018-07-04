@@ -21,7 +21,7 @@ class ErrorHandler {
      */
     handle(err, req, res, next) {
         console.error(err);
-        req.flash("flashes", {type: "danger", message: req.__("internal-server-error")});
+        req.flash("flashes", {type: "danger", message: req.__("internal_server_error")});
         res.redirect(req.generateUrl("/"));
     }
 }

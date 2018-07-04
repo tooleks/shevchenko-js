@@ -24,7 +24,7 @@ class ContactMeController {
     async send(req, res, next) {
         const from = `${req.body.name} <${req.body.email}>`;
         const to = process.env.APP_EMAIL;
-        const subject = `${process.env.APP_NAME} - ${req.__("contact-me")}`;
+        const subject = `${process.env.APP_NAME} - ${req.__("contact_me")}`;
         const text = req.body.message;
 
         try {
@@ -33,7 +33,7 @@ class ContactMeController {
             next(err);
         }
 
-        req.flash("flashes", {type: "success", message: req.__("contact-me-form-success-alert")});
+        req.flash("flashes", {type: "success", message: req.__("contact_me_form_success_alert")});
         res.redirect(req.generateUrl("/"));
     }
 }

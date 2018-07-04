@@ -42,26 +42,26 @@ class Utils {
         // Apply share on social URL's API to res object.
         res.locals.shareOnFacebookUrl = this._shareLinksProvider.facebook(
             res.locals.currentUrl,
-            req.__("app.description"),
+            req.__("app_description"),
         );
         res.locals.shareOnTwitterUrl = this._shareLinksProvider.twitter(
             res.locals.currentUrl,
-            req.__("app.description"),
+            req.__("app_description"),
         );
         res.locals.shareOnGooglePlusUrl = this._shareLinksProvider.googlePlus(
             res.locals.currentUrl,
-            req.__("app.description"),
+            req.__("app_description"),
         );
         res.locals.shareOnLinkedInUrl = this._shareLinksProvider.linkedIn(
             res.locals.currentUrl,
-            req.__("app.description"),
+            req.__("app_description"),
         );
 
         // Apply language switcher API to res object.
         res.locals.languageSwitcher = i18n.getLocales().map((locale) => {
             const url = new URL(process.env.APP_URL + req.url);
             url.searchParams.set("lang", locale);
-            const title = i18n.__({phrase: `${locale}-language`, locale});
+            const title = i18n.__({phrase: `${locale}_language`, locale});
             return {url, title};
         });
 
