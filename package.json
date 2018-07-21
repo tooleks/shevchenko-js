@@ -1,13 +1,13 @@
 {
   "name": "shevchenko",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The JavaScript library to inflect Ukrainian first, middle and last names",
   "main": "./dist/module/shevchenko.js",
   "scripts": {
     "update:rules": "gulp update:rules",
     "build": "./node_modules/.bin/webpack --config './webpack/webpack.config.js'",
     "test": "./node_modules/mocha/bin/mocha --recursive --bail --timeout 240000 tests",
-    "formatter": "./node_modules/.bin/prettier --write '{demo,examples,src,tests,webpack}/**/*.js'",
+    "formatter": "./node_modules/.bin/prettier --write '**/*.js' '!dist/**'",
     "build-preparation": "npm run update:rules && npm run formatter && npm run build && npm run test"
   },
   "keywords": [
@@ -51,18 +51,19 @@
   "homepage": "https://github.com/tooleks/shevchenko-js#readme",
   "devDependencies": {
     "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.4",
+    "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
     "gulp": "^3.9.1",
     "mocha": "^3.5.3",
-    "prettier": "^1.13.5",
+    "moment": "^2.22.2",
+    "prettier": "^1.13.7",
     "readline-sync": "^1.4.9",
     "request": "^2.87.0",
     "synaptic": "^1.1.4",
-    "webpack": "^4.12.0",
-    "webpack-cli": "^3.0.7",
+    "webpack": "^4.16.1",
+    "webpack-cli": "^3.1.0",
     "webpack-merge": "^4.1.3"
   }
 }

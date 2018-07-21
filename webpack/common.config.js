@@ -1,17 +1,14 @@
 "use strict";
 
-const path = require("path");
+const moment = require("moment");
 const webpack = require("webpack");
 const macro = require("../macro");
+const pkg = require("../package");
 
 module.exports = {
     mode: process.env.NODE_ENV || "production",
     output: {
-        path: path.resolve(__dirname, "../dist/"),
-        filename: "[name].js",
-        libraryTarget: "umd",
-        // Note: The following line is needed to be able to build "umd" module compatible with Node.js.
-        globalObject: `typeof self !== "undefined" ? self : this`,
+        libraryTarget: "commonjs2",
     },
     module: {
         rules: [
@@ -24,5 +21,14 @@ module.exports = {
             },
         ],
     },
-    plugins: [new webpack.EnvironmentPlugin({...macro}), new webpack.BannerPlugin("Copyright (c) Oleksandr Tolochko.")],
+    optimization: {
+        minimize: false,
+    },
+    plugins: [
+        new webpack.EnvironmentPlugin({...macro}),
+        new webpack.BannerPlugin(
+            `/* ${pkg.name} v${pkg.version} ${moment.utc().toISOString()}.` +
+                ` Copyright (c) ${pkg.author}. License: ${pkg.license}. */`,
+        ),
+    ],
 };

@@ -1,7 +1,7 @@
 "use strict";
 
 const rules = require("./rules");
-const {isValidPos, NeuralNetwork} = require("./src/pos/neuralNetwork");
+const {isValidPos, NeuralNetwork} = require("./src/pos/NeuralNetwork");
 
 const posNnAYaStructure = require("./nn/pos-a-ya/structure.json");
 const posNnAYa = new NeuralNetwork(posNnAYaStructure);

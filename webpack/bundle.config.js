@@ -3,6 +3,7 @@
 const path = require("path");
 const merge = require("webpack-merge");
 const commonConfig = require("./common.config");
+const pkg = require("../package");
 
 module.exports = merge(commonConfig, {
     entry: {
@@ -13,7 +14,10 @@ module.exports = merge(commonConfig, {
     },
     output: {
         path: path.resolve(__dirname, "../dist/bundle/"),
-        library: "shevchenko",
-        filename: "shevchenko.min.js",
+        filename: `${pkg.name}.min.js`,
+        library: pkg.name,
+        libraryTarget: "umd",
+        // Note: The following line is needed to be able to build "umd" module compatible with Node.js.
+        globalObject: `typeof self !== "undefined" ? self : this`,
     },
 });

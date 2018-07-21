@@ -1,6 +1,6 @@
 "use strict";
 
-const {NeuralNetwork} = require("./neuralNetwork");
+const {NeuralNetwork} = require("./NeuralNetwork");
 
 /**
  * The neural network for recognizing the part of speech of the words ending with "-а", "-я" (female gender).

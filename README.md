@@ -27,16 +27,3 @@ var result = shevchenko.inVocative(person);
 
 console.log(result); // {firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку'}
 ```
-
-### Огляд / API Overview
-
-```JavaScript
-shevchenko.inNominative(person); // Провідміняти в називному відмінку.
-shevchenko.inGenitive(person); // Провідміняти в родовому відмінку.
-shevchenko.inDative(person); // Провідміняти в давальному відмінку.
-shevchenko.inAccusative(person); // Провідміняти в знахідному відмінку.
-shevchenko.inAblative(person); // Провідміняти в орудному відмінку.
-shevchenko.inLocative(person); // Провідміняти в місцевому відмінку.
-shevchenko.inVocative(person); // Провідміняти в кличному відмінку.
-shevchenko.inAll(person); // Провідміняти в усіх відмінках.
-```

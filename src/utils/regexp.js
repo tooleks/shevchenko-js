@@ -9,7 +9,8 @@
  * @return {number}
  */
 function countGroups(regexp) {
-    return new RegExp(`${regexp.toString()}|`).exec("").length - 1;
+    const regExp = new RegExp(`${regexp.toString()}|`);
+    return regExp.exec("").length - 1;
 }
 
 module.exports = {countGroups};

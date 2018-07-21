@@ -1,7 +1,7 @@
 "use strict";
 
 const fs = require("fs");
-const {isValidPos, encodeInput, encodeOutput, NeuralNetwork} = require("../../src/pos/neuralNetwork");
+const {isValidPos, encodeInput, encodeOutput, NeuralNetwork} = require("../../src/pos/NeuralNetwork");
 
 const data = require("./data/samples.json")
     .filter((sample) => isValidPos(sample.pos))

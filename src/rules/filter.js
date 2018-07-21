@@ -49,7 +49,8 @@ function byGender(rule, value) {
  * @return {boolean}
  */
 function byRegexp(rule, value) {
-    return new RegExp(rule.regexp.find, "gm").test(value.toLowerCase());
+    const regExp = new RegExp(rule.regexp.find, "gm");
+    return regExp.test(value.toLowerCase());
 }
 
 module.exports = {byPos, byApplication, byGender, byRegexp};

@@ -16,7 +16,7 @@ class Inflector {
      */
     constructor(rules) {
         this._rules = rules;
-        this.getRules = this.getRules.bind(this);
+        this._getRules = this._getRules.bind(this);
         this.inflect = this.inflect.bind(this);
         this._inflectLastName = this._inflectLastName.bind(this);
         this._inflectFirstName = this._inflectFirstName.bind(this);
@@ -28,7 +28,7 @@ class Inflector {
      *
      * @returns {Array}
      */
-    getRules() {
+    _getRules() {
         return this._rules.slice(0);
     }
 
@@ -112,7 +112,7 @@ class Inflector {
             }
 
             // Get the most suitable inflection rule.
-            const rule = this.getRules()
+            const rule = this._getRules()
                 .filter(
                     (rule) =>
                         filter.byGender(rule, gender) &&
@@ -145,7 +145,7 @@ class Inflector {
     _inflectFirstName(name, gender, inflectionCaseName) {
         return mapNameParts(name, (name) => {
             // Get the most suitable inflection rule.
-            const rule = this.getRules()
+            const rule = this._getRules()
                 .filter(
                     (rule) =>
                         filter.byGender(rule, gender) &&
@@ -177,7 +177,7 @@ class Inflector {
     _inflectMiddleName(name, gender, inflectionCaseName) {
         return mapNameParts(name, (name) => {
             // Get the most suitable inflection rule.
-            const rule = this.getRules()
+            const rule = this._getRules()
                 .filter(
                     (rule) =>
                         filter.byGender(rule, gender) &&

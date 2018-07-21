@@ -1,13 +1,18 @@
 .idea
+.nyc_output
 node_modules
+.babelrc
+.eslintrc.js
 npm-debug.log
+prettier.config.js
 
 /data
 /demo
-/dist/__neuralNetwork
+/dist/__NeuralNetwork__
 /nn
 /rules
 /tests
 /tmp
+/webpack
 /macro.js
 /gulpfile.js

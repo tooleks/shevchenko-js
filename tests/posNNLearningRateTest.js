@@ -1,7 +1,7 @@
 "use strict";
 
 const assert = require("assert");
-const {isValidPos, NeuralNetwork} = require("../dist/__neuralNetwork");
+const {isValidPos, NeuralNetwork} = require("../dist/__NeuralNetwork__");
 
 describe("pos neural networks learning rate tests", function() {
     it("posNnAYa should have learning rate value >= 0.95", function() {

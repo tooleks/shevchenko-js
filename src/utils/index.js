@@ -1,7 +1,7 @@
 "use strict";
 
-const name = require("./name");
+const {mapNameParts} = require("./name");
 const regexp = require("./regexp");
 const string = require("./string");
 
-module.exports = {regexp, string, ...name};
+module.exports = {mapNameParts, regexp, string};
