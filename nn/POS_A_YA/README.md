@@ -1,1 +1,1 @@
-### Female surnames ending with "-a", "-я"
+### Female surnames with endings "-a", "-я"
