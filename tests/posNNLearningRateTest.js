@@ -5,8 +5,8 @@ const {isValidPos, NeuralNetwork} = require("../dist/__NeuralNetwork__");
 
 describe("pos neural networks learning rate tests", function() {
     it("posNnAYa should have learning rate value >= 0.95", function() {
-        const posNnAYa = new NeuralNetwork(require("../nn/pos-a-ya/structure.json"));
-        const predictions = require("../nn/pos-a-ya/data/samples.json")
+        const posNnAYa = new NeuralNetwork(require("../nn/POS_A_YA/structure.json"));
+        const predictions = require("../nn/POS_A_YA/data/samples.json")
             .filter((sample) => isValidPos(sample.pos))
             .map((sample) => sample.pos === posNnAYa.run(sample.value));
 
@@ -17,8 +17,8 @@ describe("pos neural networks learning rate tests", function() {
     });
 
     it("posNnOiYiIi should have learning rate value >= 0.95", function() {
-        const posNnOiYiIi = new NeuralNetwork(require("../nn/pos-oi-yi-ii/structure.json"));
-        const predictions = require("../nn/pos-oi-yi-ii/data/samples.json")
+        const posNnOiYiIi = new NeuralNetwork(require("../nn/POS_OI_YI_II/structure.json"));
+        const predictions = require("../nn/POS_OI_YI_II/data/samples.json")
             .filter((sample) => isValidPos(sample.pos))
             .map((sample) => sample.pos === posNnOiYiIi.run(sample.value));
 
@@ -29,8 +29,8 @@ describe("pos neural networks learning rate tests", function() {
     });
 
     it("posNnYh should have learning rate value >= 0.95", function() {
-        const posNnYh = new NeuralNetwork(require("../nn/pos-yh/structure.json"));
-        const predictions = require("../nn/pos-yh/data/samples.json")
+        const posNnYh = new NeuralNetwork(require("../nn/POS_YH/structure.json"));
+        const predictions = require("../nn/POS_YH/data/samples.json")
             .filter((sample) => isValidPos(sample.pos))
             .map((sample) => sample.pos === posNnYh.run(sample.value));
 

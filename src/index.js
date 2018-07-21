@@ -2,7 +2,7 @@
 
 const Inflector = require("./Inflector");
 
-const inflector = new Inflector(JSON.parse(process.env.RULES));
+const inflector = new Inflector(process.env.INFLECTION_RULES);
 
 /**
  * Inflect the person's first, last and middle names.
