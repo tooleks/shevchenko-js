@@ -8,6 +8,9 @@ class Validator {
      * Validator constructor.
      */
     constructor() {
+        this.reset = this.reset.bind(this);
+        this.add = this.add.bind(this);
+        this.validate = this.validate.bind(this);
         this.reset();
     }
 

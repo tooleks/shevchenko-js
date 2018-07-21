@@ -1,4 +1,4 @@
-/*! /* shevchenko v1.0.1 2018-07-21T14:14:09.702Z. Copyright (c) Oleksandr Tolochko <tooleks@gmail.com>. License: MIT. * / */
+/*! /* shevchenko v1.0.1 2018-07-21T14:19:49.958Z. Copyright (c) Oleksandr Tolochko <tooleks@gmail.com>. License: MIT. * / */
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -4502,6 +4502,9 @@ var Validator = function () {
     function Validator() {
         _classCallCheck(this, Validator);
 
+        this.reset = this.reset.bind(this);
+        this.add = this.add.bind(this);
+        this.validate = this.validate.bind(this);
         this.reset();
     }
 
