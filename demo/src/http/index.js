@@ -1,11 +1,9 @@
-"use strict";
+import {mailer, urlService} from "../services";
 
-const {mailer, urlService} = require("../services");
-
-const ContactMeController = require("./ContactMeController");
-const HomeController = require("./HomeController");
+import ContactMeController from "./ContactMeController";
+import HomeController from "./HomeController";
 
 const contactMeController = new ContactMeController(mailer, urlService);
 const homeController = new HomeController();
 
-module.exports = {contactMeController, homeController};
+export {contactMeController, homeController};

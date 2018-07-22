@@ -1,11 +1,9 @@
-"use strict";
-
-const {URL} = require("url");
+import {URL} from "url";
 
 /**
  * UrlService class.
  */
-class UrlService {
+export default class UrlService {
     /**
      * UrlService constructor.
      */
@@ -31,5 +29,3 @@ class UrlService {
         return absoluteUrl;
     }
 }
-
-module.exports = UrlService;

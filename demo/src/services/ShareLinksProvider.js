@@ -1,11 +1,9 @@
-"use strict";
-
-const qs = require("querystring");
+import qs from "querystring";
 
 /**
  * ShareLinksProvider class.
  */
-class ShareLinksProvider {
+export default class ShareLinksProvider {
     /**
      * ShareLinksProvider constructor.
      */
@@ -63,5 +61,3 @@ class ShareLinksProvider {
         );
     }
 }
-
-module.exports = ShareLinksProvider;

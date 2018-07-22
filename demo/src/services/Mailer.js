@@ -1,9 +1,7 @@
-"use strict";
-
 /**
  * Mailer class.
  */
-class Mailer {
+export default class Mailer {
     /**
      * Mailer constructor.
      *
@@ -24,5 +22,3 @@ class Mailer {
         return this._driver.send(data);
     }
 }
-
-module.exports = Mailer;

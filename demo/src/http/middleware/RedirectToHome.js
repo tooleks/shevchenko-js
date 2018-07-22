@@ -1,9 +1,7 @@
-"use strict";
-
 /**
  * RedirectToHome class.
  */
-class RedirectToHome {
+export default class RedirectToHome {
     /**
      * RedirectToHome constructor.
      *
@@ -24,5 +22,3 @@ class RedirectToHome {
         res.redirect(this._urlService.genAbsoluteUrl("/", {locale: req.getLocale()}));
     }
 }
-
-module.exports = RedirectToHome;

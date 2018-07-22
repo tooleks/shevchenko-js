@@ -1,9 +1,7 @@
-"use strict";
-
 /**
  * ContactMeController class.
  */
-class ContactMeController {
+export default class ContactMeController {
     /**
      * ContactMeController constructor.
      *
@@ -40,5 +38,3 @@ class ContactMeController {
         res.redirect(this._urlService.genAbsoluteUrl("/", {locale: req.getLocale()}));
     }
 }
-
-module.exports = ContactMeController;

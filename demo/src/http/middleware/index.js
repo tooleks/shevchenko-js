@@ -1,13 +1,11 @@
-"use strict";
+import {shareLinksProvider, urlService} from "../../services";
 
-const {shareLinksProvider, urlService} = require("../../services");
-
-const ErrorHandler = require("./ErrorHandler");
-const RedirectToHome = require("./RedirectToHome");
-const Utils = require("./Utils");
+import ErrorHandler from "./ErrorHandler";
+import RedirectToHome from "./RedirectToHome";
+import Utils from "./Utils";
 
 const errorHandler = new ErrorHandler(urlService);
 const redirectToHome = new RedirectToHome(urlService);
 const utils = new Utils(urlService, shareLinksProvider);
 
-module.exports = {errorHandler, redirectToHome, utils};
+export {errorHandler, redirectToHome, utils};

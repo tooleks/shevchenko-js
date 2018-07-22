@@ -1,11 +1,9 @@
-"use strict";
-
-const Mailgun = require("mailgun-js");
+import Mailgun from "mailgun-js";
 
 /**
  * MailgunMailerDriver class.
  */
-class MailgunMailerDriver {
+export default class MailgunMailerDriver {
     /**
      * MailgunMailerDriver constructor.
      *
@@ -36,5 +34,3 @@ class MailgunMailerDriver {
         });
     }
 }
-
-module.exports = MailgunMailerDriver;

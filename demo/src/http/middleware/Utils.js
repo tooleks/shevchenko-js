@@ -1,11 +1,9 @@
-"use strict";
-
-const i18n = require("i18n");
+import i18n from "i18n";
 
 /**
  * Utils class.
  */
-class Utils {
+export default class Utils {
     /**
      * Utils constructor.
      *
@@ -48,5 +46,3 @@ class Utils {
         next();
     }
 }
-
-module.exports = Utils;

@@ -1,9 +1,7 @@
-"use strict";
-
 /**
  * ErrorHandler class.
  */
-class ErrorHandler {
+export default class ErrorHandler {
     /**
      * ErrorHandler constructor.
      *
@@ -28,5 +26,3 @@ class ErrorHandler {
         res.redirect(this._urlService.genAbsoluteUrl("/", {locale: req.getLocale()}));
     }
 }
-
-module.exports = ErrorHandler;

@@ -1,9 +1,7 @@
-"use strict";
-
 /**
  * HomeController class.
  */
-class HomeController {
+export default class HomeController {
     /**
      * HomeController constructor.
      */
@@ -21,5 +19,3 @@ class HomeController {
         res.render("home.ejs", {flashes: req.flash("flashes")});
     }
 }
-
-module.exports = HomeController;
