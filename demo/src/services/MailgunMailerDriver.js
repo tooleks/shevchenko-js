@@ -18,7 +18,7 @@ export default class MailgunMailerDriver {
 
     /**
      * Send mail message.
-     * 'from' parameter is not a valid address.
+     *
      * @param {Object} data
      * @return {Promise}
      */
