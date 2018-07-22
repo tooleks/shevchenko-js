@@ -50,7 +50,7 @@ app.set("view engine", "html");
 
 app.use(utils.handle);
 app.get("/", homeController.index);
-app.post("/contact_me", contactMeController.send);
+app.post("/contact-me", contactMeController.send);
 app.get("*", redirectToHome.handle);
 app.use(errorHandler.handle);
 
