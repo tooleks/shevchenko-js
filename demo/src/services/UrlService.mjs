@@ -12,7 +12,7 @@ export default class UrlService {
      * Generate absolute URL.
      *
      * @param {string} [relativeUrl='']
-     * @param {Object} [params={}]
+     * @param {object} [params={}]
      * @param {string} {params.locale='en']
      * @return {URL}
      */

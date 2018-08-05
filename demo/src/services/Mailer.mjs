@@ -13,7 +13,7 @@ export default class Mailer {
     /**
      * Send mail message.
      *
-     * @param {Object} data
+     * @param {object} data
      * @return {Promise}
      */
     send(data) {

@@ -4,7 +4,7 @@ export default class MailgunMailerDriver {
     /**
      * MailgunMailerDriver constructor.
      *
-     * @param {Object} options
+     * @param {object} options
      * @param {string} options.apiKey
      * @param {string} options.domain
      */
@@ -17,7 +17,7 @@ export default class MailgunMailerDriver {
     /**
      * Send mail message.
      *
-     * @param {Object} data
+     * @param {object} data
      * @return {Promise}
      */
     async send(data) {
