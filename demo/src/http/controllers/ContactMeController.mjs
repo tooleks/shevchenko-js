@@ -27,12 +27,10 @@ export default class ContactMeController {
 
         try {
             await this._mailer.send({from, to, subject, text});
+            req.flash("flashes", {type: "success", message: req.__("contact_me_form_success_alert")});
+            res.redirect(this._urlService.genAbsoluteUrl("/", {locale: req.getLocale()}));
         } catch (err) {
             next(err);
-            return;
         }
-
-        req.flash("flashes", {type: "success", message: req.__("contact_me_form_success_alert")});
-        res.redirect(this._urlService.genAbsoluteUrl("/", {locale: req.getLocale()}));
     }
 }
