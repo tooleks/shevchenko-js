@@ -51,6 +51,14 @@
                         </label>
                     </div>
                     <div class="form-group">
+                        <label for="lastName"><%= __('last_name') %></label>
+                        <input type="text"
+                               class="form-control"
+                               name="lastName"
+                               id="lastName"
+                               placeholder="Шевченко">
+                    </div>
+                    <div class="form-group">
                         <label for="firstName"><%= __('first_name') %></label>
                         <input type="text"
                                class="form-control"
@@ -65,14 +73,6 @@
                                name="middleName"
                                id="middleName"
                                placeholder="Григорович">
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName"><%= __('last_name') %></label>
-                        <input type="text"
-                               class="form-control"
-                               name="lastName"
-                               id="lastName"
-                               placeholder="Шевченко">
                     </div>
                     <button type="submit"
                             class="btn btn-primary btn-inflection-form"><%= __('inflect') %></button>
@@ -89,51 +89,51 @@
             <table class="table table-striped table-bordered">
                 <tr>
                     <th><%= __('case') %></th>
+                    <th><%= __('last_name') %></th>
                     <th><%= __('first_name') %></th>
                     <th><%= __('middle_name') %></th>
-                    <th><%= __('last_name') %></th>
                 </tr>
                 <tr>
                     <th><%= __('case_nominative') %></th>
+                    <td id="nominativeLastName">Шевченко</td>
                     <td id="nominativeFirstName">Тарас</td>
                     <td id="nominativeMiddleName">Григорович</td>
-                    <td id="nominativeLastName">Шевченко</td>
                 </tr>
                 <tr>
                     <th><%= __('case_genitive') %></th>
+                    <td id="genitiveLastName">Шевченка</td>
                     <td id="genitiveFirstName">Тараса</td>
                     <td id="genitiveMiddleName">Григоровича</td>
-                    <td id="genitiveLastName">Шевченка</td>
                 </tr>
                 <tr>
                     <th><%= __('case_dative') %></th>
+                    <td id="dativeLastName">Шевченку</td>
                     <td id="dativeFirstName">Тарасу</td>
                     <td id="dativeMiddleName">Григоровичу</td>
-                    <td id="dativeLastName">Шевченку</td>
                 </tr>
                 <tr>
                     <th><%= __('case_accusative') %></th>
+                    <td id="accusativeLastName">Шевченка</td>
                     <td id="accusativeFirstName">Тараса</td>
                     <td id="accusativeMiddleName">Григоровича</td>
-                    <td id="accusativeLastName">Шевченка</td>
                 </tr>
                 <tr>
                     <th><%= __('case_ablative') %></th>
+                    <td id="ablativeLastName">Шевченком</td>
                     <td id="ablativeFirstName">Тарасом</td>
                     <td id="ablativeMiddleName">Григоровичем</td>
-                    <td id="ablativeLastName">Шевченком</td>
                 </tr>
                 <tr>
                     <th><%= __('case_locative') %></th>
+                    <td id="locativeLastName">Шевченкові</td>
                     <td id="locativeFirstName">Тарасові</td>
                     <td id="locativeMiddleName">Григоровичу</td>
-                    <td id="locativeLastName">Шевченкові</td>
                 </tr>
                 <tr>
                     <th><%= __('case_vocative') %></th>
+                    <td id="vocativeLastName">Шевченку</td>
                     <td id="vocativeFirstName">Тарасе</td>
                     <td id="vocativeMiddleName">Григоровичу</td>
-                    <td id="vocativeLastName">Шевченку</td>
                 </tr>
             </table>
         </div>
@@ -174,7 +174,7 @@
         <pre style="background:#fff;color:#3b3b3b"><span style="color:#069;font-weight:700">&lt;</span>‍script type<span
                     style="color:#069;font-weight:700">=</span><span
                     style="color:#666">"text/javascript"</span> src<span
-                    style="color:#069;font-weight:700">=</span><span style="color:#666">"/path/to/shevchenko/dist/bundle/shevchenko.min.js"</span><span
+                    style="color:#069;font-weight:700">=</span><span style="color:#666">"/path/to/shevchenko/dist/shevchenko.umd.min.js"</span><span
                     style="color:#069;font-weight:700">></span><span style="color:#069;font-weight:700">&lt;</span>‍/script<span
                     style="color:#069;font-weight:700">></span>
 </pre>

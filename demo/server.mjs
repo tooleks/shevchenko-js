@@ -5,8 +5,10 @@ import bodyParser from "body-parser";
 import session from "express-session";
 import cookieParser from "cookie-parser";
 import flash from "connect-flash";
-import {errorHandler, redirectToHome, utils} from "./src/http/middleware";
-import {contactMeController, homeController} from "./src/http";
+import ejs from "ejs";
+
+import dc from "./src/dc";
+import registerRoutes from "./src/http/routes";
 
 const app = express();
 
@@ -18,7 +20,7 @@ i18n.configure({
         ru: "uk",
         by: "uk",
     },
-    directory: path.join(__dirname, "locales"),
+    directory: path.resolve("locales"),
     queryParameter: "lang",
     syncFiles: true,
 });
@@ -27,7 +29,7 @@ app.use(i18n.init);
 
 app.use(express.static("public"));
 app.use(express.static("public/meta"));
-app.use("/js/shevchenko.min.js", express.static("node_modules/shevchenko/dist/bundle/shevchenko.min.js"));
+app.use("/js/shevchenko.umd.min.js", express.static("node_modules/shevchenko/dist/shevchenko.umd.min.js"));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
@@ -45,14 +47,17 @@ app.use(
 
 app.use(flash());
 
-app.engine("html", require("ejs").renderFile);
+app.engine("html", ejs.renderFile);
 app.set("view engine", "html");
 
-app.use(utils.handle);
-app.get("/", homeController.index);
-app.post("/contact-me", contactMeController.send);
-app.get("*", redirectToHome.handle);
-app.use(errorHandler.handle);
+// Register utility middleware.
+app.use(dc.middleware.utils.handle);
+// Register the application routes.
+registerRoutes(app, dc);
+// Redirect not registered routes to the home page.
+app.get("*", dc.middleware.redirectToHome.handle);
+// Register HTTP error handler.
+app.use(dc.middleware.errorHandler.handle);
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}.`);
