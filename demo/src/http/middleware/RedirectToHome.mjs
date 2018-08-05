@@ -1,6 +1,3 @@
-/**
- * RedirectToHome class.
- */
 export default class RedirectToHome {
     /**
      * RedirectToHome constructor.
@@ -9,6 +6,7 @@ export default class RedirectToHome {
      */
     constructor(urlService) {
         this._urlService = urlService;
+
         this.handle = this.handle.bind(this);
     }
 

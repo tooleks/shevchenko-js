@@ -1,6 +1,3 @@
-/**
- * ErrorHandler class.
- */
 export default class ErrorHandler {
     /**
      * ErrorHandler constructor.
@@ -9,6 +6,7 @@ export default class ErrorHandler {
      */
     constructor(urlService) {
         this._urlService = urlService;
+
         this.handle = this.handle.bind(this);
     }
 

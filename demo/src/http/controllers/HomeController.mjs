@@ -1,6 +1,3 @@
-/**
- * HomeController class.
- */
 export default class HomeController {
     /**
      * HomeController constructor.

@@ -1,6 +1,3 @@
-/**
- * ContactMeController class.
- */
 export default class ContactMeController {
     /**
      * ContactMeController constructor.
@@ -11,6 +8,7 @@ export default class ContactMeController {
     constructor(mailer, urlService) {
         this._mailer = mailer;
         this._urlService = urlService;
+
         this.send = this.send.bind(this);
     }
 

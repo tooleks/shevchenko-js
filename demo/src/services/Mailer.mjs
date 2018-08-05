@@ -1,6 +1,3 @@
-/**
- * Mailer class.
- */
 export default class Mailer {
     /**
      * Mailer constructor.
@@ -9,6 +6,7 @@ export default class Mailer {
      */
     constructor(driver) {
         this._driver = driver;
+
         this.send = this.send.bind(this);
     }
 

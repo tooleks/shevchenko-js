@@ -1,8 +1,5 @@
 import {URL} from "url";
 
-/**
- * UrlService class.
- */
 export default class UrlService {
     /**
      * UrlService constructor.

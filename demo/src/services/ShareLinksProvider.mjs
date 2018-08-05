@@ -1,8 +1,5 @@
 import qs from "querystring";
 
-/**
- * ShareLinksProvider class.
- */
 export default class ShareLinksProvider {
     /**
      * ShareLinksProvider constructor.

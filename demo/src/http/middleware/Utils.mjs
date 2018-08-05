@@ -1,8 +1,5 @@
 import i18n from "i18n";
 
-/**
- * Utils class.
- */
 export default class Utils {
     /**
      * Utils constructor.
@@ -13,6 +10,7 @@ export default class Utils {
     constructor(urlService, shareLinksProvider) {
         this._urlService = urlService;
         this._shareLinksProvider = shareLinksProvider;
+
         this.handle = this.handle.bind(this);
     }
 

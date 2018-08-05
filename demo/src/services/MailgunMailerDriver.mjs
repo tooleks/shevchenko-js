@@ -1,8 +1,5 @@
 import Mailgun from "mailgun-js";
 
-/**
- * MailgunMailerDriver class.
- */
 export default class MailgunMailerDriver {
     /**
      * MailgunMailerDriver constructor.
@@ -13,6 +10,7 @@ export default class MailgunMailerDriver {
      */
     constructor({apiKey = process.env.MAILGUN_API_KEY, domain = process.env.MAILGUN_DOMAIN} = {}) {
         this._mailgun = new Mailgun({apiKey, domain});
+
         this.send = this.send.bind(this);
     }
 
