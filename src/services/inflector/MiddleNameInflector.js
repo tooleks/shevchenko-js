@@ -24,15 +24,14 @@ export default class MiddleNameInflector {
     inflect(middleName, gender, inflectionCaseName) {
         return middleName.mapCompoundParts((namePart) => {
             // Get the most suitable inflection rule.
-            const rule = this._rules
+            const [rule] = this._rules
                 .filter(
                     (rule) =>
                         ruleUtil.matchGender(rule, gender) &&
                         ruleUtil.matchUsage(rule, "middleName", true) &&
                         ruleUtil.matchRegExp(rule, namePart),
                 )
-                .sort((firstRule, secondRule) => ruleUtil.usageSorter(firstRule, secondRule, "middleName"))
-                .shift();
+                .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, "middleName"));
 
             // If no inflection rule found, return name "as is".
             if (!rule) {

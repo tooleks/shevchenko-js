@@ -35,7 +35,7 @@ export default class LastNameInflector {
             }
 
             // Get the most suitable inflection rule.
-            const rule = this._rules
+            const [rule] = this._rules
                 .filter(
                     (rule) =>
                         ruleUtil.matchGender(rule, gender) &&
@@ -43,8 +43,7 @@ export default class LastNameInflector {
                         ruleUtil.matchRegExp(rule, namePart) &&
                         ruleUtil.matchPos(rule, this._posDetector.recognize(namePart, gender)),
                 )
-                .sort((firstRule, secondRule) => ruleUtil.usageSorter(firstRule, secondRule, "lastName"))
-                .shift();
+                .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, "lastName"));
 
             // If no inflection rule found, return name "as is".
             if (!rule) {

@@ -1,4 +1,4 @@
-/*! shevchenko v1.1.0 / 2018-08-11T11:53:17.436Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
+/*! shevchenko v1.1.0 / 2018-08-11T12:18:55.163Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -112,7 +112,7 @@ var AbstractModel = function () {
             throw new Error("AbstractModel instance cannot be constructed directly.");
         }
 
-        this.equal = this.equal.bind(this);
+        this.equals = this.equals.bind(this);
     }
 
     /**
@@ -124,8 +124,8 @@ var AbstractModel = function () {
 
 
     _createClass(AbstractModel, [{
-        key: "equal",
-        value: function equal(model) {
+        key: "equals",
+        value: function equals(model) {
             return this.valueOf() === model.valueOf();
         }
     }]);
@@ -223,10 +223,8 @@ exports.matchGender = matchGender;
 exports.matchUsage = matchUsage;
 exports.matchRegExp = matchRegExp;
 exports.matchPos = matchPos;
-exports.usageSorter = usageSorter;
+exports.compareUsage = compareUsage;
 /**
- * Match rule gender.
- *
  * @param {object} rule
  * @param {string} rule.gender
  * @param {Gender} gender
@@ -237,8 +235,6 @@ function matchGender(rule, gender) {
 }
 
 /**
- * Match rule usage.
- *
  * @param {object} rule
  * @param {Array<string>} rule.usages
  * @param {string} usage
@@ -268,8 +264,6 @@ function matchRegExp(rule, word) {
 }
 
 /**
- * Match rul part of speech.
- *
  * @param {object} rule
  * @param {object} rule.pos
  * @param {string} pos
@@ -288,9 +282,9 @@ function matchPos(rule, pos) {
  * @param {object} secondRule
  * @param {Array<string>} secondRule.usages
  * @param {string} usage
- * @return {boolean}
+ * @return {number}
  */
-function usageSorter(firstRule, secondRule, usage) {
+function compareUsage(firstRule, secondRule, usage) {
     return !firstRule.usages.length && secondRule.usages.length && secondRule.usages.indexOf(usage) !== -1;
 }
 
@@ -1719,6 +1713,8 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _ruleUtil = __webpack_require__(2);
@@ -1761,13 +1757,17 @@ var FirstNameInflector = function () {
 
             return firstName.mapCompoundParts(function (namePart) {
                 // Get the most suitable inflection rule.
-                var rule = _this._rules.filter(function (rule) {
+                var _rules$filter$sort = _this._rules.filter(function (rule) {
                     return ruleUtil.matchGender(rule, gender) && ruleUtil.matchUsage(rule, "firstName") && ruleUtil.matchRegExp(rule, namePart);
                 }).sort(function (firstRule, secondRule) {
-                    return ruleUtil.usageSorter(firstRule, secondRule, "firstName");
-                }).shift();
+                    return ruleUtil.compareUsage(firstRule, secondRule, "firstName");
+                }),
+                    _rules$filter$sort2 = _slicedToArray(_rules$filter$sort, 1),
+                    rule = _rules$filter$sort2[0];
 
                 // If no inflection rule found, return name "as is".
+
+
                 if (!rule) {
                     return namePart;
                 }
@@ -1793,6 +1793,8 @@ exports.default = FirstNameInflector;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1847,13 +1849,18 @@ var LastNameInflector = function () {
                 }
 
                 // Get the most suitable inflection rule.
-                var rule = _this._rules.filter(function (rule) {
+
+                var _rules$filter$sort = _this._rules.filter(function (rule) {
                     return ruleUtil.matchGender(rule, gender) && ruleUtil.matchUsage(rule, "lastName") && ruleUtil.matchRegExp(rule, namePart) && ruleUtil.matchPos(rule, _this._posDetector.recognize(namePart, gender));
                 }).sort(function (firstRule, secondRule) {
-                    return ruleUtil.usageSorter(firstRule, secondRule, "lastName");
-                }).shift();
+                    return ruleUtil.compareUsage(firstRule, secondRule, "lastName");
+                }),
+                    _rules$filter$sort2 = _slicedToArray(_rules$filter$sort, 1),
+                    rule = _rules$filter$sort2[0];
 
                 // If no inflection rule found, return name "as is".
+
+
                 if (!rule) {
                     return namePart;
                 }
@@ -1879,6 +1886,8 @@ exports.default = LastNameInflector;
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
@@ -1922,13 +1931,17 @@ var MiddleNameInflector = function () {
 
             return middleName.mapCompoundParts(function (namePart) {
                 // Get the most suitable inflection rule.
-                var rule = _this._rules.filter(function (rule) {
+                var _rules$filter$sort = _this._rules.filter(function (rule) {
                     return ruleUtil.matchGender(rule, gender) && ruleUtil.matchUsage(rule, "middleName", true) && ruleUtil.matchRegExp(rule, namePart);
                 }).sort(function (firstRule, secondRule) {
-                    return ruleUtil.usageSorter(firstRule, secondRule, "middleName");
-                }).shift();
+                    return ruleUtil.compareUsage(firstRule, secondRule, "middleName");
+                }),
+                    _rules$filter$sort2 = _slicedToArray(_rules$filter$sort, 1),
+                    rule = _rules$filter$sort2[0];
 
                 // If no inflection rule found, return name "as is".
+
+
                 if (!rule) {
                     return namePart;
                 }

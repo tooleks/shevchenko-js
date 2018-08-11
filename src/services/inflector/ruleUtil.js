@@ -1,6 +1,4 @@
 /**
- * Match rule gender.
- *
  * @param {object} rule
  * @param {string} rule.gender
  * @param {Gender} gender
@@ -11,8 +9,6 @@ export function matchGender(rule, gender) {
 }
 
 /**
- * Match rule usage.
- *
  * @param {object} rule
  * @param {Array<string>} rule.usages
  * @param {string} usage
@@ -40,8 +36,6 @@ export function matchRegExp(rule, word) {
 }
 
 /**
- * Match rul part of speech.
- *
  * @param {object} rule
  * @param {object} rule.pos
  * @param {string} pos
@@ -60,8 +54,8 @@ export function matchPos(rule, pos) {
  * @param {object} secondRule
  * @param {Array<string>} secondRule.usages
  * @param {string} usage
- * @return {boolean}
+ * @return {number}
  */
-export function usageSorter(firstRule, secondRule, usage) {
+export function compareUsage(firstRule, secondRule, usage) {
     return !firstRule.usages.length && secondRule.usages.length && secondRule.usages.indexOf(usage) !== -1;
 }

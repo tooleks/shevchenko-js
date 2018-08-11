@@ -7,7 +7,7 @@ export default class AbstractModel {
             throw new Error("AbstractModel instance cannot be constructed directly.");
         }
 
-        this.equal = this.equal.bind(this);
+        this.equals = this.equals.bind(this);
     }
 
     /**
@@ -16,7 +16,7 @@ export default class AbstractModel {
      * @param {AbstractModel} model
      * @return {boolean}
      */
-    equal(model) {
+    equals(model) {
         return this.valueOf() === model.valueOf();
     }
 }

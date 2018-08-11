@@ -24,15 +24,14 @@ export default class FirstNameInflector {
     inflect(firstName, gender, inflectionCaseName) {
         return firstName.mapCompoundParts((namePart) => {
             // Get the most suitable inflection rule.
-            const rule = this._rules
+            const [rule] = this._rules
                 .filter(
                     (rule) =>
                         ruleUtil.matchGender(rule, gender) &&
                         ruleUtil.matchUsage(rule, "firstName") &&
                         ruleUtil.matchRegExp(rule, namePart),
                 )
-                .sort((firstRule, secondRule) => ruleUtil.usageSorter(firstRule, secondRule, "firstName"))
-                .shift();
+                .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, "firstName"));
 
             // If no inflection rule found, return name "as is".
             if (!rule) {
