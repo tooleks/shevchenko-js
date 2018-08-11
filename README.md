@@ -25,5 +25,5 @@ var person = {
 
 var result = shevchenko.inVocative(person);
 
-console.log(result); // {gender: "male", firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку'}
+console.log(result); // {gender: "male", firstName: "Тарасе", middleName: "Григоровичу", lastName: "Шевченку"}
 ```
