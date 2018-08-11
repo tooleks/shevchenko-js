@@ -1,17 +1,5 @@
 import AbstractName from "./AbstractName";
-
-/**
- * Validate last name value.
- *
- * @param {*} lastName
- * @throws {TypeError}
- */
-export function validateLastNameValue(lastName) {
-    const isAllowedType = typeof lastName === "string";
-    if (!isAllowedType) {
-        throw new TypeError("Invalid last name type. Allowed types: string.");
-    }
-}
+import validate from "./validate";
 
 export default class LastName extends AbstractName {
     /**
@@ -21,7 +9,7 @@ export default class LastName extends AbstractName {
      */
     constructor(lastName) {
         super();
-        validateLastNameValue(lastName);
+        validate.lastNameValue(lastName);
         this._value = lastName;
         this.valueOf = this.valueOf.bind(this);
     }

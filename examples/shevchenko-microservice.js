@@ -1,7 +1,7 @@
 "use strict";
 
 const http = require("http");
-const shevchenko = require("shevchenko");
+const shevchenko = require("../dist/shevchenko.cjs");
 
 const port = process.env.PORT || 8000;
 
@@ -13,7 +13,7 @@ const server = http.createServer((request, response) => {
         request.on("end", () => {
             try {
                 const body = JSON.parse(Buffer.concat(chunks));
-                const result = shevchenko(body.person, body.caseName);
+                const result = shevchenko(body.anthroponym, body.caseName);
                 response.end(JSON.stringify(result));
             } catch (error) {
                 response.statusCode = 422;

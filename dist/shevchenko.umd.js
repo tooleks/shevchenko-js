@@ -1,4 +1,4 @@
-/*! shevchenko v1.1.2 / 2018-08-11T13:11:56.031Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
+/*! shevchenko v1.1.3 / 2018-08-11T14:46:34.711Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("synaptic"));
@@ -8,7 +8,7 @@
 		exports["shevchenko"] = factory(require("synaptic"));
 	else
 		root["shevchenko"] = factory(root["synaptic"]);
-})(typeof self !== "undefined" ? self : this, function(__WEBPACK_EXTERNAL_MODULE__24__) {
+})(typeof self !== "undefined" ? self : this, function(__WEBPACK_EXTERNAL_MODULE__25__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
 /******/ 	var installedModules = {};
@@ -92,11 +92,144 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 7);
+/******/ 	return __webpack_require__(__webpack_require__.s = 9);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+exports.genderValue = genderValue;
+exports.inflectionCaseValue = inflectionCaseValue;
+exports.firstNameValue = firstNameValue;
+exports.middleNameValue = middleNameValue;
+exports.lastNameValue = lastNameValue;
+exports.anthroponymValue = anthroponymValue;
+
+var _InflectionCase = __webpack_require__(5);
+
+var _Gender = __webpack_require__(2);
+
+/**
+ * Validate gender value.
+ *
+ * @param {*} gender
+ * @return {void}
+ * @throws {TypeError}
+ */
+function genderValue(gender) {
+    var allowedValues = Object.values(_Gender.GENDERS);
+    var isAllowedValue = allowedValues.indexOf(gender) !== -1;
+    if (!isAllowedValue) {
+        throw new TypeError("Invalid gender value. Allowed values: " + allowedValues.join(", ") + ".");
+    }
+}
+
+/**
+ * Validate inflection case value.
+ *
+ * @param {*} inflectionCase
+ * @return {void}
+ * @throws {TypeError}
+ */
+function inflectionCaseValue(inflectionCase) {
+    var allowedValues = Object.values(_InflectionCase.INFLECTION_CASES);
+    var isAllowedValue = allowedValues.indexOf(inflectionCase) !== -1;
+    if (!isAllowedValue) {
+        throw new TypeError("Invalid inflection case value. Allowed values: " + allowedValues.join(", ") + ".");
+    }
+}
+
+/**
+ * Validate first name value.
+ *
+ * @param {*} firstName
+ * @return {void}
+ * @throws {TypeError}
+ */
+function firstNameValue(firstName) {
+    var isAllowedType = typeof firstName === "string";
+    if (!isAllowedType) {
+        throw new TypeError("Invalid first name type. Allowed types: string.");
+    }
+}
+
+/**
+ * Validate middle name value.
+ *
+ * @param {*} middleName
+ * @return {void}
+ * @throws {TypeError}
+ */
+function middleNameValue(middleName) {
+    var isAllowedType = typeof middleName === "string";
+    if (!isAllowedType) {
+        throw new TypeError("Invalid middle name type. Allowed types: string.");
+    }
+}
+
+/**
+ * Validate last name value.
+ *
+ * @param {*} lastName
+ * @return {void}
+ * @throws {TypeError}
+ */
+function lastNameValue(lastName) {
+    var isAllowedType = typeof lastName === "string";
+    if (!isAllowedType) {
+        throw new TypeError("Invalid last name type. Allowed types: string.");
+    }
+}
+
+/**
+ * Validate anthroponym value.
+ *
+ * @param {*} anthroponym
+ * @return {void}
+ * @throws {TypeError}
+ */
+function anthroponymValue(anthroponym) {
+    var isAllowedType = (typeof anthroponym === "undefined" ? "undefined" : _typeof(anthroponym)) === "object" && anthroponym !== null;
+    if (!isAllowedType) {
+        throw new TypeError("Invalid anthroponym type. Allowed types: object.");
+    }
+
+    var hasFirstName = Object.prototype.hasOwnProperty.call(anthroponym, "firstName");
+    var hasMiddleName = Object.prototype.hasOwnProperty.call(anthroponym, "middleName");
+    var hasLastName = Object.prototype.hasOwnProperty.call(anthroponym, "lastName");
+    if (!hasFirstName && !hasMiddleName && !hasLastName) {
+        throw new TypeError("Invalid anthroponym value.");
+    }
+
+    genderValue(anthroponym.gender);
+
+    if (hasFirstName) {
+        firstNameValue(anthroponym.firstName);
+    }
+
+    if (hasMiddleName) {
+        middleNameValue(anthroponym.middleName);
+    }
+
+    if (hasLastName) {
+        lastNameValue(anthroponym.lastName);
+    }
+}
+
+exports.default = { genderValue: genderValue, inflectionCaseValue: inflectionCaseValue, firstNameValue: firstNameValue, middleNameValue: middleNameValue, lastNameValue: lastNameValue, anthroponymValue: anthroponymValue };
+
+/***/ }),
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -144,7 +277,111 @@ var AbstractModel = function () {
 exports.default = AbstractModel;
 
 /***/ }),
-/* 1 */
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.GENDERS = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _AbstractModel2 = __webpack_require__(1);
+
+var _AbstractModel3 = _interopRequireDefault(_AbstractModel2);
+
+var _validate = __webpack_require__(0);
+
+var _validate2 = _interopRequireDefault(_validate);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Gender values.
+ *
+ * @type {Readonly}
+ */
+var GENDERS = exports.GENDERS = Object.freeze({
+    MALE: "male",
+    FEMALE: "female"
+});
+
+var Gender = function (_AbstractModel) {
+    _inherits(Gender, _AbstractModel);
+
+    /**
+     * Gender constructor.
+     *
+     * @param {string} gender
+     */
+    function Gender(gender) {
+        _classCallCheck(this, Gender);
+
+        var _this = _possibleConstructorReturn(this, (Gender.__proto__ || Object.getPrototypeOf(Gender)).call(this));
+
+        _validate2.default.genderValue(gender);
+        _this._value = gender;
+        _this.valueOf = _this.valueOf.bind(_this);
+        _this.isMale = _this.isMale.bind(_this);
+        _this.isFemale = _this.isFemale.bind(_this);
+        return _this;
+    }
+
+    /**
+     * Get the primitive value of the specified object.
+     *
+     * @return {string}
+     */
+
+
+    _createClass(Gender, [{
+        key: "valueOf",
+        value: function valueOf() {
+            return this._value;
+        }
+
+        /**
+         * Determine whether gender value is male.
+         *
+         * @return {boolean}
+         */
+
+    }, {
+        key: "isMale",
+        value: function isMale() {
+            return this.valueOf() === GENDERS.MALE;
+        }
+
+        /**
+         * Determine whether gender value is female.
+         *
+         * @return {boolean}
+         */
+
+    }, {
+        key: "isFemale",
+        value: function isFemale() {
+            return this.valueOf() === GENDERS.FEMALE;
+        }
+    }]);
+
+    return Gender;
+}(_AbstractModel3.default);
+
+exports.default = Gender;
+
+/***/ }),
+/* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -156,7 +393,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _AbstractModel2 = __webpack_require__(0);
+var _AbstractModel2 = __webpack_require__(1);
 
 var _AbstractModel3 = _interopRequireDefault(_AbstractModel2);
 
@@ -217,7 +454,7 @@ var AbstractName = function (_AbstractModel) {
 exports.default = AbstractName;
 
 /***/ }),
-/* 2 */
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -296,7 +533,90 @@ function compareUsage(firstRule, secondRule, usage) {
 }
 
 /***/ }),
-/* 3 */
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.INFLECTION_CASES = undefined;
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _AbstractModel2 = __webpack_require__(1);
+
+var _AbstractModel3 = _interopRequireDefault(_AbstractModel2);
+
+var _validate = __webpack_require__(0);
+
+var _validate2 = _interopRequireDefault(_validate);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+/**
+ * Inflection case values.
+ *
+ * @type {Readonly}
+ */
+var INFLECTION_CASES = exports.INFLECTION_CASES = Object.freeze({
+    NOMINATIVE: "nominative",
+    GENITIVE: "genitive",
+    DATIVE: "dative",
+    ACCUSATIVE: "accusative",
+    ABLATIVE: "ablative",
+    LOCATIVE: "locative",
+    VOCATIVE: "vocative"
+});
+
+var InflectionCase = function (_AbstractModel) {
+    _inherits(InflectionCase, _AbstractModel);
+
+    /**
+     * InflectionCase constructor.
+     *
+     * @param {string} inflectionCase
+     */
+    function InflectionCase(inflectionCase) {
+        _classCallCheck(this, InflectionCase);
+
+        var _this = _possibleConstructorReturn(this, (InflectionCase.__proto__ || Object.getPrototypeOf(InflectionCase)).call(this));
+
+        _validate2.default.inflectionCaseValue(inflectionCase);
+        _this._value = inflectionCase;
+        _this.valueOf = _this.valueOf.bind(_this);
+        return _this;
+    }
+
+    /**
+     * Get the primitive value of the specified object.
+     *
+     * @return {string}
+     */
+
+
+    _createClass(InflectionCase, [{
+        key: "valueOf",
+        value: function valueOf() {
+            return this._value;
+        }
+    }]);
+
+    return InflectionCase;
+}(_AbstractModel3.default);
+
+exports.default = InflectionCase;
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -310,29 +630,29 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.validateAnthroponymValue = validateAnthroponymValue;
-
-var _AbstractModel2 = __webpack_require__(0);
+var _AbstractModel2 = __webpack_require__(1);
 
 var _AbstractModel3 = _interopRequireDefault(_AbstractModel2);
 
-var _Gender = __webpack_require__(4);
+var _Gender = __webpack_require__(2);
 
 var _Gender2 = _interopRequireDefault(_Gender);
 
-var _FirstName = __webpack_require__(9);
+var _FirstName = __webpack_require__(10);
 
 var _FirstName2 = _interopRequireDefault(_FirstName);
 
-var _MiddleName = __webpack_require__(10);
+var _MiddleName = __webpack_require__(11);
 
 var _MiddleName2 = _interopRequireDefault(_MiddleName);
 
-var _LastName = __webpack_require__(11);
+var _LastName = __webpack_require__(12);
 
 var _LastName2 = _interopRequireDefault(_LastName);
+
+var _validate = __webpack_require__(0);
+
+var _validate2 = _interopRequireDefault(_validate);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -341,40 +661,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * Validate anthroponym value.
- *
- * @param {*} anthroponym
- * @throws {TypeError}
- */
-function validateAnthroponymValue(anthroponym) {
-    var isAllowedType = (typeof anthroponym === "undefined" ? "undefined" : _typeof(anthroponym)) === "object" && anthroponym !== null;
-    if (!isAllowedType) {
-        throw new TypeError("Invalid anthroponym type. Allowed types: object.");
-    }
-
-    var hasFirstName = Object.prototype.hasOwnProperty.call(anthroponym, "firstName");
-    var hasMiddleName = Object.prototype.hasOwnProperty.call(anthroponym, "middleName");
-    var hasLastName = Object.prototype.hasOwnProperty.call(anthroponym, "lastName");
-    if (!hasFirstName && !hasMiddleName && !hasLastName) {
-        throw new TypeError("Invalid anthroponym value.");
-    }
-
-    (0, _Gender.validateGenderValue)(anthroponym.gender);
-
-    if (hasFirstName) {
-        (0, _FirstName.validateFirstNameValue)(anthroponym.firstName);
-    }
-
-    if (hasMiddleName) {
-        (0, _MiddleName.validateMiddleNameValue)(anthroponym.middleName);
-    }
-
-    if (hasLastName) {
-        (0, _LastName.validateLastNameValue)(anthroponym.lastName);
-    }
-}
 
 var Anthroponym = function (_AbstractModel) {
     _inherits(Anthroponym, _AbstractModel);
@@ -389,10 +675,8 @@ var Anthroponym = function (_AbstractModel) {
 
         var _this = _possibleConstructorReturn(this, (Anthroponym.__proto__ || Object.getPrototypeOf(Anthroponym)).call(this));
 
-        validateAnthroponymValue(anthroponym);
-
+        _validate2.default.anthroponymValue(anthroponym);
         _this._value = {};
-
         _this._value.gender = anthroponym.gender;
 
         var hasFirstName = Object.prototype.hasOwnProperty.call(anthroponym, "firstName");
@@ -552,123 +836,7 @@ var Anthroponym = function (_AbstractModel) {
 exports.default = Anthroponym;
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.GENDERS = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-exports.validateGenderValue = validateGenderValue;
-
-var _AbstractModel2 = __webpack_require__(0);
-
-var _AbstractModel3 = _interopRequireDefault(_AbstractModel2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * Validate gender value.
- *
- * @param {*} gender
- * @throws {TypeError}
- */
-function validateGenderValue(gender) {
-    var allowedValues = Object.values(GENDERS);
-    var isAllowedValue = allowedValues.indexOf(gender) !== -1;
-    if (!isAllowedValue) {
-        throw new TypeError("Invalid gender value. Allowed values: " + allowedValues.join(", ") + ".");
-    }
-}
-
-/**
- * Gender values.
- *
- * @type {Readonly}
- */
-var GENDERS = exports.GENDERS = Object.freeze({
-    MALE: "male",
-    FEMALE: "female"
-});
-
-var Gender = function (_AbstractModel) {
-    _inherits(Gender, _AbstractModel);
-
-    /**
-     * Gender constructor.
-     *
-     * @param {string} gender
-     */
-    function Gender(gender) {
-        _classCallCheck(this, Gender);
-
-        var _this = _possibleConstructorReturn(this, (Gender.__proto__ || Object.getPrototypeOf(Gender)).call(this));
-
-        validateGenderValue(gender);
-        _this._value = gender;
-        _this.valueOf = _this.valueOf.bind(_this);
-        _this.isMale = _this.isMale.bind(_this);
-        _this.isFemale = _this.isFemale.bind(_this);
-        return _this;
-    }
-
-    /**
-     * Get the primitive value of the specified object.
-     *
-     * @return {string}
-     */
-
-
-    _createClass(Gender, [{
-        key: "valueOf",
-        value: function valueOf() {
-            return this._value;
-        }
-
-        /**
-         * Determine whether gender value is male.
-         *
-         * @return {boolean}
-         */
-
-    }, {
-        key: "isMale",
-        value: function isMale() {
-            return this.valueOf() === GENDERS.MALE;
-        }
-
-        /**
-         * Determine whether gender value is female.
-         *
-         * @return {boolean}
-         */
-
-    }, {
-        key: "isFemale",
-        value: function isFemale() {
-            return this.valueOf() === GENDERS.FEMALE;
-        }
-    }]);
-
-    return Gender;
-}(_AbstractModel3.default);
-
-exports.default = Gender;
-
-/***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -767,7 +935,7 @@ function applyCaseMask(exampleString, string) {
 }
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -808,7 +976,7 @@ var POS_MAPPING = exports.POS_MAPPING = Object.freeze({
 });
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -819,17 +987,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.INFLECTION_CASES = exports.GENDERS = exports.inAll = exports.inVocative = exports.inLocative = exports.inAblative = exports.inAccusative = exports.inDative = exports.inGenitive = exports.inNominative = undefined;
 
-var _InflectionCase = __webpack_require__(8);
+var _InflectionCase = __webpack_require__(5);
 
 var _InflectionCase2 = _interopRequireDefault(_InflectionCase);
 
-var _Anthroponym = __webpack_require__(3);
+var _Anthroponym = __webpack_require__(6);
 
 var _Anthroponym2 = _interopRequireDefault(_Anthroponym);
 
-var _Gender = __webpack_require__(4);
+var _Gender = __webpack_require__(2);
 
-var _bootstrap = __webpack_require__(12);
+var _bootstrap = __webpack_require__(13);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -980,102 +1148,7 @@ shevchenko.INFLECTION_CASES = _InflectionCase.INFLECTION_CASES;
 exports.default = shevchenko;
 
 /***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-    value: true
-});
-exports.INFLECTION_CASES = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-exports.validateInflectionCaseValue = validateInflectionCaseValue;
-
-var _AbstractModel2 = __webpack_require__(0);
-
-var _AbstractModel3 = _interopRequireDefault(_AbstractModel2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * Validate inflection case value.
- *
- * @param {*} inflectionCase
- * @throws {TypeError}
- */
-function validateInflectionCaseValue(inflectionCase) {
-    var allowedValues = Object.values(INFLECTION_CASES);
-    var isAllowedValue = allowedValues.indexOf(inflectionCase) !== -1;
-    if (!isAllowedValue) {
-        throw new TypeError("Invalid inflection case value. Allowed values: " + allowedValues.join(", ") + ".");
-    }
-}
-
-/**
- * Inflection case values.
- *
- * @type {Readonly}
- */
-var INFLECTION_CASES = exports.INFLECTION_CASES = Object.freeze({
-    NOMINATIVE: "nominative",
-    GENITIVE: "genitive",
-    DATIVE: "dative",
-    ACCUSATIVE: "accusative",
-    ABLATIVE: "ablative",
-    LOCATIVE: "locative",
-    VOCATIVE: "vocative"
-});
-
-var InflectionCase = function (_AbstractModel) {
-    _inherits(InflectionCase, _AbstractModel);
-
-    /**
-     * InflectionCase constructor.
-     *
-     * @param {string} inflectionCase
-     */
-    function InflectionCase(inflectionCase) {
-        _classCallCheck(this, InflectionCase);
-
-        var _this = _possibleConstructorReturn(this, (InflectionCase.__proto__ || Object.getPrototypeOf(InflectionCase)).call(this));
-
-        validateInflectionCaseValue(inflectionCase);
-        _this._value = inflectionCase;
-        _this.valueOf = _this.valueOf.bind(_this);
-        return _this;
-    }
-
-    /**
-     * Get the primitive value of the specified object.
-     *
-     * @return {string}
-     */
-
-
-    _createClass(InflectionCase, [{
-        key: "valueOf",
-        value: function valueOf() {
-            return this._value;
-        }
-    }]);
-
-    return InflectionCase;
-}(_AbstractModel3.default);
-
-exports.default = InflectionCase;
-
-/***/ }),
-/* 9 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1087,12 +1160,14 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-exports.validateFirstNameValue = validateFirstNameValue;
-
-var _AbstractName2 = __webpack_require__(1);
+var _AbstractName2 = __webpack_require__(3);
 
 var _AbstractName3 = _interopRequireDefault(_AbstractName2);
 
+var _validate = __webpack_require__(0);
+
+var _validate2 = _interopRequireDefault(_validate);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -1100,19 +1175,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * Validate first name value.
- *
- * @param {*} firstName
- * @throws {TypeError}
- */
-function validateFirstNameValue(firstName) {
-    var isAllowedType = typeof firstName === "string";
-    if (!isAllowedType) {
-        throw new TypeError("Invalid first name type. Allowed types: string.");
-    }
-}
 
 var FirstName = function (_AbstractName) {
     _inherits(FirstName, _AbstractName);
@@ -1127,7 +1189,7 @@ var FirstName = function (_AbstractName) {
 
         var _this = _possibleConstructorReturn(this, (FirstName.__proto__ || Object.getPrototypeOf(FirstName)).call(this));
 
-        validateFirstNameValue(firstName);
+        _validate2.default.firstNameValue(firstName);
         _this._value = firstName;
         _this.valueOf = _this.valueOf.bind(_this);
         return _this;
@@ -1153,7 +1215,7 @@ var FirstName = function (_AbstractName) {
 exports.default = FirstName;
 
 /***/ }),
-/* 10 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1165,11 +1227,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-exports.validateMiddleNameValue = validateMiddleNameValue;
-
-var _AbstractName2 = __webpack_require__(1);
+var _AbstractName2 = __webpack_require__(3);
 
 var _AbstractName3 = _interopRequireDefault(_AbstractName2);
+
+var _validate = __webpack_require__(0);
+
+var _validate2 = _interopRequireDefault(_validate);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1178,19 +1242,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * Validate middle name value.
- *
- * @param {*} middleName
- * @throws {TypeError}
- */
-function validateMiddleNameValue(middleName) {
-    var isAllowedType = typeof middleName === "string";
-    if (!isAllowedType) {
-        throw new TypeError("Invalid middle name type. Allowed types: string.");
-    }
-}
 
 var MiddleName = function (_AbstractName) {
     _inherits(MiddleName, _AbstractName);
@@ -1205,9 +1256,8 @@ var MiddleName = function (_AbstractName) {
 
         var _this = _possibleConstructorReturn(this, (MiddleName.__proto__ || Object.getPrototypeOf(MiddleName)).call(this));
 
-        validateMiddleNameValue(middleName);
+        _validate2.default.middleNameValue(middleName);
         _this._value = middleName;
-
         _this.valueOf = _this.valueOf.bind(_this);
         return _this;
     }
@@ -1232,7 +1282,7 @@ var MiddleName = function (_AbstractName) {
 exports.default = MiddleName;
 
 /***/ }),
-/* 11 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1244,11 +1294,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-exports.validateLastNameValue = validateLastNameValue;
-
-var _AbstractName2 = __webpack_require__(1);
+var _AbstractName2 = __webpack_require__(3);
 
 var _AbstractName3 = _interopRequireDefault(_AbstractName2);
+
+var _validate = __webpack_require__(0);
+
+var _validate2 = _interopRequireDefault(_validate);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1257,19 +1309,6 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-/**
- * Validate last name value.
- *
- * @param {*} lastName
- * @throws {TypeError}
- */
-function validateLastNameValue(lastName) {
-    var isAllowedType = typeof lastName === "string";
-    if (!isAllowedType) {
-        throw new TypeError("Invalid last name type. Allowed types: string.");
-    }
-}
 
 var LastName = function (_AbstractName) {
     _inherits(LastName, _AbstractName);
@@ -1284,7 +1323,7 @@ var LastName = function (_AbstractName) {
 
         var _this = _possibleConstructorReturn(this, (LastName.__proto__ || Object.getPrototypeOf(LastName)).call(this));
 
-        validateLastNameValue(lastName);
+        _validate2.default.lastNameValue(lastName);
         _this._value = lastName;
         _this.valueOf = _this.valueOf.bind(_this);
         return _this;
@@ -1310,7 +1349,7 @@ var LastName = function (_AbstractName) {
 exports.default = LastName;
 
 /***/ }),
-/* 12 */
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1321,33 +1360,33 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.anthroponymInflector = undefined;
 
-var _config = __webpack_require__(13);
+var _config = __webpack_require__(14);
 
-var _AnthroponymInflector = __webpack_require__(15);
+var _AnthroponymInflector = __webpack_require__(16);
 
 var _AnthroponymInflector2 = _interopRequireDefault(_AnthroponymInflector);
 
-var _FirstNameInflector = __webpack_require__(16);
+var _FirstNameInflector = __webpack_require__(17);
 
 var _FirstNameInflector2 = _interopRequireDefault(_FirstNameInflector);
 
-var _LastNameInflector = __webpack_require__(17);
+var _LastNameInflector = __webpack_require__(18);
 
 var _LastNameInflector2 = _interopRequireDefault(_LastNameInflector);
 
-var _MiddleNameInflector = __webpack_require__(18);
+var _MiddleNameInflector = __webpack_require__(19);
 
 var _MiddleNameInflector2 = _interopRequireDefault(_MiddleNameInflector);
 
-var _RuleInflector = __webpack_require__(19);
+var _RuleInflector = __webpack_require__(20);
 
 var _RuleInflector2 = _interopRequireDefault(_RuleInflector);
 
-var _PosDetector = __webpack_require__(21);
+var _PosDetector = __webpack_require__(22);
 
 var _PosDetector2 = _interopRequireDefault(_PosDetector);
 
-var _PosDetectorRule = __webpack_require__(22);
+var _PosDetectorRule = __webpack_require__(23);
 
 var _PosDetectorRule2 = _interopRequireDefault(_PosDetectorRule);
 
@@ -1377,7 +1416,7 @@ var anthroponymInflector = new _AnthroponymInflector2.default(firstNameInflector
 exports.anthroponymInflector = anthroponymInflector;
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1442,10 +1481,10 @@ exports.POS_NN_OI_YI_II_STRUCTURE = POS_NN_OI_YI_II_STRUCTURE;
 exports.POS_NN_OI_YI_II_CACHE = POS_NN_OI_YI_II_CACHE;
 exports.POS_NN_YH_STRUCTURE = POS_NN_YH_STRUCTURE;
 exports.POS_NN_YH_CACHE = POS_NN_YH_CACHE;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(14)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(15)))
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -1635,7 +1674,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1649,7 +1688,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Anthroponym = __webpack_require__(3);
+var _Anthroponym = __webpack_require__(6);
 
 var _Anthroponym2 = _interopRequireDefault(_Anthroponym);
 
@@ -1710,7 +1749,7 @@ var AnthroponymInflector = function () {
 exports.default = AnthroponymInflector;
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1724,7 +1763,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _ruleUtil = __webpack_require__(2);
+var _ruleUtil = __webpack_require__(4);
 
 var ruleUtil = _interopRequireWildcard(_ruleUtil);
 
@@ -1791,7 +1830,7 @@ var FirstNameInflector = function () {
 exports.default = FirstNameInflector;
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1805,7 +1844,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _ruleUtil = __webpack_require__(2);
+var _ruleUtil = __webpack_require__(4);
 
 var ruleUtil = _interopRequireWildcard(_ruleUtil);
 
@@ -1884,7 +1923,7 @@ var LastNameInflector = function () {
 exports.default = LastNameInflector;
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1898,7 +1937,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _ruleUtil = __webpack_require__(2);
+var _ruleUtil = __webpack_require__(4);
 
 var ruleUtil = _interopRequireWildcard(_ruleUtil);
 
@@ -1965,7 +2004,7 @@ var MiddleNameInflector = function () {
 exports.default = MiddleNameInflector;
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1981,11 +2020,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _stringUtil = __webpack_require__(5);
+var _stringUtil = __webpack_require__(7);
 
 var stringUtil = _interopRequireWildcard(_stringUtil);
 
-var _regExpUtil = __webpack_require__(20);
+var _regExpUtil = __webpack_require__(21);
 
 var regExpUtil = _interopRequireWildcard(_regExpUtil);
 
@@ -2097,7 +2136,7 @@ var RuleInflector = function () {
 exports.default = RuleInflector;
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2118,7 +2157,7 @@ function countGroups(regExp) {
 }
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2173,7 +2212,7 @@ var PosDetector = function () {
 exports.default = PosDetector;
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2185,11 +2224,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _NeuralNetwork = __webpack_require__(23);
+var _NeuralNetwork = __webpack_require__(24);
 
 var _NeuralNetwork2 = _interopRequireDefault(_NeuralNetwork);
 
-var _InMemoryCache = __webpack_require__(26);
+var _InMemoryCache = __webpack_require__(27);
 
 var _InMemoryCache2 = _interopRequireDefault(_InMemoryCache);
 
@@ -2256,7 +2295,7 @@ var PosDetectorRule = function () {
 exports.default = PosDetectorRule;
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2268,13 +2307,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _synaptic = __webpack_require__(24);
+var _synaptic = __webpack_require__(25);
 
 var synaptic = _interopRequireWildcard(_synaptic);
 
-var _config = __webpack_require__(6);
+var _config = __webpack_require__(8);
 
-var _neuralNetworkUtil = __webpack_require__(25);
+var _neuralNetworkUtil = __webpack_require__(26);
 
 var neuralNetworkUtil = _interopRequireWildcard(_neuralNetworkUtil);
 
@@ -2381,13 +2420,13 @@ var NeuralNetwork = function () {
 exports.default = NeuralNetwork;
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports) {
 
-module.exports = __WEBPACK_EXTERNAL_MODULE__24__;
+module.exports = __WEBPACK_EXTERNAL_MODULE__25__;
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2401,11 +2440,11 @@ exports.encodeInput = encodeInput;
 exports.encodeOutput = encodeOutput;
 exports.decodeOutput = decodeOutput;
 
-var _stringUtil = __webpack_require__(5);
+var _stringUtil = __webpack_require__(7);
 
 var stringUtil = _interopRequireWildcard(_stringUtil);
 
-var _config = __webpack_require__(6);
+var _config = __webpack_require__(8);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -2460,7 +2499,7 @@ function decodeOutput(output) {
 }
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2560,5 +2599,5 @@ var InMemoryCache = function () {
 exports.default = InMemoryCache;
 
 /***/ })
-/******/ ]);
+/******/ ])["default"];
 });

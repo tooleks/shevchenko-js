@@ -1,18 +1,5 @@
 import AbstractModel from "./AbstractModel";
-
-/**
- * Validate gender value.
- *
- * @param {*} gender
- * @throws {TypeError}
- */
-export function validateGenderValue(gender) {
-    const allowedValues = Object.values(GENDERS);
-    const isAllowedValue = allowedValues.indexOf(gender) !== -1;
-    if (!isAllowedValue) {
-        throw new TypeError(`Invalid gender value. Allowed values: ${allowedValues.join(", ")}.`);
-    }
-}
+import validate from "./validate";
 
 /**
  * Gender values.
@@ -32,7 +19,7 @@ export default class Gender extends AbstractModel {
      */
     constructor(gender) {
         super();
-        validateGenderValue(gender);
+        validate.genderValue(gender);
         this._value = gender;
         this.valueOf = this.valueOf.bind(this);
         this.isMale = this.isMale.bind(this);

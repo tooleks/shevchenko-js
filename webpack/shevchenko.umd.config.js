@@ -10,6 +10,7 @@ export default webpackMerge(commonConfig, {
         filename: `${pkg.name}.umd.js`,
         library: pkg.name,
         libraryTarget: "umd",
+        libraryExport: "default",
         // Note: The following line is needed to be able to build "umd" module compatible with Node.js.
         globalObject: `typeof self !== "undefined" ? self : this`,
     },

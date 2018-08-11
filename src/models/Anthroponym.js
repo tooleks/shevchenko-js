@@ -1,46 +1,9 @@
 import AbstractModel from "./AbstractModel";
 import Gender from "./Gender";
-import {validateGenderValue} from "./Gender";
 import FirstName from "./FirstName";
-import {validateFirstNameValue} from "./FirstName";
 import MiddleName from "./MiddleName";
-import {validateMiddleNameValue} from "./MiddleName";
 import LastName from "./LastName";
-import {validateLastNameValue} from "./LastName";
-
-/**
- * Validate anthroponym value.
- *
- * @param {*} anthroponym
- * @throws {TypeError}
- */
-export function validateAnthroponymValue(anthroponym) {
-    const isAllowedType = typeof anthroponym === "object" && anthroponym !== null;
-    if (!isAllowedType) {
-        throw new TypeError("Invalid anthroponym type. Allowed types: object.");
-    }
-
-    const hasFirstName = Object.prototype.hasOwnProperty.call(anthroponym, "firstName");
-    const hasMiddleName = Object.prototype.hasOwnProperty.call(anthroponym, "middleName");
-    const hasLastName = Object.prototype.hasOwnProperty.call(anthroponym, "lastName");
-    if (!hasFirstName && !hasMiddleName && !hasLastName) {
-        throw new TypeError("Invalid anthroponym value.");
-    }
-
-    validateGenderValue(anthroponym.gender);
-
-    if (hasFirstName) {
-        validateFirstNameValue(anthroponym.firstName);
-    }
-
-    if (hasMiddleName) {
-        validateMiddleNameValue(anthroponym.middleName);
-    }
-
-    if (hasLastName) {
-        validateLastNameValue(anthroponym.lastName);
-    }
-}
+import validate from "./validate";
 
 export default class Anthroponym extends AbstractModel {
     /**
@@ -50,11 +13,8 @@ export default class Anthroponym extends AbstractModel {
      */
     constructor(anthroponym) {
         super();
-
-        validateAnthroponymValue(anthroponym);
-
+        validate.anthroponymValue(anthroponym);
         this._value = {};
-
         this._value.gender = anthroponym.gender;
 
         const hasFirstName = Object.prototype.hasOwnProperty.call(anthroponym, "firstName");

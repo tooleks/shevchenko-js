@@ -1,17 +1,5 @@
 import AbstractName from "./AbstractName";
-
-/**
- * Validate middle name value.
- *
- * @param {*} middleName
- * @throws {TypeError}
- */
-export function validateMiddleNameValue(middleName) {
-    const isAllowedType = typeof middleName === "string";
-    if (!isAllowedType) {
-        throw new TypeError("Invalid middle name type. Allowed types: string.");
-    }
-}
+import validate from "./validate";
 
 export default class MiddleName extends AbstractName {
     /**
@@ -21,10 +9,8 @@ export default class MiddleName extends AbstractName {
      */
     constructor(middleName) {
         super();
-
-        validateMiddleNameValue(middleName);
+        validate.middleNameValue(middleName);
         this._value = middleName;
-
         this.valueOf = this.valueOf.bind(this);
     }
 

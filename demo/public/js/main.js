@@ -25,8 +25,13 @@
 
     function initializeInflectionPreview(index, callback) {
         index = typeof index === "undefined" ? randomNumber(0, writers.length - 1) : 0;
-        var inflectedPerson = shevchenko.inVocative(writers[index]);
-        var value = inflectedPerson.firstName + " " + inflectedPerson.middleName + " " + inflectedPerson.lastName;
+        var inflectedAnthroponym = shevchenko.inVocative(writers[index]);
+        var value =
+            inflectedAnthroponym.firstName +
+            " " +
+            inflectedAnthroponym.middleName +
+            " " +
+            inflectedAnthroponym.lastName;
         callback(value);
     }
 
@@ -35,29 +40,29 @@
         return min ? random + min : random;
     }
 
-    function buildPerson(gender, lastName, firstName, middleName) {
-        var person = {};
-        person.gender = gender;
-        person.lastName = lastName;
-        person.firstName = firstName;
-        person.middleName = middleName;
-        return person;
+    function buildAnthroponym(gender, lastName, firstName, middleName) {
+        var anthroponym = {};
+        anthroponym.gender = gender;
+        anthroponym.lastName = lastName;
+        anthroponym.firstName = firstName;
+        anthroponym.middleName = middleName;
+        return anthroponym;
     }
 
-    function getDefaultPerson() {
-        return buildPerson("male", "Шевченко", "Тарас", "Григорович");
+    function getDefaultAnthroponym() {
+        return buildAnthroponym("male", "Шевченко", "Тарас", "Григорович");
     }
 
-    function inflect(person, successCallback) {
-        const results = shevchenko.inAll(person);
+    function inflect(anthroponym, successCallback) {
+        const results = shevchenko.inAll(anthroponym);
         for (var caseName in results) {
             if (results.hasOwnProperty(caseName)) {
-                successCallback(person, caseName, results[caseName]);
+                successCallback(anthroponym, caseName, results[caseName]);
             }
         }
     }
 
-    function setInflectionResult(person, caseName, result) {
+    function setInflectionResult(anthroponym, caseName, result) {
         var lastNameResultSelector = $("#" + caseName + "LastName");
         var firstNameResultSelector = $("#" + caseName + "FirstName");
         var middleNameResultSelector = $("#" + caseName + "MiddleName");
@@ -89,13 +94,13 @@
     }, 5000);
 
     $(document).ready(function() {
-        var person = getDefaultPerson();
-        inflect(person, setInflectionResult);
+        var anthroponym = getDefaultAnthroponym();
+        inflect(anthroponym, setInflectionResult);
     });
 
     $("#inflection-form").submit(function(event) {
         event.preventDefault();
-        var person = buildPerson(
+        var anthroponym = buildAnthroponym(
             $("[name=gender]:checked")
                 .val()
                 .trim(),
@@ -109,10 +114,10 @@
                 .val()
                 .trim(),
         );
-        if (!person.firstName.length && !person.lastName.length && !person.middleName.length) {
-            person = getDefaultPerson();
+        if (!anthroponym.firstName.length && !anthroponym.lastName.length && !anthroponym.middleName.length) {
+            anthroponym = getDefaultAnthroponym();
         }
-        inflect(person, setInflectionResult);
+        inflect(anthroponym, setInflectionResult);
     });
 
     $.get("https://api.github.com/repos/tooleks/shevchenko-js", function(data) {

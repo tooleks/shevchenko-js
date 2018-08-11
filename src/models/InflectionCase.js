@@ -1,18 +1,5 @@
 import AbstractModel from "./AbstractModel";
-
-/**
- * Validate inflection case value.
- *
- * @param {*} inflectionCase
- * @throws {TypeError}
- */
-export function validateInflectionCaseValue(inflectionCase) {
-    const allowedValues = Object.values(INFLECTION_CASES);
-    const isAllowedValue = allowedValues.indexOf(inflectionCase) !== -1;
-    if (!isAllowedValue) {
-        throw new TypeError(`Invalid inflection case value. Allowed values: ${allowedValues.join(", ")}.`);
-    }
-}
+import validate from "./validate";
 
 /**
  * Inflection case values.
@@ -37,7 +24,7 @@ export default class InflectionCase extends AbstractModel {
      */
     constructor(inflectionCase) {
         super();
-        validateInflectionCaseValue(inflectionCase);
+        validate.inflectionCaseValue(inflectionCase);
         this._value = inflectionCase;
         this.valueOf = this.valueOf.bind(this);
     }

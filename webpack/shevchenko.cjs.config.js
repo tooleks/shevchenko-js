@@ -10,5 +10,6 @@ export default webpackMerge(commonConfig, {
         filename: `${pkg.name}.cjs.js`,
         library: pkg.name,
         libraryTarget: "commonjs2",
+        libraryExport: "default",
     },
 });
