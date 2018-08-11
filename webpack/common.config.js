@@ -1,16 +1,25 @@
-"use strict";
+import moment from "moment";
+import webpack from "webpack";
+import ReplacePlugin from "webpack-plugin-replace";
+import macro from "../macro";
+import pkg from "../package.json";
 
-const moment = require("moment");
-const webpack = require("webpack");
-const ReplacePlugin = require("webpack-plugin-replace");
-const MACRO = require("../macro");
-const pkg = require("../package");
+/**
+ * Get banner content.
+ *
+ * @param {object} pkg
+ * @return {string}
+ */
+function getBanner(pkg) {
+    const name = `${pkg.name} v${pkg.version}`;
+    const timestamp = moment.utc().toISOString();
+    const copyright = `Copyright (c) ${pkg.author}`;
+    const license = `License: ${pkg.license}`;
+    return `${name} / ${timestamp} / ${copyright} / ${license}`;
+}
 
-module.exports = {
+export default {
     mode: process.env.NODE_ENV || "production",
-    output: {
-        libraryTarget: "commonjs2",
-    },
     module: {
         rules: [
             {
@@ -22,6 +31,9 @@ module.exports = {
             },
         ],
     },
+    externals: {
+        synaptic: "synaptic",
+    },
     optimization: {
         minimize: false,
     },
@@ -29,18 +41,15 @@ module.exports = {
         new ReplacePlugin({
             exclude: /node_modules/,
             values: {
-                "process.env.INFLECTION_RULES": JSON.stringify(MACRO.INFLECTION_RULES),
-                "process.env.POS_NN_A_YA_STRUCTURE": JSON.stringify(MACRO.POS_NN_A_YA_STRUCTURE),
-                "process.env.POS_NN_A_YA_CACHE": JSON.stringify(MACRO.POS_NN_A_YA_CACHE),
-                "process.env.POS_NN_OI_YI_II_STRUCTURE": JSON.stringify(MACRO.POS_NN_OI_YI_II_STRUCTURE),
-                "process.env.POS_NN_OI_YI_II_CACHE": JSON.stringify(MACRO.POS_NN_OI_YI_II_CACHE),
-                "process.env.POS_NN_YH_STRUCTURE": JSON.stringify(MACRO.POS_NN_YH_STRUCTURE),
-                "process.env.POS_NN_YH_CACHE": JSON.stringify(MACRO.POS_NN_YH_CACHE),
+                "process.env.INFLECTION_RULES": JSON.stringify(macro.INFLECTION_RULES),
+                "process.env.POS_NN_A_YA_STRUCTURE": JSON.stringify(macro.POS_NN_A_YA_STRUCTURE),
+                "process.env.POS_NN_A_YA_CACHE": JSON.stringify(macro.POS_NN_A_YA_CACHE),
+                "process.env.POS_NN_OI_YI_II_STRUCTURE": JSON.stringify(macro.POS_NN_OI_YI_II_STRUCTURE),
+                "process.env.POS_NN_OI_YI_II_CACHE": JSON.stringify(macro.POS_NN_OI_YI_II_CACHE),
+                "process.env.POS_NN_YH_STRUCTURE": JSON.stringify(macro.POS_NN_YH_STRUCTURE),
+                "process.env.POS_NN_YH_CACHE": JSON.stringify(macro.POS_NN_YH_CACHE),
             },
         }),
-        new webpack.BannerPlugin(
-            `/* ${pkg.name} v${pkg.version} ${moment.utc().toISOString()}.` +
-                ` Copyright (c) ${pkg.author}. License: ${pkg.license}. */`,
-        ),
+        new webpack.BannerPlugin(getBanner(pkg)),
     ],
 };

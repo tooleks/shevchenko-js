@@ -1,1 +1,1 @@
-### Male surnames with endings "-их"
+### Male last names with endings "-их"

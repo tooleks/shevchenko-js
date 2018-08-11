@@ -1,1 +1,1 @@
-### Male surnames with endings "-ой", "-ий", "-ій"
+### Male last names with endings "-ой", "-ий", "-ій"

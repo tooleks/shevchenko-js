@@ -1,28 +1,35 @@
-"use strict";
+import fs from "fs";
+import path from "path";
+import NeuralNetwork from "../../src/services/pos/nn/NeuralNetwork";
+import * as neuralNetworkUtil from "../../src/services/pos/nn/neuralNetworkUtil";
 
-const fs = require("fs");
-const {isValidPos, encodeInput, encodeOutput, NeuralNetwork} = require("../../src/pos/NeuralNetwork");
+/**
+ * @type {Array}
+ */
+import samples from "./samples.json";
 
-const data = require("./data/samples.json")
-    .filter((sample) => isValidPos(sample.pos))
-    .map((sample) => {
-        return {
-            input: encodeInput(sample.value),
-            output: encodeOutput(sample.pos),
-        };
-    });
+/**
+ * @type {object}
+ */
+import structure from "./structure.json";
+
+const sampleData = samples.filter((sample) => neuralNetworkUtil.isValidPos(sample.pos)).map((sample) => {
+    const input = neuralNetworkUtil.encodeInput(sample.value);
+    const output = neuralNetworkUtil.encodeOutput(sample.pos);
+    return {input, output};
+});
 
 const options = {
-    rate: 0.02,
+    rate: 0.01,
     iterations: 1000,
     shuffle: true,
-    error: 0.001,
+    error: 0.005,
     log: 1,
 };
 
-const posNn =
+const neuralNetwork =
     process.argv[2] !== "force"
-        ? new NeuralNetwork(require("./structure.json")).train(data, options)
-        : NeuralNetwork.build(data, options);
+        ? new NeuralNetwork(structure).train(sampleData, options)
+        : NeuralNetwork.build(sampleData, options);
 
-fs.writeFileSync(__dirname + "/structure.json", posNn.toString());
+fs.writeFileSync(path.join(__dirname, "structure.json"), String(neuralNetwork));

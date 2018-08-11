@@ -2,17 +2,16 @@
 .nyc_output
 node_modules
 .babelrc
-.eslintrc.js
 npm-debug.log
-prettier.config.js
 
 /data
 /demo
-/dist/__NeuralNetwork__
 /nn
 /rules
 /tests
-/tmp
 /webpack
-/macro.js
+
 /gulpfile.js
+/macro.js
+/prettier.config.js
+/webpack.config.js

@@ -1,3 +1,3 @@
-"use strict";
+import rules from "./rules.json";
 
-module.exports = require("./rules.json");
+export default rules;

@@ -1,0 +1,48 @@
+import Anthroponym from "../../models/Anthroponym";
+
+export default class AnthroponymInflector {
+    /**
+     * AnthroponymInflector constructor.
+     *
+     * @param {FirstNameInflector} firstNameInflector
+     * @param {MiddleNameInflector} middleNameInflector
+     * @param {LastNameInflector} lastNameInflector
+     */
+    constructor(firstNameInflector, middleNameInflector, lastNameInflector) {
+        this._firstNameInflector = firstNameInflector;
+        this._middleNameInflector = middleNameInflector;
+        this._lastNameInflector = lastNameInflector;
+        this.inflect = this.inflect.bind(this);
+    }
+
+    /**
+     * Inflect the anthroponym first, last and middle names.
+     *
+     * @param {Anthroponym} anthroponym
+     * @param {InflectionCase} inflectionCase
+     * @return {Anthroponym}
+     */
+    inflect(anthroponym, inflectionCase) {
+        const attributes = {};
+
+        if (anthroponym.hasFirstName()) {
+            attributes.firstName = this._firstNameInflector
+                .inflect(anthroponym.getFirstName(), anthroponym.getGender(), inflectionCase)
+                .valueOf();
+        }
+
+        if (anthroponym.hasMiddleName()) {
+            attributes.middleName = this._middleNameInflector
+                .inflect(anthroponym.getMiddleName(), anthroponym.getGender(), inflectionCase)
+                .valueOf();
+        }
+
+        if (anthroponym.hasLastName()) {
+            attributes.lastName = this._lastNameInflector
+                .inflect(anthroponym.getLastName(), anthroponym.getGender(), inflectionCase)
+                .valueOf();
+        }
+
+        return new Anthroponym({...attributes, gender: anthroponym.getGender().valueOf()});
+    }
+}

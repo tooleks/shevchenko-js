@@ -1,7 +1,5 @@
-"use strict";
+import shevchenkoCjsConfig from "./shevchenko.cjs.config";
+import shevchenkoUmdConfig from "./shevchenko.umd.config";
+import shevchenkoUmdMinConfig from "./shevchenko.umd.min.config";
 
-const bundleConfig = require("./bundle.config");
-const moduleConfig = require("./module.config");
-const __NeuralNetwork__Config = require("./__NeuralNetwork__.config");
-
-module.exports = [bundleConfig, moduleConfig, __NeuralNetwork__Config];
+export default [shevchenkoCjsConfig, shevchenkoUmdConfig, shevchenkoUmdMinConfig];

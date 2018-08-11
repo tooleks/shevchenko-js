@@ -1,14 +1,17 @@
 {
   "name": "shevchenko",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "The JavaScript library to inflect Ukrainian first, middle and last names",
-  "main": "./dist/module/shevchenko.js",
+  "main": "./dist/shevchenko.umd.js",
   "scripts": {
-    "update:rules": "gulp update:rules",
-    "build": "./node_modules/.bin/webpack --config './webpack/webpack.config.js'",
-    "test": "./node_modules/mocha/bin/mocha --recursive --bail --timeout 240000 tests",
+    "update-rules": "./node_modules/.bin/gulp update:rules",
+    "train-nn-pos-a-ya": "node -r esm './nn/POS_A_YA/train.js'",
+    "train-nn-pos-oi-yi-ii": "node -r esm './nn/POS_OI_YI_II/train.js'",
+    "train-nn-pos-yh": "node -r esm './nn/POS_YH/train.js'",
+    "build": "./node_modules/.bin/webpack --config './webpack.config.js'",
+    "test": "./node_modules/mocha/bin/mocha -r esm --recursive --bail './tests/main.js'",
     "formatter": "./node_modules/.bin/prettier --write '**/*.js' '!dist/**'",
-    "build-preparation": "npm run update:rules && npm run formatter && npm run build && npm run test"
+    "build-release": "npm run update-rules && npm run formatter && npm run build && npm run test"
   },
   "keywords": [
     "inflection",
@@ -49,22 +52,26 @@
     "url": "https://github.com/tooleks/shevchenko-js/issues"
   },
   "homepage": "https://github.com/tooleks/shevchenko-js#readme",
+  "dependencies": {
+    "synaptic": "^1.1.4"
+  },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
     "babel-plugin-transform-object-rest-spread": "^6.26.0",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.1.2",
+    "esm": "^3.0.74",
+    "faker": "^4.1.0",
     "gulp": "^3.9.1",
     "mocha": "^3.5.3",
     "moment": "^2.22.2",
-    "prettier": "^1.13.7",
+    "prettier": "^1.14.2",
     "readline-sync": "^1.4.9",
-    "request": "^2.87.0",
-    "synaptic": "^1.1.4",
-    "webpack": "^4.16.1",
+    "request": "^2.88.0",
+    "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
-    "webpack-merge": "^4.1.3",
+    "webpack-merge": "^4.1.4",
     "webpack-plugin-replace": "^1.1.1"
   }
 }
