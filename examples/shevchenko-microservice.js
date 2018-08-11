@@ -1,7 +1,7 @@
 "use strict";
 
 const http = require("http");
-const shevchenko = require("../dist/shevchenko.cjs");
+const shevchenko = require("shevchenko");
 
 const port = process.env.PORT || 8000;
 
