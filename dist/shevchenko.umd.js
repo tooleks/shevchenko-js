@@ -1,4 +1,4 @@
-/*! shevchenko v1.1.0 / 2018-08-11T12:18:55.163Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
+/*! shevchenko v1.1.0 / 2018-08-11T12:36:19.112Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
 (function webpackUniversalModuleDefinition(root, factory) {
 	if(typeof exports === 'object' && typeof module === 'object')
 		module.exports = factory(require("synaptic"));
@@ -120,7 +120,6 @@ var AbstractModel = function () {
         if (new.target === AbstractModel) {
             throw new Error("AbstractModel instance cannot be constructed directly.");
         }
-
         this.equals = this.equals.bind(this);
     }
 
@@ -183,7 +182,6 @@ var AbstractName = function (_AbstractModel) {
         if (new.target === AbstractName) {
             throw new Error("AbstractName instance cannot be constructed directly.");
         }
-
         _this.mapCompoundParts = _this.mapCompoundParts.bind(_this);
         return _this;
     }

@@ -6,11 +6,9 @@ export default class AbstractName extends AbstractModel {
      */
     constructor() {
         super();
-
         if (new.target === AbstractName) {
             throw new Error("AbstractName instance cannot be constructed directly.");
         }
-
         this.mapCompoundParts = this.mapCompoundParts.bind(this);
     }
 

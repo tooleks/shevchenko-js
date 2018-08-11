@@ -6,7 +6,6 @@ export default class AbstractModel {
         if (new.target === AbstractModel) {
             throw new Error("AbstractModel instance cannot be constructed directly.");
         }
-
         this.equals = this.equals.bind(this);
     }
 
