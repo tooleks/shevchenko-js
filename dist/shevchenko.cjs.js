@@ -1,4 +1,4 @@
-/*! shevchenko v1.1.3 / 2018-08-11T14:46:34.711Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
+/*! shevchenko v1.1.5 / 2018-08-11T14:55:44.528Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
