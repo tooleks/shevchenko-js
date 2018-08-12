@@ -8,25 +8,8 @@ body {
     color: #ff0000;
 }
 
-.container .jumbotron,
-.btn,
-.panel,
-.alert,
-.form-control,
-.table,
-.modal-content,
-pre {
-    border-radius: 2px;
-}
-
 #home h1 {
     font-size: 40px;
-}
-
-@media (min-width: 768px) {
-    .pull-right-md-lg {
-        float: right;
-    }
 }
 
 .navbar-brand {

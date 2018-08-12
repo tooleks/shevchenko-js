@@ -1,52 +1,10 @@
-/**
- * An array of inflection rules.
- *
- * @type {Array<object>}
- */
 import INFLECTION_RULES from "./rules";
-
-/**
- * A neural network structure for female last names with endings "-a", "-я".
- *
- * @type {object}
- */
 import POS_NN_A_YA_STRUCTURE from "./nn/POS_A_YA/structure.json";
-
-/**
- * A neural network samples for female last names with endings "-a", "-я".
- *
- * @type {Array<object>}
- */
 import POS_NN_A_YA_SAMPLES from "./nn/POS_A_YA/samples.json";
-
-/**
- * A neural network structure for male last names with endings "-ой", "-ий", "-ій".
- *
- * @type {object}
- */
 import POS_NN_OI_YI_II_STRUCTURE from "./nn/POS_OI_YI_II/structure.json";
-
-/**
- * A neural network samples for male last names with endings "-ой", "-ий", "-ій".
- *
- * @type {Array<object>}
- */
 import POS_NN_OI_YI_II_SAMPLES from "./nn/POS_OI_YI_II/samples.json";
-
-/**
- * A neural network structure for male last names with endings "-их".
- *
- * @type {object}
- */
 import POS_NN_YH_STRUCTURE from "./nn/POS_YH/structure.json";
-
-/**
- * A neural network samples for male last names with endings "-их".
- *
- * @type {Array<object>}
- */
 import POS_NN_YH_SAMPLES from "./nn/POS_YH/samples.json";
-
 import NeuralNetwork from "./src/services/pos/nn/NeuralNetwork";
 
 /**
@@ -56,7 +14,7 @@ import NeuralNetwork from "./src/services/pos/nn/NeuralNetwork";
  * @param {object} sample
  * @return {object}
  */
-function cacheSample(cache, sample) {
+function addSampleToCache(cache, sample) {
     cache[sample.value] = sample.pos;
     return cache;
 }
@@ -70,20 +28,20 @@ const POS_NN_OI_YI_II_CACHE = {};
 const POS_NN_YH = new NeuralNetwork(POS_NN_YH_STRUCTURE);
 const POS_NN_YH_CACHE = {};
 
-// Create a neural network cache for badly recognized samples if we are not in the test mode.
+// Create a neural network cache for badly recognized samples only in the test environment.
 if (process.env.NODE_ENV !== "test") {
     POS_NN_A_YA_SAMPLES.filter((sample) => sample.pos !== POS_NN_A_YA.run(sample.value)).reduce(
-        cacheSample,
+        addSampleToCache,
         POS_NN_A_YA_CACHE,
     );
 
     POS_NN_OI_YI_II_SAMPLES.filter((sample) => sample.pos !== POS_NN_OI_YI_II.run(sample.value)).reduce(
-        cacheSample,
+        addSampleToCache,
         POS_NN_OI_YI_II_CACHE,
     );
 
     POS_NN_YH_SAMPLES.filter((sample) => sample.pos !== POS_NN_YH.run(sample.value)).reduce(
-        cacheSample,
+        addSampleToCache,
         POS_NN_YH_CACHE,
     );
 }

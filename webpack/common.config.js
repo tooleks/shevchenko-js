@@ -37,6 +37,7 @@ export default {
     optimization: {
         minimize: false,
     },
+    devtool: "source-map",
     plugins: [
         new ReplacePlugin({
             exclude: /node_modules/,

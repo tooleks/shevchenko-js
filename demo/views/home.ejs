@@ -1,19 +1,18 @@
 <%- include('./layout/header') -%>
 <%- include('./layout/navbar') -%>
 <%- include('./layout/flashes') -%>
-<div id="home" class="jumbotron">
-    <h1>shevchenko <span class="visible-md-inline visible-lg-inline"><small id="preview"></small></span>
-    </h1>
+<div id="home" class="jumbotron my-2">
+    <h1 class="text-truncate">shevchenko <span class="d-none d-lg-inline"><small id="preview" class="text-muted"></small></span></h1>
     <p><%= __('app_description') %></p>
     <p>
         <a class="btn btn-lg btn-primary" href="<%= __url.current %>#demo" role="button"><%= __('demo') %></a>
         <a class="btn btn-lg btn-default" href="<%= __url.current %>#usage" role="button"><%= __('usage') %></a>
     </p>
 </div>
-<div class="row">
-    <div class="col-sm-12">
-        <h2 id="demo"><%= __('demo') %>
-            <span class="btn-group pull-right">
+<div class="row my-2">
+    <div class="col">
+        <h2 id="demo" class="my-2"><%= __('demo') %>
+            <span class="btn-group float-right">
                     <a class="btn btn-lg btn-link btn-share-link"
                        href="<%= __shareUrl.facebook %>"
                        title="<%= __('share_on_facebook') %>"
@@ -32,16 +31,16 @@
                        target="_blank"><i class="fa fa-linkedin color-linkedin" aria-hidden="true"></i></a>
                 </span>
         </h2>
-        <hr>
     </div>
 </div>
-<div class="row">
+<div class="row my-2">
     <div class="col-sm-12 col-md-5">
-        <div class="panel panel-default">
-            <div class="panel-body">
-                <div class="alert alert-info" role="alert"><%= __('inflection_form_description') %>
-                </div>
-                <form id="inflection-form">
+        <form id="inflection-form">
+            <div class="card mb-sm-2">
+                <div class="card-body">
+                    <div class="alert alert-secondary" role="alert">
+                        <%= __('inflection_form_description') %>
+                    </div>
                     <div class="form-group">
                         <label class="radio-inline">
                             <input type="radio" name="gender" value="male" checked="checked"> <%= __('male') %>
@@ -74,19 +73,21 @@
                                id="middleName"
                                placeholder="Григорович">
                     </div>
+                </div>
+                <div class="card-footer">
                     <button type="submit"
                             class="btn btn-primary btn-inflection-form"><%= __('inflect') %></button>
                     <button class="btn btn-link pull-right btn-inflection-form"
                             type="button"
                             data-toggle="modal"
                             data-target="#contactMe"><%= __('found_bug') %></button>
-                </form>
+                </div>
             </div>
-        </div>
+        </form>
     </div>
     <div class="col-sm-12 col-md-7">
-        <div class="panel panel-default table-responsive">
-            <table class="table table-striped table-bordered">
+        <div class="card">
+            <table class="table table-striped table-bordered table-responsive-xl m-0">
                 <tr>
                     <th><%= __('case') %></th>
                     <th><%= __('last_name') %></th>
@@ -139,45 +140,39 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col-sm-12">
+<div class="row my-2">
+    <div class="col">
         <h2 id="documentation"><%= __('documentation') %> <a
                     href="<%= __('library_documentation_url') %>"
                     target="_blank"
                     class="btn btn-link"><%= __('full_version') %></a></h2>
-        <hr>
-        <h3 id="usage"><%= __('usage') %></h3>
-        <pre style="background:#fff;color:#3b3b3b"><span style="color:#ff5600">var</span> anthroponym <span
-                    style="color:#069;font-weight:700">=</span> {
-    gender: <span style="color:#666">"male"</span>, <span style="color:#af82d4">// or "female"</span>
-    firstName: <span style="color:#666">"Тарас"</span>,
-    middleName: <span style="color:#666">"Григорович"</span>,
-    lastName: <span style="color:#666">"Шевченко"</span>
+        <div class="card my-2">
+            <div class="card-body">
+                <h5 class="card-title"><%= __('installation') %></h5>
+                <pre>npm install --save shevchenko</pre>
+                <h6 class="card-subtitle mb-2 text-muted">Node.js</h6>
+                <pre>const shevchenko = require("shevchenko");</pre>
+                <h6 class="card-subtitle mb-2 text-muted"><%= __('browser') %></h6>
+                <pre class="mb-0"><‍script type="text/javascript" src="/path/to/shevchenko/dist/shevchenko.umd.min.js"><‍/script></pre>
+            </div>
+        </div>
+        <div class="card my-2">
+            <div class="card-body">
+                <h5 id="usage" class="card-title"><%= __('usage') %></h5>
+                <pre class="mb-0">
+const anthroponym = {
+    gender: "male", // or "female"
+    firstName: "Тарас",
+    middleName: "Григорович",
+    lastName: "Шевченко"
 };
 
-<span style="color:#ff5600">var</span> result <span style="color:#069;font-weight:700">=</span> shevchenko.inVocative(anthroponym);
+const result = shevchenko.inVocative(anthroponym);
 
-<span style="color:#21439c">console.log</span>(result); <span style="color:#af82d4">// {gender: "male", firstName: "Тарасе", middleName: "Григоровичу", lastName: "Шевченку"}</span>
-</pre>
-        <a href="<%= __('library_documentation_url') %>"
-           target="_blank"
-           class="btn btn-primary"><%= __('more_info') %></a>
-        <h3><%= __('installation') %></h3>
-        <pre style="background:#fff;color:#3b3b3b">npm install <span
-                    style="color:#af82d4">--save shevchenko</span></pre>
-        <h3><%= __('connection') %></h3>
-        <h4>Node.js</h4>
-        <pre style="background:#fff;color:#3b3b3b"><span style="color:#ff5600">var</span> shevchenko <span
-                    style="color:#069;font-weight:700">=</span> require(<span
-                    style="color:#666">"shevchenko"</span>);</pre>
-        <h4><%= __('browser') %></h4>
-        <pre style="background:#fff;color:#3b3b3b"><span style="color:#069;font-weight:700">&lt;</span>‍script type<span
-                    style="color:#069;font-weight:700">=</span><span
-                    style="color:#666">"text/javascript"</span> src<span
-                    style="color:#069;font-weight:700">=</span><span style="color:#666">"/path/to/shevchenko/dist/shevchenko.umd.min.js"</span><span
-                    style="color:#069;font-weight:700">></span><span style="color:#069;font-weight:700">&lt;</span>‍/script<span
-                    style="color:#069;font-weight:700">></span>
-</pre>
+console.log(result); // {gender: "male", firstName: "Тарасе", middleName: "Григоровичу", lastName: "Шевченку"}
+                </pre>
+            </div>
+        </div>
     </div>
 </div>
 <%- include('./layout/footer') -%>
