@@ -4,7 +4,7 @@
   "description": "The demo page for the JavaScript library to inflect Ukrainian first, middle and last names",
   "main": "./bin/www",
   "scripts": {
-    "start": "node './bin/www'",
+    "start": "./bin/www",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Oleksandr Tolochko <tooleks@gmail.com>",

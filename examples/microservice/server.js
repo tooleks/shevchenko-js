@@ -3,7 +3,7 @@
 const http = require("http");
 const shevchenko = require("shevchenko");
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3000;
 
 const server = http.createServer((request, response) => {
     response.setHeader("Content-Type", "application/json");
@@ -29,7 +29,7 @@ const server = http.createServer((request, response) => {
 server.listen(port, (error) => {
     if (error) {
         console.log("An error has occurred.", error);
-        return;
+    } else {
+        console.log(`Server is listening on ${port} port.`);
     }
-    console.log(`Server is listening on ${port} port.`);
 });
