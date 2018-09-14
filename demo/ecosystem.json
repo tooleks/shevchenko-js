@@ -1,0 +1,8 @@
+{
+  "apps": [
+    {
+      "name": "shevchenko-js-demo",
+      "script": "./bin/www"
+    }
+  ]
+}
