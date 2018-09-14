@@ -6,8 +6,8 @@ import cookieParser from "cookie-parser";
 import flash from "connect-flash";
 import ejs from "ejs";
 
-import {localesPath} from './paths';
-import * as middlewareFactory from './src/http/middleware/factory';
+import {localesPath} from "./paths";
+import * as middlewareFactory from "./src/http/middleware/factory";
 import router from "./src/http/routes/router";
 
 const app = express();

@@ -1,5 +1,5 @@
-import express from 'express';
-import * as controllersFactory from '../controllers/factory';
+import express from "express";
+import * as controllersFactory from "../controllers/factory";
 
 const router = express.Router();
 
