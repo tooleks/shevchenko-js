@@ -4,12 +4,12 @@
   "description": "",
   "main": "./bin/www",
   "scripts": {
-    "start": "./bin/www",
+    "start": "node './server.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Oleksandr Tolochko <tooleks@gmail.com>",
   "license": "MIT",
   "dependencies": {
-    "shevchenko": "^1.1.5"
+    "shevchenko": "^1.1.6"
   }
 }
