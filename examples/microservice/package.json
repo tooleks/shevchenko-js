@@ -1,5 +1,5 @@
 {
-  "name": "shevchenko-microservice",
+  "name": "shevchenko-js-microservice",
   "version": "0.0.0",
   "description": "",
   "main": "./bin/www",
