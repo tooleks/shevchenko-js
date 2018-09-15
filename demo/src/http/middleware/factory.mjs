@@ -1,7 +1,7 @@
+import * as servicesFactory from "../../services/factory";
 import ErrorHandler from "./ErrorHandler";
 import RedirectToHome from "./RedirectToHome";
 import Utils from "./Utils";
-import * as servicesFactory from "../../services/factory";
 
 /** @return {ErrorHandler} */
 export function errorHandler() {
