@@ -8,3 +8,5 @@ start-prod:
 restart-prod:
 	make link
 	./node_modules/.bin/pm2 restart './ecosystem.json'
+stop-prod:
+	./node_modules/.bin/pm2 stop './ecosystem.json'

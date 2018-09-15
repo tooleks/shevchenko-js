@@ -1,6 +1,6 @@
+import * as servicesFactory from "../../services/factory";
 import ContactMeController from "./ContactMeController";
 import HomeController from "./HomeController";
-import * as servicesFactory from "../../services/factory";
 
 /** @return {ContactMeController} */
 export function contactMeController() {
