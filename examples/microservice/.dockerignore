@@ -3,6 +3,7 @@ node_modules
 
 # Docker
 Dockerfile
+docker-compose.yml
 
 # Project
 *.log
