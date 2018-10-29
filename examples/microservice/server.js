@@ -1,35 +1,25 @@
 "use strict";
 
-const http = require("http");
+const express = require("express");
+const bodyParser = require("body-parser");
 const shevchenko = require("shevchenko");
+const pkg = require("./package.json");
 
-const port = process.env.PORT || 3000;
+process.env.PORT = process.env.PORT || 3000;
 
-const server = http.createServer((request, response) => {
-    response.setHeader("Content-Type", "application/json");
-    if (request.method === "POST") {
-        const chunks = [];
-        request.on("data", (chunk) => chunks.push(chunk));
-        request.on("end", () => {
-            try {
-                const body = JSON.parse(Buffer.concat(chunks));
-                const result = shevchenko(body.anthroponym, body.caseName);
-                response.end(JSON.stringify(result));
-            } catch (error) {
-                response.statusCode = 422;
-                response.end(JSON.stringify(error.message));
-            }
-        });
-    } else {
-        response.statusCode = 405;
-        response.end(JSON.stringify("Method Not Allowed"));
-    }
+const app = express();
+
+app.use(bodyParser.json());
+
+app.post('/', (req, res) => {
+    setImmediate(() => {
+        try {
+            const anthroponym = shevchenko(req.body.anthroponym, req.body.caseName);
+            res.json(anthroponym);
+        } catch (error) {
+            res.status(422).send(error.message);
+        }
+    });
 });
 
-server.listen(port, (error) => {
-    if (error) {
-        console.log("An error has occurred.", error);
-    } else {
-        console.log(`Server is listening on ${port} port.`);
-    }
-});
+app.listen(process.env.PORT, () => console.log(`${pkg.name} is listening on ${process.env.PORT} port.`));

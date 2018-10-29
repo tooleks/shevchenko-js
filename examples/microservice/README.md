@@ -1,19 +1,15 @@
-## shevchenko microservice
+# shevchenko-js microservice
 
-### Installation
+## Requirements
 
-Run the following command to install the application dependencies.
+Docker 17.10, Docker Compose 1.14
 
-```bash
-npm install
-```
+## Usage
 
-### Usage
-
-Run the following command to start the application.
+Run the following command to start the microservice.
 
 ```bash
-npm start
+docker-compose up
 ```
 
 Run the following command (in another terminal window) to verify the installation.
