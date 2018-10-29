@@ -9,8 +9,8 @@ require = require("esm")(module);
 require("../env");
 const app = require("../app").default;
 
-const port = process.env.HTTP_PORT || 8080;
+process.env.PORT = process.env.PORT || 3000;
 
-app.listen(port, () => {
-    console.log(`Listening on port ${port}.`);
+app.listen(process.env.PORT, () => {
+    console.log(`Listening on port ${process.env.PORT}.`);
 });
