@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  shevchenko-js-microservice.docker:
+    build: .
+    image: shevchenko-js-microservice
+    container_name: shevchenko-js-microservice
+    restart: always
+    ports:
+    - 3000:3000

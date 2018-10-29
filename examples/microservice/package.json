@@ -2,7 +2,7 @@
   "name": "shevchenko-js-microservice",
   "version": "0.0.0",
   "description": "",
-  "main": "./bin/www",
+  "main": "./server.js",
   "scripts": {
     "start": "node './server.js'",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -10,6 +10,8 @@
   "author": "Oleksandr Tolochko <tooleks@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
     "shevchenko": "^1.1.6"
   }
 }
