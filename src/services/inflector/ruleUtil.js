@@ -5,7 +5,7 @@
  * @return {boolean}
  */
 export function matchGender(rule, gender) {
-    return rule.gender.indexOf(gender.valueOf()) !== -1;
+  return rule.gender.includes(gender.toString());
 }
 
 /**
@@ -16,10 +16,10 @@ export function matchGender(rule, gender) {
  * @return {boolean}
  */
 export function matchUsage(rule, usage, strict = false) {
-    if (rule.usages.length) {
-        return rule.usages.indexOf(usage) !== -1;
-    }
-    return !strict;
+  if (rule.usages.length) {
+    return rule.usages.includes(usage);
+  }
+  return !strict;
 }
 
 /**
@@ -32,7 +32,7 @@ export function matchUsage(rule, usage, strict = false) {
  * @return {boolean}
  */
 export function matchRegExp(rule, word) {
-    return new RegExp(rule.regexp.find, "gim").test(word);
+  return new RegExp(rule.regexp.find, 'gim').test(word);
 }
 
 /**
@@ -42,10 +42,10 @@ export function matchRegExp(rule, word) {
  * @return {boolean}
  */
 export function matchPos(rule, pos) {
-    if (pos === null) {
-        return true;
-    }
-    return rule.pos === pos;
+  if (pos === null) {
+    return true;
+  }
+  return rule.pos === pos;
 }
 
 /**
@@ -57,5 +57,5 @@ export function matchPos(rule, pos) {
  * @return {number}
  */
 export function compareUsage(firstRule, secondRule, usage) {
-    return !firstRule.usages.length && secondRule.usages.length && secondRule.usages.indexOf(usage) !== -1;
+  return !firstRule.usages.length && secondRule.usages.length && secondRule.usages.includes(usage);
 }

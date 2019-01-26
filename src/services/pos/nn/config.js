@@ -22,9 +22,10 @@ export const NETWORK_LAYER_SIZE_OUTPUT = 1;
 /**
  * Preconfigured mapping for parts of speech.
  *
- * @type {Readonly}
+ * @readonly
+ * @type {object}
  */
 export const POS_MAPPING = Object.freeze({
-    noun: [0],
-    adjective: [1],
+  noun: [0],
+  adjective: [1],
 });

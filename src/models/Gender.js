@@ -1,55 +1,50 @@
-import AbstractModel from "./AbstractModel";
-import validate from "./validate";
+import validate from './validate';
 
 /**
  * Gender values.
  *
- * @type {Readonly}
+ * @readonly
+ * @type {object}
  */
 export const GENDERS = Object.freeze({
-    MALE: "male",
-    FEMALE: "female",
+  MALE: 'male',
+  FEMALE: 'female',
 });
 
-export default class Gender extends AbstractModel {
-    /**
-     * Gender constructor.
-     *
-     * @param {string} gender
-     */
-    constructor(gender) {
-        super();
-        validate.genderValue(gender);
-        this._value = gender;
-        this.valueOf = this.valueOf.bind(this);
-        this.isMale = this.isMale.bind(this);
-        this.isFemale = this.isFemale.bind(this);
-    }
+export default class Gender {
+  /**
+   * @param {string} gender
+   */
+  constructor(gender) {
+    validate.genderValue(gender);
+    this._gender = gender;
+    this.toString = this.toString.bind(this);
+    this.isMale = this.isMale.bind(this);
+    this.isFemale = this.isFemale.bind(this);
+  }
 
-    /**
-     * Get the primitive value of the specified object.
-     *
-     * @return {string}
-     */
-    valueOf() {
-        return this._value;
-    }
+  /**
+   * @return {string}
+   */
+  toString() {
+    return this._gender;
+  }
 
-    /**
-     * Determine whether gender value is male.
-     *
-     * @return {boolean}
-     */
-    isMale() {
-        return this.valueOf() === GENDERS.MALE;
-    }
+  /**
+   * Determine whether gender value is male.
+   *
+   * @return {boolean}
+   */
+  isMale() {
+    return this.toString() === GENDERS.MALE;
+  }
 
-    /**
-     * Determine whether gender value is female.
-     *
-     * @return {boolean}
-     */
-    isFemale() {
-        return this.valueOf() === GENDERS.FEMALE;
-    }
+  /**
+   * Determine whether gender value is female.
+   *
+   * @return {boolean}
+   */
+  isFemale() {
+    return this.toString() === GENDERS.FEMALE;
+  }
 }

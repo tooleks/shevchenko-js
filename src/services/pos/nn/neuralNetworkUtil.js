@@ -1,5 +1,5 @@
-import * as stringUtil from "../../util/stringUtil";
-import {POS_MAPPING, NETWORK_LAYER_SIZE_INPUT} from "./config";
+import * as stringUtil from '../../util/stringUtil';
+import {POS_MAPPING, NETWORK_LAYER_SIZE_INPUT} from './config';
 
 /**
  * Determine if provided value is a valid part of speech value.
@@ -8,7 +8,7 @@ import {POS_MAPPING, NETWORK_LAYER_SIZE_INPUT} from "./config";
  * @return {boolean}
  */
 export function isValidPos(value) {
-    return Object.keys(POS_MAPPING).indexOf(value) !== -1;
+  return Object.keys(POS_MAPPING).includes(value);
 }
 
 /**
@@ -18,7 +18,7 @@ export function isValidPos(value) {
  * @return {Array<string>}
  */
 export function encodeInput(input) {
-    return stringUtil.padLeft(stringUtil.toBinary(input), NETWORK_LAYER_SIZE_INPUT).split("");
+  return stringUtil.padLeft(stringUtil.toBinary(input), NETWORK_LAYER_SIZE_INPUT).split('');
 }
 
 /**
@@ -28,7 +28,7 @@ export function encodeInput(input) {
  * @return {Array<number>|undefined}
  */
 export function encodeOutput(output) {
-    return POS_MAPPING[output];
+  return POS_MAPPING[output];
 }
 
 /**
@@ -38,11 +38,11 @@ export function encodeOutput(output) {
  * @return {string|null}
  */
 export function decodeOutput(output) {
-    // Neural network output is an array of values in 0..1 range.
-    // We'll need to convert these values to integer values.
-    // If value greater than or equal to 0.5 - convert to 1.
-    // If value less than 0.5 - convert to 0.
-    const value = output.map((value) => Number(value >= 0.5));
-    const posIndex = Object.values(POS_MAPPING).findIndex((posValue) => posValue.join("") === value.join(""));
-    return Object.keys(POS_MAPPING)[posIndex] || null;
+  // Neural network output is an array of values in 0..1 range.
+  // We'll need to convert these values to integer values.
+  // If value greater than or equal to 0.5 - convert to 1.
+  // If value less than 0.5 - convert to 0.
+  const value = output.map((value) => Number(value >= 0.5));
+  const posIndex = Object.values(POS_MAPPING).findIndex((posValue) => posValue.join('') === value.join(''));
+  return Object.keys(POS_MAPPING)[posIndex] || null;
 }

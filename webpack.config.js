@@ -1,3 +1,3 @@
-import webpackConfig from "./webpack/webpack.config";
+import webpackConfig from './webpack/webpack.config';
 
 export default webpackConfig;
