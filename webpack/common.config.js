@@ -12,7 +12,7 @@ import pkg from '../package.json';
  */
 function getBanner(pkg) {
   const name = `${pkg.name} v${pkg.version}`;
-  const timestamp = moment.utc().toISOString();
+  const timestamp = moment().toISOString();
   const copyright = `Copyright (c) ${pkg.author}`;
   const license = `License: ${pkg.license}`;
   return `${name} / ${timestamp} / ${copyright} / ${license}`;
