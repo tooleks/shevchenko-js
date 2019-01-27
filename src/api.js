@@ -1,7 +1,6 @@
-import InflectionCase from './models/InflectionCase';
-import {INFLECTION_CASES} from './models/InflectionCase';
-import Anthroponym from './models/Anthroponym';
-import {GENDERS} from './models/Gender';
+import InflectionCase, {INFLECTION_CASES} from './valueObjects/InflectionCase';
+import Anthroponym from './valueObjects/Anthroponym';
+import {GENDERS} from './valueObjects/Gender';
 import {anthroponymInflector} from './bootstrap';
 
 /**
@@ -27,7 +26,7 @@ function shevchenko(anthroponym, inflectionCase) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-function inNominative(anthroponym) {
+export function inNominative(anthroponym) {
   return shevchenko(anthroponym, INFLECTION_CASES.NOMINATIVE);
 }
 
@@ -40,7 +39,7 @@ function inNominative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-function inGenitive(anthroponym) {
+export function inGenitive(anthroponym) {
   return shevchenko(anthroponym, INFLECTION_CASES.GENITIVE);
 }
 
@@ -53,7 +52,7 @@ function inGenitive(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-function inDative(anthroponym) {
+export function inDative(anthroponym) {
   return shevchenko(anthroponym, INFLECTION_CASES.DATIVE);
 }
 
@@ -66,7 +65,7 @@ function inDative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-function inAccusative(anthroponym) {
+export function inAccusative(anthroponym) {
   return shevchenko(anthroponym, INFLECTION_CASES.ACCUSATIVE);
 }
 
@@ -79,7 +78,7 @@ function inAccusative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-function inAblative(anthroponym) {
+export function inAblative(anthroponym) {
   return shevchenko(anthroponym, INFLECTION_CASES.ABLATIVE);
 }
 
@@ -92,7 +91,7 @@ function inAblative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-function inLocative(anthroponym) {
+export function inLocative(anthroponym) {
   return shevchenko(anthroponym, INFLECTION_CASES.LOCATIVE);
 }
 
@@ -105,7 +104,7 @@ function inLocative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-function inVocative(anthroponym) {
+export function inVocative(anthroponym) {
   return shevchenko(anthroponym, INFLECTION_CASES.VOCATIVE);
 }
 
@@ -118,25 +117,14 @@ function inVocative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-function inAll(anthroponym) {
+export function inAll(anthroponym) {
   return Object.values(INFLECTION_CASES).reduce((results, inflectionCase) => {
     results[inflectionCase] = shevchenko(anthroponym, inflectionCase);
     return results;
   }, {});
 }
 
-export {
-  inNominative,
-  inGenitive,
-  inDative,
-  inAccusative,
-  inAblative,
-  inLocative,
-  inVocative,
-  inAll,
-  GENDERS,
-  INFLECTION_CASES,
-};
+export {GENDERS, INFLECTION_CASES};
 
 shevchenko.inNominative = inNominative;
 shevchenko.inGenitive = inGenitive;

@@ -3,17 +3,17 @@ import ErrorHandler from './ErrorHandler';
 import RedirectToHome from './RedirectToHome';
 import Utils from './Utils';
 
-/** @return {ErrorHandler} */
+/** @return {function} */
 export function errorHandler() {
-  return new ErrorHandler(servicesFactory.urlService());
+  return new ErrorHandler(servicesFactory.urlService()).handle;
 }
 
-/** @return {RedirectToHome} */
+/** @return {function} */
 export function redirectToHome() {
-  return new RedirectToHome(servicesFactory.urlService());
+  return new RedirectToHome(servicesFactory.urlService()).handle;
 }
 
-/** @return {Utils} */
+/** @return {function} */
 export function utils() {
-  return new Utils(servicesFactory.urlService(), servicesFactory.shareLinksProvider());
+  return new Utils(servicesFactory.urlService(), servicesFactory.shareLinksProvider()).handle;
 }

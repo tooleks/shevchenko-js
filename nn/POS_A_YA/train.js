@@ -1,19 +1,13 @@
 import fs from 'fs';
 import path from 'path';
-import NeuralNetwork from '../../src/services/pos/nn/NeuralNetwork';
-import * as neuralNetworkUtil from '../../src/services/pos/nn/neuralNetworkUtil';
-
-/**
- * @type {Array}
- */
-import samples from './samples.json';
-
-/**
- * @type {object}
- */
+import NeuralNetwork from '../../src/services/pos/NeuralNetwork';
+import * as neuralNetworkUtil from '../../src/services/pos/neuralNetworkUtil';
+import rawSamples from './samples.json';
 import structure from './structure.json';
 
-const sampleData = samples
+const force = process.argv[2] === 'force';
+
+const samples = rawSamples
   .filter((sample) => neuralNetworkUtil.isValidPos(sample.pos))
   .map((sample) => {
     const input = neuralNetworkUtil.encodeInput(sample.value);
@@ -29,9 +23,8 @@ const options = {
   log: 1,
 };
 
-const neuralNetwork =
-  process.argv[2] !== 'force'
-    ? new NeuralNetwork(structure).train(sampleData, options)
-    : NeuralNetwork.build(sampleData, options);
+const neuralNetwork = force
+  ? NeuralNetwork.build(samples, options)
+  : new NeuralNetwork(structure).train(samples, options);
 
-fs.writeFileSync(path.join(__dirname, 'structure.json'), String(neuralNetwork));
+fs.writeFileSync(path.join(__dirname, 'structure.json'), neuralNetwork.toString());

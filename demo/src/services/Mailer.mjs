@@ -1,7 +1,5 @@
 export default class Mailer {
   /**
-   * Mailer constructor.
-   *
    * @param {MailgunMailerDriver} driver
    */
   constructor(driver) {

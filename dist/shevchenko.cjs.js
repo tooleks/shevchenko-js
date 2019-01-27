@@ -1,4 +1,4 @@
-/*! shevchenko v1.1.6 / 2019-01-26T18:57:16.696Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
+/*! shevchenko v1.1.6 / 2019-01-27T14:39:26.065Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -83,232 +83,11 @@ module.exports =
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 6);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
-exports.genderValue = genderValue;
-exports.inflectionCaseValue = inflectionCaseValue;
-exports.firstNameValue = firstNameValue;
-exports.middleNameValue = middleNameValue;
-exports.lastNameValue = lastNameValue;
-exports.anthroponymValue = anthroponymValue;
-
-var _InflectionCase = __webpack_require__(4);
-
-var _Gender = __webpack_require__(1);
-
-/**
- * Validate gender value.
- *
- * @param {*} gender
- * @return {void}
- * @throws {TypeError}
- */
-function genderValue(gender) {
-  var allowedValues = Object.values(_Gender.GENDERS);
-  var isAllowedValue = allowedValues.includes(gender);
-  if (!isAllowedValue) {
-    throw new TypeError('Invalid gender value. Allowed values: ' + allowedValues.join(', ') + '.');
-  }
-}
-
-/**
- * Validate inflection case value.
- *
- * @param {*} inflectionCase
- * @return {void}
- * @throws {TypeError}
- */
-function inflectionCaseValue(inflectionCase) {
-  var allowedValues = Object.values(_InflectionCase.INFLECTION_CASES);
-  var isAllowedValue = allowedValues.includes(inflectionCase);
-  if (!isAllowedValue) {
-    throw new TypeError('Invalid inflection case value. Allowed values: ' + allowedValues.join(', ') + '.');
-  }
-}
-
-/**
- * Validate first name value.
- *
- * @param {*} firstName
- * @return {void}
- * @throws {TypeError}
- */
-function firstNameValue(firstName) {
-  var isAllowedType = typeof firstName === 'string';
-  if (!isAllowedType) {
-    throw new TypeError('Invalid first name type. Allowed types: string.');
-  }
-}
-
-/**
- * Validate middle name value.
- *
- * @param {*} middleName
- * @return {void}
- * @throws {TypeError}
- */
-function middleNameValue(middleName) {
-  var isAllowedType = typeof middleName === 'string';
-  if (!isAllowedType) {
-    throw new TypeError('Invalid middle name type. Allowed types: string.');
-  }
-}
-
-/**
- * Validate last name value.
- *
- * @param {*} lastName
- * @return {void}
- * @throws {TypeError}
- */
-function lastNameValue(lastName) {
-  var isAllowedType = typeof lastName === 'string';
-  if (!isAllowedType) {
-    throw new TypeError('Invalid last name type. Allowed types: string.');
-  }
-}
-
-/**
- * Validate anthroponym value.
- *
- * @param {*} anthroponym
- * @return {void}
- * @throws {TypeError}
- */
-function anthroponymValue(anthroponym) {
-  var isAllowedType = (typeof anthroponym === 'undefined' ? 'undefined' : _typeof(anthroponym)) === 'object' && anthroponym !== null;
-  if (!isAllowedType) {
-    throw new TypeError('Invalid anthroponym type. Allowed types: object.');
-  }
-
-  var hasFirstName = Object.prototype.hasOwnProperty.call(anthroponym, 'firstName');
-  var hasMiddleName = Object.prototype.hasOwnProperty.call(anthroponym, 'middleName');
-  var hasLastName = Object.prototype.hasOwnProperty.call(anthroponym, 'lastName');
-  if (!hasFirstName && !hasMiddleName && !hasLastName) {
-    throw new TypeError('Invalid anthroponym value.');
-  }
-
-  genderValue(anthroponym.gender);
-
-  if (hasFirstName) {
-    firstNameValue(anthroponym.firstName);
-  }
-
-  if (hasMiddleName) {
-    middleNameValue(anthroponym.middleName);
-  }
-
-  if (hasLastName) {
-    lastNameValue(anthroponym.lastName);
-  }
-}
-
-exports.default = { genderValue: genderValue, inflectionCaseValue: inflectionCaseValue, firstNameValue: firstNameValue, middleNameValue: middleNameValue, lastNameValue: lastNameValue, anthroponymValue: anthroponymValue };
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.GENDERS = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _validate = __webpack_require__(0);
-
-var _validate2 = _interopRequireDefault(_validate);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Gender values.
- *
- * @readonly
- * @type {object}
- */
-var GENDERS = exports.GENDERS = Object.freeze({
-  MALE: 'male',
-  FEMALE: 'female'
-});
-
-var Gender = function () {
-  /**
-   * @param {string} gender
-   */
-  function Gender(gender) {
-    _classCallCheck(this, Gender);
-
-    _validate2.default.genderValue(gender);
-    this._gender = gender;
-    this.toString = this.toString.bind(this);
-    this.isMale = this.isMale.bind(this);
-    this.isFemale = this.isFemale.bind(this);
-  }
-
-  /**
-   * @return {string}
-   */
-
-
-  _createClass(Gender, [{
-    key: 'toString',
-    value: function toString() {
-      return this._gender;
-    }
-
-    /**
-     * Determine whether gender value is male.
-     *
-     * @return {boolean}
-     */
-
-  }, {
-    key: 'isMale',
-    value: function isMale() {
-      return this.toString() === GENDERS.MALE;
-    }
-
-    /**
-     * Determine whether gender value is female.
-     *
-     * @return {boolean}
-     */
-
-  }, {
-    key: 'isFemale',
-    value: function isFemale() {
-      return this.toString() === GENDERS.FEMALE;
-    }
-  }]);
-
-  return Gender;
-}();
-
-exports.default = Gender;
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -340,17 +119,17 @@ var AbstractName = function () {
    * For example, the compound last name "Нечуй-Левицький" includes two parts "Нечуй" and "Левицький" divided by a delimiter "-".
    * So the callback function will be called twice with values "Нечуй" and "Левицький".
    *
-   * @param {function} func
+   * @param {function} transform
    * @return {AbstractName}
    */
 
 
   _createClass(AbstractName, [{
     key: 'map',
-    value: function map(func) {
+    value: function map(transform) {
       var parts = this.toString().split('-');
       var name = parts.map(function (part, index) {
-        return func(part, index, parts.length);
+        return transform(part, index, parts.length);
       }).join('-');
       return new this.constructor(name);
     }
@@ -362,7 +141,7 @@ var AbstractName = function () {
 exports.default = AbstractName;
 
 /***/ }),
-/* 3 */
+/* 1 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -441,74 +220,7 @@ function compareUsage(firstRule, secondRule, usage) {
 }
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.INFLECTION_CASES = undefined;
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _validate = __webpack_require__(0);
-
-var _validate2 = _interopRequireDefault(_validate);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-/**
- * Inflection case values.
- *
- * @readonly
- * @type {object}
- */
-var INFLECTION_CASES = exports.INFLECTION_CASES = Object.freeze({
-  NOMINATIVE: 'nominative',
-  GENITIVE: 'genitive',
-  DATIVE: 'dative',
-  ACCUSATIVE: 'accusative',
-  ABLATIVE: 'ablative',
-  LOCATIVE: 'locative',
-  VOCATIVE: 'vocative'
-});
-
-var InflectionCase = function () {
-  /**
-   * @param {string} inflectionCase
-   */
-  function InflectionCase(inflectionCase) {
-    _classCallCheck(this, InflectionCase);
-
-    _validate2.default.inflectionCaseValue(inflectionCase);
-    this._inflectionCase = inflectionCase;
-    this.toString = this.toString.bind(this);
-  }
-
-  /**
-   * @return {string}
-   */
-
-
-  _createClass(InflectionCase, [{
-    key: 'toString',
-    value: function toString() {
-      return this._inflectionCase;
-    }
-  }]);
-
-  return InflectionCase;
-}();
-
-exports.default = InflectionCase;
-
-/***/ }),
-/* 5 */
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -518,61 +230,86 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Gender = __webpack_require__(1);
+var _Gender = __webpack_require__(3);
 
 var _Gender2 = _interopRequireDefault(_Gender);
 
-var _FirstName = __webpack_require__(9);
+var _FirstName = __webpack_require__(8);
 
 var _FirstName2 = _interopRequireDefault(_FirstName);
 
-var _MiddleName = __webpack_require__(10);
+var _MiddleName = __webpack_require__(9);
 
 var _MiddleName2 = _interopRequireDefault(_MiddleName);
 
-var _LastName = __webpack_require__(11);
+var _LastName = __webpack_require__(10);
 
 var _LastName2 = _interopRequireDefault(_LastName);
-
-var _validate = __webpack_require__(0);
-
-var _validate2 = _interopRequireDefault(_validate);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var Anthroponym = function () {
-  /**
-   * @param {object} anthroponym
-   */
+  _createClass(Anthroponym, null, [{
+    key: 'validate',
+
+    /**
+     * @param {Object} anthroponym
+     */
+    value: function validate(anthroponym) {
+      if ((typeof anthroponym === 'undefined' ? 'undefined' : _typeof(anthroponym)) !== 'object' || anthroponym == null) {
+        throw new TypeError('Invalid anthroponym type. Allowed types: object.');
+      }
+
+      var hasFirstName = Object.prototype.hasOwnProperty.call(anthroponym, 'firstName');
+      var hasMiddleName = Object.prototype.hasOwnProperty.call(anthroponym, 'middleName');
+      var hasLastName = Object.prototype.hasOwnProperty.call(anthroponym, 'lastName');
+      if (!hasFirstName && !hasMiddleName && !hasLastName) {
+        throw new TypeError('Invalid anthroponym value.');
+      }
+
+      _Gender2.default.validate(anthroponym.gender);
+
+      if (hasFirstName) {
+        _FirstName2.default.validate(anthroponym.firstName);
+      }
+
+      if (hasMiddleName) {
+        _MiddleName2.default.validate(anthroponym.middleName);
+      }
+
+      if (hasLastName) {
+        _LastName2.default.validate(anthroponym.lastName);
+      }
+    }
+
+    /**
+     * @param {object} anthroponym
+     */
+
+  }]);
+
   function Anthroponym(anthroponym) {
     _classCallCheck(this, Anthroponym);
 
-    _validate2.default.anthroponymValue(anthroponym);
-    this._anthroponym = {};
-    this._anthroponym.gender = anthroponym.gender;
+    Anthroponym.validate(anthroponym);
 
-    var hasFirstName = Object.prototype.hasOwnProperty.call(anthroponym, 'firstName');
-    if (hasFirstName) {
-      this._anthroponym.firstName = anthroponym.firstName;
+    this._gender = new _Gender2.default(anthroponym.gender);
+    if (Object.prototype.hasOwnProperty.call(anthroponym, 'firstName')) {
+      this._firstName = new _FirstName2.default(anthroponym.firstName);
+    }
+    if (Object.prototype.hasOwnProperty.call(anthroponym, 'middleName')) {
+      this._middleName = new _MiddleName2.default(anthroponym.middleName);
+    }
+    if (Object.prototype.hasOwnProperty.call(anthroponym, 'lastName')) {
+      this._lastName = new _LastName2.default(anthroponym.lastName);
     }
 
-    var hasMiddleName = Object.prototype.hasOwnProperty.call(anthroponym, 'middleName');
-    if (hasMiddleName) {
-      this._anthroponym.middleName = anthroponym.middleName;
-    }
-
-    var hasLastName = Object.prototype.hasOwnProperty.call(anthroponym, 'lastName');
-    if (hasLastName) {
-      this._anthroponym.lastName = anthroponym.lastName;
-    }
-
-    this.toString = this.toString.bind(this);
     this.toObject = this.toObject.bind(this);
     this.hasFirstName = this.hasFirstName.bind(this);
     this.hasMiddleName = this.hasMiddleName.bind(this);
@@ -584,28 +321,27 @@ var Anthroponym = function () {
   }
 
   /**
-   * @return {string}
+   * Cast the value to an object.
+   *
+   * @return {object}
    */
 
 
   _createClass(Anthroponym, [{
-    key: 'toString',
-    value: function toString() {
-      return Object.values(this._anthroponym).reduce(function (value, attribute) {
-        return value + ' ' + attribute;
-      }, '');
-    }
-
-    /**
-     * Cast the value to an object.
-     *
-     * @return {object}
-     */
-
-  }, {
     key: 'toObject',
     value: function toObject() {
-      return _extends({}, this._anthroponym);
+      var object = {};
+      object.gender = this._gender.toString();
+      if (this.hasFirstName()) {
+        object.firstName = this._firstName.toString();
+      }
+      if (this.hasMiddleName()) {
+        object.middleName = this._middleName.toString();
+      }
+      if (this.hasLastName()) {
+        object.lastName = this._lastName.toString();
+      }
+      return object;
     }
 
     /**
@@ -617,7 +353,7 @@ var Anthroponym = function () {
   }, {
     key: 'hasFirstName',
     value: function hasFirstName() {
-      return Object.prototype.hasOwnProperty.call(this._anthroponym, 'firstName');
+      return Boolean(this._firstName);
     }
 
     /**
@@ -629,7 +365,7 @@ var Anthroponym = function () {
   }, {
     key: 'hasMiddleName',
     value: function hasMiddleName() {
-      return Object.prototype.hasOwnProperty.call(this._anthroponym, 'middleName');
+      return Boolean(this._middleName);
     }
 
     /**
@@ -641,55 +377,43 @@ var Anthroponym = function () {
   }, {
     key: 'hasLastName',
     value: function hasLastName() {
-      return Object.prototype.hasOwnProperty.call(this._anthroponym, 'lastName');
+      return Boolean(this._lastName);
     }
 
     /**
      * Get first name.
      *
-     * @return {FirstName}
-     * @throws {ReferenceError}
+     * @return {FirstName|null}
      */
 
   }, {
     key: 'getFirstName',
     value: function getFirstName() {
-      if (this.hasFirstName()) {
-        return new _FirstName2.default(this._anthroponym.firstName);
-      }
-      throw new ReferenceError('First name is not defined.');
+      return this._firstName || null;
     }
 
     /**
      * Get middle name.
      *
-     * @return {MiddleName}
-     * @throws {ReferenceError}
+     * @return {MiddleName|null}
      */
 
   }, {
     key: 'getMiddleName',
     value: function getMiddleName() {
-      if (this.hasMiddleName()) {
-        return new _MiddleName2.default(this._anthroponym.middleName);
-      }
-      throw new ReferenceError('Middle name is not defined.');
+      return this._middleName || null;
     }
 
     /**
      * Get last name.
      *
-     * @return {LastName}
-     * @throws {ReferenceError}
+     * @return {LastName|null}
      */
 
   }, {
     key: 'getLastName',
     value: function getLastName() {
-      if (this.hasLastName()) {
-        return new _LastName2.default(this._anthroponym.lastName);
-      }
-      throw new ReferenceError('Last name is not defined.');
+      return this._lastName || null;
     }
 
     /**
@@ -701,7 +425,7 @@ var Anthroponym = function () {
   }, {
     key: 'getGender',
     value: function getGender() {
-      return new _Gender2.default(this._anthroponym.gender);
+      return this._gender;
     }
   }]);
 
@@ -711,7 +435,104 @@ var Anthroponym = function () {
 exports.default = Anthroponym;
 
 /***/ }),
-/* 6 */
+/* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Gender values.
+ *
+ * @readonly
+ * @type {object}
+ */
+var GENDERS = exports.GENDERS = Object.freeze({
+  MALE: 'male',
+  FEMALE: 'female'
+});
+
+var Gender = function () {
+  _createClass(Gender, null, [{
+    key: 'validate',
+
+    /**
+     * @param {string} gender
+     */
+    value: function validate(gender) {
+      if (!Object.values(GENDERS).includes(gender)) {
+        var allowedValues = Object.values(GENDERS).join(', ');
+        throw new TypeError('Invalid gender value. Allowed values: ' + allowedValues + '.');
+      }
+    }
+
+    /**
+     * @param {string} gender
+     */
+
+  }]);
+
+  function Gender(gender) {
+    _classCallCheck(this, Gender);
+
+    Gender.validate(gender);
+    this._gender = gender;
+    this.toString = this.toString.bind(this);
+    this.isMale = this.isMale.bind(this);
+    this.isFemale = this.isFemale.bind(this);
+  }
+
+  /**
+   * @return {string}
+   */
+
+
+  _createClass(Gender, [{
+    key: 'toString',
+    value: function toString() {
+      return this._gender;
+    }
+
+    /**
+     * Determine whether gender value is male.
+     *
+     * @return {boolean}
+     */
+
+  }, {
+    key: 'isMale',
+    value: function isMale() {
+      return this._gender === GENDERS.MALE;
+    }
+
+    /**
+     * Determine whether gender value is female.
+     *
+     * @return {boolean}
+     */
+
+  }, {
+    key: 'isFemale',
+    value: function isFemale() {
+      return this._gender === GENDERS.FEMALE;
+    }
+  }]);
+
+  return Gender;
+}();
+
+exports.default = Gender;
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -723,24 +544,25 @@ Object.defineProperty(exports, "__esModule", {
 exports.isUpperCase = isUpperCase;
 exports.isLowerCase = isLowerCase;
 exports.toBinary = toBinary;
-exports.padLeft = padLeft;
 exports.applyCaseMask = applyCaseMask;
 /**
- * Detect if a character is in the upper case.
+ * Detect if a character is in the upper case at the specified index.
  *
- * @param {string} char
+ * @param {string} string
+ * @param {number} pos The zero-based index of the desired character.
  */
-function isUpperCase(char) {
-  return char === char.toUpperCase() && char !== char.toLowerCase();
+function isUpperCase(string, pos) {
+  return string.charAt(pos) === string.charAt(pos).toUpperCase();
 }
 
 /**
- * Detect if a character is in the lower case.
+ * Detect if a character is in the lower case at the specified index.
  *
- * @param {string} char
+ * @param {string} string
+ * @param {number} pos The zero-based index of the desired character.
  */
-function isLowerCase(char) {
-  return char === char.toLowerCase() && char !== char.toUpperCase();
+function isLowerCase(string, pos) {
+  return string.charAt(pos) === string.charAt(pos).toLowerCase();
 }
 
 /**
@@ -756,61 +578,38 @@ function toBinary(string) {
 }
 
 /**
- * Fill the left part of the string with a symbol to a given length.
+ * Apply the case mask of the source to the string.
  *
  * @param {string} string
- * @param {number} length
- * @param {string} symbol
+ * @param {string} source
  * @return {string}
  */
-function padLeft(string, length) {
-  var symbol = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : '0';
+function applyCaseMask(string, source) {
+  var toUpperCase = 'toUpperCase';
+  var toLowerCase = 'toLowerCase';
+  var toOriginalCase = 'toString';
 
-  var filler = new Array(length + 1).join(symbol);
-  return filler.substring(0, filler.length - string.length) + string;
-}
-
-/**
- * Apply the case mask of the example string to the string.
- *
- * @param {string} exampleString
- * @param {string} string
- * @return {string}
- */
-function applyCaseMask(exampleString, string) {
-  var UPPER_CASE = 'u';
-  var LOWER_CASE = 'l';
-  var NOT_RECOGNIZED_CASE = null;
-
-  // Create case mask from the example string.
-  var caseMask = exampleString.split('').reduce(function (mask, char) {
-    if (isUpperCase(char)) {
-      mask.push(UPPER_CASE);
-    } else if (isLowerCase(char)) {
-      mask.push(LOWER_CASE);
+  var mask = source.split('').reduce(function (mask, char, pos) {
+    if (isUpperCase(source, pos)) {
+      mask.push(toUpperCase);
+      return mask;
+    } else if (isLowerCase(source, pos)) {
+      mask.push(toLowerCase);
+      return mask;
     } else {
-      mask.push(NOT_RECOGNIZED_CASE);
+      mask.push(toOriginalCase);
+      return mask;
     }
-    return mask;
   }, []);
 
-  // Apply case mask to the desired string.
-  return string.split('').reduce(function (result, char, index) {
-    var charMask = caseMask[index];
-    if (typeof charMask === 'undefined' && caseMask.length !== 0) {
-      charMask = caseMask[caseMask.length - 1];
-    }
-    if (charMask === UPPER_CASE) {
-      char = char.toUpperCase();
-    } else if (charMask === LOWER_CASE) {
-      char = char.toLowerCase();
-    }
-    return result + char;
+  return string.split('').reduce(function (result, char, pos) {
+    var method = mask[pos] || mask[mask.length - 1] || toOriginalCase;
+    return result + string[pos][method]();
   }, '');
 }
 
 /***/ }),
-/* 7 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -852,7 +651,7 @@ var POS_MAPPING = exports.POS_MAPPING = Object.freeze({
 });
 
 /***/ }),
-/* 8 */
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -861,19 +660,27 @@ var POS_MAPPING = exports.POS_MAPPING = Object.freeze({
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.INFLECTION_CASES = exports.GENDERS = exports.inAll = exports.inVocative = exports.inLocative = exports.inAblative = exports.inAccusative = exports.inDative = exports.inGenitive = exports.inNominative = undefined;
+exports.INFLECTION_CASES = exports.GENDERS = undefined;
+exports.inNominative = inNominative;
+exports.inGenitive = inGenitive;
+exports.inDative = inDative;
+exports.inAccusative = inAccusative;
+exports.inAblative = inAblative;
+exports.inLocative = inLocative;
+exports.inVocative = inVocative;
+exports.inAll = inAll;
 
-var _InflectionCase = __webpack_require__(4);
+var _InflectionCase = __webpack_require__(7);
 
 var _InflectionCase2 = _interopRequireDefault(_InflectionCase);
 
-var _Anthroponym = __webpack_require__(5);
+var _Anthroponym = __webpack_require__(2);
 
 var _Anthroponym2 = _interopRequireDefault(_Anthroponym);
 
-var _Gender = __webpack_require__(1);
+var _Gender = __webpack_require__(3);
 
-var _bootstrap = __webpack_require__(12);
+var _bootstrap = __webpack_require__(11);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -998,14 +805,6 @@ function inAll(anthroponym) {
   }, {});
 }
 
-exports.inNominative = inNominative;
-exports.inGenitive = inGenitive;
-exports.inDative = inDative;
-exports.inAccusative = inAccusative;
-exports.inAblative = inAblative;
-exports.inLocative = inLocative;
-exports.inVocative = inVocative;
-exports.inAll = inAll;
 exports.GENDERS = _Gender.GENDERS;
 exports.INFLECTION_CASES = _InflectionCase.INFLECTION_CASES;
 
@@ -1024,7 +823,7 @@ shevchenko.INFLECTION_CASES = _InflectionCase.INFLECTION_CASES;
 exports.default = shevchenko;
 
 /***/ }),
-/* 9 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1036,13 +835,85 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _AbstractName2 = __webpack_require__(2);
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+/**
+ * Inflection case values.
+ *
+ * @readonly
+ * @type {object}
+ */
+var INFLECTION_CASES = exports.INFLECTION_CASES = Object.freeze({
+  NOMINATIVE: 'nominative',
+  GENITIVE: 'genitive',
+  DATIVE: 'dative',
+  ACCUSATIVE: 'accusative',
+  ABLATIVE: 'ablative',
+  LOCATIVE: 'locative',
+  VOCATIVE: 'vocative'
+});
+
+var InflectionCase = function () {
+  _createClass(InflectionCase, null, [{
+    key: 'validate',
+
+    /**
+     * @param {string} inflectionCase
+     */
+    value: function validate(inflectionCase) {
+      if (!Object.values(INFLECTION_CASES).includes(inflectionCase)) {
+        var allowedValues = Object.values(INFLECTION_CASES).join(', ');
+        throw new TypeError('Invalid inflection case value. Allowed values: ' + allowedValues + '.');
+      }
+    }
+
+    /**
+     * @param {string} inflectionCase
+     */
+
+  }]);
+
+  function InflectionCase(inflectionCase) {
+    _classCallCheck(this, InflectionCase);
+
+    InflectionCase.validate(inflectionCase);
+    this._inflectionCase = inflectionCase;
+    this.toString = this.toString.bind(this);
+  }
+
+  /**
+   * @return {string}
+   */
+
+
+  _createClass(InflectionCase, [{
+    key: 'toString',
+    value: function toString() {
+      return this._inflectionCase;
+    }
+  }]);
+
+  return InflectionCase;
+}();
+
+exports.default = InflectionCase;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _AbstractName2 = __webpack_require__(0);
 
 var _AbstractName3 = _interopRequireDefault(_AbstractName2);
-
-var _validate = __webpack_require__(0);
-
-var _validate2 = _interopRequireDefault(_validate);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1055,15 +926,30 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FirstName = function (_AbstractName) {
   _inherits(FirstName, _AbstractName);
 
-  /**
-   * @param {string} firstName
-   */
+  _createClass(FirstName, null, [{
+    key: 'validate',
+
+    /**
+     * @param {string} firstName
+     */
+    value: function validate(firstName) {
+      if (typeof firstName !== 'string') {
+        throw new TypeError('Invalid first name type. Allowed types: string.');
+      }
+    }
+
+    /**
+     * @param {string} firstName
+     */
+
+  }]);
+
   function FirstName(firstName) {
     _classCallCheck(this, FirstName);
 
     var _this = _possibleConstructorReturn(this, (FirstName.__proto__ || Object.getPrototypeOf(FirstName)).call(this));
 
-    _validate2.default.firstNameValue(firstName);
+    FirstName.validate(firstName);
     _this._firstName = firstName;
     _this.toString = _this.toString.bind(_this);
     return _this;
@@ -1087,7 +973,7 @@ var FirstName = function (_AbstractName) {
 exports.default = FirstName;
 
 /***/ }),
-/* 10 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1099,13 +985,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _AbstractName2 = __webpack_require__(2);
+var _AbstractName2 = __webpack_require__(0);
 
 var _AbstractName3 = _interopRequireDefault(_AbstractName2);
-
-var _validate = __webpack_require__(0);
-
-var _validate2 = _interopRequireDefault(_validate);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1118,15 +1000,30 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var MiddleName = function (_AbstractName) {
   _inherits(MiddleName, _AbstractName);
 
-  /**
-   * @param {string} middleName
-   */
+  _createClass(MiddleName, null, [{
+    key: 'validate',
+
+    /**
+     * @param {string} middleName
+     */
+    value: function validate(middleName) {
+      if (typeof middleName !== 'string') {
+        throw new TypeError('Invalid middle name type. Allowed types: string.');
+      }
+    }
+
+    /**
+     * @param {string} middleName
+     */
+
+  }]);
+
   function MiddleName(middleName) {
     _classCallCheck(this, MiddleName);
 
     var _this = _possibleConstructorReturn(this, (MiddleName.__proto__ || Object.getPrototypeOf(MiddleName)).call(this));
 
-    _validate2.default.middleNameValue(middleName);
+    MiddleName.validate(middleName);
     _this._middleName = middleName;
     _this.toString = _this.toString.bind(_this);
     return _this;
@@ -1150,7 +1047,7 @@ var MiddleName = function (_AbstractName) {
 exports.default = MiddleName;
 
 /***/ }),
-/* 11 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1162,13 +1059,9 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _AbstractName2 = __webpack_require__(2);
+var _AbstractName2 = __webpack_require__(0);
 
 var _AbstractName3 = _interopRequireDefault(_AbstractName2);
-
-var _validate = __webpack_require__(0);
-
-var _validate2 = _interopRequireDefault(_validate);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -1181,15 +1074,30 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var LastName = function (_AbstractName) {
   _inherits(LastName, _AbstractName);
 
-  /**
-   * @param {string} lastName
-   */
+  _createClass(LastName, null, [{
+    key: 'validate',
+
+    /**
+     * @param {string} lastName
+     */
+    value: function validate(lastName) {
+      if (typeof lastName !== 'string') {
+        throw new TypeError('Invalid last name type. Allowed types: string.');
+      }
+    }
+
+    /**
+     * @param {string} lastName
+     */
+
+  }]);
+
   function LastName(lastName) {
     _classCallCheck(this, LastName);
 
     var _this = _possibleConstructorReturn(this, (LastName.__proto__ || Object.getPrototypeOf(LastName)).call(this));
 
-    _validate2.default.lastNameValue(lastName);
+    LastName.validate(lastName);
     _this._lastName = lastName;
     _this.toString = _this.toString.bind(_this);
     return _this;
@@ -1213,7 +1121,7 @@ var LastName = function (_AbstractName) {
 exports.default = LastName;
 
 /***/ }),
-/* 12 */
+/* 11 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1224,50 +1132,50 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.anthroponymInflector = undefined;
 
-var _config = __webpack_require__(13);
+var _config = __webpack_require__(12);
 
-var _AnthroponymInflector = __webpack_require__(15);
+var _AnthroponymInflector = __webpack_require__(14);
 
 var _AnthroponymInflector2 = _interopRequireDefault(_AnthroponymInflector);
 
-var _FirstNameInflector = __webpack_require__(16);
+var _FirstNameInflector = __webpack_require__(15);
 
 var _FirstNameInflector2 = _interopRequireDefault(_FirstNameInflector);
 
-var _LastNameInflector = __webpack_require__(17);
+var _LastNameInflector = __webpack_require__(16);
 
 var _LastNameInflector2 = _interopRequireDefault(_LastNameInflector);
 
-var _MiddleNameInflector = __webpack_require__(18);
+var _MiddleNameInflector = __webpack_require__(17);
 
 var _MiddleNameInflector2 = _interopRequireDefault(_MiddleNameInflector);
 
-var _RuleInflector = __webpack_require__(19);
+var _RuleInflector = __webpack_require__(18);
 
 var _RuleInflector2 = _interopRequireDefault(_RuleInflector);
 
-var _PosRecognizer = __webpack_require__(21);
+var _Recognizer = __webpack_require__(20);
 
-var _PosRecognizer2 = _interopRequireDefault(_PosRecognizer);
+var _Recognizer2 = _interopRequireDefault(_Recognizer);
 
-var _PosRecognizerRule = __webpack_require__(22);
+var _RecognizerRule = __webpack_require__(21);
 
-var _PosRecognizerRule2 = _interopRequireDefault(_PosRecognizerRule);
+var _RecognizerRule2 = _interopRequireDefault(_RecognizerRule);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var posRecognizer = new _PosRecognizer2.default([
+var posRecognizer = new _Recognizer2.default([
 // The part of speech recognizer for female last names with endings "-a", "-я".
-new _PosRecognizerRule2.default(function (word, gender) {
-  return gender.isFemale() && /(а|я)$/.test(word);
+new _RecognizerRule2.default(function (word, gender) {
+  return gender.isFemale() && /[ая]$/i.test(word);
 }, _config.POS_NN_A_YA_STRUCTURE, _config.POS_NN_A_YA_CACHE),
 // The part of speech recognizer for male last names with endings "-ой", "-ий", "-ій".
-new _PosRecognizerRule2.default(function (word, gender) {
-  return gender.isMale() && /(ой|ий|ій)$/.test(word);
+new _RecognizerRule2.default(function (word, gender) {
+  return gender.isMale() && /(ой|ий|ій)$/i.test(word);
 }, _config.POS_NN_OI_YI_II_STRUCTURE, _config.POS_NN_OI_YI_II_CACHE),
 // The part of speech recognizer for male last names with endings "-их".
-new _PosRecognizerRule2.default(function (word, gender) {
-  return gender.isMale() && /(их)$/.test(word);
+new _RecognizerRule2.default(function (word, gender) {
+  return gender.isMale() && /(их)$/i.test(word);
 }, _config.POS_NN_YH_STRUCTURE, _config.POS_NN_YH_CACHE)]);
 
 var ruleInflector = new _RuleInflector2.default();
@@ -1280,7 +1188,7 @@ var anthroponymInflector = new _AnthroponymInflector2.default(firstNameInflector
 exports.anthroponymInflector = anthroponymInflector;
 
 /***/ }),
-/* 13 */
+/* 12 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1304,10 +1212,10 @@ exports.POS_NN_OI_YI_II_STRUCTURE = POS_NN_OI_YI_II_STRUCTURE;
 exports.POS_NN_OI_YI_II_CACHE = POS_NN_OI_YI_II_CACHE;
 exports.POS_NN_YH_STRUCTURE = POS_NN_YH_STRUCTURE;
 exports.POS_NN_YH_CACHE = POS_NN_YH_CACHE;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(14)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(13)))
 
 /***/ }),
-/* 14 */
+/* 13 */
 /***/ (function(module, exports) {
 
 // shim for using process in browser
@@ -1497,7 +1405,7 @@ process.umask = function() { return 0; };
 
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1511,7 +1419,7 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _Anthroponym = __webpack_require__(5);
+var _Anthroponym = __webpack_require__(2);
 
 var _Anthroponym2 = _interopRequireDefault(_Anthroponym);
 
@@ -1570,7 +1478,7 @@ var AnthroponymInflector = function () {
 exports.default = AnthroponymInflector;
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1584,7 +1492,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _ruleUtil = __webpack_require__(3);
+var _ruleUtil = __webpack_require__(1);
 
 var ruleUtil = _interopRequireWildcard(_ruleUtil);
 
@@ -1645,7 +1553,7 @@ var FirstNameInflector = function () {
 exports.default = FirstNameInflector;
 
 /***/ }),
-/* 17 */
+/* 16 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1659,7 +1567,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _ruleUtil = __webpack_require__(3);
+var _ruleUtil = __webpack_require__(1);
 
 var ruleUtil = _interopRequireWildcard(_ruleUtil);
 
@@ -1671,7 +1579,7 @@ var LastNameInflector = function () {
   /**
    * @param {RuleInflector} ruleInflector
    * @param {Array} rules
-   * @param {PosRecognizer} posRecognizer
+   * @param {Recognizer} posRecognizer
    */
   function LastNameInflector(ruleInflector, rules, posRecognizer) {
     _classCallCheck(this, LastNameInflector);
@@ -1732,7 +1640,7 @@ var LastNameInflector = function () {
 exports.default = LastNameInflector;
 
 /***/ }),
-/* 18 */
+/* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1746,7 +1654,7 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _ruleUtil = __webpack_require__(3);
+var _ruleUtil = __webpack_require__(1);
 
 var ruleUtil = _interopRequireWildcard(_ruleUtil);
 
@@ -1807,7 +1715,7 @@ var MiddleNameInflector = function () {
 exports.default = MiddleNameInflector;
 
 /***/ }),
-/* 19 */
+/* 18 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1823,11 +1731,11 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _stringUtil = __webpack_require__(6);
+var _stringUtil = __webpack_require__(4);
 
 var stringUtil = _interopRequireWildcard(_stringUtil);
 
-var _regExpUtil = __webpack_require__(20);
+var _regExpUtil = __webpack_require__(19);
 
 var regExpUtil = _interopRequireWildcard(_regExpUtil);
 
@@ -1836,39 +1744,8 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var RuleInflector = function () {
-  /**
-   */
-  function RuleInflector() {
-    _classCallCheck(this, RuleInflector);
-
-    this._applyRuleModifier = this._applyRuleModifier.bind(this);
-    this._getRuleModifiers = this._getRuleModifiers.bind(this);
-    this.inflect = this.inflect.bind(this);
-  }
-
-  /**
-   * Apply the inflection rule modifier to the value.
-   *
-   * @param {object} modifier
-   * @param {string} modifier.type
-   * @param {string} modifier.value
-   * @param {string} value
-   * @return {*}
-   * @private
-   */
-
-
-  _createClass(RuleInflector, [{
-    key: '_applyRuleModifier',
-    value: function _applyRuleModifier(modifier, value) {
-      if ((typeof modifier === 'undefined' ? 'undefined' : _typeof(modifier)) === 'object') {
-        var modify = this._getRuleModifiers()[modifier.type];
-        if (typeof modify === 'function') {
-          return modify(value, modifier.value);
-        }
-      }
-      return value;
-    }
+  _createClass(RuleInflector, null, [{
+    key: 'getRuleModifiers',
 
     /**
      * Get an inflection rule modifier functions.
@@ -1876,10 +1753,7 @@ var RuleInflector = function () {
      * @return {object}
      * @private
      */
-
-  }, {
-    key: '_getRuleModifiers',
-    value: function _getRuleModifiers() {
+    value: function getRuleModifiers() {
       return Object.freeze({
         append: function append(value, modifierValue) {
           return value + modifierValue;
@@ -1891,22 +1765,55 @@ var RuleInflector = function () {
     }
 
     /**
-     * Inflect a word by the inflection rule.
+     * Apply the inflection rule modifier to the value.
      *
-     * @param {string} word
-     * @param {InflectionCase} inflectionCase
-     * @param {object} rule
-     * @param {object} rule.regexp
-     * @param {string} rule.regexp.modify
-     * @param {string} rule.inflectionCases
-     * @return {string}
+     * @param {object} modifier
+     * @param {string} modifier.type
+     * @param {string} modifier.value
+     * @param {string} value
+     * @return {*}
+     * @private
      */
 
   }, {
+    key: 'applyRuleModifier',
+    value: function applyRuleModifier(modifier, value) {
+      if ((typeof modifier === 'undefined' ? 'undefined' : _typeof(modifier)) === 'object') {
+        var modify = this.getRuleModifiers()[modifier.type];
+        if (typeof modify === 'function') {
+          return modify(value, modifier.value);
+        }
+      }
+      return value;
+    }
+
+    /**
+     */
+
+  }]);
+
+  function RuleInflector() {
+    _classCallCheck(this, RuleInflector);
+
+    this.inflect = this.inflect.bind(this);
+  }
+
+  /**
+   * Inflect a word by the inflection rule.
+   *
+   * @param {string} word
+   * @param {InflectionCase} inflectionCase
+   * @param {object} rule
+   * @param {object} rule.regexp
+   * @param {string} rule.regexp.modify
+   * @param {string} rule.inflectionCases
+   * @return {string}
+   */
+
+
+  _createClass(RuleInflector, [{
     key: 'inflect',
     value: function inflect(word, inflectionCase, rule) {
-      var _this = this;
-
       var regExp = rule.regexp.modify;
 
       var _rule$inflectionCases = _slicedToArray(rule.inflectionCases[inflectionCase.toString()], 1),
@@ -1914,19 +1821,19 @@ var RuleInflector = function () {
 
       if ((typeof modifiers === 'undefined' ? 'undefined' : _typeof(modifiers)) === 'object') {
         var searchValue = new RegExp(regExp, 'gm');
-        var inflectedValue = word.toLowerCase().replace(searchValue, function (match) {
+        var inflectedWord = word.toLowerCase().replace(searchValue, function (match) {
           for (var _len = arguments.length, groups = Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
             groups[_key - 1] = arguments[_key];
           }
 
           var replacer = '';
-          var count = regExpUtil.countGroups(regExp);
-          for (var index = 0; index < count; index++) {
-            replacer += _this._applyRuleModifier(modifiers[index], groups[index]);
+          var maxIndex = regExpUtil.countGroups(regExp);
+          for (var index = 0; index < maxIndex; index++) {
+            replacer += RuleInflector.applyRuleModifier(modifiers[index], groups[index]);
           }
           return replacer;
         });
-        return stringUtil.applyCaseMask(word, inflectedValue);
+        return stringUtil.applyCaseMask(inflectedWord, word);
       }
       return word;
     }
@@ -1938,7 +1845,7 @@ var RuleInflector = function () {
 exports.default = RuleInflector;
 
 /***/ }),
-/* 20 */
+/* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1955,11 +1862,11 @@ exports.countGroups = countGroups;
  * @return {number}
  */
 function countGroups(regExp) {
-  return new RegExp(regExp + '|').exec('').length - 1;
+  return new RegExp(regExp.toString() + '|').exec('').length - 1;
 }
 
 /***/ }),
-/* 21 */
+/* 20 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1973,12 +1880,12 @@ var _createClass = function () { function defineProperties(target, props) { for 
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var PosRecognizer = function () {
+var Recognizer = function () {
   /**
-   * @param {Array<PosRecognizerRule>} rules
+   * @param {Array<RecognizerRule>} rules
    */
-  function PosRecognizer(rules) {
-    _classCallCheck(this, PosRecognizer);
+  function Recognizer(rules) {
+    _classCallCheck(this, Recognizer);
 
     this._rules = rules;
     this.recognize = this.recognize.bind(this);
@@ -1993,7 +1900,7 @@ var PosRecognizer = function () {
    */
 
 
-  _createClass(PosRecognizer, [{
+  _createClass(Recognizer, [{
     key: "recognize",
     value: function recognize(word, gender) {
       var rule = this._rules.find(function (rule) {
@@ -2006,13 +1913,13 @@ var PosRecognizer = function () {
     }
   }]);
 
-  return PosRecognizer;
+  return Recognizer;
 }();
 
-exports.default = PosRecognizer;
+exports.default = Recognizer;
 
 /***/ }),
-/* 22 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2024,11 +1931,11 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _NeuralNetwork = __webpack_require__(23);
+var _NeuralNetwork = __webpack_require__(22);
 
 var _NeuralNetwork2 = _interopRequireDefault(_NeuralNetwork);
 
-var _InMemoryCache = __webpack_require__(26);
+var _InMemoryCache = __webpack_require__(25);
 
 var _InMemoryCache2 = _interopRequireDefault(_InMemoryCache);
 
@@ -2036,16 +1943,16 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var PosRecognizerRule = function () {
+var RecognizerRule = function () {
   /**
    * @param {function} isApplicable
    * @param {object} structure
    * @param {object} [cache]
    */
-  function PosRecognizerRule(isApplicable, structure) {
+  function RecognizerRule(isApplicable, structure) {
     var cache = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : {};
 
-    _classCallCheck(this, PosRecognizerRule);
+    _classCallCheck(this, RecognizerRule);
 
     this._isApplicable = isApplicable;
     this._neuralNetwork = new _NeuralNetwork2.default(structure);
@@ -2063,7 +1970,7 @@ var PosRecognizerRule = function () {
    */
 
 
-  _createClass(PosRecognizerRule, [{
+  _createClass(RecognizerRule, [{
     key: 'isApplicable',
     value: function isApplicable(word, gender) {
       return this._isApplicable(word, gender);
@@ -2087,13 +1994,13 @@ var PosRecognizerRule = function () {
     }
   }]);
 
-  return PosRecognizerRule;
+  return RecognizerRule;
 }();
 
-exports.default = PosRecognizerRule;
+exports.default = RecognizerRule;
 
 /***/ }),
-/* 23 */
+/* 22 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2105,13 +2012,13 @@ Object.defineProperty(exports, "__esModule", {
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _synaptic = __webpack_require__(24);
+var _synaptic = __webpack_require__(23);
 
 var synaptic = _interopRequireWildcard(_synaptic);
 
-var _config = __webpack_require__(7);
+var _config = __webpack_require__(5);
 
-var _neuralNetworkUtil = __webpack_require__(25);
+var _neuralNetworkUtil = __webpack_require__(24);
 
 var neuralNetworkUtil = _interopRequireWildcard(_neuralNetworkUtil);
 
@@ -2120,20 +2027,37 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 /**
- * @classdesc Neural network based on three-layer perceptron and used for the part of speech recognizing.
+ * @classdesc Part of speech recognition neural network based on three-layer perceptron.
  */
 var NeuralNetwork = function () {
-  /**
-   * @param {object} structure
-   */
+  _createClass(NeuralNetwork, null, [{
+    key: 'build',
+
+    /**
+     * Build the neural network on the training data.
+     *
+     * @param {Array<object>} samples
+     * @param {object} options
+     * @return {NeuralNetwork}
+     */
+    value: function build(samples, options) {
+      var network = new synaptic.Architect.Perceptron(_config.NETWORK_LAYER_SIZE_INPUT, _config.NETWORK_LAYER_SIZE_HIDDEN, _config.NETWORK_LAYER_SIZE_OUTPUT);
+      new synaptic.Trainer(network).train(samples, options);
+      return new this(network.toJSON());
+    }
+
+    /**
+     * @param {object} structure
+     */
+
+  }]);
+
   function NeuralNetwork(structure) {
     _classCallCheck(this, NeuralNetwork);
 
     this._network = synaptic.Network.fromJSON(structure);
     this.train = this.train.bind(this);
-    this.build = this.build.bind(this);
     this.run = this.run.bind(this);
-    this.toString = this.toString.bind(this);
     this.toString = this.toString.bind(this);
   }
 
@@ -2150,22 +2074,6 @@ var NeuralNetwork = function () {
     key: 'train',
     value: function train(samples, options) {
       new synaptic.Trainer(this._network).train(samples, options);
-    }
-
-    /**
-     * Build the neural network on the training data array.
-     *
-     * @param {Array<object>} samples
-     * @param {object} options
-     * @return {NeuralNetwork}
-     */
-
-  }, {
-    key: 'build',
-    value: function build(samples, options) {
-      var network = new synaptic.Architect.Perceptron(_config.NETWORK_LAYER_SIZE_INPUT, _config.NETWORK_LAYER_SIZE_HIDDEN, _config.NETWORK_LAYER_SIZE_OUTPUT);
-      new synaptic.Trainer(network).train(samples, options);
-      return new NeuralNetwork(network.toJSON());
     }
 
     /**
@@ -2200,13 +2108,13 @@ var NeuralNetwork = function () {
 exports.default = NeuralNetwork;
 
 /***/ }),
-/* 24 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = require("synaptic");
 
 /***/ }),
-/* 25 */
+/* 24 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2220,11 +2128,11 @@ exports.encodeInput = encodeInput;
 exports.encodeOutput = encodeOutput;
 exports.decodeOutput = decodeOutput;
 
-var _stringUtil = __webpack_require__(6);
+var _stringUtil = __webpack_require__(4);
 
 var stringUtil = _interopRequireWildcard(_stringUtil);
 
-var _config = __webpack_require__(7);
+var _config = __webpack_require__(5);
 
 function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj; } else { var newObj = {}; if (obj != null) { for (var key in obj) { if (Object.prototype.hasOwnProperty.call(obj, key)) newObj[key] = obj[key]; } } newObj.default = obj; return newObj; } }
 
@@ -2245,7 +2153,7 @@ function isValidPos(value) {
  * @return {Array<string>}
  */
 function encodeInput(input) {
-  return stringUtil.padLeft(stringUtil.toBinary(input), _config.NETWORK_LAYER_SIZE_INPUT).split('');
+  return stringUtil.toBinary(input).padStart(_config.NETWORK_LAYER_SIZE_INPUT, '0').split('');
 }
 
 /**
@@ -2265,12 +2173,8 @@ function encodeOutput(output) {
  * @return {string|null}
  */
 function decodeOutput(output) {
-  // Neural network output is an array of values in 0..1 range.
-  // We'll need to convert these values to integer values.
-  // If value greater than or equal to 0.5 - convert to 1.
-  // If value less than 0.5 - convert to 0.
   var value = output.map(function (value) {
-    return Number(value >= 0.5);
+    return Math.round(value);
   });
   var posIndex = Object.values(_config.POS_MAPPING).findIndex(function (posValue) {
     return posValue.join('') === value.join('');
@@ -2279,7 +2183,7 @@ function decodeOutput(output) {
 }
 
 /***/ }),
-/* 26 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -2305,13 +2209,14 @@ var InMemoryCache = function () {
     _classCallCheck(this, InMemoryCache);
 
     this._items = new Map();
-    Object.keys(items).forEach(function (key) {
-      return _this.setItem(key, items[key]);
-    });
     this.setItem = this.setItem.bind(this);
     this.getItem = this.getItem.bind(this);
     this.hasItem = this.hasItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    //
+    Object.keys(items).forEach(function (key) {
+      return _this.setItem(key, items[key]);
+    });
   }
 
   /**

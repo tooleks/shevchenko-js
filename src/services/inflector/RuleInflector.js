@@ -3,11 +3,16 @@ import * as regExpUtil from '../util/regExpUtil';
 
 export default class RuleInflector {
   /**
+   * Get an inflection rule modifier functions.
+   *
+   * @return {object}
+   * @private
    */
-  constructor() {
-    this._applyRuleModifier = this._applyRuleModifier.bind(this);
-    this._getRuleModifiers = this._getRuleModifiers.bind(this);
-    this.inflect = this.inflect.bind(this);
+  static getRuleModifiers() {
+    return Object.freeze({
+      append: (value, modifierValue) => value + modifierValue,
+      replace: (value, modifierValue) => modifierValue,
+    });
   }
 
   /**
@@ -20,9 +25,9 @@ export default class RuleInflector {
    * @return {*}
    * @private
    */
-  _applyRuleModifier(modifier, value) {
+  static applyRuleModifier(modifier, value) {
     if (typeof modifier === 'object') {
-      const modify = this._getRuleModifiers()[modifier.type];
+      const modify = this.getRuleModifiers()[modifier.type];
       if (typeof modify === 'function') {
         return modify(value, modifier.value);
       }
@@ -31,16 +36,9 @@ export default class RuleInflector {
   }
 
   /**
-   * Get an inflection rule modifier functions.
-   *
-   * @return {object}
-   * @private
    */
-  _getRuleModifiers() {
-    return Object.freeze({
-      append: (value, modifierValue) => value + modifierValue,
-      replace: (value, modifierValue) => modifierValue,
-    });
+  constructor() {
+    this.inflect = this.inflect.bind(this);
   }
 
   /**
@@ -59,15 +57,15 @@ export default class RuleInflector {
     const [modifiers] = rule.inflectionCases[inflectionCase.toString()];
     if (typeof modifiers === 'object') {
       const searchValue = new RegExp(regExp, 'gm');
-      const inflectedValue = word.toLowerCase().replace(searchValue, (match, ...groups) => {
+      const inflectedWord = word.toLowerCase().replace(searchValue, (match, ...groups) => {
         let replacer = '';
-        const count = regExpUtil.countGroups(regExp);
-        for (let index = 0; index < count; index++) {
-          replacer += this._applyRuleModifier(modifiers[index], groups[index]);
+        const maxIndex = regExpUtil.countGroups(regExp);
+        for (let index = 0; index < maxIndex; index++) {
+          replacer += RuleInflector.applyRuleModifier(modifiers[index], groups[index]);
         }
         return replacer;
       });
-      return stringUtil.applyCaseMask(word, inflectedValue);
+      return stringUtil.applyCaseMask(inflectedWord, word);
     }
     return word;
   }

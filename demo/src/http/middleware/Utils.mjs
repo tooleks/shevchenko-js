@@ -2,8 +2,6 @@ import i18n from 'i18n';
 
 export default class Utils {
   /**
-   * Utils constructor.
-   *
    * @param {UrlService} urlService
    * @param {ShareLinksProvider} shareLinksProvider
    */

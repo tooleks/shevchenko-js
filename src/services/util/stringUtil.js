@@ -1,19 +1,21 @@
 /**
- * Detect if a character is in the upper case.
+ * Detect if a character is in the upper case at the specified index.
  *
- * @param {string} char
+ * @param {string} string
+ * @param {number} pos The zero-based index of the desired character.
  */
-export function isUpperCase(char) {
-  return char === char.toUpperCase() && char !== char.toLowerCase();
+export function isUpperCase(string, pos) {
+  return string.charAt(pos) === string.charAt(pos).toUpperCase();
 }
 
 /**
- * Detect if a character is in the lower case.
+ * Detect if a character is in the lower case at the specified index.
  *
- * @param {string} char
+ * @param {string} string
+ * @param {number} pos The zero-based index of the desired character.
  */
-export function isLowerCase(char) {
-  return char === char.toLowerCase() && char !== char.toUpperCase();
+export function isLowerCase(string, pos) {
+  return string.charAt(pos) === string.charAt(pos).toLowerCase();
 }
 
 /**
@@ -30,53 +32,32 @@ export function toBinary(string) {
 }
 
 /**
- * Fill the left part of the string with a symbol to a given length.
+ * Apply the case mask of the source to the string.
  *
  * @param {string} string
- * @param {number} length
- * @param {string} symbol
+ * @param {string} source
  * @return {string}
  */
-export function padLeft(string, length, symbol = '0') {
-  const filler = new Array(length + 1).join(symbol);
-  return filler.substring(0, filler.length - string.length) + string;
-}
+export function applyCaseMask(string, source) {
+  const toUpperCase = 'toUpperCase';
+  const toLowerCase = 'toLowerCase';
+  const toOriginalCase = 'toString';
 
-/**
- * Apply the case mask of the example string to the string.
- *
- * @param {string} exampleString
- * @param {string} string
- * @return {string}
- */
-export function applyCaseMask(exampleString, string) {
-  const UPPER_CASE = 'u';
-  const LOWER_CASE = 'l';
-  const NOT_RECOGNIZED_CASE = null;
-
-  // Create case mask from the example string.
-  const caseMask = exampleString.split('').reduce((mask, char) => {
-    if (isUpperCase(char)) {
-      mask.push(UPPER_CASE);
-    } else if (isLowerCase(char)) {
-      mask.push(LOWER_CASE);
+  const mask = source.split('').reduce((mask, char, pos) => {
+    if (isUpperCase(source, pos)) {
+      mask.push(toUpperCase);
+      return mask;
+    } else if (isLowerCase(source, pos)) {
+      mask.push(toLowerCase);
+      return mask;
     } else {
-      mask.push(NOT_RECOGNIZED_CASE);
+      mask.push(toOriginalCase);
+      return mask;
     }
-    return mask;
   }, []);
 
-  // Apply case mask to the desired string.
-  return string.split('').reduce((result, char, index) => {
-    let charMask = caseMask[index];
-    if (typeof charMask === 'undefined' && caseMask.length !== 0) {
-      charMask = caseMask[caseMask.length - 1];
-    }
-    if (charMask === UPPER_CASE) {
-      char = char.toUpperCase();
-    } else if (charMask === LOWER_CASE) {
-      char = char.toLowerCase();
-    }
-    return result + char;
+  return string.split('').reduce((result, char, pos) => {
+    const method = mask[pos] || mask[mask.length - 1] || toOriginalCase;
+    return result + string[pos][method]();
   }, '');
 }

@@ -2,8 +2,6 @@ import Mailgun from 'mailgun-js';
 
 export default class MailgunMailerDriver {
   /**
-   * MailgunMailerDriver constructor.
-   *
    * @param {object} options
    * @param {string} options.apiKey
    * @param {string} options.domain

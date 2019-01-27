@@ -1,7 +1,5 @@
 export default class ContactMeController {
   /**
-   * ContactMeController constructor.
-   *
    * @param {Mailer} mailer
    * @param {UrlService} urlService
    */

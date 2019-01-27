@@ -2,7 +2,6 @@ import qs from 'querystring';
 
 export default class ShareLinksProvider {
   /**
-   * ShareLinksProvider constructor.
    */
   constructor() {
     this.facebook = this.facebook.bind(this);

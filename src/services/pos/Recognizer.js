@@ -1,6 +1,6 @@
-export default class PosRecognizer {
+export default class Recognizer {
   /**
-   * @param {Array<PosRecognizerRule>} rules
+   * @param {Array<RecognizerRule>} rules
    */
   constructor(rules) {
     this._rules = rules;

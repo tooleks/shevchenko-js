@@ -4,11 +4,12 @@ export default class InMemoryCache {
    */
   constructor(items = {}) {
     this._items = new Map();
-    Object.keys(items).forEach((key) => this.setItem(key, items[key]));
     this.setItem = this.setItem.bind(this);
     this.getItem = this.getItem.bind(this);
     this.hasItem = this.hasItem.bind(this);
     this.deleteItem = this.deleteItem.bind(this);
+    //
+    Object.keys(items).forEach((key) => this.setItem(key, items[key]));
   }
 
   /**

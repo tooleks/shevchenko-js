@@ -4,7 +4,7 @@ export default class LastNameInflector {
   /**
    * @param {RuleInflector} ruleInflector
    * @param {Array} rules
-   * @param {PosRecognizer} posRecognizer
+   * @param {Recognizer} posRecognizer
    */
   constructor(ruleInflector, rules, posRecognizer) {
     this._ruleInflector = ruleInflector;

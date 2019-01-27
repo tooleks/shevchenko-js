@@ -1,4 +1,4 @@
-import Anthroponym from '../../models/Anthroponym';
+import Anthroponym from '../../valueObjects/Anthroponym';
 
 export default class AnthroponymInflector {
   /**

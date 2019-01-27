@@ -1,7 +1,5 @@
 export default class RedirectToHome {
   /**
-   * RedirectToHome constructor.
-   *
    * @param {UrlService} urlService
    */
   constructor(urlService) {

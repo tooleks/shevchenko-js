@@ -1,6 +1,5 @@
 export default class HomeController {
   /**
-   * HomeController constructor.
    */
   constructor() {
     this.index = this.index.bind(this);

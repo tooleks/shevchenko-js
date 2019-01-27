@@ -48,9 +48,9 @@ app.use(flash());
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 
-app.use(middlewareFactory.utils().handle);
+app.use(middlewareFactory.utils());
 app.use(router);
-app.get('*', middlewareFactory.redirectToHome().handle);
-app.use(middlewareFactory.errorHandler().handle);
+app.get('*', middlewareFactory.redirectToHome());
+app.use(middlewareFactory.errorHandler());
 
 export default app;

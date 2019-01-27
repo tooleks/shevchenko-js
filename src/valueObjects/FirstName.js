@@ -1,13 +1,21 @@
 import AbstractName from './AbstractName';
-import validate from './validate';
 
 export default class FirstName extends AbstractName {
   /**
    * @param {string} firstName
    */
+  static validate(firstName) {
+    if (typeof firstName !== 'string') {
+      throw new TypeError('Invalid first name type. Allowed types: string.');
+    }
+  }
+
+  /**
+   * @param {string} firstName
+   */
   constructor(firstName) {
     super();
-    validate.firstNameValue(firstName);
+    FirstName.validate(firstName);
     this._firstName = firstName;
     this.toString = this.toString.bind(this);
   }

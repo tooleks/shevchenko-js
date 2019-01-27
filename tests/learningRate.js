@@ -42,7 +42,7 @@ import POS_NN_YH_STRUCTURE from '../nn/POS_YH/structure.json';
  */
 import POS_NN_YH_SAMPLES from '../nn/POS_YH/samples.json';
 
-import NeuralNetwork from '../src/services/pos/nn/NeuralNetwork';
+import NeuralNetwork from '../src/services/pos/NeuralNetwork';
 
 export default function() {
   describe('Part of speech neural networks learning rate tests', function() {

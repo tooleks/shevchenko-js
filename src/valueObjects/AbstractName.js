@@ -14,12 +14,12 @@ export default class AbstractName {
    * For example, the compound last name "Нечуй-Левицький" includes two parts "Нечуй" and "Левицький" divided by a delimiter "-".
    * So the callback function will be called twice with values "Нечуй" and "Левицький".
    *
-   * @param {function} func
+   * @param {function} transform
    * @return {AbstractName}
    */
-  map(func) {
+  map(transform) {
     const parts = this.toString().split('-');
-    const name = parts.map((part, index) => func(part, index, parts.length)).join('-');
+    const name = parts.map((part, index) => transform(part, index, parts.length)).join('-');
     return new this.constructor(name);
   }
 }

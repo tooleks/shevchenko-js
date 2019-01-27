@@ -1,5 +1,3 @@
-import validate from './validate';
-
 /**
  * Gender values.
  *
@@ -15,8 +13,18 @@ export default class Gender {
   /**
    * @param {string} gender
    */
+  static validate(gender) {
+    if (!Object.values(GENDERS).includes(gender)) {
+      const allowedValues = Object.values(GENDERS).join(', ');
+      throw new TypeError(`Invalid gender value. Allowed values: ${allowedValues}.`);
+    }
+  }
+
+  /**
+   * @param {string} gender
+   */
   constructor(gender) {
-    validate.genderValue(gender);
+    Gender.validate(gender);
     this._gender = gender;
     this.toString = this.toString.bind(this);
     this.isMale = this.isMale.bind(this);
@@ -36,7 +44,7 @@ export default class Gender {
    * @return {boolean}
    */
   isMale() {
-    return this.toString() === GENDERS.MALE;
+    return this._gender === GENDERS.MALE;
   }
 
   /**
@@ -45,6 +53,6 @@ export default class Gender {
    * @return {boolean}
    */
   isFemale() {
-    return this.toString() === GENDERS.FEMALE;
+    return this._gender === GENDERS.FEMALE;
   }
 }

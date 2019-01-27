@@ -1,7 +1,7 @@
-import NeuralNetwork from './nn/NeuralNetwork';
+import NeuralNetwork from './NeuralNetwork';
 import InMemoryCache from '../util/InMemoryCache';
 
-export default class PosRecognizerRule {
+export default class RecognizerRule {
   /**
    * @param {function} isApplicable
    * @param {object} structure

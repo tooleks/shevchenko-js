@@ -1,7 +1,5 @@
 export default class ErrorHandler {
   /**
-   * ErrorHandler constructor.
-   *
    * @param {UrlService} urlService
    */
   constructor(urlService) {
