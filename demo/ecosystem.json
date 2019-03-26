@@ -2,7 +2,7 @@
   "apps": [
     {
       "name": "shevchenko-js-demo",
-      "script": "./server.mjs"
+      "script": "./server.js"
     }
   ]
 }

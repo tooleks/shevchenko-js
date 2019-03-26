@@ -38,7 +38,7 @@ export default class Anthroponym {
    * @param {object} anthroponym
    */
   constructor(anthroponym) {
-    Anthroponym.validate(anthroponym);
+    this.constructor.validate(anthroponym);
 
     this._gender = new Gender(anthroponym.gender);
     if (Object.prototype.hasOwnProperty.call(anthroponym, 'firstName')) {
@@ -64,7 +64,7 @@ export default class Anthroponym {
   /**
    * Cast the value to an object.
    *
-   * @return {object}
+   * @returns {object}
    */
   toObject() {
     const object = {};
@@ -84,34 +84,34 @@ export default class Anthroponym {
   /**
    * Determine whether the anthroponym has first name.
    *
-   * @return {boolean}
+   * @returns {boolean}
    */
   hasFirstName() {
-    return Boolean(this._firstName);
+    return this._firstName != null;
   }
 
   /**
    * Determine whether the anthroponym has middle name.
    *
-   * @return {boolean}
+   * @returns {boolean}
    */
   hasMiddleName() {
-    return Boolean(this._middleName);
+    return this._middleName != null;
   }
 
   /**
    * Determine whether the anthroponym has last name.
    *
-   * @return {boolean}
+   * @returns {boolean}
    */
   hasLastName() {
-    return Boolean(this._lastName);
+    return this._lastName != null;
   }
 
   /**
    * Get first name.
    *
-   * @return {FirstName|null}
+   * @returns {FirstName|null}
    */
   getFirstName() {
     return this._firstName || null;
@@ -120,7 +120,7 @@ export default class Anthroponym {
   /**
    * Get middle name.
    *
-   * @return {MiddleName|null}
+   * @returns {MiddleName|null}
    */
   getMiddleName() {
     return this._middleName || null;
@@ -129,7 +129,7 @@ export default class Anthroponym {
   /**
    * Get last name.
    *
-   * @return {LastName|null}
+   * @returns {LastName|null}
    */
   getLastName() {
     return this._lastName || null;
@@ -138,7 +138,7 @@ export default class Anthroponym {
   /**
    * Get gender.
    *
-   * @return {Gender}
+   * @returns {Gender}
    */
   getGender() {
     return this._gender;

@@ -1,6 +1,8 @@
-import i18n from 'i18n';
+'use strict';
 
-export default class Utils {
+const i18n = require('i18n');
+
+class Utils {
   /**
    * @param {UrlService} urlService
    * @param {ShareLinksProvider} shareLinksProvider
@@ -20,8 +22,8 @@ export default class Utils {
    */
   handle(req, res, next) {
     res.locals.__url = Object.freeze({
-      generate: (url) => this._urlService.genAbsoluteUrl(url, {locale: req.getLocale()}),
-      current: this._urlService.genAbsoluteUrl(req.url, {locale: req.getLocale()}),
+      generate: (url) => this._urlService.genAbsoluteUrl(url, { locale: req.getLocale() }),
+      current: this._urlService.genAbsoluteUrl(req.url, { locale: req.getLocale() }),
     });
 
     res.locals.__shareUrl = Object.freeze({
@@ -32,12 +34,14 @@ export default class Utils {
     });
 
     res.locals.__languageSwitcher = i18n.getLocales().map((locale) => {
-      const url = this._urlService.genAbsoluteUrl(req.url, {locale});
+      const url = this._urlService.genAbsoluteUrl(req.url, { locale });
       url.searchParams.set('lang', locale);
-      const title = i18n.__({phrase: `${locale}_language`, locale});
-      return {url, title};
+      const title = i18n.__({ phrase: `${locale}_language`, locale });
+      return { url, title };
     });
 
     next();
   }
 }
+
+module.exports = Utils;

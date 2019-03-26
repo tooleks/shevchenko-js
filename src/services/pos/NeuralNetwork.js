@@ -1,5 +1,5 @@
 import * as synaptic from 'synaptic';
-import {NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT} from './config';
+import { NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT } from './config';
 import * as neuralNetworkUtil from './neuralNetworkUtil';
 
 /**
@@ -11,7 +11,7 @@ export default class NeuralNetwork {
    *
    * @param {Array<object>} samples
    * @param {object} options
-   * @return {NeuralNetwork}
+   * @returns {NeuralNetwork}
    */
   static build(samples, options) {
     const network = new synaptic.Architect.Perceptron(
@@ -38,7 +38,7 @@ export default class NeuralNetwork {
    *
    * @param {Array<object>} samples
    * @param {object} options
-   * @return {void}
+   * @returns {void}
    */
   train(samples, options) {
     new synaptic.Trainer(this._network).train(samples, options);
@@ -48,7 +48,7 @@ export default class NeuralNetwork {
    * Run the neural network on the input data.
    *
    * @param {string} input
-   * @return {string|null}
+   * @returns {string|null}
    */
   run(input) {
     const value = neuralNetworkUtil.encodeInput(input);
@@ -57,7 +57,7 @@ export default class NeuralNetwork {
   }
 
   /**
-   * @return {string}
+   * @returns {string}
    */
   toString() {
     return JSON.stringify(this._network.toJSON());

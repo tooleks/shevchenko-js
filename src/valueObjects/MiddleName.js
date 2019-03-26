@@ -15,13 +15,13 @@ export default class MiddleName extends AbstractName {
    */
   constructor(middleName) {
     super();
-    MiddleName.validate(middleName);
+    this.constructor.validate(middleName);
     this._middleName = middleName;
     this.toString = this.toString.bind(this);
   }
 
   /**
-   * @return {string}
+   * @returns {string}
    */
   toString() {
     return this._middleName;

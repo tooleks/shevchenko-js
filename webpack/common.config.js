@@ -4,20 +4,6 @@ import ReplacePlugin from 'webpack-plugin-replace';
 import macro from '../macro';
 import pkg from '../package.json';
 
-/**
- * Get banner content.
- *
- * @param {object} pkg
- * @return {string}
- */
-function getBanner(pkg) {
-  const name = `${pkg.name} v${pkg.version}`;
-  const timestamp = moment().toISOString();
-  const copyright = `Copyright (c) ${pkg.author}`;
-  const license = `License: ${pkg.license}`;
-  return `${name} / ${timestamp} / ${copyright} / ${license}`;
-}
-
 export default {
   mode: process.env.NODE_ENV || 'production',
   module: {
@@ -51,6 +37,8 @@ export default {
         'process.env.POS_NN_YH_CACHE': JSON.stringify(macro.POS_NN_YH_CACHE),
       },
     }),
-    new webpack.BannerPlugin(getBanner(pkg)),
+    new webpack.BannerPlugin(`
+      ${pkg.name}@${pkg.version} / ${moment().toISOString()} / Author: ${pkg.author} / License: ${pkg.license}
+    `),
   ],
 };

@@ -1,4 +1,4 @@
-import {expect} from 'chai';
+import { expect } from 'chai';
 
 export default function(shevchenko) {
   describe('shevchenko.INFLECTION_CASES', function() {

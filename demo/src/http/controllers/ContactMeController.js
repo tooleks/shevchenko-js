@@ -1,4 +1,6 @@
-export default class ContactMeController {
+'use strict';
+
+class ContactMeController {
   /**
    * @param {Mailer} mailer
    * @param {UrlService} urlService
@@ -23,11 +25,13 @@ export default class ContactMeController {
     const text = req.body.message;
 
     try {
-      await this._mailer.send({from, to, subject, text});
-      req.flash('flashes', {type: 'success', message: req.__('contact_me_form_success_alert')});
-      res.redirect(this._urlService.genAbsoluteUrl('/', {locale: req.getLocale()}));
+      await this._mailer.send({ from, to, subject, text });
+      req.flash('flashes', { type: 'success', message: req.__('contact_me_form_success_alert') });
+      res.redirect(this._urlService.genAbsoluteUrl('/', { locale: req.getLocale() }));
     } catch (err) {
       next(err);
     }
   }
 }
+
+module.exports = ContactMeController;

@@ -1,7 +1,7 @@
-import InflectionCase, {INFLECTION_CASES} from './valueObjects/InflectionCase';
+import InflectionCase, { INFLECTION_CASES } from './valueObjects/InflectionCase';
 import Anthroponym from './valueObjects/Anthroponym';
-import {GENDERS} from './valueObjects/Gender';
-import {anthroponymInflector} from './bootstrap';
+import { GENDERS } from './valueObjects/Gender';
+import { anthroponymInflector } from './bootstrap';
 
 /**
  * Inflect the anthroponym.
@@ -124,7 +124,7 @@ export function inAll(anthroponym) {
   }, {});
 }
 
-export {GENDERS, INFLECTION_CASES};
+export { GENDERS, INFLECTION_CASES };
 
 shevchenko.inNominative = inNominative;
 shevchenko.inGenitive = inGenitive;

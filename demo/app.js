@@ -1,14 +1,16 @@
-import express from 'express';
-import i18n from 'i18n';
-import bodyParser from 'body-parser';
-import session from 'express-session';
-import cookieParser from 'cookie-parser';
-import flash from 'connect-flash';
-import ejs from 'ejs';
+'use strict';
 
-import {localesPath} from './paths';
-import * as middlewareFactory from './src/http/middleware/factory';
-import router from './src/http/routes/router';
+const express = require('express');
+const i18n = require('i18n');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const cookieParser = require('cookie-parser');
+const flash = require('connect-flash');
+const ejs = require('ejs');
+
+const { localesPath } = require('./paths');
+const middlewareFactory = require('./src/http/middleware/factory');
+const router = require('./src/http/routes/router');
 
 const app = express();
 
@@ -30,14 +32,14 @@ app.use(express.static('public/meta'));
 app.use('/js/shevchenko.umd.min.js', express.static('node_modules/shevchenko/dist/shevchenko.umd.min.js'));
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({extended: true}));
+app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(cookieParser(process.env.APP_SECRET));
 
 app.use(
   session({
     secret: process.env.APP_SECRET,
-    cookie: {maxAge: 60000},
+    cookie: { maxAge: 60000 },
     resave: true,
     saveUninitialized: true,
   }),
@@ -53,4 +55,4 @@ app.use(router);
 app.get('*', middlewareFactory.redirectToHome());
 app.use(middlewareFactory.errorHandler());
 
-export default app;
+module.exports = app;

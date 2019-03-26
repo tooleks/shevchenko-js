@@ -12,7 +12,7 @@ import NeuralNetwork from './src/services/pos/NeuralNetwork';
  *
  * @param {object} cache
  * @param {object} sample
- * @return {object}
+ * @returns {object}
  */
 function addSampleToCache(cache, sample) {
   cache[sample.value] = sample.pos;

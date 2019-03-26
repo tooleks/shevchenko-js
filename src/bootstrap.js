@@ -39,4 +39,4 @@ const lastNameInflector = new LastNameInflector(ruleInflector, INFLECTION_RULES,
 
 const anthroponymInflector = new AnthroponymInflector(firstNameInflector, middleNameInflector, lastNameInflector);
 
-export {anthroponymInflector};
+export { anthroponymInflector };

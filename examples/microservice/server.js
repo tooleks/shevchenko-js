@@ -22,4 +22,6 @@ app.post('/', (req, res) => {
   });
 });
 
-app.listen(process.env.PORT, () => console.log(`${pkg.name} is listening on ${process.env.PORT} port.`));
+app.listen(process.env.PORT, () => {
+  console.log(`${pkg.name} is listening on ${process.env.PORT} port.`);
+});

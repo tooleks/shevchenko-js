@@ -1,6 +1,8 @@
-import {URL} from 'url';
+'use strict';
 
-export default class UrlService {
+const { URL } = require('url');
+
+class UrlService {
   /**
    */
   constructor() {
@@ -13,10 +15,10 @@ export default class UrlService {
    * @param {string} [relativeUrl='']
    * @param {object} [params]
    * @param {string} {params.locale='en']
-   * @return {URL}
+   * @returns {URL}
    */
   genAbsoluteUrl(relativeUrl = '', params = {}) {
-    params = {locale: 'en', ...params};
+    params = { locale: 'en', ...params };
     const host = process.env.APP_URL;
     const absoluteUrl = new URL(host + relativeUrl);
     if (!absoluteUrl.searchParams.has('lang')) {
@@ -25,3 +27,5 @@ export default class UrlService {
     return absoluteUrl;
   }
 }
+
+module.exports = UrlService;

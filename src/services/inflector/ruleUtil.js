@@ -2,7 +2,7 @@
  * @param {object} rule
  * @param {string} rule.gender
  * @param {Gender} gender
- * @return {boolean}
+ * @returns {boolean}
  */
 export function matchGender(rule, gender) {
   return rule.gender.includes(gender.toString());
@@ -13,7 +13,7 @@ export function matchGender(rule, gender) {
  * @param {Array<string>} rule.usages
  * @param {string} usage
  * @param {boolean} [strict=false]
- * @return {boolean}
+ * @returns {boolean}
  */
 export function matchUsage(rule, usage, strict = false) {
   if (rule.usages.length) {
@@ -29,7 +29,7 @@ export function matchUsage(rule, usage, strict = false) {
  * @param {object} rule.regexp
  * @param {string} rule.regexp.find
  * @param {string} word
- * @return {boolean}
+ * @returns {boolean}
  */
 export function matchRegExp(rule, word) {
   return new RegExp(rule.regexp.find, 'gim').test(word);
@@ -39,7 +39,7 @@ export function matchRegExp(rule, word) {
  * @param {object} rule
  * @param {object} rule.pos
  * @param {string} pos
- * @return {boolean}
+ * @returns {boolean}
  */
 export function matchPos(rule, pos) {
   if (pos === null) {
@@ -54,7 +54,7 @@ export function matchPos(rule, pos) {
  * @param {object} secondRule
  * @param {Array<string>} secondRule.usages
  * @param {string} usage
- * @return {number}
+ * @returns {number}
  */
 export function compareUsage(firstRule, secondRule, usage) {
   return !firstRule.usages.length && secondRule.usages.length && secondRule.usages.includes(usage);

@@ -19,7 +19,7 @@ export default class LastNameInflector {
    * @param {LastName} lastName
    * @param {Gender} gender
    * @param {InflectionCase} inflectionCaseName
-   * @return {LastName}
+   * @returns {LastName}
    */
   inflect(lastName, gender, inflectionCaseName) {
     return lastName.map((namePart, index, length) => {

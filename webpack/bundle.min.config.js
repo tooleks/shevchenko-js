@@ -1,8 +1,8 @@
 import webpackMerge from 'webpack-merge';
-import shevchenkoUmdConfig from './shevchenko.umd.config';
+import umdConfig from './umd.config';
 import pkg from '../package.json';
 
-export default webpackMerge.strategy({externals: 'replace'})(shevchenkoUmdConfig, {
+export default webpackMerge.strategy({ externals: 'replace' })(umdConfig, {
   output: {
     filename: `${pkg.name}.bundle.min.js`,
   },

@@ -5,7 +5,7 @@ export default class RuleInflector {
   /**
    * Get an inflection rule modifier functions.
    *
-   * @return {object}
+   * @returns {object}
    * @private
    */
   static getRuleModifiers() {
@@ -22,7 +22,7 @@ export default class RuleInflector {
    * @param {string} modifier.type
    * @param {string} modifier.value
    * @param {string} value
-   * @return {*}
+   * @returns {*}
    * @private
    */
   static applyRuleModifier(modifier, value) {
@@ -50,7 +50,7 @@ export default class RuleInflector {
    * @param {object} rule.regexp
    * @param {string} rule.regexp.modify
    * @param {string} rule.inflectionCases
-   * @return {string}
+   * @returns {string}
    */
   inflect(word, inflectionCase, rule) {
     const regExp = rule.regexp.modify;

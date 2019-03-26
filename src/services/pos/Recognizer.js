@@ -12,7 +12,7 @@ export default class Recognizer {
    *
    * @param {string} word
    * @param {Gender} gender
-   * @return {string|null} - Recognized part of speech or null if no applicable rule was found.
+   * @returns {string|null} - Recognized part of speech or null if no applicable rule was found.
    */
   recognize(word, gender) {
     const rule = this._rules.find((rule) => rule.isApplicable(word, gender));

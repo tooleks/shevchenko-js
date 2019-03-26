@@ -1,6 +1,8 @@
-import qs from 'querystring';
+'use strict';
 
-export default class ShareLinksProvider {
+const qs = require('querystring');
+
+class ShareLinksProvider {
   /**
    */
   constructor() {
@@ -15,7 +17,7 @@ export default class ShareLinksProvider {
    *
    * @param {string} url
    * @param {string} description
-   * @return {string}
+   * @returns {string}
    */
   facebook(url, description) {
     return `https://www.facebook.com/sharer/sharer.php?u=${qs.escape(url)}`;
@@ -26,7 +28,7 @@ export default class ShareLinksProvider {
    *
    * @param {string} url
    * @param {string} description
-   * @return {string}
+   * @returns {string}
    */
   twitter(url, description) {
     return `https://twitter.com/home?status=${qs.escape(url)}`;
@@ -37,7 +39,7 @@ export default class ShareLinksProvider {
    *
    * @param {string} url
    * @param {string} description
-   * @return {string}
+   * @returns {string}
    */
   googlePlus(url, description) {
     return `https://plus.google.com/share?url=${qs.escape(url)}`;
@@ -48,7 +50,7 @@ export default class ShareLinksProvider {
    *
    * @param {string} url
    * @param {string} description
-   * @return {string}
+   * @returns {string}
    */
   linkedIn(url, description) {
     return (
@@ -57,3 +59,5 @@ export default class ShareLinksProvider {
     );
   }
 }
+
+module.exports = ShareLinksProvider;

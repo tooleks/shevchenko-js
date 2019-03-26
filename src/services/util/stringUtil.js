@@ -22,7 +22,7 @@ export function isLowerCase(string, pos) {
  * Convert a string to a binary representation.
  *
  * @param {string} string
- * @return {string}
+ * @returns {string}
  */
 export function toBinary(string) {
   return string
@@ -36,7 +36,7 @@ export function toBinary(string) {
  *
  * @param {string} string
  * @param {string} source
- * @return {string}
+ * @returns {string}
  */
 export function applyCaseMask(string, source) {
   const toUpperCase = 'toUpperCase';

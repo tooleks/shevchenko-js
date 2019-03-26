@@ -29,13 +29,13 @@ export default class InflectionCase {
    * @param {string} inflectionCase
    */
   constructor(inflectionCase) {
-    InflectionCase.validate(inflectionCase);
+    this.constructor.validate(inflectionCase);
     this._inflectionCase = inflectionCase;
     this.toString = this.toString.bind(this);
   }
 
   /**
-   * @return {string}
+   * @returns {string}
    */
   toString() {
     return this._inflectionCase;

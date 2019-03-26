@@ -17,7 +17,7 @@ export default class MiddleNameInflector {
    * @param {MiddleName} middleName
    * @param {Gender} gender
    * @param {InflectionCase} inflectionCaseName
-   * @return {MiddleName}
+   * @returns {MiddleName}
    */
   inflect(middleName, gender, inflectionCaseName) {
     return middleName.map((namePart) => {

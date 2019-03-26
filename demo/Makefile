@@ -1,14 +1,16 @@
-link:
-	cd ../ && npm link && cd ./demo && npm link shevchenko
+install:
+	npm install
+	npm link ../
 
-start: link
-	npm start
+start:
+	./node_modules/.bin/pm2 start ecosystem.json --no-daemon
 
-start-prod: link
-	./node_modules/.bin/pm2 start './ecosystem.json'
+start-daemon:
+	./node_modules/.bin/pm2 start ecosystem.json
 
-restart-prod: link
-	./node_modules/.bin/pm2 restart './ecosystem.json'
+restart-daemon:
+	./node_modules/.bin/pm2 restart ecosystem.json --update-env
 
-stop-prod:
-	./node_modules/.bin/pm2 stop './ecosystem.json'
+stop-daemon:
+	./node_modules/.bin/pm2 stop ecosystem.json
+	./node_modules/.bin/pm2 delete ecosystem.json

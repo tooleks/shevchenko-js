@@ -1,4 +1,8 @@
-/*! shevchenko v1.1.6 / 2019-01-27T14:39:26.065Z / Copyright (c) Oleksandr Tolochko <tooleks@gmail.com> / License: MIT */
+/*!
+ * 
+ *       shevchenko@1.1.7 / 2019-03-26T21:33:30.736Z / Author: Oleksandr Tolochko <tooleks@gmail.com> / License: MIT
+ *     
+ */
 module.exports =
 /******/ (function(modules) { // webpackBootstrap
 /******/ 	// The module cache
@@ -120,7 +124,7 @@ var AbstractName = function () {
    * So the callback function will be called twice with values "Нечуй" and "Левицький".
    *
    * @param {function} transform
-   * @return {AbstractName}
+   * @returns {AbstractName}
    */
 
 
@@ -159,7 +163,7 @@ exports.compareUsage = compareUsage;
  * @param {object} rule
  * @param {string} rule.gender
  * @param {Gender} gender
- * @return {boolean}
+ * @returns {boolean}
  */
 function matchGender(rule, gender) {
   return rule.gender.includes(gender.toString());
@@ -170,7 +174,7 @@ function matchGender(rule, gender) {
  * @param {Array<string>} rule.usages
  * @param {string} usage
  * @param {boolean} [strict=false]
- * @return {boolean}
+ * @returns {boolean}
  */
 function matchUsage(rule, usage) {
   var strict = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : false;
@@ -188,7 +192,7 @@ function matchUsage(rule, usage) {
  * @param {object} rule.regexp
  * @param {string} rule.regexp.find
  * @param {string} word
- * @return {boolean}
+ * @returns {boolean}
  */
 function matchRegExp(rule, word) {
   return new RegExp(rule.regexp.find, 'gim').test(word);
@@ -198,7 +202,7 @@ function matchRegExp(rule, word) {
  * @param {object} rule
  * @param {object} rule.pos
  * @param {string} pos
- * @return {boolean}
+ * @returns {boolean}
  */
 function matchPos(rule, pos) {
   if (pos === null) {
@@ -213,7 +217,7 @@ function matchPos(rule, pos) {
  * @param {object} secondRule
  * @param {Array<string>} secondRule.usages
  * @param {string} usage
- * @return {number}
+ * @returns {number}
  */
 function compareUsage(firstRule, secondRule, usage) {
   return !firstRule.usages.length && secondRule.usages.length && secondRule.usages.includes(usage);
@@ -297,7 +301,7 @@ var Anthroponym = function () {
   function Anthroponym(anthroponym) {
     _classCallCheck(this, Anthroponym);
 
-    Anthroponym.validate(anthroponym);
+    this.constructor.validate(anthroponym);
 
     this._gender = new _Gender2.default(anthroponym.gender);
     if (Object.prototype.hasOwnProperty.call(anthroponym, 'firstName')) {
@@ -323,7 +327,7 @@ var Anthroponym = function () {
   /**
    * Cast the value to an object.
    *
-   * @return {object}
+   * @returns {object}
    */
 
 
@@ -347,43 +351,43 @@ var Anthroponym = function () {
     /**
      * Determine whether the anthroponym has first name.
      *
-     * @return {boolean}
+     * @returns {boolean}
      */
 
   }, {
     key: 'hasFirstName',
     value: function hasFirstName() {
-      return Boolean(this._firstName);
+      return this._firstName != null;
     }
 
     /**
      * Determine whether the anthroponym has middle name.
      *
-     * @return {boolean}
+     * @returns {boolean}
      */
 
   }, {
     key: 'hasMiddleName',
     value: function hasMiddleName() {
-      return Boolean(this._middleName);
+      return this._middleName != null;
     }
 
     /**
      * Determine whether the anthroponym has last name.
      *
-     * @return {boolean}
+     * @returns {boolean}
      */
 
   }, {
     key: 'hasLastName',
     value: function hasLastName() {
-      return Boolean(this._lastName);
+      return this._lastName != null;
     }
 
     /**
      * Get first name.
      *
-     * @return {FirstName|null}
+     * @returns {FirstName|null}
      */
 
   }, {
@@ -395,7 +399,7 @@ var Anthroponym = function () {
     /**
      * Get middle name.
      *
-     * @return {MiddleName|null}
+     * @returns {MiddleName|null}
      */
 
   }, {
@@ -407,7 +411,7 @@ var Anthroponym = function () {
     /**
      * Get last name.
      *
-     * @return {LastName|null}
+     * @returns {LastName|null}
      */
 
   }, {
@@ -419,7 +423,7 @@ var Anthroponym = function () {
     /**
      * Get gender.
      *
-     * @return {Gender}
+     * @returns {Gender}
      */
 
   }, {
@@ -483,7 +487,7 @@ var Gender = function () {
   function Gender(gender) {
     _classCallCheck(this, Gender);
 
-    Gender.validate(gender);
+    this.constructor.validate(gender);
     this._gender = gender;
     this.toString = this.toString.bind(this);
     this.isMale = this.isMale.bind(this);
@@ -491,7 +495,7 @@ var Gender = function () {
   }
 
   /**
-   * @return {string}
+   * @returns {string}
    */
 
 
@@ -504,7 +508,7 @@ var Gender = function () {
     /**
      * Determine whether gender value is male.
      *
-     * @return {boolean}
+     * @returns {boolean}
      */
 
   }, {
@@ -516,7 +520,7 @@ var Gender = function () {
     /**
      * Determine whether gender value is female.
      *
-     * @return {boolean}
+     * @returns {boolean}
      */
 
   }, {
@@ -569,7 +573,7 @@ function isLowerCase(string, pos) {
  * Convert a string to a binary representation.
  *
  * @param {string} string
- * @return {string}
+ * @returns {string}
  */
 function toBinary(string) {
   return string.split('').map(function (char) {
@@ -582,7 +586,7 @@ function toBinary(string) {
  *
  * @param {string} string
  * @param {string} source
- * @return {string}
+ * @returns {string}
  */
 function applyCaseMask(string, source) {
   var toUpperCase = 'toUpperCase';
@@ -876,13 +880,13 @@ var InflectionCase = function () {
   function InflectionCase(inflectionCase) {
     _classCallCheck(this, InflectionCase);
 
-    InflectionCase.validate(inflectionCase);
+    this.constructor.validate(inflectionCase);
     this._inflectionCase = inflectionCase;
     this.toString = this.toString.bind(this);
   }
 
   /**
-   * @return {string}
+   * @returns {string}
    */
 
 
@@ -949,14 +953,14 @@ var FirstName = function (_AbstractName) {
 
     var _this = _possibleConstructorReturn(this, (FirstName.__proto__ || Object.getPrototypeOf(FirstName)).call(this));
 
-    FirstName.validate(firstName);
+    _this.constructor.validate(firstName);
     _this._firstName = firstName;
     _this.toString = _this.toString.bind(_this);
     return _this;
   }
 
   /**
-   * @return {string}
+   * @returns {string}
    */
 
 
@@ -1023,14 +1027,14 @@ var MiddleName = function (_AbstractName) {
 
     var _this = _possibleConstructorReturn(this, (MiddleName.__proto__ || Object.getPrototypeOf(MiddleName)).call(this));
 
-    MiddleName.validate(middleName);
+    _this.constructor.validate(middleName);
     _this._middleName = middleName;
     _this.toString = _this.toString.bind(_this);
     return _this;
   }
 
   /**
-   * @return {string}
+   * @returns {string}
    */
 
 
@@ -1097,14 +1101,14 @@ var LastName = function (_AbstractName) {
 
     var _this = _possibleConstructorReturn(this, (LastName.__proto__ || Object.getPrototypeOf(LastName)).call(this));
 
-    LastName.validate(lastName);
+    _this.constructor.validate(lastName);
     _this._lastName = lastName;
     _this.toString = _this.toString.bind(_this);
     return _this;
   }
 
   /**
-   * @return {string}
+   * @returns {string}
    */
 
 
@@ -1447,7 +1451,7 @@ var AnthroponymInflector = function () {
    *
    * @param {Anthroponym} anthroponym
    * @param {InflectionCase} inflectionCase
-   * @return {Anthroponym}
+   * @returns {Anthroponym}
    */
 
 
@@ -1519,7 +1523,7 @@ var FirstNameInflector = function () {
    * @param {FirstName} firstName
    * @param {Gender} gender
    * @param {InflectionCase} inflectionCaseName
-   * @return {FirstName}
+   * @returns {FirstName}
    */
 
 
@@ -1596,7 +1600,7 @@ var LastNameInflector = function () {
    * @param {LastName} lastName
    * @param {Gender} gender
    * @param {InflectionCase} inflectionCaseName
-   * @return {LastName}
+   * @returns {LastName}
    */
 
 
@@ -1681,7 +1685,7 @@ var MiddleNameInflector = function () {
    * @param {MiddleName} middleName
    * @param {Gender} gender
    * @param {InflectionCase} inflectionCaseName
-   * @return {MiddleName}
+   * @returns {MiddleName}
    */
 
 
@@ -1750,7 +1754,7 @@ var RuleInflector = function () {
     /**
      * Get an inflection rule modifier functions.
      *
-     * @return {object}
+     * @returns {object}
      * @private
      */
     value: function getRuleModifiers() {
@@ -1771,7 +1775,7 @@ var RuleInflector = function () {
      * @param {string} modifier.type
      * @param {string} modifier.value
      * @param {string} value
-     * @return {*}
+     * @returns {*}
      * @private
      */
 
@@ -1807,7 +1811,7 @@ var RuleInflector = function () {
    * @param {object} rule.regexp
    * @param {string} rule.regexp.modify
    * @param {string} rule.inflectionCases
-   * @return {string}
+   * @returns {string}
    */
 
 
@@ -1859,7 +1863,7 @@ exports.countGroups = countGroups;
  * Count a number of groups in a regular expression.
  *
  * @param {RegExp|string} regExp
- * @return {number}
+ * @returns {number}
  */
 function countGroups(regExp) {
   return new RegExp(regExp.toString() + '|').exec('').length - 1;
@@ -1896,7 +1900,7 @@ var Recognizer = function () {
    *
    * @param {string} word
    * @param {Gender} gender
-   * @return {string|null} - Recognized part of speech or null if no applicable rule was found.
+   * @returns {string|null} - Recognized part of speech or null if no applicable rule was found.
    */
 
 
@@ -1966,7 +1970,7 @@ var RecognizerRule = function () {
    *
    * @param {string} word
    * @param {Gender} gender
-   * @return {boolean}
+   * @returns {boolean}
    */
 
 
@@ -2038,7 +2042,7 @@ var NeuralNetwork = function () {
      *
      * @param {Array<object>} samples
      * @param {object} options
-     * @return {NeuralNetwork}
+     * @returns {NeuralNetwork}
      */
     value: function build(samples, options) {
       var network = new synaptic.Architect.Perceptron(_config.NETWORK_LAYER_SIZE_INPUT, _config.NETWORK_LAYER_SIZE_HIDDEN, _config.NETWORK_LAYER_SIZE_OUTPUT);
@@ -2066,7 +2070,7 @@ var NeuralNetwork = function () {
    *
    * @param {Array<object>} samples
    * @param {object} options
-   * @return {void}
+   * @returns {void}
    */
 
 
@@ -2080,7 +2084,7 @@ var NeuralNetwork = function () {
      * Run the neural network on the input data.
      *
      * @param {string} input
-     * @return {string|null}
+     * @returns {string|null}
      */
 
   }, {
@@ -2092,7 +2096,7 @@ var NeuralNetwork = function () {
     }
 
     /**
-     * @return {string}
+     * @returns {string}
      */
 
   }, {
@@ -2140,7 +2144,7 @@ function _interopRequireWildcard(obj) { if (obj && obj.__esModule) { return obj;
  * Determine if provided value is a valid part of speech value.
  *
  * @param {string} value
- * @return {boolean}
+ * @returns {boolean}
  */
 function isValidPos(value) {
   return Object.keys(_config.POS_MAPPING).includes(value);
@@ -2150,7 +2154,7 @@ function isValidPos(value) {
  * Encode word value for usage in the neural network.
  *
  * @param {string} input
- * @return {Array<string>}
+ * @returns {Array<string>}
  */
 function encodeInput(input) {
   return stringUtil.toBinary(input).padStart(_config.NETWORK_LAYER_SIZE_INPUT, '0').split('');
@@ -2160,7 +2164,7 @@ function encodeInput(input) {
  * Encode part of speech value for usage in the neural network.
  *
  * @param {string} output
- * @return {Array<number>|undefined}
+ * @returns {Array<number>|undefined}
  */
 function encodeOutput(output) {
   return _config.POS_MAPPING[output];
@@ -2170,7 +2174,7 @@ function encodeOutput(output) {
  * Decode part of speech value returned from the neural network.
  *
  * @param {Array<number>} output
- * @return {string|null}
+ * @returns {string|null}
  */
 function decodeOutput(output) {
   var value = output.map(function (value) {
@@ -2224,7 +2228,7 @@ var InMemoryCache = function () {
    *
    * @param {*} key
    * @param {*} value
-   * @return {void}
+   * @returns {void}
    */
 
 
@@ -2238,7 +2242,7 @@ var InMemoryCache = function () {
      * Get the value associated to the key, or undefined if there is none.
      *
      * @param {*} key
-     * @return {*}
+     * @returns {*}
      */
 
   }, {
@@ -2251,7 +2255,7 @@ var InMemoryCache = function () {
      * Return a boolean asserting whether a value has been associated to the key in the cache object or not.
      *
      * @param {*} key
-     * @return {boolean}
+     * @returns {boolean}
      */
 
   }, {
@@ -2264,7 +2268,7 @@ var InMemoryCache = function () {
      * Delete the value associated to the key.
      *
      * @param {*} key
-     * @return {void}
+     * @returns {void}
      */
 
   }, {

@@ -1,4 +1,6 @@
-export default class Mailer {
+'use strict';
+
+class Mailer {
   /**
    * @param {MailgunMailerDriver} driver
    */
@@ -11,9 +13,11 @@ export default class Mailer {
    * Send mail message.
    *
    * @param {object} data
-   * @return {Promise}
+   * @returns {Promise}
    */
   send(data) {
     return this._driver.send(data);
   }
 }
+
+module.exports = Mailer;

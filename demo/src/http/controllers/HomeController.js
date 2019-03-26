@@ -1,4 +1,6 @@
-export default class HomeController {
+'use strict';
+
+class HomeController {
   /**
    */
   constructor() {
@@ -12,6 +14,8 @@ export default class HomeController {
    * @param res
    */
   index(req, res) {
-    res.render('home.ejs', {flashes: req.flash('flashes')});
+    res.render('home.ejs', { flashes: req.flash('flashes') });
   }
 }
+
+module.exports = HomeController;

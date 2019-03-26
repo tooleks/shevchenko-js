@@ -15,13 +15,13 @@ export default class LastName extends AbstractName {
    */
   constructor(lastName) {
     super();
-    LastName.validate(lastName);
+    this.constructor.validate(lastName);
     this._lastName = lastName;
     this.toString = this.toString.bind(this);
   }
 
   /**
-   * @return {string}
+   * @returns {string}
    */
   toString() {
     return this._lastName;

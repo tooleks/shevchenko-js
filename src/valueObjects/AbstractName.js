@@ -15,7 +15,7 @@ export default class AbstractName {
    * So the callback function will be called twice with values "Нечуй" and "Левицький".
    *
    * @param {function} transform
-   * @return {AbstractName}
+   * @returns {AbstractName}
    */
   map(transform) {
     const parts = this.toString().split('-');

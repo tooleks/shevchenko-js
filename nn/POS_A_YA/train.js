@@ -12,7 +12,7 @@ const samples = rawSamples
   .map((sample) => {
     const input = neuralNetworkUtil.encodeInput(sample.value);
     const output = neuralNetworkUtil.encodeOutput(sample.pos);
-    return {input, output};
+    return { input, output };
   });
 
 const options = {

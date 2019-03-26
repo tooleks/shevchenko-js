@@ -17,7 +17,7 @@ export default class InMemoryCache {
    *
    * @param {*} key
    * @param {*} value
-   * @return {void}
+   * @returns {void}
    */
   setItem(key, value) {
     this._items.set(key, value);
@@ -27,7 +27,7 @@ export default class InMemoryCache {
    * Get the value associated to the key, or undefined if there is none.
    *
    * @param {*} key
-   * @return {*}
+   * @returns {*}
    */
   getItem(key) {
     return this._items.get(key);
@@ -37,7 +37,7 @@ export default class InMemoryCache {
    * Return a boolean asserting whether a value has been associated to the key in the cache object or not.
    *
    * @param {*} key
-   * @return {boolean}
+   * @returns {boolean}
    */
   hasItem(key) {
     return this._items.has(key);
@@ -47,7 +47,7 @@ export default class InMemoryCache {
    * Delete the value associated to the key.
    *
    * @param {*} key
-   * @return {void}
+   * @returns {void}
    */
   deleteItem(key) {
     this._items.delete(key);

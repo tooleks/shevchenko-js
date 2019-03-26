@@ -18,7 +18,7 @@ export default class AnthroponymInflector {
    *
    * @param {Anthroponym} anthroponym
    * @param {InflectionCase} inflectionCase
-   * @return {Anthroponym}
+   * @returns {Anthroponym}
    */
   inflect(anthroponym, inflectionCase) {
     const attributes = {};
@@ -41,6 +41,6 @@ export default class AnthroponymInflector {
         .toString();
     }
 
-    return new Anthroponym({...attributes, gender: anthroponym.getGender().toString()});
+    return new Anthroponym({ ...attributes, gender: anthroponym.getGender().toString() });
   }
 }

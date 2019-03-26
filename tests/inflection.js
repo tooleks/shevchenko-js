@@ -1,4 +1,4 @@
-import {expect} from 'chai';
+import { expect } from 'chai';
 import inflections from './src/inflections.json';
 
 export default function(shevchenko) {

@@ -20,7 +20,7 @@ export default class RecognizerRule {
    *
    * @param {string} word
    * @param {Gender} gender
-   * @return {boolean}
+   * @returns {boolean}
    */
   isApplicable(word, gender) {
     return this._isApplicable(word, gender);

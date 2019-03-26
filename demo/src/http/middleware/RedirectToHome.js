@@ -1,4 +1,6 @@
-export default class RedirectToHome {
+'use strict';
+
+class RedirectToHome {
   /**
    * @param {UrlService} urlService
    */
@@ -14,6 +16,8 @@ export default class RedirectToHome {
    * @param res
    */
   handle(req, res) {
-    res.redirect(this._urlService.genAbsoluteUrl('/', {locale: req.getLocale()}));
+    res.redirect(this._urlService.genAbsoluteUrl('/', { locale: req.getLocale() }));
   }
 }
+
+module.exports = RedirectToHome;

@@ -1,13 +1,15 @@
-import Mailgun from 'mailgun-js';
+'use strict';
 
-export default class MailgunMailerDriver {
+const Mailgun = require('mailgun-js');
+
+class MailgunMailerDriver {
   /**
    * @param {object} options
    * @param {string} options.apiKey
    * @param {string} options.domain
    */
-  constructor({apiKey = process.env.MAILGUN_API_KEY, domain = process.env.MAILGUN_DOMAIN} = {}) {
-    this._mailgun = new Mailgun({apiKey, domain});
+  constructor({ apiKey = process.env.MAILGUN_API_KEY, domain = process.env.MAILGUN_DOMAIN } = {}) {
+    this._mailgun = new Mailgun({ apiKey, domain });
     this.send = this.send.bind(this);
   }
 
@@ -15,7 +17,7 @@ export default class MailgunMailerDriver {
    * Send mail message.
    *
    * @param {object} data
-   * @return {Promise}
+   * @returns {Promise}
    */
   async send(data) {
     return new Promise((resolve, reject) => {
@@ -29,3 +31,5 @@ export default class MailgunMailerDriver {
     });
   }
 }
+
+module.exports = MailgunMailerDriver;
