@@ -1,26 +1,26 @@
-import shevchenkoCjs from "../dist/shevchenko.cjs.js";
-import shevchenkoUmd from "../dist/shevchenko.umd.js";
-import shevchenkoUmdMin from "../dist/shevchenko.umd.min.js";
+import cjs from '../dist/shevchenko.cjs.js';
+import umd from '../dist/shevchenko.umd.js';
+import bundleMin from '../dist/shevchenko.bundle.min.js';
 
-import integrationTest from "./integration";
-import inflectionTest from "./inflection";
-import learningRateTest from "./learningRate";
+import integrationTest from './integration';
+import inflectionTest from './inflection';
+import learningRateTest from './learningRate';
 
-describe("CommonJS module test", function() {
-    integrationTest(shevchenkoCjs);
-    inflectionTest(shevchenkoCjs);
+describe('CommonJS module test', function() {
+  integrationTest(cjs);
+  inflectionTest(cjs);
 });
 
-describe("UMD module test", function() {
-    integrationTest(shevchenkoUmd);
-    inflectionTest(shevchenkoUmd);
+describe('UMD module test', function() {
+  integrationTest(umd);
+  inflectionTest(umd);
 });
 
-describe("UMD minified module test", function() {
-    integrationTest(shevchenkoUmdMin);
-    inflectionTest(shevchenkoUmdMin);
+describe('bundle module test', function() {
+  integrationTest(bundleMin);
+  inflectionTest(bundleMin);
 });
 
-describe("Learning rate test", function() {
-    learningRateTest();
+describe('learning rate test', function() {
+  learningRateTest();
 });

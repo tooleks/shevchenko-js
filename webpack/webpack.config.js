@@ -1,5 +1,5 @@
-import shevchenkoCjsConfig from "./shevchenko.cjs.config";
-import shevchenkoUmdConfig from "./shevchenko.umd.config";
-import shevchenkoUmdMinConfig from "./shevchenko.umd.min.config";
+import cjsConfig from './cjs.config';
+import umdConfig from './umd.config';
+import bundleMinConfig from './bundle.min.config';
 
-export default [shevchenkoCjsConfig, shevchenkoUmdConfig, shevchenkoUmdMinConfig];
+export default [cjsConfig, umdConfig, bundleMinConfig];
