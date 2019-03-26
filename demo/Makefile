@@ -1,4 +1,5 @@
 install:
+	cp -n ./.env.example ./.env
 	npm install
 	npm link ../
 
