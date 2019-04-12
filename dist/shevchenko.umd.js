@@ -1,6 +1,6 @@
 /*!
  * 
- *       shevchenko@1.1.7 / 2019-04-04T12:50:36.382Z / Author: Oleksandr Tolochko <tooleks@gmail.com> / License: MIT
+ *       shevchenko@1.1.8 / 2019-04-12T18:56:29.631Z / Author: Oleksandr Tolochko <tooleks@gmail.com> / License: MIT
  *     
  */
 (function webpackUniversalModuleDefinition(root, factory) {
