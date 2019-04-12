@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const express = require('express');
 const i18n = require('i18n');
 const bodyParser = require('body-parser');
@@ -8,7 +9,6 @@ const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const ejs = require('ejs');
 
-const { localesPath } = require('./paths');
 const middlewareFactory = require('./src/http/middleware/factory');
 const router = require('./src/http/routes/router');
 
@@ -20,7 +20,7 @@ i18n.configure({
     ru: 'uk',
     by: 'uk',
   },
-  directory: localesPath,
+  directory: path.join(__dirname, 'locales'),
   queryParameter: 'lang',
   syncFiles: true,
 });
