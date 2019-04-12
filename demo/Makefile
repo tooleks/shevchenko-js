@@ -1,8 +1,3 @@
-install:
-	cp -n ./.env.example ./.env
-	npm install
-	npm link ../
-
 start:
 	./node_modules/.bin/pm2 start ecosystem.json --no-daemon
 

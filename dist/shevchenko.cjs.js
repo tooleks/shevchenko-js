@@ -1,6 +1,6 @@
 /*!
  * 
- *       shevchenko@1.1.8 / 2019-04-12T18:56:29.631Z / Author: Oleksandr Tolochko <tooleks@gmail.com> / License: MIT
+ *       shevchenko@1.1.8 / 2019-04-12T19:27:54.819Z / Author: Oleksandr Tolochko <tooleks@gmail.com> / License: MIT
  *     
  */
 module.exports =
