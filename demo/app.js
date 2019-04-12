@@ -1,5 +1,6 @@
 'use strict';
 
+const path = require('path');
 const express = require('express');
 const i18n = require('i18n');
 const bodyParser = require('body-parser');
@@ -8,7 +9,6 @@ const cookieParser = require('cookie-parser');
 const flash = require('connect-flash');
 const ejs = require('ejs');
 
-const { localesPath } = require('./paths');
 const middlewareFactory = require('./src/http/middleware/factory');
 const router = require('./src/http/routes/router');
 
@@ -20,7 +20,7 @@ i18n.configure({
     ru: 'uk',
     by: 'uk',
   },
-  directory: localesPath,
+  directory: path.join(__dirname, 'locales'),
   queryParameter: 'lang',
   syncFiles: true,
 });
@@ -29,7 +29,7 @@ app.use(i18n.init);
 
 app.use(express.static('public'));
 app.use(express.static('public/meta'));
-app.use('/js/shevchenko.umd.min.js', express.static('node_modules/shevchenko/dist/shevchenko.umd.min.js'));
+app.use('/js/shevchenko.bundle.min.js', express.static(path.join(__dirname, '..', 'dist', 'shevchenko.bundle.min.js')));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

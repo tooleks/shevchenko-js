@@ -6718,5 +6718,45 @@
         "middleName": "любомирівно"
       }
     }
+  },
+  {
+    "gender": "female",
+    "inflectionCases": {
+      "nominative": {
+        "lastName": "пижова",
+        "firstName": "дар'я",
+        "middleName": "дем'янівна"
+      },
+      "genitive": {
+        "lastName": "пижової",
+        "firstName": "дар'ї",
+        "middleName": "дем'янівни"
+      },
+      "dative": {
+        "lastName": "пижовій",
+        "firstName": "дар'ї",
+        "middleName": "дем'янівні"
+      },
+      "accusative": {
+        "lastName": "пижову",
+        "firstName": "дар'ю",
+        "middleName": "дем'янівну"
+      },
+      "ablative": {
+        "lastName": "пижовою",
+        "firstName": "дар'єю",
+        "middleName": "дем'янівною"
+      },
+      "locative": {
+        "lastName": "пижовій",
+        "firstName": "дар'ї",
+        "middleName": "дем'янівні"
+      },
+      "vocative": {
+        "lastName": "пижова",
+        "firstName": "дар'є",
+        "middleName": "дем'янівно"
+      }
+    }
   }
 ]
