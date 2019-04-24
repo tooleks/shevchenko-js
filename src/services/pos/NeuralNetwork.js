@@ -7,7 +7,7 @@ import * as neuralNetworkUtil from './neuralNetworkUtil';
  */
 export default class NeuralNetwork {
   /**
-   * Build the neural network on the training data.
+   * Builds the neural network on the training data.
    *
    * @param {Array<object>} samples
    * @param {object} options
@@ -28,24 +28,22 @@ export default class NeuralNetwork {
    */
   constructor(structure) {
     this._network = synaptic.Network.fromJSON(structure);
-    this.train = this.train.bind(this);
-    this.run = this.run.bind(this);
-    this.toString = this.toString.bind(this);
   }
 
   /**
-   * Train the neural network on the training data samples.
+   * Trains the neural network on the training data samples.
    *
    * @param {Array<object>} samples
    * @param {object} options
-   * @returns {void}
+   * @returns {NeuralNetwork}
    */
   train(samples, options) {
     new synaptic.Trainer(this._network).train(samples, options);
+    return this;
   }
 
   /**
-   * Run the neural network on the input data.
+   * Runs the neural network on the input data.
    *
    * @param {string} input
    * @returns {string|null}

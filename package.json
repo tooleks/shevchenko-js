@@ -9,7 +9,7 @@
     "train:nn-pos-oi-yi-ii": "node -r esm './nn/POS_OI_YI_II/train.js'",
     "train:nn-pos-yh": "node -r esm './nn/POS_YH/train.js'",
     "build": "./node_modules/.bin/webpack -r esm --progress --config './webpack.config.js'",
-    "test": "NODE_ENV=test ./node_modules/mocha/bin/mocha -r esm --recursive --bail './tests/main.js'",
+    "test": "./node_modules/mocha/bin/mocha -r esm --recursive --bail './tests/main.js'",
     "format": "./node_modules/.bin/prettier --write '**/*.js' '!dist/**'",
     "build:release": "npm run update:rules && npm run format && npm run build && npm run test"
   },

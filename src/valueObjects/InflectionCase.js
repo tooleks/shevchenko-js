@@ -31,7 +31,6 @@ export default class InflectionCase {
   constructor(inflectionCase) {
     this.constructor.validate(inflectionCase);
     this._inflectionCase = inflectionCase;
-    this.toString = this.toString.bind(this);
   }
 
   /**

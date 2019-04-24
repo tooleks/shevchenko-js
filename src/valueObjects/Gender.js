@@ -26,9 +26,6 @@ export default class Gender {
   constructor(gender) {
     this.constructor.validate(gender);
     this._gender = gender;
-    this.toString = this.toString.bind(this);
-    this.isMale = this.isMale.bind(this);
-    this.isFemale = this.isFemale.bind(this);
   }
 
   /**
@@ -39,7 +36,7 @@ export default class Gender {
   }
 
   /**
-   * Determine whether gender value is male.
+   * Determines whether gender value is male.
    *
    * @returns {boolean}
    */
@@ -48,7 +45,7 @@ export default class Gender {
   }
 
   /**
-   * Determine whether gender value is female.
+   * Determines whether gender value is female.
    *
    * @returns {boolean}
    */

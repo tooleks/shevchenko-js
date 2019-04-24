@@ -17,7 +17,6 @@ export default class LastName extends AbstractName {
     super();
     this.constructor.validate(lastName);
     this._lastName = lastName;
-    this.toString = this.toString.bind(this);
   }
 
   /**

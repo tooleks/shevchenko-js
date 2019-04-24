@@ -10,11 +10,10 @@ export default class LastNameInflector {
     this._ruleInflector = ruleInflector;
     this._rules = rules;
     this._posRecognizer = posRecognizer;
-    this.inflect = this.inflect.bind(this);
   }
 
   /**
-   * Inflect a last name.
+   * Inflects a last name.
    *
    * @param {LastName} lastName
    * @param {Gender} gender

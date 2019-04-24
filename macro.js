@@ -28,8 +28,7 @@ const POS_NN_OI_YI_II_CACHE = {};
 const POS_NN_YH = new NeuralNetwork(POS_NN_YH_STRUCTURE);
 const POS_NN_YH_CACHE = {};
 
-// Create a neural network cache for badly recognized samples only in the test environment.
-if (process.env.NODE_ENV !== 'test') {
+if (!process.env.NO_CACHE) {
   POS_NN_A_YA_SAMPLES.filter((sample) => sample.pos !== POS_NN_A_YA.run(sample.value)).reduce(
     addSampleToCache,
     POS_NN_A_YA_CACHE,

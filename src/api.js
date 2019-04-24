@@ -4,7 +4,7 @@ import { GENDERS } from './valueObjects/Gender';
 import { anthroponymInflector } from './bootstrap';
 
 /**
- * Inflect the anthroponym.
+ * Inflects the anthroponym.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -18,7 +18,7 @@ function shevchenko(anthroponym, inflectionCase) {
 }
 
 /**
- * Inflect the anthroponym in nominative case.
+ * Inflects the anthroponym in nominative case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -31,7 +31,7 @@ export function inNominative(anthroponym) {
 }
 
 /**
- * Inflect the anthroponym in genitive case.
+ * Inflects the anthroponym in genitive case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -44,7 +44,7 @@ export function inGenitive(anthroponym) {
 }
 
 /**
- * Inflect the anthroponym in dative case.
+ * Inflects the anthroponym in dative case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -57,7 +57,7 @@ export function inDative(anthroponym) {
 }
 
 /**
- * Inflect the anthroponym in accusative case.
+ * Inflects the anthroponym in accusative case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -70,7 +70,7 @@ export function inAccusative(anthroponym) {
 }
 
 /**
- * Inflect the anthroponym in ablative case.
+ * Inflects the anthroponym in ablative case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -83,7 +83,7 @@ export function inAblative(anthroponym) {
 }
 
 /**
- * Inflect the anthroponym in locative case.
+ * Inflects the anthroponym in locative case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -96,7 +96,7 @@ export function inLocative(anthroponym) {
 }
 
 /**
- * Inflect the anthroponym in vocative case.
+ * Inflects the anthroponym in vocative case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -109,7 +109,7 @@ export function inVocative(anthroponym) {
 }
 
 /**
- * Inflect the anthroponym in all cases.
+ * Inflects the anthroponym in all cases.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
