@@ -23,7 +23,7 @@ export function matchUsage(rule, usage, strict = false) {
 }
 
 /**
- * Match rule regular expression.
+ * Matches the rule regular expression.
  *
  * @param {object} rule
  * @param {object} rule.regexp

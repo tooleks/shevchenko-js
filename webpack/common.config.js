@@ -5,7 +5,7 @@ import macro from '../macro';
 import pkg from '../package.json';
 
 export default {
-  mode: process.env.NODE_ENV || 'production',
+  mode: 'production',
   module: {
     rules: [
       {

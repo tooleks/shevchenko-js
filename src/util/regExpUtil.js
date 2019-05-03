@@ -1,5 +1,5 @@
 /**
- * Count a number of groups in a regular expression.
+ * Counts a number of groups in a regular expression.
  *
  * @param {RegExp|string} regExp
  * @returns {number}

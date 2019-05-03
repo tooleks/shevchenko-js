@@ -1,33 +1,31 @@
 import NeuralNetwork from './NeuralNetwork';
-import InMemoryCache from '../util/InMemoryCache';
+import InMemoryCache from '../../util/InMemoryCache';
 
 export default class RecognizerRule {
   /**
-   * @param {function} isApplicable
+   * @param {function} applicable
    * @param {object} structure
    * @param {object} [cache]
    */
-  constructor(isApplicable, structure, cache = {}) {
-    this._isApplicable = isApplicable;
+  constructor(applicable, structure, cache = {}) {
+    this._applicable = applicable;
     this._neuralNetwork = new NeuralNetwork(structure);
     this._cache = new InMemoryCache(cache);
-    this.isApplicable = this.isApplicable.bind(this);
-    this.recognize = this.recognize.bind(this);
   }
 
   /**
-   * Test if the part of speech recognizer step is applicable.
+   * Determines whether the part of speech recognizer rule is applicable or not.
    *
    * @param {string} word
    * @param {Gender} gender
    * @returns {boolean}
    */
-  isApplicable(word, gender) {
-    return this._isApplicable(word, gender);
+  applicable(word, gender) {
+    return this._applicable(word, gender);
   }
 
   /**
-   * Recognize part of speech of the word.
+   * Recognizes part of speech of the word.
    *
    * @param {string} word
    * @param {Gender} gender

@@ -16,7 +16,7 @@ const samples = rawSamples
   });
 
 const options = {
-  rate: 0.02,
+  rate: 0.01,
   iterations: 1000,
   shuffle: true,
   error: 0.001,

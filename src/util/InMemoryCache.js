@@ -4,16 +4,11 @@ export default class InMemoryCache {
    */
   constructor(items = {}) {
     this._items = new Map();
-    this.setItem = this.setItem.bind(this);
-    this.getItem = this.getItem.bind(this);
-    this.hasItem = this.hasItem.bind(this);
-    this.deleteItem = this.deleteItem.bind(this);
-    //
     Object.keys(items).forEach((key) => this.setItem(key, items[key]));
   }
 
   /**
-   * Set the value for the key in the cache object.
+   * Sets the value for the key in the cache object.
    *
    * @param {*} key
    * @param {*} value
@@ -24,7 +19,7 @@ export default class InMemoryCache {
   }
 
   /**
-   * Get the value associated to the key, or undefined if there is none.
+   * Retrieves the value associated to the key, or undefined if there is none.
    *
    * @param {*} key
    * @returns {*}
@@ -34,7 +29,7 @@ export default class InMemoryCache {
   }
 
   /**
-   * Return a boolean asserting whether a value has been associated to the key in the cache object or not.
+   * Returns a boolean asserting whether a value has been associated to the key in the cache object or not.
    *
    * @param {*} key
    * @returns {boolean}
@@ -44,7 +39,7 @@ export default class InMemoryCache {
   }
 
   /**
-   * Delete the value associated to the key.
+   * Deletes the value associated to the key.
    *
    * @param {*} key
    * @returns {void}

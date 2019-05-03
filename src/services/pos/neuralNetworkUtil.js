@@ -1,8 +1,8 @@
-import * as stringUtil from '../util/stringUtil';
+import * as stringUtil from '../../util/stringUtil';
 import { POS_MAPPING, NETWORK_LAYER_SIZE_INPUT } from './config';
 
 /**
- * Determine if provided value is a valid part of speech value.
+ * Determines if provided value is a valid part of speech value.
  *
  * @param {string} value
  * @returns {boolean}
@@ -12,7 +12,7 @@ export function isValidPos(value) {
 }
 
 /**
- * Encode word value for usage in the neural network.
+ * Encodes word value for usage in the neural network.
  *
  * @param {string} input
  * @returns {Array<string>}
@@ -25,7 +25,7 @@ export function encodeInput(input) {
 }
 
 /**
- * Encode part of speech value for usage in the neural network.
+ * Encodes part of speech value for usage in the neural network.
  *
  * @param {string} output
  * @returns {Array<number>|undefined}
@@ -35,7 +35,7 @@ export function encodeOutput(output) {
 }
 
 /**
- * Decode part of speech value returned from the neural network.
+ * Decodes part of speech value returned from the neural network.
  *
  * @param {Array<number>} output
  * @returns {string|null}

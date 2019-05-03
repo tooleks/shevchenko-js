@@ -10,11 +10,10 @@ export default class AnthroponymInflector {
     this._firstNameInflector = firstNameInflector;
     this._middleNameInflector = middleNameInflector;
     this._lastNameInflector = lastNameInflector;
-    this.inflect = this.inflect.bind(this);
   }
 
   /**
-   * Inflect the anthroponym first, last and middle names.
+   * Inflects the anthroponym first, last and middle names.
    *
    * @param {Anthroponym} anthroponym
    * @param {InflectionCase} inflectionCase

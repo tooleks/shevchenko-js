@@ -8,11 +8,10 @@ export default class FirstNameInflector {
   constructor(ruleInflector, rules) {
     this._ruleInflector = ruleInflector;
     this._rules = rules;
-    this.inflect = this.inflect.bind(this);
   }
 
   /**
-   * Inflect a first name.
+   * Inflects a first name.
    *
    * @param {FirstName} firstName
    * @param {Gender} gender

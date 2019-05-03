@@ -1,9 +1,9 @@
-import * as stringUtil from '../util/stringUtil';
-import * as regExpUtil from '../util/regExpUtil';
+import * as stringUtil from '../../util/stringUtil';
+import * as regExpUtil from '../../util/regExpUtil';
 
 export default class RuleInflector {
   /**
-   * Get an inflection rule modifier functions.
+   * Retrieves the inflection rule modifier functions.
    *
    * @returns {object}
    * @private
@@ -16,19 +16,19 @@ export default class RuleInflector {
   }
 
   /**
-   * Apply the inflection rule modifier to the value.
+   * Applies the inflection rule modifier to the value.
    *
    * @param {object} modifier
    * @param {string} modifier.type
    * @param {string} modifier.value
    * @param {string} value
-   * @returns {*}
+   * @returns {string}
    * @private
    */
   static applyRuleModifier(modifier, value) {
-    if (typeof modifier === 'object') {
+    if (modifier != null) {
       const modify = this.getRuleModifiers()[modifier.type];
-      if (typeof modify === 'function') {
+      if (modify != null) {
         return modify(value, modifier.value);
       }
     }
@@ -36,13 +36,7 @@ export default class RuleInflector {
   }
 
   /**
-   */
-  constructor() {
-    this.inflect = this.inflect.bind(this);
-  }
-
-  /**
-   * Inflect a word by the inflection rule.
+   * Inflects a word by the inflection rule.
    *
    * @param {string} word
    * @param {InflectionCase} inflectionCase
@@ -55,17 +49,16 @@ export default class RuleInflector {
   inflect(word, inflectionCase, rule) {
     const regExp = rule.regexp.modify;
     const [modifiers] = rule.inflectionCases[inflectionCase.toString()];
-    if (typeof modifiers === 'object') {
-      const searchValue = new RegExp(regExp, 'gm');
-      const inflectedWord = word.toLowerCase().replace(searchValue, (match, ...groups) => {
+    if (modifiers != null) {
+      const inflectedWord = word.replace(new RegExp(regExp, 'gmi'), (match, ...groups) => {
         let replacer = '';
         const maxIndex = regExpUtil.countGroups(regExp);
         for (let index = 0; index < maxIndex; index++) {
-          replacer += RuleInflector.applyRuleModifier(modifiers[index], groups[index]);
+          replacer += this.constructor.applyRuleModifier(modifiers[index], groups[index]);
         }
         return replacer;
       });
-      return stringUtil.applyCaseMask(inflectedWord, word);
+      return stringUtil.applyCaseMask(word, inflectedWord);
     }
     return word;
   }

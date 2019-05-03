@@ -8,11 +8,10 @@ export default class MiddleNameInflector {
   constructor(ruleInflector, rules) {
     this._ruleInflector = ruleInflector;
     this._rules = rules;
-    this.inflect = this.inflect.bind(this);
   }
 
   /**
-   * Inflect a middle name.
+   * Inflects a middle name.
    *
    * @param {MiddleName} middleName
    * @param {Gender} gender
