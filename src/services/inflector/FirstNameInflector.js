@@ -1,4 +1,4 @@
-import * as ruleUtil from './ruleUtil';
+import * as ruleUtil from "./ruleUtil";
 
 export default class FirstNameInflector {
   /**
@@ -6,35 +6,37 @@ export default class FirstNameInflector {
    * @param {Array} rules
    */
   constructor(ruleInflector, rules) {
-    this._ruleInflector = ruleInflector;
-    this._rules = rules;
+    this.ruleInflector = ruleInflector;
+    this.rules = rules;
   }
 
   /**
    * Inflects a first name.
    *
-   * @param {FirstName} firstName
-   * @param {Gender} gender
-   * @param {InflectionCase} inflectionCaseName
-   * @returns {FirstName}
+   * @param {string} firstName
+   * @param {GENDER} gender
+   * @param {INFLECTION_CASE} inflectionCaseName
+   * @returns {string}
    */
   inflect(firstName, gender, inflectionCaseName) {
-    return firstName.map((namePart) => {
-      // Get the most suitable inflection rule.
-      const [rule] = this._rules
-        .filter(
-          (rule) =>
-            ruleUtil.matchGender(rule, gender) &&
-            ruleUtil.matchUsage(rule, 'firstName') &&
-            ruleUtil.matchRegExp(rule, namePart),
-        )
-        .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, 'firstName'));
+    return firstName
+      .split("-")
+      .map((segment) => {
+        const [rule] = this.rules
+          .filter(
+            (rule) =>
+              ruleUtil.matchGender(rule, gender) &&
+              ruleUtil.matchUsage(rule, "firstName") &&
+              ruleUtil.matchRegExp(rule, segment),
+          )
+          .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, "firstName"));
 
-      if (rule == null) {
-        return namePart;
-      }
+        if (rule == null) {
+          return segment;
+        }
 
-      return this._ruleInflector.inflect(namePart, inflectionCaseName, rule);
-    });
+        return this.ruleInflector.inflect(segment, inflectionCaseName, rule);
+      })
+      .join("-");
   }
 }

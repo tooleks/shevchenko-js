@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class HomeController {
   /**
@@ -14,7 +14,7 @@ class HomeController {
    * @param res
    */
   index(req, res) {
-    res.render('home.ejs', { flashes: req.flash('flashes') });
+    res.render("home.ejs", { flashes: req.flash("flashes") });
   }
 }
 

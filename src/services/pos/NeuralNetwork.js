@@ -1,6 +1,6 @@
-import * as synaptic from 'synaptic';
-import { NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT } from './config';
-import * as neuralNetworkUtil from './neuralNetworkUtil';
+import * as synaptic from "synaptic";
+import { NETWORK_LAYER_SIZE_INPUT, NETWORK_LAYER_SIZE_HIDDEN, NETWORK_LAYER_SIZE_OUTPUT } from "./config";
+import * as neuralNetworkUtil from "./neuralNetworkUtil";
 
 /**
  * @classdesc Part of speech recognition neural network based on three-layer perceptron.
@@ -27,7 +27,7 @@ export default class NeuralNetwork {
    * @param {object} structure
    */
   constructor(structure) {
-    this._network = synaptic.Network.fromJSON(structure);
+    this.network = synaptic.Network.fromJSON(structure);
   }
 
   /**
@@ -38,7 +38,7 @@ export default class NeuralNetwork {
    * @returns {NeuralNetwork}
    */
   train(samples, options) {
-    new synaptic.Trainer(this._network).train(samples, options);
+    new synaptic.Trainer(this.network).train(samples, options);
     return this;
   }
 
@@ -50,7 +50,7 @@ export default class NeuralNetwork {
    */
   run(input) {
     const value = neuralNetworkUtil.encodeInput(input);
-    const output = this._network.activate(value);
+    const output = this.network.activate(value);
     return neuralNetworkUtil.decodeOutput(output);
   }
 
@@ -58,6 +58,6 @@ export default class NeuralNetwork {
    * @returns {string}
    */
   toString() {
-    return JSON.stringify(this._network.toJSON());
+    return JSON.stringify(this.network.toJSON());
   }
 }

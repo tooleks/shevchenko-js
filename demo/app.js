@@ -1,35 +1,35 @@
-'use strict';
+"use strict";
 
-const path = require('path');
-const express = require('express');
-const i18n = require('i18n');
-const bodyParser = require('body-parser');
-const session = require('express-session');
-const cookieParser = require('cookie-parser');
-const flash = require('connect-flash');
-const ejs = require('ejs');
+const path = require("path");
+const express = require("express");
+const i18n = require("i18n");
+const bodyParser = require("body-parser");
+const session = require("express-session");
+const cookieParser = require("cookie-parser");
+const flash = require("connect-flash");
+const ejs = require("ejs");
 
-const middlewareFactory = require('./src/http/middleware/factory');
-const router = require('./src/http/routes/router');
+const middlewareFactory = require("./src/http/middleware/factory");
+const router = require("./src/http/routes/router");
 
 const app = express();
 
 i18n.configure({
-  locales: ['uk', 'en'],
+  locales: ["uk", "en"],
   fallbacks: {
-    ru: 'uk',
-    by: 'uk',
+    ru: "uk",
+    by: "uk",
   },
-  directory: path.join(__dirname, 'locales'),
-  queryParameter: 'lang',
+  directory: path.join(__dirname, "locales"),
+  queryParameter: "lang",
   syncFiles: true,
 });
 
 app.use(i18n.init);
 
-app.use(express.static('public'));
-app.use(express.static('public/meta'));
-app.use('/js/shevchenko.bundle.min.js', express.static(path.join(__dirname, '..', 'dist', 'shevchenko.bundle.min.js')));
+app.use(express.static("public"));
+app.use(express.static("public/meta"));
+app.use("/js/shevchenko.bundle.min.js", express.static(path.join(__dirname, "..", "dist", "shevchenko.bundle.min.js")));
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -47,12 +47,12 @@ app.use(
 
 app.use(flash());
 
-app.engine('html', ejs.renderFile);
-app.set('view engine', 'html');
+app.engine("html", ejs.renderFile);
+app.set("view engine", "html");
 
 app.use(middlewareFactory.utils());
 app.use(router);
-app.get('*', middlewareFactory.redirectToHome());
+app.get("*", middlewareFactory.redirectToHome());
 app.use(middlewareFactory.errorHandler());
 
 module.exports = app;

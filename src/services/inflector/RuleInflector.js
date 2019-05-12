@@ -1,5 +1,5 @@
-import * as stringUtil from '../../util/stringUtil';
-import * as regExpUtil from '../../util/regExpUtil';
+import * as stringUtil from "../../util/stringUtil";
+import * as regExpUtil from "../../util/regExpUtil";
 
 export default class RuleInflector {
   /**
@@ -39,7 +39,7 @@ export default class RuleInflector {
    * Inflects a word by the inflection rule.
    *
    * @param {string} word
-   * @param {InflectionCase} inflectionCase
+   * @param {INFLECTION_CASE} inflectionCase
    * @param {object} rule
    * @param {object} rule.regexp
    * @param {string} rule.regexp.modify
@@ -48,10 +48,10 @@ export default class RuleInflector {
    */
   inflect(word, inflectionCase, rule) {
     const regExp = rule.regexp.modify;
-    const [modifiers] = rule.inflectionCases[inflectionCase.toString()];
+    const [modifiers] = rule.inflectionCases[inflectionCase];
     if (modifiers != null) {
-      const inflectedWord = word.replace(new RegExp(regExp, 'gmi'), (match, ...groups) => {
-        let replacer = '';
+      const inflectedWord = word.replace(new RegExp(regExp, "gmi"), (match, ...groups) => {
+        let replacer = "";
         const maxIndex = regExpUtil.countGroups(regExp);
         for (let index = 0; index < maxIndex; index++) {
           replacer += this.constructor.applyRuleModifier(modifiers[index], groups[index]);

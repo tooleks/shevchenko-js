@@ -1,5 +1,5 @@
-import * as stringUtil from '../../util/stringUtil';
-import { POS_MAPPING, NETWORK_LAYER_SIZE_INPUT } from './config';
+import * as stringUtil from "../../util/stringUtil";
+import { POS_MAPPING, NETWORK_LAYER_SIZE_INPUT } from "./config";
 
 /**
  * Determines if provided value is a valid part of speech value.
@@ -20,8 +20,8 @@ export function isValidPos(value) {
 export function encodeInput(input) {
   return stringUtil
     .toBinary(input)
-    .padStart(NETWORK_LAYER_SIZE_INPUT, '0')
-    .split('');
+    .padStart(NETWORK_LAYER_SIZE_INPUT, "0")
+    .split("");
 }
 
 /**
@@ -42,6 +42,6 @@ export function encodeOutput(output) {
  */
 export function decodeOutput(output) {
   const value = output.map((value) => Math.round(value));
-  const posIndex = Object.values(POS_MAPPING).findIndex((posValue) => posValue.join('') === value.join(''));
+  const posIndex = Object.values(POS_MAPPING).findIndex((posValue) => posValue.join("") === value.join(""));
   return Object.keys(POS_MAPPING)[posIndex] || null;
 }

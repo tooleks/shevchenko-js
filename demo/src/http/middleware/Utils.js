@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const i18n = require('i18n');
+const i18n = require("i18n");
 
 class Utils {
   /**
@@ -27,15 +27,15 @@ class Utils {
     });
 
     res.locals.__shareUrl = Object.freeze({
-      facebook: this._shareLinksProvider.facebook(res.locals.__url.current, req.__('app_description')),
-      twitter: this._shareLinksProvider.twitter(res.locals.__url.current, req.__('app_description')),
-      googlePlus: this._shareLinksProvider.googlePlus(res.locals.__url.current, req.__('app_description')),
-      linkedIn: this._shareLinksProvider.linkedIn(res.locals.__url.current, req.__('app_description')),
+      facebook: this._shareLinksProvider.facebook(res.locals.__url.current, req.__("app_description")),
+      twitter: this._shareLinksProvider.twitter(res.locals.__url.current, req.__("app_description")),
+      googlePlus: this._shareLinksProvider.googlePlus(res.locals.__url.current, req.__("app_description")),
+      linkedIn: this._shareLinksProvider.linkedIn(res.locals.__url.current, req.__("app_description")),
     });
 
     res.locals.__languageSwitcher = i18n.getLocales().map((locale) => {
       const url = this._urlService.genAbsoluteUrl(req.url, { locale });
-      url.searchParams.set('lang', locale);
+      url.searchParams.set("lang", locale);
       const title = i18n.__({ phrase: `${locale}_language`, locale });
       return { url, title };
     });

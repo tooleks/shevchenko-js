@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const { URL } = require('url');
+const { URL } = require("url");
 
 class ShareLinksProvider {
   /**
@@ -20,9 +20,9 @@ class ShareLinksProvider {
    * @returns {string}
    */
   facebook(url, description) {
-    const link = new URL('https://www.facebook.com');
-    link.pathname = '/sharer/sharer.php';
-    link.searchParams.set('u', url);
+    const link = new URL("https://www.facebook.com");
+    link.pathname = "/sharer/sharer.php";
+    link.searchParams.set("u", url);
     return link.toString();
   }
 
@@ -34,9 +34,9 @@ class ShareLinksProvider {
    * @returns {string}
    */
   twitter(url, description) {
-    const link = new URL('https://twitter.com');
-    link.pathname = '/home';
-    link.searchParams.set('status', url);
+    const link = new URL("https://twitter.com");
+    link.pathname = "/home";
+    link.searchParams.set("status", url);
     return link.toString();
   }
 
@@ -48,9 +48,9 @@ class ShareLinksProvider {
    * @returns {string}
    */
   googlePlus(url, description) {
-    const link = new URL('https://plus.google.com');
-    link.pathname = '/share';
-    link.searchParams.set('url', url);
+    const link = new URL("https://plus.google.com");
+    link.pathname = "/share";
+    link.searchParams.set("url", url);
     return link.toString();
   }
 
@@ -62,13 +62,13 @@ class ShareLinksProvider {
    * @returns {string}
    */
   linkedIn(url, description) {
-    const link = new URL('https://www.linkedin.com');
-    link.pathname = '/shareArticle';
-    link.searchParams.set('mini', true.toString());
-    link.searchParams.set('url', url);
-    link.searchParams.set('title', '');
-    link.searchParams.set('summary', description);
-    link.searchParams.set('source', '');
+    const link = new URL("https://www.linkedin.com");
+    link.pathname = "/shareArticle";
+    link.searchParams.set("mini", true.toString());
+    link.searchParams.set("url", url);
+    link.searchParams.set("title", "");
+    link.searchParams.set("summary", description);
+    link.searchParams.set("source", "");
     return link.toString();
   }
 }

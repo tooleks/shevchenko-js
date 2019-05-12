@@ -1,3 +1,3 @@
-import rules from './rules.json';
+import rules from "./rules.json";
 
 export default rules;

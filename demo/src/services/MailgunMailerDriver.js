@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 
-const Mailgun = require('mailgun-js');
+const Mailgun = require("mailgun-js");
 
 class MailgunMailerDriver {
   /**

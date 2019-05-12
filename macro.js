@@ -1,11 +1,11 @@
-import INFLECTION_RULES from './rules';
-import POS_NN_A_YA_STRUCTURE from './nn/POS_A_YA/structure.json';
-import POS_NN_A_YA_SAMPLES from './nn/POS_A_YA/samples.json';
-import POS_NN_OI_YI_II_STRUCTURE from './nn/POS_OI_YI_II/structure.json';
-import POS_NN_OI_YI_II_SAMPLES from './nn/POS_OI_YI_II/samples.json';
-import POS_NN_YH_STRUCTURE from './nn/POS_YH/structure.json';
-import POS_NN_YH_SAMPLES from './nn/POS_YH/samples.json';
-import NeuralNetwork from './src/services/pos/NeuralNetwork';
+import INFLECTION_RULES from "./rules";
+import POS_NN_A_YA_STRUCTURE from "./nn/POS_A_YA/structure.json";
+import POS_NN_A_YA_SAMPLES from "./nn/POS_A_YA/samples.json";
+import POS_NN_OI_YI_II_STRUCTURE from "./nn/POS_OI_YI_II/structure.json";
+import POS_NN_OI_YI_II_SAMPLES from "./nn/POS_OI_YI_II/samples.json";
+import POS_NN_YH_STRUCTURE from "./nn/POS_YH/structure.json";
+import POS_NN_YH_SAMPLES from "./nn/POS_YH/samples.json";
+import NeuralNetwork from "./src/services/pos/NeuralNetwork";
 
 /**
  * Add a sample to the cache.

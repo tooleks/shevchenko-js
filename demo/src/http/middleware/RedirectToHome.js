@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class RedirectToHome {
   /**
@@ -16,7 +16,7 @@ class RedirectToHome {
    * @param res
    */
   handle(req, res) {
-    res.redirect(this._urlService.genAbsoluteUrl('/', { locale: req.getLocale() }));
+    res.redirect(this._urlService.genAbsoluteUrl("/", { locale: req.getLocale() }));
   }
 }
 
