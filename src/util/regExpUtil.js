@@ -5,5 +5,5 @@
  * @returns {number}
  */
 export function countGroups(regExp) {
-  return new RegExp(regExp.toString() + '|').exec('').length - 1;
+  return new RegExp(regExp.toString() + "|").exec("").length - 1;
 }

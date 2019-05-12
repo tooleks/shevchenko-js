@@ -1,10 +1,10 @@
-import InflectionCase, { INFLECTION_CASES } from './valueObjects/InflectionCase';
-import Anthroponym from './valueObjects/Anthroponym';
-import { GENDERS } from './valueObjects/Gender';
-import { anthroponymInflector } from './bootstrap';
+import Joi from "joi";
+import schema from "./schema";
+import { GENDER, INFLECTION_CASE } from "../enums";
+import { anthroponymInflector } from "../bootstrap";
 
 /**
- * Inflects the anthroponym.
+ * Inflects the anthroponym in a supplied grammatical case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -14,11 +14,15 @@ import { anthroponymInflector } from './bootstrap';
  * @param {string} inflectionCase
  */
 function shevchenko(anthroponym, inflectionCase) {
-  return anthroponymInflector.inflect(new Anthroponym(anthroponym), new InflectionCase(inflectionCase)).toObject();
+  const validation = Joi.validate({ anthroponym, inflectionCase }, schema);
+  if (validation.error != null) {
+    throw new TypeError(validation.error.message);
+  }
+  return anthroponymInflector.inflect(validation.value.anthroponym, validation.value.inflectionCase);
 }
 
 /**
- * Inflects the anthroponym in nominative case.
+ * Inflects the anthroponym in nominative grammatical case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -26,12 +30,12 @@ function shevchenko(anthroponym, inflectionCase) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-export function inNominative(anthroponym) {
-  return shevchenko(anthroponym, INFLECTION_CASES.NOMINATIVE);
-}
+shevchenko.inNominative = function inNominative(anthroponym) {
+  return shevchenko(anthroponym, INFLECTION_CASE.NOMINATIVE);
+};
 
 /**
- * Inflects the anthroponym in genitive case.
+ * Inflects the anthroponym in genitive grammatical case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -39,12 +43,12 @@ export function inNominative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-export function inGenitive(anthroponym) {
-  return shevchenko(anthroponym, INFLECTION_CASES.GENITIVE);
-}
+shevchenko.inGenitive = function inGenitive(anthroponym) {
+  return shevchenko(anthroponym, INFLECTION_CASE.GENITIVE);
+};
 
 /**
- * Inflects the anthroponym in dative case.
+ * Inflects the anthroponym in dative grammatical case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -52,12 +56,12 @@ export function inGenitive(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-export function inDative(anthroponym) {
-  return shevchenko(anthroponym, INFLECTION_CASES.DATIVE);
-}
+shevchenko.inDative = function inDative(anthroponym) {
+  return shevchenko(anthroponym, INFLECTION_CASE.DATIVE);
+};
 
 /**
- * Inflects the anthroponym in accusative case.
+ * Inflects the anthroponym in accusative grammatical case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -65,12 +69,12 @@ export function inDative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-export function inAccusative(anthroponym) {
-  return shevchenko(anthroponym, INFLECTION_CASES.ACCUSATIVE);
-}
+shevchenko.inAccusative = function inAccusative(anthroponym) {
+  return shevchenko(anthroponym, INFLECTION_CASE.ACCUSATIVE);
+};
 
 /**
- * Inflects the anthroponym in ablative case.
+ * Inflects the anthroponym in ablative grammatical case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -78,12 +82,12 @@ export function inAccusative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-export function inAblative(anthroponym) {
-  return shevchenko(anthroponym, INFLECTION_CASES.ABLATIVE);
-}
+shevchenko.inAblative = function inAblative(anthroponym) {
+  return shevchenko(anthroponym, INFLECTION_CASE.ABLATIVE);
+};
 
 /**
- * Inflects the anthroponym in locative case.
+ * Inflects the anthroponym in locative grammatical case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -91,12 +95,12 @@ export function inAblative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-export function inLocative(anthroponym) {
-  return shevchenko(anthroponym, INFLECTION_CASES.LOCATIVE);
-}
+shevchenko.inLocative = function inLocative(anthroponym) {
+  return shevchenko(anthroponym, INFLECTION_CASE.LOCATIVE);
+};
 
 /**
- * Inflects the anthroponym in vocative case.
+ * Inflects the anthroponym in vocative grammatical case.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -104,12 +108,12 @@ export function inLocative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-export function inVocative(anthroponym) {
-  return shevchenko(anthroponym, INFLECTION_CASES.VOCATIVE);
-}
+shevchenko.inVocative = function inVocative(anthroponym) {
+  return shevchenko(anthroponym, INFLECTION_CASE.VOCATIVE);
+};
 
 /**
- * Inflects the anthroponym in all cases.
+ * Inflects the anthroponym in all grammatical cases.
  *
  * @param {object} anthroponym
  * @param {string} anthroponym.firstName
@@ -117,24 +121,14 @@ export function inVocative(anthroponym) {
  * @param {string} anthroponym.middleName
  * @param {string} anthroponym.gender
  */
-export function inAll(anthroponym) {
-  return Object.values(INFLECTION_CASES).reduce((results, inflectionCase) => {
+shevchenko.inAll = function inAll(anthroponym) {
+  return Object.values(INFLECTION_CASE).reduce((results, inflectionCase) => {
     results[inflectionCase] = shevchenko(anthroponym, inflectionCase);
     return results;
   }, {});
-}
+};
 
-export { GENDERS, INFLECTION_CASES };
-
-shevchenko.inNominative = inNominative;
-shevchenko.inGenitive = inGenitive;
-shevchenko.inDative = inDative;
-shevchenko.inAccusative = inAccusative;
-shevchenko.inAblative = inAblative;
-shevchenko.inLocative = inLocative;
-shevchenko.inVocative = inVocative;
-shevchenko.inAll = inAll;
-shevchenko.GENDERS = GENDERS;
-shevchenko.INFLECTION_CASES = INFLECTION_CASES;
+shevchenko.GENDER = GENDER;
+shevchenko.INFLECTION_CASE = INFLECTION_CASE;
 
 export default shevchenko;

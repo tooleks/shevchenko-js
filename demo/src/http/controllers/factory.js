@@ -1,8 +1,8 @@
-'use strict';
+"use strict";
 
-const servicesFactory = require('../../services/factory');
-const ContactMeController = require('./ContactMeController');
-const HomeController = require('./HomeController');
+const servicesFactory = require("../../services/factory");
+const ContactMeController = require("./ContactMeController");
+const HomeController = require("./HomeController");
 
 /** @returns {ContactMeController} */
 function contactMeControllerFactory() {

@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const MailgunMailerDriver = require('./MailgunMailerDriver');
-const Mailer = require('./Mailer');
-const ShareLinksProvider = require('./ShareLinksProvider');
-const UrlService = require('./UrlService');
+const MailgunMailerDriver = require("./MailgunMailerDriver");
+const Mailer = require("./Mailer");
+const ShareLinksProvider = require("./ShareLinksProvider");
+const UrlService = require("./UrlService");
 
 /** @returns {MailgunMailerDriver} */
 function mailgunMailDriverFactory() {

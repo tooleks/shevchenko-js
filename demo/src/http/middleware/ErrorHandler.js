@@ -1,4 +1,4 @@
-'use strict';
+"use strict";
 
 class ErrorHandler {
   /**
@@ -19,8 +19,8 @@ class ErrorHandler {
    */
   handle(err, req, res, next) {
     console.error(err);
-    req.flash('flashes', { type: 'danger', message: req.__('internal_server_error') });
-    res.redirect(this._urlService.genAbsoluteUrl('/', { locale: req.getLocale() }));
+    req.flash("flashes", { type: "danger", message: req.__("internal_server_error") });
+    res.redirect(this._urlService.genAbsoluteUrl("/", { locale: req.getLocale() }));
   }
 }
 

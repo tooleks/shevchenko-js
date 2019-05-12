@@ -1,4 +1,4 @@
-import * as ruleUtil from './ruleUtil';
+import * as ruleUtil from "./ruleUtil";
 
 export default class MiddleNameInflector {
   /**
@@ -6,35 +6,37 @@ export default class MiddleNameInflector {
    * @param {Array} rules
    */
   constructor(ruleInflector, rules) {
-    this._ruleInflector = ruleInflector;
-    this._rules = rules;
+    this.ruleInflector = ruleInflector;
+    this.rules = rules;
   }
 
   /**
    * Inflects a middle name.
    *
-   * @param {MiddleName} middleName
-   * @param {Gender} gender
-   * @param {InflectionCase} inflectionCaseName
-   * @returns {MiddleName}
+   * @param {string} middleName
+   * @param {GENDER} gender
+   * @param {INFLECTION_CASE} inflectionCaseName
+   * @returns {string}
    */
   inflect(middleName, gender, inflectionCaseName) {
-    return middleName.map((namePart) => {
-      // Get the most suitable inflection rule.
-      const [rule] = this._rules
-        .filter(
-          (rule) =>
-            ruleUtil.matchGender(rule, gender) &&
-            ruleUtil.matchUsage(rule, 'middleName', true) &&
-            ruleUtil.matchRegExp(rule, namePart),
-        )
-        .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, 'middleName'));
+    return middleName
+      .split("-")
+      .map((segment) => {
+        const [rule] = this.rules
+          .filter(
+            (rule) =>
+              ruleUtil.matchGender(rule, gender) &&
+              ruleUtil.matchUsage(rule, "middleName", true) &&
+              ruleUtil.matchRegExp(rule, segment),
+          )
+          .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, "middleName"));
 
-      if (rule == null) {
-        return namePart;
-      }
+        if (rule == null) {
+          return segment;
+        }
 
-      return this._ruleInflector.inflect(namePart, inflectionCaseName, rule);
-    });
+        return this.ruleInflector.inflect(segment, inflectionCaseName, rule);
+      })
+      .join("-");
   }
 }

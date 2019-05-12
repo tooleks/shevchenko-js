@@ -1,9 +1,9 @@
-'use strict';
+"use strict";
 
-const servicesFactory = require('../../services/factory');
-const ErrorHandler = require('./ErrorHandler');
-const RedirectToHome = require('./RedirectToHome');
-const Utils = require('./Utils');
+const servicesFactory = require("../../services/factory");
+const ErrorHandler = require("./ErrorHandler");
+const RedirectToHome = require("./RedirectToHome");
+const Utils = require("./Utils");
 
 /** @returns {function} */
 function errorHandlerFactory() {

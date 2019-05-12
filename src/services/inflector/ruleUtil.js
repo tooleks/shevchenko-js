@@ -1,11 +1,11 @@
 /**
  * @param {object} rule
  * @param {string} rule.gender
- * @param {Gender} gender
+ * @param {GENDER} gender
  * @returns {boolean}
  */
 export function matchGender(rule, gender) {
-  return rule.gender.includes(gender.toString());
+  return rule.gender.includes(gender);
 }
 
 /**
@@ -32,7 +32,7 @@ export function matchUsage(rule, usage, strict = false) {
  * @returns {boolean}
  */
 export function matchRegExp(rule, word) {
-  return new RegExp(rule.regexp.find, 'gim').test(word);
+  return new RegExp(rule.regexp.find, "gmi").test(word);
 }
 
 /**

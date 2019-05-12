@@ -1,7 +1,7 @@
-'use strict';
+"use strict";
 
-require('./env');
-const app = require('./app');
+require("./env");
+const app = require("./app");
 
 process.env.PORT = process.env.PORT || 3000;
 

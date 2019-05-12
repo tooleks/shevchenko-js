@@ -1,5 +1,3 @@
-import Anthroponym from '../../valueObjects/Anthroponym';
-
 export default class AnthroponymInflector {
   /**
    * @param {FirstNameInflector} firstNameInflector
@@ -7,39 +5,33 @@ export default class AnthroponymInflector {
    * @param {LastNameInflector} lastNameInflector
    */
   constructor(firstNameInflector, middleNameInflector, lastNameInflector) {
-    this._firstNameInflector = firstNameInflector;
-    this._middleNameInflector = middleNameInflector;
-    this._lastNameInflector = lastNameInflector;
+    this.firstNameInflector = firstNameInflector;
+    this.middleNameInflector = middleNameInflector;
+    this.lastNameInflector = lastNameInflector;
   }
 
   /**
    * Inflects the anthroponym first, last and middle names.
    *
-   * @param {Anthroponym} anthroponym
-   * @param {InflectionCase} inflectionCase
-   * @returns {Anthroponym}
+   * @param {object} anthroponym
+   * @param {INFLECTION_CASE} inflectionCase
+   * @returns {object}
    */
   inflect(anthroponym, inflectionCase) {
-    const attributes = {};
+    const result = {};
 
-    if (anthroponym.hasFirstName()) {
-      attributes.firstName = this._firstNameInflector
-        .inflect(anthroponym.getFirstName(), anthroponym.getGender(), inflectionCase)
-        .toString();
+    if (anthroponym.firstName != null) {
+      result.firstName = this.firstNameInflector.inflect(anthroponym.firstName, anthroponym.gender, inflectionCase);
     }
 
-    if (anthroponym.hasMiddleName()) {
-      attributes.middleName = this._middleNameInflector
-        .inflect(anthroponym.getMiddleName(), anthroponym.getGender(), inflectionCase)
-        .toString();
+    if (anthroponym.middleName != null) {
+      result.middleName = this.middleNameInflector.inflect(anthroponym.middleName, anthroponym.gender, inflectionCase);
     }
 
-    if (anthroponym.hasLastName()) {
-      attributes.lastName = this._lastNameInflector
-        .inflect(anthroponym.getLastName(), anthroponym.getGender(), inflectionCase)
-        .toString();
+    if (anthroponym.lastName != null) {
+      result.lastName = this.lastNameInflector.inflect(anthroponym.lastName, anthroponym.gender, inflectionCase);
     }
 
-    return new Anthroponym({ ...attributes, gender: anthroponym.getGender().toString() });
+    return result;
   }
 }

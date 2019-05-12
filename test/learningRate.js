@@ -1,16 +1,16 @@
-import moment from 'moment';
-import { expect } from 'chai';
-import POS_NN_A_YA_STRUCTURE from '../nn/POS_A_YA/structure.json';
-import POS_NN_A_YA_SAMPLES from '../nn/POS_A_YA/samples.json';
-import POS_NN_OI_YI_II_STRUCTURE from '../nn/POS_OI_YI_II/structure.json';
-import POS_NN_OI_YI_II_SAMPLES from '../nn/POS_OI_YI_II/samples.json';
-import POS_NN_YH_STRUCTURE from '../nn/POS_YH/structure.json';
-import POS_NN_YH_SAMPLES from '../nn/POS_YH/samples.json';
-import NeuralNetwork from '../src/services/pos/NeuralNetwork';
+import moment from "moment";
+import { expect } from "chai";
+import POS_NN_A_YA_STRUCTURE from "../nn/POS_A_YA/structure.json";
+import POS_NN_A_YA_SAMPLES from "../nn/POS_A_YA/samples.json";
+import POS_NN_OI_YI_II_STRUCTURE from "../nn/POS_OI_YI_II/structure.json";
+import POS_NN_OI_YI_II_SAMPLES from "../nn/POS_OI_YI_II/samples.json";
+import POS_NN_YH_STRUCTURE from "../nn/POS_YH/structure.json";
+import POS_NN_YH_SAMPLES from "../nn/POS_YH/samples.json";
+import NeuralNetwork from "../src/services/pos/NeuralNetwork";
 
 export default function() {
-  describe('learning rate tests', function() {
-    const timeout = moment.duration(2, 'minutes').asMilliseconds();
+  describe("learning rate tests", function() {
+    const timeout = moment.duration(2, "minutes").asMilliseconds();
 
     it(`should have high learning rate for "-a", "-я" neural network`, function() {
       this.timeout(timeout);

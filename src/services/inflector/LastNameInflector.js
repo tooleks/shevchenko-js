@@ -1,4 +1,4 @@
-import * as ruleUtil from './ruleUtil';
+import * as ruleUtil from "./ruleUtil";
 
 export default class LastNameInflector {
   /**
@@ -7,46 +7,46 @@ export default class LastNameInflector {
    * @param {Recognizer} posRecognizer
    */
   constructor(ruleInflector, rules, posRecognizer) {
-    this._ruleInflector = ruleInflector;
-    this._rules = rules;
-    this._posRecognizer = posRecognizer;
+    this.ruleInflector = ruleInflector;
+    this.rules = rules;
+    this.posRecognizer = posRecognizer;
   }
 
   /**
    * Inflects a last name.
    *
-   * @param {LastName} lastName
-   * @param {Gender} gender
-   * @param {InflectionCase} inflectionCaseName
-   * @returns {LastName}
+   * @param {string} lastName
+   * @param {GENDER} gender
+   * @param {INFLECTION_CASE} inflectionCaseName
+   * @returns {string}
    */
   inflect(lastName, gender, inflectionCaseName) {
-    return lastName.map((namePart, index, length) => {
-      // If the first (on practice, not the last) short part of the compound last name has only one vowel,
-      // it is not perceived as an independent surname and returned "as is".
-      const isLastSegment = index === length - 1;
-      const vowels = namePart.match(/(а|о|у|е|и|і|я|ю|є|ї)/gim);
-      const hasOneVowel = vowels && vowels.length === 1;
-      if (!isLastSegment && hasOneVowel) {
-        return namePart;
-      }
+    const segments = lastName.split("-");
+    return segments
+      .map((segment, index) => {
+        const isLastSegment = index === segments.length - 1;
+        const vowels = segment.match(/(а|о|у|е|и|і|я|ю|є|ї)/gim);
+        const hasOneVowel = vowels && vowels.length === 1;
+        if (!isLastSegment && hasOneVowel) {
+          return segment;
+        }
 
-      // Get the most suitable inflection rule.
-      const [rule] = this._rules
-        .filter(
-          (rule) =>
-            ruleUtil.matchGender(rule, gender) &&
-            ruleUtil.matchUsage(rule, 'lastName') &&
-            ruleUtil.matchRegExp(rule, namePart) &&
-            ruleUtil.matchPos(rule, this._posRecognizer.recognize(namePart, gender)),
-        )
-        .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, 'lastName'));
+        const [rule] = this.rules
+          .filter(
+            (rule) =>
+              ruleUtil.matchGender(rule, gender) &&
+              ruleUtil.matchUsage(rule, "lastName") &&
+              ruleUtil.matchRegExp(rule, segment) &&
+              ruleUtil.matchPos(rule, this.posRecognizer.recognize(segment.toLowerCase(), gender)),
+          )
+          .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, "lastName"));
 
-      if (rule == null) {
-        return namePart;
-      }
+        if (rule == null) {
+          return segment;
+        }
 
-      return this._ruleInflector.inflect(namePart, inflectionCaseName, rule);
-    });
+        return this.ruleInflector.inflect(segment, inflectionCaseName, rule);
+      })
+      .join("-");
   }
 }

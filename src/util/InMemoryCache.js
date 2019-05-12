@@ -3,7 +3,7 @@ export default class InMemoryCache {
    * @param {object} [items]
    */
   constructor(items = {}) {
-    this._items = new Map();
+    this.items = new Map();
     Object.keys(items).forEach((key) => this.setItem(key, items[key]));
   }
 
@@ -15,7 +15,7 @@ export default class InMemoryCache {
    * @returns {void}
    */
   setItem(key, value) {
-    this._items.set(key, value);
+    this.items.set(key, value);
   }
 
   /**
@@ -25,7 +25,7 @@ export default class InMemoryCache {
    * @returns {*}
    */
   getItem(key) {
-    return this._items.get(key);
+    return this.items.get(key);
   }
 
   /**
@@ -35,7 +35,7 @@ export default class InMemoryCache {
    * @returns {boolean}
    */
   hasItem(key) {
-    return this._items.has(key);
+    return this.items.has(key);
   }
 
   /**
@@ -45,6 +45,6 @@ export default class InMemoryCache {
    * @returns {void}
    */
   deleteItem(key) {
-    this._items.delete(key);
+    this.items.delete(key);
   }
 }

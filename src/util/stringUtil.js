@@ -26,9 +26,9 @@ export function isLowerCase(source, pos) {
  */
 export function toBinary(source) {
   return source
-    .split('')
+    .split("")
     .map((char) => char.charCodeAt(0).toString(2))
-    .join('');
+    .join("");
 }
 
 /**
@@ -39,11 +39,11 @@ export function toBinary(source) {
  * @returns {string}
  */
 export function applyCaseMask(source, target) {
-  const toUpperCase = 'toUpperCase';
-  const toLowerCase = 'toLowerCase';
-  const toOriginalCase = 'toString';
+  const toUpperCase = "toUpperCase";
+  const toLowerCase = "toLowerCase";
+  const toOriginalCase = "toString";
 
-  const mask = source.split('').reduce((mask, char, pos) => {
+  const mask = source.split("").reduce((mask, char, pos) => {
     if (isUpperCase(source, pos)) {
       return [...mask, toUpperCase];
     } else if (isLowerCase(source, pos)) {
@@ -53,8 +53,8 @@ export function applyCaseMask(source, target) {
     }
   }, []);
 
-  return target.split('').reduce((result, char, pos) => {
+  return target.split("").reduce((result, char, pos) => {
     const method = mask[pos] || mask[mask.length - 1] || toOriginalCase;
     return result + target[pos][method]();
-  }, '');
+  }, "");
 }
