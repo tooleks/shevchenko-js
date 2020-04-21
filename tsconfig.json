@@ -11,7 +11,7 @@
     "strict": true,
     "resolveJsonModule": true,
     "esModuleInterop": true,
-    "outDir": "./dist-ts",
+    "outDir": "./dist",
     "declaration": true,
     "sourceMap": true
   }

@@ -1,9 +1,12 @@
 {
-    "defaultSeverity": "error",
-    "extends": "tslint-config-airbnb",
-    "jsRules": {},
-    "rules": {
-        "max-line-length": [true, 120]
-    },
-    "rulesDirectory": []
+  "defaultSeverity": "error",
+  "extends": "tslint-config-airbnb",
+  "jsRules": {},
+  "rules": {
+    "max-line-length": [
+      true,
+      120
+    ]
+  },
+  "rulesDirectory": []
 }

@@ -1,0 +1,1 @@
+{"version":3,"file":"ReplaceCommandRunner.js","sourceRoot":"","sources":["../../src/AnthroponymInflector/ReplaceCommandRunner.ts"],"names":[],"mappings":";;AAGA,MAAqB,oBAAoB;IAGvC,YAAY,OAAyB;QACnC,IAAI,CAAC,OAAO,GAAG,OAAO,CAAC;IACzB,CAAC;IAED;;;OAGG;IACH,IAAI,CAAC,KAAa;QAChB,OAAO,IAAI,CAAC,OAAO,CAAC,KAAK,CAAC;IAC5B,CAAC;CACF;AAdD,uCAcC"}

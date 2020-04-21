@@ -2,7 +2,7 @@
 
 'use strict';
 
-const shevchenkoCjs = require('../dist-ts/main');
+const shevchenkoCjs = require('../dist/main');
 const inflectionTest = require('./inflection');
 
 describe('cjs module', function () {

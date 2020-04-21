@@ -2,17 +2,11 @@
   "name": "shevchenko",
   "version": "1.2.0",
   "description": "The JavaScript library to inflect Ukrainian first, middle and last names",
-  "browser": "./dist/main.umd.js",
-  "main": "./dist/shevchenko.cjs.js",
-  "module": "./dist/main.es.js",
-  "types": "./dist/main.d.ts",
+  "main": "./dist/main.js",
   "scripts": {
-    "build-ts": "tsc",
+    "build": "tsc",
     "lint": "tslint --fix -p ./tsconfig.json -c ./tslint.json",
-    "build": "webpack -r esm --progress --config './webpack.config.js'",
-    "test": "mocha --recursive --bail './test/entrypoint.js'",
-    "format": "prettier --write '**/*.js' '!dist/**'",
-    "build:release": "npm run update:rules && npm run format && npm run build && npm run test"
+    "test": "mocha --recursive --bail './test/entrypoint.js'"
   },
   "keywords": [
     "inflection",
@@ -62,26 +56,15 @@
     "@types/lodash": "^4.14.150",
     "@types/synaptic": "^1.0.3",
     "axios": "^0.19.2",
-    "babel-core": "^6.26.3",
-    "babel-loader": "^7.1.5",
-    "babel-plugin-transform-object-rest-spread": "^6.26.0",
-    "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
-    "esm": "^3.2.22",
     "faker": "^4.1.0",
     "gulp": "^4.0.2",
     "lodash": "^4.17.15",
     "mocha": "^3.5.3",
     "moment": "^2.24.0",
-    "prettier": "^1.17.0",
-    "request": "^2.88.0",
     "rollup": "^2.6.1",
     "tslint": "^6.1.1",
     "tslint-config-airbnb": "^5.11.2",
-    "typescript": "^3.8.3",
-    "webpack": "^4.31.0",
-    "webpack-cli": "^3.3.2",
-    "webpack-merge": "^4.2.1",
-    "webpack-plugin-replace": "^1.2.0"
+    "typescript": "^3.8.3"
   }
 }
