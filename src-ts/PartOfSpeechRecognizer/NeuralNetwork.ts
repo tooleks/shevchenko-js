@@ -43,13 +43,14 @@ export default class NeuralNetwork {
   /**
    * Trains the neural network using a given training data.
    */
-  train(data: NeuralNetworkTrainingData, options: any): NeuralNetwork {
-    const samples = Object.entries(data).map(([word, partOfSpeech]) => {
-      const input = new WordEncoder().encode(word);
-      const output = new PartOfSpeechEncoder().encode(partOfSpeech);
-      return { input, output };
+  train(trainingData: NeuralNetworkTrainingData, trainingOptions: any): NeuralNetwork {
+    const trainingSet = Object.entries(trainingData).map(([word, partOfSpeech]) => {
+      return {
+        input: new WordEncoder().encode(word),
+        output: new PartOfSpeechEncoder().encode(partOfSpeech),
+      };
     });
-    new synaptic.Trainer(this.network).train(samples, options);
+    new synaptic.Trainer(this.network).train(trainingSet, trainingOptions);
     return this;
   }
 
