@@ -3,6 +3,8 @@ import PartOfSpeech from '../Core/PartOfSpeech';
 import WordEncoder from './WordEncoder';
 import PartOfSpeechDecoder from './PartOfSpeechDecoder';
 import NeuralNetworkParameters from './NeuralNetworkParameters';
+import PartOfSpeechEncoder from './PartOfSpeechEncoder';
+import NeuralNetworkTrainingData from './NeuralNetworkTrainingData';
 
 export default class NeuralNetwork {
   private network: synaptic.Network;
@@ -25,10 +27,30 @@ export default class NeuralNetwork {
   }
 
   /**
-   * Serializes the neural network to JSON.
+   * Returns a JSON representation of the neural network.
    */
   toJSON() {
     return this.network.toJSON();
+  }
+
+  /**
+   * Serializes the neural network to JSON string.
+   */
+  toString(): string {
+    return JSON.stringify(this.toJSON());
+  }
+
+  /**
+   * Trains the neural network using a given training data.
+   */
+  train(data: NeuralNetworkTrainingData, options: any): NeuralNetwork {
+    const samples = Object.entries(data).map(([word, partOfSpeech]) => {
+      const input = new WordEncoder().encode(word);
+      const output = new PartOfSpeechEncoder().encode(partOfSpeech);
+      return { input, output };
+    });
+    new synaptic.Trainer(this.network).train(samples, options);
+    return this;
   }
 
   /**

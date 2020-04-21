@@ -1,7 +1,7 @@
 import PartOfSpeech from '../Core/PartOfSpeech';
 
-type RecognizerCache = {
+type NeuralNetworkTrainingData = {
   [word: string]: PartOfSpeech;
 };
 
-export default RecognizerCache;
+export default NeuralNetworkTrainingData;

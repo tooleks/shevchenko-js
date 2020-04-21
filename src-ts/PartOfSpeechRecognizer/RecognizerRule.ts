@@ -1,7 +1,7 @@
 import PartOfSpeech from '../Core/PartOfSpeech';
 import Gender from '../Core/Gender';
 import NeuralNetwork from './NeuralNetwork';
-import RecognizerCache from './RecognizerCache';
+import NeuralNetworkTrainingData from './NeuralNetworkTrainingData';
 
 export interface RecognizerCondition {
   (word: string, gender: Gender): boolean;
@@ -9,10 +9,10 @@ export interface RecognizerCondition {
 
 export default class RecognizerRule {
   readonly condition: RecognizerCondition;
-  readonly cache: RecognizerCache;
+  readonly cache: NeuralNetworkTrainingData;
   private readonly neuralNetwork: NeuralNetwork;
 
-  constructor(condition: RecognizerCondition, neuralNetwork: NeuralNetwork, cache: RecognizerCache) {
+  constructor(condition: RecognizerCondition, neuralNetwork: NeuralNetwork, cache: NeuralNetworkTrainingData) {
     this.condition = condition;
     this.neuralNetwork = neuralNetwork;
     this.cache = cache;

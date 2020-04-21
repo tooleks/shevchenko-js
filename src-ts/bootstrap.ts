@@ -6,7 +6,7 @@ import LastNameInflector from './AnthroponymInflector/LastNameInflector';
 import AnthroponymInflector from './AnthroponymInflector/AnthroponymInflector';
 import PartOfSpeechRecognizer from './PartOfSpeechRecognizer/PartOfSpeechRecognizer';
 import NeuralNetwork from './PartOfSpeechRecognizer/NeuralNetwork';
-import RecognizerCache from './PartOfSpeechRecognizer/RecognizerCache';
+import NeuralNetworkTrainingData from './PartOfSpeechRecognizer/NeuralNetworkTrainingData';
 import RecognizerRule from './PartOfSpeechRecognizer/RecognizerRule';
 import InflectorRules from './Resources/Inflector/rules.json';
 import pohorielovaStructure from './Resources/NeuralNetworks/Pohorielova/structure.json';
@@ -20,17 +20,17 @@ const partOfSpeechRecognizer = new PartOfSpeechRecognizer([
   new RecognizerRule(
     (word: string, gender: Gender) => gender === Gender.Female && /[ая]$/i.test(word),
     NeuralNetwork.fromJSON(pohorielovaStructure),
-    pohorielovaCache as RecognizerCache
+    pohorielovaCache as NeuralNetworkTrainingData
   ),
   new RecognizerRule(
     (word: string, gender: Gender) => gender === Gender.Male && /(ой|ий|ій)$/i.test(word),
     NeuralNetwork.fromJSON(kosmiiStructure),
-    kosmiiCache as RecognizerCache
+    kosmiiCache as NeuralNetworkTrainingData
   ),
   new RecognizerRule(
     (word: string, gender: Gender) => gender === Gender.Male && /(их)$/i.test(word),
     NeuralNetwork.fromJSON(pelykhStructure),
-    pelykhCache as RecognizerCache
+    pelykhCache as NeuralNetworkTrainingData
   ),
 ]);
 

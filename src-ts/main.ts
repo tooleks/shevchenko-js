@@ -1,4 +1,2 @@
-import NeuralNetwork from './PartOfSpeechRecognizer/NeuralNetwork';
-
-export { NeuralNetwork };
+export * as Internal from './internal';
 export * from './shevchenko';

@@ -9,11 +9,6 @@
   "scripts": {
     "build-ts": "tsc",
     "lint": "tslint --fix -p ./tsconfig.json -c ./tslint.json",
-    "update:inflector-rules": "gulp update:inflector-rules",
-    "build:network-cache": "gulp build:network-cache",
-    "train:nn-pos-a-ya": "node -r esm './nn/POS_A_YA/train.js'",
-    "train:nn-pos-oi-yi-ii": "node -r esm './nn/POS_OI_YI_II/train.js'",
-    "train:nn-pos-yh": "node -r esm './nn/POS_YH/train.js'",
     "build": "webpack -r esm --progress --config './webpack.config.js'",
     "test": "mocha --recursive --bail './test/entrypoint.js'",
     "format": "prettier --write '**/*.js' '!dist/**'",

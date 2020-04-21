@@ -19,9 +19,45 @@ gulp.task('update:inflector-rules', async () => {
   await writeFileAsync('./src-ts/Resources/Inflector/rules.json', JSON.stringify(response.data, null, 2));
 });
 
+gulp.task('train:pohorielova-network', async () => {
+  const pohorielovaNetwork = shevchenko.Internal.NeuralNetwork.fromJSON(pohorielovaStructure);
+  pohorielovaNetwork.train(pohorielovaSamples, {
+    rate: 0.01,
+    iterations: 1000,
+    shuffle: true,
+    error: 0.005,
+    log: 1,
+  });
+  await writeFileAsync('./src-ts/Resources/NeuralNetworks/Pohorielova/structure.json', pohorielovaNetwork.toString());
+});
+
+gulp.task('train:kosmii-network', async () => {
+  const kosmiiNetwork = shevchenko.Internal.NeuralNetwork.fromJSON(kosmiiStructure);
+  kosmiiNetwork.train(kosmiiSamples, {
+    rate: 0.01,
+    iterations: 1000,
+    shuffle: true,
+    error: 0.001,
+    log: 1,
+  });
+  await writeFileAsync('./src-ts/Resources/NeuralNetworks/Kosmii/structure.json', kosmiiNetwork.toString());
+});
+
+gulp.task('train:pelykh-network', async () => {
+  const pelykhNetwork = shevchenko.Internal.NeuralNetwork.fromJSON(pelykhStructure);
+  pelykhNetwork.train(pelykhSamples, {
+    rate: 0.01,
+    iterations: 1000,
+    shuffle: true,
+    error: 0.001,
+    log: 1,
+  });
+  await writeFileAsync('./src-ts/Resources/NeuralNetworks/Pelykh/structure.json', pelykhNetwork.toString());
+});
+
 gulp.task('build:pohorielova-cache', async () => {
   const pohorielovaCache = {};
-  const pohorielovaNetwork = shevchenko.NeuralNetwork.fromJSON(pohorielovaStructure);
+  const pohorielovaNetwork = shevchenko.Internal.NeuralNetwork.fromJSON(pohorielovaStructure);
   Object.entries(pohorielovaSamples).forEach(([word, partOfSpeech]) => {
     if (partOfSpeech !== pohorielovaNetwork.activate(word)) {
       pohorielovaCache[word] = partOfSpeech;
@@ -32,7 +68,7 @@ gulp.task('build:pohorielova-cache', async () => {
 
 gulp.task('build:kosmii-cache', async () => {
   const kosmiiCache = {};
-  const kosmiiNetwork = shevchenko.NeuralNetwork.fromJSON(kosmiiStructure);
+  const kosmiiNetwork = shevchenko.Internal.NeuralNetwork.fromJSON(kosmiiStructure);
   Object.entries(kosmiiSamples).forEach(([word, partOfSpeech]) => {
     if (partOfSpeech !== kosmiiNetwork.activate(word)) {
       kosmiiCache[word] = partOfSpeech;
@@ -43,7 +79,7 @@ gulp.task('build:kosmii-cache', async () => {
 
 gulp.task('build:pelykh-cache', async () => {
   const pelykhCache = {};
-  const pelykhNetwork = shevchenko.NeuralNetwork.fromJSON(pelykhStructure);
+  const pelykhNetwork = shevchenko.Internal.NeuralNetwork.fromJSON(pelykhStructure);
   Object.entries(pelykhSamples).forEach(([word, partOfSpeech]) => {
     if (partOfSpeech !== pelykhNetwork.activate(word)) {
       pelykhCache[word] = partOfSpeech;
