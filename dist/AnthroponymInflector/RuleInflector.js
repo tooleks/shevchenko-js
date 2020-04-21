@@ -23,15 +23,14 @@ class RuleInflector {
      */
     inflect(word, grammaticalCase) {
         const [commands] = this.rule.grammaticalCases[grammaticalCase];
-        if (commands != null) {
+        if (commands) {
             const searchValue = new RegExp(this.rule.pattern.modify, 'gi');
             const inflectedWord = word.replace(searchValue, (match, ...groups) => {
                 let replacer = '';
-                const maxIndex = RegExpUtils.countGroups(this.rule.pattern.modify);
-                for (let index = 0; index < maxIndex; index += 1) {
-                    let value = groups[index];
-                    // @ts-ignore
-                    const command = commands[index];
+                const groupCount = RegExpUtils.countGroups(this.rule.pattern.modify);
+                for (let groupIndex = 0; groupIndex < groupCount; groupIndex += 1) {
+                    let value = groups[groupIndex];
+                    const command = commands[groupIndex];
                     if (command != null) {
                         value = this.commandRunnerFactory.make(command).exec(value);
                     }
