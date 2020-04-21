@@ -5,8 +5,10 @@ import InflectorPattern from './InflectorPattern';
 
 type InflectorRule = {
   description: string,
+  examples: string[],
   partOfSpeech: PartOfSpeech,
   gender: Gender[],
+  priority: number,
   usage: string[],
   pattern: InflectorPattern,
   grammaticalCases: GrammaticalCases,
