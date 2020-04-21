@@ -39,7 +39,11 @@ export default class LastNameInflector {
               ruleUtil.matchRegExp(rule, segment) &&
               ruleUtil.matchPos(rule, this.posRecognizer.recognize(segment.toLowerCase(), gender)),
           )
-          .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, "lastName"));
+          .sort((firstRule, secondRule) => ruleUtil.compareUsage(firstRule, secondRule, "lastName"))
+          .map((rule) => {
+            console.log(rule.description);
+            return rule;
+          });
 
         if (rule == null) {
           return segment;

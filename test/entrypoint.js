@@ -1,20 +1,20 @@
-import shevchenkoUmd from "../dist/shevchenko.umd.js";
-import shevchenkoBundleMin from "../dist/shevchenko.bundle.min.js";
+/* global describe, it */
 
-import integrationTest from "./integration";
-import inflectionTest from "./inflection";
-import learningRateTest from "./learningRate";
+'use strict';
 
-describe("umd module", function() {
-  integrationTest(shevchenkoUmd);
-  inflectionTest(shevchenkoUmd);
+const shevchenkoCjs = require('../dist-ts/main');
+const inflectionTest = require('./inflection');
+
+describe('cjs module', function () {
+  // integrationTest(shevchenkoUmd);
+  inflectionTest(shevchenkoCjs);
 });
-
-describe("bundle module", function() {
-  integrationTest(shevchenkoBundleMin);
-  inflectionTest(shevchenkoBundleMin);
-});
-
-describe("learning rate", function() {
-  learningRateTest();
-});
+//
+// describe("bundle module", function() {
+//   integrationTest(shevchenkoBundleMin);
+//   inflectionTest(shevchenkoBundleMin);
+// });
+//
+// describe("learning rate", function() {
+//   learningRateTest();
+// });
