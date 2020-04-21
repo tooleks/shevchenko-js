@@ -10,5 +10,5 @@ export default class LastNameInflector extends NameInflector {
     /**
      * @inheritdoc
      */
-    protected inflectName(lastName: string, gender: Gender, grammaticalCase: GrammaticalCase, last: boolean): string;
+    protected inflectName(lastName: string, gender: Gender, grammaticalCase: GrammaticalCase, isLastWord: boolean): string;
 }

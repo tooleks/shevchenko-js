@@ -17,9 +17,9 @@ export default class MiddleNameInflector extends NameInflector {
    */
   protected inflectName(middleName: string, gender: Gender, grammaticalCase: GrammaticalCase): string {
     const [rule] = this.rules
-      .filter((rule) => rule.gender.includes(gender))
-      .filter((rule) => rule.usage.includes('middleName'))
-      .filter((rule) => new RegExp(rule.pattern.find, 'gi').test(middleName));
+      .filter(rule => rule.gender.includes(gender))
+      .filter(rule => rule.usage.includes('middleName'))
+      .filter(rule => new RegExp(rule.pattern.find, 'gi').test(middleName));
 
     if (rule == null) {
       return middleName;

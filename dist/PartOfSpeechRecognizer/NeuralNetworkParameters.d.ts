@@ -1,6 +1,6 @@
-declare const NeuralNetworkParameters: {
+declare const _default: {
     InputLayerSize: number;
     HiddenLayerSize: number;
     OutputLayerSize: number;
 };
-export default NeuralNetworkParameters;
+export default _default;

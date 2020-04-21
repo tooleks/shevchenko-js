@@ -19,8 +19,9 @@ export default class LastNameInflector extends NameInflector {
   /**
    * @inheritdoc
    */
-  protected inflectName(lastName: string, gender: Gender, grammaticalCase: GrammaticalCase, last: boolean): string {
-    if (!last && LangUtils.countVowels(lastName) === 1) {
+  // tslint:disable-next-line max-line-length
+  protected inflectName(lastName: string, gender: Gender, grammaticalCase: GrammaticalCase, isLastWord: boolean): string {
+    if (!isLastWord && LangUtils.countVowels(lastName) === 1) {
       return lastName;
     }
 
@@ -28,7 +29,7 @@ export default class LastNameInflector extends NameInflector {
       .filter(rule => rule.gender.includes(gender))
       .filter(rule => rule.usage.length === 0 || rule.usage.includes('lastName'))
       .filter(rule => new RegExp(rule.pattern.find, 'gi').test(lastName))
-      .filter(rule => {
+      .filter((rule) => {
         const partOfSpeech = this.partOfSpeechRecognizer.recognize(lastName, gender);
         return rule.partOfSpeech === partOfSpeech || partOfSpeech == null;
       })

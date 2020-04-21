@@ -1,6 +1,5 @@
 import InflectorCommand from './InflectorCommand';
-import PartOfSpeech from '../Core/PartOfSpeech';
 declare type InflectorCommands = {
-    [pos in PartOfSpeech]: InflectorCommand;
+    [groupIndex: string]: InflectorCommand;
 };
 export default InflectorCommands;

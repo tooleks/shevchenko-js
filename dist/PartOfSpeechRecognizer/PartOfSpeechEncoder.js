@@ -17,7 +17,7 @@ class PartOfSpeechEncoder {
             case PartOfSpeech_1.default.Adjective:
                 return [exports.DIGIT_ADJECTIVE];
             default:
-                throw new TypeError(`Invalid input.`);
+                throw new TypeError('Invalid input.');
         }
     }
 }

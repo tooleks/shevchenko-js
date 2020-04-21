@@ -15,5 +15,6 @@ export default abstract class NameInflector {
   /**
    * Inflects a given part of the name in a given grammatical case.
    */
-  protected abstract inflectName(word: string, gender: Gender, grammaticalCase: GrammaticalCase, wordIndex: boolean): string;
+  // tslint:disable-next-line max-line-length
+  protected abstract inflectName(word: string, gender: Gender, grammaticalCase: GrammaticalCase, isLastWord: boolean): string;
 }

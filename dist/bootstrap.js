@@ -11,12 +11,19 @@ const AnthroponymInflector_1 = __importDefault(require("./AnthroponymInflector/A
 const PartOfSpeechRecognizer_1 = __importDefault(require("./PartOfSpeechRecognizer/PartOfSpeechRecognizer"));
 const NeuralNetwork_1 = __importDefault(require("./PartOfSpeechRecognizer/NeuralNetwork"));
 const RecognizerRule_1 = __importDefault(require("./PartOfSpeechRecognizer/RecognizerRule"));
+// tslint:disable-next-line import-name
 const rules_json_1 = __importDefault(require("./Resources/Inflector/rules.json"));
+// tslint:disable-next-line import-name
 const structure_json_1 = __importDefault(require("./Resources/NeuralNetworks/Pohorielova/structure.json"));
+// tslint:disable-next-line import-name
 const cache_json_1 = __importDefault(require("./Resources/NeuralNetworks/Pohorielova/cache.json"));
+// tslint:disable-next-line import-name
 const structure_json_2 = __importDefault(require("./Resources/NeuralNetworks/Kosmii/structure.json"));
+// tslint:disable-next-line import-name
 const cache_json_2 = __importDefault(require("./Resources/NeuralNetworks/Kosmii/cache.json"));
+// tslint:disable-next-line import-name
 const structure_json_3 = __importDefault(require("./Resources/NeuralNetworks/Pelykh/structure.json"));
+// tslint:disable-next-line import-name
 const cache_json_3 = __importDefault(require("./Resources/NeuralNetworks/Pelykh/cache.json"));
 const partOfSpeechRecognizer = new PartOfSpeechRecognizer_1.default([
     new RecognizerRule_1.default((word, gender) => gender === Gender_1.default.Female && /[ая]$/i.test(word), NeuralNetwork_1.default.fromJSON(structure_json_1.default), cache_json_1.default),
