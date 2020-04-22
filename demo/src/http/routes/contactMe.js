@@ -11,7 +11,7 @@ module.exports = (mailer, urlService) => {
         subject: `${process.env.APP_NAME} - ${req.__('contactMe')}`,
         text: req.body.message,
       });
-      req.flash('flashes', { type: 'success', message: req.__('contactMeFormSuccessAlert') });
+      req.flash('flashes', { type: 'success', message: req.__('messageSent') });
       res.redirect(urlService.getUrl('/', req.getLocale()));
     } catch (err) {
       next(err);

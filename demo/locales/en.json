@@ -40,7 +40,7 @@
 	"usage": "Usage",
 	"yourEmailAddress": "Your E-mail Address",
 	"yourName": "Your Name",
-	"contactMeFormSuccessAlert": "Your message has been successfully sent.",
+	"messageSent": "Your message was sent.",
 	"ukLanguage": "Ukrainian Language",
 	"enLanguage": "English Language",
 	"libraryDocumentationUrl": "https://github.com/tooleks/shevchenko-js/wiki/%5Ben%5D-Documentation",

@@ -40,7 +40,7 @@
 	"usage": "Використання",
 	"yourEmailAddress": "Ваша e-mail адреса",
 	"yourName": "Ваше ім'я",
-	"contactMeFormSuccessAlert": "Ваше повідомлення було успішно відправлене.",
+	"messageSent": "Ваше повідомлення було відправлене.",
 	"ukLanguage": "Українська мова",
 	"enLanguage": "Англійська мова",
 	"libraryDocumentationUrl": "https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D1%96%D1%8F",
