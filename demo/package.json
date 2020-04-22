@@ -1,7 +1,7 @@
 {
-  "name": "shevchenko-js-demo",
+  "private": true,
+  "name": "shevchenko-demo",
   "version": "0.0.0",
-  "description": "The demo page for the JavaScript library to inflect Ukrainian first, middle and last names",
   "scripts": {
     "start": "node ./server.js",
     "lint": "eslint --fix ./src/**/*.js",
