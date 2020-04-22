@@ -45,7 +45,7 @@ app.set('views', path.join(__dirname, '../views'))
 app.engine('html', ejs.renderFile);
 app.set('view engine', 'html');
 
-app.use(middleware.addLocals());
+app.use(middleware.configureRequest());
 app.use(router);
 app.get('*', middleware.redirectToHome());
 app.use(middleware.errorHandler());

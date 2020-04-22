@@ -1,11 +1,11 @@
 const serviceFactory = require('../../services/factory');
-const addLocals = require('./addLocals');
+const configureRequest = require('./configureRequest');
 const errorHandler = require('./errorHandler');
 const redirectToHome = require('./redirectToHome');
 
 module.exports = {
-  addLocals() {
-  return addLocals(serviceFactory.urlService(), serviceFactory.shareLinksProvider());
+  configureRequest() {
+  return configureRequest(serviceFactory.urlService(), serviceFactory.shareLinksProvider());
 },
   errorHandler() {
     return errorHandler(serviceFactory.urlService(), serviceFactory.logger());
