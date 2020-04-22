@@ -1,6 +1,6 @@
-## shevchenko - JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові
+## shevchenko
 
-## shevchenko - The JavaScript library to inflect Ukrainian first, middle and last names
+JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові / JavaScript library to inflect Ukrainian first, middle and last names
 
 * [Демо](http://shevchenko-js.tooleks.com/?lang=uk#demo) / [Demo](http://shevchenko-js.tooleks.com/?lang=en#demo)
 * [Документація](https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D1%96%D1%8F) / [Documentation](https://github.com/tooleks/shevchenko-js/wiki/%5Ben%5D-Documentation)
@@ -17,13 +17,13 @@ npm install --save shevchenko
 
 ```JavaScript
 const anthroponym = {
-    gender: "male", // or "female"
-    firstName: "Тарас",
-    middleName: "Григорович",
-    lastName: "Шевченко"
+    gender: 'male', // or 'female'
+    firstName: 'Тарас',
+    middleName: 'Григорович',
+    lastName: 'Шевченко'
 };
 
 const result = shevchenko.inVocative(anthroponym);
 
-console.log(result); // { firstName: "Тарасе", middleName: "Григоровичу", lastName: "Шевченку" }
+console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку' }
 ```
