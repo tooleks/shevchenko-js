@@ -2,12 +2,14 @@
 
 'use strict';
 
-const shevchenkoCjs = require('../dist/main');
+const shevchenko = require('../dist/cjs/main');
 const inflectionTest = require('./inflection');
+
+console.log(shevchenko);
 
 describe('cjs module', function () {
   // integrationTest(shevchenkoUmd);
-  inflectionTest(shevchenkoCjs);
+  inflectionTest(shevchenko);
 });
 //
 // describe("bundle module", function() {

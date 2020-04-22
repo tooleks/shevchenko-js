@@ -1,4 +1,4 @@
-import * as synaptic from 'synaptic';
+import synaptic from 'synaptic';
 import PartOfSpeech from '../Core/PartOfSpeech';
 import WordEncoder from './WordEncoder';
 import PartOfSpeechDecoder from './PartOfSpeechDecoder';
