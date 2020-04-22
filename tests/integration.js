@@ -104,7 +104,7 @@ module.exports = (shevchenko) => {
       expect(() => shevchenko.inVocative(anthroponym)).to.not.throw(TypeError);
     });
 
-    it('should not throw an error if агдд name provided', () => {
+    it('should not throw an error if full name provided', () => {
       const anthroponym = { gender: 'male', firstName: 'Тарас', middleName: 'Григорович', lastName: 'Шевченко' };
       expect(() => shevchenko.inNominative(anthroponym)).to.not.throw(TypeError);
       expect(() => shevchenko.inGenitive(anthroponym)).to.not.throw(TypeError);
