@@ -1,10 +1,20 @@
-"use strict";
-
-const express = require("express");
-const controllersFactory = require("../controllers/factory");
-
-const router = express.Router();
-
-router.post("/contact-me", controllersFactory.contactMeController().send);
-
-module.exports = router;
+/**
+ * @param {MailgunMailer} mailer
+ * @param {UrlService} urlService
+ */
+module.exports = (mailer, urlService) => {
+  return async (req, res, next) => {
+    try {
+      await mailer.send({
+        from: `${req.body.name} <${req.body.email}>`,
+        to: process.env.APP_EMAIL,
+        subject: `${process.env.APP_NAME} - ${req.__('contactMe')}`,
+        text: req.body.message,
+      });
+      req.flash('flashes', { type: 'success', message: req.__('contactMeFormSuccessAlert') });
+      res.redirect(urlService.getUrl('/', req.getLocale()));
+    } catch (err) {
+      next(err);
+    }
+  };
+};

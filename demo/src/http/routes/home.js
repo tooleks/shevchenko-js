@@ -1,10 +1,7 @@
-"use strict";
-
-const express = require("express");
-const controllersFactory = require("../controllers/factory");
-
-const router = express.Router();
-
-router.get("/", controllersFactory.homeController().index);
-
-module.exports = router;
+module.exports = () => (req, res, next) => {
+  try {
+    res.render('home.ejs', { flashes: req.flash('flashes') });
+  } catch (err) {
+    next(err);
+  }
+};
