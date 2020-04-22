@@ -9,7 +9,7 @@
   "scripts": {
     "build": "rm -rf ./dist && rollup -c && tsc -p ./tsconfig.declaration.json",
     "lint": "tslint --fix -p ./tsconfig.json -c ./tslint.json",
-    "test": "mocha --recursive --bail './test/entrypoint.js'"
+    "test": "mocha --bail ./tests/entrypoint.js"
   },
   "keywords": [
     "inflection",
@@ -64,7 +64,6 @@
     "chai": "^4.2.0",
     "faker": "^4.1.0",
     "gulp": "^4.0.2",
-    "lodash": "^4.17.15",
     "mocha": "^3.5.3",
     "moment": "^2.24.0",
     "rollup": "^2.7.1",

@@ -1,7 +1,7 @@
 [
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "балабуха",
         "firstName": "оксана",
@@ -41,7 +41,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "батіг",
         "firstName": "милан",
@@ -81,7 +81,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "бехта",
         "firstName": "мальвіна",
@@ -121,7 +121,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "бровар",
         "firstName": "неля",
@@ -161,7 +161,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "брід",
         "firstName": "добрик",
@@ -201,7 +201,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "бідзюра",
         "firstName": "антоніна",
@@ -241,7 +241,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "білка",
         "firstName": "ніка",
@@ -281,7 +281,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "верес",
         "firstName": "воля",
@@ -321,7 +321,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "возна",
         "firstName": "ірина",
@@ -361,7 +361,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "вілінська",
         "firstName": "марія",
@@ -401,7 +401,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "вітер",
         "firstName": "нагдибіда",
@@ -441,7 +441,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "гарькава",
         "firstName": "нінель",
@@ -481,7 +481,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "глібов",
         "firstName": "леонід",
@@ -521,7 +521,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "гмиря",
         "firstName": "сашок",
@@ -561,7 +561,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "гмиря",
         "firstName": "соломія",
@@ -601,7 +601,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "гончар",
         "firstName": "олександр",
@@ -641,7 +641,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "граційна",
         "firstName": "белла",
@@ -681,7 +681,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "грець",
         "firstName": "джордж",
@@ -721,7 +721,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "грім",
         "firstName": "василь",
@@ -761,7 +761,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "диня",
         "firstName": "олена",
@@ -801,7 +801,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "довга",
         "firstName": "анфіса",
@@ -841,7 +841,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "довженко",
         "firstName": "олександр",
@@ -881,7 +881,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "живаго",
         "firstName": "грег",
@@ -921,7 +921,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "жнець",
         "firstName": "мойша",
@@ -961,7 +961,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "забіяка",
         "firstName": "антоніна",
@@ -1001,7 +1001,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "задорожня",
         "firstName": "анастасія",
@@ -1041,7 +1041,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "заєць",
         "firstName": "павло",
@@ -1081,7 +1081,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "звір",
         "firstName": "горисвіт",
@@ -1121,7 +1121,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "зелена",
         "firstName": "анна",
@@ -1161,7 +1161,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "йойо",
         "firstName": "гордодум",
@@ -1201,7 +1201,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кисіль",
         "firstName": "лука",
@@ -1241,7 +1241,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кобилянська",
         "firstName": "ольга",
@@ -1281,7 +1281,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "ковалишин",
         "firstName": "ігор",
@@ -1321,7 +1321,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "ковалів",
         "firstName": "семен",
@@ -1361,7 +1361,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кожух",
         "firstName": "данило",
@@ -1401,7 +1401,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "корова",
         "firstName": "анна",
@@ -1441,7 +1441,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "косач-квітка",
         "firstName": "лариса",
@@ -1481,7 +1481,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "косач",
         "firstName": "ольга",
@@ -1521,7 +1521,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "котляревський",
         "firstName": "іван",
@@ -1561,7 +1561,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "коцюбинський",
         "firstName": "михайло",
@@ -1601,7 +1601,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кошель",
         "firstName": "мусій",
@@ -1641,7 +1641,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кремінь",
         "firstName": "кузьма",
@@ -1681,7 +1681,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кривоніс",
         "firstName": "чіпка",
@@ -1721,7 +1721,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кріль",
         "firstName": "дій",
@@ -1761,7 +1761,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кріт",
         "firstName": "олексій",
@@ -1801,7 +1801,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кузик",
         "firstName": "андрій",
@@ -1841,7 +1841,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кузьо",
         "firstName": "таня",
@@ -1881,7 +1881,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "куліш",
         "firstName": "пантелеймон",
@@ -1921,7 +1921,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "куліш",
         "firstName": "сеон",
@@ -1961,7 +1961,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кушнір",
         "firstName": "мирослав",
@@ -2001,7 +2001,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "кіт",
         "firstName": "зоресвіт",
@@ -2041,7 +2041,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "лебідь",
         "firstName": "куйбіда",
@@ -2081,7 +2081,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "лебідь",
         "firstName": "ольга",
@@ -2121,7 +2121,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "лозов'яга",
         "firstName": "іван",
@@ -2161,7 +2161,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "маленька",
         "firstName": "антоніна",
@@ -2201,7 +2201,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "мисяк",
         "firstName": "прокіп",
@@ -2241,7 +2241,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "нечуй-левицький",
         "firstName": "іван",
@@ -2281,7 +2281,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "нога",
         "firstName": "адам",
@@ -2321,7 +2321,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "окріп",
         "firstName": "вселюб",
@@ -2361,7 +2361,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "орел",
         "firstName": "анатолій",
@@ -2401,7 +2401,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "осока",
         "firstName": "катря",
@@ -2441,7 +2441,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "павлов",
         "firstName": "василь",
@@ -2481,7 +2481,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "перекотиполе",
         "firstName": "аліса",
@@ -2521,7 +2521,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "пес",
         "firstName": "дір",
@@ -2561,7 +2561,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "петренко",
         "firstName": "петро",
@@ -2601,7 +2601,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "петрунь",
         "firstName": "яків",
@@ -2641,7 +2641,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "пиріг",
         "firstName": "божен",
@@ -2681,7 +2681,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "пригода",
         "firstName": "лазар",
@@ -2721,7 +2721,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "прилука",
         "firstName": "жанна",
@@ -2761,7 +2761,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "притула",
         "firstName": "квітка",
@@ -2801,7 +2801,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "прихід",
         "firstName": "єремій",
@@ -2841,7 +2841,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "пуща",
         "firstName": "ізяслав",
@@ -2881,7 +2881,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "піп",
         "firstName": "адам",
@@ -2921,7 +2921,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "риндич",
         "firstName": "федір",
@@ -2961,7 +2961,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "розкіш",
         "firstName": "богдан",
@@ -3001,7 +3001,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "рудченко",
         "firstName": "панас",
@@ -3041,7 +3041,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "рудченко",
         "firstName": "іван",
@@ -3081,7 +3081,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "ряба",
         "firstName": "феофана",
@@ -3121,7 +3121,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "рябовіл",
         "firstName": "микола",
@@ -3161,7 +3161,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "рілля",
         "firstName": "поляна",
@@ -3201,7 +3201,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "сава",
         "firstName": "лана",
@@ -3241,7 +3241,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "свинець",
         "firstName": "ілля",
@@ -3281,7 +3281,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "сивокінь",
         "firstName": "слава",
@@ -3321,7 +3321,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "симоненко",
         "firstName": "василь",
@@ -3361,7 +3361,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "синя",
         "firstName": "варвара",
@@ -3401,7 +3401,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "скляр",
         "firstName": "вір",
@@ -3441,7 +3441,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "сковорода",
         "firstName": "григорій",
@@ -3481,7 +3481,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "слива",
         "firstName": "ярослава",
@@ -3521,7 +3521,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "смола",
         "firstName": "вікторія",
@@ -3561,7 +3561,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "сорока",
         "firstName": "ірина",
@@ -3601,7 +3601,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "сосюра",
         "firstName": "володимир",
@@ -3641,7 +3641,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "спокійна",
         "firstName": "анжела",
@@ -3681,7 +3681,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "старуха",
         "firstName": "олег",
@@ -3721,7 +3721,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "стрелкіна",
         "firstName": "одарка",
@@ -3761,7 +3761,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "стрілець",
         "firstName": "марко",
@@ -3801,7 +3801,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "суддя",
         "firstName": "дарина",
@@ -3841,7 +3841,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "сумська",
         "firstName": "любов",
@@ -3881,7 +3881,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "сутула",
         "firstName": "леся",
@@ -3921,7 +3921,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "сухомлинський",
         "firstName": "валерій",
@@ -3961,7 +3961,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "сіль",
         "firstName": "йохим",
@@ -4001,7 +4001,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "тичина",
         "firstName": "павло",
@@ -4041,7 +4041,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "товстоліс",
         "firstName": "малик",
@@ -4081,7 +4081,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "узвіз",
         "firstName": "вір",
@@ -4121,7 +4121,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "франко",
         "firstName": "іван",
@@ -4161,7 +4161,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "фітільов",
         "firstName": "микола",
@@ -4201,7 +4201,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "хміль",
         "firstName": "дивозір",
@@ -4241,7 +4241,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "хоробра",
         "firstName": "олеся",
@@ -4281,7 +4281,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "черства",
         "firstName": "василина",
@@ -4321,7 +4321,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "шандра",
         "firstName": "мальва",
@@ -4361,7 +4361,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "шевченко",
         "firstName": "анна",
@@ -4401,7 +4401,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "шевченко",
         "firstName": "тарас",
@@ -4441,7 +4441,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "іваньо",
         "firstName": "януш",
@@ -4481,7 +4481,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "ільницька",
         "firstName": "марія",
@@ -4521,7 +4521,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "голосиста",
         "firstName": "ірена",
@@ -4561,7 +4561,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "туя",
         "firstName": "тая",
@@ -4601,7 +4601,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "бадьора",
         "firstName": "валентина",
@@ -4641,7 +4641,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "булава",
         "firstName": "ірена",
@@ -4681,7 +4681,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "дужа",
         "firstName": "горпина",
@@ -4721,7 +4721,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "мулява",
         "firstName": "ада",
@@ -4761,7 +4761,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "житня",
         "firstName": "алла",
@@ -4801,7 +4801,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "демура",
         "firstName": "аріадна",
@@ -4841,7 +4841,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "джабара",
         "firstName": "берта",
@@ -4881,7 +4881,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "дзябура",
         "firstName": "біляна",
@@ -4921,7 +4921,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "казанжа",
         "firstName": "віра",
@@ -4961,7 +4961,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "мулява",
         "firstName": "дарина",
@@ -5001,7 +5001,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "трикоза",
         "firstName": "діана",
@@ -5041,7 +5041,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "красненька",
         "firstName": "евеліна",
@@ -5081,7 +5081,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "скорина",
         "firstName": "анастасія",
@@ -5121,7 +5121,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "дубеня",
         "firstName": "земфіра",
@@ -5161,7 +5161,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "штендера",
         "firstName": "лілія",
@@ -5201,7 +5201,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "лежень",
         "firstName": "антон",
@@ -5241,7 +5241,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "мжень",
         "firstName": "сидір",
@@ -5281,7 +5281,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "неїжкаша",
         "firstName": "олена",
@@ -5321,7 +5321,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "палій",
         "firstName": "димитрій",
@@ -5361,7 +5361,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "заболотній",
         "firstName": "юрій",
@@ -5401,7 +5401,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "батий",
         "firstName": "володимир",
@@ -5441,7 +5441,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "білоцький",
         "firstName": "гаврило",
@@ -5481,7 +5481,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "толстая",
         "firstName": "валентина",
@@ -5521,7 +5521,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "толстой",
         "firstName": "лев",
@@ -5561,7 +5561,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "цой",
         "firstName": "віктор",
@@ -5601,7 +5601,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "крутой",
         "firstName": "ігор",
@@ -5641,7 +5641,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "драй-хмара",
         "firstName": "михайло",
@@ -5681,7 +5681,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "драй",
         "firstName": "валентин",
@@ -5721,7 +5721,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "сокіл",
         "firstName": "любомир",
@@ -5761,7 +5761,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "щербій",
         "firstName": "степан",
@@ -5801,7 +5801,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "хрін",
         "firstName": "благовіст",
@@ -5841,7 +5841,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "дзвін",
         "firstName": "петрослав",
@@ -5881,7 +5881,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "плід",
         "firstName": "роман",
@@ -5921,7 +5921,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "явір",
         "firstName": "женя",
@@ -5961,7 +5961,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "якір",
         "firstName": "ладомир",
@@ -6001,7 +6001,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "заболотняя",
         "firstName": "магдалина",
@@ -6041,7 +6041,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "гуменна",
         "firstName": "майя",
@@ -6081,7 +6081,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "єреміца",
         "firstName": "аврелья",
@@ -6121,7 +6121,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "мелих",
         "firstName": "ярослав",
@@ -6161,7 +6161,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "бряних",
         "firstName": "осмомисл",
@@ -6201,7 +6201,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "седих",
         "firstName": "ярина",
@@ -6241,7 +6241,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "чмих",
         "firstName": "ярослава",
@@ -6281,7 +6281,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "крутая",
         "firstName": "мирослава",
@@ -6321,7 +6321,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "жемайтіте",
         "firstName": "анастасія",
@@ -6361,7 +6361,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "голембо",
         "firstName": "вадим",
@@ -6401,7 +6401,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "весна",
         "firstName": "анна-марія",
@@ -6441,7 +6441,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "драй",
         "firstName": "остап",
@@ -6481,7 +6481,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "круча",
         "firstName": "василина",
@@ -6521,7 +6521,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "шира",
         "firstName": "антоніна",
@@ -6561,7 +6561,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "едемська",
         "firstName": "світлана",
@@ -6601,7 +6601,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "самотня",
         "firstName": "саша",
@@ -6641,7 +6641,7 @@
   },
   {
     "gender": "male",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "самотній",
         "firstName": "віктор",
@@ -6681,7 +6681,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "барна",
         "firstName": "валентина",
@@ -6721,7 +6721,7 @@
   },
   {
     "gender": "female",
-    "inflectionCases": {
+    "grammaticalCases": {
       "nominative": {
         "lastName": "пижова",
         "firstName": "дар'я",

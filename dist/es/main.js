@@ -144,6 +144,38 @@ var Gender;
 var Gender$1 = Gender;
 
 /**
+ * Validates anthroponym object.
+ * Throws an error if validation fails.
+ *
+ * @throws TypeError
+ */
+function validateAnthroponym(anthroponym) {
+    if (anthroponym == null) {
+        throw new TypeError('"anthroponym" must be an object.');
+    }
+    if (typeof anthroponym !== 'object') {
+        throw new TypeError('"anthroponym" must be an object.');
+    }
+    if (![Gender$1.Male, Gender$1.Female].includes(anthroponym.gender)) {
+        throw new TypeError(`"anthroponym.gender" must be one of the following: "${Gender$1.Male}", "${Gender$1.Female}".`);
+    }
+    // tslint:disable-next-line max-line-length
+    if (typeof anthroponym.firstName === 'undefined' && typeof anthroponym.middleName === 'undefined' && typeof anthroponym.lastName === 'undefined') {
+        // tslint:disable-next-line max-line-length
+        throw new TypeError('At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".');
+    }
+    if (typeof anthroponym.firstName !== 'undefined' && typeof anthroponym.firstName !== 'string') {
+        throw new TypeError('"anthroponym.firstName" must be a string.');
+    }
+    if (typeof anthroponym.middleName !== 'undefined' && typeof anthroponym.middleName !== 'string') {
+        throw new TypeError('"anthroponym.middleName" must be a string.');
+    }
+    if (typeof anthroponym.lastName !== 'undefined' && typeof anthroponym.lastName !== 'string') {
+        throw new TypeError('"anthroponym.lastName" must be a string.');
+    }
+}
+
+/**
  * Counts a number of groups in a given regular expression.
  */
 function countGroups(src) {
@@ -154122,42 +154154,49 @@ const anthroponymInflector = new AnthroponymInflector(firstNameInflector, middle
  * Inflects an anthroponym in nominative grammatical case.
  */
 function inNominative(anthroponym) {
+    validateAnthroponym(anthroponym);
     return anthroponymInflector.inflect(anthroponym, GrammaticalCase$1.Nominative);
 }
 /**
  * Inflects an anthroponym in genitive grammatical case.
  */
 function inGenitive(anthroponym) {
+    validateAnthroponym(anthroponym);
     return anthroponymInflector.inflect(anthroponym, GrammaticalCase$1.Genitive);
 }
 /**
  * Inflects an anthroponym in dative grammatical case.
  */
 function inDative(anthroponym) {
+    validateAnthroponym(anthroponym);
     return anthroponymInflector.inflect(anthroponym, GrammaticalCase$1.Dative);
 }
 /**
  * Inflects an anthroponym in accusative grammatical case.
  */
 function inAccusative(anthroponym) {
+    validateAnthroponym(anthroponym);
     return anthroponymInflector.inflect(anthroponym, GrammaticalCase$1.Accusative);
 }
 /**
  * Inflects an anthroponym in ablative grammatical case.
  */
 function inAblative(anthroponym) {
+    validateAnthroponym(anthroponym);
     return anthroponymInflector.inflect(anthroponym, GrammaticalCase$1.Ablative);
 }
 /**
  * Inflects an anthroponym in locative grammatical case.
  */
 function inLocative(anthroponym) {
+    validateAnthroponym(anthroponym);
     return anthroponymInflector.inflect(anthroponym, GrammaticalCase$1.Locative);
 }
 /**
  * Inflects an anthroponym in vocative grammatical case.
  */
 function inVocative(anthroponym) {
+    validateAnthroponym(anthroponym);
     return anthroponymInflector.inflect(anthroponym, GrammaticalCase$1.Vocative);
 }
 
