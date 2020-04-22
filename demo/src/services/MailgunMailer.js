@@ -11,7 +11,7 @@ class MailgunMailer {
   }
 
   /**
-   * Send mail message.
+   * Sends email.
    *
    * @param {Object} data
    * @param {string} data.from

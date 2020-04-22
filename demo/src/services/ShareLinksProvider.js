@@ -1,6 +1,6 @@
 class ShareLinksProvider {
   /**
-   * Get shareable Facebook link URL for a given URL.
+   * Returns a shareable Facebook link URL for a given URL.
    *
    * @param {string} url
    * @returns {string}
@@ -14,7 +14,7 @@ class ShareLinksProvider {
   }
 
   /**
-   * Get shareable Twitter link URL for a given URL.
+   * Returns a shareable Twitter link URL for a given URL.
    *
    * @param {string} url
    * @returns {string}
@@ -28,7 +28,7 @@ class ShareLinksProvider {
   }
 
   /**
-   * Get shareable LinkedIn link URL for a given URL.
+   * Returns a shareable LinkedIn link URL for a given URL.
    *
    * @param {string} url
    * @param {string} description

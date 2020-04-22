@@ -1,6 +1,6 @@
 class UrlService {
   /**
-   * Generate an absolute URL for a given path.
+   * Generates an absolute URL for a given pathname.
    *
    * @param {string} [pathname='']
    * @param {string} [locale='en']
