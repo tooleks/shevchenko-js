@@ -11,6 +11,10 @@ const router = require('./http/routes');
 
 const app = express();
 
+app.use(express.static('public'));
+app.use(express.static('public/meta'));
+app.use('/js/shevchenko.bundle.min.js', express.static(path.join(__dirname, '../dist/shevchenko.bundle.min.js')));
+
 i18n.configure({
   locales: ['uk', 'en'],
   fallbacks: {
@@ -24,22 +28,16 @@ i18n.configure({
 
 app.use(i18n.init);
 
-app.use(express.static('public'));
-app.use(express.static('public/meta'));
-app.use('/js/shevchenko.bundle.min.js', express.static(path.join(__dirname, '../dist/shevchenko.bundle.min.js')));
-
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser(process.env.APP_SECRET));
 
-app.use(
-  session({
-    secret: process.env.APP_SECRET,
-    cookie: { maxAge: 60 * 1000 },
-    resave: true,
-    saveUninitialized: true,
-  }),
-);
+app.use(session({
+  secret: process.env.APP_SECRET,
+  cookie: { maxAge: 60 * 1000 },
+  resave: true,
+  saveUninitialized: true,
+}));
 
 app.use(flash());
 

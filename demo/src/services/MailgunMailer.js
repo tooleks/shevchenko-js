@@ -14,6 +14,10 @@ class MailgunMailer {
    * Send mail message.
    *
    * @param {Object} data
+   * @param {string} data.from
+   * @param {string} data.to
+   * @param {string} data.subject
+   * @param {string} data.text
    * @returns {Promise}
    */
   async send(data) {
