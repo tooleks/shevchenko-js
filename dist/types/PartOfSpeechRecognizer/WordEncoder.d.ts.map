@@ -1,0 +1,1 @@
+{"version":3,"file":"WordEncoder.d.ts","sourceRoot":"","sources":["../../../src/PartOfSpeechRecognizer/WordEncoder.ts"],"names":[],"mappings":"AAEA,MAAM,CAAC,OAAO,OAAO,WAAW;IAC9B,OAAO,CAAC,QAAQ,CAAC,IAAI,CAAS;gBAElB,IAAI,GAAE,MAA+C;IAIjE;;OAEG;IACH,MAAM,CAAC,KAAK,EAAE,MAAM,GAAG,MAAM,EAAE;CAUhC"}

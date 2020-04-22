@@ -1,0 +1,1 @@
+{"version":3,"file":"CommandRunnerFactory.d.ts","sourceRoot":"","sources":["../../../src/AnthroponymInflector/CommandRunnerFactory.ts"],"names":[],"mappings":"AAAA,OAAO,gBAAgB,MAAM,oBAAoB,CAAC;AAIlD,OAAO,sBAAsB,MAAM,0BAA0B,CAAC;AAE9D,MAAM,CAAC,OAAO,OAAO,oBAAoB;IACvC;;OAEG;IACH,IAAI,CAAC,OAAO,EAAE,gBAAgB,GAAG,sBAAsB;CAaxD"}
