@@ -5,8 +5,8 @@ const redirectToHome = require('./redirectToHome');
 
 module.exports = {
   configureRequest() {
-  return configureRequest(serviceFactory.urlService(), serviceFactory.shareLinksProvider());
-},
+    return configureRequest(serviceFactory.urlService(), serviceFactory.shareLinksProvider());
+  },
   errorHandler() {
     return errorHandler(serviceFactory.urlService(), serviceFactory.logger());
   },
