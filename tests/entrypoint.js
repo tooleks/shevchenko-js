@@ -8,7 +8,7 @@ const runIntegrationTestCase = require('./integration');
 const runInflectionTestCase = require('./inflection');
 
 describe('cjs module', () => {
-  runIntegrationTestCase(shevchenkoUmd);
+  runIntegrationTestCase(shevchenkoCjs);
   runInflectionTestCase(shevchenkoCjs);
 });
 
