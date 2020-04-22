@@ -1,144 +1,5 @@
 /* shevchenko v1.2.0, Copyright (c) 2020 Oleksandr Tolochko <tooleks@gmail.com>, License: MIT */
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
-function _interopDefault (ex) { return (ex && (typeof ex === 'object') && 'default' in ex) ? ex['default'] : ex; }
-
-var synaptic = _interopDefault(require('synaptic'));
-
-var NeuralNetworkParameters = {
-    InputLayerSize: 360,
-    HiddenLayerSize: 20,
-    OutputLayerSize: 1,
-};
-
-var WordEncoder = /** @class */ (function () {
-    function WordEncoder(size) {
-        if (size === void 0) { size = NeuralNetworkParameters.InputLayerSize; }
-        this.size = size;
-    }
-    /**
-     * Encodes a word for use in the neural network.
-     */
-    WordEncoder.prototype.encode = function (input) {
-        return input
-            .toLowerCase()
-            .split('')
-            .map(function (char) { return char.charCodeAt(0).toString(2); })
-            .join('')
-            .padStart(this.size, '0')
-            .split('')
-            .map(function (digit) { return Number.parseInt(digit, 2); });
-    };
-    return WordEncoder;
-}());
-
-var PartOfSpeech;
-(function (PartOfSpeech) {
-    PartOfSpeech["Noun"] = "noun";
-    PartOfSpeech["Adjective"] = "adjective";
-})(PartOfSpeech || (PartOfSpeech = {}));
-var PartOfSpeech$1 = PartOfSpeech;
-
-var DIGIT_NOUN = 0;
-var DIGIT_ADJECTIVE = 1;
-var PartOfSpeechEncoder = /** @class */ (function () {
-    function PartOfSpeechEncoder() {
-    }
-    /**
-     * Encodes a part of speech for use in the neural network.
-     */
-    PartOfSpeechEncoder.prototype.encode = function (input) {
-        switch (input) {
-            case PartOfSpeech$1.Noun:
-                return [DIGIT_NOUN];
-            case PartOfSpeech$1.Adjective:
-                return [DIGIT_ADJECTIVE];
-            default:
-                throw new TypeError('Invalid input.');
-        }
-    };
-    return PartOfSpeechEncoder;
-}());
-
-var PartOfSpeechDecoder = /** @class */ (function () {
-    function PartOfSpeechDecoder() {
-    }
-    /**
-     * Decodes an output of a neural network.
-     * Returns a part of speech.
-     */
-    PartOfSpeechDecoder.prototype.decode = function (input) {
-        if (input.length !== 1) {
-            throw new TypeError('Invalid input.');
-        }
-        var digit = input[0];
-        if (Math.round(digit) === DIGIT_NOUN) {
-            return PartOfSpeech$1.Noun;
-        }
-        if (Math.round(digit) === DIGIT_ADJECTIVE) {
-            return PartOfSpeech$1.Adjective;
-        }
-        throw new TypeError('Invalid input.');
-    };
-    return PartOfSpeechDecoder;
-}());
-
-var NeuralNetwork = /** @class */ (function () {
-    function NeuralNetwork() {
-        this.network = new synaptic.Architect.Perceptron(NeuralNetworkParameters.InputLayerSize, NeuralNetworkParameters.HiddenLayerSize, NeuralNetworkParameters.OutputLayerSize);
-    }
-    /**
-     * Creates a neural network from JSON.
-     */
-    NeuralNetwork.fromJSON = function (structure) {
-        var instance = new this();
-        instance.network = synaptic.Network.fromJSON(structure);
-        return instance;
-    };
-    /**
-     * Returns a JSON representation of the neural network.
-     */
-    NeuralNetwork.prototype.toJSON = function () {
-        return this.network.toJSON();
-    };
-    /**
-     * Serializes the neural network to JSON string.
-     */
-    NeuralNetwork.prototype.toString = function () {
-        return JSON.stringify(this.toJSON());
-    };
-    /**
-     * Trains the neural network using a given training data.
-     */
-    NeuralNetwork.prototype.train = function (trainingData, trainingOptions) {
-        var trainingSet = Object.entries(trainingData).map(function (_a) {
-            var word = _a[0], partOfSpeech = _a[1];
-            return {
-                input: new WordEncoder().encode(word),
-                output: new PartOfSpeechEncoder().encode(partOfSpeech),
-            };
-        });
-        new synaptic.Trainer(this.network).train(trainingSet, trainingOptions);
-        return this;
-    };
-    /**
-     * Activates the neural network for a given word.
-     * Returns a part of speech of a given word.
-     */
-    NeuralNetwork.prototype.activate = function (word) {
-        var input = new WordEncoder().encode(word);
-        var output = this.network.activate(input);
-        return new PartOfSpeechDecoder().decode(output);
-    };
-    return NeuralNetwork;
-}());
-
-var internal = /*#__PURE__*/Object.freeze({
-    __proto__: null,
-    NeuralNetwork: NeuralNetwork
-});
+import synaptic from 'synaptic';
 
 var GrammaticalCase;
 (function (GrammaticalCase) {
@@ -173,7 +34,7 @@ function validateAnthroponym(anthroponym) {
         throw new TypeError('"anthroponym" must be an object.');
     }
     if (![Gender$1.Male, Gender$1.Female].includes(anthroponym.gender)) {
-        throw new TypeError("\"anthroponym.gender\" must be one of the following: \"" + Gender$1.Male + "\", \"" + Gender$1.Female + "\".");
+        throw new TypeError(`"anthroponym.gender" must be one of the following: "${Gender$1.Male}", "${Gender$1.Female}".`);
     }
     // tslint:disable-next-line max-line-length
     if (typeof anthroponym.firstName === 'undefined' && typeof anthroponym.middleName === 'undefined' && typeof anthroponym.lastName === 'undefined') {
@@ -191,41 +52,12 @@ function validateAnthroponym(anthroponym) {
     }
 }
 
-/*! *****************************************************************************
-Copyright (c) Microsoft Corporation. All rights reserved.
-Licensed under the Apache License, Version 2.0 (the "License"); you may not use
-this file except in compliance with the License. You may obtain a copy of the
-License at http://www.apache.org/licenses/LICENSE-2.0
-
-THIS CODE IS PROVIDED ON AN *AS IS* BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
-KIND, EITHER EXPRESS OR IMPLIED, INCLUDING WITHOUT LIMITATION ANY IMPLIED
-WARRANTIES OR CONDITIONS OF TITLE, FITNESS FOR A PARTICULAR PURPOSE,
-MERCHANTABLITY OR NON-INFRINGEMENT.
-
-See the Apache Version 2.0 License for specific language governing permissions
-and limitations under the License.
-***************************************************************************** */
-/* global Reflect, Promise */
-
-var extendStatics = function(d, b) {
-    extendStatics = Object.setPrototypeOf ||
-        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
-    return extendStatics(d, b);
-};
-
-function __extends(d, b) {
-    extendStatics(d, b);
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-}
-
 /**
  * Counts a number of groups in a given regular expression.
  */
 function countGroups(src) {
-    var pattern = new RegExp(src.toString() + "|");
-    var matches = pattern.exec('');
+    const pattern = new RegExp(`${src.toString()}|`);
+    const matches = pattern.exec('');
     if (matches == null) {
         return 0;
     }
@@ -237,11 +69,11 @@ function countGroups(src) {
  * Returns destination string after modification.
  */
 function copyLetterCase(src, dest) {
-    var result = '';
-    var srcLetterCases = [];
-    var srcChars = src.split('');
-    for (var pos = 0; pos < srcChars.length; pos += 1) {
-        var srcChar = srcChars[pos];
+    let result = '';
+    const srcLetterCases = [];
+    const srcChars = src.split('');
+    for (let pos = 0; pos < srcChars.length; pos += 1) {
+        const srcChar = srcChars[pos];
         if (isLowerCase(srcChar)) {
             srcLetterCases.push('lowercase');
         }
@@ -252,10 +84,10 @@ function copyLetterCase(src, dest) {
             srcLetterCases.push('special');
         }
     }
-    var destChars = dest.split('');
-    for (var pos = 0; pos < destChars.length; pos += 1) {
-        var destChar = destChars[pos];
-        var srcLetterCase = srcLetterCases[pos] || srcLetterCases[srcLetterCases.length - 1];
+    const destChars = dest.split('');
+    for (let pos = 0; pos < destChars.length; pos += 1) {
+        const destChar = destChars[pos];
+        const srcLetterCase = srcLetterCases[pos] || srcLetterCases[srcLetterCases.length - 1];
         if (srcLetterCase === 'lowercase') {
             result += destChar.toLowerCase();
         }
@@ -271,15 +103,13 @@ function copyLetterCase(src, dest) {
 /**
  * Detects if a character is in the upper case at the specified index.
  */
-function isUpperCase(src, pos) {
-    if (pos === void 0) { pos = 0; }
+function isUpperCase(src, pos = 0) {
     return src.charAt(pos) === src.charAt(pos).toUpperCase();
 }
 /**
  * Detects if a character is in the lower case at the specified index.
  */
-function isLowerCase(src, pos) {
-    if (pos === void 0) { pos = 0; }
+function isLowerCase(src, pos = 0) {
     return src.charAt(pos) === src.charAt(pos).toLowerCase();
 }
 
@@ -290,41 +120,37 @@ var InflectorCommandType;
 })(InflectorCommandType || (InflectorCommandType = {}));
 var InflectorCommandType$1 = InflectorCommandType;
 
-var AppendCommandRunner = /** @class */ (function () {
-    function AppendCommandRunner(command) {
+class AppendCommandRunner {
+    constructor(command) {
         this.command = command;
     }
     /**
      * Appends the command value to a given value.
      * Returns a new value.
      */
-    AppendCommandRunner.prototype.exec = function (value) {
+    exec(value) {
         return value + this.command.value;
-    };
-    return AppendCommandRunner;
-}());
+    }
+}
 
-var ReplaceCommandRunner = /** @class */ (function () {
-    function ReplaceCommandRunner(command) {
+class ReplaceCommandRunner {
+    constructor(command) {
         this.command = command;
     }
     /**
      * Replaces a given value with the command value.
      * Returns a new value.
      */
-    ReplaceCommandRunner.prototype.exec = function (value) {
+    exec(value) {
         return this.command.value;
-    };
-    return ReplaceCommandRunner;
-}());
-
-var CommandRunnerFactory = /** @class */ (function () {
-    function CommandRunnerFactory() {
     }
+}
+
+class CommandRunnerFactory {
     /**
      * Creates a new command runner for a given command.
      */
-    CommandRunnerFactory.prototype.make = function (command) {
+    make(command) {
         switch (command.type) {
             case InflectorCommandType$1.Append: {
                 return new AppendCommandRunner(command);
@@ -336,35 +162,29 @@ var CommandRunnerFactory = /** @class */ (function () {
                 throw new TypeError('Invalid command type.');
             }
         }
-    };
-    return CommandRunnerFactory;
-}());
+    }
+}
 
-var RuleInflector = /** @class */ (function () {
-    function RuleInflector(rule) {
+class RuleInflector {
+    constructor(rule) {
         this.rule = rule;
         this.commandRunnerFactory = new CommandRunnerFactory();
     }
     /**
      * Inflects a given word in a given grammatical case using the rule.
      */
-    RuleInflector.prototype.inflect = function (word, grammaticalCase) {
-        var _this = this;
-        var commands = this.rule.grammaticalCases[grammaticalCase][0];
+    inflect(word, grammaticalCase) {
+        const [commands] = this.rule.grammaticalCases[grammaticalCase];
         if (commands) {
-            var searchValue = new RegExp(this.rule.pattern.modify, 'gi');
-            var inflectedWord = word.replace(searchValue, function (match) {
-                var groups = [];
-                for (var _i = 1; _i < arguments.length; _i++) {
-                    groups[_i - 1] = arguments[_i];
-                }
-                var replacer = '';
-                var groupCount = countGroups(_this.rule.pattern.modify);
-                for (var groupIndex = 0; groupIndex < groupCount; groupIndex += 1) {
-                    var value = groups[groupIndex];
-                    var command = commands[groupIndex];
+            const searchValue = new RegExp(this.rule.pattern.modify, 'gi');
+            const inflectedWord = word.replace(searchValue, (match, ...groups) => {
+                let replacer = '';
+                const groupCount = countGroups(this.rule.pattern.modify);
+                for (let groupIndex = 0; groupIndex < groupCount; groupIndex += 1) {
+                    let value = groups[groupIndex];
+                    const command = commands[groupIndex];
                     if (command != null) {
-                        value = _this.commandRunnerFactory.make(command).exec(value);
+                        value = this.commandRunnerFactory.make(command).exec(value);
                     }
                     replacer += value;
                 }
@@ -373,133 +193,118 @@ var RuleInflector = /** @class */ (function () {
             return copyLetterCase(word, inflectedWord);
         }
         return word;
-    };
-    return RuleInflector;
-}());
-
-var NameInflector = /** @class */ (function () {
-    function NameInflector() {
     }
+}
+
+class NameInflector {
     /**
      * Inflects a given name in a given grammatical case.
      */
-    NameInflector.prototype.inflect = function (name, gender, grammaticalCase) {
-        var _this = this;
-        var words = name.split('-');
+    inflect(name, gender, grammaticalCase) {
+        const words = name.split('-');
         return words
-            .map(function (word, wordIndex) { return _this.inflectName(word, gender, grammaticalCase, wordIndex === words.length - 1); })
+            .map((word, wordIndex) => this.inflectName(word, gender, grammaticalCase, wordIndex === words.length - 1))
             .join('-');
-    };
-    return NameInflector;
-}());
+    }
+}
 
-var FirstNameInflector = /** @class */ (function (_super) {
-    __extends(FirstNameInflector, _super);
-    function FirstNameInflector(rules) {
-        var _this = _super.call(this) || this;
-        _this.rules = rules;
-        return _this;
+class FirstNameInflector extends NameInflector {
+    constructor(rules) {
+        super();
+        this.rules = rules;
     }
     /**
      * @inheritdoc
      */
-    FirstNameInflector.prototype.inflectName = function (firstName, gender, grammaticalCase) {
-        var rule = this.rules
-            .filter(function (rule) { return rule.gender.includes(gender); })
-            .filter(function (rule) { return rule.usage.length === 0 || rule.usage.includes('firstName'); })
-            .filter(function (rule) { return new RegExp(rule.pattern.find, 'gi').test(firstName); })
-            .sort(function (firstRule, secondRule) {
+    inflectName(firstName, gender, grammaticalCase) {
+        const [rule] = this.rules
+            .filter(rule => rule.gender.includes(gender))
+            .filter(rule => rule.usage.length === 0 || rule.usage.includes('firstName'))
+            .filter(rule => new RegExp(rule.pattern.find, 'gi').test(firstName))
+            .sort((firstRule, secondRule) => {
             if (firstRule.usage.length === 0 && secondRule.usage.length > 0 && secondRule.usage.includes('firstName')) {
                 return 1;
             }
             return 0;
-        })[0];
+        });
         if (rule == null) {
             return firstName;
         }
         return new RuleInflector(rule).inflect(firstName, grammaticalCase);
-    };
-    return FirstNameInflector;
-}(NameInflector));
+    }
+}
 
-var MiddleNameInflector = /** @class */ (function (_super) {
-    __extends(MiddleNameInflector, _super);
-    function MiddleNameInflector(rules) {
-        var _this = _super.call(this) || this;
-        _this.rules = rules;
-        return _this;
+class MiddleNameInflector extends NameInflector {
+    constructor(rules) {
+        super();
+        this.rules = rules;
     }
     /**
      * @inheritdoc
      */
-    MiddleNameInflector.prototype.inflectName = function (middleName, gender, grammaticalCase) {
-        var rule = this.rules
-            .filter(function (rule) { return rule.gender.includes(gender); })
-            .filter(function (rule) { return rule.usage.includes('middleName'); })
-            .filter(function (rule) { return new RegExp(rule.pattern.find, 'gi').test(middleName); })[0];
+    inflectName(middleName, gender, grammaticalCase) {
+        const [rule] = this.rules
+            .filter(rule => rule.gender.includes(gender))
+            .filter(rule => rule.usage.includes('middleName'))
+            .filter(rule => new RegExp(rule.pattern.find, 'gi').test(middleName));
         if (rule == null) {
             return middleName;
         }
         return new RuleInflector(rule).inflect(middleName, grammaticalCase);
-    };
-    return MiddleNameInflector;
-}(NameInflector));
+    }
+}
 
-var PATTERN_VOWELS = /[аоуеиіяюєї]/gi;
+const PATTERN_VOWELS = /[аоуеиіяюєї]/gi;
 /**
  * Counts vowel sounds in a given word.
  * Returns a number of vowels.
  */
 function countVowels(word) {
-    var matches = word.match(PATTERN_VOWELS);
+    const matches = word.match(PATTERN_VOWELS);
     if (matches == null) {
         return 0;
     }
     return matches.length;
 }
 
-var LastNameInflector = /** @class */ (function (_super) {
-    __extends(LastNameInflector, _super);
-    function LastNameInflector(rules, partOfSpeechRecognizer) {
-        var _this = _super.call(this) || this;
-        _this.rules = rules;
-        _this.partOfSpeechRecognizer = partOfSpeechRecognizer;
-        return _this;
+class LastNameInflector extends NameInflector {
+    constructor(rules, partOfSpeechRecognizer) {
+        super();
+        this.rules = rules;
+        this.partOfSpeechRecognizer = partOfSpeechRecognizer;
     }
     /**
      * @inheritdoc
      */
     // tslint:disable-next-line max-line-length
-    LastNameInflector.prototype.inflectName = function (lastName, gender, grammaticalCase, isLastWord) {
-        var _this = this;
+    inflectName(lastName, gender, grammaticalCase, isLastWord) {
         if (!isLastWord && countVowels(lastName) === 1) {
             return lastName;
         }
-        var rule = this.rules
-            .filter(function (rule) { return rule.gender.includes(gender); })
-            .filter(function (rule) { return rule.usage.length === 0 || rule.usage.includes('lastName'); })
-            .filter(function (rule) { return new RegExp(rule.pattern.find, 'gi').test(lastName); })
-            .filter(function (rule) {
-            var partOfSpeech = _this.partOfSpeechRecognizer.recognize(lastName, gender);
+        const [rule] = this.rules
+            .filter(rule => rule.gender.includes(gender))
+            .filter(rule => rule.usage.length === 0 || rule.usage.includes('lastName'))
+            .filter(rule => new RegExp(rule.pattern.find, 'gi').test(lastName))
+            .filter((rule) => {
+            const partOfSpeech = this.partOfSpeechRecognizer.recognize(lastName, gender);
             return rule.partOfSpeech === partOfSpeech || partOfSpeech == null;
         })
-            .sort(function (firstRule, secondRule) {
+            .sort((firstRule, secondRule) => {
             if (firstRule.usage.length === 0 && secondRule.usage.length > 0 && secondRule.usage.includes('lastName')) {
                 return 1;
             }
             return 0;
-        })[0];
+        });
         if (rule == null) {
             return lastName;
         }
         return new RuleInflector(rule).inflect(lastName, grammaticalCase);
-    };
-    return LastNameInflector;
-}(NameInflector));
+    }
+}
 
-var AnthroponymInflector = /** @class */ (function () {
+class AnthroponymInflector {
     // tslint:disable-next-line max-line-length
-    function AnthroponymInflector(firstNameInflector, middleNameInflector, lastNameInflector) {
+    constructor(firstNameInflector, middleNameInflector, lastNameInflector) {
         this.firstNameInflector = firstNameInflector;
         this.middleNameInflector = middleNameInflector;
         this.lastNameInflector = lastNameInflector;
@@ -507,8 +312,8 @@ var AnthroponymInflector = /** @class */ (function () {
     /**
      * Inflects a given anthroponym in a given grammatical case.
      */
-    AnthroponymInflector.prototype.inflect = function (anthroponym, grammaticalCase) {
-        var result = { gender: anthroponym.gender };
+    inflect(anthroponym, grammaticalCase) {
+        const result = { gender: anthroponym.gender };
         if (anthroponym.firstName != null) {
             result.firstName = this.firstNameInflector.inflect(anthroponym.firstName, anthroponym.gender, grammaticalCase);
         }
@@ -519,12 +324,11 @@ var AnthroponymInflector = /** @class */ (function () {
             result.lastName = this.lastNameInflector.inflect(anthroponym.lastName, anthroponym.gender, grammaticalCase);
         }
         return result;
-    };
-    return AnthroponymInflector;
-}());
+    }
+}
 
-var PartOfSpeechRecognizer = /** @class */ (function () {
-    function PartOfSpeechRecognizer(rules) {
+class PartOfSpeechRecognizer {
+    constructor(rules) {
         this.rules = rules;
     }
     /**
@@ -532,18 +336,135 @@ var PartOfSpeechRecognizer = /** @class */ (function () {
      * Returns part of speech of a given word.
      * Returns null if part of speech was not recognized.
      */
-    PartOfSpeechRecognizer.prototype.recognize = function (word, gender) {
-        var rule = this.rules.find(function (rule) { return rule.condition(word, gender); });
+    recognize(word, gender) {
+        const rule = this.rules.find(rule => rule.condition(word, gender));
         if (rule == null) {
             return null;
         }
         return rule.apply(word);
-    };
-    return PartOfSpeechRecognizer;
-}());
+    }
+}
 
-var RecognizerRule = /** @class */ (function () {
-    function RecognizerRule(condition, neuralNetwork, cache) {
+var NeuralNetworkParameters = {
+    InputLayerSize: 360,
+    HiddenLayerSize: 20,
+    OutputLayerSize: 1,
+};
+
+class WordEncoder {
+    constructor(size = NeuralNetworkParameters.InputLayerSize) {
+        this.size = size;
+    }
+    /**
+     * Encodes a word for use in the neural network.
+     */
+    encode(input) {
+        return input
+            .toLowerCase()
+            .split('')
+            .map(char => char.charCodeAt(0).toString(2))
+            .join('')
+            .padStart(this.size, '0')
+            .split('')
+            .map(digit => Number.parseInt(digit, 2));
+    }
+}
+
+var PartOfSpeech;
+(function (PartOfSpeech) {
+    PartOfSpeech["Noun"] = "noun";
+    PartOfSpeech["Adjective"] = "adjective";
+})(PartOfSpeech || (PartOfSpeech = {}));
+var PartOfSpeech$1 = PartOfSpeech;
+
+const DIGIT_NOUN = 0;
+const DIGIT_ADJECTIVE = 1;
+class PartOfSpeechEncoder {
+    /**
+     * Encodes a part of speech for use in the neural network.
+     */
+    encode(input) {
+        switch (input) {
+            case PartOfSpeech$1.Noun:
+                return [DIGIT_NOUN];
+            case PartOfSpeech$1.Adjective:
+                return [DIGIT_ADJECTIVE];
+            default:
+                throw new TypeError('Invalid input.');
+        }
+    }
+}
+
+class PartOfSpeechDecoder {
+    /**
+     * Decodes an output of a neural network.
+     * Returns a part of speech.
+     */
+    decode(input) {
+        if (input.length !== 1) {
+            throw new TypeError('Invalid input.');
+        }
+        const digit = input[0];
+        if (Math.round(digit) === DIGIT_NOUN) {
+            return PartOfSpeech$1.Noun;
+        }
+        if (Math.round(digit) === DIGIT_ADJECTIVE) {
+            return PartOfSpeech$1.Adjective;
+        }
+        throw new TypeError('Invalid input.');
+    }
+}
+
+class NeuralNetwork {
+    constructor() {
+        this.network = new synaptic.Architect.Perceptron(NeuralNetworkParameters.InputLayerSize, NeuralNetworkParameters.HiddenLayerSize, NeuralNetworkParameters.OutputLayerSize);
+    }
+    /**
+     * Creates a neural network from JSON.
+     */
+    static fromJSON(structure) {
+        const instance = new this();
+        instance.network = synaptic.Network.fromJSON(structure);
+        return instance;
+    }
+    /**
+     * Returns a JSON representation of the neural network.
+     */
+    toJSON() {
+        return this.network.toJSON();
+    }
+    /**
+     * Serializes the neural network to JSON string.
+     */
+    toString() {
+        return JSON.stringify(this.toJSON());
+    }
+    /**
+     * Trains the neural network using a given training data.
+     */
+    train(trainingData, trainingOptions) {
+        const trainingSet = Object.entries(trainingData).map(([word, partOfSpeech]) => {
+            return {
+                input: new WordEncoder().encode(word),
+                output: new PartOfSpeechEncoder().encode(partOfSpeech),
+            };
+        });
+        new synaptic.Trainer(this.network).train(trainingSet, trainingOptions);
+        return this;
+    }
+    /**
+     * Activates the neural network for a given word.
+     * Returns a part of speech of a given word.
+     */
+    activate(word) {
+        const input = new WordEncoder().encode(word);
+        const output = this.network.activate(input);
+        return new PartOfSpeechDecoder().decode(output);
+    }
+}
+
+class RecognizerRule {
+    constructor(condition, neuralNetwork, cache) {
         this.condition = condition;
         this.neuralNetwork = neuralNetwork;
         this.cache = cache;
@@ -553,14 +474,13 @@ var RecognizerRule = /** @class */ (function () {
      * Returns a part of speech of a given word.
      * Returns null if a part of speech was not recognized.
      */
-    RecognizerRule.prototype.apply = function (word) {
+    apply(word) {
         if (this.cache[word] != null) {
             return this.cache[word];
         }
         return this.neuralNetwork.activate(word);
-    };
-    return RecognizerRule;
-}());
+    }
+}
 
 var inflectorRules = [
 	{
@@ -154215,15 +154135,20 @@ var pelykhCache = {
 	
 };
 
-var partOfSpeechRecognizer = new PartOfSpeechRecognizer([
-    new RecognizerRule(function (word, gender) { return gender === Gender$1.Female && /[ая]$/i.test(word); }, NeuralNetwork.fromJSON(pohorielovaStructure), pohorielovaCache),
-    new RecognizerRule(function (word, gender) { return gender === Gender$1.Male && /(ой|ий|ій)$/i.test(word); }, NeuralNetwork.fromJSON(kosmiiStructure), kosmiiCache),
-    new RecognizerRule(function (word, gender) { return gender === Gender$1.Male && /(их)$/i.test(word); }, NeuralNetwork.fromJSON(pelykhStructure), pelykhCache),
+const partOfSpeechRecognizer = new PartOfSpeechRecognizer([
+    new RecognizerRule((word, gender) => gender === Gender$1.Female && /[ая]$/i.test(word), NeuralNetwork.fromJSON(pohorielovaStructure), pohorielovaCache),
+    new RecognizerRule((word, gender) => gender === Gender$1.Male && /(ой|ий|ій)$/i.test(word), NeuralNetwork.fromJSON(kosmiiStructure), kosmiiCache),
+    new RecognizerRule((word, gender) => gender === Gender$1.Male && /(их)$/i.test(word), NeuralNetwork.fromJSON(pelykhStructure), pelykhCache),
 ]);
-var firstNameInflector = new FirstNameInflector(inflectorRules);
-var middleNameInflector = new MiddleNameInflector(inflectorRules);
-var lastNameInflector = new LastNameInflector(inflectorRules, partOfSpeechRecognizer);
-var anthroponymInflector = new AnthroponymInflector(firstNameInflector, middleNameInflector, lastNameInflector);
+const firstNameInflector = new FirstNameInflector(inflectorRules);
+const middleNameInflector = new MiddleNameInflector(inflectorRules);
+const lastNameInflector = new LastNameInflector(inflectorRules, partOfSpeechRecognizer);
+const anthroponymInflector = new AnthroponymInflector(firstNameInflector, middleNameInflector, lastNameInflector);
+
+var internal = /*#__PURE__*/Object.freeze({
+    __proto__: null,
+    NeuralNetwork: NeuralNetwork
+});
 
 /**
  * Inflects an anthroponym in nominative grammatical case.
@@ -154275,12 +154200,5 @@ function inVocative(anthroponym) {
     return anthroponymInflector.inflect(anthroponym, GrammaticalCase$1.Vocative);
 }
 
-exports.Internal = internal;
-exports.inAblative = inAblative;
-exports.inAccusative = inAccusative;
-exports.inDative = inDative;
-exports.inGenitive = inGenitive;
-exports.inLocative = inLocative;
-exports.inNominative = inNominative;
-exports.inVocative = inVocative;
-//# sourceMappingURL=main.js.map
+export { internal as Internal, inAblative, inAccusative, inDative, inGenitive, inLocative, inNominative, inVocative };
+//# sourceMappingURL=shevchenko.js.map

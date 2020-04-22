@@ -8,7 +8,7 @@ const banner = `/* ${pkg.name} v${pkg.version}, Copyright (c) ${new Date().getFu
 
 export default [
   {
-    input: './src/main.ts',
+    input: './src/shevchenko.ts',
     output: {
       name: pkg.name,
       file: pkg.browser,
@@ -24,7 +24,7 @@ export default [
     ],
   },
   {
-    input: './src/main.ts',
+    input: './src/shevchenko.ts',
     output: {
       file: pkg.main,
       format: 'cjs',
@@ -38,7 +38,7 @@ export default [
     external: Object.getOwnPropertyNames(pkg.dependencies),
   },
   {
-    input: './src/main.ts',
+    input: './src/shevchenko.ts',
     output: {
       file: pkg.module,
       format: 'es',

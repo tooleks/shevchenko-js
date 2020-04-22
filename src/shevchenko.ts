@@ -58,3 +58,5 @@ export function inVocative(anthroponym: Anthroponym): Anthroponym {
   Validator.validateAnthroponym(anthroponym);
   return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Vocative);
 }
+
+export * as Internal from './internal';

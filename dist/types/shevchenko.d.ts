@@ -27,4 +27,5 @@ export declare function inLocative(anthroponym: Anthroponym): Anthroponym;
  * Inflects an anthroponym in vocative grammatical case.
  */
 export declare function inVocative(anthroponym: Anthroponym): Anthroponym;
+export * as Internal from './internal';
 //# sourceMappingURL=shevchenko.d.ts.map
