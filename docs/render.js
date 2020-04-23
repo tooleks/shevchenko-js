@@ -32,21 +32,21 @@ const template = path.join(__dirname, 'templates/main.ejs');
     const urlBuilder = new UrlBuilder(process.env.APP_URL);
     const shareLinksProvider = new ShareLinksProvider();
 
-    i18n.setLocale(language.locale);
+    const translate = (phrase) => {
+      i18n.setLocale(language.locale);
+      return i18n.__(phrase);
+    };
 
     const html = await ejs.renderFile(template, {
+      __: translate,
       env: process.env,
-      __: (phrase) => {
-        i18n.setLocale(language.locale);
-        return i18n.__(phrase);
-      },
       currentUrl: urlBuilder.buildUrl(language.outFile),
       facebookShareUrl: shareLinksProvider.facebook(urlBuilder.buildUrl(language.outFile)),
       twitterShareUrl: shareLinksProvider.twitter(urlBuilder.buildUrl(language.outFile)),
-      linkedInShareUrl: shareLinksProvider.linkedIn(urlBuilder.buildUrl(language.outFile), i18n.__('appDescription')),
+      linkedInShareUrl: shareLinksProvider.linkedIn(urlBuilder.buildUrl(language.outFile), translate('appDescription')),
       languages: languages.map((language) => {
         const url = urlBuilder.buildUrl(language.outFile)
-        const name = i18n.__({ phrase: `${language.locale}Language`, locale: language.locale });
+        const name = translate({ phrase: `${language.locale}Language`, locale: language.locale });
         return { url, name };
       }),
     });
