@@ -7,8 +7,7 @@ const path = require('path');
 const fs = require('fs');
 const ejs = require('ejs');
 const i18n = require('i18n');
-const ShareLinksProvider = require('./services/ShareLinksProvider');
-const UrlBuilder = require('./services/UrlBuilder');
+const ServiceFactory = require('./services/ServiceFactory');
 
 const writeFileAsync = util.promisify(fs.writeFile);
 
@@ -23,20 +22,16 @@ i18n.configure({
   syncFiles: true,
 });
 
-const template = path.join(__dirname, 'templates/main.ejs');
-
 (async () => {
 
   for (const language of languages) {
 
-    const urlBuilder = new UrlBuilder(process.env.APP_URL);
-    const shareLinksProvider = new ShareLinksProvider();
+    const serviceFactory = new ServiceFactory({ baseUrl: process.env.APP_URL, locale: language.locale });
+    const urlBuilder = serviceFactory.makeUrlBuilder();
+    const shareLinksProvider = serviceFactory.makeShareLinksProvider();
+    const translate = serviceFactory.makeTranslate();
 
-    const translate = (phrase) => {
-      i18n.setLocale(language.locale);
-      return i18n.__(phrase);
-    };
-
+    const template = path.join(__dirname, 'templates/main.ejs');
     const html = await ejs.renderFile(template, {
       __: translate,
       env: process.env,
