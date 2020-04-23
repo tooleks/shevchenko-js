@@ -1,3 +1,14 @@
 .idea
-/demo/
+/docs/
 /resources/
+/src/
+/tests/
+/.gitignore
+/.npmignore
+/gulpfile.js
+/rollup.config.js
+/tsconfig.declaration.json
+/tsconfig.json
+/tsconfig.legacy.json
+/tsconfig.module.json
+/tslint.json

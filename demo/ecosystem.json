@@ -1,8 +1,0 @@
-{
-  "apps": [
-    {
-      "name": "shevchenko-js-demo",
-      "script": "./server.js"
-    }
-  ]
-}

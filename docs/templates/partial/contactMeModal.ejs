@@ -1,0 +1,15 @@
+<div class="modal fade" id="contactMe" tabindex="-1" role="dialog" aria-labelledby="contactMeLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="contactMeLabel"><%= __('contactMe') %></h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Send email to <a href="mailto:<%= env.APP_ADMIN_EMAIL %>"><%= env.APP_ADMIN_EMAIL %></a>.
+            </div>
+        </div>
+    </div>
+</div>
