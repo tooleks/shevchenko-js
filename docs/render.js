@@ -36,7 +36,7 @@ const template = path.join(__dirname, 'templates/main.ejs');
 
     const html = await ejs.renderFile(template, {
       env: process.env,
-      __(phrase) {
+      __: (phrase) => {
         i18n.setLocale(language.locale);
         return i18n.__(phrase);
       },
