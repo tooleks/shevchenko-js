@@ -2,8 +2,9 @@
   "name": "shevchenko-docs",
   "version": "0.0.0",
   "description": "",
-  "main": "./render.js",
+  "main": "./index.js",
   "scripts": {
+    "start": "node ./index.js",
     "build": "node ./render.js"
   },
   "author": "Oleksandr Tolochko <tooleks@gmail.com>",
@@ -11,6 +12,7 @@
   "devDependencies": {
     "dotenv": "^8.2.0",
     "ejs": "^3.0.2",
+    "express": "^4.17.1",
     "i18n": "^0.9.0"
   },
   "dependencies": {}

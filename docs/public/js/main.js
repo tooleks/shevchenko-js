@@ -2,7 +2,86 @@
 
   'use strict';
 
-  var writers = [
+  $(document).ready(onDocumentReady);
+  $('#inflection-form').submit(onFormSubmit);
+  $.get('https://api.github.com/repos/tooleks/shevchenko-js', onGitHubResponse);
+  setTimeout(onPreviewInterval, 0);
+  setInterval(onPreviewInterval, 5000);
+
+  /*
+   * Handlers
+   */
+
+  function onDocumentReady() {
+    var anthroponym = getDefaultAnthroponym();
+    inflect(anthroponym, renderInflectionResult);
+  }
+
+  function onPreviewInterval() {
+    var anthroponym = getRandomAnthroponym();
+    var preview = anthroponym.firstName + ' ' + anthroponym.middleName + ' ' + anthroponym.lastName;
+    renderInflectionPreview(preview);
+  }
+
+  function onFormSubmit(event) {
+    event.preventDefault();
+    var anthroponym = getFormAnthroponym()
+    if (!anthroponym.firstName.length && !anthroponym.lastName.length && !anthroponym.middleName.length) {
+      anthroponym = getDefaultAnthroponym();
+    }
+    inflect(anthroponym, renderInflectionResult);
+  }
+
+  function onGitHubResponse(response) {
+    renderIssuesCount(response.open_issues_count);
+  }
+
+  /*
+   * DOM
+   */
+
+  function renderInflectionPreview(preview) {
+    var previewElem = $('#preview');
+    if (previewElem.text() === preview) return;
+    previewElem.fadeOut(400, function () {
+      previewElem.text(preview);
+      previewElem.fadeIn(400);
+    });
+  }
+
+  function renderInflectionResult(anthroponym, grammaticalCase) {
+    $('#' + grammaticalCase + 'FirstName').text(anthroponym.firstName);
+    $('#' + grammaticalCase + 'LastName').text(anthroponym.lastName);
+    $('#' + grammaticalCase + 'MiddleName').text(anthroponym.middleName);
+  }
+
+  function renderIssuesCount(count) {
+    $('#issuesCount').text(parseInt(count));
+  }
+
+  function getFormAnthroponym() {
+    return {
+      gender: $('[name=gender]:checked').val().trim(),
+      firstName: $('[name=firstName]').val().trim(),
+      middleName: $('[name=middleName]').val().trim(),
+      lastName: $('[name=lastName]').val().trim(),
+    };
+  }
+
+  /*
+   * Utils
+   */
+
+  function getRandomNumber(min, max) {
+    var random = Math.floor(Math.random() * max);
+    return min ? random + min : random;
+  }
+
+  /*
+   * Core
+   */
+
+  var anthroponyms = [
     { gender: 'male', lastName: 'Шевченко', firstName: 'Тарас', middleName: 'Григорович' },
     { gender: 'male', lastName: 'Франко', firstName: 'Іван', middleName: 'Якович' },
     { gender: 'male', lastName: 'Нечуй-Левицький', firstName: 'Іван', middleName: 'Семенович' },
@@ -26,101 +105,23 @@
     { gender: 'female', lastName: 'Кобилянська', firstName: 'Ольга', middleName: 'Юліанівна' },
   ];
 
-  function initializeInflectionPreview(index, callback) {
-    index = typeof index === 'undefined' ? randomNumber(0, writers.length - 1) : 0;
-    var inflectedAnthroponym = shevchenko.inVocative(writers[index]);
-    var value =
-      inflectedAnthroponym.firstName + ' ' + inflectedAnthroponym.middleName + ' ' + inflectedAnthroponym.lastName;
-    callback(value);
-  }
-
-  function randomNumber(min, max) {
-    var random = Math.floor(Math.random() * max);
-    return min ? random + min : random;
-  }
-
-  function buildAnthroponym(gender, lastName, firstName, middleName) {
-    var anthroponym = {};
-    anthroponym.gender = gender;
-    anthroponym.lastName = lastName;
-    anthroponym.firstName = firstName;
-    anthroponym.middleName = middleName;
-    return anthroponym;
-  }
-
   function getDefaultAnthroponym() {
-    return buildAnthroponym('male', 'Шевченко', 'Тарас', 'Григорович');
+    return anthroponyms[0];
   }
 
-  function inflect(anthroponym, successCallback) {
-    const results = shevchenko.inAll(anthroponym);
-    for (var caseName in results) {
-      if (results.hasOwnProperty(caseName)) {
-        successCallback(anthroponym, caseName, results[caseName]);
-      }
-    }
+  function getRandomAnthroponym() {
+    var index = getRandomNumber(0, anthroponyms.length - 1);
+    return anthroponyms[index];
   }
 
-  function setInflectionResult(anthroponym, caseName, result) {
-    var lastNameResultSelector = $('#' + caseName + 'LastName');
-    var firstNameResultSelector = $('#' + caseName + 'FirstName');
-    var middleNameResultSelector = $('#' + caseName + 'MiddleName');
-    var lastName = typeof result.lastName !== 'undefined' ? result.lastName : '';
-    lastNameResultSelector.text(lastName);
-    var firstName = typeof result.firstName !== 'undefined' ? result.firstName : '';
-    firstNameResultSelector.text(firstName);
-    var middleName = typeof result.middleName !== 'undefined' ? result.middleName : '';
-    middleNameResultSelector.text(middleName);
+  function inflect(anthroponym, callback) {
+    callback(shevchenko.inNominative(anthroponym), 'nominative');
+    callback(shevchenko.inGenitive(anthroponym), 'genitive');
+    callback(shevchenko.inDative(anthroponym), 'dative');
+    callback(shevchenko.inAccusative(anthroponym), 'accusative');
+    callback(shevchenko.inAblative(anthroponym), 'ablative');
+    callback(shevchenko.inLocative(anthroponym), 'locative');
+    callback(shevchenko.inVocative(anthroponym), 'vocative');
   }
-
-  function setIssuesCount(value) {
-    $('#issuesCount').text(parseInt(value));
-  }
-
-  function setInflectionPreview(value) {
-    var previewSelector = $('#preview');
-    if (previewSelector.text() === value) return;
-    previewSelector.fadeOut(400, function () {
-      previewSelector.text(value);
-      previewSelector.fadeIn(400);
-    });
-  }
-
-  initializeInflectionPreview(0, setInflectionPreview);
-  setInterval(function () {
-    var undefined;
-    initializeInflectionPreview(undefined, setInflectionPreview);
-  }, 5000);
-
-  $(document).ready(function () {
-    var anthroponym = getDefaultAnthroponym();
-    inflect(anthroponym, setInflectionResult);
-  });
-
-  $('#inflection-form').submit(function (event) {
-    event.preventDefault();
-    var anthroponym = buildAnthroponym(
-      $('[name=gender]:checked')
-        .val()
-        .trim(),
-      $('[name=lastName]')
-        .val()
-        .trim(),
-      $('[name=firstName]')
-        .val()
-        .trim(),
-      $('[name=middleName]')
-        .val()
-        .trim(),
-    );
-    if (!anthroponym.firstName.length && !anthroponym.lastName.length && !anthroponym.middleName.length) {
-      anthroponym = getDefaultAnthroponym();
-    }
-    inflect(anthroponym, setInflectionResult);
-  });
-
-  $.get('https://api.github.com/repos/tooleks/shevchenko-js', function (data) {
-    setIssuesCount(data.open_issues_count);
-  });
 
 })();
