@@ -8,7 +8,13 @@
                 </button>
             </div>
             <div class="modal-body">
-                Send email to <a href="mailto:<%= env.APP_ADMIN_EMAIL %>"><%= env.APP_ADMIN_EMAIL %></a>.
+                <p><%= __('contactMeCaption') %></p>
+                <div class="alert alert-info" role="alert">
+                    <a href="mailto:<%= env.APP_ADMIN_EMAIL %>?subject=<%= __('contactMeEmailSubject') %>"><%= env.APP_ADMIN_EMAIL %></a>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= __('close') %></button>
             </div>
         </div>
     </div>

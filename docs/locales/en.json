@@ -1,7 +1,7 @@
 {
 	"appDescription": "JavaScript library to inflect Ukrainian first, middle and last names",
 	"browser": "Browser",
-	"case": "Case",
+	"grammaticalCase": "Grammatical Case",
 	"grammaticalCaseAblative": "Ablative",
 	"grammaticalCaseAccusative": "Accusative",
 	"grammaticalCaseDative": "Dative",
@@ -9,8 +9,11 @@
 	"grammaticalCaseLocative": "Locative",
 	"grammaticalCaseNominative": "Nominative",
 	"grammaticalCaseVocative": "Vocative",
+	"close": "Close",
 	"connection": "Connection",
 	"contactMe": "Contact Me",
+	"contactMeCaption": "Please feel free to contact me via email if you have any questions or suggestions.",
+	"contactMeEmailSubject": "shevchenko - Contact Me",
 	"feedback": "Feedback",
 	"demo": "Demo",
 	"documentation": "Documentation",
@@ -42,6 +45,5 @@
 	"enLanguage": "English Language",
 	"libraryDocumentationUrl": "https://github.com/tooleks/shevchenko-js/wiki/%5Ben%5D-Documentation",
 	"libraryHowItWorksUrl": "https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8",
-	"language": "Language",
-	"internalServerError": "Internal server error. Please try again later."
+	"language": "Language"
 }
