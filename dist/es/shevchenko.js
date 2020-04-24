@@ -437,7 +437,7 @@ class NeuralNetwork {
      * Serializes the neural network to JSON string.
      */
     toString() {
-        return JSON.stringify(this.toJSON());
+        return JSON.stringify(this.toJSON(), null, 2);
     }
     /**
      * Trains the neural network using a given training data.

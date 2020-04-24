@@ -509,7 +509,7 @@ var NeuralNetwork = /** @class */ (function () {
      * Serializes the neural network to JSON string.
      */
     NeuralNetwork.prototype.toString = function () {
-        return JSON.stringify(this.toJSON());
+        return JSON.stringify(this.toJSON(), null, 2);
     };
     /**
      * Trains the neural network using a given training data.

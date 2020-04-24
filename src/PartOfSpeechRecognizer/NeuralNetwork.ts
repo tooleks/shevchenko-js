@@ -37,7 +37,7 @@ export default class NeuralNetwork {
    * Serializes the neural network to JSON string.
    */
   toString(): string {
-    return JSON.stringify(this.toJSON());
+    return JSON.stringify(this.toJSON(), null, 2);
   }
 
   /**
