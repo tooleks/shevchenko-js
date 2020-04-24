@@ -5,7 +5,14 @@ import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-const banner = `/* ${pkg.name} v${pkg.version}, Copyright (c) ${new Date().getFullYear()} ${pkg.author}, License: ${pkg.license} */`;
+const banner = `/**
+ * @file ${pkg.description}
+ * @module ${pkg.name}@${pkg.version}
+ * @author ${pkg.author}
+ * @license ${pkg.license}
+ * @copyright ${pkg.author} ${new Date().getFullYear()}
+ * @see {@link ${pkg.repository.url}}
+*/`;
 
 export default [
   {
