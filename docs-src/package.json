@@ -1,10 +1,9 @@
 {
+  "private": true,
   "name": "shevchenko-docs",
   "version": "0.0.0",
-  "description": "",
-  "main": "./index.js",
+  "main": "./render.js",
   "scripts": {
-    "start": "node ./index.js",
     "build": "node ./render.js"
   },
   "author": "Oleksandr Tolochko <tooleks@gmail.com>",

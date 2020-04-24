@@ -7,7 +7,7 @@
   "module": "./dist/es/shevchenko.js",
   "types": "./dist/types/shevchenko.d.ts",
   "scripts": {
-    "build": "rm -rf ./dist && rollup -c && tsc -p ./tsconfig.declaration.json",
+    "build": "rimraf ./dist && rollup -c && tsc -p ./tsconfig.declaration.json",
     "lint": "tslint --fix -p ./tsconfig.json -c ./tslint.json",
     "test": "mocha --bail ./tests/entrypoint.js"
   },
@@ -46,6 +46,7 @@
     "chai": "^4.2.0",
     "gulp": "^4.0.2",
     "mocha": "^3.5.3",
+    "rimraf": "^3.0.2",
     "rollup": "^2.7.1",
     "tslint": "^6.1.1",
     "tslint-config-airbnb": "^5.11.2",
