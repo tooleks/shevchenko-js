@@ -10,7 +10,7 @@ const banner = `/**
  * @module ${pkg.name}@${pkg.version}
  * @author ${pkg.author}
  * @license ${pkg.license}
- * @copyright ${pkg.author} ${new Date().getFullYear()}
+ * @copyright ${new Date().getFullYear()} ${pkg.author}
  * @see {@link ${pkg.repository.url}}
 */`;
 
