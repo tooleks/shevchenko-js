@@ -3,7 +3,7 @@
 'use strict';
 
 const shevchenkoCjs = require('../dist/cjs/shevchenko');
-const shevchenkoUmd = require('../dist/umd/shevchenko');
+const shevchenkoUmd = require('../dist/umd/shevchenko.min');
 const runIntegrationTestCase = require('./integration');
 const runInflectionTestCase = require('./inflection');
 

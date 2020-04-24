@@ -2,14 +2,14 @@
   "name": "shevchenko",
   "version": "1.2.0",
   "description": "JavaScript library to inflect Ukrainian first, middle and last names",
-  "browser": "./dist/umd/shevchenko.js",
+  "browser": "./dist/umd/shevchenko.min.js",
   "main": "./dist/cjs/shevchenko.js",
   "module": "./dist/es/shevchenko.js",
   "types": "./dist/types/shevchenko.d.ts",
   "scripts": {
     "build": "rimraf ./dist && rollup -c && tsc -p ./tsconfig.declaration.json",
     "lint": "tslint --fix -p ./tsconfig.json -c ./tslint.json",
-    "test": "mocha --bail ./tests/entrypoint.js"
+    "test": "mocha --bail ./tests/main.js"
   },
   "keywords": [
     "inflection",
@@ -48,6 +48,7 @@
     "mocha": "^3.5.3",
     "rimraf": "^3.0.2",
     "rollup": "^2.7.1",
+    "rollup-plugin-terser": "^5.3.0",
     "tslint": "^6.1.1",
     "tslint-config-airbnb": "^5.11.2",
     "typescript": "^3.8.3"
