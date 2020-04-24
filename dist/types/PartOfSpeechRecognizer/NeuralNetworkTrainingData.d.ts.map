@@ -1,1 +1,0 @@
-{"version":3,"file":"NeuralNetworkTrainingData.d.ts","sourceRoot":"","sources":["../../../src/PartOfSpeechRecognizer/NeuralNetworkTrainingData.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,sBAAsB,CAAC;AAEhD,aAAK,yBAAyB,GAAG;IAC/B,CAAC,IAAI,EAAE,MAAM,GAAG,YAAY,CAAC;CAC9B,CAAC;AAEF,eAAe,yBAAyB,CAAC"}

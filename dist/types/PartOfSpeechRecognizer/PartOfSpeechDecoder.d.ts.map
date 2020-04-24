@@ -1,1 +1,0 @@
-{"version":3,"file":"PartOfSpeechDecoder.d.ts","sourceRoot":"","sources":["../../../src/PartOfSpeechRecognizer/PartOfSpeechDecoder.ts"],"names":[],"mappings":"AAAA,OAAO,YAAY,MAAM,sBAAsB,CAAC;AAGhD,MAAM,CAAC,OAAO,OAAO,mBAAmB;IACtC;;;OAGG;IACH,MAAM,CAAC,KAAK,EAAE,MAAM,EAAE,GAAG,YAAY;CAiBtC"}
