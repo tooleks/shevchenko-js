@@ -21,10 +21,16 @@ export default class FirstNameInflector extends NameInflector {
       .filter(rule => rule.usage.length === 0 || rule.usage.includes('firstName'))
       .filter(rule => new RegExp(rule.pattern.find, 'gi').test(firstName))
       .sort((firstRule, secondRule) => {
-        if (firstRule.usage.length === 0 && secondRule.usage.length > 0 && secondRule.usage.includes('firstName')) {
-          return 1;
+        if (firstRule.usage.length === 0) {
+          return 0;
         }
-        return 0;
+        if (secondRule.usage.length > 0) {
+          return 0;
+        }
+        if (secondRule.usage.includes('firstName')) {
+          return 0;
+        }
+        return 1;
       });
 
     if (rule == null) {

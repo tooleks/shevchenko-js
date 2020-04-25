@@ -34,10 +34,16 @@ export default class LastNameInflector extends NameInflector {
         return rule.partOfSpeech === partOfSpeech || partOfSpeech == null;
       })
       .sort((firstRule, secondRule) => {
-        if (firstRule.usage.length === 0 && secondRule.usage.length > 0 && secondRule.usage.includes('lastName')) {
-          return 1;
+        if (firstRule.usage.length === 0) {
+          return 0;
         }
-        return 0;
+        if (secondRule.usage.length > 0) {
+          return 0;
+        }
+        if (secondRule.usage.includes('firstName')) {
+          return 0;
+        }
+        return 1;
       });
 
     if (rule == null) {
