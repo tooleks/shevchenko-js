@@ -12,7 +12,7 @@
 	"close": "Close",
 	"connection": "Connection",
 	"contactMe": "Contact Me",
-	"contactMeCaption": "Please feel free to contact me via email if you have any questions or suggestions.",
+	"contactMeCaption": "Please feel free to contact me via email if you have any questions or suggestions: {email}.",
 	"contactMeEmailSubject": "shevchenko - Contact Me",
 	"feedback": "Feedback",
 	"demo": "Demo",

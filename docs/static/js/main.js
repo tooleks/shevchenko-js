@@ -18,7 +18,7 @@
   }
 
   function onPreviewInterval() {
-    var anthroponym = getRandomAnthroponym();
+    var anthroponym = shevchenko.inVocative(getRandomAnthroponym());
     var preview = anthroponym.firstName + ' ' + anthroponym.middleName + ' ' + anthroponym.lastName;
     renderInflectionPreview(preview);
   }
