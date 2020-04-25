@@ -15,7 +15,7 @@ const pelykhStructure = require('./src/Resources/NeuralNetworks/Pelykh/structure
 const writeFileAsync = util.promisify(fs.writeFile);
 
 gulp.task('update:inflector-rules', async () => {
-  const response = await axios.get('https://raw.githubusercontent.com/tooleks/shevchenko-rules/refactoring/dist/rules.json');
+  const response = await axios.get('https://raw.githubusercontent.com/tooleks/shevchenko-rules/master/dist/rules.json');
   await writeFileAsync('./src/Resources/Inflector/rules.json', JSON.stringify(response.data, null, 2));
 });
 
