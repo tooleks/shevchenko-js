@@ -1,7 +1,7 @@
 import InflectorCommand from './InflectorCommand';
 
-type InflectorCommands = {
+type InflectorCommandGroup = {
   [groupIndex: string]: InflectorCommand;
 };
 
-export default InflectorCommands;
+export default InflectorCommandGroup;

@@ -1,22 +1,35 @@
 {
   "name": "shevchenko",
-  "version": "1.2.0",
+  "version": "2.0.0-rc.0",
   "description": "JavaScript library to inflect Ukrainian first, middle and last names",
   "browser": "./dist/umd/shevchenko.min.js",
   "main": "./dist/cjs/shevchenko.js",
   "module": "./dist/es/shevchenko.js",
   "types": "./dist/types/shevchenko.d.ts",
   "scripts": {
+    "update:inflector-rules": "gulp update:inflector-rules",
+    "train:pohorielova-network": "gulp train:pohorielova-network",
+    "train:kosmii-network": "gulp train:kosmii-network",
+    "train:pelykh-network": "gulp train:pelykh-network",
+    "build:pohorielova-cache": "gulp build:pohorielova-cache",
+    "build:kosmii-cache": "gulp build:kosmii-cache",
+    "build:pelykh-cache": "gulp build:pelykh-cache",
+    "build:network-cache": "gulp build:network-cache",
     "build": "rimraf ./dist && rollup -c && tsc -p ./tsconfig.declaration.json",
     "lint": "tslint --fix -p ./tsconfig.json -c ./tslint.json",
     "test": "mocha --bail ./tests/main.js"
   },
   "keywords": [
-    "inflection",
-    "ukrainian",
-    "language",
-    "names",
-    "grammatical cases"
+    "ukrainian language",
+    "ukrainian names inflector",
+    "ukrainian grammatical cases",
+    "nominative case inflection",
+    "genitive case inflection",
+    "dative case inflection",
+    "accusative case inflection",
+    "ablative case inflection",
+    "locative case inflection",
+    "vocative case inflection"
   ],
   "repository": {
     "type": "git",

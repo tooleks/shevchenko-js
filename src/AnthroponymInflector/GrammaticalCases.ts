@@ -1,14 +1,14 @@
 import GrammaticalCase from '../Core/GrammaticalCase';
-import InflectorCommands from './InflectorCommands';
+import InflectorCommandGroup from './InflectorCommandGroup';
 
 type GrammaticalCases = {
-  [GrammaticalCase.Nominative]: InflectorCommands[],
-  [GrammaticalCase.Genitive]: InflectorCommands[],
-  [GrammaticalCase.Dative]: InflectorCommands[],
-  [GrammaticalCase.Accusative]: InflectorCommands[],
-  [GrammaticalCase.Ablative]: InflectorCommands[],
-  [GrammaticalCase.Locative]: InflectorCommands[],
-  [GrammaticalCase.Vocative]: InflectorCommands[],
+  [GrammaticalCase.Nominative]: InflectorCommandGroup[],
+  [GrammaticalCase.Genitive]: InflectorCommandGroup[],
+  [GrammaticalCase.Dative]: InflectorCommandGroup[],
+  [GrammaticalCase.Accusative]: InflectorCommandGroup[],
+  [GrammaticalCase.Ablative]: InflectorCommandGroup[],
+  [GrammaticalCase.Locative]: InflectorCommandGroup[],
+  [GrammaticalCase.Vocative]: InflectorCommandGroup[],
 };
 
 export default GrammaticalCases;
