@@ -1,0 +1,45 @@
+body {
+    min-width: 320px;
+    margin-bottom: 20px;
+}
+
+#home h1 {
+    font-size: 40px;
+}
+
+.navbar-brand {
+    display: inline-block;
+    padding: 0;
+}
+
+.navbar-brand > img {
+    display: inline;
+    width: 50px;
+    height: 50px;
+    margin-right: 5px;
+}
+
+@media (max-width: 360px) {
+    .btn-inflection-form {
+        display: block;
+        width: 100%;
+    }
+}
+
+.btn-share-link {
+    width: 45px;
+    border: 0;
+    text-align: center;
+}
+
+.color-facebook {
+    color: #4867aa;
+}
+
+.color-twitter {
+    color: #1da1f2;
+}
+
+.color-linkedin {
+    color: #0077b5;
+}

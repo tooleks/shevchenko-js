@@ -1,0 +1,84 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="<%= currentUrl %>">
+        <img src="./static/img/shevchenko_pixelized_304x304.jpg" alt="<%= process.env.APP_NAME %>">
+        <span class="hidden-sm"><%= process.env.APP_NAME %></span>
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+                <a class="nav-link" href="<%= currentUrl %>#demo"><%= __('demo') %></a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<%= __('libraryDocumentationUrl') %>"
+                   target="_blank"><%= __('documentation') %></a>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   href="#" id="navbarDropdownLinks"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    <%= __('links') %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownLinks">
+                    <a class="dropdown-item" href="<%= process.env.LIBRARY_PACKAGE_NPM_URL %>" target="_blank">NPM</a>
+                    <a class="dropdown-item" href="<%= process.env.LIBRARY_PACKAGE_GITHUB_URL %>"
+                       target="_blank">GitHub</a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   href="#" id="navbarDropdownInfo"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    <%= __('info') %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownInfo">
+                    <a class="dropdown-item" href="<%= __('libraryHowItWorksUrl') %>"
+                       target="_blank"><%= __('howItWorks') %></a>
+                    <a class="dropdown-item" href="<%= process.env.LIBRARY_PACKAGE_LICENCE_URL %>"
+                       target="_blank"><%= __('license') %></a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   href="#" id="navbarDropdownFeedback"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    <%= __('feedback') %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownFeedback">
+                    <a class="dropdown-item" href="<%= process.env.LIBRARY_PACKAGE_GITHUB_ISSUES_URL %>"
+                       target="_blank"><%= __('issueReport') %> <span id="issuesCount"
+                                                                       class="badge badge-info">0</span></a>
+                    <a class="dropdown-item" href="#" data-toggle="modal"
+                       data-target="#contactMe"><%= __('contactMe') %></a>
+                </div>
+            </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle"
+                   href="#" id="navbarDropdownLanguage"
+                   role="button"
+                   data-toggle="dropdown"
+                   aria-haspopup="true"
+                   aria-expanded="false">
+                    <i class="fa fa-language" aria-hidden="true"></i> <%= __('language') %>
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
+                    <% languages.forEach((language) => { %>
+                    <a class="dropdown-item" href="<%= language.url %>"><%= language.name %></a>
+                    <% }); %>
+                </div>
+            </li>
+        </ul>
+    </div>
+</nav>
