@@ -71,48 +71,90 @@ module.exports = (shevchenko) => {
       expect(() => shevchenko.inVocative(anthroponym)).to.throw(TypeError, '"anthroponym.lastName" must be a string.');
     });
 
-    it('should not throw an error if first name provided', () => {
+    it('should inflect anthroponym if first name provided', () => {
       const anthroponym = { gender: 'male', firstName: 'Тарас' };
-      expect(() => shevchenko.inNominative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inGenitive(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inDative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inAccusative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inAblative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inLocative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inVocative(anthroponym)).to.not.throw(TypeError);
+      expect(shevchenko.inNominative(anthroponym)).to.deep.equal({ gender: 'male', firstName: 'Тарас' });
+      expect(shevchenko.inGenitive(anthroponym)).to.deep.equal({ gender: 'male', firstName: 'Тараса' });
+      expect(shevchenko.inDative(anthroponym)).to.deep.equal({ gender: 'male', firstName: 'Тарасу' });
+      expect(shevchenko.inAccusative(anthroponym)).to.deep.equal({ gender: 'male', firstName: 'Тараса' });
+      expect(shevchenko.inAblative(anthroponym)).to.deep.equal({ gender: 'male', firstName: 'Тарасом' });
+      expect(shevchenko.inLocative(anthroponym)).to.deep.equal({ gender: 'male', firstName: 'Тарасові' });
+      expect(shevchenko.inVocative(anthroponym)).to.deep.equal({ gender: 'male', firstName: 'Тарасе' });
     });
 
-    it('should not throw an error if middle name provided', () => {
+    it('should inflect anthroponym if middle name provided', () => {
       const anthroponym = { gender: 'male', middleName: 'Григорович' };
-      expect(() => shevchenko.inNominative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inGenitive(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inDative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inAccusative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inAblative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inLocative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inVocative(anthroponym)).to.not.throw(TypeError);
+      expect(shevchenko.inNominative(anthroponym)).to.deep.equal({ gender: 'male', middleName: 'Григорович' });
+      expect(shevchenko.inGenitive(anthroponym)).to.deep.equal({ gender: 'male', middleName: 'Григоровича' });
+      expect(shevchenko.inDative(anthroponym)).to.deep.equal({ gender: 'male', middleName: 'Григоровичу' });
+      expect(shevchenko.inAccusative(anthroponym)).to.deep.equal({ gender: 'male', middleName: 'Григоровича' });
+      expect(shevchenko.inAblative(anthroponym)).to.deep.equal({ gender: 'male', middleName: 'Григоровичем' });
+      expect(shevchenko.inLocative(anthroponym)).to.deep.equal({ gender: 'male', middleName: 'Григоровичу' });
+      expect(shevchenko.inVocative(anthroponym)).to.deep.equal({ gender: 'male', middleName: 'Григоровичу' });
     });
 
-    it('should not throw an error if last name provided', () => {
+    it('should inflect anthroponym if last name provided', () => {
       const anthroponym = { gender: 'male', lastName: 'Шевченко' };
-      expect(() => shevchenko.inNominative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inGenitive(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inDative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inAccusative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inAblative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inLocative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inVocative(anthroponym)).to.not.throw(TypeError);
+      expect(shevchenko.inNominative(anthroponym)).to.deep.equal({ gender: 'male', lastName: 'Шевченко' });
+      expect(shevchenko.inGenitive(anthroponym)).to.deep.equal({ gender: 'male', lastName: 'Шевченка' });
+      expect(shevchenko.inDative(anthroponym)).to.deep.equal({ gender: 'male', lastName: 'Шевченку' });
+      expect(shevchenko.inAccusative(anthroponym)).to.deep.equal({ gender: 'male', lastName: 'Шевченка' });
+      expect(shevchenko.inAblative(anthroponym)).to.deep.equal({ gender: 'male', lastName: 'Шевченком' });
+      expect(shevchenko.inLocative(anthroponym)).to.deep.equal({ gender: 'male', lastName: 'Шевченкові' });
+      expect(shevchenko.inVocative(anthroponym)).to.deep.equal({ gender: 'male', lastName: 'Шевченку' });
     });
 
-    it('should not throw an error if full name provided', () => {
+    it('should inflect anthroponym if full name provided', () => {
       const anthroponym = { gender: 'male', firstName: 'Тарас', middleName: 'Григорович', lastName: 'Шевченко' };
-      expect(() => shevchenko.inNominative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inGenitive(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inDative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inAccusative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inAblative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inLocative(anthroponym)).to.not.throw(TypeError);
-      expect(() => shevchenko.inVocative(anthroponym)).to.not.throw(TypeError);
+
+      expect(shevchenko.inNominative(anthroponym)).to.deep.equal({
+        gender: 'male',
+        firstName: 'Тарас',
+        middleName: 'Григорович',
+        lastName: 'Шевченко'
+      });
+
+      expect(shevchenko.inGenitive(anthroponym)).to.deep.equal({
+        gender: 'male',
+        firstName: 'Тараса',
+        middleName: 'Григоровича',
+        lastName: 'Шевченка'
+      });
+
+      expect(shevchenko.inDative(anthroponym)).to.deep.equal({
+        gender: 'male',
+        firstName: 'Тарасу',
+        middleName: 'Григоровичу',
+        lastName: 'Шевченку'
+      });
+
+      expect(shevchenko.inAccusative(anthroponym)).to.deep.equal({
+        gender: 'male',
+        firstName: 'Тараса',
+        middleName: 'Григоровича',
+        lastName: 'Шевченка'
+      });
+
+      expect(shevchenko.inAblative(anthroponym)).to.deep.equal({
+        gender: 'male',
+        firstName: 'Тарасом',
+        middleName: 'Григоровичем',
+        lastName: 'Шевченком'
+      });
+
+      expect(shevchenko.inLocative(anthroponym)).to.deep.equal({
+        gender: 'male',
+        firstName: 'Тарасові',
+        middleName: 'Григоровичу',
+        lastName: 'Шевченкові'
+      });
+
+      expect(shevchenko.inVocative(anthroponym)).to.deep.equal({
+        gender: 'male',
+        firstName: 'Тарасе',
+        middleName: 'Григоровичу',
+        lastName: 'Шевченку'
+      });
     });
   });
 }
