@@ -20,17 +20,17 @@ export default class LastNameInflector extends NameInflector {
    * @inheritdoc
    */
   // tslint:disable-next-line max-line-length
-  protected inflectName(lastName: string, gender: Gender, grammaticalCase: GrammaticalCase, isLastWord: boolean): string {
-    if (!isLastWord && LangUtils.countVowels(lastName) === 1) {
-      return lastName;
+  protected inflectWord(word: string, gender: Gender, grammaticalCase: GrammaticalCase, isLastWord: boolean): string {
+    if (!isLastWord && LangUtils.countVowels(word) === 1) {
+      return word;
     }
 
     const [rule] = this.rules
       .filter(rule => rule.gender.includes(gender))
       .filter(rule => rule.usage.length === 0 || rule.usage.includes('lastName'))
-      .filter(rule => new RegExp(rule.pattern.find, 'gi').test(lastName))
+      .filter(rule => new RegExp(rule.pattern.find, 'gi').test(word))
       .filter((rule) => {
-        const partOfSpeech = this.partOfSpeechRecognizer.recognize(lastName, gender);
+        const partOfSpeech = this.partOfSpeechRecognizer.recognize(word, gender);
         return rule.partOfSpeech === partOfSpeech || partOfSpeech == null;
       })
       .sort((firstRule, secondRule) => {
@@ -47,9 +47,9 @@ export default class LastNameInflector extends NameInflector {
       });
 
     if (rule == null) {
-      return lastName;
+      return word;
     }
 
-    return new RuleInflector(rule).inflect(lastName, grammaticalCase);
+    return new RuleInflector(rule).inflect(word, grammaticalCase);
   }
 }

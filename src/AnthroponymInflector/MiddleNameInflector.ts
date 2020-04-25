@@ -15,16 +15,16 @@ export default class MiddleNameInflector extends NameInflector {
   /**
    * @inheritdoc
    */
-  protected inflectName(middleName: string, gender: Gender, grammaticalCase: GrammaticalCase): string {
+  protected inflectWord(word: string, gender: Gender, grammaticalCase: GrammaticalCase): string {
     const [rule] = this.rules
       .filter(rule => rule.gender.includes(gender))
       .filter(rule => rule.usage.includes('middleName'))
-      .filter(rule => new RegExp(rule.pattern.find, 'gi').test(middleName));
+      .filter(rule => new RegExp(rule.pattern.find, 'gi').test(word));
 
     if (rule == null) {
-      return middleName;
+      return word;
     }
 
-    return new RuleInflector(rule).inflect(middleName, grammaticalCase);
+    return new RuleInflector(rule).inflect(word, grammaticalCase);
   }
 }

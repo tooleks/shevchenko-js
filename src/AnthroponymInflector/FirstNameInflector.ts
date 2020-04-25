@@ -15,11 +15,11 @@ export default class FirstNameInflector extends NameInflector {
   /**
    * @inheritdoc
    */
-  protected inflectName(firstName: string, gender: Gender, grammaticalCase: GrammaticalCase): string {
+  protected inflectWord(word: string, gender: Gender, grammaticalCase: GrammaticalCase): string {
     const [rule] = this.rules
       .filter(rule => rule.gender.includes(gender))
       .filter(rule => rule.usage.length === 0 || rule.usage.includes('firstName'))
-      .filter(rule => new RegExp(rule.pattern.find, 'gi').test(firstName))
+      .filter(rule => new RegExp(rule.pattern.find, 'gi').test(word))
       .sort((firstRule, secondRule) => {
         if (firstRule.usage.length === 0) {
           return 0;
@@ -34,9 +34,9 @@ export default class FirstNameInflector extends NameInflector {
       });
 
     if (rule == null) {
-      return firstName;
+      return word;
     }
 
-    return new RuleInflector(rule).inflect(firstName, grammaticalCase);
+    return new RuleInflector(rule).inflect(word, grammaticalCase);
   }
 }
