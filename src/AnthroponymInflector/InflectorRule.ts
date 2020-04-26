@@ -1,5 +1,5 @@
 import Gender from '../Core/Gender';
-import PartOfSpeech from '../Core/PartOfSpeech';
+import PartOfSpeech from '../PartOfSpeechRecognizer/PartOfSpeech';
 import GrammaticalCases from './GrammaticalCases';
 import InflectorPattern from './InflectorPattern';
 

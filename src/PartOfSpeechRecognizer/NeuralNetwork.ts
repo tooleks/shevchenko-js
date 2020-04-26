@@ -1,5 +1,5 @@
 import synaptic from 'synaptic';
-import PartOfSpeech from '../Core/PartOfSpeech';
+import PartOfSpeech from './PartOfSpeech';
 import WordEncoder from './WordEncoder';
 import PartOfSpeechDecoder from './PartOfSpeechDecoder';
 import NeuralNetworkParameters from './NeuralNetworkParameters';
