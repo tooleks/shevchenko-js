@@ -45,7 +45,7 @@
   "bugs": {
     "url": "https://github.com/tooleks/shevchenko-js/issues"
   },
-  "homepage": "https://github.com/tooleks/shevchenko-js#readme",
+  "homepage": "https://tooleks.github.io/shevchenko-js",
   "dependencies": {
     "synaptic": "^1.1.4"
   },
