@@ -7,7 +7,8 @@ import pkg from './package.json';
 
 const banner = `/**
  * @file ${pkg.description}
- * @module ${pkg.name}@${pkg.version}
+ * @module ${pkg.name}
+ * @version ${pkg.version}
  * @author ${pkg.author}
  * @license ${pkg.license}
  * @copyright ${new Date().getFullYear()} ${pkg.author}
