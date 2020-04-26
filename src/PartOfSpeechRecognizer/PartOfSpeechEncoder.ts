@@ -1,4 +1,4 @@
-import PartOfSpeech from '../Core/PartOfSpeech';
+import PartOfSpeech from './PartOfSpeech';
 
 export const DIGIT_NOUN = 0;
 export const DIGIT_ADJECTIVE = 1;

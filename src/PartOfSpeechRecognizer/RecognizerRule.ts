@@ -1,4 +1,4 @@
-import PartOfSpeech from '../Core/PartOfSpeech';
+import PartOfSpeech from './PartOfSpeech';
 import Gender from '../Core/Gender';
 import NeuralNetwork from './NeuralNetwork';
 import NeuralNetworkTrainingData from './NeuralNetworkTrainingData';

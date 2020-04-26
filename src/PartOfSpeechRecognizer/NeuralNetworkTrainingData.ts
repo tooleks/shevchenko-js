@@ -1,4 +1,4 @@
-import PartOfSpeech from '../Core/PartOfSpeech';
+import PartOfSpeech from './PartOfSpeech';
 
 type NeuralNetworkTrainingData = {
   [word: string]: PartOfSpeech;

@@ -1,6 +1,6 @@
 import RecognizerRule from './RecognizerRule';
 import Gender from '../Core/Gender';
-import PartOfSpeech from '../Core/PartOfSpeech';
+import PartOfSpeech from './PartOfSpeech';
 
 export default class PartOfSpeechRecognizer {
   private readonly rules: RecognizerRule[];

@@ -1,4 +1,4 @@
-import PartOfSpeech from '../Core/PartOfSpeech';
+import PartOfSpeech from './PartOfSpeech';
 import { DIGIT_ADJECTIVE, DIGIT_NOUN } from './PartOfSpeechEncoder';
 
 export default class PartOfSpeechDecoder {
