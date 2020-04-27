@@ -8,7 +8,7 @@
                 </button>
             </div>
             <div class="modal-body">
-                <p><%- __('contactMeCaption').replace('{email}', `<a href="mailto:${process.env.APP_ADMIN_EMAIL}>?subject=${__('contactMeEmailSubject')}">${process.env.APP_ADMIN_EMAIL}</a>`) %></p>
+                <p><%- __('contactMeCaption').replace('{email}', `<a href="mailto:${process.env.APP_ADMIN_EMAIL}?subject=${__('contactMeEmailSubject')}">${process.env.APP_ADMIN_EMAIL}</a>`) %></p>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal"><%= __('close') %></button>
