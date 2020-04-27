@@ -6758,5 +6758,125 @@
         "middleName": "дем'янівно"
       }
     }
+  },
+  {
+    "gender": "male",
+    "grammaticalCases": {
+      "nominative": {
+        "lastName": "воробей",
+        "firstName": "аскольд",
+        "middleName": "боянович"
+      },
+      "genitive": {
+        "lastName": "воробея",
+        "firstName": "аскольда",
+        "middleName": "бояновича"
+      },
+      "dative": {
+        "lastName": "воробею",
+        "firstName": "аскольду",
+        "middleName": "бояновичу"
+      },
+      "accusative": {
+        "lastName": "воробея",
+        "firstName": "аскольда",
+        "middleName": "бояновича"
+      },
+      "ablative": {
+        "lastName": "воробеєм",
+        "firstName": "аскольдом",
+        "middleName": "бояновичем"
+      },
+      "locative": {
+        "lastName": "воробеєві",
+        "firstName": "аскольдові",
+        "middleName": "бояновичу"
+      },
+      "vocative": {
+        "lastName": "воробею",
+        "firstName": "аскольде",
+        "middleName": "бояновичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "grammaticalCases": {
+      "nominative": {
+        "lastName": "ханіс",
+        "firstName": "віродан",
+        "middleName": "буревійович"
+      },
+      "genitive": {
+        "lastName": "ханіса",
+        "firstName": "віродана",
+        "middleName": "буревійовича"
+      },
+      "dative": {
+        "lastName": "ханісу",
+        "firstName": "віродану",
+        "middleName": "буревійовичу"
+      },
+      "accusative": {
+        "lastName": "ханіса",
+        "firstName": "віродана",
+        "middleName": "буревійовича"
+      },
+      "ablative": {
+        "lastName": "ханісом",
+        "firstName": "віроданом",
+        "middleName": "буревійовичем"
+      },
+      "locative": {
+        "lastName": "ханісові",
+        "firstName": "віроданові",
+        "middleName": "буревійовичу"
+      },
+      "vocative": {
+        "lastName": "ханісе",
+        "firstName": "віродане",
+        "middleName": "буревійовичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "grammaticalCases": {
+      "nominative": {
+        "lastName": "безніс",
+        "firstName": "любим",
+        "middleName": "радогостович"
+      },
+      "genitive": {
+        "lastName": "безноса",
+        "firstName": "любима",
+        "middleName": "радогостовича"
+      },
+      "dative": {
+        "lastName": "безносу",
+        "firstName": "любиму",
+        "middleName": "радогостовичу"
+      },
+      "accusative": {
+        "lastName": "безноса",
+        "firstName": "любима",
+        "middleName": "радогостовича"
+      },
+      "ablative": {
+        "lastName": "безносом",
+        "firstName": "любимом",
+        "middleName": "радогостовичем"
+      },
+      "locative": {
+        "lastName": "безносі",
+        "firstName": "любимові",
+        "middleName": "радогостовичу"
+      },
+      "vocative": {
+        "lastName": "безносе",
+        "firstName": "любиме",
+        "middleName": "радогостовичу"
+      }
+    }
   }
 ]
