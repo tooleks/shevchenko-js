@@ -31,7 +31,7 @@ export default class LastNameInflector extends NameInflector {
       .filter(rule => new RegExp(rule.pattern.find, 'gi').test(word))
       .filter((rule) => {
         const partOfSpeech = this.partOfSpeechRecognizer.recognize(word, gender);
-        return rule.partOfSpeech === partOfSpeech || partOfSpeech == null;
+        return partOfSpeech === rule.partOfSpeech || partOfSpeech === null;
       })
       .sort((firstRule, secondRule) => {
         if (firstRule.usage.length === 0) {
@@ -46,7 +46,7 @@ export default class LastNameInflector extends NameInflector {
         return 1;
       });
 
-    if (rule == null) {
+    if (!rule) {
       return word;
     }
 

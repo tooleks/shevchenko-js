@@ -21,7 +21,7 @@ export default class MiddleNameInflector extends NameInflector {
       .filter(rule => rule.usage.includes('middleName'))
       .filter(rule => new RegExp(rule.pattern.find, 'gi').test(word));
 
-    if (rule == null) {
+    if (!rule) {
       return word;
     }
 
