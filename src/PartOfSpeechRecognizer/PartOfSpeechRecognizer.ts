@@ -16,7 +16,7 @@ export default class PartOfSpeechRecognizer {
    */
   recognize(word: string, gender: Gender): PartOfSpeech | null {
     const rule = this.rules.find(rule => rule.condition(word, gender));
-    if (rule == null) {
+    if (!rule) {
       return null;
     }
     return rule.apply(word);

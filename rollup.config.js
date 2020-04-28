@@ -15,16 +15,28 @@ const banner = `/**
  * @see {@link ${pkg.repository.url}}
 */`;
 
+const output = {
+  sourcemap: true,
+  banner: banner,
+};
+
 export default [
   {
     input: './src/shevchenko.ts',
-    output: {
-      name: pkg.name,
-      file: pkg.browser,
-      format: 'umd',
-      sourcemap: true,
-      banner: banner,
-    },
+    output: [
+      {
+        ...output,
+        name: pkg.name,
+        file: pkg.browser,
+        format: 'umd',
+      },
+      {
+        ...output,
+        name: pkg.name,
+        file: './docs/static/js/shevchenko.min.js',
+        format: 'umd',
+      },
+    ],
     plugins: [
       json(),
       typescript({ tsconfig: './tsconfig.legacy.json' }),
@@ -36,10 +48,9 @@ export default [
   {
     input: './src/shevchenko.ts',
     output: {
+      ...output,
       file: pkg.main,
       format: 'cjs',
-      sourcemap: true,
-      banner: banner,
     },
     plugins: [
       json(),
@@ -50,10 +61,9 @@ export default [
   {
     input: './src/shevchenko.ts',
     output: {
+      ...output,
       file: pkg.module,
       format: 'es',
-      sourcemap: true,
-      banner: banner,
     },
     plugins: [
       json(),

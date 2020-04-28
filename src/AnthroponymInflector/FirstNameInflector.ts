@@ -33,7 +33,7 @@ export default class FirstNameInflector extends NameInflector {
         return 1;
       });
 
-    if (rule == null) {
+    if (!rule) {
       return word;
     }
 
