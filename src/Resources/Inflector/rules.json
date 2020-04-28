@@ -316,6 +316,117 @@
     }
   },
   {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(голосна)вень",
+    "examples": [
+      "півень"
+    ],
+    "partOfSpeech": "noun",
+    "gender": [
+      "male"
+    ],
+    "priority": 6,
+    "usage": [],
+    "pattern": {
+      "find": "(а|е|є|и|і|ї|о|у|ю|я)вень$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "type": "replace",
+            "value": ""
+          },
+          "2": {
+            "type": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "type": "replace",
+            "value": ""
+          },
+          "2": {
+            "type": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "type": "replace",
+            "value": ""
+          },
+          "2": {
+            "type": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "type": "replace",
+            "value": ""
+          },
+          "2": {
+            "type": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "type": "replace",
+            "value": ""
+          },
+          "2": {
+            "type": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "type": "replace",
+            "value": ""
+          },
+          "2": {
+            "type": "replace",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "type": "replace",
+            "value": ""
+          },
+          "2": {
+            "type": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "type": "replace",
+            "value": ""
+          },
+          "2": {
+            "type": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
     "description": "друга відміна / чоловічий рід / м'яка група / на -(голосна)лець",
     "examples": [
       "стрілець"
