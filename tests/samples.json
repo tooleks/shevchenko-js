@@ -1443,37 +1443,37 @@
     "gender": "female",
     "grammaticalCases": {
       "nominative": {
-        "lastName": "Косач-квітка",
+        "lastName": "Косач-Квітка",
         "firstName": "Лариса",
         "middleName": "Петрівна"
       },
       "genitive": {
-        "lastName": "Косач-квітки",
+        "lastName": "Косач-Квітки",
         "firstName": "Лариси",
         "middleName": "Петрівни"
       },
       "dative": {
-        "lastName": "Косач-квітці",
+        "lastName": "Косач-Квітці",
         "firstName": "Ларисі",
         "middleName": "Петрівні"
       },
       "accusative": {
-        "lastName": "Косач-квітку",
+        "lastName": "Косач-Квітку",
         "firstName": "Ларису",
         "middleName": "Петрівну"
       },
       "ablative": {
-        "lastName": "Косач-квіткою",
+        "lastName": "Косач-Квіткою",
         "firstName": "Ларисою",
         "middleName": "Петрівною"
       },
       "locative": {
-        "lastName": "Косач-квітці",
+        "lastName": "Косач-Квітці",
         "firstName": "Ларисі",
         "middleName": "Петрівні"
       },
       "vocative": {
-        "lastName": "Косач-квітко",
+        "lastName": "Косач-Квітко",
         "firstName": "Ларисо",
         "middleName": "Петрівно"
       }
@@ -2243,37 +2243,37 @@
     "gender": "male",
     "grammaticalCases": {
       "nominative": {
-        "lastName": "Нечуй-левицький",
+        "lastName": "Нечуй-Левицький",
         "firstName": "Іван",
         "middleName": "Семенович"
       },
       "genitive": {
-        "lastName": "Нечуя-левицького",
+        "lastName": "Нечуя-Левицького",
         "firstName": "Івана",
         "middleName": "Семеновича"
       },
       "dative": {
-        "lastName": "Нечую-левицькому",
+        "lastName": "Нечую-Левицькому",
         "firstName": "Івану",
         "middleName": "Семеновичу"
       },
       "accusative": {
-        "lastName": "Нечуя-левицького",
+        "lastName": "Нечуя-Левицького",
         "firstName": "Івана",
         "middleName": "Семеновича"
       },
       "ablative": {
-        "lastName": "Нечуєм-левицьким",
+        "lastName": "Нечуєм-Левицьким",
         "firstName": "Іваном",
         "middleName": "Семеновичем"
       },
       "locative": {
-        "lastName": "Нечуєві-левицькому",
+        "lastName": "Нечуєві-Левицькому",
         "firstName": "Іванові",
         "middleName": "Семеновичу"
       },
       "vocative": {
-        "lastName": "Нечую-левицький",
+        "lastName": "Нечую-Левицький",
         "firstName": "Іване",
         "middleName": "Семеновичу"
       }
@@ -5643,37 +5643,37 @@
     "gender": "male",
     "grammaticalCases": {
       "nominative": {
-        "lastName": "Драй-хмара",
+        "lastName": "Драй-Хмара",
         "firstName": "Михайло",
         "middleName": "Опанасович"
       },
       "genitive": {
-        "lastName": "Драй-хмари",
+        "lastName": "Драй-Хмари",
         "firstName": "Михайла",
         "middleName": "Опанасовича"
       },
       "dative": {
-        "lastName": "Драй-хмарі",
+        "lastName": "Драй-Хмарі",
         "firstName": "Михайлу",
         "middleName": "Опанасовичу"
       },
       "accusative": {
-        "lastName": "Драй-хмару",
+        "lastName": "Драй-Хмару",
         "firstName": "Михайла",
         "middleName": "Опанасовича"
       },
       "ablative": {
-        "lastName": "Драй-хмарою",
+        "lastName": "Драй-Хмарою",
         "firstName": "Михайлом",
         "middleName": "Опанасовичем"
       },
       "locative": {
-        "lastName": "Драй-хмарі",
+        "lastName": "Драй-Хмарі",
         "firstName": "Михайлові",
         "middleName": "Опанасовичу"
       },
       "vocative": {
-        "lastName": "Драй-хмаро",
+        "lastName": "Драй-Хмаро",
         "firstName": "Михайле",
         "middleName": "Опанасовичу"
       }
@@ -6404,37 +6404,37 @@
     "grammaticalCases": {
       "nominative": {
         "lastName": "Весна",
-        "firstName": "Анна-марія",
+        "firstName": "Анна-Марія",
         "middleName": "Максимівна"
       },
       "genitive": {
         "lastName": "Весни",
-        "firstName": "Анни-марії",
+        "firstName": "Анни-Марії",
         "middleName": "Максимівни"
       },
       "dative": {
         "lastName": "Весні",
-        "firstName": "Анні-марії",
+        "firstName": "Анні-Марії",
         "middleName": "Максимівні"
       },
       "accusative": {
         "lastName": "Весну",
-        "firstName": "Анну-марію",
+        "firstName": "Анну-Марію",
         "middleName": "Максимівну"
       },
       "ablative": {
         "lastName": "Весною",
-        "firstName": "Анною-марією",
+        "firstName": "Анною-Марією",
         "middleName": "Максимівною"
       },
       "locative": {
         "lastName": "Весні",
-        "firstName": "Анні-марії",
+        "firstName": "Анні-Марії",
         "middleName": "Максимівні"
       },
       "vocative": {
         "lastName": "Весно",
-        "firstName": "Анно-маріє",
+        "firstName": "Анно-Маріє",
         "middleName": "Максимівно"
       }
     }
@@ -6565,37 +6565,37 @@
       "nominative": {
         "lastName": "Едемська",
         "firstName": "Світлана",
-        "middleName": "Міхелівна-ангелівна"
+        "middleName": "Міхелівна-Ангелівна"
       },
       "genitive": {
         "lastName": "Едемської",
         "firstName": "Світлани",
-        "middleName": "Міхелівни-ангелівни"
+        "middleName": "Міхелівни-Ангелівни"
       },
       "dative": {
         "lastName": "Едемській",
         "firstName": "Світлані",
-        "middleName": "Міхелівні-ангелівні"
+        "middleName": "Міхелівні-Ангелівні"
       },
       "accusative": {
         "lastName": "Едемську",
         "firstName": "Світлану",
-        "middleName": "Міхелівну-ангелівну"
+        "middleName": "Міхелівну-Ангелівну"
       },
       "ablative": {
         "lastName": "Едемською",
         "firstName": "Світланою",
-        "middleName": "Міхелівною-ангелівною"
+        "middleName": "Міхелівною-Ангелівною"
       },
       "locative": {
         "lastName": "Едемській",
         "firstName": "Світлані",
-        "middleName": "Міхелівні-ангелівні"
+        "middleName": "Міхелівні-Ангелівні"
       },
       "vocative": {
         "lastName": "Едемська",
         "firstName": "Світлано",
-        "middleName": "Міхелівно-ангелівно"
+        "middleName": "Міхелівно-Ангелівно"
       }
     }
   },
