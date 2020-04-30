@@ -25,7 +25,7 @@
 
   function onFormSubmit(event) {
     event.preventDefault();
-    var anthroponym = getFormAnthroponym()
+    var anthroponym = getFormAnthroponym();
     if (!anthroponym.firstName.length && !anthroponym.lastName.length && !anthroponym.middleName.length) {
       anthroponym = getDefaultAnthroponym();
     }
