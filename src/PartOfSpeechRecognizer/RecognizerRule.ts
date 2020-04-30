@@ -2,6 +2,7 @@ import PartOfSpeech from './PartOfSpeech';
 import Gender from '../Core/Gender';
 import NeuralNetwork from './NeuralNetwork';
 import NeuralNetworkTrainingData from './NeuralNetworkTrainingData';
+import WordTransformer from './WordTransformer';
 
 export interface RecognizerCondition {
   (word: string, gender: Gender): boolean;
@@ -23,9 +24,10 @@ export default class RecognizerRule {
    * Returns a part of speech of a given word.
    */
   apply(word: string): PartOfSpeech {
-    if (this.cache[word] != null) {
-      return this.cache[word];
+    const transformedWord = new WordTransformer().transform(word);
+    if (this.cache[transformedWord]) {
+      return this.cache[transformedWord];
     }
-    return this.neuralNetwork.activate(word);
+    return this.neuralNetwork.activate(transformedWord);
   }
 }
