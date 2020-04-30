@@ -1,6 +1,7 @@
 import RecognizerRule from './RecognizerRule';
 import Gender from '../Core/Gender';
 import PartOfSpeech from './PartOfSpeech';
+import WordTransformer from './WordTransformer';
 
 export default class PartOfSpeechRecognizer {
   private readonly rules: RecognizerRule[];
@@ -15,10 +16,11 @@ export default class PartOfSpeechRecognizer {
    * Returns null if part of speech was not recognized.
    */
   recognize(word: string, gender: Gender): PartOfSpeech | null {
-    const rule = this.rules.find(rule => rule.condition(word, gender));
+    const transformedWord = new WordTransformer().transform(word);
+    const rule = this.rules.find(rule => rule.condition(transformedWord, gender));
     if (!rule) {
       return null;
     }
-    return rule.apply(word);
+    return rule.apply(transformedWord);
   }
 }
