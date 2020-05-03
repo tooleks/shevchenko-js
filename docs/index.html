@@ -69,11 +69,10 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="https://tooleks.github.io/shevchenko-js/index.html#demo">Демонстрація</a>
+                <a class="nav-link" href="#demo">Демонстрація</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D1%96%D1%8F"
-                   target="_blank">Документація</a>
+                <a class="nav-link" href="#documentation">Документація</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"
@@ -118,7 +117,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownFeedback">
                     <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js/issues"
                        target="_blank">Звіт про помилку <span id="issuesCount"
-                                                                       class="badge badge-info">0</span></a>
+                                                                      class="badge badge-info">0</span></a>
                     <a class="dropdown-item" href="#" data-toggle="modal"
                        data-target="#contactMe">Написати автору</a>
                 </div>
@@ -134,9 +133,9 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
                     
-                    <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/index.html">Українська мова</a>
+                        <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/index.html">Українська мова</a>
                     
-                    <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/en.html">English Language</a>
+                        <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/en.html">English Language</a>
                     
                 </div>
             </li>
@@ -145,12 +144,12 @@
 </nav>
     <div id="home" class="jumbotron my-2">
     <h1 class="text-truncate">shevchenko <span class="d-none d-lg-inline"><small id="preview"
-                                                                                 class="text-muted"></small></span>
+                                                                                                  class="text-muted"></small></span>
     </h1>
     <p>JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові</p>
     <p>
-        <a class="btn btn-lg btn-primary" href="https://tooleks.github.io/shevchenko-js/index.html#demo" role="button">Демонстрація</a>
-        <a class="btn btn-lg btn-default" href="https://tooleks.github.io/shevchenko-js/index.html#usage" role="button">Використання</a>
+        <a class="btn btn-lg btn-primary" href="#demo" role="button">Демонстрація</a>
+        <a class="btn btn-lg btn-default" href="#usage" role="button">Використання</a>
     </p>
 </div>
 <div class="row my-2">
@@ -280,15 +279,13 @@
         </div>
     </div>
 </div>
-    <div class="row my-2">
+    <div class="row my-3">
     <div class="col">
-        <h2 id="documentation">Документація <a
-                    href="https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D1%96%D1%8F"
-                    target="_blank"
-                    class="btn btn-link">Повна версія</a></h2>
+        <h2 id="documentation">Документація</h2>
         <div class="card my-2">
             <div class="card-body">
                 <h5 class="card-title">Встановлення</h5>
+                <h6 class="card-subtitle mb-2 text-muted">npm</h6>
                 <pre>npm install --save shevchenko</pre>
                 <h6 class="card-subtitle mb-2 text-muted">Node.js</h6>
                 <pre>const shevchenko = require("shevchenko");</pre>
@@ -299,8 +296,7 @@
         <div class="card my-2">
             <div class="card-body">
                 <h5 id="usage" class="card-title">Використання</h5>
-                <pre class="mb-0">
-const anthroponym = {
+                <pre class="mb-0">const anthroponym = {
     gender: 'male', // or 'female'
     firstName: 'Тарас',
     middleName: 'Григорович',
@@ -309,8 +305,19 @@ const anthroponym = {
 
 const result = shevchenko.inVocative(anthroponym);
 
-console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку' }
-                    </pre>
+console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку' }</pre>
+            </div>
+        </div>
+        <div class="card my-2">
+            <div class="card-body">
+                <h5 id="api" class="card-title">API</h5>
+                <pre class="mb-0">shevchenko.inNominative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в називному відмінку
+shevchenko.inGenitive(anthroponym: Anthroponym): Anthroponym; // Провідміняти в родовому відмінку
+shevchenko.inDative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в давальному відмінку
+shevchenko.inAccusative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в знахідному відмінку
+shevchenko.inAblative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в орудному відмінку
+shevchenko.inLocative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в місцевому відмінку
+shevchenko.inVocative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в кличному відмінку</pre>
             </div>
         </div>
     </div>
@@ -319,7 +326,6 @@ console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName:
 <div class="row">
     <div class="col-sm-12">
         &copy; 2020 shevchenko -
-        <a href="https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%94%D0%BE%D0%BA%D1%83%D0%BC%D0%B5%D0%BD%D1%82%D0%B0%D1%86%D1%96%D1%8F" target="_blank">Документація</a> -
         <a href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM</a> -
         <a href="https://github.com/tooleks/shevchenko-js" target="_blank">GitHub</a> -
         <a href="#" data-toggle="modal" data-target="#contactMe">Написати автору</a>
