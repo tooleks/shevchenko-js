@@ -1,7 +1,7 @@
 <hr>
 <div class="row">
     <div class="col-sm-12">
-        &copy; 2017-<%= new Date().getFullYear() %> <%= process.env.LIBRARY_NAME %> -
+        &copy; <%= process.env.LIBRARY_RELEASE_YEAR %>-<%= new Date().getFullYear() %> <%= process.env.LIBRARY_NAME %> -
         <a href="<%= process.env.LIBRARY_NPM_URL %>" target="_blank">NPM</a> -
         <a href="<%= process.env.LIBRARY_GITHUB_URL %>" target="_blank">GitHub</a> -
         <a href="#" data-toggle="modal" data-target="#contactMe"><%= __('contactMe') %></a>
