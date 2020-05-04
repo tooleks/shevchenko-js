@@ -40,7 +40,7 @@ export default class LastNameInflector extends NameInflector {
         if (secondRule.usage.length > 0) {
           return 0;
         }
-        if (secondRule.usage.includes('firstName')) {
+        if (secondRule.usage.includes('lastName')) {
           return 0;
         }
         return 1;
