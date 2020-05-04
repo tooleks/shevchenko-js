@@ -4,7 +4,7 @@ JavaScript бібліотека для відмінювання українсь
 
 ### Документація / Documentation
 
-[Ukrainian](https://tooleks.github.io/shevchenko-js) / [English](https://tooleks.github.io/shevchenko-js/en.html)
+[Українська](https://tooleks.github.io/shevchenko-js) / [English](https://tooleks.github.io/shevchenko-js/en.html)
 
 ### Встановлення / Installation
 
