@@ -1,11 +1,11 @@
 <div id="home" class="jumbotron my-2">
-    <h1 class="text-truncate">shevchenko <span class="d-none d-lg-inline"><small id="preview"
-                                                                                 class="text-muted"></small></span>
+    <h1 class="text-truncate"><%= process.env.LIBRARY_NAME %> <span class="d-none d-lg-inline"><small id="preview"
+                                                                                                  class="text-muted"></small></span>
     </h1>
     <p><%= __('appDescription') %></p>
     <p>
-        <a class="btn btn-lg btn-primary" href="<%= currentUrl %>#demo" role="button"><%= __('demo') %></a>
-        <a class="btn btn-lg btn-default" href="<%= currentUrl %>#usage" role="button"><%= __('usage') %></a>
+        <a class="btn btn-lg btn-primary" href="#demo" role="button"><%= __('demo') %></a>
+        <a class="btn btn-lg btn-default" href="#usageExample" role="button"><%= __('usageExample') %></a>
     </p>
 </div>
 <div class="row my-2">

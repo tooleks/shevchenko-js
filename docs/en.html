@@ -69,11 +69,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-                <a class="nav-link" href="https://tooleks.github.io/shevchenko-js/en.html#demo">Demo</a>
+                <a class="nav-link" href="#demo">Demo</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="https://github.com/tooleks/shevchenko-js/wiki/%5Ben%5D-Documentation"
-                   target="_blank">Documentation</a>
+                <a class="nav-link" href="#documentation">Documentation</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE">License</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"
@@ -92,22 +94,6 @@
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"
-                   href="#" id="navbarDropdownInfo"
-                   role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true"
-                   aria-expanded="false">
-                    Info
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownInfo">
-                    <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js/wiki/%5Ben%5D-How-It-Works%3F"
-                       target="_blank">How It Works?</a>
-                    <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE"
-                       target="_blank">License</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
                    href="#" id="navbarDropdownFeedback"
                    role="button"
                    data-toggle="dropdown"
@@ -118,7 +104,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownFeedback">
                     <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js/issues"
                        target="_blank">Issue Report <span id="issuesCount"
-                                                                       class="badge badge-info">0</span></a>
+                                                                      class="badge badge-info">0</span></a>
                     <a class="dropdown-item" href="#" data-toggle="modal"
                        data-target="#contactMe">Contact Me</a>
                 </div>
@@ -134,9 +120,9 @@
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
                     
-                    <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/index.html">Українська мова</a>
+                        <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/index.html">Українська мова</a>
                     
-                    <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/en.html">English Language</a>
+                        <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/en.html">English Language</a>
                     
                 </div>
             </li>
@@ -145,12 +131,12 @@
 </nav>
     <div id="home" class="jumbotron my-2">
     <h1 class="text-truncate">shevchenko <span class="d-none d-lg-inline"><small id="preview"
-                                                                                 class="text-muted"></small></span>
+                                                                                                  class="text-muted"></small></span>
     </h1>
     <p>JavaScript library to inflect Ukrainian first, middle and last names</p>
     <p>
-        <a class="btn btn-lg btn-primary" href="https://tooleks.github.io/shevchenko-js/en.html#demo" role="button">Demo</a>
-        <a class="btn btn-lg btn-default" href="https://tooleks.github.io/shevchenko-js/en.html#usage" role="button">Usage</a>
+        <a class="btn btn-lg btn-primary" href="#demo" role="button">Demo</a>
+        <a class="btn btn-lg btn-default" href="#usageExample" role="button">Usage Example</a>
     </p>
 </div>
 <div class="row my-2">
@@ -280,15 +266,14 @@
         </div>
     </div>
 </div>
+    
     <div class="row my-2">
     <div class="col">
-        <h2 id="documentation">Documentation <a
-                    href="https://github.com/tooleks/shevchenko-js/wiki/%5Ben%5D-Documentation"
-                    target="_blank"
-                    class="btn btn-link">Full Version</a></h2>
-        <div class="card my-2">
+        <h2 id="documentation">Documentation</h2>
+        <div class="card my-3">
             <div class="card-body">
                 <h5 class="card-title">Installation</h5>
+                <h6 class="card-subtitle mb-2 text-muted">npm</h6>
                 <pre>npm install --save shevchenko</pre>
                 <h6 class="card-subtitle mb-2 text-muted">Node.js</h6>
                 <pre>const shevchenko = require("shevchenko");</pre>
@@ -296,11 +281,10 @@
                 <pre class="mb-0"><‍script type="text/javascript" src="/path/to/shevchenko.min.js"><‍/script></pre>
             </div>
         </div>
-        <div class="card my-2">
+        <div class="card my-3">
             <div class="card-body">
-                <h5 id="usage" class="card-title">Usage</h5>
-                <pre class="mb-0">
-const anthroponym = {
+                <h5 id="usageExample" class="card-title">Usage Example</h5>
+                <pre class="mb-0">const anthroponym = {
     gender: 'male', // or 'female'
     firstName: 'Тарас',
     middleName: 'Григорович',
@@ -309,8 +293,19 @@ const anthroponym = {
 
 const result = shevchenko.inVocative(anthroponym);
 
-console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку' }
-                    </pre>
+console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку' }</pre>
+            </div>
+        </div>
+        <div class="card my-3">
+            <div class="card-body">
+                <h5 id="api" class="card-title">API</h5>
+                <pre class="mb-0">shevchenko.inNominative(anthroponym: Anthroponym): Anthroponym; // Inflect in nominative grammatical case
+shevchenko.inGenitive(anthroponym: Anthroponym): Anthroponym; // Inflect in genitive grammatical case
+shevchenko.inDative(anthroponym: Anthroponym): Anthroponym; // Inflect in dative grammatical case
+shevchenko.inAccusative(anthroponym: Anthroponym): Anthroponym; // Inflect in accusative grammatical case
+shevchenko.inAblative(anthroponym: Anthroponym): Anthroponym; // Inflect in ablative grammatical case
+shevchenko.inLocative(anthroponym: Anthroponym): Anthroponym; // Inflect in locative grammatical case
+shevchenko.inVocative(anthroponym: Anthroponym): Anthroponym; // Inflect in vocative grammatical case</pre>
             </div>
         </div>
     </div>
@@ -319,7 +314,6 @@ console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName:
 <div class="row">
     <div class="col-sm-12">
         &copy; 2020 shevchenko -
-        <a href="https://github.com/tooleks/shevchenko-js/wiki/%5Ben%5D-Documentation" target="_blank">Documentation</a> -
         <a href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM</a> -
         <a href="https://github.com/tooleks/shevchenko-js" target="_blank">GitHub</a> -
         <a href="#" data-toggle="modal" data-target="#contactMe">Contact Me</a>

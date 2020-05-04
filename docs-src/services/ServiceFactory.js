@@ -51,6 +51,7 @@ class ServiceFactory {
     const translate = this.makeTranslate(locale);
     return {
       __: translate,
+      currentLocale: locale,
       currentUrl: urlBuilder.buildUrl(outFile),
       facebookShareUrl: shareLinksProvider.facebook(urlBuilder.buildUrl(outFile)),
       twitterShareUrl: shareLinksProvider.twitter(urlBuilder.buildUrl(outFile)),
