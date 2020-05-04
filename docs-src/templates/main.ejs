@@ -9,12 +9,12 @@
     <meta property="og:image:height" content="<%= process.env.APP_PREVIEW_WIDTH %>">
     <meta property="og:type" content="website">
     <meta property="og:url" content="<%= currentUrl %>">
-    <meta property="og:site_name" content="<%= process.env.APP_NAME %>">
-    <meta property="og:title" content="<%= `${process.env.APP_NAME} - ${__('appDescription')}` %>">
-    <meta property="og:description" content="<%= `${process.env.APP_NAME} - ${__('appDescription')}` %>">
+    <meta property="og:site_name" content="<%= process.env.LIBRARY_NAME %>">
+    <meta property="og:title" content="<%= `${process.env.LIBRARY_NAME} - ${__('appDescription')}` %>">
+    <meta property="og:description" content="<%= `${process.env.LIBRARY_NAME} - ${__('appDescription')}` %>">
     <meta name="twitter:image" content="<%= process.env.APP_PREVIEW_URL %>">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="<%= `${process.env.APP_NAME} - ${__('appDescription')}` %>">
+    <meta name="twitter:title" content="<%= `${process.env.LIBRARY_NAME} - ${__('appDescription')}` %>">
     <link rel="apple-touch-icon" sizes="57x57" href="./static/meta/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./static/meta/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="./static/meta/apple-icon-72x72.png">
@@ -32,7 +32,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./static/meta/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <title><%= `${process.env.APP_NAME} - ${__('appDescription')}` %></title>
+    <title><%= `${process.env.LIBRARY_NAME} - ${__('appDescription')}` %></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./static/css/main.css">
@@ -43,6 +43,9 @@
     <%- include('./partial/navbar') -%>
     <%- include('./partial/header') -%>
     <%- include('./partial/demo') -%>
+    <% if (currentLocale === 'uk') { %>
+        <%- include('./partial/howItWorks') -%>
+    <% } %>
     <%- include('./partial/documentation') -%>
     <%- include('./partial/footer') -%>
 </div>

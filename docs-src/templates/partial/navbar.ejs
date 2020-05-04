@@ -1,7 +1,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" href="<%= currentUrl %>">
-        <img src="./static/img/shevchenko_pixelized_304x304.jpg" alt="<%= process.env.APP_NAME %>">
-        <span class="hidden-sm"><%= process.env.APP_NAME %></span>
+        <img src="./static/img/shevchenko_pixelized_304x304.jpg" alt="<%= process.env.LIBRARY_NAME %>">
+        <span class="hidden-sm"><%= process.env.LIBRARY_NAME %></span>
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -15,6 +15,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#documentation"><%= __('documentation') %></a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="<%= process.env.LIBRARY_LICENCE_URL %>"><%= __('license') %></a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"
                    href="#" id="navbarDropdownLinks"
@@ -25,25 +28,9 @@
                     <%= __('links') %>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownLinks">
-                    <a class="dropdown-item" href="<%= process.env.LIBRARY_PACKAGE_NPM_URL %>" target="_blank">NPM</a>
-                    <a class="dropdown-item" href="<%= process.env.LIBRARY_PACKAGE_GITHUB_URL %>"
+                    <a class="dropdown-item" href="<%= process.env.LIBRARY_NPM_URL %>" target="_blank">NPM</a>
+                    <a class="dropdown-item" href="<%= process.env.LIBRARY_GITHUB_URL %>"
                        target="_blank">GitHub</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
-                   href="#" id="navbarDropdownInfo"
-                   role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true"
-                   aria-expanded="false">
-                    <%= __('info') %>
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownInfo">
-                    <a class="dropdown-item" href="<%= __('libraryHowItWorksUrl') %>"
-                       target="_blank"><%= __('howItWorks') %></a>
-                    <a class="dropdown-item" href="<%= process.env.LIBRARY_PACKAGE_LICENCE_URL %>"
-                       target="_blank"><%= __('license') %></a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -56,7 +43,7 @@
                     <%= __('feedback') %>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownFeedback">
-                    <a class="dropdown-item" href="<%= process.env.LIBRARY_PACKAGE_GITHUB_ISSUES_URL %>"
+                    <a class="dropdown-item" href="<%= process.env.LIBRARY_GITHUB_ISSUES_URL %>"
                        target="_blank"><%= __('issueReport') %> <span id="issuesCount"
                                                                       class="badge badge-info">0</span></a>
                     <a class="dropdown-item" href="#" data-toggle="modal"

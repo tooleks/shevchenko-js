@@ -74,6 +74,9 @@
             <li class="nav-item">
                 <a class="nav-link" href="#documentation">Documentation</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE">License</a>
+            </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle"
                    href="#" id="navbarDropdownLinks"
@@ -87,22 +90,6 @@
                     <a class="dropdown-item" href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM</a>
                     <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js"
                        target="_blank">GitHub</a>
-                </div>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"
-                   href="#" id="navbarDropdownInfo"
-                   role="button"
-                   data-toggle="dropdown"
-                   aria-haspopup="true"
-                   aria-expanded="false">
-                    Info
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownInfo">
-                    <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js/wiki/%5Buk%5D-%D0%9F%D1%80%D0%B8%D0%BD%D1%86%D0%B8%D0%BF-%D1%80%D0%BE%D0%B1%D0%BE%D1%82%D0%B8"
-                       target="_blank">How It Works?</a>
-                    <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE"
-                       target="_blank">License</a>
                 </div>
             </li>
             <li class="nav-item dropdown">
@@ -149,7 +136,7 @@
     <p>JavaScript library to inflect Ukrainian first, middle and last names</p>
     <p>
         <a class="btn btn-lg btn-primary" href="#demo" role="button">Demo</a>
-        <a class="btn btn-lg btn-default" href="#usage" role="button">Usage</a>
+        <a class="btn btn-lg btn-default" href="#usageExample" role="button">Usage Example</a>
     </p>
 </div>
 <div class="row my-2">
@@ -279,10 +266,11 @@
         </div>
     </div>
 </div>
-    <div class="row my-3">
+    
+    <div class="row my-2">
     <div class="col">
         <h2 id="documentation">Documentation</h2>
-        <div class="card my-2">
+        <div class="card my-3">
             <div class="card-body">
                 <h5 class="card-title">Installation</h5>
                 <h6 class="card-subtitle mb-2 text-muted">npm</h6>
@@ -293,9 +281,9 @@
                 <pre class="mb-0"><‍script type="text/javascript" src="/path/to/shevchenko.min.js"><‍/script></pre>
             </div>
         </div>
-        <div class="card my-2">
+        <div class="card my-3">
             <div class="card-body">
-                <h5 id="usage" class="card-title">Usage</h5>
+                <h5 id="usageExample" class="card-title">Usage Example</h5>
                 <pre class="mb-0">const anthroponym = {
     gender: 'male', // or 'female'
     firstName: 'Тарас',
@@ -308,7 +296,7 @@ const result = shevchenko.inVocative(anthroponym);
 console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку' }</pre>
             </div>
         </div>
-        <div class="card my-2">
+        <div class="card my-3">
             <div class="card-body">
                 <h5 id="api" class="card-title">API</h5>
                 <pre class="mb-0">shevchenko.inNominative(anthroponym: Anthroponym): Anthroponym; // Inflect in nominative grammatical case

@@ -1,7 +1,7 @@
-<div class="row my-3">
+<div class="row my-2">
     <div class="col">
         <h2 id="documentation"><%= __('documentation') %></h2>
-        <div class="card my-2">
+        <div class="card my-3">
             <div class="card-body">
                 <h5 class="card-title"><%= __('installation') %></h5>
                 <h6 class="card-subtitle mb-2 text-muted">npm</h6>
@@ -12,9 +12,9 @@
                 <pre class="mb-0"><‍script type="text/javascript" src="/path/to/shevchenko.min.js"><‍/script></pre>
             </div>
         </div>
-        <div class="card my-2">
+        <div class="card my-3">
             <div class="card-body">
-                <h5 id="usage" class="card-title"><%= __('usage') %></h5>
+                <h5 id="usageExample" class="card-title"><%= __('usageExample') %></h5>
                 <pre class="mb-0">const anthroponym = {
     gender: 'male', // or 'female'
     firstName: 'Тарас',
@@ -27,7 +27,7 @@ const result = shevchenko.inVocative(anthroponym);
 console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку' }</pre>
             </div>
         </div>
-        <div class="card my-2">
+        <div class="card my-3">
             <div class="card-body">
                 <h5 id="api" class="card-title">API</h5>
                 <pre class="mb-0">shevchenko.inNominative(anthroponym: Anthroponym): Anthroponym; // <%= __('inflectInNominativeCase') %>
