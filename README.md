@@ -12,7 +12,7 @@ JavaScript бібліотека для відмінювання українсь
 npm install --save shevchenko
 ```
 
-### Використання / Usage
+### Приклад використання / Usage Example
 
 ```JavaScript
 const anthroponym = {

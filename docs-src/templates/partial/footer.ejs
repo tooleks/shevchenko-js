@@ -1,9 +1,9 @@
 <hr>
 <div class="row">
     <div class="col-sm-12">
-        &copy; <%= process.env.LIBRARY_RELEASE_YEAR %>-<%= new Date().getFullYear() %> <%= process.env.LIBRARY_NAME %> -
-        <a href="<%= process.env.LIBRARY_NPM_URL %>" target="_blank">NPM</a> -
-        <a href="<%= process.env.LIBRARY_GITHUB_URL %>" target="_blank">GitHub</a> -
+        &copy; <%= config.library.releaseYear %>-<%= new Date().getFullYear() %> <%= config.library.name %> -
+        <a href="<%= config.library.npmUrl %>" target="_blank">NPM</a> -
+        <a href="<%= config.library.gitHubUrl %>" target="_blank">GitHub</a> -
         <a href="#" data-toggle="modal" data-target="#contactMe"><%= __('contactMe') %></a>
     </div>
 </div>
