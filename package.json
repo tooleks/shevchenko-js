@@ -17,7 +17,8 @@
     "build:network-cache": "gulp build:network-cache",
     "build": "rimraf ./dist && rollup -c && tsc -p ./tsconfig.declaration.json",
     "lint": "tslint --fix -p ./tsconfig.json -c ./tslint.json",
-    "test": "mocha --bail ./tests/main.js"
+    "test": "mocha --bail ./tests/main.js",
+    "build:docs": "node ./docs-src/main.js"
   },
   "keywords": [
     "ukrainian language",
@@ -58,12 +59,14 @@
     "@types/synaptic": "^1.0.3",
     "axios": "^0.19.2",
     "chai": "^4.2.0",
+    "ejs": "^3.1.2",
     "gulp": "^4.0.2",
+    "i18n": "^0.9.1",
     "mocha": "^3.5.3",
     "rimraf": "^3.0.2",
-    "rollup": "^2.7.1",
+    "rollup": "^2.8.2",
     "rollup-plugin-terser": "^5.3.0",
-    "tslint": "^6.1.1",
+    "tslint": "^6.1.2",
     "tslint-config-airbnb": "^5.11.2",
     "typescript": "^3.8.3"
   }
