@@ -1,6 +1,6 @@
 <div id="home" class="jumbotron my-2">
-    <h1 class="text-truncate"><%= process.env.LIBRARY_NAME %> <span class="d-none d-lg-inline"><small id="preview"
-                                                                                                  class="text-muted"></small></span>
+    <h1 class="text-truncate"><%= config.library.name %> <span class="d-none d-lg-inline"><small id="preview"
+                                                                                                 class="text-muted"></small></span>
     </h1>
     <p><%= __('appDescription') %></p>
     <p>
@@ -13,15 +13,15 @@
         <h2 id="demo" class="my-2"><%= __('demo') %>
             <span class="btn-group float-right">
                 <a class="btn btn-lg btn-link btn-share-link"
-                   href="<%= facebookShareUrl %>"
+                   href="<%= share.facebookUrl %>"
                    title="<%= __('shareOnFacebook') %>"
                    target="_blank"><i class="fa fa-facebook color-facebook" aria-hidden="true"></i></a>
                 <a class="btn btn-lg btn-link btn-share-link"
-                   href="<%= twitterShareUrl %>"
+                   href="<%= share.twitterUrl %>"
                    title="<%= __('shareOnTwitter') %>"
                    target="_blank"><i class="fa fa-twitter color-twitter" aria-hidden="true"></i></a>
                 <a class="btn btn-lg btn-link btn-share-link"
-                   href="<%= linkedInShareUrl %>"
+                   href="<%= share.linkedInUrl %>"
                    title="<%= __('shareOnLinkedIn') %>"
                    target="_blank"><i class="fa fa-linkedin color-linkedin" aria-hidden="true"></i></a>
             </span>

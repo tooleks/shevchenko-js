@@ -4,17 +4,17 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta property="og:image" content="<%= process.env.APP_PREVIEW_URL %>">
-    <meta property="og:image:width" content="<%= process.env.APP_PREVIEW_WIDTH %>">
-    <meta property="og:image:height" content="<%= process.env.APP_PREVIEW_WIDTH %>">
+    <meta property="og:image" content="<%= config.app.meta.imageUrl %>">
+    <meta property="og:image:width" content="<%= config.app.meta.imageWidth %>">
+    <meta property="og:image:height" content="<%= config.app.meta.imageHeight %>">
     <meta property="og:type" content="website">
-    <meta property="og:url" content="<%= currentUrl %>">
-    <meta property="og:site_name" content="<%= process.env.LIBRARY_NAME %>">
-    <meta property="og:title" content="<%= `${process.env.LIBRARY_NAME} - ${__('appDescription')}` %>">
-    <meta property="og:description" content="<%= `${process.env.LIBRARY_NAME} - ${__('appDescription')}` %>">
-    <meta name="twitter:image" content="<%= process.env.APP_PREVIEW_URL %>">
+    <meta property="og:url" content="<%= page.url %>">
+    <meta property="og:site_name" content="<%= config.library.name %>">
+    <meta property="og:title" content="<%= `${config.library.name} - ${__('appDescription')}` %>">
+    <meta property="og:description" content="<%= `${config.library.name} - ${__('appDescription')}` %>">
+    <meta name="twitter:image" content="<%= config.app.meta.imageUrl %>">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="<%= `${process.env.LIBRARY_NAME} - ${__('appDescription')}` %>">
+    <meta name="twitter:title" content="<%= `${config.library.name} - ${__('appDescription')}` %>">
     <link rel="apple-touch-icon" sizes="57x57" href="./static/meta/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./static/meta/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="./static/meta/apple-icon-72x72.png">
@@ -32,7 +32,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./static/meta/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <title><%= `${process.env.LIBRARY_NAME} - ${__('appDescription')}` %></title>
+    <title><%= `${config.library.name} - ${__('appDescription')}` %></title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./static/css/main.css">
@@ -43,7 +43,7 @@
     <%- include('./partial/navbar') -%>
     <%- include('./partial/header') -%>
     <%- include('./partial/demo') -%>
-    <% if (currentLocale === 'uk') { %>
+    <% if (page.language === 'uk') { %>
         <%- include('./partial/howItWorks') -%>
     <% } %>
     <%- include('./partial/documentation') -%>
