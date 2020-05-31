@@ -58,11 +58,11 @@
                    aria-haspopup="true"
                    aria-expanded="false">
                     <i class="fa fa-language" aria-hidden="true"></i> <span
-                            class="text-uppercase"><%= page.language %></span>
+                            class="text-uppercase"><%= page.locale %></span>
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
                     <% languages.forEach((language) => { %>
-                        <a class="dropdown-item" href="<%= language.url %>"><%= language.name %></a>
+                        <a class="dropdown-item" href="<%= language.url %>"><%= __(language.locale) %></a>
                     <% }); %>
                 </div>
             </li>
