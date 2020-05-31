@@ -1,17 +1,15 @@
-'use strict';
-
 /**
  * Returns a shareable Facebook link URL for a given app URL.
  *
  * @param {string} url
  * @returns {string}
  */
-exports.facebook = (url) => {
+export function getFacebookShareUrl(url) {
   const link = new URL('https://www.facebook.com');
   link.pathname = '/sharer/sharer.php';
   link.searchParams.set('u', url);
   return link.toString();
-};
+}
 
 /**
  * Returns a shareable Twitter link URL for a given app URL.
@@ -19,12 +17,12 @@ exports.facebook = (url) => {
  * @param {string} url
  * @returns {string}
  */
-exports.twitter = (url) => {
+export function getTwitterShareUrl(url) {
   const link = new URL('https://twitter.com');
   link.pathname = '/home';
   link.searchParams.set('status', url);
   return link.toString();
-};
+}
 
 /**
  * Returns a shareable LinkedIn link URL for a given app URL.
@@ -33,7 +31,7 @@ exports.twitter = (url) => {
  * @param {string} description
  * @returns {string}
  */
-exports.linkedIn = (url, description) => {
+export function getLinkedInShareUrl(url, description) {
   const link = new URL('https://www.linkedin.com');
   link.pathname = '/shareArticle';
   link.searchParams.set('mini', true.toString());
@@ -42,7 +40,7 @@ exports.linkedIn = (url, description) => {
   link.searchParams.set('summary', description);
   link.searchParams.set('source', '');
   return link.toString();
-};
+}
 
 /**
  * Returns all share URLs for a given app URL.
@@ -51,10 +49,10 @@ exports.linkedIn = (url, description) => {
  * @param {string} description
  * @returns {Object}
  */
-exports.all = (url, description) => {
+export function getShareUrls(url, description) {
   return {
-    facebookUrl: this.facebook(url),
-    twitterUrl: this.twitter(url),
-    linkedInUrl: this.linkedIn(url, description),
+    facebookShareUrl: getFacebookShareUrl(url),
+    twitterShareUrl: getTwitterShareUrl(url),
+    linkedInShareUrl: getLinkedInShareUrl(url, description),
   };
-};
+}

@@ -1,8 +1,9 @@
-'use strict';
+import path from 'path';
+import url from 'url';
 
-const path = require('path');
+const dir = path.dirname(url.fileURLToPath(import.meta.url));
 
-module.exports = {
+export default {
   app: {
     url: 'https://tooleks.github.io/shevchenko-js',
     email: 'tooleks@gmail.com',
@@ -11,15 +12,16 @@ module.exports = {
       imageWidth: 608,
       imageHeight: 608,
     },
-    templateFile: path.join(__dirname, 'templates/main.ejs'),
-    bundleFile: path.join(__dirname, '../docs/static/js/shevchenko.min.js'),
-    languages: {
-      uk: path.join(__dirname, '../docs/index.html'),
-      en: path.join(__dirname, '../docs/en.html'),
-    },
+    localeDir: path.join(dir, '../locales'),
+    templateFile: path.join(dir, '../templates/main.ejs'),
+    bundleFile: path.join(dir, '../static/js/shevchenko.min.js'),
+    languages: [
+      { locale: 'uk', file: path.join(dir, '../index.html') },
+      { locale: 'en', file: path.join(dir, '../en.html') },
+    ],
   },
   library: {
-    bundleFile: path.join(__dirname, '../dist/umd/shevchenko.min.js'),
+    bundleFile: path.join(dir, '../../dist/umd/shevchenko.min.js'),
     name: 'shevchenko',
     releaseYear: 2017,
     npmUrl: 'https://www.npmjs.com/package/shevchenko',
