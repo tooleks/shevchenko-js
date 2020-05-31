@@ -29,7 +29,9 @@ export function makeTranslator(locale) {
  */
 export function getLanguages() {
   return config.app.languages.map((language) => {
+    const translate = makeTranslator(language.locale);
     return {
+      name: translate(language.locale),
       locale: language.locale,
       url: buildUrl(language.file),
     };
