@@ -1,40 +1,44 @@
-import Gender from './Core/Gender';
-import InflectorRule from './AnthroponymInflector/InflectorRule';
-import FirstNameInflector from './AnthroponymInflector/FirstNameInflector';
-import MiddleNameInflector from './AnthroponymInflector/MiddleNameInflector';
-import LastNameInflector from './AnthroponymInflector/LastNameInflector';
-import AnthroponymInflector from './AnthroponymInflector/AnthroponymInflector';
-import PartOfSpeechRecognizer from './PartOfSpeechRecognizer/PartOfSpeechRecognizer';
-import NeuralNetwork from './PartOfSpeechRecognizer/NeuralNetwork';
-import NeuralNetworkTrainingData from './PartOfSpeechRecognizer/NeuralNetworkTrainingData';
-import RecognizerRule from './PartOfSpeechRecognizer/RecognizerRule';
+import {
+  AnthroponymInflector,
+  FirstNameInflector,
+  InflectorRule,
+  LastNameInflector,
+  MiddleNameInflector,
+} from './anthroponym-inflection';
+import { Gender } from './core';
+import {
+  NeuralNetwork,
+  NeuralNetworkTrainingData,
+  PartOfSpeechRecognizer,
+  PartOfSpeechRecognitionRule,
+} from './part-of-speech-recognition';
 // tslint:disable-next-line import-name
-import inflectorRules from './Resources/Inflector/rules.json';
+import inflectorRules from './resources/inflector/rules.json';
 // tslint:disable-next-line import-name
-import pohorielovaStructure from './Resources/NeuralNetworks/Pohorielova/structure.json';
+import kosmiiCache from './resources/neural-networks/kosmii/cache.json';
 // tslint:disable-next-line import-name
-import pohorielovaCache from './Resources/NeuralNetworks/Pohorielova/cache.json';
+import kosmiiStructure from './resources/neural-networks/kosmii/structure.json';
 // tslint:disable-next-line import-name
-import kosmiiStructure from './Resources/NeuralNetworks/Kosmii/structure.json';
+import pelykhCache from './resources/neural-networks/pelykh/cache.json';
 // tslint:disable-next-line import-name
-import kosmiiCache from './Resources/NeuralNetworks/Kosmii/cache.json';
+import pelykhStructure from './resources/neural-networks/pelykh/structure.json';
 // tslint:disable-next-line import-name
-import pelykhStructure from './Resources/NeuralNetworks/Pelykh/structure.json';
+import pohorielovaCache from './resources/neural-networks/pohorielova/cache.json';
 // tslint:disable-next-line import-name
-import pelykhCache from './Resources/NeuralNetworks/Pelykh/cache.json';
+import pohorielovaStructure from './resources/neural-networks/pohorielova/structure.json';
 
 const partOfSpeechRecognizer = new PartOfSpeechRecognizer([
-  new RecognizerRule(
+  new PartOfSpeechRecognitionRule(
     (word: string, gender: Gender) => gender === Gender.Female && /[ая]$/i.test(word),
     NeuralNetwork.fromJSON(pohorielovaStructure),
     pohorielovaCache as NeuralNetworkTrainingData,
   ),
-  new RecognizerRule(
+  new PartOfSpeechRecognitionRule(
     (word: string, gender: Gender) => gender === Gender.Male && /(ой|ий|ій)$/i.test(word),
     NeuralNetwork.fromJSON(kosmiiStructure),
     kosmiiCache as NeuralNetworkTrainingData,
   ),
-  new RecognizerRule(
+  new PartOfSpeechRecognitionRule(
     (word: string, gender: Gender) => gender === Gender.Male && /(их)$/i.test(word),
     NeuralNetwork.fromJSON(pelykhStructure),
     pelykhCache as NeuralNetworkTrainingData,
