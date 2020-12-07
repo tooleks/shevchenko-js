@@ -15,7 +15,8 @@
     "build:kosmii-cache": "gulp build:kosmii-cache",
     "build:pelykh-cache": "gulp build:pelykh-cache",
     "build:network-cache": "gulp build:network-cache",
-    "build": "rimraf ./dist && rollup -c && tsc -p ./tsconfig.declaration.json",
+    "prebuild": "rimraf ./dist",
+    "build": "rollup -c && tsc -p ./tsconfig.declaration.json",
     "lint": "tslint --fix -p ./tsconfig.json -c ./tslint.json",
     "test": "mocha --bail ./tests/main.js",
     "build:docs": "node ./docs/src/main.mjs"
