@@ -19,7 +19,7 @@ export class AnthroponymInflector {
    * Inflects a given anthroponym in a given grammatical case.
    */
   inflect(anthroponym: Anthroponym, grammaticalCase: GrammaticalCase): Anthroponym {
-    const result = { gender: anthroponym.gender } as Anthroponym;
+    const result: Anthroponym = { gender: anthroponym.gender };
 
     if (anthroponym.firstName != null) {
       result.firstName = this.firstNameInflector.inflect(anthroponym.firstName, anthroponym.gender, grammaticalCase);
