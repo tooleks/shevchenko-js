@@ -1,3 +1,1 @@
-import NeuralNetwork from './PartOfSpeechRecognizer/NeuralNetwork';
-
-export { NeuralNetwork };
+export { NeuralNetwork } from './part-of-speech-recognition';
