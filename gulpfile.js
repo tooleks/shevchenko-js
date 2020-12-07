@@ -16,7 +16,7 @@ const writeFileAsync = util.promisify(fs.writeFile);
 
 gulp.task('update:inflector-rules', async () => {
   const response = await axios.get('https://raw.githubusercontent.com/tooleks/shevchenko-rules/master/dist/rules.json');
-  await writeFileAsync('./src/resources/Inflector/rules.json', JSON.stringify(response.data, null, 2));
+  await writeFileAsync('./src/resources/inflector/rules.json', JSON.stringify(response.data, null, 2));
 });
 
 gulp.task('train:pohorielova-network', async () => {
