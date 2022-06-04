@@ -10,7 +10,7 @@ i18n.configure({
 });
 
 /**
- * Returns a translation function for a given locale.
+ * Returns a translation function for the given locale.
  *
  * @param {string} locale
  * @returns {Function}

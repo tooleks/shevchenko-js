@@ -30,7 +30,7 @@ async function generateLanguageFile(language) {
     config: config,
     page: { locale: language.locale, url },
     languages: getLanguages(),
-    share: getShareUrls(url, __('app.description')),
+    share: getShareUrls(url, __('app.name')),
   });
   await writeFile(language.file, htmlContent);
   console.log(`Language file generated: ${language.locale} -> ${language.file}.`);

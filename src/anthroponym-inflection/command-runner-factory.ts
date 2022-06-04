@@ -5,7 +5,7 @@ import { InflectorCommandRunner } from './inflector-command-runner';
 
 export class CommandRunnerFactory {
   /**
-   * Creates a new command runner for a given command.
+   * Creates a new command runner for the given command.
    */
   make(command: InflectorCommand): InflectorCommandRunner {
     switch (command.type) {

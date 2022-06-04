@@ -11,56 +11,56 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#demo">
+    <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" role="menubar">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" href="#demo" role="menuitem">
           <%= __('demo') %>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#documentation">
+      <li class="nav-item" role="presentation">
+        <a class=" nav-link" href="#documentation" role="menuitem">
           <%= __('documentation') %>
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="<%= config.library.licenseUrl %>" target="_blank">
+      <li class="nav-item" role="presentation">
+        <a class=" nav-link" href="<%= config.library.licenseUrl %>" target="_blank" role="menuitem">
           <%= __('license') %>
         </a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" role="presentation">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLinks" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+          role="menuitem" aria-haspopup="true" aria-expanded="false">
           <%= __('links') %>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownLinks">
-          <a class="dropdown-item" href="<%= config.library.npmUrl %>" target="_blank">NPM</a>
-          <a class="dropdown-item" href="<%= config.library.gitHubUrl %>" target="_blank">GitHub</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownLinks" role="menu">
+          <a class="dropdown-item" href="<%= config.library.npmUrl %>" target="_blank" role="menuitem">NPM</a>
+          <a class="dropdown-item" href="<%= config.library.gitHubUrl %>" target="_blank" role="menuitem">GitHub</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" role="presentation">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFeedback" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+          role="menuitem" aria-haspopup="true" aria-expanded="false">
           <%= __('feedback') %>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownFeedback">
-          <a class="dropdown-item" href="<%= config.library.issuesUrl %>" target="_blank">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownFeedback" role="menu">
+          <a class="dropdown-item" href="<%= config.library.issuesUrl %>" target="_blank" role="menuitem">
             <%= __('issueReport') %> <span id="issuesCount" class="badge badge-info">0</span>
           </a>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#contactMe">
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#contactMe" role="menuitem">
             <%= __('contactMe') %>
           </a>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown" role="presentation">
+        <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" role="button" data-toggle="dropdown"
+          role="menuitem" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-globe" aria-hidden="true"></i> <span class="text-uppercase">
             <%= page.locale %>
           </span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage" role="menu">
           <% languages.forEach((language)=> { %>
-            <a class="dropdown-item" href="<%= language.url %>">
+            <a class="dropdown-item" href="<%= language.url %>" role="menuitem">
               <%= language.name %>
             </a>
             <% }); %>

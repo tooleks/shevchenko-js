@@ -2,7 +2,7 @@ import { Anthroponym, GrammaticalCase, validateAnthroponym } from './core';
 import { anthroponymInflector } from './bootstrap';
 
 /**
- * Inflects an anthroponym in nominative grammatical case.
+ * Inflects the anthroponym in nominative grammatical case.
  */
 export function inNominative(anthroponym: Anthroponym): Anthroponym {
   validateAnthroponym(anthroponym);
@@ -10,7 +10,7 @@ export function inNominative(anthroponym: Anthroponym): Anthroponym {
 }
 
 /**
- * Inflects an anthroponym in genitive grammatical case.
+ * Inflects the anthroponym in genitive grammatical case.
  */
 export function inGenitive(anthroponym: Anthroponym): Anthroponym {
   validateAnthroponym(anthroponym);
@@ -18,7 +18,7 @@ export function inGenitive(anthroponym: Anthroponym): Anthroponym {
 }
 
 /**
- * Inflects an anthroponym in dative grammatical case.
+ * Inflects the anthroponym in dative grammatical case.
  */
 export function inDative(anthroponym: Anthroponym): Anthroponym {
   validateAnthroponym(anthroponym);
@@ -26,7 +26,7 @@ export function inDative(anthroponym: Anthroponym): Anthroponym {
 }
 
 /**
- * Inflects an anthroponym in accusative grammatical case.
+ * Inflects the anthroponym in accusative grammatical case.
  */
 export function inAccusative(anthroponym: Anthroponym): Anthroponym {
   validateAnthroponym(anthroponym);
@@ -34,7 +34,7 @@ export function inAccusative(anthroponym: Anthroponym): Anthroponym {
 }
 
 /**
- * Inflects an anthroponym in ablative grammatical case.
+ * Inflects the anthroponym in ablative grammatical case.
  */
 export function inAblative(anthroponym: Anthroponym): Anthroponym {
   validateAnthroponym(anthroponym);
@@ -42,7 +42,7 @@ export function inAblative(anthroponym: Anthroponym): Anthroponym {
 }
 
 /**
- * Inflects an anthroponym in locative grammatical case.
+ * Inflects the anthroponym in locative grammatical case.
  */
 export function inLocative(anthroponym: Anthroponym): Anthroponym {
   validateAnthroponym(anthroponym);
@@ -50,7 +50,7 @@ export function inLocative(anthroponym: Anthroponym): Anthroponym {
 }
 
 /**
- * Inflects an anthroponym in vocative grammatical case.
+ * Inflects the anthroponym in vocative grammatical case.
  */
 export function inVocative(anthroponym: Anthroponym): Anthroponym {
   validateAnthroponym(anthroponym);

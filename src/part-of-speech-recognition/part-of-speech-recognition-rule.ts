@@ -20,8 +20,8 @@ export class PartOfSpeechRecognitionRule {
   }
 
   /**
-   * Applies the part of speech recognizer rule to a given word.
-   * Returns a part of speech of a given word.
+   * Applies the part of speech recognizer rule to the given word.
+   * Returns a part of speech of the given word.
    */
   apply(word: string): PartOfSpeech {
     const transformedWord = new WordTransformer().transform(word);

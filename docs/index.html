@@ -10,11 +10,11 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://tooleks.github.io/shevchenko-js/index.html">
     <meta property="og:site_name" content="shevchenko">
-    <meta property="og:title" content="shevchenko - JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові">
-    <meta property="og:description" content="shevchenko - JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові">
+    <meta property="og:title" content="shevchenko - JavaScript бібліотека для відмінювання українських антропонімів">
+    <meta property="og:description" content="shevchenko - JavaScript бібліотека для відмінювання українських антропонімів">
     <meta name="twitter:image" content="https://tooleks.github.io/shevchenko-js/static/img/shevchenko_pixelized_608x608.jpg">
     <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="shevchenko - JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові">
+    <meta name="twitter:title" content="shevchenko - JavaScript бібліотека для відмінювання українських антропонімів">
     <link rel="apple-touch-icon" sizes="57x57" href="./static/meta/apple-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="./static/meta/apple-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="./static/meta/apple-icon-72x72.png">
@@ -32,7 +32,7 @@
     <meta name="msapplication-TileColor" content="#ffffff">
     <meta name="msapplication-TileImage" content="./static/meta/ms-icon-144x144.png">
     <meta name="theme-color" content="#ffffff">
-    <title>shevchenko - JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові</title>
+    <title>shevchenko - JavaScript бібліотека для відмінювання українських антропонімів</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="./static/css/main.css">
@@ -70,60 +70,60 @@
     <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#demo">
+    <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" role="menubar">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" href="#demo" role="menuitem">
           Демонстрація
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#documentation">
+      <li class="nav-item" role="presentation">
+        <a class=" nav-link" href="#documentation" role="menuitem">
           Документація
         </a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE" target="_blank">
+      <li class="nav-item" role="presentation">
+        <a class=" nav-link" href="https://github.com/tooleks/shevchenko-js/blob/master/LICENSE" target="_blank" role="menuitem">
           Ліцензія
         </a>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" role="presentation">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLinks" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+          role="menuitem" aria-haspopup="true" aria-expanded="false">
           Посилання
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownLinks">
-          <a class="dropdown-item" href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM</a>
-          <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js" target="_blank">GitHub</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownLinks" role="menu">
+          <a class="dropdown-item" href="https://www.npmjs.com/package/shevchenko" target="_blank" role="menuitem">NPM</a>
+          <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js" target="_blank" role="menuitem">GitHub</a>
         </div>
       </li>
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" role="presentation">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownFeedback" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+          role="menuitem" aria-haspopup="true" aria-expanded="false">
           Зворотній зв&#39;язок
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownFeedback">
-          <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js/issues" target="_blank">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownFeedback" role="menu">
+          <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js/issues" target="_blank" role="menuitem">
             Звіт про помилку <span id="issuesCount" class="badge badge-info">0</span>
           </a>
-          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#contactMe">
+          <a class="dropdown-item" href="#" data-toggle="modal" data-target="#contactMe" role="menuitem">
             Написати автору
           </a>
         </div>
       </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" role="button" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item dropdown" role="presentation">
+        <a class=" nav-link dropdown-toggle" href="#" id="navbarDropdownLanguage" role="button" data-toggle="dropdown"
+          role="menuitem" aria-haspopup="true" aria-expanded="false">
           <i class="fa fa-globe" aria-hidden="true"></i> <span class="text-uppercase">
             uk
           </span>
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownLanguage" role="menu">
           
-            <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/index.html">
+            <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/index.html" role="menuitem">
               Українська
             </a>
             
-            <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/en.html">
+            <a class="dropdown-item" href="https://tooleks.github.io/shevchenko-js/en.html" role="menuitem">
               English
             </a>
             
@@ -131,150 +131,185 @@
       </li>
     </ul>
   </div>
-</nav>    <div id="home" class="jumbotron my-2">
-    <h1 class="text-truncate">shevchenko <span class="d-none d-lg-inline"><small id="preview"
-                                                                                                 class="text-muted"></small></span>
-    </h1>
-    <p>JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові</p>
-    <p>
-        <a class="btn btn-lg btn-primary" href="#demo" role="button">Демонстрація</a>
-        <a class="btn btn-lg btn-default" href="#usageExample" role="button">Приклад використання</a>
-    </p>
-</div>
-<div class="row my-2">
-    <div class="col">
-        <h2 id="demo" class="my-2">Демонстрація
-            <span class="btn-group float-right">
-                <a class="btn btn-lg btn-link btn-share-link"
-                   href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftooleks.github.io%2Fshevchenko-js%2Findex.html"
-                   title="Розповісти на Facebook"
-                   target="_blank"><i class="fa fa-facebook color-facebook" aria-hidden="true"></i></a>
-                <a class="btn btn-lg btn-link btn-share-link"
-                   href="https://twitter.com/home?status=https%3A%2F%2Ftooleks.github.io%2Fshevchenko-js%2Findex.html"
-                   title="Розповісти на Twitter"
-                   target="_blank"><i class="fa fa-twitter color-twitter" aria-hidden="true"></i></a>
-                <a class="btn btn-lg btn-link btn-share-link"
-                   href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Ftooleks.github.io%2Fshevchenko-js%2Findex.html&amp;title=&amp;summary=JavaScript+%D0%B1%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0+%D0%B4%D0%BB%D1%8F+%D0%B2%D1%96%D0%B4%D0%BC%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F+%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85+%D0%BF%D1%80%D1%96%D0%B7%D0%B2%D0%B8%D1%89%2C+%D1%96%D0%BC%D0%B5%D0%BD+%D1%82%D0%B0+%D0%BF%D0%BE+%D0%B1%D0%B0%D1%82%D1%8C%D0%BA%D0%BE%D0%B2%D1%96&amp;source="
-                   title="Розповісти на LinkedIn"
-                   target="_blank"><i class="fa fa-linkedin color-linkedin" aria-hidden="true"></i></a>
-            </span>
-        </h2>
+</nav>    <section id="home" class="jumbotron my-3">
+  <h1 class="text-truncate">
+    shevchenko <span class="d-none d-lg-inline"><small id="preview" class="text-muted"></small></span>
+  </h1>
+  <p>
+    JavaScript бібліотека для відмінювання українських антропонімів
+  </p>
+  <p>
+    <a class="btn btn-lg btn-primary" href="#demo" role="button">
+      Демонстрація
+    </a>
+    <a class="btn btn-lg btn-default" href="#usageExample" role="button">
+      Приклад використання
+    </a>
+  </p>
+</section>
+
+<section id="demo" class="my-3">
+  <div class="row">
+    <div class="col-12 col-lg-9">
+      <h2 class="mb-0">
+        Демонстрація
+          <small class="d-block h6 text-muted mt-2 mb-0">
+            Відмінювання українських прізвищ, імен та по батькові
+          </small>
+      </h2>
     </div>
-</div>
-    <div class="row my-2">
+    <div class="col-12 col-lg-3">
+      <div class="d-flex">
+        <div class="btn-group ml-auto" role="menubar">
+          <a class="btn btn-lg btn-link btn-share-link" href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Ftooleks.github.io%2Fshevchenko-js%2Findex.html"
+            title="Поділитися через Facebook" target="_blank" role="menuitem"><i
+              class="fa fa-facebook color-facebook" aria-hidden="true"></i></a>
+          <a class="btn btn-lg btn-link btn-share-link" href="https://twitter.com/home?status=https%3A%2F%2Ftooleks.github.io%2Fshevchenko-js%2Findex.html"
+            title="Поділитися через Twitter" target="_blank" role="menuitem"><i class="fa fa-twitter color-twitter"
+              aria-hidden="true"></i></a>
+          <a class="btn btn-lg btn-link btn-share-link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Ftooleks.github.io%2Fshevchenko-js%2Findex.html&amp;title=&amp;summary=JavaScript+%D0%B1%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0+%D0%B4%D0%BB%D1%8F+%D0%B2%D1%96%D0%B4%D0%BC%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F+%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85+%D0%B0%D0%BD%D1%82%D1%80%D0%BE%D0%BF%D0%BE%D0%BD%D1%96%D0%BC%D1%96%D0%B2&amp;source="
+            title="Поділитися через LinkedIn" target="_blank" role="menuitem"><i
+              class="fa fa-linkedin color-linkedin" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>    <section class="my-3">
+  <div class="row">
     <div class="col-lg-5 mb-2 mb-lg-0">
-        <form id="inflection-form">
-            <div class="card">
-                <div class="card-body">
-                    <div class="alert alert-info" role="alert">
-                        Введіть стать та дані особи в називному відмінку однини.
-                    </div>
-                    <div class="form-group">
-                        <label class="radio-inline">
-                            <input type="radio" name="gender" value="male" checked="checked"> Чоловік
-                        </label>
-                        <label class="radio-inline">
-                            <input type="radio" name="gender" value="female"> Жінка
-                        </label>
-                    </div>
-                    <div class="form-group">
-                        <label for="lastName">Прізвище</label>
-                        <input type="text"
-                               class="form-control"
-                               name="lastName"
-                               id="lastName"
-                               placeholder="Шевченко">
-                    </div>
-                    <div class="form-group">
-                        <label for="firstName">Ім&#39;я</label>
-                        <input type="text"
-                               class="form-control"
-                               name="firstName"
-                               id="firstName"
-                               placeholder="Тарас">
-                    </div>
-                    <div class="form-group">
-                        <label for="middleName">По батькові</label>
-                        <input type="text"
-                               class="form-control"
-                               name="middleName"
-                               id="middleName"
-                               placeholder="Григорович">
-                    </div>
-                </div>
-                <div class="card-footer">
-                    <button type="submit"
-                            class="btn btn-primary btn-inflection-form">Провідміняти</button>
-                    <button class="btn btn-link pull-right btn-inflection-form"
-                            type="button"
-                            data-toggle="modal"
-                            data-target="#contactMe">Знайшли помилку?</button>
-                </div>
+      <form id="inflection-form">
+        <div class="card">
+          <div class="card-body">
+            <div class="alert alert-info" role="alert">
+              Введіть стать, прізвище, ім&#39;я та по батькові особи в називному відмінку однини.
             </div>
-        </form>
+            <div class="form-group">
+              <label class="radio-inline mr-2">
+                <input type="radio" name="gender" value="male" checked="checked">
+                Чоловік
+              </label>
+              <label class="radio-inline">
+                <input type="radio" name="gender" value="female">
+                Жінка
+              </label>
+            </div>
+            <div class="form-group">
+              <label for="lastName">
+                Прізвище
+              </label>
+              <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Шевченко">
+            </div>
+            <div class="form-group">
+              <label for="firstName">
+                Ім&#39;я
+              </label>
+              <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Тарас">
+            </div>
+            <div class="form-group">
+              <label for="middleName">
+                По батькові
+              </label>
+              <input type="text" class="form-control" name="middleName" id="middleName" placeholder="Григорович">
+            </div>
+          </div>
+          <div class="card-footer">
+            <button type="submit" class="btn btn-primary btn-inflection-form">
+              Провідміняти
+            </button>
+            <button class="btn btn-link pull-right btn-inflection-form" type="button" data-toggle="modal"
+              data-target="#contactMe">
+              Знайшли помилку?
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
     <div class="col-lg-7">
-        <div class="card">
-            <table class="table table-striped table-responsive-md m-0">
-                <tr>
-                    <th class="border-top-0">Граматичний відмінок</th>
-                    <th class="border-top-0">Прізвище</th>
-                    <th class="border-top-0">Ім&#39;я</th>
-                    <th class="border-top-0">По батькові</th>
-                </tr>
-                <tr>
-                    <th>Називний (хто/що?)</th>
-                    <td id="nominativeLastName">Шевченко</td>
-                    <td id="nominativeFirstName">Тарас</td>
-                    <td id="nominativeMiddleName">Григорович</td>
-                </tr>
-                <tr>
-                    <th>Родовий (кого/чого?)</th>
-                    <td id="genitiveLastName">Шевченка</td>
-                    <td id="genitiveFirstName">Тараса</td>
-                    <td id="genitiveMiddleName">Григоровича</td>
-                </tr>
-                <tr>
-                    <th>Давальний (кому/чому?)</th>
-                    <td id="dativeLastName">Шевченку</td>
-                    <td id="dativeFirstName">Тарасу</td>
-                    <td id="dativeMiddleName">Григоровичу</td>
-                </tr>
-                <tr>
-                    <th>Знахідний (кого/що?)</th>
-                    <td id="accusativeLastName">Шевченка</td>
-                    <td id="accusativeFirstName">Тараса</td>
-                    <td id="accusativeMiddleName">Григоровича</td>
-                </tr>
-                <tr>
-                    <th>Орудний (ким/чим?)</th>
-                    <td id="ablativeLastName">Шевченком</td>
-                    <td id="ablativeFirstName">Тарасом</td>
-                    <td id="ablativeMiddleName">Григоровичем</td>
-                </tr>
-                <tr>
-                    <th>Місцевий (при кому/чому?)</th>
-                    <td id="locativeLastName">Шевченкові</td>
-                    <td id="locativeFirstName">Тарасові</td>
-                    <td id="locativeMiddleName">Григоровичу</td>
-                </tr>
-                <tr>
-                    <th>Кличний</th>
-                    <td id="vocativeLastName">Шевченку</td>
-                    <td id="vocativeFirstName">Тарасе</td>
-                    <td id="vocativeMiddleName">Григоровичу</td>
-                </tr>
-            </table>
-        </div>
+      <div class="card mb-2">
+        <table class="table table-striped table-responsive-md m-0">
+          <tr>
+            <th class="border-top-0">
+              Граматичний відмінок
+            </th>
+            <th class="border-top-0">
+              Прізвище
+            </th>
+            <th class="border-top-0">
+              Ім&#39;я
+            </th>
+            <th class="border-top-0">
+              По батькові
+            </th>
+          </tr>
+          <tr>
+            <th>
+              Називний (хто/що?)
+            </th>
+            <td id="nominativeLastName">Шевченко</td>
+            <td id="nominativeFirstName">Тарас</td>
+            <td id="nominativeMiddleName">Григорович</td>
+          </tr>
+          <tr>
+            <th>
+              Родовий (кого/чого?)
+            </th>
+            <td id="genitiveLastName">Шевченка</td>
+            <td id="genitiveFirstName">Тараса</td>
+            <td id="genitiveMiddleName">Григоровича</td>
+          </tr>
+          <tr>
+            <th>
+              Давальний (кому/чому?)
+            </th>
+            <td id="dativeLastName">Шевченку</td>
+            <td id="dativeFirstName">Тарасу</td>
+            <td id="dativeMiddleName">Григоровичу</td>
+          </tr>
+          <tr>
+            <th>
+              Знахідний (кого/що?)
+            </th>
+            <td id="accusativeLastName">Шевченка</td>
+            <td id="accusativeFirstName">Тараса</td>
+            <td id="accusativeMiddleName">Григоровича</td>
+          </tr>
+          <tr>
+            <th>
+              Орудний (ким/чим?)
+            </th>
+            <td id="ablativeLastName">Шевченком</td>
+            <td id="ablativeFirstName">Тарасом</td>
+            <td id="ablativeMiddleName">Григоровичем</td>
+          </tr>
+          <tr>
+            <th>
+              Місцевий (при кому/чому?)
+            </th>
+            <td id="locativeLastName">Шевченкові</td>
+            <td id="locativeFirstName">Тарасові</td>
+            <td id="locativeMiddleName">Григоровичу</td>
+          </tr>
+          <tr>
+            <th>
+              Кличний
+            </th>
+            <td id="vocativeLastName">Шевченку</td>
+            <td id="vocativeFirstName">Тарасе</td>
+            <td id="vocativeMiddleName">Григоровичу</td>
+          </tr>
+        </table>
+      </div>
     </div>
-</div>
-    
-        <div class="row mt-4 mb-2">
+</section>    
+        <section id="howItWorks" class="mt-4 mb-2">
+  <div class="row">
     <div class="col">
-        <h2 id="howItWorks">Принцип роботи</h2>
-        <div class="card my-3">
-            <div class="card-body">
-                <p style="white-space: pre-wrap;">Бібліотека використовує більше вісімдесяти правил для відмінювання прізвищ, імен та по батькові. Правила фільтруються за родом, закінченням, частиною мови, сферою застосування та сортуються за пріорітетом.
+      <h2>
+        Принцип роботи
+      </h2>
+      <div class="card my-3">
+        <div class="card-body">
+          <p class="mb-0" style="white-space: pre-wrap;">Бібліотека використовує більше вісімдесяти правил для відмінювання прізвищ, імен та по батькові. Правила фільтруються за родом, закінченням, частиною мови, сферою застосування та сортуються за пріорітетом.
 
 При відмінюванні жіночих прізвищ із закінченнями на -а, -я та чоловічих прізвищ із закінченнями на -ой, -ій, -ий, -их для визначення частини мови слова використовуються нейронні мережі прямого поширення (навчені на більш як сорока тисячах прізвищах). Тому прізвища іменникового та прикметникового походжень відмінюються як іменники та прикметники відповідно, наприклад, Диня (називний) -&gt; Дині (родовий), Синя (називний) -&gt; Синьої (родовий), Рий (називний) -&gt; Рия (родовий), Бурий (називний) -&gt; Бурого (родовий).
 
@@ -283,63 +318,86 @@
 Складені прізвища, утворені поєднанням двох самостійних прізвищ відмінюються за правилами відмінювання кожної складової частини, наприклад, Нечуй-Левицький (називний) - Нечуя-Левицького (родовий), але Драй-Хмара (називний) - Драй-Хмари (родовий), бо перша коротка частина складеного прізвища є односкладовою та сприймається не як самостійне прізвище, а як приставка до другого компонента.
 
 Складені імена, утворені поєднанням двох самостійних імен відмінюються за правилами відмінювання кожної складової частини, наприклад, Анна-Марія (називний) - Анни-Марії (родовий).</p>
-            </div>
         </div>
+      </div>
     </div>
-</div>    
-    <div class="row my-2">
+  </div>
+</section>    
+    <section id="documentation" class="my-3">
+  <div class="row">
     <div class="col">
-        <h2 id="documentation">Документація</h2>
-        <div class="card my-3">
-            <div class="card-body">
-                <h5 class="card-title">Встановлення</h5>
-                <h6 class="card-subtitle mb-2 text-muted">npm</h6>
-                <pre>npm install --save shevchenko</pre>
-                <h6 class="card-subtitle mb-2 text-muted">Node.js</h6>
-                <pre>const shevchenko = require("shevchenko");</pre>
-                <h6 class="card-subtitle mb-2 text-muted">Браузер</h6>
-                <pre class="mb-0"><‍script type="text/javascript" src="/path/to/shevchenko.min.js"><‍/script></pre>
-            </div>
+      <h2>
+        Документація
+      </h2>
+      <div class="card my-3">
+        <div class="card-body">
+          <h5 class="card-title">
+            Встановлення
+          </h5>
+          <h6 class="card-subtitle mb-2 text-muted">npm</h6>
+          <pre>npm install --save shevchenko</pre>
+          <h6 class="card-subtitle mb-2 text-muted">Node.js</h6>
+          <pre>const shevchenko = require("shevchenko");</pre>
+          <h6 class="card-subtitle mb-2 text-muted">
+            Браузер
+          </h6>
+          <pre class="mb-0"><‍script type="text/javascript" src="/path/to/shevchenko.min.js"><‍/script></pre>
         </div>
-        <div class="card my-3">
-            <div class="card-body">
-                <h5 id="usageExample" class="card-title">Приклад використання</h5>
-                <pre class="mb-0">const anthroponym = {
-    gender: 'male', // or 'female'
-    firstName: 'Тарас',
-    middleName: 'Григорович',
-    lastName: 'Шевченко'
+      </div>
+      <div class="card my-3">
+        <div class="card-body">
+          <h5 id="usageExample" class="card-title">
+            Приклад використання
+          </h5>
+          <pre class="mb-0">const anthroponym = {
+  gender: 'male', // or 'female'
+  firstName: 'Тарас',
+  middleName: 'Григорович',
+  lastName: 'Шевченко'
 };
 
 const result = shevchenko.inVocative(anthroponym);
 
-console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку' }</pre>
-            </div>
+console.log(result); // { gender: "male", firstName: "Тарасе", middleName: "Григоровичу", lastName: "Шевченку" }</pre>
         </div>
-        <div class="card my-3">
-            <div class="card-body">
-                <h5 id="api" class="card-title">API</h5>
-                <pre class="mb-0">shevchenko.inNominative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в називному відмінку
+      </div>
+      <div class="card my-3">
+        <div class="card-body">
+          <h5 id="api" class="card-title">API</h5>
+          <pre class="mb-0">shevchenko.inNominative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в називному відмінку
 shevchenko.inGenitive(anthroponym: Anthroponym): Anthroponym; // Провідміняти в родовому відмінку
 shevchenko.inDative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в давальному відмінку
 shevchenko.inAccusative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в знахідному відмінку
 shevchenko.inAblative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в орудному відмінку
 shevchenko.inLocative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в місцевому відмінку
 shevchenko.inVocative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в кличному відмінку</pre>
-            </div>
         </div>
+      </div>
     </div>
-</div>
-    <hr>
+  </div>
+</section>    <hr>
 <div class="row">
-    <div class="col-sm-12">
-        &copy; 2017-2022 shevchenko -
-        <a href="https://www.npmjs.com/package/shevchenko" target="_blank">NPM</a> -
-        <a href="https://github.com/tooleks/shevchenko-js" target="_blank">GitHub</a> -
-        <a href="#" data-toggle="modal" data-target="#contactMe">Написати автору</a>
-    </div>
-</div>
-</div>
+  <div class="col-sm-12">
+    <nav>
+      <ul class="list-unstyled" role="menubar">
+        <p class="d-inline mr-2 mb-0">&copy; 2017-2022
+              shevchenko
+        </p>
+        <li class="d-inline mr-2" role="presentation">
+          <a href="https://www.npmjs.com/package/shevchenko" target="_blank" role="menuitem">NPM</a>
+        </li>
+        <li class="d-inline mr-2" role="presentation">
+          <a href="https://github.com/tooleks/shevchenko-js" target="_blank" role="menuitem">GitHub</a>
+        </li>
+        <li class="d-inline mr-2" role="presentation">
+          <a href="#" data-toggle="modal" data-target="#contactMe" role="menuitem">
+            Написати автору
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div></div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js"></script>
 <script src="https://use.fontawesome.com/eb2025b7f7.js"></script>
 <script src="https://code.jquery.com/jquery-3.3.1.min.js"

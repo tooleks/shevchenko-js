@@ -16,13 +16,13 @@ npm install --save shevchenko
 
 ```JavaScript
 const anthroponym = {
-    gender: 'male', // or 'female'
-    firstName: 'Тарас',
-    middleName: 'Григорович',
-    lastName: 'Шевченко'
+  gender: 'male', // or 'female'
+  firstName: 'Тарас',
+  middleName: 'Григорович',
+  lastName: 'Шевченко'
 };
 
 const result = shevchenko.inVocative(anthroponym);
 
-console.log(result); // { gender: 'male', firstName: 'Тарасе', middleName: 'Григоровичу', lastName: 'Шевченку' }
+console.log(result); // { gender: "male", firstName: "Тарасе", middleName: "Григоровичу", lastName: "Шевченку" }
 ```

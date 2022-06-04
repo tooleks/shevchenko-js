@@ -14,7 +14,7 @@ export class RuleInflector {
   }
 
   /**
-   * Inflects a given word in a given grammatical case using the rule.
+   * Inflects the given word in the given grammatical case using the rule.
    */
   inflect(word: string, grammaticalCase: GrammaticalCase): string {
     const [commands] = this.rule.grammaticalCases[grammaticalCase];

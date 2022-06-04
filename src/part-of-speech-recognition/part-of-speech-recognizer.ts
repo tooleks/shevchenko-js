@@ -11,8 +11,8 @@ export class PartOfSpeechRecognizer {
   }
 
   /**
-   * Recognizes the part of speech of a given word.
-   * Returns part of speech of a given word.
+   * Recognizes the part of speech of the given word.
+   * Returns part of speech of the given word.
    * Returns null if part of speech was not recognized.
    */
   recognize(word: string, gender: Gender): PartOfSpeech | null {

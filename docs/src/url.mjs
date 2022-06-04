@@ -5,7 +5,7 @@ const LEADING_SLASHES = /^\/+/g;
 const TRAILING_SLASHES = /\/+$/g;
 
 /**
- * Returns a URL for a given file.
+ * Returns a URL for the given file.
  *
  * @param {string} languageFile
  * @returns {string}

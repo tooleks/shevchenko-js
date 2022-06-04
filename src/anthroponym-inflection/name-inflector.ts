@@ -2,7 +2,7 @@ import { Gender, GrammaticalCase } from '../core';
 
 export abstract class NameInflector {
   /**
-   * Inflects a given name in a given grammatical case.
+   * Inflects the name in the given grammatical case.
    */
   inflect(name: string, gender: Gender, grammaticalCase: GrammaticalCase): string {
     const words = name.split('-');
@@ -12,7 +12,7 @@ export abstract class NameInflector {
   }
 
   /**
-   * Inflects a given word of the compound name in a given grammatical case.
+   * Inflects the word of the compound name in the given grammatical case.
    */
   // tslint:disable-next-line max-line-length
   protected abstract inflectWord(word: string, gender: Gender, grammaticalCase: GrammaticalCase, isLastWord: boolean): string;

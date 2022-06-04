@@ -9,7 +9,7 @@ export class ReplaceCommandRunner implements InflectorCommandRunner {
   }
 
   /**
-   * Replaces a given value with the command value.
+   * Replaces the given value with the command value.
    * Returns a new value.
    */
   exec(value: string): string {

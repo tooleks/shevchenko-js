@@ -9,7 +9,7 @@ export class AppendCommandRunner implements InflectorCommandRunner {
   }
 
   /**
-   * Appends the command value to a given value.
+   * Appends the command value to the given value.
    * Returns a new value.
    */
   exec(value: string): string {
