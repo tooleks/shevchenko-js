@@ -1,6 +1,6 @@
 ## shevchenko
 
-JavaScript бібліотека для відмінювання українських прізвищ, імен та по батькові / JavaScript library to inflect Ukrainian first, middle and last names
+JavaScript бібліотека для відмінювання українських антропонімів / JavaScript library for declension of Ukrainian anthroponyms
 
 ### Документація / Documentation
 
