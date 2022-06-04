@@ -1,7 +1,7 @@
 export const PATTERN_VOWELS = /[аоуеиіяюєї]/gi;
 
 /**
- * Counts vowel sounds in a given word.
+ * Counts vowel sounds in the given word.
  * Returns a number of vowels.
  */
 export function countVowels(word: string): number {

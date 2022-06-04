@@ -1,7 +1,7 @@
 {
   "name": "shevchenko",
   "version": "2.0.6",
-  "description": "JavaScript library to inflect Ukrainian first, middle and last names",
+  "description": "JavaScript library for declension of Ukrainian anthroponyms",
   "browser": "./dist/umd/shevchenko.min.js",
   "main": "./dist/cjs/shevchenko.js",
   "module": "./dist/es/shevchenko.js",
@@ -22,16 +22,20 @@
     "build:docs": "node ./docs/src/main.mjs"
   },
   "keywords": [
-    "ukrainian language",
-    "ukrainian names inflector",
-    "ukrainian grammatical cases",
-    "nominative case inflection",
-    "genitive case inflection",
-    "dative case inflection",
-    "accusative case inflection",
-    "ablative case inflection",
-    "locative case inflection",
-    "vocative case inflection"
+    "ukrainian",
+    "language",
+    "grammar",
+    "linguistics",
+    "inflection",
+    "declension",
+    "anthroponym",
+    "nominative",
+    "genitive",
+    "dative",
+    "accusative",
+    "ablative",
+    "locative",
+    "vocative"
   ],
   "repository": {
     "type": "git",

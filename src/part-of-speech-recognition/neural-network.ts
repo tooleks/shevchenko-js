@@ -41,7 +41,7 @@ export class NeuralNetwork {
   }
 
   /**
-   * Trains the neural network using a given training data.
+   * Trains the neural network using the given training data.
    */
   train(trainingData: NeuralNetworkTrainingData, trainingOptions: any): NeuralNetwork {
     const trainingSet = Object.entries(trainingData).map(([word, partOfSpeech]) => {
@@ -55,8 +55,8 @@ export class NeuralNetwork {
   }
 
   /**
-   * Activates the neural network for a given word.
-   * Returns a part of speech of a given word.
+   * Activates the neural network for the given word.
+   * Returns a part of speech of the given word.
    */
   activate(word: string): PartOfSpeech {
     const input = new WordEncoder().encode(word);

@@ -1,5 +1,5 @@
 /**
- * Returns a shareable Facebook link URL for a given app URL.
+ * Returns a shareable Facebook link URL for the given app URL.
  *
  * @param {string} url
  * @returns {string}
@@ -12,7 +12,7 @@ export function getFacebookShareUrl(url) {
 }
 
 /**
- * Returns a shareable Twitter link URL for a given app URL.
+ * Returns a shareable Twitter link URL for the given app URL.
  *
  * @param {string} url
  * @returns {string}
@@ -25,7 +25,7 @@ export function getTwitterShareUrl(url) {
 }
 
 /**
- * Returns a shareable LinkedIn link URL for a given app URL.
+ * Returns a shareable LinkedIn link URL for the given app URL.
  *
  * @param {string} url
  * @param {string} description
@@ -43,7 +43,7 @@ export function getLinkedInShareUrl(url, description) {
 }
 
 /**
- * Returns all share URLs for a given app URL.
+ * Returns all share URLs for the given app URL.
  *
  * @param {string} url
  * @param {string} description

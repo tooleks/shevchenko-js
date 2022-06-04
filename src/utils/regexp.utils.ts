@@ -1,5 +1,5 @@
 /**
- * Counts a number of groups in a given regular expression.
+ * Counts a number of groups in the given regular expression.
  */
 export function countGroups(src: RegExp | string): number {
   const pattern = new RegExp(`${src.toString()}|`);
