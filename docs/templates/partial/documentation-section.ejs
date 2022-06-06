@@ -4,7 +4,7 @@
       <h2>
         <%= __('documentation') %>
       </h2>
-      <div class="card my-3">
+      <div id="installation" class="card my-3">
         <div class="card-body">
           <h5 class="card-title">
             <%= __('installation') %>
@@ -19,7 +19,7 @@
           <pre class="mb-0"><‍script type="text/javascript" src="/path/to/shevchenko.min.js"><‍/script></pre>
         </div>
       </div>
-      <div class="card my-3">
+      <div id="usageExample" class="card my-3">
         <div class="card-body">
           <h5 class="card-title">
             <%= __('usageExample') %> <small><a href="<%= config.library.runKitUrl %>" target="_blank">
@@ -29,7 +29,7 @@
           <pre class="mb-0"><%- include('./usage-example-content') -%></pre>
         </div>
       </div>
-      <div class="card my-3">
+      <div id="api-example" class="card my-3">
         <div class="card-body">
           <h5 class="card-title">API</h5>
           <pre class="mb-0"><%- include('./api-example-content') -%></pre>
