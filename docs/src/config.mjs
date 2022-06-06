@@ -28,5 +28,6 @@ export default {
     gitHubUrl: 'https://github.com/tooleks/shevchenko-js',
     issuesUrl: 'https://github.com/tooleks/shevchenko-js/issues',
     licenseUrl: 'https://github.com/tooleks/shevchenko-js/blob/master/LICENSE',
+    runKitUrl: 'https://runkit.com/tooleks/shevchenko'
   },
 };

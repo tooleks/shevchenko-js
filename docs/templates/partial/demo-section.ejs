@@ -1,4 +1,29 @@
-<section class="my-3">
+<section id="demo" class="my-3">
+  <div class="row mb-3">
+    <div class="col-12 col-lg-9">
+      <h2 class="mb-0">
+        <%= __('demo') %>
+          <small class="d-block h6 text-muted mt-2 mb-0">
+            <%= __('demo.subtitle') %>
+          </small>
+      </h2>
+    </div>
+    <div class="col-12 col-lg-3">
+      <div class="d-flex">
+        <div class="btn-group ml-auto" role="menubar">
+          <a class="btn btn-lg btn-link btn-share-link" href="<%= share.facebookShareUrl %>"
+            title="<%= __('action.share.onFacebook') %>" target="_blank" role="menuitem"><i
+              class="fa fa-facebook color-facebook" aria-hidden="true"></i></a>
+          <a class="btn btn-lg btn-link btn-share-link" href="<%= share.twitterShareUrl %>"
+            title="<%= __('action.share.onTwitter') %>" target="_blank" role="menuitem"><i
+              class="fa fa-twitter color-twitter" aria-hidden="true"></i></a>
+          <a class="btn btn-lg btn-link btn-share-link" href="<%= share.linkedInShareUrl %>"
+            title="<%= __('action.share.onLinkedIn') %>" target="_blank" role="menuitem"><i
+              class="fa fa-linkedin color-linkedin" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-lg-5 mb-2 mb-lg-0">
       <form id="inflection-form">
@@ -19,26 +44,26 @@
             </div>
             <div class="form-group">
               <label for="lastName">
-                <%= __('lastName') %>
+                <%= __('anthroponym.lastName') %>
               </label>
               <input type="text" class="form-control" name="lastName" id="lastName" placeholder="Шевченко">
             </div>
             <div class="form-group">
               <label for="firstName">
-                <%= __('firstName') %>
+                <%= __('anthroponym.firstName') %>
               </label>
               <input type="text" class="form-control" name="firstName" id="firstName" placeholder="Тарас">
             </div>
             <div class="form-group">
               <label for="middleName">
-                <%= __('middleName') %>
+                <%= __('anthroponym.middleName') %>
               </label>
               <input type="text" class="form-control" name="middleName" id="middleName" placeholder="Григорович">
             </div>
           </div>
           <div class="card-footer">
             <button type="submit" class="btn btn-primary btn-inflection-form">
-              <%= __('inflect') %>
+              <%= __('action.inflect') %>
             </button>
             <button class="btn btn-link pull-right btn-inflection-form" type="button" data-toggle="modal"
               data-target="#contactMe">
@@ -56,13 +81,13 @@
               <%= __('grammaticalCase') %>
             </th>
             <th class="border-top-0">
-              <%= __('lastName') %>
+              <%= __('anthroponym.lastName') %>
             </th>
             <th class="border-top-0">
-              <%= __('firstName') %>
+              <%= __('anthroponym.firstName') %>
             </th>
             <th class="border-top-0">
-              <%= __('middleName') %>
+              <%= __('anthroponym.middleName') %>
             </th>
           </tr>
           <tr>
@@ -124,4 +149,5 @@
         </table>
       </div>
     </div>
+  </div>
 </section>

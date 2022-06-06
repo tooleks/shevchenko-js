@@ -94,6 +94,7 @@
         <div class="dropdown-menu" aria-labelledby="navbarDropdownLinks" role="menu">
           <a class="dropdown-item" href="https://www.npmjs.com/package/shevchenko" target="_blank" role="menuitem">NPM</a>
           <a class="dropdown-item" href="https://github.com/tooleks/shevchenko-js" target="_blank" role="menuitem">GitHub</a>
+          <a class="dropdown-item" href="https://runkit.com/tooleks/shevchenko" target="_blank" role="menuitem">RunKit</a>
         </div>
       </li>
       <li class="nav-item dropdown" role="presentation">
@@ -131,7 +132,7 @@
       </li>
     </ul>
   </div>
-</nav>    <section id="home" class="jumbotron my-3">
+</nav>    <section id="landing" class="jumbotron my-3">
   <h1 class="text-truncate">
     shevchenko <span class="d-none d-lg-inline"><small id="preview" class="text-muted"></small></span>
   </h1>
@@ -146,10 +147,8 @@
       Приклад використання
     </a>
   </p>
-</section>
-
-<section id="demo" class="my-3">
-  <div class="row">
+</section>    <section id="demo" class="my-3">
+  <div class="row mb-3">
     <div class="col-12 col-lg-9">
       <h2 class="mb-0">
         Демонстрація
@@ -165,8 +164,8 @@
             title="Поділитися через Facebook" target="_blank" role="menuitem"><i
               class="fa fa-facebook color-facebook" aria-hidden="true"></i></a>
           <a class="btn btn-lg btn-link btn-share-link" href="https://twitter.com/home?status=https%3A%2F%2Ftooleks.github.io%2Fshevchenko-js%2Findex.html"
-            title="Поділитися через Twitter" target="_blank" role="menuitem"><i class="fa fa-twitter color-twitter"
-              aria-hidden="true"></i></a>
+            title="Поділитися через Twitter" target="_blank" role="menuitem"><i
+              class="fa fa-twitter color-twitter" aria-hidden="true"></i></a>
           <a class="btn btn-lg btn-link btn-share-link" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Ftooleks.github.io%2Fshevchenko-js%2Findex.html&amp;title=&amp;summary=JavaScript+%D0%B1%D1%96%D0%B1%D0%BB%D1%96%D0%BE%D1%82%D0%B5%D0%BA%D0%B0+%D0%B4%D0%BB%D1%8F+%D0%B2%D1%96%D0%B4%D0%BC%D1%96%D0%BD%D1%8E%D0%B2%D0%B0%D0%BD%D0%BD%D1%8F+%D1%83%D0%BA%D1%80%D0%B0%D1%97%D0%BD%D1%81%D1%8C%D0%BA%D0%B8%D1%85+%D0%B0%D0%BD%D1%82%D1%80%D0%BE%D0%BF%D0%BE%D0%BD%D1%96%D0%BC%D1%96%D0%B2&amp;source="
             title="Поділитися через LinkedIn" target="_blank" role="menuitem"><i
               class="fa fa-linkedin color-linkedin" aria-hidden="true"></i></a>
@@ -174,7 +173,6 @@
       </div>
     </div>
   </div>
-</section>    <section class="my-3">
   <div class="row">
     <div class="col-lg-5 mb-2 mb-lg-0">
       <form id="inflection-form">
@@ -300,6 +298,7 @@
         </table>
       </div>
     </div>
+  </div>
 </section>    
         <section id="howItWorks" class="mt-4 mb-2">
   <div class="row">
@@ -346,8 +345,10 @@
       </div>
       <div class="card my-3">
         <div class="card-body">
-          <h5 id="usageExample" class="card-title">
-            Приклад використання
+          <h5 class="card-title">
+            Приклад використання <small><a href="https://runkit.com/tooleks/shevchenko" target="_blank">
+                  Спробувати
+                </a></small>
           </h5>
           <pre class="mb-0">const anthroponym = {
   gender: 'male', // or 'female'
@@ -363,14 +364,14 @@ console.log(result); // { gender: "male", firstName: "Тарасе", middleName:
       </div>
       <div class="card my-3">
         <div class="card-body">
-          <h5 id="api" class="card-title">API</h5>
+          <h5 class="card-title">API</h5>
           <pre class="mb-0">shevchenko.inNominative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в називному відмінку
-shevchenko.inGenitive(anthroponym: Anthroponym): Anthroponym; // Провідміняти в родовому відмінку
-shevchenko.inDative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в давальному відмінку
+shevchenko.inGenitive(anthroponym: Anthroponym): Anthroponym;   // Провідміняти в родовому відмінку
+shevchenko.inDative(anthroponym: Anthroponym): Anthroponym;     // Провідміняти в давальному відмінку
 shevchenko.inAccusative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в знахідному відмінку
-shevchenko.inAblative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в орудному відмінку
-shevchenko.inLocative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в місцевому відмінку
-shevchenko.inVocative(anthroponym: Anthroponym): Anthroponym; // Провідміняти в кличному відмінку</pre>
+shevchenko.inAblative(anthroponym: Anthroponym): Anthroponym;   // Провідміняти в орудному відмінку
+shevchenko.inLocative(anthroponym: Anthroponym): Anthroponym;   // Провідміняти в місцевому відмінку
+shevchenko.inVocative(anthroponym: Anthroponym): Anthroponym;   // Провідміняти в кличному відмінку</pre>
         </div>
       </div>
     </div>
