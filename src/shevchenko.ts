@@ -1,4 +1,4 @@
-import { Anthroponym, GrammaticalCase, validateAnthroponym } from './core';
+import { Anthroponym, Gender, GrammaticalCase, validateAnthroponym } from './core';
 import { anthroponymInflector } from './bootstrap';
 
 /**
@@ -57,4 +57,7 @@ export function inVocative(anthroponym: Anthroponym): Anthroponym {
   return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Vocative);
 }
 
+export { Anthroponym, Gender };
+
+// Not a part of public API.
 export * as Internal from './internal';
