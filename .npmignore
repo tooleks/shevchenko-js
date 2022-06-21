@@ -1,7 +1,6 @@
 .idea
 /docs/
 /resources/
-/src/
 /tests/
 /.gitignore
 /.npmignore
