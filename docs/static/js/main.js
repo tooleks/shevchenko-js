@@ -3,7 +3,7 @@
   'use strict';
 
   $(document).ready(onDocumentReady);
-  $('#inflection-form').submit(onFormSubmit);
+  $('#declension-form').submit(onFormSubmit);
   $.get('https://api.github.com/repos/tooleks/shevchenko-js', onGitHubResponse);
   setTimeout(onPreviewInterval, 0);
   setInterval(onPreviewInterval, 5000);
@@ -14,13 +14,13 @@
 
   function onDocumentReady() {
     var anthroponym = getDefaultAnthroponym();
-    inflect(anthroponym, renderInflectionResult);
+    inflect(anthroponym, renderDeclensionResult);
   }
 
   function onPreviewInterval() {
     var anthroponym = shevchenko.inVocative(getRandomAnthroponym());
     var preview = anthroponym.firstName + ' ' + anthroponym.middleName + ' ' + anthroponym.lastName;
-    renderInflectionPreview(preview);
+    renderDeclensionPreview(preview);
   }
 
   function onFormSubmit(event) {
@@ -29,7 +29,7 @@
     if (!anthroponym.firstName.length && !anthroponym.lastName.length && !anthroponym.middleName.length) {
       anthroponym = getDefaultAnthroponym();
     }
-    inflect(anthroponym, renderInflectionResult);
+    inflect(anthroponym, renderDeclensionResult);
   }
 
   function onGitHubResponse(response) {
@@ -40,7 +40,7 @@
    * DOM
    */
 
-  function renderInflectionPreview(preview) {
+  function renderDeclensionPreview(preview) {
     var previewElem = $('#preview');
     if (previewElem.text() === preview) return;
     previewElem.fadeOut(400, function () {
@@ -49,7 +49,7 @@
     });
   }
 
-  function renderInflectionResult(anthroponym, grammaticalCase) {
+  function renderDeclensionResult(anthroponym, grammaticalCase) {
     $('#' + grammaticalCase + 'FirstName').text(anthroponym.firstName);
     $('#' + grammaticalCase + 'LastName').text(anthroponym.lastName);
     $('#' + grammaticalCase + 'MiddleName').text(anthroponym.middleName);

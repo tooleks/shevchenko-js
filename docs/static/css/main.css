@@ -20,7 +20,7 @@ body {
 }
 
 @media (max-width: 360px) {
-  .btn-inflection-form {
+  .btn-declension-form {
     display: block;
     width: 100%;
   }
