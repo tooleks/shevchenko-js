@@ -1,5 +1,5 @@
 <template>
-  <section v-if="$i18n.locale === 'uk'" id="how-it-works" class="my-4">
+  <section v-if="$i18n.locale === 'uk-UA'" id="how-it-works" class="my-4">
     <div class="row">
       <div class="col">
         <h2>{{ $t('howItWorks') }}</h2>
