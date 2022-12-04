@@ -6,6 +6,10 @@ import { useRouteUtils } from '~/composables/route-utils';
 function setup(...args) {
   const setupResult = IndexPage.setup.call(this, ...args);
 
+  definePageMeta({
+    alias: ['/en', '/en.html'],
+  });
+
   usePageI18n({
     locale: 'en-US',
   });

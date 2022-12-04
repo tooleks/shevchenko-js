@@ -1,15 +1,16 @@
-export const useRouteUtils = () => {
-  const appConfig = useAppConfig();
-  const route = useRoute();
+import config from '../config';
 
-  /**
-   * Builds an absolute page URL for the given path.
-   */
-  const buildPageUrl = (fullPath = '') => {
-    const url = new URL(appConfig.website.url);
-    url.pathname = fullPath;
-    return url.toString();
-  };
+/**
+ * Builds the absolute page URL for the given path.
+ */
+export const buildPageUrl = (fullPath = '') => {
+  const url = new URL(config.website.url);
+  url.pathname = fullPath;
+  return url.toString();
+};
+
+export const useRouteUtils = () => {
+  const route = useRoute();
 
   /**
    * The absolute URL of the current page.

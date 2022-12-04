@@ -3,6 +3,7 @@ import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { usePageI18n } from '~/composables/page-i18n';
 import { useRouteUtils } from '~/composables/route-utils';
+import { buildPageUrl } from '../composables/route-utils';
 
 usePageI18n({
   locale: 'uk-UA',
@@ -17,15 +18,15 @@ const pageTitle = computed(() => appConfig.library.name + ' - ' + $t('app.name')
 useHead({
   title: pageTitle,
   meta: [
-    { property: 'og:image', content: appConfig.website.meta.imageUrl },
-    { property: 'og:image:width', content: appConfig.website.meta.imageWidth },
-    { property: 'og:image:height', content: appConfig.website.meta.imageHeight },
+    { property: 'og:image', content: buildPageUrl('/preview-608x608.jpg') },
+    { property: 'og:image:width', content: '608' },
+    { property: 'og:image:height', content: '608' },
     { property: 'og:type', content: 'website' },
     { property: 'og:url', content: pageUrl },
     { property: 'og:site_name', content: appConfig.library.name },
     { property: 'og:title', content: pageTitle },
     { property: 'og:description', content: pageTitle },
-    { name: 'twitter:image', content: appConfig.website.meta.imageUrl },
+    { name: 'twitter:image', content: buildPageUrl('/preview-608x608.jpg') },
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:title', content: pageTitle },
   ],
