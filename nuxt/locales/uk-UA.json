@@ -54,5 +54,7 @@
   "usageExample": "Приклад використання",
   "error404.pageTitle": "Помилка 404",
   "error404.instructionMessage": "Сторінки за заданою адресою не існує",
-  "action.backToHome": "Перейти на головну сторінку"
+  "action.backToHome": "Перейти на головну сторінку",
+  "declension.anthroponym": "Відмінювання {lastName} {firstName} {middleName}",
+  "action.copyLink": "Скопіювати адресу посилання"
 }

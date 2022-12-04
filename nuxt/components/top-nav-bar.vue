@@ -114,7 +114,7 @@ const { buildPageUrl } = useRouteUtils();
               {{ $t('issueReport') }} <GithubIssueCount />
             </a>
 
-            <ContactMeButton :button-class="'dropdown-item'" role="menuitem">
+            <ContactMeButton button-class="dropdown-item" role="menuitem">
               {{ $t('action.contactMe') }}
             </ContactMeButton>
           </div>

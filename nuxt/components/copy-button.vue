@@ -7,6 +7,8 @@ const props = defineProps({
   trim: { type: Boolean, default: true },
   buttonId: { type: String, required: false },
   buttonClass: { type: String, default: 'btn btn-btn btn-link py-0 px-1' },
+  buttonTitle: { type: String, default: null },
+  iconClass: { type: String, default: 'fa fa-clipboard' },
 });
 
 const { source, trim } = toRefs(props);
@@ -24,13 +26,13 @@ const { copy, copied } = useClipboard({
 <template>
   <button
     type="button"
-    :title="$t('action.copy')"
+    :title="buttonTitle ?? $t('action.copy')"
     :aria-label="$t('action.copy')"
     @click="copy()"
     :id="buttonId"
     :class="buttonClass"
   >
-    <i v-if="copied" class="fa fa-check" aria-hidden="true"></i>
-    <i v-else class="fa fa-clipboard" aria-hidden="true"></i>
+    <i v-if="copied" aria-hidden="true" class="fa fa-check"></i>
+    <i v-else aria-hidden="true" :class="iconClass"></i>
   </button>
 </template>

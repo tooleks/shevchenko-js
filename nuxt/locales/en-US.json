@@ -54,5 +54,7 @@
   "usageExample": "Usage Example",
   "error404.pageTitle": "404 Error",
   "error404.instructionMessage": "The requested page was not found",
-  "action.backToHome": "Navigate to home page"
+  "action.backToHome": "Navigate to home page",
+  "declension.anthroponym": "Declension {lastName} {firstName} {middleName}",
+  "action.copyLink": "Copy link address"
 }

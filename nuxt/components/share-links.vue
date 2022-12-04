@@ -10,17 +10,19 @@ defineProps({
 const { t: $t } = useI18n();
 const { pageUrl } = useRouteUtils();
 
+const pageShareLink = computed(() => pageUrl.value);
+
 const facebookShareLink = computed(() => {
   const shareLink = new URL('https://www.facebook.com');
   shareLink.pathname = '/sharer/sharer.php';
-  shareLink.searchParams.set('u', pageUrl.value);
+  shareLink.searchParams.set('u', pageShareLink.value);
   return shareLink.toString();
 });
 
 const twitterShareLink = computed(() => {
   const shareLink = new URL('https://twitter.com');
   shareLink.pathname = '/home';
-  shareLink.searchParams.set('status', pageUrl.value);
+  shareLink.searchParams.set('status', pageShareLink.value);
   return shareLink.toString();
 });
 
@@ -28,7 +30,7 @@ const linkedInShareLink = computed(() => {
   const shareLink = new URL('https://www.linkedin.com');
   shareLink.pathname = '/shareArticle';
   shareLink.searchParams.set('mini', true.toString());
-  shareLink.searchParams.set('url', pageUrl.value);
+  shareLink.searchParams.set('url', pageShareLink.value);
   shareLink.searchParams.set('title', '');
   shareLink.searchParams.set('summary', $t('app.name').toString());
   shareLink.searchParams.set('source', '');
@@ -38,6 +40,13 @@ const linkedInShareLink = computed(() => {
 
 <template>
   <div class="btn-group" :class="buttonsClass" role="menubar">
+    <CopyButton
+      :source="pageShareLink"
+      button-class="btn btn-lg btn-link btn--share"
+      :button-title="$t('action.copyLink')"
+      icon-class="fa fa-link"
+    />
+
     <a
       class="btn btn-lg btn-link btn--share"
       :href="facebookShareLink"

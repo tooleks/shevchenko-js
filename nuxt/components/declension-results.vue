@@ -1,20 +1,7 @@
 <script setup lang="ts">
-import { PropType } from 'vue';
-import * as shevchenko from 'shevchenko';
+import { useDeclension } from '~/composables/declension';
 
-interface DeclensionResults {
-  nominativeCase: shevchenko.Anthroponym;
-  genitiveCase: shevchenko.Anthroponym;
-  dativeCase: shevchenko.Anthroponym;
-  accusativeCase: shevchenko.Anthroponym;
-  ablativeCase: shevchenko.Anthroponym;
-  locativeCase: shevchenko.Anthroponym;
-  vocativeCase: shevchenko.Anthroponym;
-}
-
-defineProps({
-  declensionResults: { type: Object as PropType<DeclensionResults>, required: true },
-});
+const { declensionResults } = useDeclension();
 </script>
 
 <template>

@@ -3,11 +3,7 @@ import config from '../config';
 /**
  * Builds the absolute page URL for the given path.
  */
-export const buildPageUrl = (fullPath = '') => {
-  const url = new URL(config.website.url);
-  url.pathname = fullPath;
-  return url.toString();
-};
+export const buildPageUrl = (fullPath = '') => config.website.url + fullPath;
 
 export const useRouteUtils = () => {
   const route = useRoute();

@@ -1,0 +1,1 @@
+import{c as n,a as o}from"./page-meta.074c05e6.js";import{_ as e,u}from"./index.vue_vue_type_script_setup_true_lang.ab6b67a7.js";import"./entry.f7e09190.js";function l(...s){const t=e.setup.call(this,...s);u({locale:"en-US"});const{buildPageUrl:a}=n();return o({link:[{rel:"canonical",href:a("/en-US")}]}),t}const f={...e,setup:l};export{f as default};

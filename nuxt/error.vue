@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { usePageMeta } from './composables/page-meta';
 
-const appConfig = useAppConfig();
 const { t: $t } = useI18n();
+const { buildPageTitle } = usePageMeta();
 
 const pageTitle = computed(() => {
-  return appConfig.library.name + ' - ' + $t('error404.pageTitle').toString();
+  const title = $t('error404.pageTitle').toString();
+  return buildPageTitle(title);
 });
 
 useHead({

@@ -16,7 +16,10 @@ function setup(...args) {
 
   const { buildPageUrl } = useRouteUtils();
   useHead({
-    link: [{ rel: 'canonical', href: buildPageUrl('/en-US') }],
+    link: [
+      //
+      { rel: 'canonical', href: buildPageUrl('/en-US') },
+    ],
   });
 
   return setupResult;
