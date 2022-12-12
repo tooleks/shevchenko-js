@@ -1,5 +1,7 @@
-import json from '@rollup/plugin-json';
+import * as path from 'path';
+import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
@@ -12,9 +14,9 @@ const banner = `
  * @version ${pkg.version}
  * @author ${pkg.author}
  * @license ${pkg.license}
- * @copyright ${new Date().getFullYear()} ${pkg.author}
+ * @copyright 2017-${new Date().getFullYear()} ${pkg.author}
  * @see {@link ${pkg.repository.url}}
-*/
+ */
 `;
 
 export default [
@@ -28,6 +30,18 @@ export default [
       sourcemap: true,
     },
     plugins: [
+      alias({
+        entries: [
+          {
+            find: /@tensorflow\/tfjs$/,
+            replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs.js'),
+          },
+          {
+            find: /@tensorflow\/tfjs-core$/,
+            replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs_core.js'),
+          },
+        ],
+      }),
       json(),
       typescript({ tsconfig: './tsconfig.legacy.json' }),
       resolve(),
@@ -43,10 +57,7 @@ export default [
       banner: banner.trim(),
       sourcemap: true,
     },
-    plugins: [
-      json(),
-      typescript({ tsconfig: './tsconfig.legacy.json' }),
-    ],
+    plugins: [json(), typescript({ tsconfig: './tsconfig.legacy.json' })],
     external: Object.getOwnPropertyNames(pkg.dependencies),
   },
   {
@@ -57,10 +68,7 @@ export default [
       banner: banner.trim(),
       sourcemap: true,
     },
-    plugins: [
-      json(),
-      typescript({ tsconfig: './tsconfig.module.json' }),
-    ],
+    plugins: [json(), typescript({ tsconfig: './tsconfig.module.json' })],
     external: Object.getOwnPropertyNames(pkg.dependencies),
-  }
+  },
 ];

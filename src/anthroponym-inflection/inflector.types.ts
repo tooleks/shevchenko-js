@@ -1,10 +1,10 @@
 import { Gender, GrammaticalCase } from '../core';
-import { PartOfSpeech } from '../part-of-speech-recognition';
+import { WordClass } from '../language';
 
 export type InflectorRule = {
   description: string;
   examples: string[];
-  partOfSpeech: PartOfSpeech;
+  partOfSpeech: WordClass;
   gender: Gender[];
   priority: number;
   usage: string[];

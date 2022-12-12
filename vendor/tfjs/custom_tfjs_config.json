@@ -1,0 +1,26 @@
+{
+  "kernels": [
+    "Slice",
+    "Cast",
+    "Reshape",
+    "GatherV2",
+    "Sum",
+    "Tile",
+    "Transpose",
+    "Unpack",
+    "_FusedMatMul",
+    "fusedMatMul__op",
+    "Add",
+    "Relu",
+    "Sigmoid",
+    "Identity"
+  ],
+  "backends": [
+    "cpu"
+  ],
+  "models": [
+    "../../src/word-class-recognition/artifacts/default/model.json"
+  ],
+  "outputPath": "./",
+  "forwardModeOnly": true
+}

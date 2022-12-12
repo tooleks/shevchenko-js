@@ -4,13 +4,21 @@ export abstract class NameInflector {
   /**
    * Inflects the name in the given grammatical case.
    */
-  inflect(name: string, gender: Gender, grammaticalCase: GrammaticalCase): string {
+  async inflect(name: string, gender: Gender, grammaticalCase: GrammaticalCase): Promise<string> {
+    const results: string[] = [];
+
     const words = name.split('-');
-    return words
-      .map((word, wordIndex) =>
-        this.inflectWord(word, gender, grammaticalCase, wordIndex === words.length - 1),
-      )
-      .join('-');
+    for (let index = 0; index < words.length; index += 1) {
+      const result = await this.inflectWord(
+        words[index],
+        gender,
+        grammaticalCase,
+        index === words.length - 1,
+      );
+      results.push(result);
+    }
+
+    return results.join('-');
   }
 
   /**
@@ -21,5 +29,5 @@ export abstract class NameInflector {
     gender: Gender,
     grammaticalCase: GrammaticalCase,
     isLastWord: boolean,
-  ): string;
+  ): Promise<string> | string;
 }

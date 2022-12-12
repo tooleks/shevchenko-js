@@ -1,4 +1,4 @@
-import { Gender } from './gender.enum';
+import { Gender } from './grammatical-gender';
 
 /**
  * Validates given anthroponym object.

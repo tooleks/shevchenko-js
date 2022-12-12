@@ -1403,46 +1403,6 @@
     "gender": "female",
     "grammaticalCases": {
       "nominative": {
-        "lastName": "Корова",
-        "firstName": "Анна",
-        "middleName": "Григорівна"
-      },
-      "genitive": {
-        "lastName": "Корови",
-        "firstName": "Анни",
-        "middleName": "Григорівни"
-      },
-      "dative": {
-        "lastName": "Корові",
-        "firstName": "Анні",
-        "middleName": "Григорівні"
-      },
-      "accusative": {
-        "lastName": "Корову",
-        "firstName": "Анну",
-        "middleName": "Григорівну"
-      },
-      "ablative": {
-        "lastName": "Коровою",
-        "firstName": "Анною",
-        "middleName": "Григорівною"
-      },
-      "locative": {
-        "lastName": "Корові",
-        "firstName": "Анні",
-        "middleName": "Григорівні"
-      },
-      "vocative": {
-        "lastName": "Корово",
-        "firstName": "Анно",
-        "middleName": "Григорівно"
-      }
-    }
-  },
-  {
-    "gender": "female",
-    "grammaticalCases": {
-      "nominative": {
         "lastName": "Косач-Квітка",
         "firstName": "Лариса",
         "middleName": "Петрівна"

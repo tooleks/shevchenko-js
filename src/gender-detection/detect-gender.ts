@@ -1,11 +1,11 @@
 import { Anthroponym, Gender } from '../core';
-import givenNamesGendersJson from './given-names-genders.json';
+import givenNamesGenders from './given-names-genders.json';
 
 const MASCULINE_PATRONYMIC_PATTERN = /(и|і)ч$/;
 const FEMININE_PATRONYMIC_PATTERN = /на$/;
 const APOSTROPHE_VARIATION_PATTERN = /[`"]/g;
 
-type KnownGivenName = keyof typeof givenNamesGendersJson;
+type KnownGivenName = keyof typeof givenNamesGenders;
 export type GenderlessAnthroponym = Omit<Anthroponym, 'gender'>;
 
 /**
@@ -33,7 +33,7 @@ export function detectGender(anthroponym: GenderlessAnthroponym): Gender | null 
       .replace(APOSTROPHE_VARIATION_PATTERN, "'")
       .toLocaleLowerCase() as KnownGivenName;
 
-    const gender = givenNamesGendersJson[givenName];
+    const gender = givenNamesGenders[givenName];
     if (gender != null) {
       return gender as Gender;
     }
