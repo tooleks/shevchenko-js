@@ -1,17 +1,14 @@
 <script setup lang="ts">
-import { watch } from 'vue';
+import { onMounted } from 'vue';
 
 const appConfig = useAppConfig();
 const route = useRoute();
 
-watch(
-  () => route.hash,
-  (hash) => {
-    if (hash === '#about') {
-      $('#about-modal').modal('show');
-    }
-  },
-);
+onMounted(() => {
+  if (route.hash === '#about') {
+    $('#about-modal').modal('show');
+  }
+});
 </script>
 
 <template>
