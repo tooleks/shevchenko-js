@@ -4,7 +4,6 @@ import { useI18n } from 'vue-i18n';
 import { usePageI18n } from '~/composables/page-i18n';
 import { buildPageUrl, useRouteUtils } from '~/composables/route-utils';
 import { usePageMeta } from '~/composables/page-meta';
-import { isDefinedAnthroponym } from '~/composables/declension';
 import { Anthroponym } from 'shevchenko';
 
 usePageI18n({
@@ -47,17 +46,6 @@ useHead({
 });
 
 async function updatePageTitle(anthroponym: Partial<Anthroponym>): Promise<void> {
-  // if (!isDefinedAnthroponym(anthroponym)) {
-  //   pageTitle.value = defaultPageTitle.value;
-  //   return;
-  // }
-
-  // const title = $t('declension.anthroponym', { ...anthroponym })
-  //   .toString()
-  //   .replace(/  +/g, ' ');
-
-  // pageTitle.value = buildPageTitle(title);
-
   // For some reason, the route query is not updated when all query keys remain the same.
   // The next line of code forcibly resets the route query to fix the bug.
   await router.replace({ query: {} });
@@ -76,4 +64,5 @@ onMounted(() => updatePageTitle(route.query));
   <LibraryDocs />
   <PageFooter />
   <ContactMeModal />
+  <AboutModal />
 </template>

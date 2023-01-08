@@ -1,10 +1,5 @@
-<script setup>
-import { computed } from 'vue';
-import { useNow } from '@vueuse/core';
-
+<script setup lang="ts">
 const appConfig = useAppConfig();
-const currentTime = useNow();
-const currentYear = computed(() => currentTime.value.getFullYear());
 </script>
 
 <template>
@@ -14,8 +9,7 @@ const currentYear = computed(() => currentTime.value.getFullYear());
       <nav>
         <ul class="list-unstyled" role="menubar">
           <p class="d-inline mr-2 mb-0">
-            &copy; {{ appConfig.library.releaseYear }}-{{ currentYear }}
-            {{ appConfig.library.name }}
+            <PageCopyright />
           </p>
 
           <li class="d-inline mr-2" role="presentation">

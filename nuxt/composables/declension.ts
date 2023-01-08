@@ -38,8 +38,8 @@ export function isDefinedAnthroponym(
 ): anthroponym is Anthroponym {
   return Boolean(
     anthroponym.gender &&
-    Object.values(Gender).includes(anthroponym.gender) &&
-    (anthroponym.firstName || anthroponym.middleName || anthroponym.lastName),
+      Object.values(Gender).includes(anthroponym.gender) &&
+      (anthroponym.firstName || anthroponym.middleName || anthroponym.lastName),
   );
 }
 
