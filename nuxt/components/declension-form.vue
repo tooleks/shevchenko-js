@@ -96,7 +96,7 @@ function onInflect(): void {
             {{ $t('gender.message.detectionFailed') }}
           </small>
 
-          <small class="form-text text-muted">
+          <small v-else class="form-text text-muted">
             {{ $t('gender.message.autoDetection') }}
           </small>
         </div>
