@@ -23,20 +23,12 @@ const output = {
 export default [
   {
     input: './src/shevchenko.ts',
-    output: [
-      {
-        ...output,
-        name: pkg.name,
-        file: pkg.browser,
-        format: 'umd',
-      },
-      {
-        ...output,
-        name: pkg.name,
-        file: './docs/static/js/shevchenko.min.js',
-        format: 'umd',
-      },
-    ],
+    output: {
+      ...output,
+      name: pkg.name,
+      file: pkg.browser,
+      format: 'umd',
+    },
     plugins: [
       json(),
       typescript({ tsconfig: './tsconfig.legacy.json' }),

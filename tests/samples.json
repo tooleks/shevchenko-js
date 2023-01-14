@@ -3800,6 +3800,46 @@
     }
   },
   {
+    "gender": "male",
+    "grammaticalCases": {
+      "nominative": {
+        "lastName": "Білець",
+        "firstName": "Терентій",
+        "middleName": "Ілліч"
+      },
+      "genitive": {
+        "lastName": "Білця",
+        "firstName": "Терентія",
+        "middleName": "Ілліча"
+      },
+      "dative": {
+        "lastName": "Білцю",
+        "firstName": "Терентію",
+        "middleName": "Іллічу"
+      },
+      "accusative": {
+        "lastName": "Білця",
+        "firstName": "Терентія",
+        "middleName": "Ілліча"
+      },
+      "ablative": {
+        "lastName": "Білцем",
+        "firstName": "Терентієм",
+        "middleName": "Іллічем"
+      },
+      "locative": {
+        "lastName": "Білцю",
+        "firstName": "Терентієві",
+        "middleName": "Іллічі"
+      },
+      "vocative": {
+        "lastName": "Білцю",
+        "firstName": "Терентію",
+        "middleName": "Іллічу"
+      }
+    }
+  },
+  {
     "gender": "female",
     "grammaticalCases": {
       "nominative": {
