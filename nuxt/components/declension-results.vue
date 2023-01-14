@@ -1,7 +1,26 @@
 <script setup lang="ts">
 import { useDeclension } from '~/composables/declension';
+import { Anthroponym } from 'shevchenko';
 
 const { declensionResults } = useDeclension();
+
+function convertAnthroponymToString(anthroponym: Anthroponym): string {
+  let output: string[] = [];
+
+  if (anthroponym.lastName) {
+    output.push(anthroponym.lastName);
+  }
+
+  if (anthroponym.firstName) {
+    output.push(anthroponym.firstName);
+  }
+
+  if (anthroponym.middleName) {
+    output.push(anthroponym.middleName);
+  }
+
+  return output.join(' ');
+}
 </script>
 
 <template>
@@ -30,7 +49,7 @@ const { declensionResults } = useDeclension();
       <td>
         <CopyButton
           :button-id="'copy-nominative-case-button'"
-          :source="`${declensionResults.nominativeCase.lastName} ${declensionResults.nominativeCase.firstName} ${declensionResults.nominativeCase.middleName}`"
+          :source="convertAnthroponymToString(declensionResults.nominativeCase)"
         />
       </td>
     </tr>
@@ -43,7 +62,7 @@ const { declensionResults } = useDeclension();
       <td>
         <CopyButton
           :button-id="'copy-genitive-case-button'"
-          :source="`${declensionResults.genitiveCase.lastName} ${declensionResults.genitiveCase.firstName} ${declensionResults.genitiveCase.middleName}`"
+          :source="convertAnthroponymToString(declensionResults.genitiveCase)"
         />
       </td>
     </tr>
@@ -56,7 +75,7 @@ const { declensionResults } = useDeclension();
       <td>
         <CopyButton
           :button-id="'copy-dative-case-button'"
-          :source="`${declensionResults.dativeCase.lastName} ${declensionResults.dativeCase.firstName} ${declensionResults.dativeCase.middleName}`"
+          :source="convertAnthroponymToString(declensionResults.dativeCase)"
         />
       </td>
     </tr>
@@ -69,7 +88,7 @@ const { declensionResults } = useDeclension();
       <td>
         <CopyButton
           :button-id="'copy-accusative-case-button'"
-          :source="`${declensionResults.accusativeCase.lastName} ${declensionResults.accusativeCase.firstName} ${declensionResults.accusativeCase.middleName}`"
+          :source="convertAnthroponymToString(declensionResults.accusativeCase)"
         />
       </td>
     </tr>
@@ -82,7 +101,7 @@ const { declensionResults } = useDeclension();
       <td>
         <CopyButton
           :button-id="'copy-ablative-case-button'"
-          :source="`${declensionResults.ablativeCase.lastName} ${declensionResults.ablativeCase.firstName} ${declensionResults.ablativeCase.middleName}`"
+          :source="convertAnthroponymToString(declensionResults.ablativeCase)"
         />
       </td>
     </tr>
@@ -95,7 +114,7 @@ const { declensionResults } = useDeclension();
       <td>
         <CopyButton
           :button-id="'copy-locative-case-button'"
-          :source="`${declensionResults.locativeCase.lastName} ${declensionResults.locativeCase.firstName} ${declensionResults.locativeCase.middleName}`"
+          :source="convertAnthroponymToString(declensionResults.locativeCase)"
         />
       </td>
     </tr>
@@ -108,7 +127,7 @@ const { declensionResults } = useDeclension();
       <td>
         <CopyButton
           :button-id="'copy-vocative-case-button'"
-          :source="`${declensionResults.vocativeCase.lastName} ${declensionResults.vocativeCase.firstName} ${declensionResults.vocativeCase.middleName}`"
+          :source="convertAnthroponymToString(declensionResults.vocativeCase)"
         />
       </td>
     </tr>
