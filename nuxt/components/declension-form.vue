@@ -87,12 +87,17 @@ function onInflect(): void {
               ({{ $t(`gender.${anthroponym.gender}`) }})
             </span>
           </label>
+
           <small
             v-if="isGenderError"
             v-show="formData.gender === AutoGender"
             class="form-text text-danger"
           >
             {{ $t('gender.message.detectionFailed') }}
+          </small>
+
+          <small class="form-text text-muted">
+            {{ $t('gender.message.autoDetection') }}
           </small>
         </div>
 
