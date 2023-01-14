@@ -4,7 +4,7 @@
       <div class="col-12 col-lg-9">
         <h2 class="mb-0">
           {{ $t('demo') }}
-          <small class="d-block h6 text-muted mt-2 mb-0">
+          <small class="d-block h6 text-muted mt-2 mb-0 sentence-capitalize">
             {{ $t('demo.message') }}
           </small>
         </h2>
@@ -30,3 +30,9 @@
     </div>
   </section>
 </template>
+
+<style lang="scss" scoped>
+.sentence-capitalize:first-letter {
+  text-transform: capitalize;
+}
+</style>
