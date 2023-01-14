@@ -31,7 +31,7 @@
   "feedback": "Feedback",
   "foundBug": "Found a bug?",
   "gender": "Gender",
-  "gender.message.autoDetection": "Automatic grammatical gender detection by first name and patronymic name.",
+  "gender.message.autoDetection": "Automatic grammatical gender detection by first name or patronymic name.",
   "gender.message.detectionFailed": "Automatic grammatical gender detection failed. Manual grammatical gender selection required.",
   "gender.undefined": "Auto",
   "gender.female": "Feminine",
