@@ -32,7 +32,7 @@
   "foundBug": "Found a bug?",
   "gender": "Gender",
   "gender.message.autoDetection": "Automatic grammatical gender detection by first name or patronymic name.",
-  "gender.message.detectionFailed": "Failed to detect grammatical gender. Select grammatical gender manually.",
+  "gender.message.detectionFailed": "Failed to detect grammatical gender by first name or patronymic name. Select grammatical gender manually.",
   "gender.undefined": "Auto",
   "gender.female": "Feminine",
   "gender.male": "Masculine",
