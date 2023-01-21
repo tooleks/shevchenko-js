@@ -4,15 +4,18 @@
 
 const shevchenkoCjs = require('../dist/cjs/shevchenko');
 const shevchenkoUmd = require('../dist/umd/shevchenko.min');
-const runUnitTestCase = require('./unit');
-const runInflectionTestCase = require('./inflection');
+const execInputValidationTests = require('./input-validation');
+const execAnthroponymInflectionTests = require('./anthroponym-inflection');
+const execGenderDetectionTests = require('./gender-detection');
 
 describe('cjs module', () => {
-  runUnitTestCase(shevchenkoCjs);
-  runInflectionTestCase(shevchenkoCjs);
+  execInputValidationTests(shevchenkoCjs);
+  execAnthroponymInflectionTests(shevchenkoCjs);
+  execGenderDetectionTests(shevchenkoCjs);
 });
 
 describe('umd module', () => {
-  runUnitTestCase(shevchenkoUmd);
-  runInflectionTestCase(shevchenkoUmd);
+  execInputValidationTests(shevchenkoUmd);
+  execAnthroponymInflectionTests(shevchenkoUmd);
+  execGenderDetectionTests(shevchenkoUmd);
 });
