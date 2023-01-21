@@ -2,7 +2,7 @@ import { Anthroponym, GrammaticalCase, validateAnthroponym } from './core';
 import { anthroponymInflector } from './bootstrap';
 
 export { Anthroponym, Gender } from './core';
-export { detectGender } from './gender-detection';
+export { detectGender, GenderlessAnthroponym } from './gender-detection';
 
 /**
  * Inflects the anthroponym in nominative grammatical case.

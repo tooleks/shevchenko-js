@@ -1,10 +1,11 @@
 import { Anthroponym, Gender } from '../core';
 import givenNamesGendersJson from './given-names-genders.json';
 
-type KnownGivenName = keyof typeof givenNamesGendersJson;
-
 const MASCULINE_PATRONYMIC_PATTERN = /(и|і)ч$/;
 const FEMININE_PATRONYMIC_PATTERN = /на$/;
+
+type KnownGivenName = keyof typeof givenNamesGendersJson;
+export type GenderlessAnthroponym = Omit<Anthroponym, 'gender'>;
 
 /**
  * Detects the grammatical gender of the anthroponym using
@@ -13,7 +14,7 @@ const FEMININE_PATRONYMIC_PATTERN = /на$/;
  * Returns the grammatical gender of the anthroponym.
  * Returns null if the grammatical gender of the anthroponym cannot be detected.
  */
-export function detectGender(anthroponym: Anthroponym): Gender | null {
+export function detectGender(anthroponym: GenderlessAnthroponym): Gender | null {
   if (anthroponym.middleName) {
     const patronymicName = anthroponym.middleName.replace(/[`"]/g, "'").toLocaleLowerCase();
     if (MASCULINE_PATRONYMIC_PATTERN.test(patronymicName)) {
