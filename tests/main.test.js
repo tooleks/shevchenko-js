@@ -8,13 +8,13 @@ const execInputValidationTests = require('./input-validation');
 const execAnthroponymInflectionTests = require('./anthroponym-inflection');
 const execGenderDetectionTests = require('./gender-detection');
 
-describe('cjs module', () => {
+describe('CJS (CommonJS)', () => {
   execInputValidationTests(shevchenkoCjs);
   execAnthroponymInflectionTests(shevchenkoCjs);
   execGenderDetectionTests(shevchenkoCjs);
 });
 
-describe('umd module', () => {
+describe('UMD (Universal Module Definition)', () => {
   execInputValidationTests(shevchenkoUmd);
   execAnthroponymInflectionTests(shevchenkoUmd);
   execGenderDetectionTests(shevchenkoUmd);
