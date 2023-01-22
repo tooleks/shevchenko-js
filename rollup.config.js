@@ -5,7 +5,8 @@ import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
-const banner = `/**
+const banner = `
+/**
  * @file ${pkg.description}
  * @module ${pkg.name}
  * @version ${pkg.version}
@@ -13,21 +14,18 @@ const banner = `/**
  * @license ${pkg.license}
  * @copyright ${new Date().getFullYear()} ${pkg.author}
  * @see {@link ${pkg.repository.url}}
-*/`;
-
-const output = {
-  sourcemap: true,
-  banner: banner,
-};
+*/
+`;
 
 export default [
   {
     input: './src/shevchenko.ts',
     output: {
-      ...output,
       name: pkg.name,
       file: pkg.browser,
       format: 'umd',
+      banner: banner.trim(),
+      sourcemap: true,
     },
     plugins: [
       json(),
@@ -40,9 +38,10 @@ export default [
   {
     input: './src/shevchenko.ts',
     output: {
-      ...output,
       file: pkg.main,
       format: 'cjs',
+      banner: banner.trim(),
+      sourcemap: true,
     },
     plugins: [
       json(),
@@ -53,9 +52,10 @@ export default [
   {
     input: './src/shevchenko.ts',
     output: {
-      ...output,
       file: pkg.module,
       format: 'es',
+      banner: banner.trim(),
+      sourcemap: true,
     },
     plugins: [
       json(),

@@ -16,10 +16,9 @@
     "build:pelykh-cache": "gulp build:pelykh-cache",
     "build:network-cache": "gulp build:network-cache",
     "prebuild": "rimraf ./dist",
-    "build": "rollup -c && tsc -p ./tsconfig.declaration.json",
+    "build": "rollup -c && tsc -p ./tsconfig.types.json",
     "lint": "eslint --fix ./src ./tests",
-    "test": "jest ./tests/main.test.js",
-    "build:docs": "node ./docs/src/main.mjs"
+    "test": "jest ./tests/main.test.js"
   },
   "keywords": [
     "ukrainian",
