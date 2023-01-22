@@ -22,13 +22,11 @@ export function validateAnthroponym(anthroponym: any): void {
     );
   }
 
-  // tslint:disable-next-line max-line-length
   if (
     typeof anthroponym.firstName === 'undefined' &&
     typeof anthroponym.middleName === 'undefined' &&
     typeof anthroponym.lastName === 'undefined'
   ) {
-    // tslint:disable-next-line max-line-length
     throw new TypeError(
       'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
     );

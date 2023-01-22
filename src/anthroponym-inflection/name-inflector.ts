@@ -16,7 +16,6 @@ export abstract class NameInflector {
   /**
    * Inflects the word of the compound name in the given grammatical case.
    */
-  // tslint:disable-next-line max-line-length
   protected abstract inflectWord(
     word: string,
     gender: Gender,

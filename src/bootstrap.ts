@@ -12,19 +12,12 @@ import {
   PartOfSpeechRecognitionRule,
   PartOfSpeechRecognizer,
 } from './part-of-speech-recognition';
-// tslint:disable-next-line import-name
 import inflectorRules from './resources/inflector/rules.json';
-// tslint:disable-next-line import-name
 import kosmiiCache from './resources/neural-networks/kosmii/cache.json';
-// tslint:disable-next-line import-name
 import kosmiiStructure from './resources/neural-networks/kosmii/structure.json';
-// tslint:disable-next-line import-name
 import pelykhCache from './resources/neural-networks/pelykh/cache.json';
-// tslint:disable-next-line import-name
 import pelykhStructure from './resources/neural-networks/pelykh/structure.json';
-// tslint:disable-next-line import-name
 import pohorielovaCache from './resources/neural-networks/pohorielova/cache.json';
-// tslint:disable-next-line import-name
 import pohorielovaStructure from './resources/neural-networks/pohorielova/structure.json';
 
 const partOfSpeechRecognizer = new PartOfSpeechRecognizer([

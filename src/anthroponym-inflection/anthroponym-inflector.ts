@@ -8,7 +8,6 @@ export class AnthroponymInflector {
   private readonly middleNameInflector: MiddleNameInflector;
   private readonly lastNameInflector: LastNameInflector;
 
-  // tslint:disable-next-line max-line-length
   constructor(
     firstNameInflector: FirstNameInflector,
     middleNameInflector: MiddleNameInflector,

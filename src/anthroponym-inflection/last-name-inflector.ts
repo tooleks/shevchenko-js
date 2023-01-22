@@ -18,7 +18,6 @@ export class LastNameInflector extends NameInflector {
   /**
    * @inheritdoc
    */
-  // tslint:disable-next-line max-line-length
   protected inflectWord(
     word: string,
     gender: Gender,
