@@ -3,6 +3,7 @@ import givenNamesGendersJson from './given-names-genders.json';
 
 const MASCULINE_PATRONYMIC_PATTERN = /(и|і)ч$/;
 const FEMININE_PATRONYMIC_PATTERN = /на$/;
+const APOSTROPHE_VARIATION_PATTERN = /[`"]/g;
 
 type KnownGivenName = keyof typeof givenNamesGendersJson;
 export type GenderlessAnthroponym = Omit<Anthroponym, 'gender'>;
@@ -16,16 +17,22 @@ export type GenderlessAnthroponym = Omit<Anthroponym, 'gender'>;
  */
 export function detectGender(anthroponym: GenderlessAnthroponym): Gender | null {
   if (anthroponym.middleName) {
-    const patronymicName = anthroponym.middleName.replace(/[`"]/g, "'").toLocaleLowerCase();
+    const patronymicName = anthroponym.middleName
+      .replace(APOSTROPHE_VARIATION_PATTERN, "'")
+      .toLocaleLowerCase();
+
     if (MASCULINE_PATRONYMIC_PATTERN.test(patronymicName)) {
       return Gender.Male;
-    } if (FEMININE_PATRONYMIC_PATTERN.test(patronymicName)) {
+    } else if (FEMININE_PATRONYMIC_PATTERN.test(patronymicName)) {
       return Gender.Female;
     }
   }
 
   if (anthroponym.firstName) {
-    const givenName = anthroponym.firstName.replace(/[`"]/g, "'").toLocaleLowerCase() as KnownGivenName;
+    const givenName = anthroponym.firstName
+      .replace(APOSTROPHE_VARIATION_PATTERN, "'")
+      .toLocaleLowerCase() as KnownGivenName;
+
     const gender = givenNamesGendersJson[givenName];
     if (gender != null) {
       return gender as Gender;

@@ -1,12 +1,9 @@
-/* global describe */
-
-'use strict';
-
+/* eslint-disable @typescript-eslint/no-var-requires */
 const shevchenkoCjs = require('../dist/cjs/shevchenko');
 const shevchenkoUmd = require('../dist/umd/shevchenko.min');
-const execInputValidationTests = require('./input-validation');
 const execAnthroponymInflectionTests = require('./anthroponym-inflection');
 const execGenderDetectionTests = require('./gender-detection');
+const execInputValidationTests = require('./input-validation');
 
 describe('CJS (CommonJS)', () => {
   execInputValidationTests(shevchenkoCjs);

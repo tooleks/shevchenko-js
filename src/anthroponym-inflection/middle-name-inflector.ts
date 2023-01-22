@@ -1,7 +1,7 @@
-import { InflectorRule } from './inflector.types';
 import { Gender, GrammaticalCase } from '../core';
-import { RuleInflector } from './rule-inflector';
+import { InflectorRule } from './inflector.types';
 import { NameInflector } from './name-inflector';
+import { RuleInflector } from './rule-inflector';
 
 export class MiddleNameInflector extends NameInflector {
   private readonly rules: InflectorRule[];
@@ -16,9 +16,9 @@ export class MiddleNameInflector extends NameInflector {
    */
   protected inflectWord(word: string, gender: Gender, grammaticalCase: GrammaticalCase): string {
     const [rule] = this.rules
-      .filter(rule => rule.gender.includes(gender))
-      .filter(rule => rule.usage.includes('middleName'))
-      .filter(rule => new RegExp(rule.pattern.find, 'gi').test(word));
+      .filter((rule) => rule.gender.includes(gender))
+      .filter((rule) => rule.usage.includes('middleName'))
+      .filter((rule) => new RegExp(rule.pattern.find, 'gi').test(word));
 
     if (!rule) {
       return word;

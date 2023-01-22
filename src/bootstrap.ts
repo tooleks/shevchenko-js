@@ -9,8 +9,8 @@ import { Gender } from './core';
 import {
   NeuralNetwork,
   NeuralNetworkTrainingData,
-  PartOfSpeechRecognizer,
   PartOfSpeechRecognitionRule,
+  PartOfSpeechRecognizer,
 } from './part-of-speech-recognition';
 // tslint:disable-next-line import-name
 import inflectorRules from './resources/inflector/rules.json';
@@ -47,7 +47,14 @@ const partOfSpeechRecognizer = new PartOfSpeechRecognizer([
 
 const firstNameInflector = new FirstNameInflector(inflectorRules as InflectorRule[]);
 const middleNameInflector = new MiddleNameInflector(inflectorRules as InflectorRule[]);
-const lastNameInflector = new LastNameInflector(inflectorRules as InflectorRule[], partOfSpeechRecognizer);
-const anthroponymInflector = new AnthroponymInflector(firstNameInflector, middleNameInflector, lastNameInflector);
+const lastNameInflector = new LastNameInflector(
+  inflectorRules as InflectorRule[],
+  partOfSpeechRecognizer,
+);
+const anthroponymInflector = new AnthroponymInflector(
+  firstNameInflector,
+  middleNameInflector,
+  lastNameInflector,
+);
 
 export { anthroponymInflector };

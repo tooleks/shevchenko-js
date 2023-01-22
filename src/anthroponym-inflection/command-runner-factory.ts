@@ -1,7 +1,7 @@
-import { InflectorCommand, InflectorCommandType } from './inflector.types';
 import { AppendCommandRunner } from './append-command-runner';
-import { ReplaceCommandRunner } from './replace-command-runner';
 import { InflectorCommandRunner } from './inflector-command-runner';
+import { InflectorCommand, InflectorCommandType } from './inflector.types';
+import { ReplaceCommandRunner } from './replace-command-runner';
 
 export class CommandRunnerFactory {
   /**

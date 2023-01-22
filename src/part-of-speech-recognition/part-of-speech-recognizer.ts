@@ -1,5 +1,5 @@
-import { PartOfSpeechRecognitionRule } from './part-of-speech-recognition-rule';
 import { Gender } from '../core';
+import { PartOfSpeechRecognitionRule } from './part-of-speech-recognition-rule';
 import { PartOfSpeech } from './part-of-speech.enum';
 import { WordTransformer } from './word-transformer';
 
@@ -17,7 +17,7 @@ export class PartOfSpeechRecognizer {
    */
   recognize(word: string, gender: Gender): PartOfSpeech | null {
     const transformedWord = new WordTransformer().transform(word);
-    const rule = this.rules.find(rule => rule.guard(transformedWord, gender));
+    const rule = this.rules.find((rule) => rule.guard(transformedWord, gender));
     if (!rule) {
       return null;
     }

@@ -3,12 +3,20 @@ module.exports = (shevchenko) => {
     it('should return the grammatical gender', () => {
       expect(shevchenko.detectGender({ firstName: 'Тарас' })).toBe(shevchenko.Gender.Male);
       expect(shevchenko.detectGender({ middleName: 'Григорович' })).toBe(shevchenko.Gender.Male);
-      expect(shevchenko.detectGender({ firstName: 'Тарас', middleName: 'Григорович' })).toBe(shevchenko.Gender.Male);
-      expect(shevchenko.detectGender({ firstName: 'Лариса', middleName: 'Григорович' })).toBe(shevchenko.Gender.Male);
+      expect(shevchenko.detectGender({ firstName: 'Тарас', middleName: 'Григорович' })).toBe(
+        shevchenko.Gender.Male,
+      );
+      expect(shevchenko.detectGender({ firstName: 'Лариса', middleName: 'Григорович' })).toBe(
+        shevchenko.Gender.Male,
+      );
       expect(shevchenko.detectGender({ firstName: 'Лариса' })).toBe(shevchenko.Gender.Female);
       expect(shevchenko.detectGender({ middleName: 'Петрівна' })).toBe(shevchenko.Gender.Female);
-      expect(shevchenko.detectGender({ firstName: 'Лариса', middleName: 'Петрівна' })).toBe(shevchenko.Gender.Female);
-      expect(shevchenko.detectGender({ firstName: 'Тарас', middleName: 'Петрівна' })).toBe(shevchenko.Gender.Female);
+      expect(shevchenko.detectGender({ firstName: 'Лариса', middleName: 'Петрівна' })).toBe(
+        shevchenko.Gender.Female,
+      );
+      expect(shevchenko.detectGender({ firstName: 'Тарас', middleName: 'Петрівна' })).toBe(
+        shevchenko.Gender.Female,
+      );
     });
 
     it('should return null if the grammatical gender cannot be detected', () => {

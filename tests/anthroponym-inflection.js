@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const samples = require('./samples.json');
 
 module.exports = (shevchenko) => {
@@ -54,4 +55,4 @@ module.exports = (shevchenko) => {
       });
     });
   });
-}
+};

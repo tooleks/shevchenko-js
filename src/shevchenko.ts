@@ -1,5 +1,5 @@
-import { Anthroponym, GrammaticalCase, validateAnthroponym } from './core';
 import { anthroponymInflector } from './bootstrap';
+import { Anthroponym, GrammaticalCase, validateAnthroponym } from './core';
 
 export { Anthroponym, Gender } from './core';
 export { detectGender, GenderlessAnthroponym } from './gender-detection';

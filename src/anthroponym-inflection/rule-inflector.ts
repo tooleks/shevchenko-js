@@ -1,8 +1,8 @@
+import { GrammaticalCase } from '../core';
 import { countGroups } from '../utils/regexp.utils';
 import { copyLetterCase } from '../utils/string.utils';
-import { GrammaticalCase } from '../core';
-import { InflectorRule } from './inflector.types';
 import { CommandRunnerFactory } from './command-runner-factory';
+import { InflectorRule } from './inflector.types';
 
 export class RuleInflector {
   private readonly rule: InflectorRule;

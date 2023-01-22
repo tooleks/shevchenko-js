@@ -7,7 +7,9 @@ export abstract class NameInflector {
   inflect(name: string, gender: Gender, grammaticalCase: GrammaticalCase): string {
     const words = name.split('-');
     return words
-      .map((word, wordIndex) => this.inflectWord(word, gender, grammaticalCase, wordIndex === words.length - 1))
+      .map((word, wordIndex) =>
+        this.inflectWord(word, gender, grammaticalCase, wordIndex === words.length - 1),
+      )
       .join('-');
   }
 
@@ -15,5 +17,10 @@ export abstract class NameInflector {
    * Inflects the word of the compound name in the given grammatical case.
    */
   // tslint:disable-next-line max-line-length
-  protected abstract inflectWord(word: string, gender: Gender, grammaticalCase: GrammaticalCase, isLastWord: boolean): string;
+  protected abstract inflectWord(
+    word: string,
+    gender: Gender,
+    grammaticalCase: GrammaticalCase,
+    isLastWord: boolean,
+  ): string;
 }

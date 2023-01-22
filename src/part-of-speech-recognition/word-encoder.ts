@@ -14,10 +14,10 @@ export class WordEncoder {
     return input
       .toLowerCase()
       .split('')
-      .map(char => char.charCodeAt(0).toString(2))
+      .map((char) => char.charCodeAt(0).toString(2))
       .join('')
       .padStart(this.size, '0')
       .split('')
-      .map(digit => Number.parseInt(digit, 2));
+      .map((digit) => Number.parseInt(digit, 2));
   }
 }

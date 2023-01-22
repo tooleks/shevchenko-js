@@ -3,7 +3,7 @@
  * Returns destination string after modification.
  */
 export function copyLetterCase(src: string, dest: string): string {
-  let result: string = '';
+  let result = '';
 
   const srcLetterCases: string[] = [];
   const srcChars = src.split('');
@@ -37,13 +37,13 @@ export function copyLetterCase(src: string, dest: string): string {
 /**
  * Detects if a character is in the upper case at the specified index.
  */
-export function isUpperCase(src: string, pos: number = 0): boolean {
+export function isUpperCase(src: string, pos = 0): boolean {
   return src.charAt(pos) === src.charAt(pos).toUpperCase();
 }
 
 /**
  * Detects if a character is in the lower case at the specified index.
  */
-export function isLowerCase(src: string, pos: number = 0): boolean {
+export function isLowerCase(src: string, pos = 0): boolean {
   return src.charAt(pos) === src.charAt(pos).toLowerCase();
 }
