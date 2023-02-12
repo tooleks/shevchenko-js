@@ -3808,32 +3808,32 @@
         "middleName": "Ілліч"
       },
       "genitive": {
-        "lastName": "Білця",
+        "lastName": "Більця",
         "firstName": "Терентія",
         "middleName": "Ілліча"
       },
       "dative": {
-        "lastName": "Білцю",
+        "lastName": "Більцю",
         "firstName": "Терентію",
         "middleName": "Іллічу"
       },
       "accusative": {
-        "lastName": "Білця",
+        "lastName": "Більця",
         "firstName": "Терентія",
         "middleName": "Ілліча"
       },
       "ablative": {
-        "lastName": "Білцем",
+        "lastName": "Більцем",
         "firstName": "Терентієм",
         "middleName": "Іллічем"
       },
       "locative": {
-        "lastName": "Білцю",
+        "lastName": "Більцю",
         "firstName": "Терентієві",
         "middleName": "Іллічі"
       },
       "vocative": {
-        "lastName": "Білцю",
+        "lastName": "Більцю",
         "firstName": "Терентію",
         "middleName": "Іллічу"
       }
@@ -7196,6 +7196,86 @@
         "lastName": "Гуло",
         "firstName": "Ліліє",
         "middleName": "Василівно"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "grammaticalCases": {
+      "nominative": {
+        "lastName": "Сичев",
+        "firstName": "Арсен",
+        "middleName": "Ігорьович"
+      },
+      "genitive": {
+        "lastName": "Сичева",
+        "firstName": "Арсена",
+        "middleName": "Ігорьовича"
+      },
+      "dative": {
+        "lastName": "Сичеву",
+        "firstName": "Арсену",
+        "middleName": "Ігорьовичу"
+      },
+      "accusative": {
+        "lastName": "Сичева",
+        "firstName": "Арсена",
+        "middleName": "Ігорьовича"
+      },
+      "ablative": {
+        "lastName": "Сичевом",
+        "firstName": "Арсеном",
+        "middleName": "Ігорьовичем"
+      },
+      "locative": {
+        "lastName": "Сичевові",
+        "firstName": "Арсенові",
+        "middleName": "Ігорьовичу"
+      },
+      "vocative": {
+        "lastName": "Сичеве",
+        "firstName": "Арсене",
+        "middleName": "Ігорьовичу"
+      }
+    }
+  },
+  {
+    "gender": "male",
+    "grammaticalCases": {
+      "nominative": {
+        "lastName": "Кокуш",
+        "firstName": "Борис",
+        "middleName": "Лазарьович"
+      },
+      "genitive": {
+        "lastName": "Кокуша",
+        "firstName": "Бориса",
+        "middleName": "Лазарьовича"
+      },
+      "dative": {
+        "lastName": "Кокушу",
+        "firstName": "Борису",
+        "middleName": "Лазарьовичу"
+      },
+      "accusative": {
+        "lastName": "Кокуша",
+        "firstName": "Бориса",
+        "middleName": "Лазарьовича"
+      },
+      "ablative": {
+        "lastName": "Кокушем",
+        "firstName": "Борисом",
+        "middleName": "Лазарьовичем"
+      },
+      "locative": {
+        "lastName": "Кокушеві",
+        "firstName": "Борисові",
+        "middleName": "Лазарьовичу"
+      },
+      "vocative": {
+        "lastName": "Кокуше",
+        "firstName": "Борисе",
+        "middleName": "Лазарьовичу"
       }
     }
   }
