@@ -316,117 +316,6 @@
     }
   },
   {
-    "description": "друга відміна / чоловічий рід / м'яка група / стрілець",
-    "examples": [
-      "стрілець"
-    ],
-    "partOfSpeech": "noun",
-    "gender": [
-      "male"
-    ],
-    "priority": 6,
-    "usage": [],
-    "pattern": {
-      "find": "стрілець$",
-      "modify": "(.{1})(.{1})(.{1})$"
-    },
-    "grammaticalCases": {
-      "nominative": [],
-      "genitive": [
-        {
-          "0": {
-            "type": "replace",
-            "value": "ь"
-          },
-          "2": {
-            "type": "replace",
-            "value": "я"
-          }
-        }
-      ],
-      "dative": [
-        {
-          "0": {
-            "type": "replace",
-            "value": "ь"
-          },
-          "2": {
-            "type": "replace",
-            "value": "ю"
-          }
-        },
-        {
-          "0": {
-            "type": "replace",
-            "value": "ь"
-          },
-          "2": {
-            "type": "replace",
-            "value": "еві"
-          }
-        }
-      ],
-      "accusative": [
-        {
-          "0": {
-            "type": "replace",
-            "value": "ь"
-          },
-          "2": {
-            "type": "replace",
-            "value": "я"
-          }
-        }
-      ],
-      "ablative": [
-        {
-          "0": {
-            "type": "replace",
-            "value": "ь"
-          },
-          "2": {
-            "type": "replace",
-            "value": "ем"
-          }
-        }
-      ],
-      "locative": [
-        {
-          "0": {
-            "type": "replace",
-            "value": "ь"
-          },
-          "2": {
-            "type": "replace",
-            "value": "ю"
-          }
-        },
-        {
-          "0": {
-            "type": "replace",
-            "value": "ь"
-          },
-          "2": {
-            "type": "replace",
-            "value": "еві"
-          }
-        }
-      ],
-      "vocative": [
-        {
-          "0": {
-            "type": "replace",
-            "value": "ь"
-          },
-          "2": {
-            "type": "replace",
-            "value": "ю"
-          }
-        }
-      ]
-    }
-  },
-  {
     "description": "друга відміна / чоловічий рід / м'яка група / на -(голосна)вень",
     "examples": [
       "півень"
@@ -528,6 +417,118 @@
           "0": {
             "type": "replace",
             "value": ""
+          },
+          "2": {
+            "type": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(голосна)лець",
+    "examples": [
+      "стрілець",
+      "білець"
+    ],
+    "partOfSpeech": "noun",
+    "gender": [
+      "male"
+    ],
+    "priority": 6,
+    "usage": [],
+    "pattern": {
+      "find": "(а|е|є|и|і|ї|о|у|ю|я)лець$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "type": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "type": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "type": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "type": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "type": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "type": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "type": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "type": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "type": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "type": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "type": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "type": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "type": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "type": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "type": "replace",
+            "value": "ь"
           },
           "2": {
             "type": "replace",
