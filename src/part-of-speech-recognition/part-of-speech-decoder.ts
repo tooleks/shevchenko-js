@@ -1,5 +1,5 @@
-import { PartOfSpeech } from './part-of-speech.enum';
 import { DIGIT_ADJECTIVE, DIGIT_NOUN } from './part-of-speech-encoder';
+import { PartOfSpeech } from './part-of-speech.enum';
 
 export class PartOfSpeechDecoder {
   /**

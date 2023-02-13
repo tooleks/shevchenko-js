@@ -1,7 +1,7 @@
-import { PartOfSpeech } from './part-of-speech.enum';
 import { Gender } from '../core';
 import { NeuralNetwork } from './neural-network';
 import { NeuralNetworkTrainingData } from './neural-network-training-data';
+import { PartOfSpeech } from './part-of-speech.enum';
 import { WordTransformer } from './word-transformer';
 
 export interface PartOfSpeechRecognitionGuard {
@@ -13,7 +13,11 @@ export class PartOfSpeechRecognitionRule {
   readonly cache: NeuralNetworkTrainingData;
   private readonly neuralNetwork: NeuralNetwork;
 
-  constructor(guard: PartOfSpeechRecognitionGuard, neuralNetwork: NeuralNetwork, cache: NeuralNetworkTrainingData) {
+  constructor(
+    guard: PartOfSpeechRecognitionGuard,
+    neuralNetwork: NeuralNetwork,
+    cache: NeuralNetworkTrainingData,
+  ) {
     this.guard = guard;
     this.neuralNetwork = neuralNetwork;
     this.cache = cache;

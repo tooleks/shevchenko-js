@@ -1,11 +1,11 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "module": "ESNext",
     "rootDir": "./src",
     "target": "ES2017"
   },
-  "extends": "./tsconfig.json",
   "include": [
     "./src"
-  ]
+  ],
 }

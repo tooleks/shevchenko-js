@@ -2,29 +2,29 @@ import { Gender, GrammaticalCase } from '../core';
 import { PartOfSpeech } from '../part-of-speech-recognition';
 
 export type InflectorRule = {
-  description: string,
-  examples: string[],
-  partOfSpeech: PartOfSpeech,
-  gender: Gender[],
-  priority: number,
-  usage: string[],
-  pattern: InflectorPattern,
-  grammaticalCases: GrammaticalCases,
+  description: string;
+  examples: string[];
+  partOfSpeech: PartOfSpeech;
+  gender: Gender[];
+  priority: number;
+  usage: string[];
+  pattern: InflectorPattern;
+  grammaticalCases: GrammaticalCases;
 };
 
 export type InflectorPattern = {
-  find: string,
-  modify: string,
+  find: string;
+  modify: string;
 };
 
 export type GrammaticalCases = {
-  [GrammaticalCase.Nominative]: InflectorCommandGroup[],
-  [GrammaticalCase.Genitive]: InflectorCommandGroup[],
-  [GrammaticalCase.Dative]: InflectorCommandGroup[],
-  [GrammaticalCase.Accusative]: InflectorCommandGroup[],
-  [GrammaticalCase.Ablative]: InflectorCommandGroup[],
-  [GrammaticalCase.Locative]: InflectorCommandGroup[],
-  [GrammaticalCase.Vocative]: InflectorCommandGroup[],
+  [GrammaticalCase.Nominative]: InflectorCommandGroup[];
+  [GrammaticalCase.Genitive]: InflectorCommandGroup[];
+  [GrammaticalCase.Dative]: InflectorCommandGroup[];
+  [GrammaticalCase.Accusative]: InflectorCommandGroup[];
+  [GrammaticalCase.Ablative]: InflectorCommandGroup[];
+  [GrammaticalCase.Locative]: InflectorCommandGroup[];
+  [GrammaticalCase.Vocative]: InflectorCommandGroup[];
 };
 
 export type InflectorCommandGroup = {
@@ -32,8 +32,8 @@ export type InflectorCommandGroup = {
 };
 
 export type InflectorCommand = {
-  type: InflectorCommandType,
-  value: string,
+  type: InflectorCommandType;
+  value: string;
 };
 
 export enum InflectorCommandType {

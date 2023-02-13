@@ -8,8 +8,11 @@ export class AnthroponymInflector {
   private readonly middleNameInflector: MiddleNameInflector;
   private readonly lastNameInflector: LastNameInflector;
 
-  // tslint:disable-next-line max-line-length
-  constructor(firstNameInflector: FirstNameInflector, middleNameInflector: MiddleNameInflector, lastNameInflector: LastNameInflector) {
+  constructor(
+    firstNameInflector: FirstNameInflector,
+    middleNameInflector: MiddleNameInflector,
+    lastNameInflector: LastNameInflector,
+  ) {
     this.firstNameInflector = firstNameInflector;
     this.middleNameInflector = middleNameInflector;
     this.lastNameInflector = lastNameInflector;
@@ -22,15 +25,27 @@ export class AnthroponymInflector {
     const result: Anthroponym = { gender: anthroponym.gender };
 
     if (anthroponym.firstName != null) {
-      result.firstName = this.firstNameInflector.inflect(anthroponym.firstName, anthroponym.gender, grammaticalCase);
+      result.firstName = this.firstNameInflector.inflect(
+        anthroponym.firstName,
+        anthroponym.gender,
+        grammaticalCase,
+      );
     }
 
     if (anthroponym.middleName != null) {
-      result.middleName = this.middleNameInflector.inflect(anthroponym.middleName, anthroponym.gender, grammaticalCase);
+      result.middleName = this.middleNameInflector.inflect(
+        anthroponym.middleName,
+        anthroponym.gender,
+        grammaticalCase,
+      );
     }
 
     if (anthroponym.lastName != null) {
-      result.lastName = this.lastNameInflector.inflect(anthroponym.lastName, anthroponym.gender, grammaticalCase);
+      result.lastName = this.lastNameInflector.inflect(
+        anthroponym.lastName,
+        anthroponym.gender,
+        grammaticalCase,
+      );
     }
 
     return result;

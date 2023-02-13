@@ -1,10 +1,10 @@
 import synaptic from 'synaptic';
+import { neuralNetworkConfig } from './neural-network-config';
+import { NeuralNetworkTrainingData } from './neural-network-training-data';
+import { PartOfSpeechDecoder } from './part-of-speech-decoder';
+import { PartOfSpeechEncoder } from './part-of-speech-encoder';
 import { PartOfSpeech } from './part-of-speech.enum';
 import { WordEncoder } from './word-encoder';
-import { PartOfSpeechDecoder } from './part-of-speech-decoder';
-import { neuralNetworkConfig } from './neural-network-config';
-import { PartOfSpeechEncoder } from './part-of-speech-encoder';
-import { NeuralNetworkTrainingData } from './neural-network-training-data';
 
 export class NeuralNetwork {
   private network: synaptic.Network;
@@ -20,6 +20,7 @@ export class NeuralNetwork {
   /**
    * Creates a neural network from JSON.
    */
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   static fromJSON(structure: any): NeuralNetwork {
     const instance = new this();
     instance.network = synaptic.Network.fromJSON(structure);
@@ -43,7 +44,11 @@ export class NeuralNetwork {
   /**
    * Trains the neural network using the given training data.
    */
-  train(trainingData: NeuralNetworkTrainingData, trainingOptions: any): NeuralNetwork {
+  train(
+    trainingData: NeuralNetworkTrainingData,
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    trainingOptions: any,
+  ): NeuralNetwork {
     const trainingSet = Object.entries(trainingData).map(([word, partOfSpeech]) => {
       return {
         input: new WordEncoder().encode(word),

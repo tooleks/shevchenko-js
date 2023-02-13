@@ -6,6 +6,7 @@ import { Gender } from './gender.enum';
  *
  * @throws TypeError
  */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 export function validateAnthroponym(anthroponym: any): void {
   if (anthroponym == null) {
     throw new TypeError('"anthroponym" must be an object.');
@@ -16,13 +17,19 @@ export function validateAnthroponym(anthroponym: any): void {
   }
 
   if (![Gender.Male, Gender.Female].includes(anthroponym.gender)) {
-    throw new TypeError(`"anthroponym.gender" must be one of the following: "${Gender.Male}", "${Gender.Female}".`);
+    throw new TypeError(
+      `"anthroponym.gender" must be one of the following: "${Gender.Male}", "${Gender.Female}".`,
+    );
   }
 
-  // tslint:disable-next-line max-line-length
-  if (typeof anthroponym.firstName === 'undefined' && typeof anthroponym.middleName === 'undefined' && typeof anthroponym.lastName === 'undefined') {
-    // tslint:disable-next-line max-line-length
-    throw new TypeError('At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".');
+  if (
+    typeof anthroponym.firstName === 'undefined' &&
+    typeof anthroponym.middleName === 'undefined' &&
+    typeof anthroponym.lastName === 'undefined'
+  ) {
+    throw new TypeError(
+      'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
+    );
   }
 
   if (typeof anthroponym.firstName !== 'undefined' && typeof anthroponym.firstName !== 'string') {
