@@ -1,4 +1,5 @@
-import { Gender } from '../language';
+import { Gender } from './language';
+import type { InflectAnthroponymParams } from './shevchenko';
 
 /**
  * Validates given anthroponym object.
@@ -7,40 +8,40 @@ import { Gender } from '../language';
  * @throws TypeError
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function validateAnthroponym(anthroponym: any): void {
-  if (anthroponym == null) {
+export function validateAnthroponym(params: InflectAnthroponymParams): void {
+  if (params == null) {
     throw new TypeError('"anthroponym" must be an object.');
   }
 
-  if (typeof anthroponym !== 'object') {
+  if (typeof params !== 'object') {
     throw new TypeError('"anthroponym" must be an object.');
   }
 
-  if (![Gender.Male, Gender.Female].includes(anthroponym.gender)) {
+  if (![Gender.Male, Gender.Female].includes(params.gender)) {
     throw new TypeError(
       `"anthroponym.gender" must be one of the following: "${Gender.Male}", "${Gender.Female}".`,
     );
   }
 
   if (
-    typeof anthroponym.firstName === 'undefined' &&
-    typeof anthroponym.middleName === 'undefined' &&
-    typeof anthroponym.lastName === 'undefined'
+    typeof params.firstName === 'undefined' &&
+    typeof params.middleName === 'undefined' &&
+    typeof params.lastName === 'undefined'
   ) {
     throw new TypeError(
       'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
     );
   }
 
-  if (typeof anthroponym.firstName !== 'undefined' && typeof anthroponym.firstName !== 'string') {
+  if (typeof params.firstName !== 'undefined' && typeof params.firstName !== 'string') {
     throw new TypeError('"anthroponym.firstName" must be a string.');
   }
 
-  if (typeof anthroponym.middleName !== 'undefined' && typeof anthroponym.middleName !== 'string') {
+  if (typeof params.middleName !== 'undefined' && typeof params.middleName !== 'string') {
     throw new TypeError('"anthroponym.middleName" must be a string.');
   }
 
-  if (typeof anthroponym.lastName !== 'undefined' && typeof anthroponym.lastName !== 'string') {
+  if (typeof params.lastName !== 'undefined' && typeof params.lastName !== 'string') {
     throw new TypeError('"anthroponym.lastName" must be a string.');
   }
 }

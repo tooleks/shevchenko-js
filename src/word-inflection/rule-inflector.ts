@@ -1,7 +1,7 @@
 import { GrammaticalCase } from '../language';
-import { copyLetterCase } from '../utils/string.utils';
 import { CommandRunnerFactory } from './command-runner-factory';
 import { InflectorRule } from './inflector.types';
+import { copyLetterCase } from './word.utils';
 
 /**
  * Counts a number of groups in a given regular expression.

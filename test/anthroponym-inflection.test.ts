@@ -5,7 +5,7 @@ samples.forEach((sample) => {
   const anthroponym = {
     gender: sample.gender,
     ...sample.grammaticalCases.nominative,
-  } as shevchenko.Anthroponym;
+  } as shevchenko.InflectAnthroponymParams;
 
   describe(`"${anthroponym.firstName} ${anthroponym.middleName} ${anthroponym.lastName}" inflection`, () => {
     it(`should inflect in nominative grammatical case`, async () => {

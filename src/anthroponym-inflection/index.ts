@@ -1,4 +1,5 @@
-export { AnthroponymInflector } from './anthroponym-inflector';
-export { FirstNameInflector } from './first-name-inflector';
-export { MiddleNameInflector } from './middle-name-inflector';
-export { LastNameInflector } from './last-name-inflector';
+export * from './anthroponym';
+export * from './anthroponym-inflector';
+export * from './first-name-inflector';
+export * from './middle-name-inflector';
+export * from './last-name-inflector';

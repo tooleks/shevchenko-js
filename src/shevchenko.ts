@@ -1,63 +1,68 @@
+import { Anthroponym } from './anthroponym-inflection';
 import { anthroponymInflector } from './bootstrap';
-import { Anthroponym, validateAnthroponym } from './core';
-import { GrammaticalCase } from './language';
+import { Gender, GrammaticalCase } from './language';
+import { validateAnthroponym } from './validation';
 
 export { Gender, GrammaticalCase } from './language';
-export { Anthroponym } from './core';
-export { detectGender, GenderlessAnthroponym } from './gender-detection';
+export { Anthroponym } from './anthroponym-inflection';
+export { detectGender } from './gender-detection';
+
+export type InflectAnthroponymParams = Anthroponym & {
+  gender: Gender;
+};
 
 /**
  * Inflects the anthroponym in nominative grammatical case.
  */
-export async function inNominative(anthroponym: Anthroponym): Promise<Anthroponym> {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Nominative);
+export async function inNominative(params: InflectAnthroponymParams): Promise<Anthroponym> {
+  validateAnthroponym(params);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Nominative);
 }
 
 /**
  * Inflects the anthroponym in genitive grammatical case.
  */
-export async function inGenitive(anthroponym: Anthroponym): Promise<Anthroponym> {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Genitive);
+export async function inGenitive(params: InflectAnthroponymParams): Promise<Anthroponym> {
+  validateAnthroponym(params);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Genitive);
 }
 
 /**
  * Inflects the anthroponym in dative grammatical case.
  */
-export async function inDative(anthroponym: Anthroponym): Promise<Anthroponym> {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Dative);
+export async function inDative(params: InflectAnthroponymParams): Promise<Anthroponym> {
+  validateAnthroponym(params);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Dative);
 }
 
 /**
  * Inflects the anthroponym in accusative grammatical case.
  */
-export async function inAccusative(anthroponym: Anthroponym): Promise<Anthroponym> {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Accusative);
+export async function inAccusative(params: InflectAnthroponymParams): Promise<Anthroponym> {
+  validateAnthroponym(params);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Accusative);
 }
 
 /**
  * Inflects the anthroponym in ablative grammatical case.
  */
-export async function inAblative(anthroponym: Anthroponym): Promise<Anthroponym> {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Ablative);
+export async function inAblative(params: InflectAnthroponymParams): Promise<Anthroponym> {
+  validateAnthroponym(params);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Ablative);
 }
 
 /**
  * Inflects the anthroponym in locative grammatical case.
  */
-export async function inLocative(anthroponym: Anthroponym): Promise<Anthroponym> {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Locative);
+export async function inLocative(params: InflectAnthroponymParams): Promise<Anthroponym> {
+  validateAnthroponym(params);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Locative);
 }
 
 /**
  * Inflects the anthroponym in vocative grammatical case.
  */
-export async function inVocative(anthroponym: Anthroponym): Promise<Anthroponym> {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Vocative);
+export async function inVocative(params: InflectAnthroponymParams): Promise<Anthroponym> {
+  validateAnthroponym(params);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Vocative);
 }

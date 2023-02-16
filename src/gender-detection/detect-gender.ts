@@ -1,4 +1,4 @@
-import { Anthroponym } from '../core';
+import { Anthroponym } from '../anthroponym-inflection';
 import { Gender } from '../language';
 import givenNamesGenders from './given-names-genders.json';
 
@@ -6,8 +6,7 @@ const MASCULINE_PATRONYMIC_PATTERN = /[иі]ч$/;
 const FEMININE_PATRONYMIC_PATTERN = /на$/;
 const APOSTROPHE_VARIATION_PATTERN = /[`"]/g;
 
-type KnownGivenName = keyof typeof givenNamesGenders;
-export type GenderlessAnthroponym = Omit<Anthroponym, 'gender'>;
+type GivenName = keyof typeof givenNamesGenders;
 
 /**
  * Detects the grammatical gender of the anthroponym using
@@ -16,7 +15,7 @@ export type GenderlessAnthroponym = Omit<Anthroponym, 'gender'>;
  * Returns the grammatical gender of the anthroponym.
  * Returns null if the grammatical gender of the anthroponym cannot be detected.
  */
-export function detectGender(anthroponym: GenderlessAnthroponym): Gender | null {
+export function detectGender(anthroponym: Anthroponym): Gender | null {
   if (anthroponym.middleName) {
     const patronymicName = anthroponym.middleName
       .replace(APOSTROPHE_VARIATION_PATTERN, "'")
@@ -32,7 +31,7 @@ export function detectGender(anthroponym: GenderlessAnthroponym): Gender | null 
   if (anthroponym.firstName) {
     const givenName = anthroponym.firstName
       .replace(APOSTROPHE_VARIATION_PATTERN, "'")
-      .toLocaleLowerCase() as KnownGivenName;
+      .toLocaleLowerCase() as GivenName;
 
     const gender = givenNamesGenders[givenName];
     if (gender != null) {

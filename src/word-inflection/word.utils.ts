@@ -1,3 +1,9 @@
+enum LetterCase {
+  LOWERCASE,
+  UPPERCASE,
+  UNKNOWN,
+}
+
 /**
  * Copies letter cases from source to destination string.
  * Returns destination string after modification.
@@ -5,16 +11,16 @@
 export function copyLetterCase(src: string, dest: string): string {
   let result = '';
 
-  const srcLetterCases: string[] = [];
+  const srcLetterCases: LetterCase[] = [];
   const srcChars = src.split('');
   for (let pos = 0; pos < srcChars.length; pos += 1) {
     const srcChar = srcChars[pos];
     if (isLowerCase(srcChar)) {
-      srcLetterCases.push('lowercase');
+      srcLetterCases.push(LetterCase.LOWERCASE);
     } else if (isUpperCase(srcChar)) {
-      srcLetterCases.push('uppercase');
+      srcLetterCases.push(LetterCase.UPPERCASE);
     } else {
-      srcLetterCases.push('special');
+      srcLetterCases.push(LetterCase.UNKNOWN);
     }
   }
 
@@ -22,9 +28,9 @@ export function copyLetterCase(src: string, dest: string): string {
   for (let pos = 0; pos < destChars.length; pos += 1) {
     const destChar = destChars[pos];
     const srcLetterCase = srcLetterCases[pos] || srcLetterCases[srcLetterCases.length - 1];
-    if (srcLetterCase === 'lowercase') {
+    if (srcLetterCase === LetterCase.LOWERCASE) {
       result += destChar.toLowerCase();
-    } else if (srcLetterCase === 'uppercase') {
+    } else if (srcLetterCase === LetterCase.UPPERCASE) {
       result += destChar.toUpperCase();
     } else {
       result += destChar.toString();
@@ -37,13 +43,13 @@ export function copyLetterCase(src: string, dest: string): string {
 /**
  * Detects if a character is in the upper case at the specified index.
  */
-export function isUpperCase(src: string, pos = 0): boolean {
+function isUpperCase(src: string, pos = 0): boolean {
   return src.charAt(pos) === src.charAt(pos).toUpperCase();
 }
 
 /**
  * Detects if a character is in the lower case at the specified index.
  */
-export function isLowerCase(src: string, pos = 0): boolean {
+function isLowerCase(src: string, pos = 0): boolean {
   return src.charAt(pos) === src.charAt(pos).toLowerCase();
 }

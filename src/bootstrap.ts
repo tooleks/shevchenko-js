@@ -5,8 +5,7 @@ import {
   MiddleNameInflector,
 } from './anthroponym-inflection';
 import { WordClassModelLoader, WordClassRecognizer } from './word-class-recognition';
-import { InflectorRule } from './word-inflection';
-import inflectorRules from './word-inflection/artifacts/inflection-rules.json';
+import { InflectorRule, inflectorRules } from './word-inflection';
 
 const wordClassModelLoader = new WordClassModelLoader();
 const wordClassRecognizer = new WordClassRecognizer(wordClassModelLoader);

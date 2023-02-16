@@ -1,5 +1,5 @@
-import { Anthroponym } from '../core';
-import { GrammaticalCase } from '../language';
+import { Gender, GrammaticalCase } from '../language';
+import { Anthroponym } from './anthroponym';
 import { FirstNameInflector } from './first-name-inflector';
 import { LastNameInflector } from './last-name-inflector';
 import { MiddleNameInflector } from './middle-name-inflector';
@@ -22,13 +22,17 @@ export class AnthroponymInflector {
   /**
    * Inflects the anthroponym in the given grammatical case.
    */
-  async inflect(anthroponym: Anthroponym, grammaticalCase: GrammaticalCase): Promise<Anthroponym> {
-    const result: Anthroponym = { gender: anthroponym.gender };
+  async inflect(
+    anthroponym: Anthroponym,
+    gender: Gender,
+    grammaticalCase: GrammaticalCase,
+  ): Promise<Anthroponym> {
+    const result: Anthroponym = {};
 
     if (anthroponym.firstName != null) {
       result.firstName = await this.firstNameInflector.inflect(
         anthroponym.firstName,
-        anthroponym.gender,
+        gender,
         grammaticalCase,
       );
     }
@@ -36,7 +40,7 @@ export class AnthroponymInflector {
     if (anthroponym.middleName != null) {
       result.middleName = await this.middleNameInflector.inflect(
         anthroponym.middleName,
-        anthroponym.gender,
+        gender,
         grammaticalCase,
       );
     }
@@ -44,7 +48,7 @@ export class AnthroponymInflector {
     if (anthroponym.lastName != null) {
       result.lastName = await this.lastNameInflector.inflect(
         anthroponym.lastName,
-        anthroponym.gender,
+        gender,
         grammaticalCase,
       );
     }
