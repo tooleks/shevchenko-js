@@ -1,2 +1,2 @@
 export * from './word-class-recognizer';
-export * from './word-class-model.loader';
+export * from './model-bundle.loader';

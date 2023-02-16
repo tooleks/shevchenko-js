@@ -3,8 +3,8 @@ import { writeFile } from 'fs/promises';
 import { join as joinPath } from 'path';
 import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
+import { ModelBundleLoader } from '../model-bundle.loader';
 import { MODEL_INPUT_SIZE } from '../model.config';
-import { WordClassModelLoader } from '../word-class-model.loader';
 import { WordClassTransformer } from '../word-class.transformer';
 import { WordTransformer } from '../word.transformer';
 
@@ -17,7 +17,7 @@ async function retrieveIncorrectPredictions(): Promise<IncorrectPredictions> {
   const dataParser = createCsvParser({ columns: true });
   createReadStream(TRAINING_DATASET_FILEPATH).pipe(dataParser);
 
-  const model = await tf.loadLayersModel(new WordClassModelLoader());
+  const model = await tf.loadLayersModel(new ModelBundleLoader());
   const wordTransformer = new WordTransformer(MODEL_INPUT_SIZE);
   const wordClassTransformer = new WordClassTransformer();
 

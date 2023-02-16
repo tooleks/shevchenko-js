@@ -36,7 +36,7 @@ export function arrayBufferToBase64String(buffer: ArrayBuffer): string {
 }
 
 // eslint-disable-next-line import/namespace
-export class WordClassModelSaver implements tf.io.IOHandler {
+export class ModelBundleSaver implements tf.io.IOHandler {
   /**
    * Saves the model artifacts to the artifacts directory in JSON format.
    */

@@ -29,7 +29,7 @@ export function base64StringToArrayBuffer(str: string): ArrayBuffer {
  * @see {@link https://github.com/tensorflow/tfjs/blob/57e0f212f7fc3643ec1f70130725c7d3c716ef7a/tfjs-core/src/io/local_storage.ts}
  */
 // eslint-disable-next-line import/namespace
-export class WordClassModelLoader implements tf.io.IOHandler {
+export class ModelBundleLoader implements tf.io.IOHandler {
   /**
    * Saves the model artifacts from the artifacts directory in JSON format.
    */

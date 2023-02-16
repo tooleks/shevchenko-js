@@ -4,8 +4,8 @@ import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
 import { ALPHABET_SIZE, WordClass } from '../../language';
 import { SplitData, splitData } from '../data.utils';
+import { ModelBundleSaver } from '../model-bundle.saver';
 import { MODEL_INPUT_SIZE } from '../model.config';
-import { WordClassModelSaver } from '../word-class-model.saver';
 import { WordClassTransformer } from '../word-class.transformer';
 import { WordTransformer } from '../word.transformer';
 
@@ -83,7 +83,7 @@ async function trainModel({
 }
 
 async function saveModel(model: tf.LayersModel): Promise<void> {
-  await Promise.all([model.save(MODEL_ARTIFACTS_SOURCE), model.save(new WordClassModelSaver())]);
+  await Promise.all([model.save(MODEL_ARTIFACTS_SOURCE), model.save(new ModelBundleSaver())]);
 }
 
 async function main(): Promise<void> {

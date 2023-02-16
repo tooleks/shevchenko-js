@@ -4,11 +4,10 @@ import {
   LastNameInflector,
   MiddleNameInflector,
 } from './anthroponym-inflection';
-import { WordClassModelLoader, WordClassRecognizer } from './word-class-recognition';
+import { ModelBundleLoader, WordClassRecognizer } from './word-class-recognition';
 import { InflectorRule, inflectorRules } from './word-inflection';
 
-const wordClassModelLoader = new WordClassModelLoader();
-const wordClassRecognizer = new WordClassRecognizer(wordClassModelLoader);
+const wordClassRecognizer = new WordClassRecognizer(new ModelBundleLoader());
 
 const firstNameInflector = new FirstNameInflector(inflectorRules as InflectorRule[]);
 const middleNameInflector = new MiddleNameInflector(inflectorRules as InflectorRule[]);

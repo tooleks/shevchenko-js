@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 import { readFile, writeFile } from 'fs/promises';
 import { join as joinPath } from 'path';
 import * as tf from '@tensorflow/tfjs';
-import { WordClassModelLoader, WordClassRecognizer } from '../../src/word-class-recognition';
+import { ModelBundleLoader, WordClassRecognizer } from '../../src/word-class-recognition';
 
 const TFJS_CONFIG_FILENAME = 'custom_tfjs_config.json';
 const TFJS_CONFIG_FILEPATH = joinPath(__dirname, TFJS_CONFIG_FILENAME);
@@ -10,8 +10,8 @@ const TFJS_BUNDLE_FILEPATH = joinPath(__dirname, 'custom_tfjs.js');
 
 async function detectUsedKernels(): Promise<string[]> {
   const profileInfo = await tf.profile(async () => {
-    const wordClassModelLoader = new WordClassModelLoader();
-    const wordClassRecognizer = new WordClassRecognizer(wordClassModelLoader);
+    const modelBundleLoader = new ModelBundleLoader();
+    const wordClassRecognizer = new WordClassRecognizer(modelBundleLoader);
     await wordClassRecognizer.recognize('шевченко');
   });
 
