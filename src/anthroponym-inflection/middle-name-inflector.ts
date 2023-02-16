@@ -1,4 +1,4 @@
-import { Gender, GrammaticalCase } from '../core';
+import { Gender, GrammaticalCase } from '../language';
 import { InflectorRule, RuleInflector } from '../word-inflection';
 import { NameInflector } from './name-inflector';
 

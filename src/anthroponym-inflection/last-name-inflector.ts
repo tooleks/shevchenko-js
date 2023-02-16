@@ -1,5 +1,4 @@
-import { Gender, GrammaticalCase } from '../core';
-import { countVowels } from '../utils/lang.utils';
+import { countSyllables, Gender, GrammaticalCase } from '../language';
 import { WordClassRecognizer } from '../word-class-recognition';
 import { InflectorRule, RuleInflector } from '../word-inflection';
 import { NameInflector } from './name-inflector';
@@ -23,7 +22,7 @@ export class LastNameInflector extends NameInflector {
     grammaticalCase: GrammaticalCase,
     isLastWord: boolean,
   ): Promise<string> {
-    if (!isLastWord && countVowels(word) === 1) {
+    if (!isLastWord && countSyllables(word) === 1) {
       return word;
     }
 

@@ -1,10 +1,9 @@
 export const PATTERN_VOWELS = /[аоуеиіяюєї]/gi;
 
 /**
- * Counts vowel sounds in the given word.
- * Returns a number of vowels.
+ * Returns a number of syllables in a given word.
  */
-export function countVowels(word: string): number {
+export function countSyllables(word: string): number {
   const matches = word.match(PATTERN_VOWELS);
   if (matches == null) {
     return 0;

@@ -1,7 +1,8 @@
-import { Anthroponym, Gender } from '../core';
+import { Anthroponym } from '../core';
+import { Gender } from '../language';
 import givenNamesGenders from './given-names-genders.json';
 
-const MASCULINE_PATRONYMIC_PATTERN = /(и|і)ч$/;
+const MASCULINE_PATRONYMIC_PATTERN = /[иі]ч$/;
 const FEMININE_PATRONYMIC_PATTERN = /на$/;
 const APOSTROPHE_VARIATION_PATTERN = /[`"]/g;
 

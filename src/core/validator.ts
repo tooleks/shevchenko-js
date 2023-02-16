@@ -1,4 +1,4 @@
-import { Gender } from './grammatical-gender';
+import { Gender } from '../language';
 
 /**
  * Validates given anthroponym object.

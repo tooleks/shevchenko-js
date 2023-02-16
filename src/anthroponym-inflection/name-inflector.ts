@@ -1,4 +1,4 @@
-import { Gender, GrammaticalCase } from '../core';
+import { Gender, GrammaticalCase } from '../language';
 
 export abstract class NameInflector {
   /**

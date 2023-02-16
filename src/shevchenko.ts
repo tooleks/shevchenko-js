@@ -1,7 +1,9 @@
 import { anthroponymInflector } from './bootstrap';
-import { Anthroponym, GrammaticalCase, validateAnthroponym } from './core';
+import { Anthroponym, validateAnthroponym } from './core';
+import { GrammaticalCase } from './language';
 
-export { Anthroponym, Gender } from './core';
+export { Gender, GrammaticalCase } from './language';
+export { Anthroponym } from './core';
 export { detectGender, GenderlessAnthroponym } from './gender-detection';
 
 /**

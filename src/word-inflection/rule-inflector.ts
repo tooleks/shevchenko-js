@@ -1,8 +1,19 @@
-import { GrammaticalCase } from '../core';
-import { countGroups } from '../utils/regexp.utils';
+import { GrammaticalCase } from '../language';
 import { copyLetterCase } from '../utils/string.utils';
 import { CommandRunnerFactory } from './command-runner-factory';
 import { InflectorRule } from './inflector.types';
+
+/**
+ * Counts a number of groups in a given regular expression.
+ */
+export function countGroups(src: RegExp | string): number {
+  const pattern = new RegExp(`${src.toString()}|`);
+  const matches = pattern.exec('');
+  if (matches == null) {
+    return 0;
+  }
+  return matches.length - 1;
+}
 
 export class RuleInflector {
   private readonly rule: InflectorRule;

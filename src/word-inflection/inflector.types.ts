@@ -1,5 +1,4 @@
-import { Gender, GrammaticalCase } from '../core';
-import { WordClass } from '../language';
+import { Gender, GrammaticalCase, WordClass } from '../language';
 
 export interface InflectorRule {
   description: string;

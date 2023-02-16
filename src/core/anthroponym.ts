@@ -1,4 +1,4 @@
-import { Gender } from './grammatical-gender';
+import { Gender } from '../language';
 
 /**
  * @see {@link https://en.wikipedia.org/wiki/Given_name}

@@ -1,4 +1,5 @@
-import { Anthroponym, GrammaticalCase } from '../core';
+import { Anthroponym } from '../core';
+import { GrammaticalCase } from '../language';
 import { FirstNameInflector } from './first-name-inflector';
 import { LastNameInflector } from './last-name-inflector';
 import { MiddleNameInflector } from './middle-name-inflector';
