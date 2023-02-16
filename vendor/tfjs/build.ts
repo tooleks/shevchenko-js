@@ -46,8 +46,8 @@ function buildCustomBundle(): Promise<void> {
 async function addLayersExport(): Promise<void> {
   const exports = ["export * from '@tensorflow/tfjs-layers';"];
   let code = await readFile(TFJS_BUNDLE_FILEPATH, 'utf-8');
-  for (const exportd of exports) {
-    code += `\n${exportd}`;
+  for (const exportEntry of exports) {
+    code += `\n${exportEntry}`;
   }
   await writeFile(TFJS_BUNDLE_FILEPATH, code, 'utf-8');
 }
