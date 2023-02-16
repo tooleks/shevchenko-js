@@ -1,24 +1,24 @@
 import {
   AnthroponymInflector,
-  FirstNameInflector,
-  LastNameInflector,
-  MiddleNameInflector,
+  FamilyNameInflector,
+  GivenNameInflector,
+  PatronymicNameInflector,
 } from './anthroponym-declension';
 import { ModelBundleLoader, WordClassRecognizer } from './word-class-recognition';
 import { DeclensionRule, declensionRules } from './word-declension';
 
 const wordClassRecognizer = new WordClassRecognizer(new ModelBundleLoader());
 
-const firstNameInflector = new FirstNameInflector(declensionRules as DeclensionRule[]);
-const middleNameInflector = new MiddleNameInflector(declensionRules as DeclensionRule[]);
-const lastNameInflector = new LastNameInflector(
+const givenNameInflector = new GivenNameInflector(declensionRules as DeclensionRule[]);
+const patronymicNameInflector = new PatronymicNameInflector(declensionRules as DeclensionRule[]);
+const familyNameInflector = new FamilyNameInflector(
   declensionRules as DeclensionRule[],
   wordClassRecognizer,
 );
 const anthroponymInflector = new AnthroponymInflector(
-  firstNameInflector,
-  middleNameInflector,
-  lastNameInflector,
+  givenNameInflector,
+  patronymicNameInflector,
+  familyNameInflector,
 );
 
 export { anthroponymInflector };

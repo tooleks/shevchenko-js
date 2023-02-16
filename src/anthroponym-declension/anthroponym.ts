@@ -4,7 +4,7 @@
  * @see {@link https://en.wikipedia.org/wiki/Surname}
  */
 export interface Anthroponym {
-  firstName?: string;
-  middleName?: string;
-  lastName?: string;
+  givenName?: string;
+  patronymicName?: string;
+  familyName?: string;
 }

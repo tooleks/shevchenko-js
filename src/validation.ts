@@ -1,4 +1,4 @@
-import { Gender } from './language';
+import { GrammaticalGender } from './language';
 import type { InflectAnthroponymParams } from './shevchenko';
 
 /**
@@ -17,31 +17,31 @@ export function validateAnthroponym(params: InflectAnthroponymParams): void {
     throw new TypeError('"anthroponym" must be an object.');
   }
 
-  if (![Gender.Male, Gender.Female].includes(params.gender)) {
+  if (![GrammaticalGender.MASCULINE, GrammaticalGender.FEMININE].includes(params.gender)) {
     throw new TypeError(
-      `"anthroponym.gender" must be one of the following: "${Gender.Male}", "${Gender.Female}".`,
+      `"gender" must be one of the following: "${GrammaticalGender.MASCULINE}", "${GrammaticalGender.FEMININE}".`,
     );
   }
 
   if (
-    typeof params.firstName === 'undefined' &&
-    typeof params.middleName === 'undefined' &&
-    typeof params.lastName === 'undefined'
+    typeof params.givenName === 'undefined' &&
+    typeof params.patronymicName === 'undefined' &&
+    typeof params.familyName === 'undefined'
   ) {
     throw new TypeError(
-      'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
+      'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
     );
   }
 
-  if (typeof params.firstName !== 'undefined' && typeof params.firstName !== 'string') {
-    throw new TypeError('"anthroponym.firstName" must be a string.');
+  if (typeof params.givenName !== 'undefined' && typeof params.givenName !== 'string') {
+    throw new TypeError('"givenName" must be a string.');
   }
 
-  if (typeof params.middleName !== 'undefined' && typeof params.middleName !== 'string') {
-    throw new TypeError('"anthroponym.middleName" must be a string.');
+  if (typeof params.patronymicName !== 'undefined' && typeof params.patronymicName !== 'string') {
+    throw new TypeError('"patronymicName" must be a string.');
   }
 
-  if (typeof params.lastName !== 'undefined' && typeof params.lastName !== 'string') {
-    throw new TypeError('"anthroponym.lastName" must be a string.');
+  if (typeof params.familyName !== 'undefined' && typeof params.familyName !== 'string') {
+    throw new TypeError('"familyName" must be a string.');
   }
 }

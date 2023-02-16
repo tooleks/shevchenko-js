@@ -4,14 +4,10 @@
     "examples": [
       "любов"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 6,
-    "usage": [
-      "firstName"
-    ],
     "pattern": {
       "find": "^любов$",
       "modify": "(.{1})$"
@@ -59,7 +55,11 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "firstName"
+    ]
   },
   {
     "description": "чоловічі імена федір, сидір",
@@ -67,14 +67,10 @@
       "федір",
       "сидір"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 6,
-    "usage": [
-      "firstName"
-    ],
     "pattern": {
       "find": "^(федір|сидір)$",
       "modify": "(.{1})(.{1})$"
@@ -173,22 +169,22 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "firstName"
+    ]
   },
   {
     "description": "слово суддя",
     "examples": [
       "суддя"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male",
-      "female"
+      "masculine",
+      "feminine"
     ],
     "priority": 6,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "^суддя$",
       "modify": "(.{1})$"
@@ -243,22 +239,22 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "слово рілля",
     "examples": [
       "рілля"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male",
-      "female"
+      "masculine",
+      "feminine"
     ],
     "priority": 6,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "^рілля$",
       "modify": "(.{1})$"
@@ -313,19 +309,21 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -(голосна)вень",
     "examples": [
       "півень"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 6,
-    "usage": [],
     "pattern": {
       "find": "(а|е|є|и|і|ї|о|у|ю|я)вень$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -424,7 +422,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -(голосна)лець",
@@ -432,12 +432,10 @@
       "стрілець",
       "білець"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 6,
-    "usage": [],
     "pattern": {
       "find": "(а|е|є|и|і|ї|о|у|ю|я)лець$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -536,7 +534,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -(к|п|кр|пл|др|жив)іт",
@@ -544,12 +544,10 @@
       "кіт",
       "кріт"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 6,
-    "usage": [],
     "pattern": {
       "find": "(к|п|кр|пл|др|жив)іт$",
       "modify": "(.{1})(.{1})$"
@@ -648,19 +646,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -грім",
     "examples": [
       "грім"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 6,
-    "usage": [],
     "pattern": {
       "find": "грім$",
       "modify": "(.{1})(.{1})$"
@@ -759,19 +757,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -(дзвін|хрін)",
     "examples": [
       "дзвін"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 6,
-    "usage": [],
     "pattern": {
       "find": "(дзвін|хрін)$",
       "modify": "(.{1})(.{1})$"
@@ -870,19 +868,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -батіг",
     "examples": [
       "батіг"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 6,
-    "usage": [],
     "pattern": {
       "find": "батіг$",
       "modify": "(.{1})(.{1})$"
@@ -981,19 +979,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -сокіл",
     "examples": [
       "сокіл"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 6,
-    "usage": [],
     "pattern": {
       "find": "сокіл$",
       "modify": "(.{1})(.{1})$"
@@ -1082,19 +1080,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -кріль",
     "examples": [
       "кріль"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 6,
-    "usage": [],
     "pattern": {
       "find": "кріль$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -1193,7 +1191,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "чоловічі імена ігор, лазар",
@@ -1201,12 +1201,10 @@
       "ігор",
       "лазар"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "^(ігор|лазар)$",
       "modify": "(.{1})$"
@@ -1273,21 +1271,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "слово сіль",
     "examples": [
       "сіль"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "^сіль$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -1351,19 +1347,21 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -(голосна)(тверда приголосна)е(ц|н)ь",
     "examples": [
       "половець"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "(а|е|є|и|і|ї|о|у|ю|я)(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)е(ц|н)ь$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -1462,19 +1460,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -(тверда приголосна)(тверда приголосна)е(ц|н)ь",
     "examples": [
       "жнець"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)е(ц|н)ь$",
       "modify": "(.{1})$"
@@ -1541,7 +1539,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -(рід|плід)",
@@ -1549,12 +1549,10 @@
       "рід",
       "плід"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "(рід|плід)$",
       "modify": "(.{1})(.{1})$"
@@ -1653,7 +1651,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / чоловічі прізвища на -ніс, без чергування",
@@ -1662,12 +1662,10 @@
       "деніс",
       "маніс"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "^(б|в|г|ґ|д|дз|дж|ж|з|й|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)(а|е|є|и|і|ї|о|у|ю|я)ніс$",
       "modify": "(.{1})$"
@@ -1734,7 +1732,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -(з|яв)ір",
@@ -1742,12 +1742,10 @@
       "дивозір",
       "явір"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "(з|яв)ір$",
       "modify": "(.{1})(.{1})$"
@@ -1846,19 +1844,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -орел",
     "examples": [
       "орел"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "орел$",
       "modify": "(.{1})(.{1})$"
@@ -1947,19 +1945,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -якір",
     "examples": [
       "якір"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "якір$",
       "modify": "(.{1})(.{1})$"
@@ -2068,19 +2066,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -бідь",
     "examples": [
       "лебідь"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": ".бідь$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -2179,19 +2177,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -мінь",
     "examples": [
       "кремінь"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": ".мінь$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -2290,19 +2288,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -сіль",
     "examples": [
       "кисіль"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "сіль$",
       "modify": "(.{1})$"
@@ -2369,19 +2367,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -кінь",
     "examples": [
       "кінь"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "кінь$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -2480,19 +2478,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -куліш",
     "examples": [
       "куліш"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 5,
-    "usage": [],
     "pattern": {
       "find": "куліш$",
       "modify": "(.{1})$"
@@ -2547,7 +2545,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "жіночий рід / на -(тверда приголосна)ька",
@@ -2555,14 +2555,10 @@
       "ільницька",
       "сумська"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 4,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)ька$",
       "modify": "(.{1})$"
@@ -2610,21 +2606,21 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "жіночий рід / на -ова",
     "examples": [
       "іванова"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 4,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "ова$",
       "modify": "(.{1})$"
@@ -2672,21 +2668,21 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "жіночий рід / на -іна",
     "examples": [
       "зеленкіна"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 4,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "іна$",
       "modify": "(.{1})$"
@@ -2734,19 +2730,21 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -(голосна)єць",
     "examples": [
       "заєць"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "(а|е|є|и|і|ї|о|у|ю|я)єць$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -2845,19 +2843,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -віз",
     "examples": [
       "узвіз"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "віз$",
       "modify": "(.{1})(.{1})$"
@@ -2956,19 +2954,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -ків",
     "examples": [
       "яків"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": ".ків$",
       "modify": "(.{1})(.{1})$"
@@ -3067,19 +3065,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -(к|р)іп",
     "examples": [
       "прокіп"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": ".(к|р)іп$",
       "modify": "(.{1})(.{1})$"
@@ -3178,19 +3176,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -піп",
     "examples": [
       "прокіп"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "піп$",
       "modify": "(.{1})(.{1})$"
@@ -3289,19 +3287,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -ніс",
     "examples": [
       "кривоніс"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "ніс$",
       "modify": "(.{1})(.{1})$"
@@ -3400,19 +3398,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -віл",
     "examples": [
       "рябовіл"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "віл$",
       "modify": "(.{1})(.{1})$"
@@ -3511,19 +3509,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -ріг",
     "examples": [
       "пиріг"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "ріг$",
       "modify": "(.{1})(.{1})$"
@@ -3622,19 +3620,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -хід",
     "examples": [
       "прихід"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "хід$",
       "modify": "(.{1})(.{1})$"
@@ -3733,7 +3731,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / жіночий рід / м'яка група / на -ель",
@@ -3741,14 +3741,10 @@
       "нінель",
       "мішель"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 4,
-    "usage": [
-      "firstName"
-    ],
     "pattern": {
       "find": "ель$",
       "modify": "(.{1})(.{1})$"
@@ -3793,19 +3789,21 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "firstName"
+    ]
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -ишин",
     "examples": [
       "ковалишин"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "ишин$",
       "modify": "(.{1})$"
@@ -3860,19 +3858,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -(аго|ово)",
     "examples": [
       "живаго"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "(аго|ово)$",
       "modify": "(.{1})$"
@@ -3885,19 +3883,19 @@
       "ablative": [],
       "locative": [],
       "vocative": []
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -тер",
     "examples": [
       "вітер"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "тер$",
       "modify": "(.{1})(.{1})$"
@@ -3976,19 +3974,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "перша відміна / чоловічий рід / тверда група / на -світ",
     "examples": [
       "світ"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "світ$",
       "modify": "(.{1})$"
@@ -4043,7 +4041,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "чоловічі імена / на -(в|д)ір",
@@ -4051,12 +4051,10 @@
       "дір",
       "вір"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 4,
-    "usage": [],
     "pattern": {
       "find": "(в|д)ір$",
       "modify": "(.{1})$"
@@ -4123,21 +4121,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "чоловічий рід / на -кій (помилкова транслітерація)",
     "examples": [
       "дідківській"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "кій$",
       "modify": "(.{2})$"
@@ -4185,19 +4181,21 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "множина / на -их",
     "examples": [
       "седих"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [],
     "pattern": {
       "find": "их$",
       "modify": "(.{1})$"
@@ -4210,19 +4208,19 @@
       "ablative": [],
       "locative": [],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -га",
     "examples": [
       "нога"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [],
     "pattern": {
       "find": "га$",
       "modify": "(.{1})(.{1})$"
@@ -4285,19 +4283,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -кіш",
     "examples": [
       "розкіш"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [],
     "pattern": {
       "find": "кіш$",
       "modify": "(.{1})(.{1})$"
@@ -4376,7 +4374,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -ьо",
@@ -4384,12 +4384,10 @@
       "іваньо",
       "кузьо"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [],
     "pattern": {
       "find": "ьо$",
       "modify": "(.{2})$"
@@ -4437,7 +4435,9 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -е(в|н)",
@@ -4445,12 +4445,10 @@
       "семен",
       "лев"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [],
     "pattern": {
       "find": "е(в|н)$",
       "modify": "(.{1})$"
@@ -4505,19 +4503,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -пес",
     "examples": [
       "пес"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [],
     "pattern": {
       "find": "пес$",
       "modify": "(.{1})(.{1})$"
@@ -4596,19 +4594,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -ко",
     "examples": [
       "марко"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [],
     "pattern": {
       "find": "ко$",
       "modify": "(.{1})$"
@@ -4675,19 +4673,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -ий",
     "examples": [
       "батий"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [],
     "pattern": {
       "find": "ий$",
       "modify": "(.{1})$"
@@ -4748,19 +4746,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "перша відміна / чоловічий рід / тверда група / на -йо",
     "examples": [
       "йойо"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [],
     "pattern": {
       "find": "йо$",
       "modify": "(.{2})$"
@@ -4808,19 +4806,19 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "перша відміна / чоловічий рід / тверда група / на -бо",
     "examples": [
       "голембо"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 3,
-    "usage": [],
     "pattern": {
       "find": "бо$",
       "modify": "(.{1})$"
@@ -4868,7 +4866,9 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "чоловічий рід / на -ой, -ий",
@@ -4876,14 +4876,10 @@
       "толстой",
       "сухомлинський"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "(ой|ий)$",
       "modify": "(.{2})$"
@@ -4931,21 +4927,21 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "чоловічий рід / на -ій",
     "examples": [
       "заболотній"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "ій$",
       "modify": "(.{2})$"
@@ -4993,21 +4989,21 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "жіночий рід / на -(тверда приголосна)а",
     "examples": [
       "зелена"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 2,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)а$",
       "modify": "(.{1})$"
@@ -5055,21 +5051,21 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "жіночий рід / на -(тверда приголосна)я",
     "examples": [
       "задорожня"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 2,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)я$",
       "modify": "(.{1})$"
@@ -5117,21 +5113,21 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "жіночий рід / на -ая",
     "examples": [
       "толстая"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 2,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "ая$",
       "modify": "(.{2})$"
@@ -5179,21 +5175,21 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "жіночий рід / на -яя",
     "examples": [
       "заболотняя"
     ],
-    "partOfSpeech": "adjective",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 2,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "яя$",
       "modify": "(.{2})$"
@@ -5241,7 +5237,11 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "adjective",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "чоловічі по батькові та прізвища / на -ич",
@@ -5249,15 +5249,10 @@
       "валерійович",
       "риндич"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [
-      "middleName",
-      "lastName"
-    ],
     "pattern": {
       "find": "ич$",
       "modify": "(.{1})$"
@@ -5312,22 +5307,22 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "middleName",
+      "lastName"
+    ]
   },
   {
     "description": "чоловічі по батькові та прізвища / на -іч",
     "examples": [
       "ілліч"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [
-      "middleName",
-      "lastName"
-    ],
     "pattern": {
       "find": "іч$",
       "modify": "(.{1})$"
@@ -5400,21 +5395,22 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "middleName",
+      "lastName"
+    ]
   },
   {
     "description": "жіночі по батькові / на -на",
     "examples": [
       "юріївна"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 2,
-    "usage": [
-      "middleName"
-    ],
     "pattern": {
       "find": "на$",
       "modify": "(.{1})$"
@@ -5469,21 +5465,21 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "middleName"
+    ]
   },
   {
     "description": "жіночі імена / на -(тверда приголосна)я",
     "examples": [
       "неля"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 2,
-    "usage": [
-      "firstName"
-    ],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)я$",
       "modify": "(.{1})$"
@@ -5538,21 +5534,21 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "firstName"
+    ]
   },
   {
     "description": "чоловічі імена / на -ня",
     "examples": [
       "женя"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [
-      "firstName"
-    ],
     "pattern": {
       "find": "ня$",
       "modify": "(.{1})$"
@@ -5607,21 +5603,21 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "firstName"
+    ]
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група/ на -ов",
     "examples": [
       "павлов"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "ов$",
       "modify": "(.{1})$"
@@ -5676,21 +5672,21 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -ів",
     "examples": [
       "ковалів"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [
-      "lastName"
-    ],
     "pattern": {
       "find": "ів$",
       "modify": "(.{1})$"
@@ -5745,19 +5741,21 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "lastName"
+    ]
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -яр",
     "examples": [
       "скляр"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "яр$",
       "modify": "(.{1})$"
@@ -5824,19 +5822,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / жіночий рід / тверда, м'яка група / на -(о|ь|тверда приголосна)",
     "examples": [
       "шевченко"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "(о|ь|(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ))$",
       "modify": "(.{2})$"
@@ -5849,19 +5847,19 @@
       "ablative": [],
       "locative": [],
       "vocative": []
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -ок",
     "examples": [
       "сашок"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "ок$",
       "modify": "(.{1})(.{1})$"
@@ -5950,19 +5948,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -е(тверда_прилосона)",
     "examples": [
       "марек"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "е(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)$",
       "modify": "(.{1})$"
@@ -6017,20 +6015,20 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -(тверда приголосна)я",
     "examples": [
       "гмиря"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male",
-      "female"
+      "masculine",
+      "feminine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)я$",
       "modify": "(.{1})$"
@@ -6085,7 +6083,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий, жіночий роди / м'яка група / на -(голосна|ь|й)я",
@@ -6093,13 +6093,11 @@
       "юлія",
       "майя"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male",
-      "female"
+      "masculine",
+      "feminine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "((а|е|є|и|і|ї|о|у|ю|я)|ь|й)я$",
       "modify": "(.{1})$"
@@ -6154,7 +6152,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / мішана група / на -(дж|ж|ч|ш)",
@@ -6162,12 +6162,10 @@
       "януш",
       "джордж"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "(дж|ж|ч|ш)$",
       "modify": "(.{1})$"
@@ -6240,7 +6238,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -к",
@@ -6248,12 +6248,10 @@
       "кузик",
       "мисяк"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "к$",
       "modify": "(.{1})$"
@@ -6320,19 +6318,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -х",
     "examples": [
       "кожух"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "х$",
       "modify": "(.{1})$"
@@ -6393,20 +6391,20 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "перша відміна / чоловічий, жіночий роди / тверда група / на -ха",
     "examples": [
       "старуха"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male",
-      "female"
+      "masculine",
+      "feminine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "ха$",
       "modify": "(.{1})(.{1})$"
@@ -6475,20 +6473,20 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "перша відміна / чоловічий, жіночий роди / тверда група / на -ка",
     "examples": [
       "прилука"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male",
-      "female"
+      "masculine",
+      "feminine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "ка$",
       "modify": "(.{1})(.{1})$"
@@ -6557,7 +6555,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "перша відміна / чоловічий рід / тверда група / на -(тверда приголосна)о",
@@ -6565,12 +6565,10 @@
       "петро",
       "павло"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)о$",
       "modify": "(.{1})$"
@@ -6625,19 +6623,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "перша відміна / жіночий рід / тверда група / на -(г|ґ)а",
     "examples": [
       "ольга"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "(г|ґ)а$",
       "modify": "(.{1})(.{1})$"
@@ -6700,20 +6698,20 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "перша відміна / чоловічий рід / тверда група / на -ле",
     "examples": [
       "поле"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male",
-      "female"
+      "masculine",
+      "feminine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "ле$",
       "modify": "(.{1})$"
@@ -6761,20 +6759,20 @@
         }
       ],
       "vocative": []
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "перша відміна / чоловічий, жіночий роди / мішана група / на -а",
     "examples": [
       "мойша"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male",
-      "female"
+      "masculine",
+      "feminine"
     ],
     "priority": 2,
-    "usage": [],
     "pattern": {
       "find": "(дж|ж|ч|ш|щ)а$",
       "modify": "(.{1})$"
@@ -6829,19 +6827,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -(тверда приголосна)",
     "examples": [
       "олександр"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 1,
-    "usage": [],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)$",
       "modify": "(.{1})$"
@@ -6908,20 +6906,20 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "перша відміна / чоловічий, жіночий роди / тверда група / на -а",
     "examples": [
       "анна"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male",
-      "female"
+      "masculine",
+      "feminine"
     ],
     "priority": 1,
-    "usage": [],
     "pattern": {
       "find": "а$",
       "modify": "(.{1})$"
@@ -6976,19 +6974,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -й",
     "examples": [
       "валерій"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 1,
-    "usage": [],
     "pattern": {
       "find": "й$",
       "modify": "(.{1})$"
@@ -7061,19 +7059,19 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "друга відміна / чоловічий рід / м'яка група / на -ь",
     "examples": [
       "петрунь"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "male"
+      "masculine"
     ],
     "priority": 1,
-    "usage": [],
     "pattern": {
       "find": "ь$",
       "modify": "(.{1})$"
@@ -7128,7 +7126,9 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": []
   },
   {
     "description": "жіночі імена / на -('|`)я",
@@ -7136,14 +7136,10 @@
       "дар'я",
       "мар'я"
     ],
-    "partOfSpeech": "noun",
     "gender": [
-      "female"
+      "feminine"
     ],
     "priority": 1,
-    "usage": [
-      "firstName"
-    ],
     "pattern": {
       "find": "('|`)я$",
       "modify": "(.{1})$"
@@ -7198,6 +7194,10 @@
           }
         }
       ]
-    }
+    },
+    "wordClass": "noun",
+    "application": [
+      "firstName"
+    ]
   }
 ]

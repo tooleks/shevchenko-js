@@ -1,22 +1,22 @@
-import { Gender, GrammaticalCase } from '../language';
+import { GrammaticalCase, GrammaticalGender } from '../language';
 import { Anthroponym } from './anthroponym';
-import { FirstNameInflector } from './first-name-inflector';
-import { LastNameInflector } from './last-name-inflector';
-import { MiddleNameInflector } from './middle-name-inflector';
+import { FamilyNameInflector } from './family-name-inflector';
+import { GivenNameInflector } from './given-name-inflector';
+import { PatronymicNameInflector } from './patronymic-name-inflector';
 
 export class AnthroponymInflector {
-  private readonly firstNameInflector: FirstNameInflector;
-  private readonly middleNameInflector: MiddleNameInflector;
-  private readonly lastNameInflector: LastNameInflector;
+  private readonly givenNameInflector: GivenNameInflector;
+  private readonly patronymicNameInflector: PatronymicNameInflector;
+  private readonly familyNameInflector: FamilyNameInflector;
 
   constructor(
-    firstNameInflector: FirstNameInflector,
-    middleNameInflector: MiddleNameInflector,
-    lastNameInflector: LastNameInflector,
+    givenNameInflector: GivenNameInflector,
+    patronymicNameInflector: PatronymicNameInflector,
+    familyNameInflector: FamilyNameInflector,
   ) {
-    this.firstNameInflector = firstNameInflector;
-    this.middleNameInflector = middleNameInflector;
-    this.lastNameInflector = lastNameInflector;
+    this.givenNameInflector = givenNameInflector;
+    this.patronymicNameInflector = patronymicNameInflector;
+    this.familyNameInflector = familyNameInflector;
   }
 
   /**
@@ -24,30 +24,30 @@ export class AnthroponymInflector {
    */
   async inflect(
     anthroponym: Anthroponym,
-    gender: Gender,
+    gender: GrammaticalGender,
     grammaticalCase: GrammaticalCase,
   ): Promise<Anthroponym> {
     const result: Anthroponym = {};
 
-    if (anthroponym.firstName != null) {
-      result.firstName = await this.firstNameInflector.inflect(
-        anthroponym.firstName,
+    if (anthroponym.givenName != null) {
+      result.givenName = await this.givenNameInflector.inflect(
+        anthroponym.givenName,
         gender,
         grammaticalCase,
       );
     }
 
-    if (anthroponym.middleName != null) {
-      result.middleName = await this.middleNameInflector.inflect(
-        anthroponym.middleName,
+    if (anthroponym.patronymicName != null) {
+      result.patronymicName = await this.patronymicNameInflector.inflect(
+        anthroponym.patronymicName,
         gender,
         grammaticalCase,
       );
     }
 
-    if (anthroponym.lastName != null) {
-      result.lastName = await this.lastNameInflector.inflect(
-        anthroponym.lastName,
+    if (anthroponym.familyName != null) {
+      result.familyName = await this.familyNameInflector.inflect(
+        anthroponym.familyName,
         gender,
         grammaticalCase,
       );

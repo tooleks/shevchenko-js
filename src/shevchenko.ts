@@ -1,14 +1,14 @@
 import { Anthroponym } from './anthroponym-declension';
 import { anthroponymInflector } from './bootstrap';
-import { Gender, GrammaticalCase } from './language';
+import { GrammaticalCase, GrammaticalGender } from './language';
 import { validateAnthroponym } from './validation';
 
-export { Gender, GrammaticalCase } from './language';
+export { GrammaticalGender as Gender, GrammaticalCase } from './language';
 export { Anthroponym } from './anthroponym-declension';
 export { detectGender } from './gender-detection';
 
 export type InflectAnthroponymParams = Anthroponym & {
-  gender: Gender;
+  gender: GrammaticalGender;
 };
 
 /**
@@ -16,7 +16,7 @@ export type InflectAnthroponymParams = Anthroponym & {
  */
 export async function inNominative(params: InflectAnthroponymParams): Promise<Anthroponym> {
   validateAnthroponym(params);
-  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Nominative);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.NOMINATIVE);
 }
 
 /**
@@ -24,7 +24,7 @@ export async function inNominative(params: InflectAnthroponymParams): Promise<An
  */
 export async function inGenitive(params: InflectAnthroponymParams): Promise<Anthroponym> {
   validateAnthroponym(params);
-  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Genitive);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.GENITIVE);
 }
 
 /**
@@ -32,7 +32,7 @@ export async function inGenitive(params: InflectAnthroponymParams): Promise<Anth
  */
 export async function inDative(params: InflectAnthroponymParams): Promise<Anthroponym> {
   validateAnthroponym(params);
-  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Dative);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.DATIVE);
 }
 
 /**
@@ -40,7 +40,7 @@ export async function inDative(params: InflectAnthroponymParams): Promise<Anthro
  */
 export async function inAccusative(params: InflectAnthroponymParams): Promise<Anthroponym> {
   validateAnthroponym(params);
-  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Accusative);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.ACCUSATIVE);
 }
 
 /**
@@ -48,7 +48,7 @@ export async function inAccusative(params: InflectAnthroponymParams): Promise<An
  */
 export async function inAblative(params: InflectAnthroponymParams): Promise<Anthroponym> {
   validateAnthroponym(params);
-  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Ablative);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.ABLATIVE);
 }
 
 /**
@@ -56,7 +56,7 @@ export async function inAblative(params: InflectAnthroponymParams): Promise<Anth
  */
 export async function inLocative(params: InflectAnthroponymParams): Promise<Anthroponym> {
   validateAnthroponym(params);
-  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Locative);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.LOCATIVE);
 }
 
 /**
@@ -64,5 +64,5 @@ export async function inLocative(params: InflectAnthroponymParams): Promise<Anth
  */
 export async function inVocative(params: InflectAnthroponymParams): Promise<Anthroponym> {
   validateAnthroponym(params);
-  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.Vocative);
+  return anthroponymInflector.inflect(params, params.gender, GrammaticalCase.VOCATIVE);
 }

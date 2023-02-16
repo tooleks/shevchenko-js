@@ -43,85 +43,85 @@ describe('shevchenko', () => {
     // @ts-ignore
     const anthroponym = {
       gender: 'animate',
-      firstName: 'Тарас',
-      middleName: 'Григорович',
-      lastName: 'Шевченко',
+      givenName: 'Тарас',
+      patronymicName: 'Григорович',
+      familyName: 'Шевченко',
     } as shevchenko.InflectAnthroponymParams;
 
     await expect(() => shevchenko.inNominative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.gender" must be one of the following: "male", "female".'),
+      new TypeError('"gender" must be one of the following: "masculine", "feminine".'),
     );
 
     await expect(() => shevchenko.inGenitive(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.gender" must be one of the following: "male", "female".'),
+      new TypeError('"gender" must be one of the following: "masculine", "feminine".'),
     );
 
     await expect(() => shevchenko.inDative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.gender" must be one of the following: "male", "female".'),
+      new TypeError('"gender" must be one of the following: "masculine", "feminine".'),
     );
 
     await expect(() => shevchenko.inAccusative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.gender" must be one of the following: "male", "female".'),
+      new TypeError('"gender" must be one of the following: "masculine", "feminine".'),
     );
 
     await expect(() => shevchenko.inAblative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.gender" must be one of the following: "male", "female".'),
+      new TypeError('"gender" must be one of the following: "masculine", "feminine".'),
     );
 
     await expect(() => shevchenko.inLocative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.gender" must be one of the following: "male", "female".'),
+      new TypeError('"gender" must be one of the following: "masculine", "feminine".'),
     );
 
     await expect(() => shevchenko.inVocative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.gender" must be one of the following: "male", "female".'),
+      new TypeError('"gender" must be one of the following: "masculine", "feminine".'),
     );
   });
 
   it('should throw an error if none of the name fields provided', async () => {
     // @ts-ignore
     const anthroponym = {
-      gender: 'male',
+      gender: 'masculine',
     } as shevchenko.InflectAnthroponymParams;
 
     await expect(() => shevchenko.inNominative(anthroponym)).rejects.toStrictEqual(
       new TypeError(
-        'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
+        'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
       ),
     );
 
     await expect(() => shevchenko.inGenitive(anthroponym)).rejects.toStrictEqual(
       new TypeError(
-        'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
+        'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
       ),
     );
 
     await expect(() => shevchenko.inDative(anthroponym)).rejects.toStrictEqual(
       new TypeError(
-        'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
+        'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
       ),
     );
 
     await expect(() => shevchenko.inAccusative(anthroponym)).rejects.toStrictEqual(
       new TypeError(
-        'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
+        'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
       ),
     );
 
     await expect(() => shevchenko.inAblative(anthroponym)).rejects.toStrictEqual(
       new TypeError(
-        'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
+        'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
       ),
     );
 
     await expect(() => shevchenko.inLocative(anthroponym)).rejects.toStrictEqual(
       new TypeError(
-        'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
+        'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
       ),
     );
 
     await expect(() => shevchenko.inVocative(anthroponym)).rejects.toStrictEqual(
       new TypeError(
-        'At least one of the following fields must present: "anthroponym.firstName", "anthroponym.middleName", "anthroponym.lastName".',
+        'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
       ),
     );
   });
@@ -129,274 +129,274 @@ describe('shevchenko', () => {
   it('should throw an error if provided first name is not a string', async () => {
     // @ts-ignore
     const anthroponym = {
-      gender: 'male',
-      firstName: null,
-      middleName: 'Григорович',
-      lastName: 'Шевченко',
+      gender: 'masculine',
+      givenName: null,
+      patronymicName: 'Григорович',
+      familyName: 'Шевченко',
     } as shevchenko.InflectAnthroponymParams;
 
     await expect(() => shevchenko.inNominative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.firstName" must be a string.'),
+      new TypeError('"givenName" must be a string.'),
     );
 
     await expect(() => shevchenko.inGenitive(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.firstName" must be a string.'),
+      new TypeError('"givenName" must be a string.'),
     );
 
     await expect(() => shevchenko.inDative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.firstName" must be a string.'),
+      new TypeError('"givenName" must be a string.'),
     );
 
     await expect(() => shevchenko.inAccusative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.firstName" must be a string.'),
+      new TypeError('"givenName" must be a string.'),
     );
 
     await expect(() => shevchenko.inAblative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.firstName" must be a string.'),
+      new TypeError('"givenName" must be a string.'),
     );
 
     await expect(() => shevchenko.inLocative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.firstName" must be a string.'),
+      new TypeError('"givenName" must be a string.'),
     );
 
     await expect(() => shevchenko.inVocative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.firstName" must be a string.'),
+      new TypeError('"givenName" must be a string.'),
     );
   });
 
   it('should throw an error if provided middle name is not a string', async () => {
     // @ts-ignore
     const anthroponym = {
-      gender: 'male',
-      firstName: 'Тарас',
-      middleName: null,
-      lastName: 'Шевченко',
+      gender: 'masculine',
+      givenName: 'Тарас',
+      patronymicName: null,
+      familyName: 'Шевченко',
     } as shevchenko.InflectAnthroponymParams;
 
     await expect(() => shevchenko.inNominative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.middleName" must be a string.'),
+      new TypeError('"patronymicName" must be a string.'),
     );
 
     await expect(() => shevchenko.inGenitive(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.middleName" must be a string.'),
+      new TypeError('"patronymicName" must be a string.'),
     );
 
     await expect(() => shevchenko.inDative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.middleName" must be a string.'),
+      new TypeError('"patronymicName" must be a string.'),
     );
 
     await expect(() => shevchenko.inAccusative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.middleName" must be a string.'),
+      new TypeError('"patronymicName" must be a string.'),
     );
 
     await expect(() => shevchenko.inAblative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.middleName" must be a string.'),
+      new TypeError('"patronymicName" must be a string.'),
     );
 
     await expect(() => shevchenko.inLocative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.middleName" must be a string.'),
+      new TypeError('"patronymicName" must be a string.'),
     );
 
     await expect(() => shevchenko.inVocative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.middleName" must be a string.'),
+      new TypeError('"patronymicName" must be a string.'),
     );
   });
 
   it('should throw an error if provided last name is not a string', async () => {
     // @ts-ignore
     const anthroponym = {
-      gender: 'male',
-      firstName: 'Тарас',
-      middleName: 'Григорович',
-      lastName: null,
+      gender: 'masculine',
+      givenName: 'Тарас',
+      patronymicName: 'Григорович',
+      familyName: null,
     } as shevchenko.InflectAnthroponymParams;
 
     await expect(() => shevchenko.inNominative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.lastName" must be a string.'),
+      new TypeError('"familyName" must be a string.'),
     );
 
     await expect(() => shevchenko.inGenitive(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.lastName" must be a string.'),
+      new TypeError('"familyName" must be a string.'),
     );
 
     await expect(() => shevchenko.inDative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.lastName" must be a string.'),
+      new TypeError('"familyName" must be a string.'),
     );
 
     await expect(() => shevchenko.inAccusative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.lastName" must be a string.'),
+      new TypeError('"familyName" must be a string.'),
     );
 
     await expect(() => shevchenko.inAblative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.lastName" must be a string.'),
+      new TypeError('"familyName" must be a string.'),
     );
 
     expect(() => shevchenko.inLocative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.lastName" must be a string.'),
+      new TypeError('"familyName" must be a string.'),
     );
 
     await expect(() => shevchenko.inVocative(anthroponym)).rejects.toStrictEqual(
-      new TypeError('"anthroponym.lastName" must be a string.'),
+      new TypeError('"familyName" must be a string.'),
     );
   });
 
   it('should inflect anthroponym if first name provided', async () => {
     // @ts-ignore
     const anthroponym = {
-      gender: 'male',
-      firstName: 'Тарас',
+      gender: 'masculine',
+      givenName: 'Тарас',
     } as shevchenko.InflectAnthroponymParams;
 
     await expect(shevchenko.inNominative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тарас',
+      givenName: 'Тарас',
     });
 
     await expect(shevchenko.inGenitive(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тараса',
+      givenName: 'Тараса',
     });
 
     await expect(shevchenko.inDative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тарасу',
+      givenName: 'Тарасу',
     });
 
     await expect(shevchenko.inAccusative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тараса',
+      givenName: 'Тараса',
     });
 
     await expect(shevchenko.inAblative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тарасом',
+      givenName: 'Тарасом',
     });
 
     await expect(shevchenko.inLocative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тарасові',
+      givenName: 'Тарасові',
     });
 
     await expect(shevchenko.inVocative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тарасе',
+      givenName: 'Тарасе',
     });
   });
 
   it('should inflect anthroponym if middle name provided', async () => {
     // @ts-ignore
     const anthroponym = {
-      gender: 'male',
-      middleName: 'Григорович',
+      gender: 'masculine',
+      patronymicName: 'Григорович',
     } as shevchenko.InflectAnthroponymParams;
 
     await expect(shevchenko.inNominative(anthroponym)).resolves.toStrictEqual({
-      middleName: 'Григорович',
+      patronymicName: 'Григорович',
     });
 
     await expect(shevchenko.inGenitive(anthroponym)).resolves.toStrictEqual({
-      middleName: 'Григоровича',
+      patronymicName: 'Григоровича',
     });
 
     await expect(shevchenko.inDative(anthroponym)).resolves.toStrictEqual({
-      middleName: 'Григоровичу',
+      patronymicName: 'Григоровичу',
     });
 
     await expect(shevchenko.inAccusative(anthroponym)).resolves.toStrictEqual({
-      middleName: 'Григоровича',
+      patronymicName: 'Григоровича',
     });
 
     await expect(shevchenko.inAblative(anthroponym)).resolves.toStrictEqual({
-      middleName: 'Григоровичем',
+      patronymicName: 'Григоровичем',
     });
 
     await expect(shevchenko.inLocative(anthroponym)).resolves.toStrictEqual({
-      middleName: 'Григоровичу',
+      patronymicName: 'Григоровичу',
     });
 
     await expect(shevchenko.inVocative(anthroponym)).resolves.toStrictEqual({
-      middleName: 'Григоровичу',
+      patronymicName: 'Григоровичу',
     });
   });
 
   it('should inflect anthroponym if last name provided', async () => {
     // @ts-ignore
     const anthroponym = {
-      gender: 'male',
-      lastName: 'Шевченко',
+      gender: 'masculine',
+      familyName: 'Шевченко',
     } as shevchenko.InflectAnthroponymParams;
 
     await expect(shevchenko.inNominative(anthroponym)).resolves.toStrictEqual({
-      lastName: 'Шевченко',
+      familyName: 'Шевченко',
     });
 
     await expect(shevchenko.inGenitive(anthroponym)).resolves.toStrictEqual({
-      lastName: 'Шевченка',
+      familyName: 'Шевченка',
     });
 
     await expect(shevchenko.inDative(anthroponym)).resolves.toStrictEqual({
-      lastName: 'Шевченку',
+      familyName: 'Шевченку',
     });
 
     await expect(shevchenko.inAccusative(anthroponym)).resolves.toStrictEqual({
-      lastName: 'Шевченка',
+      familyName: 'Шевченка',
     });
 
     await expect(shevchenko.inAblative(anthroponym)).resolves.toStrictEqual({
-      lastName: 'Шевченком',
+      familyName: 'Шевченком',
     });
 
     await expect(shevchenko.inLocative(anthroponym)).resolves.toStrictEqual({
-      lastName: 'Шевченкові',
+      familyName: 'Шевченкові',
     });
 
     await expect(shevchenko.inVocative(anthroponym)).resolves.toStrictEqual({
-      lastName: 'Шевченку',
+      familyName: 'Шевченку',
     });
   });
 
   it('should inflect anthroponym if full name provided', async () => {
     // @ts-ignore
     const anthroponym = {
-      gender: 'male',
-      firstName: 'Тарас',
-      middleName: 'Григорович',
-      lastName: 'Шевченко',
+      gender: 'masculine',
+      givenName: 'Тарас',
+      patronymicName: 'Григорович',
+      familyName: 'Шевченко',
     } as shevchenko.InflectAnthroponymParams;
 
     await expect(shevchenko.inNominative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тарас',
-      middleName: 'Григорович',
-      lastName: 'Шевченко',
+      givenName: 'Тарас',
+      patronymicName: 'Григорович',
+      familyName: 'Шевченко',
     });
 
     await expect(shevchenko.inGenitive(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тараса',
-      middleName: 'Григоровича',
-      lastName: 'Шевченка',
+      givenName: 'Тараса',
+      patronymicName: 'Григоровича',
+      familyName: 'Шевченка',
     });
 
     await expect(shevchenko.inDative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тарасу',
-      middleName: 'Григоровичу',
-      lastName: 'Шевченку',
+      givenName: 'Тарасу',
+      patronymicName: 'Григоровичу',
+      familyName: 'Шевченку',
     });
 
     await expect(shevchenko.inAccusative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тараса',
-      middleName: 'Григоровича',
-      lastName: 'Шевченка',
+      givenName: 'Тараса',
+      patronymicName: 'Григоровича',
+      familyName: 'Шевченка',
     });
 
     await expect(shevchenko.inAblative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тарасом',
-      middleName: 'Григоровичем',
-      lastName: 'Шевченком',
+      givenName: 'Тарасом',
+      patronymicName: 'Григоровичем',
+      familyName: 'Шевченком',
     });
 
     await expect(shevchenko.inLocative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тарасові',
-      middleName: 'Григоровичу',
-      lastName: 'Шевченкові',
+      givenName: 'Тарасові',
+      patronymicName: 'Григоровичу',
+      familyName: 'Шевченкові',
     });
 
     await expect(shevchenko.inVocative(anthroponym)).resolves.toStrictEqual({
-      firstName: 'Тарасе',
-      middleName: 'Григоровичу',
-      lastName: 'Шевченку',
+      givenName: 'Тарасе',
+      patronymicName: 'Григоровичу',
+      familyName: 'Шевченку',
     });
   });
 });

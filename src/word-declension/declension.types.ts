@@ -1,12 +1,12 @@
-import { Gender, GrammaticalCase, WordClass } from '../language';
+import { GrammaticalCase, GrammaticalGender, WordClass } from '../language';
 
 export interface DeclensionRule {
   description: string;
   examples: string[];
-  partOfSpeech: WordClass;
-  gender: Gender[];
+  wordClass: WordClass;
+  gender: GrammaticalGender[];
   priority: number;
-  usage: string[];
+  application: string[];
   pattern: DeclensionPattern;
   grammaticalCases: GrammaticalCases;
 }
@@ -17,13 +17,13 @@ export interface DeclensionPattern {
 }
 
 export interface GrammaticalCases {
-  [GrammaticalCase.Nominative]: DeclensionCommandGroup[];
-  [GrammaticalCase.Genitive]: DeclensionCommandGroup[];
-  [GrammaticalCase.Dative]: DeclensionCommandGroup[];
-  [GrammaticalCase.Accusative]: DeclensionCommandGroup[];
-  [GrammaticalCase.Ablative]: DeclensionCommandGroup[];
-  [GrammaticalCase.Locative]: DeclensionCommandGroup[];
-  [GrammaticalCase.Vocative]: DeclensionCommandGroup[];
+  [GrammaticalCase.NOMINATIVE]: DeclensionCommandGroup[];
+  [GrammaticalCase.GENITIVE]: DeclensionCommandGroup[];
+  [GrammaticalCase.DATIVE]: DeclensionCommandGroup[];
+  [GrammaticalCase.ACCUSATIVE]: DeclensionCommandGroup[];
+  [GrammaticalCase.ABLATIVE]: DeclensionCommandGroup[];
+  [GrammaticalCase.LOCATIVE]: DeclensionCommandGroup[];
+  [GrammaticalCase.VOCATIVE]: DeclensionCommandGroup[];
 }
 
 export interface DeclensionCommandGroup {

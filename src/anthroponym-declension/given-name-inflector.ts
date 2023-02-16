@@ -1,8 +1,8 @@
-import { Gender, GrammaticalCase } from '../language';
+import { GrammaticalCase, GrammaticalGender } from '../language';
 import { DeclensionRule, DeclensionRuleInflector } from '../word-declension';
 import { NameInflector } from './name-inflector';
 
-export class FirstNameInflector extends NameInflector {
+export class GivenNameInflector extends NameInflector {
   private readonly rules: DeclensionRule[];
 
   constructor(rules: DeclensionRule[]) {
@@ -13,19 +13,23 @@ export class FirstNameInflector extends NameInflector {
   /**
    * @inheritdoc
    */
-  protected inflectWord(word: string, gender: Gender, grammaticalCase: GrammaticalCase): string {
+  protected inflectWord(
+    word: string,
+    gender: GrammaticalGender,
+    grammaticalCase: GrammaticalCase,
+  ): string {
     const [rule] = this.rules
       .filter((rule) => rule.gender.includes(gender))
-      .filter((rule) => rule.usage.length === 0 || rule.usage.includes('firstName'))
+      .filter((rule) => rule.application.length === 0 || rule.application.includes('firstName'))
       .filter((rule) => new RegExp(rule.pattern.find, 'gi').test(word))
       .sort((firstRule, secondRule) => {
-        if (firstRule.usage.length === 0) {
+        if (firstRule.application.length === 0) {
           return 0;
         }
-        if (secondRule.usage.length > 0) {
+        if (secondRule.application.length > 0) {
           return 0;
         }
-        if (secondRule.usage.includes('firstName')) {
+        if (secondRule.application.includes('firstName')) {
           return 0;
         }
         return 1;

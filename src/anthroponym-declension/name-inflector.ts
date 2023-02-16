@@ -1,10 +1,14 @@
-import { Gender, GrammaticalCase } from '../language';
+import { GrammaticalCase, GrammaticalGender } from '../language';
 
 export abstract class NameInflector {
   /**
    * Inflects the name in the given grammatical case.
    */
-  async inflect(name: string, gender: Gender, grammaticalCase: GrammaticalCase): Promise<string> {
+  async inflect(
+    name: string,
+    gender: GrammaticalGender,
+    grammaticalCase: GrammaticalCase,
+  ): Promise<string> {
     const results: string[] = [];
 
     const words = name.split('-');
@@ -26,7 +30,7 @@ export abstract class NameInflector {
    */
   protected abstract inflectWord(
     word: string,
-    gender: Gender,
+    gender: GrammaticalGender,
     grammaticalCase: GrammaticalCase,
     isLastWord: boolean,
   ): Promise<string> | string;

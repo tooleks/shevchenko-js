@@ -1,9 +1,9 @@
-import { countSyllables, Gender, GrammaticalCase } from '../language';
+import { countSyllables, GrammaticalCase, GrammaticalGender } from '../language';
 import { WordClassRecognizer } from '../word-class-recognition';
 import { DeclensionRule, DeclensionRuleInflector } from '../word-declension';
 import { NameInflector } from './name-inflector';
 
-export class LastNameInflector extends NameInflector {
+export class FamilyNameInflector extends NameInflector {
   private readonly rules: DeclensionRule[];
   private readonly wordClassRecognizer: WordClassRecognizer;
 
@@ -18,7 +18,7 @@ export class LastNameInflector extends NameInflector {
    */
   protected async inflectWord(
     word: string,
-    gender: Gender,
+    gender: GrammaticalGender,
     grammaticalCase: GrammaticalCase,
     isLastWord: boolean,
   ): Promise<string> {
@@ -28,17 +28,17 @@ export class LastNameInflector extends NameInflector {
 
     const rules = this.rules
       .filter((rule) => rule.gender.includes(gender))
-      .filter((rule) => rule.usage.length === 0 || rule.usage.includes('lastName'))
+      .filter((rule) => rule.application.length === 0 || rule.application.includes('lastName'))
       .filter((rule) => new RegExp(rule.pattern.find, 'gi').test(word));
 
     const mathingRules: DeclensionRule[] = [];
     for (const rule of rules) {
       if (
-        (gender === Gender.Female && /[ая]$/i.test(word)) ||
-        (gender === Gender.Male && /(ой|ий|ій|их)$/i.test(word))
+        (gender === GrammaticalGender.FEMININE && /[ая]$/i.test(word)) ||
+        (gender === GrammaticalGender.MASCULINE && /(ой|ий|ій|их)$/i.test(word))
       ) {
         const wordClass = await this.wordClassRecognizer.recognize(word);
-        if (wordClass === rule.partOfSpeech) {
+        if (wordClass === rule.wordClass) {
           mathingRules.push(rule);
         }
       } else {
@@ -47,13 +47,13 @@ export class LastNameInflector extends NameInflector {
     }
 
     const [rule] = mathingRules.sort((firstRule, secondRule) => {
-      if (firstRule.usage.length === 0) {
+      if (firstRule.application.length === 0) {
         return 0;
       }
-      if (secondRule.usage.length > 0) {
+      if (secondRule.application.length > 0) {
         return 0;
       }
-      if (secondRule.usage.includes('lastName')) {
+      if (secondRule.application.includes('lastName')) {
         return 0;
       }
       return 1;
