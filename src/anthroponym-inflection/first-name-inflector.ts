@@ -1,7 +1,6 @@
 import { Gender, GrammaticalCase } from '../core';
-import { InflectorRule } from './inflector.types';
+import { InflectorRule, RuleInflector } from '../word-inflection';
 import { NameInflector } from './name-inflector';
-import { RuleInflector } from './rule-inflector';
 
 export class FirstNameInflector extends NameInflector {
   private readonly rules: InflectorRule[];

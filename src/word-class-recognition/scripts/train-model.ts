@@ -2,15 +2,15 @@ import { createReadStream } from 'fs';
 import { join as joinPath } from 'path';
 import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
-import { ALPHABET_SIZE, WordClass } from '../language';
-import { SplitData, splitData } from './data.utils';
-import { MODEL_INPUT_SIZE } from './model.config';
-import { WordClassModelSaver } from './word-class-model.saver';
-import { WordClassTransformer } from './word-class.transformer';
-import { WordTransformer } from './word.transformer';
+import { ALPHABET_SIZE, WordClass } from '../../language';
+import { SplitData, splitData } from '../data.utils';
+import { MODEL_INPUT_SIZE } from '../model.config';
+import { WordClassModelSaver } from '../word-class-model.saver';
+import { WordClassTransformer } from '../word-class.transformer';
+import { WordTransformer } from '../word.transformer';
 
-const TRAINING_DATASET_FILEPATH = joinPath(__dirname, 'datasets/training.csv');
-const MODEL_ARTIFACTS_SOURCE = 'file://' + joinPath(__dirname, 'artifacts');
+const TRAINING_DATASET_FILEPATH = joinPath(__dirname, '../datasets/training.csv');
+const MODEL_ARTIFACTS_SOURCE = 'file://' + joinPath(__dirname, '../artifacts');
 
 export interface DataItem {
   word: string;

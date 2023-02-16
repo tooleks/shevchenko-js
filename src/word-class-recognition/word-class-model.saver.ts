@@ -96,7 +96,7 @@ export class WordClassModelSaver implements tf.io.IOHandler {
 
     await writeFile(
       path.join(MODEL_BUNDLE_FILEPATH, 'model.bundle.json'),
-      JSON.stringify(modelBundle),
+      JSON.stringify(modelBundle, null, 2),
       'utf-8',
     );
 

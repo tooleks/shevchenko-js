@@ -1,7 +1,7 @@
 import { Gender, GrammaticalCase } from '../core';
 import { WordClass } from '../language';
 
-export type InflectorRule = {
+export interface InflectorRule {
   description: string;
   examples: string[];
   partOfSpeech: WordClass;
@@ -10,14 +10,14 @@ export type InflectorRule = {
   usage: string[];
   pattern: InflectorPattern;
   grammaticalCases: GrammaticalCases;
-};
+}
 
-export type InflectorPattern = {
+export interface InflectorPattern {
   find: string;
   modify: string;
-};
+}
 
-export type GrammaticalCases = {
+export interface GrammaticalCases {
   [GrammaticalCase.Nominative]: InflectorCommandGroup[];
   [GrammaticalCase.Genitive]: InflectorCommandGroup[];
   [GrammaticalCase.Dative]: InflectorCommandGroup[];
@@ -25,16 +25,16 @@ export type GrammaticalCases = {
   [GrammaticalCase.Ablative]: InflectorCommandGroup[];
   [GrammaticalCase.Locative]: InflectorCommandGroup[];
   [GrammaticalCase.Vocative]: InflectorCommandGroup[];
-};
+}
 
-export type InflectorCommandGroup = {
+export interface InflectorCommandGroup {
   [groupIndex: string]: InflectorCommand;
-};
+}
 
-export type InflectorCommand = {
+export interface InflectorCommand {
   type: InflectorCommandType;
   value: string;
-};
+}
 
 export enum InflectorCommandType {
   Replace = 'replace',

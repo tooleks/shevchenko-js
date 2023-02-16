@@ -1,12 +1,12 @@
 import {
   AnthroponymInflector,
   FirstNameInflector,
-  InflectorRule,
   LastNameInflector,
   MiddleNameInflector,
 } from './anthroponym-inflection';
-import inflectorRules from './resources/inflector/rules.json';
 import { WordClassModelLoader, WordClassRecognizer } from './word-class-recognition';
+import { InflectorRule } from './word-inflection';
+import inflectorRules from './word-inflection/artifacts/inflection-rules.json';
 
 const wordClassModelLoader = new WordClassModelLoader();
 const wordClassRecognizer = new WordClassRecognizer(wordClassModelLoader);

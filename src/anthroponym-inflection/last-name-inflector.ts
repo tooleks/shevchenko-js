@@ -1,9 +1,8 @@
 import { Gender, GrammaticalCase } from '../core';
 import { countVowels } from '../utils/lang.utils';
 import { WordClassRecognizer } from '../word-class-recognition';
-import { InflectorRule } from './inflector.types';
+import { InflectorRule, RuleInflector } from '../word-inflection';
 import { NameInflector } from './name-inflector';
-import { RuleInflector } from './rule-inflector';
 
 export class LastNameInflector extends NameInflector {
   private readonly rules: InflectorRule[];
