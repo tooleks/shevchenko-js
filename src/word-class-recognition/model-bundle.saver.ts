@@ -95,7 +95,7 @@ export class ModelBundleSaver implements tf.io.IOHandler {
     modelBundle.modelMetadata = metadata;
 
     await writeFile(
-      path.join(MODEL_BUNDLE_FILEPATH, 'model.bundle.json'),
+      path.join(MODEL_BUNDLE_FILEPATH),
       JSON.stringify(modelBundle, null, 2),
       'utf-8',
     );
