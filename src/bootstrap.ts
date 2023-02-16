@@ -3,16 +3,16 @@ import {
   FirstNameInflector,
   LastNameInflector,
   MiddleNameInflector,
-} from './anthroponym-inflection';
+} from './anthroponym-declension';
 import { ModelBundleLoader, WordClassRecognizer } from './word-class-recognition';
-import { InflectorRule, inflectorRules } from './word-inflection';
+import { DeclensionRule, declensionRules } from './word-declension';
 
 const wordClassRecognizer = new WordClassRecognizer(new ModelBundleLoader());
 
-const firstNameInflector = new FirstNameInflector(inflectorRules as InflectorRule[]);
-const middleNameInflector = new MiddleNameInflector(inflectorRules as InflectorRule[]);
+const firstNameInflector = new FirstNameInflector(declensionRules as DeclensionRule[]);
+const middleNameInflector = new MiddleNameInflector(declensionRules as DeclensionRule[]);
 const lastNameInflector = new LastNameInflector(
-  inflectorRules as InflectorRule[],
+  declensionRules as DeclensionRule[],
   wordClassRecognizer,
 );
 const anthroponymInflector = new AnthroponymInflector(

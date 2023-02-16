@@ -1,4 +1,4 @@
-import { Anthroponym } from '../anthroponym-inflection';
+import { Anthroponym } from '../anthroponym-declension';
 import { Gender } from '../language';
 import givenNamesGenders from './given-names-genders.json';
 

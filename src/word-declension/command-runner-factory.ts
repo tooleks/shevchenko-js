@@ -1,18 +1,18 @@
 import { AppendCommandRunner } from './append-command-runner';
-import { InflectorCommandRunner } from './inflector-command-runner';
-import { InflectorCommand, InflectorCommandType } from './inflector.types';
+import { DeclensionCommandRunner } from './declension-command-runner';
+import { DeclensionCommand, DeclensionCommandType } from './declension.types';
 import { ReplaceCommandRunner } from './replace-command-runner';
 
 export class CommandRunnerFactory {
   /**
    * Creates a new command runner for the given command.
    */
-  make(command: InflectorCommand): InflectorCommandRunner {
+  make(command: DeclensionCommand): DeclensionCommandRunner {
     switch (command.type) {
-      case InflectorCommandType.Append: {
+      case DeclensionCommandType.APPEND: {
         return new AppendCommandRunner(command);
       }
-      case InflectorCommandType.Replace: {
+      case DeclensionCommandType.REPLACE: {
         return new ReplaceCommandRunner(command);
       }
       default: {

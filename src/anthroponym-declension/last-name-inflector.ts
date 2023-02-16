@@ -1,13 +1,13 @@
 import { countSyllables, Gender, GrammaticalCase } from '../language';
 import { WordClassRecognizer } from '../word-class-recognition';
-import { InflectorRule, RuleInflector } from '../word-inflection';
+import { DeclensionRule, DeclensionRuleInflector } from '../word-declension';
 import { NameInflector } from './name-inflector';
 
 export class LastNameInflector extends NameInflector {
-  private readonly rules: InflectorRule[];
+  private readonly rules: DeclensionRule[];
   private readonly wordClassRecognizer: WordClassRecognizer;
 
-  constructor(rules: InflectorRule[], wordClassRecognizer: WordClassRecognizer) {
+  constructor(rules: DeclensionRule[], wordClassRecognizer: WordClassRecognizer) {
     super();
     this.rules = rules;
     this.wordClassRecognizer = wordClassRecognizer;
@@ -31,7 +31,7 @@ export class LastNameInflector extends NameInflector {
       .filter((rule) => rule.usage.length === 0 || rule.usage.includes('lastName'))
       .filter((rule) => new RegExp(rule.pattern.find, 'gi').test(word));
 
-    const mathingRules: InflectorRule[] = [];
+    const mathingRules: DeclensionRule[] = [];
     for (const rule of rules) {
       if (
         (gender === Gender.Female && /[ая]$/i.test(word)) ||
@@ -63,6 +63,6 @@ export class LastNameInflector extends NameInflector {
       return word;
     }
 
-    return new RuleInflector(rule).inflect(word, grammaticalCase);
+    return new DeclensionRuleInflector(rule).inflect(word, grammaticalCase);
   }
 }

@@ -1,1 +1,1 @@
-export { detectGender } from './detect-gender';
+export * from './detect-gender';

@@ -1,10 +1,10 @@
-import { Anthroponym } from './anthroponym-inflection';
+import { Anthroponym } from './anthroponym-declension';
 import { anthroponymInflector } from './bootstrap';
 import { Gender, GrammaticalCase } from './language';
 import { validateAnthroponym } from './validation';
 
 export { Gender, GrammaticalCase } from './language';
-export { Anthroponym } from './anthroponym-inflection';
+export { Anthroponym } from './anthroponym-declension';
 export { detectGender } from './gender-detection';
 
 export type InflectAnthroponymParams = Anthroponym & {

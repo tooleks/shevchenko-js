@@ -1,6 +1,6 @@
 import { GrammaticalCase } from '../language';
 import { CommandRunnerFactory } from './command-runner-factory';
-import { InflectorRule } from './inflector.types';
+import { DeclensionRule } from './declension.types';
 import { copyLetterCase } from './word.utils';
 
 /**
@@ -15,11 +15,11 @@ export function countGroups(src: RegExp | string): number {
   return matches.length - 1;
 }
 
-export class RuleInflector {
-  private readonly rule: InflectorRule;
+export class DeclensionRuleInflector {
+  private readonly rule: DeclensionRule;
   private readonly commandRunnerFactory: CommandRunnerFactory;
 
-  constructor(rule: InflectorRule) {
+  constructor(rule: DeclensionRule) {
     this.rule = rule;
     this.commandRunnerFactory = new CommandRunnerFactory();
   }

@@ -1,11 +1,11 @@
 import { Gender, GrammaticalCase } from '../language';
-import { InflectorRule, RuleInflector } from '../word-inflection';
+import { DeclensionRule, DeclensionRuleInflector } from '../word-declension';
 import { NameInflector } from './name-inflector';
 
 export class FirstNameInflector extends NameInflector {
-  private readonly rules: InflectorRule[];
+  private readonly rules: DeclensionRule[];
 
-  constructor(rules: InflectorRule[]) {
+  constructor(rules: DeclensionRule[]) {
     super();
     this.rules = rules;
   }
@@ -35,6 +35,6 @@ export class FirstNameInflector extends NameInflector {
       return word;
     }
 
-    return new RuleInflector(rule).inflect(word, grammaticalCase);
+    return new DeclensionRuleInflector(rule).inflect(word, grammaticalCase);
   }
 }
