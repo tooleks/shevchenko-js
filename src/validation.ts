@@ -1,47 +1,39 @@
+import { DeclensionInput } from './contracts';
 import { GrammaticalGender } from './language';
-import type { InflectAnthroponymParams } from './shevchenko';
 
 /**
- * Validates given anthroponym object.
- * Throws an error if validation fails.
- *
  * @throws TypeError
  */
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export function validateAnthroponym(params: InflectAnthroponymParams): void {
-  if (params == null) {
-    throw new TypeError('"anthroponym" must be an object.');
+export function validateDeclensionInput(input: DeclensionInput): void {
+  if (typeof input !== 'object' || input == null) {
+    throw new TypeError('Input type must be an object.');
   }
 
-  if (typeof params !== 'object') {
-    throw new TypeError('"anthroponym" must be an object.');
-  }
-
-  if (![GrammaticalGender.MASCULINE, GrammaticalGender.FEMININE].includes(params.gender)) {
+  if (![GrammaticalGender.MASCULINE, GrammaticalGender.FEMININE].includes(input.gender)) {
     throw new TypeError(
       `"gender" must be one of the following: "${GrammaticalGender.MASCULINE}", "${GrammaticalGender.FEMININE}".`,
     );
   }
 
   if (
-    typeof params.givenName === 'undefined' &&
-    typeof params.patronymicName === 'undefined' &&
-    typeof params.familyName === 'undefined'
+    typeof input.givenName === 'undefined' &&
+    typeof input.patronymicName === 'undefined' &&
+    typeof input.familyName === 'undefined'
   ) {
     throw new TypeError(
       'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
     );
   }
 
-  if (typeof params.givenName !== 'undefined' && typeof params.givenName !== 'string') {
+  if (typeof input.givenName !== 'undefined' && typeof input.givenName !== 'string') {
     throw new TypeError('"givenName" must be a string.');
   }
 
-  if (typeof params.patronymicName !== 'undefined' && typeof params.patronymicName !== 'string') {
+  if (typeof input.patronymicName !== 'undefined' && typeof input.patronymicName !== 'string') {
     throw new TypeError('"patronymicName" must be a string.');
   }
 
-  if (typeof params.familyName !== 'undefined' && typeof params.familyName !== 'string') {
+  if (typeof input.familyName !== 'undefined' && typeof input.familyName !== 'string') {
     throw new TypeError('"familyName" must be a string.');
   }
 }
