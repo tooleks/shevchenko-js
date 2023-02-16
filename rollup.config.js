@@ -1,4 +1,5 @@
 import * as path from 'path';
+import { dirname } from 'path';
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
@@ -21,7 +22,7 @@ const banner = `
 
 export default [
   {
-    input: './src/shevchenko.ts',
+    input: './src/index.ts',
     output: {
       name: pkg.name,
       file: pkg.browser,
@@ -50,23 +51,25 @@ export default [
     ],
   },
   {
-    input: './src/shevchenko.ts',
+    input: './src/index.ts',
     output: {
-      file: pkg.main,
+      dir: dirname(pkg.main),
       format: 'cjs',
       banner: banner.trim(),
       sourcemap: true,
+      preserveModules: true,
     },
-    plugins: [json(), typescript({ tsconfig: './tsconfig.legacy.json' })],
+    plugins: [json(), typescript({ tsconfig: './tsconfig.module.json' })],
     external: Object.getOwnPropertyNames(pkg.dependencies),
   },
   {
-    input: './src/shevchenko.ts',
+    input: './src/index.ts',
     output: {
-      file: pkg.module,
+      dir: dirname(pkg.module),
       format: 'es',
       banner: banner.trim(),
       sourcemap: true,
+      preserveModules: true,
     },
     plugins: [json(), typescript({ tsconfig: './tsconfig.module.json' })],
     external: Object.getOwnPropertyNames(pkg.dependencies),
