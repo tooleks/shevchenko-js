@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { DeclensionInput } from './contracts';
-import { validateDeclensionInput } from './validation';
+import { validateDeclensionInput, validateGenderDetectionInput } from './input-validation';
 
 describe('validateDeclensionInput', () => {
   it('should throw a type error when called with empty arguments list', () => {
@@ -117,5 +117,102 @@ describe('validateDeclensionInput', () => {
     } as DeclensionInput;
 
     expect(validateDeclensionInput(input)).toBe(undefined);
+  });
+});
+
+describe('validateGenderDetectionInput', () => {
+  it('should throw a type error when called with empty arguments list', () => {
+    // @ts-ignore
+    expect(() => validateGenderDetectionInput()).toThrow(
+      new TypeError('Input type must be an object.'),
+    );
+  });
+
+  it('should throw an error if none of the name fields provided', () => {
+    // @ts-ignore
+    const input = {} as DeclensionInput;
+
+    expect(() => validateGenderDetectionInput(input)).toThrow(
+      new TypeError(
+        'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
+      ),
+    );
+  });
+
+  it('should throw an error if provided given name is not a string', () => {
+    // @ts-ignore
+    const input = {
+      givenName: null,
+      patronymicName: 'Григорович',
+      familyName: 'Шевченко',
+    } as DeclensionInput;
+
+    expect(() => validateGenderDetectionInput(input)).toThrow(
+      new TypeError('"givenName" must be a string.'),
+    );
+  });
+
+  it('should throw an error if provided patronymic name is not a string', () => {
+    // @ts-ignore
+    const input = {
+      givenName: 'Тарас',
+      patronymicName: null,
+      familyName: 'Шевченко',
+    } as DeclensionInput;
+
+    expect(() => validateGenderDetectionInput(input)).toThrow(
+      new TypeError('"patronymicName" must be a string.'),
+    );
+  });
+
+  it('should throw an error if provided family name is not a string', () => {
+    // @ts-ignore
+    const input = {
+      givenName: 'Тарас',
+      patronymicName: 'Григорович',
+      familyName: null,
+    } as DeclensionInput;
+
+    expect(() => validateGenderDetectionInput(input)).toThrow(
+      new TypeError('"familyName" must be a string.'),
+    );
+  });
+
+  it('should pass the validation if a given name provided', () => {
+    // @ts-ignore
+    const input = {
+      givenName: 'Тарас',
+    } as DeclensionInput;
+
+    expect(validateGenderDetectionInput(input)).toBe(undefined);
+  });
+
+  it('should pass the validation if a patronymic name provided', () => {
+    // @ts-ignore
+    const input = {
+      patronymicName: 'Григорович',
+    } as DeclensionInput;
+
+    expect(validateGenderDetectionInput(input)).toBe(undefined);
+  });
+
+  it('should pass the validation if a family name provided', () => {
+    // @ts-ignore
+    const input = {
+      familyName: 'Шевченко',
+    } as DeclensionInput;
+
+    expect(validateGenderDetectionInput(input)).toBe(undefined);
+  });
+
+  it('should pass the validation if a full name provided', () => {
+    // @ts-ignore
+    const input = {
+      givenName: 'Тарас',
+      patronymicName: 'Григорович',
+      familyName: 'Шевченко',
+    } as DeclensionInput;
+
+    expect(validateGenderDetectionInput(input)).toBe(undefined);
   });
 });

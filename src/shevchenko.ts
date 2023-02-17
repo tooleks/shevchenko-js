@@ -1,15 +1,22 @@
 import { anthroponymInflector } from './bootstrap';
-import { DeclensionInput, DeclensionOutput } from './contracts';
+import {
+  DeclensionInput,
+  DeclensionOutput,
+  GenderDetectionInput,
+  GenderDetectionOutput,
+} from './contracts';
+import { detectGender as autoDetectGender } from './gender-detection';
+import { validateDeclensionInput, validateGenderDetectionInput } from './input-validation';
 import { GrammaticalCase } from './language';
-import { validateDeclensionInput } from './validation';
 
-export { DeclensionInput, DeclensionOutput } from './contracts';
+export * from './contracts';
 export { GrammaticalGender, GrammaticalCase } from './language';
 export { Anthroponym } from './anthroponym-declension';
-export { detectGender } from './gender-detection';
 
 /**
- * Inflects the anthroponym in nominative grammatical case.
+ * Inflects an anthroponym in nominative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
 export async function inNominative(input: DeclensionInput): Promise<DeclensionOutput> {
   validateDeclensionInput(input);
@@ -17,7 +24,9 @@ export async function inNominative(input: DeclensionInput): Promise<DeclensionOu
 }
 
 /**
- * Inflects the anthroponym in genitive grammatical case.
+ * Inflects an anthroponym in genitive grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
 export async function inGenitive(input: DeclensionInput): Promise<DeclensionOutput> {
   validateDeclensionInput(input);
@@ -25,7 +34,9 @@ export async function inGenitive(input: DeclensionInput): Promise<DeclensionOutp
 }
 
 /**
- * Inflects the anthroponym in dative grammatical case.
+ * Inflects an anthroponym in dative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
 export async function inDative(input: DeclensionInput): Promise<DeclensionOutput> {
   validateDeclensionInput(input);
@@ -33,7 +44,9 @@ export async function inDative(input: DeclensionInput): Promise<DeclensionOutput
 }
 
 /**
- * Inflects the anthroponym in accusative grammatical case.
+ * Inflects an anthroponym in accusative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
 export async function inAccusative(input: DeclensionInput): Promise<DeclensionOutput> {
   validateDeclensionInput(input);
@@ -41,7 +54,9 @@ export async function inAccusative(input: DeclensionInput): Promise<DeclensionOu
 }
 
 /**
- * Inflects the anthroponym in ablative grammatical case.
+ * Inflects an anthroponym in ablative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
 export async function inAblative(input: DeclensionInput): Promise<DeclensionOutput> {
   validateDeclensionInput(input);
@@ -49,7 +64,9 @@ export async function inAblative(input: DeclensionInput): Promise<DeclensionOutp
 }
 
 /**
- * Inflects the anthroponym in locative grammatical case.
+ * Inflects an anthroponym in locative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
 export async function inLocative(input: DeclensionInput): Promise<DeclensionOutput> {
   validateDeclensionInput(input);
@@ -57,9 +74,22 @@ export async function inLocative(input: DeclensionInput): Promise<DeclensionOutp
 }
 
 /**
- * Inflects the anthroponym in vocative grammatical case.
+ * Inflects an anthroponym in vocative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
 export async function inVocative(input: DeclensionInput): Promise<DeclensionOutput> {
   validateDeclensionInput(input);
   return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.VOCATIVE);
+}
+
+/**
+ * Returns the grammatical gender of an anthroponym.
+ * Returns null if the grammatical gender cannot be detected.
+ *
+ * @throws {TypeError} Input validation error.
+ */
+export async function detectGender(input: GenderDetectionInput): Promise<GenderDetectionOutput> {
+  validateGenderDetectionInput(input);
+  return autoDetectGender(input);
 }

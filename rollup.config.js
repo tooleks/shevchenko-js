@@ -1,5 +1,4 @@
-import * as path from 'path';
-import { dirname } from 'path';
+import { dirname, resolve as resolvePath } from 'path';
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
@@ -22,7 +21,7 @@ const banner = `
 
 export default [
   {
-    input: './src/index.ts',
+    input: './src/shevchenko.ts',
     output: {
       name: pkg.name,
       file: pkg.browser,
@@ -35,11 +34,11 @@ export default [
         entries: [
           {
             find: /@tensorflow\/tfjs$/,
-            replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs.js'),
+            replacement: resolvePath(__dirname, './vendor/tfjs/custom_tfjs.js'),
           },
           {
             find: /@tensorflow\/tfjs-core$/,
-            replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs_core.js'),
+            replacement: resolvePath(__dirname, './vendor/tfjs/custom_tfjs_core.js'),
           },
         ],
       }),
@@ -51,7 +50,7 @@ export default [
     ],
   },
   {
-    input: './src/index.ts',
+    input: './src/shevchenko.ts',
     output: {
       dir: dirname(pkg.main),
       format: 'cjs',
@@ -63,7 +62,7 @@ export default [
     external: Object.getOwnPropertyNames(pkg.dependencies),
   },
   {
-    input: './src/index.ts',
+    input: './src/shevchenko.ts',
     output: {
       dir: dirname(pkg.module),
       format: 'es',
