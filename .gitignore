@@ -5,4 +5,4 @@ npm-debug.log
 /dist
 /docs/server
 /docs/nitro.json
-job-title-declension
+/src/job-title-declension
