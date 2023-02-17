@@ -31,11 +31,11 @@ export interface DeclensionCommandGroup {
 }
 
 export interface DeclensionCommand {
-  type: DeclensionCommandType;
+  action: DeclensionCommandAction;
   value: string;
 }
 
-export enum DeclensionCommandType {
+export enum DeclensionCommandAction {
   REPLACE = 'replace',
   APPEND = 'append',
 }

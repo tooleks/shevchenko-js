@@ -1,6 +1,6 @@
 import { AppendCommandRunner } from './append-command-runner';
 import { DeclensionCommandRunner } from './declension-command-runner';
-import { DeclensionCommand, DeclensionCommandType } from './declension.types';
+import { DeclensionCommand, DeclensionCommandAction } from './declension.types';
 import { ReplaceCommandRunner } from './replace-command-runner';
 
 export class CommandRunnerFactory {
@@ -8,11 +8,11 @@ export class CommandRunnerFactory {
    * Creates a new command runner for the given command.
    */
   make(command: DeclensionCommand): DeclensionCommandRunner {
-    switch (command.type) {
-      case DeclensionCommandType.APPEND: {
+    switch (command.action) {
+      case DeclensionCommandAction.APPEND: {
         return new AppendCommandRunner(command);
       }
-      case DeclensionCommandType.REPLACE: {
+      case DeclensionCommandAction.REPLACE: {
         return new ReplaceCommandRunner(command);
       }
       default: {

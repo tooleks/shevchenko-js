@@ -28,7 +28,7 @@ export class FamilyNameInflector extends NameInflector {
 
     const rules = this.rules
       .filter((rule) => rule.gender.includes(gender))
-      .filter((rule) => rule.application.length === 0 || rule.application.includes('lastName'))
+      .filter((rule) => rule.application.length === 0 || rule.application.includes('familyName'))
       .filter((rule) => new RegExp(rule.pattern.find, 'gi').test(word));
 
     const mathingRules: DeclensionRule[] = [];

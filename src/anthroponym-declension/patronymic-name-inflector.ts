@@ -20,7 +20,7 @@ export class PatronymicNameInflector extends NameInflector {
   ): string {
     const [rule] = this.rules
       .filter((rule) => rule.gender.includes(gender))
-      .filter((rule) => rule.application.includes('middleName'))
+      .filter((rule) => rule.application.includes('patronymicName'))
       .filter((rule) => new RegExp(rule.pattern.find, 'gi').test(word));
 
     if (!rule) {

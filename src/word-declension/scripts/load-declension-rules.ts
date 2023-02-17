@@ -3,8 +3,8 @@ import { join as joinPath } from 'path';
 import axios from 'axios';
 
 const DECLENSION_RULES_URL =
-  'https://raw.githubusercontent.com/tooleks/shevchenko-rules/master/dist/rules.json';
-const DECLENSION_RULES_FILEPATH = joinPath(__dirname, '../artifacts/declension-rules.json');
+  'https://raw.githubusercontent.com/tooleks/shevchenko-rules/master/dist/declension-rules.json';
+const DECLENSION_RULES_FILEPATH = joinPath(__dirname, '../declension-rules.json');
 
 async function main(): Promise<void> {
   const response = await axios.get(DECLENSION_RULES_URL);

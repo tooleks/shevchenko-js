@@ -20,7 +20,7 @@ export class GivenNameInflector extends NameInflector {
   ): string {
     const [rule] = this.rules
       .filter((rule) => rule.gender.includes(gender))
-      .filter((rule) => rule.application.length === 0 || rule.application.includes('firstName'))
+      .filter((rule) => rule.application.length === 0 || rule.application.includes('givenName'))
       .filter((rule) => new RegExp(rule.pattern.find, 'gi').test(word))
       .sort((firstRule, secondRule) => {
         if (firstRule.application.length === 0) {

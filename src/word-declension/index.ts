@@ -1,4 +1,4 @@
-import untypedDeclensionRules from './artifacts/declension-rules.json';
+import untypedDeclensionRules from './declension-rules.json';
 import { DeclensionRule } from './declension.types';
 
 const declensionRules = untypedDeclensionRules as DeclensionRule[];
