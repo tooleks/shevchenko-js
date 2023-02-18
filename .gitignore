@@ -1,6 +1,12 @@
+# IDE
 .idea
 .vscode
+
+# NPM
 node_modules
 npm-debug.log
-dist
-/src/job-title-declension
+
+# Output bundle
+/dist
+
+job-title-declension

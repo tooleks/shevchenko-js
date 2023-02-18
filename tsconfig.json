@@ -1,10 +1,6 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "lib": [
-      "DOM",
-      "ES2019"
-    ],
     "module": "CommonJS",
     "moduleResolution": "Node",
     "resolveJsonModule": true,

@@ -43,7 +43,7 @@ export default [
         ],
       }),
       json(),
-      typescript({ tsconfig: './tsconfig.legacy.json' }),
+      typescript({ tsconfig: './tsconfig.module.json', target: 'ES2015' }),
       resolve(),
       commonjs(),
       terser(),
@@ -70,7 +70,15 @@ export default [
       sourcemap: true,
       preserveModules: true,
     },
-    plugins: [json(), typescript({ tsconfig: './tsconfig.module.json' })],
+    plugins: [
+      json(),
+      typescript({
+        tsconfig: './tsconfig.module.json',
+        declaration: true,
+        declarationMap: true,
+        declarationDir: dirname(pkg.module),
+      }),
+    ],
     external: Object.getOwnPropertyNames(pkg.dependencies),
   },
 ];

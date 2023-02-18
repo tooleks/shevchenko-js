@@ -1,8 +1,25 @@
+# IDE
 .idea
 .vscode
+
+# Vendor
+/vendor
+
+# Site
 /docs
 /site
+
+# Test
 /test
-/vendor
-family-names.json
+*.test.ts
+
+# Build config
+.eslintrc.json
+.prettierrc.json
+jest.config.js
+rollup.config.js
+tsconfig*.json
+
+# Data and logs
 *.csv
+*.log

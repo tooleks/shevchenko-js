@@ -13,7 +13,7 @@ const TRAINING_DATASET_FILEPATH = joinPath(__dirname, '../datasets/training.csv'
 const MODEL_ARTIFACTS_SOURCE = 'file://' + joinPath(__dirname, '../artifacts');
 
 export interface DataItem {
-  word: string;
+  familyName: string;
   wordClass: WordClass;
   wordEnding: string;
 }
@@ -25,9 +25,9 @@ async function loadData(): Promise<SplitData<DataItem>> {
 
   for await (const dataRow of dataParser) {
     data.push({
-      word: dataRow['Word'],
+      familyName: dataRow['Family Name'],
       wordClass: dataRow['Word Class'] as WordClass,
-      wordEnding: dataRow['Word'].slice(-4),
+      wordEnding: dataRow['Family Name'].slice(-4),
     });
   }
 
@@ -38,7 +38,7 @@ const wordTransformer = new WordTransformer(MODEL_INPUT_SIZE);
 const wordClassTransformer = new WordClassTransformer();
 function transformDataEntry(dataItem: DataItem) {
   return {
-    xs: wordTransformer.encode(dataItem.word),
+    xs: wordTransformer.encode(dataItem.familyName),
     ys: wordClassTransformer.encode(dataItem.wordClass),
   };
 }

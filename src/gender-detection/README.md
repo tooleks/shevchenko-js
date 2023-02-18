@@ -1,5 +1,5 @@
 # Gender Detection Module
 
-This module exports API to automatically detect the grammatical gender of a given anthroponym.
+This module implements the automatic gender detection of anthroponyms.
 
-It relies on patronymic name word formation rules and the dictionary of given names to detect the grammatical gender of the anthroponym.
+The implementation utilizes a combination of patronymic name word formation rules and a given name dictionary in order to determine the grammatical gender of an anthroponym.

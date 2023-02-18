@@ -23,11 +23,11 @@ async function retrieveIncorrectPredictions(): Promise<IncorrectPredictions> {
 
   const incorrectPredictions: IncorrectPredictions = {};
   for await (const dataRow of dataParser) {
-    const input = wordTransformer.encode(dataRow['Word']);
+    const input = wordTransformer.encode(dataRow['Family Name']);
     const output = await (model.predict(tf.tensor2d([input])) as tf.Tensor).data();
     const prediction = wordClassTransformer.decode(output);
     if (prediction !== dataRow['Word Class']) {
-      incorrectPredictions[dataRow['Word']] = dataRow['Word Class'];
+      incorrectPredictions[dataRow['Family Name']] = dataRow['Word Class'];
     }
   }
 
