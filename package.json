@@ -5,7 +5,7 @@
   "browser": "./dist/umd/shevchenko.min.js",
   "main": "./dist/cjs/shevchenko.js",
   "module": "./dist/es/shevchenko.js",
-  "types": "./dist/types/shevchenko.d.ts",
+  "types": "./dist/es/shevchenko.d.ts",
   "scripts": {
     "prebuild": "rimraf ./dist",
     "build": "rollup -c && tsc -p ./tsconfig.types.json",

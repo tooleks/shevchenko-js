@@ -2,7 +2,5 @@
 .vscode
 node_modules
 npm-debug.log
-/dist
-/docs/server
-/docs/nitro.json
+dist
 /src/job-title-declension

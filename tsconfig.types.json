@@ -5,6 +5,6 @@
     "declarationMap": true,
     "emitDeclarationOnly": true,
     "skipLibCheck": true,
-    "outDir": "./dist/types"
+    "outDir": "./dist/es"
   }
 }
