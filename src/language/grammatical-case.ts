@@ -1,5 +1,5 @@
 /**
- * @see {@link https://en.wikipedia.org/wiki/Grammatical_case}
+ * Enum representing the possible grammatical cases.
  */
 export enum GrammaticalCase {
   NOMINATIVE = 'nominative',

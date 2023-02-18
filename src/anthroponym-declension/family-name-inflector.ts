@@ -1,7 +1,27 @@
-import { countSyllables, GrammaticalCase, GrammaticalGender } from '../language';
+import { GrammaticalCase, GrammaticalGender, isMonosyllable } from '../language';
 import { WordClassRecognizer } from '../word-class-recognition';
-import { DeclensionRule, DeclensionRuleInflector } from '../word-declension';
+import {
+  DeclensionRule,
+  DeclensionRuleInflector,
+  isApplicable,
+  isGenderApplicable,
+  isWordApplicable,
+} from '../word-declension';
 import { NameInflector } from './name-inflector';
+
+/**
+ * Returns a new array with all elements that pass the async test implemented by the provided function.
+ */
+async function filterAsync<T>(
+  array: T[],
+  predicate: (value: T, index: number, array: T[]) => Promise<boolean>,
+): Promise<T[]> {
+  const results = await Promise.all(array.map(predicate));
+  return array.filter((_v, index) => results[index]);
+}
+
+const UNKNOWN_FEMININE_WORD_CLASS_PATTERN = /[ая]$/i;
+const UNKNOWN_MASCULINE_WORD_CLASS_PATTERN = /(ой|ий|ій|их)$/i;
 
 export class FamilyNameInflector extends NameInflector {
   private readonly rules: DeclensionRule[];
@@ -16,53 +36,40 @@ export class FamilyNameInflector extends NameInflector {
   /**
    * @inheritdoc
    */
-  protected async inflectWord(
-    word: string,
+  protected async inflectNamePart(
+    familyName: string,
     gender: GrammaticalGender,
     grammaticalCase: GrammaticalCase,
     isLastWord: boolean,
   ): Promise<string> {
-    if (!isLastWord && countSyllables(word) === 1) {
-      return word;
+    if (!isLastWord && isMonosyllable(familyName)) {
+      return familyName;
     }
 
-    const rules = this.rules
-      .filter((rule) => rule.gender.includes(gender))
-      .filter((rule) => rule.application.length === 0 || rule.application.includes('familyName'))
-      .filter((rule) => new RegExp(rule.pattern.find, 'gi').test(word));
+    const matchedRules = this.rules
+      .filter((rule) => isGenderApplicable(rule, gender))
+      .filter((rule) => isApplicable(rule, 'familyName'))
+      .filter((rule) => isWordApplicable(rule, familyName));
 
-    const mathingRules: DeclensionRule[] = [];
-    for (const rule of rules) {
-      if (
-        (gender === GrammaticalGender.FEMININE && /[ая]$/i.test(word)) ||
-        (gender === GrammaticalGender.MASCULINE && /(ой|ий|ій|их)$/i.test(word))
-      ) {
-        const wordClass = await this.wordClassRecognizer.recognize(word);
-        if (wordClass === rule.wordClass) {
-          mathingRules.push(rule);
-        }
-      } else {
-        mathingRules.push(rule);
-      }
-    }
+    const [rule] = await filterAsync(matchedRules, async (rule) => {
+      const uknownWordClass =
+        (gender === GrammaticalGender.FEMININE &&
+          UNKNOWN_FEMININE_WORD_CLASS_PATTERN.test(familyName)) ||
+        (gender === GrammaticalGender.MASCULINE &&
+          UNKNOWN_MASCULINE_WORD_CLASS_PATTERN.test(familyName));
 
-    const [rule] = mathingRules.sort((firstRule, secondRule) => {
-      if (firstRule.application.length === 0) {
-        return 0;
+      if (uknownWordClass) {
+        const wordClass = await this.wordClassRecognizer.recognize(familyName);
+        return wordClass === rule.wordClass;
       }
-      if (secondRule.application.length > 0) {
-        return 0;
-      }
-      if (secondRule.application.includes('lastName')) {
-        return 0;
-      }
-      return 1;
+
+      return true;
     });
 
-    if (!rule) {
-      return word;
+    if (rule == null) {
+      return familyName;
     }
 
-    return new DeclensionRuleInflector(rule).inflect(word, grammaticalCase);
+    return new DeclensionRuleInflector(rule).inflect(familyName, grammaticalCase);
   }
 }

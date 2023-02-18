@@ -1,5 +1,5 @@
 import { WordClass } from '../language';
-import { WordClassTransformer } from './word-class.transformer';
+import { WordClassTransformer } from './word-class-transformer';
 
 const MIN_VAL = 1e-7;
 

@@ -1,5 +1,5 @@
 /**
- * @see {@link https://en.wikipedia.org/wiki/Part_of_speech}
+ * Enum representing the possible grammatical word classes (also known as part of speech).
  */
 export enum WordClass {
   NOUN = 'noun',

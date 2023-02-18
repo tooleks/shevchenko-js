@@ -1,9 +1,9 @@
 import * as tf from '@tensorflow/tfjs';
 import { WordClass } from '../language';
 import incorrectPredictionsCache from './cache/incorrect-predictions.json';
-import { MODEL_INPUT_SIZE } from './model.config';
-import { WordClassTransformer } from './word-class.transformer';
-import { WordTransformer } from './word.transformer';
+import { MODEL_INPUT_SIZE } from './model-config';
+import { WordClassTransformer } from './word-class-transformer';
+import { WordTransformer } from './word-transformer';
 
 // Disable Node.js environment warning message in production code.
 // See https://github.com/tensorflow/tfjs/issues/5349

@@ -1,4 +1,4 @@
-# Module: Word Class Recoginition
+# Word Class Recoginition Module
 
 This module expors API for part of speech (also known as word class) recognition of Ukrainian family names.
 

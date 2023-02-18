@@ -1,7 +1,6 @@
-import { GrammaticalCase } from '../language';
+import { copyLetterCase, GrammaticalCase } from '../language';
 import { CommandRunnerFactory } from './command-runner-factory';
-import { DeclensionRule } from './declension.types';
-import { copyLetterCase } from './word.utils';
+import { DeclensionRule } from './declension-types';
 
 /**
  * Counts a number of groups in a given regular expression.

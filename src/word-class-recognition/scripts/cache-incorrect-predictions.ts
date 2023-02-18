@@ -3,10 +3,10 @@ import { writeFile } from 'fs/promises';
 import { join as joinPath } from 'path';
 import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
-import { ModelBundleLoader } from '../model-bundle.loader';
-import { MODEL_INPUT_SIZE } from '../model.config';
-import { WordClassTransformer } from '../word-class.transformer';
-import { WordTransformer } from '../word.transformer';
+import { ModelBundleLoader } from '../model-bundle-loader';
+import { MODEL_INPUT_SIZE } from '../model-config';
+import { WordClassTransformer } from '../word-class-transformer';
+import { WordTransformer } from '../word-transformer';
 
 const TRAINING_DATASET_FILEPATH = joinPath(__dirname, '../datasets/training.csv');
 const INCORRECT_PREDICTIONS_FILEPATH = joinPath(__dirname, '../cache/incorrect-predictions.json');

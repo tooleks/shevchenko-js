@@ -1,5 +1,5 @@
 /**
- * @see {@link https://en.wikipedia.org/wiki/Grammatical_gender}
+ * Enum representing the possible grammatical genders.
  */
 export enum GrammaticalGender {
   MASCULINE = 'masculine',

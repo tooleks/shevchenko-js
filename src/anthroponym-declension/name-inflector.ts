@@ -9,26 +9,27 @@ export abstract class NameInflector {
     gender: GrammaticalGender,
     grammaticalCase: GrammaticalCase,
   ): Promise<string> {
-    const results: string[] = [];
+    const inflectedNameParts: string[] = [];
 
-    const words = name.split('-');
-    for (let index = 0; index < words.length; index += 1) {
-      const result = await this.inflectWord(
-        words[index],
+    const nameParts = name.split('-');
+    for (let index = 0; index < nameParts.length; index += 1) {
+      const inflectedNamePart = await this.inflectNamePart(
+        nameParts[index],
         gender,
         grammaticalCase,
-        index === words.length - 1,
+        index === nameParts.length - 1,
       );
-      results.push(result);
+
+      inflectedNameParts.push(inflectedNamePart);
     }
 
-    return results.join('-');
+    return inflectedNameParts.join('-');
   }
 
   /**
-   * Inflects the word of the compound name in the given grammatical case.
+   * Inflects a single name part of the compound name in a given grammatical case.
    */
-  protected abstract inflectWord(
+  protected abstract inflectNamePart(
     word: string,
     gender: GrammaticalGender,
     grammaticalCase: GrammaticalCase,

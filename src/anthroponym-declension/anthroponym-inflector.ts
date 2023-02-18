@@ -27,10 +27,10 @@ export class AnthroponymInflector {
     gender: GrammaticalGender,
     grammaticalCase: GrammaticalCase,
   ): Promise<Anthroponym> {
-    const result: Anthroponym = {};
+    const inflectedAnthroponym: Anthroponym = {};
 
     if (anthroponym.givenName != null) {
-      result.givenName = await this.givenNameInflector.inflect(
+      inflectedAnthroponym.givenName = await this.givenNameInflector.inflect(
         anthroponym.givenName,
         gender,
         grammaticalCase,
@@ -38,7 +38,7 @@ export class AnthroponymInflector {
     }
 
     if (anthroponym.patronymicName != null) {
-      result.patronymicName = await this.patronymicNameInflector.inflect(
+      inflectedAnthroponym.patronymicName = await this.patronymicNameInflector.inflect(
         anthroponym.patronymicName,
         gender,
         grammaticalCase,
@@ -46,13 +46,13 @@ export class AnthroponymInflector {
     }
 
     if (anthroponym.familyName != null) {
-      result.familyName = await this.familyNameInflector.inflect(
+      inflectedAnthroponym.familyName = await this.familyNameInflector.inflect(
         anthroponym.familyName,
         gender,
         grammaticalCase,
       );
     }
 
-    return result;
+    return inflectedAnthroponym;
   }
 }

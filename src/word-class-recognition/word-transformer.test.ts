@@ -1,4 +1,4 @@
-import { WordTransformer } from './word.transformer';
+import { WordTransformer } from './word-transformer';
 
 describe('WordTransformer', () => {
   describe('encode', () => {

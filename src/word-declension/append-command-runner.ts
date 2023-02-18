@@ -1,10 +1,10 @@
-import { DeclensionCommandRunner } from './declension-command-runner';
-import { DeclensionCommand } from './declension.types';
+import { InflectionCommand } from './declension-types';
+import { InflectionCommandRunner } from './inflection-command-runner';
 
-export class AppendCommandRunner implements DeclensionCommandRunner {
-  private readonly command: DeclensionCommand;
+export class AppendCommandRunner implements InflectionCommandRunner {
+  private readonly command: InflectionCommand;
 
-  constructor(command: DeclensionCommand) {
+  constructor(command: InflectionCommand) {
     this.command = command;
   }
 
