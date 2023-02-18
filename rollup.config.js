@@ -21,7 +21,7 @@ const banner = `
 
 export default [
   {
-    input: './src/shevchenko.ts',
+    input: './src/index.ts',
     output: {
       name: pkg.name,
       file: pkg.browser,
@@ -50,7 +50,7 @@ export default [
     ],
   },
   {
-    input: './src/shevchenko.ts',
+    input: './src/index.ts',
     output: {
       dir: dirname(pkg.main),
       format: 'cjs',
@@ -62,7 +62,7 @@ export default [
     external: Object.getOwnPropertyNames(pkg.dependencies),
   },
   {
-    input: './src/shevchenko.ts',
+    input: './src/index.ts',
     output: {
       dir: dirname(pkg.module),
       format: 'es',
