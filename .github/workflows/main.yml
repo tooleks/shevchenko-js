@@ -1,0 +1,22 @@
+name: GitHub Actions Website
+
+on:
+  workflow_dispatch:
+
+jobs:
+  publish-docs:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - run: cd ./site
+      - run: npm ci
+      - run: npm run generate
+      - run: npm run publish
+      - run: git config user.email "buildsystem"
+      - run: git config user.name "buildsystem"
+      - run: git add ./docs
+      - run: git commit -m "chore: build docs pages"
+      - run: git push origin
