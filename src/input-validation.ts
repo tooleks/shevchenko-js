@@ -30,7 +30,7 @@ export function validateGenderDetectionInput(input: GenderDetectionInput): void 
  */
 function validateObject(object: unknown): void {
   if (typeof object !== 'object' || object == null) {
-    throw new TypeError('Input type must be an object.');
+    throw new TypeError('The input type must be an object.');
   }
 }
 
@@ -42,7 +42,7 @@ function validateObject(object: unknown): void {
 function validateGender(gender: GrammaticalGender): void {
   if (![GrammaticalGender.MASCULINE, GrammaticalGender.FEMININE].includes(gender)) {
     throw new TypeError(
-      `"gender" must be one of the following: "${GrammaticalGender.MASCULINE}", "${GrammaticalGender.FEMININE}".`,
+      `The "gender" parameter must be one of the following: "${GrammaticalGender.MASCULINE}", "${GrammaticalGender.FEMININE}".`,
     );
   }
 }
@@ -59,22 +59,22 @@ function validateAnthroponym(anthroponym: Anthroponym): void {
     typeof anthroponym.familyName === 'undefined'
   ) {
     throw new TypeError(
-      'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
+      'At least one of the following parameters must present: "givenName", "patronymicName", "familyName".',
     );
   }
 
   if (typeof anthroponym.givenName !== 'undefined' && typeof anthroponym.givenName !== 'string') {
-    throw new TypeError('"givenName" must be a string.');
+    throw new TypeError('The "givenName" parameter must be a string.');
   }
 
   if (
     typeof anthroponym.patronymicName !== 'undefined' &&
     typeof anthroponym.patronymicName !== 'string'
   ) {
-    throw new TypeError('"patronymicName" must be a string.');
+    throw new TypeError('The "patronymicName" parameter must be a string.');
   }
 
   if (typeof anthroponym.familyName !== 'undefined' && typeof anthroponym.familyName !== 'string') {
-    throw new TypeError('"familyName" must be a string.');
+    throw new TypeError('The "familyName" parameter must be a string.');
   }
 }

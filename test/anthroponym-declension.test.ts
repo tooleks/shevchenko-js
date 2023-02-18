@@ -8,7 +8,7 @@ declensionSamples.forEach((declensionSample) => {
   } as shevchenko.DeclensionInput;
 
   describe(`"${input.givenName} ${input.patronymicName} ${input.familyName}" inflection`, () => {
-    it(`should inflect in nominative grammatical case`, async () => {
+    it('should inflect in nominative grammatical case', async () => {
       const output = await shevchenko.inNominative(input);
       expect(output.givenName).toStrictEqual(
         declensionSample.grammaticalCases.nominative.givenName,
@@ -21,7 +21,7 @@ declensionSamples.forEach((declensionSample) => {
       );
     });
 
-    it(`should inflect in genitive grammatical case`, async () => {
+    it('should inflect in genitive grammatical case', async () => {
       const output = await shevchenko.inGenitive(input);
       expect(output.givenName).toStrictEqual(declensionSample.grammaticalCases.genitive.givenName);
       expect(output.patronymicName).toStrictEqual(
@@ -32,7 +32,7 @@ declensionSamples.forEach((declensionSample) => {
       );
     });
 
-    it(`should inflect in dative grammatical case`, async () => {
+    it('should inflect in dative grammatical case', async () => {
       const output = await shevchenko.inDative(input);
       expect(output.givenName).toStrictEqual(declensionSample.grammaticalCases.dative.givenName);
       expect(output.patronymicName).toStrictEqual(
@@ -41,7 +41,7 @@ declensionSamples.forEach((declensionSample) => {
       expect(output.familyName).toStrictEqual(declensionSample.grammaticalCases.dative.familyName);
     });
 
-    it(`should inflect in accusative grammatical case`, async () => {
+    it('should inflect in accusative grammatical case', async () => {
       const output = await shevchenko.inAccusative(input);
       expect(output.givenName).toStrictEqual(
         declensionSample.grammaticalCases.accusative.givenName,
@@ -54,7 +54,7 @@ declensionSamples.forEach((declensionSample) => {
       );
     });
 
-    it(`should inflect in ablative grammatical case`, async () => {
+    it('should inflect in ablative grammatical case', async () => {
       const output = await shevchenko.inAblative(input);
       expect(output.givenName).toStrictEqual(declensionSample.grammaticalCases.ablative.givenName);
       expect(output.patronymicName).toStrictEqual(
@@ -65,7 +65,7 @@ declensionSamples.forEach((declensionSample) => {
       );
     });
 
-    it(`should inflect in locative grammatical case`, async () => {
+    it('should inflect in locative grammatical case', async () => {
       const output = await shevchenko.inLocative(input);
       expect(output.givenName).toStrictEqual(declensionSample.grammaticalCases.locative.givenName);
       expect(output.patronymicName).toStrictEqual(
@@ -76,7 +76,7 @@ declensionSamples.forEach((declensionSample) => {
       );
     });
 
-    it(`should inflect in vocative grammatical case`, async () => {
+    it('should inflect in vocative grammatical case', async () => {
       const output = await shevchenko.inVocative(input);
       expect(output.givenName).toStrictEqual(declensionSample.grammaticalCases.vocative.givenName);
       expect(output.patronymicName).toStrictEqual(

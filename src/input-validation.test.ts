@@ -5,7 +5,9 @@ import { validateDeclensionInput, validateGenderDetectionInput } from './input-v
 describe('validateDeclensionInput', () => {
   it('should throw a type error when called with empty arguments list', () => {
     // @ts-ignore
-    expect(() => validateDeclensionInput()).toThrow(new TypeError('Input type must be an object.'));
+    expect(() => validateDeclensionInput()).toThrow(
+      new TypeError('The input type must be an object.'),
+    );
   });
 
   it('should throw a type error if unsupported gender provided', () => {
@@ -18,11 +20,13 @@ describe('validateDeclensionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateDeclensionInput(input)).toThrow(
-      new TypeError('"gender" must be one of the following: "masculine", "feminine".'),
+      new TypeError(
+        'The "gender" parameter must be one of the following: "masculine", "feminine".',
+      ),
     );
   });
 
-  it('should throw an error if none of the name fields provided', () => {
+  it('should throw an error if none of the name parameters provided', () => {
     // @ts-ignore
     const input = {
       gender: 'masculine',
@@ -30,7 +34,7 @@ describe('validateDeclensionInput', () => {
 
     expect(() => validateDeclensionInput(input)).toThrow(
       new TypeError(
-        'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
+        'At least one of the following parameters must present: "givenName", "patronymicName", "familyName".',
       ),
     );
   });
@@ -45,7 +49,7 @@ describe('validateDeclensionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateDeclensionInput(input)).toThrow(
-      new TypeError('"givenName" must be a string.'),
+      new TypeError('The "givenName" parameter must be a string.'),
     );
   });
 
@@ -59,7 +63,7 @@ describe('validateDeclensionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateDeclensionInput(input)).toThrow(
-      new TypeError('"patronymicName" must be a string.'),
+      new TypeError('The "patronymicName" parameter must be a string.'),
     );
   });
 
@@ -73,7 +77,7 @@ describe('validateDeclensionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateDeclensionInput(input)).toThrow(
-      new TypeError('"familyName" must be a string.'),
+      new TypeError('The "familyName" parameter must be a string.'),
     );
   });
 
@@ -124,17 +128,17 @@ describe('validateGenderDetectionInput', () => {
   it('should throw a type error when called with empty arguments list', () => {
     // @ts-ignore
     expect(() => validateGenderDetectionInput()).toThrow(
-      new TypeError('Input type must be an object.'),
+      new TypeError('The input type must be an object.'),
     );
   });
 
-  it('should throw an error if none of the name fields provided', () => {
+  it('should throw an error if none of the name parameters provided', () => {
     // @ts-ignore
     const input = {} as DeclensionInput;
 
     expect(() => validateGenderDetectionInput(input)).toThrow(
       new TypeError(
-        'At least one of the following fields must present: "givenName", "patronymicName", "familyName".',
+        'At least one of the following parameters must present: "givenName", "patronymicName", "familyName".',
       ),
     );
   });
@@ -148,7 +152,7 @@ describe('validateGenderDetectionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateGenderDetectionInput(input)).toThrow(
-      new TypeError('"givenName" must be a string.'),
+      new TypeError('The "givenName" parameter must be a string.'),
     );
   });
 
@@ -161,7 +165,7 @@ describe('validateGenderDetectionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateGenderDetectionInput(input)).toThrow(
-      new TypeError('"patronymicName" must be a string.'),
+      new TypeError('The "patronymicName" parameter must be a string.'),
     );
   });
 
@@ -174,7 +178,7 @@ describe('validateGenderDetectionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateGenderDetectionInput(input)).toThrow(
-      new TypeError('"familyName" must be a string.'),
+      new TypeError('The "familyName" parameter must be a string.'),
     );
   });
 
