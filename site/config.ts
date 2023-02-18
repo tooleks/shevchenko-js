@@ -11,6 +11,7 @@ export default {
     releaseYear: 2017,
     npmUrl: 'https://www.npmjs.com/package/shevchenko',
     gitHubUrl: 'https://github.com/tooleks/shevchenko-js',
+    wikiUrl: 'https://raw.githubusercontent.com/wiki/tooleks/shevchenko-js/Принцип-роботи.md',
     gitHubStatsUrl: 'https://api.github.com/repos/tooleks/shevchenko-js',
     issuesUrl: 'https://github.com/tooleks/shevchenko-js/issues',
     licenseUrl: 'https://github.com/tooleks/shevchenko-js/blob/master/LICENSE',

@@ -5,13 +5,13 @@ const { t: $t } = useI18n();
 
 // prettier-ignore
 let apiSpec = `
-shevchenko.inNominative(anthroponym: Anthroponym): Anthroponym; // ${$t('action.inflect.inNominativeCase')}
-shevchenko.inGenitive(anthroponym: Anthroponym): Anthroponym;   // ${$t('action.inflect.inGenitiveCase')}
-shevchenko.inDative(anthroponym: Anthroponym): Anthroponym;     // ${$t('action.inflect.inDativeCase')}
-shevchenko.inAccusative(anthroponym: Anthroponym): Anthroponym; // ${$t('action.inflect.inAccusativeCase')}
-shevchenko.inAblative(anthroponym: Anthroponym): Anthroponym;   // ${$t('action.inflect.inAblativeCase')}
-shevchenko.inLocative(anthroponym: Anthroponym): Anthroponym;   // ${$t('action.inflect.inLocativeCase')}
-shevchenko.inVocative(anthroponym: Anthroponym): Anthroponym;   // ${$t('action.inflect.inVocativeCase')}
+shevchenko.inNominative(anthroponym: DeclensionInput): Promise<DeclensionOutput>; // ${$t('action.inflect.inNominativeCase')}
+shevchenko.inGenitive(anthroponym: DeclensionInput): Promise<DeclensionOutput>;   // ${$t('action.inflect.inGenitiveCase')}
+shevchenko.inDative(anthroponym: DeclensionInput): Promise<DeclensionOutput>;     // ${$t('action.inflect.inDativeCase')}
+shevchenko.inAccusative(anthroponym: DeclensionInput): Promise<DeclensionOutput>; // ${$t('action.inflect.inAccusativeCase')}
+shevchenko.inAblative(anthroponym: DeclensionInput): Promise<DeclensionOutput>;   // ${$t('action.inflect.inAblativeCase')}
+shevchenko.inLocative(anthroponym: DeclensionInput): Promise<DeclensionOutput>;   // ${$t('action.inflect.inLocativeCase')}
+shevchenko.inVocative(anthroponym: DeclensionInput): Promise<DeclensionOutput>;   // ${$t('action.inflect.inVocativeCase')}
 `;
 </script>
 

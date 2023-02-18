@@ -1,22 +1,22 @@
 <script setup lang="ts">
 import { useDeclension } from '~/composables/declension';
-import { Anthroponym } from 'shevchenko';
+import { DeclensionOutput } from 'shevchenko';
 
-const { declensionResults } = useDeclension();
+const { declensionResults } = await useDeclension();
 
-function convertAnthroponymToString(anthroponym: Anthroponym): string {
+function convertAnthroponymToString(anthroponym: DeclensionOutput): string {
   let output: string[] = [];
 
-  if (anthroponym.lastName) {
-    output.push(anthroponym.lastName);
+  if (anthroponym.familyName) {
+    output.push(anthroponym.familyName);
   }
 
-  if (anthroponym.firstName) {
-    output.push(anthroponym.firstName);
+  if (anthroponym.givenName) {
+    output.push(anthroponym.givenName);
   }
 
-  if (anthroponym.middleName) {
-    output.push(anthroponym.middleName);
+  if (anthroponym.patronymicName) {
+    output.push(anthroponym.patronymicName);
   }
 
   return output.join(' ');
@@ -27,9 +27,9 @@ function convertAnthroponymToString(anthroponym: Anthroponym): string {
   <table class="table table-responsive-md m-0">
     <tr class="bg-light">
       <th class="border-top-0">{{ $t('grammaticalCase') }}</th>
-      <th class="border-top-0">{{ $t('anthroponym.lastName') }}</th>
-      <th class="border-top-0">{{ $t('anthroponym.firstName') }}</th>
-      <th class="border-top-0">{{ $t('anthroponym.middleName') }}</th>
+      <th class="border-top-0">{{ $t('anthroponym.familyName') }}</th>
+      <th class="border-top-0">{{ $t('anthroponym.givenName') }}</th>
+      <th class="border-top-0">{{ $t('anthroponym.patronymicName') }}</th>
       <th class="border-top-0">
         <span class="py-0 px-1">
           <i
@@ -43,11 +43,12 @@ function convertAnthroponymToString(anthroponym: Anthroponym): string {
 
     <tr>
       <th>{{ $t('grammaticalCase.nominative') }}</th>
-      <td>{{ declensionResults.nominativeCase.lastName }}</td>
-      <td>{{ declensionResults.nominativeCase.firstName }}</td>
-      <td>{{ declensionResults.nominativeCase.middleName }}</td>
+      <td>{{ declensionResults.nominativeCase?.familyName }}</td>
+      <td>{{ declensionResults.nominativeCase?.givenName }}</td>
+      <td>{{ declensionResults.nominativeCase?.patronymicName }}</td>
       <td>
         <CopyButton
+          v-if="declensionResults.nominativeCase"
           :button-id="'copy-nominative-case-button'"
           :source="convertAnthroponymToString(declensionResults.nominativeCase)"
         />
@@ -56,11 +57,12 @@ function convertAnthroponymToString(anthroponym: Anthroponym): string {
 
     <tr>
       <th>{{ $t('grammaticalCase.genitive') }}</th>
-      <td>{{ declensionResults.genitiveCase.lastName }}</td>
-      <td>{{ declensionResults.genitiveCase.firstName }}</td>
-      <td>{{ declensionResults.genitiveCase.middleName }}</td>
+      <td>{{ declensionResults.genitiveCase?.familyName }}</td>
+      <td>{{ declensionResults.genitiveCase?.givenName }}</td>
+      <td>{{ declensionResults.genitiveCase?.patronymicName }}</td>
       <td>
         <CopyButton
+          v-if="declensionResults.genitiveCase"
           :button-id="'copy-genitive-case-button'"
           :source="convertAnthroponymToString(declensionResults.genitiveCase)"
         />
@@ -69,11 +71,12 @@ function convertAnthroponymToString(anthroponym: Anthroponym): string {
 
     <tr>
       <th>{{ $t('grammaticalCase.dative') }}</th>
-      <td>{{ declensionResults.dativeCase.lastName }}</td>
-      <td>{{ declensionResults.dativeCase.firstName }}</td>
-      <td>{{ declensionResults.dativeCase.middleName }}</td>
+      <td>{{ declensionResults.dativeCase?.familyName }}</td>
+      <td>{{ declensionResults.dativeCase?.givenName }}</td>
+      <td>{{ declensionResults.dativeCase?.patronymicName }}</td>
       <td>
         <CopyButton
+          v-if="declensionResults.dativeCase"
           :button-id="'copy-dative-case-button'"
           :source="convertAnthroponymToString(declensionResults.dativeCase)"
         />
@@ -82,11 +85,12 @@ function convertAnthroponymToString(anthroponym: Anthroponym): string {
 
     <tr>
       <th>{{ $t('grammaticalCase.accusative') }}</th>
-      <td>{{ declensionResults.accusativeCase.lastName }}</td>
-      <td>{{ declensionResults.accusativeCase.firstName }}</td>
-      <td>{{ declensionResults.accusativeCase.middleName }}</td>
+      <td>{{ declensionResults.accusativeCase?.familyName }}</td>
+      <td>{{ declensionResults.accusativeCase?.givenName }}</td>
+      <td>{{ declensionResults.accusativeCase?.patronymicName }}</td>
       <td>
         <CopyButton
+          v-if="declensionResults.accusativeCase"
           :button-id="'copy-accusative-case-button'"
           :source="convertAnthroponymToString(declensionResults.accusativeCase)"
         />
@@ -95,11 +99,12 @@ function convertAnthroponymToString(anthroponym: Anthroponym): string {
 
     <tr>
       <th>{{ $t('grammaticalCase.ablative') }}</th>
-      <td>{{ declensionResults.ablativeCase.lastName }}</td>
-      <td>{{ declensionResults.ablativeCase.firstName }}</td>
-      <td>{{ declensionResults.ablativeCase.middleName }}</td>
+      <td>{{ declensionResults.ablativeCase?.familyName }}</td>
+      <td>{{ declensionResults.ablativeCase?.givenName }}</td>
+      <td>{{ declensionResults.ablativeCase?.patronymicName }}</td>
       <td>
         <CopyButton
+          v-if="declensionResults.ablativeCase"
           :button-id="'copy-ablative-case-button'"
           :source="convertAnthroponymToString(declensionResults.ablativeCase)"
         />
@@ -108,11 +113,12 @@ function convertAnthroponymToString(anthroponym: Anthroponym): string {
 
     <tr>
       <th>{{ $t('grammaticalCase.locative') }}</th>
-      <td>{{ declensionResults.locativeCase.lastName }}</td>
-      <td>{{ declensionResults.locativeCase.firstName }}</td>
-      <td>{{ declensionResults.locativeCase.middleName }}</td>
+      <td>{{ declensionResults.locativeCase?.familyName }}</td>
+      <td>{{ declensionResults.locativeCase?.givenName }}</td>
+      <td>{{ declensionResults.locativeCase?.patronymicName }}</td>
       <td>
         <CopyButton
+          v-if="declensionResults.locativeCase"
           :button-id="'copy-locative-case-button'"
           :source="convertAnthroponymToString(declensionResults.locativeCase)"
         />
@@ -121,11 +127,12 @@ function convertAnthroponymToString(anthroponym: Anthroponym): string {
 
     <tr>
       <th>{{ $t('grammaticalCase.vocative') }}</th>
-      <td>{{ declensionResults.vocativeCase.lastName }}</td>
-      <td>{{ declensionResults.vocativeCase.firstName }}</td>
-      <td>{{ declensionResults.vocativeCase.middleName }}</td>
+      <td>{{ declensionResults.vocativeCase?.familyName }}</td>
+      <td>{{ declensionResults.vocativeCase?.givenName }}</td>
+      <td>{{ declensionResults.vocativeCase?.patronymicName }}</td>
       <td>
         <CopyButton
+          v-if="declensionResults.vocativeCase"
           :button-id="'copy-vocative-case-button'"
           :source="convertAnthroponymToString(declensionResults.vocativeCase)"
         />

@@ -2,16 +2,16 @@
 const appConfig = useAppConfig();
 
 const usageExample = `
-const anthroponym = {
-  gender: 'male', // or 'female'
-  firstName: 'Тарас',
-  middleName: 'Григорович',
-  lastName: 'Шевченко'
+const input = {
+  gender: 'masculine', // Grammatical gender: 'masculine' or 'feminine'
+  givenName: 'Тарас',
+  patronymicName: 'Григорович',
+  familyName: 'Шевченко'
 };
 
-const result = shevchenko.inVocative(anthroponym);
+const output = await shevchenko.inVocative(input);
 
-console.log(result); // { gender: "male", firstName: "Тарасе", middleName: "Григоровичу", lastName: "Шевченку" }
+console.log(output); // { givenName: "Тарасе", patronymicName: "Григоровичу", familyName: "Шевченку" }
 `;
 </script>
 

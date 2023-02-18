@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useToggle } from '@vueuse/core';
-import { Anthroponym, Gender } from 'shevchenko';
+import { Anthroponym, GrammaticalGender,DeclensionInput, detectGender } from 'shevchenko';
 import { onMounted, PropType, toRefs } from 'vue';
 import {
   shevchenkoAnthroponym,
@@ -9,38 +9,38 @@ import {
 } from '~/composables/declension';
 
 const props = defineProps({
-  initialAnthroponym: { type: Object as PropType<Anthroponym>, default: () => ({}) },
+  initialAnthroponym: { type: Object as PropType<DeclensionInput>, default: () => ({}) },
 });
 
 const { initialAnthroponym } = toRefs(props);
 
 const emit = defineEmits(['declension']);
 
-const { anthroponym, detectGender, inflect } = useDeclension(initialAnthroponym.value);
+const { anthroponym,  inflect } = await useDeclension(initialAnthroponym.value);
 const [isGenderError, showGenderError] = useToggle(false);
 
-const AutoGender = undefined;
-const genderOptions = [AutoGender, ...Object.values(Gender)];
+const AUTO_GENDER_OPTION = undefined;
+const genderOptions = [AUTO_GENDER_OPTION, ...Object.values(GrammaticalGender)];
 
 interface FormData {
-  gender: Gender | typeof AutoGender;
-  firstName?: string;
-  lastName?: string;
-  middleName?: string;
+  gender: GrammaticalGender | typeof AUTO_GENDER_OPTION;
+  familyName?: string;
+  givenName?: string;
+  patronymicName?: string;
 }
 
 const formData: FormData = {
-  gender: AutoGender,
-  firstName: '',
-  lastName: '',
-  middleName: '',
+  gender: AUTO_GENDER_OPTION,
+  familyName: '',
+  givenName: '',
+  patronymicName: '',
 };
 
 function setFormData(data: FormData): void {
   formData.gender = data.gender;
-  formData.firstName = data.firstName;
-  formData.lastName = data.lastName;
-  formData.middleName = data.middleName;
+  formData.familyName = data.familyName;
+  formData.givenName = data.givenName;
+  formData.patronymicName = data.patronymicName;
 }
 
 onMounted(() => {
@@ -49,11 +49,11 @@ onMounted(() => {
   }
 });
 
-function onInflect(): void {
-  let { gender, firstName, lastName, middleName } = formData;
+async function onInflect(): Promise<void> {
+  let { gender, familyName, givenName, patronymicName } = formData;
 
   if (gender == null) {
-    gender = detectGender({ firstName, lastName, middleName }) ?? AutoGender;
+    gender = await detectGender({ familyName, givenName, patronymicName }) ?? AUTO_GENDER_OPTION;
     if (gender == null) {
       showGenderError(true);
       return;
@@ -61,7 +61,7 @@ function onInflect(): void {
   }
 
   showGenderError(false);
-  inflect({ gender, firstName, lastName, middleName });
+  await inflect({ gender, familyName, givenName, patronymicName });
   emit('declension', anthroponym);
 }
 </script>
@@ -83,14 +83,14 @@ function onInflect(): void {
           >
             <input v-model="formData.gender" type="radio" name="gender" :value="genderOption" />
             {{ $t(`gender.${genderOption}`) }}
-            <span v-if="genderOption === AutoGender">
+            <span v-if="genderOption === AUTO_GENDER_OPTION">
               ({{ $t(`gender.${anthroponym.gender}`) }})
             </span>
           </label>
 
           <small
             v-if="isGenderError"
-            v-show="formData.gender === AutoGender"
+            v-show="formData.gender === AUTO_GENDER_OPTION"
             class="form-text text-danger"
           >
             {{ $t('gender.message.detectionFailed') }}
@@ -102,44 +102,44 @@ function onInflect(): void {
         </div>
 
         <div class="form-group">
-          <label for="last-name">
-            {{ $t('anthroponym.lastName') }}
+          <label for="family-name">
+            {{ $t('anthroponym.familyName') }}
           </label>
           <input
-            v-model.trim="formData.lastName"
+            v-model.trim="formData.familyName"
             type="text"
             class="form-control"
-            name="last-name"
-            id="last-name"
-            :placeholder="shevchenkoAnthroponym.lastName"
+            name="family-name"
+            id="family-name"
+            :placeholder="shevchenkoAnthroponym.familyName"
           />
         </div>
 
         <div class="form-group">
-          <label for="first-name">
-            {{ $t('anthroponym.firstName') }}
+          <label for="given-name">
+            {{ $t('anthroponym.givenName') }}
           </label>
           <input
-            v-model.trim="formData.firstName"
+            v-model.trim="formData.givenName"
             type="text"
             class="form-control"
-            name="first-name"
-            id="first-name"
-            :placeholder="shevchenkoAnthroponym.firstName"
+            name="given-name"
+            id="given-name"
+            :placeholder="shevchenkoAnthroponym.givenName"
           />
         </div>
 
         <div class="form-group">
-          <label for="middle-name">
-            {{ $t('anthroponym.middleName') }}
+          <label for="patronymic-name">
+            {{ $t('anthroponym.patronymicName') }}
           </label>
           <input
-            v-model.trim="formData.middleName"
+            v-model.trim="formData.patronymicName"
             type="text"
             class="form-control"
-            name="middle-name"
-            id="middle-name"
-            :placeholder="shevchenkoAnthroponym.middleName"
+            name="patronymic-name"
+            id="patronymic-name"
+            :placeholder="shevchenkoAnthroponym.patronymicName"
           />
         </div>
       </div>

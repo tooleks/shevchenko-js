@@ -1,158 +1,164 @@
 <script setup lang="ts">
-import { ref } from 'vue';
+import { ref, onMounted } from 'vue';
 import { useIntervalFn } from '@vueuse/core';
-import * as shevchenko from 'shevchenko';
+import { GrammaticalGender,DeclensionInput, inVocative } from 'shevchenko';
 
-const anthroponyms: shevchenko.Anthroponym[] = [
+const anthroponyms: DeclensionInput[] = [
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Шевченко',
-    firstName: 'Тарас',
-    middleName: 'Григорович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Шевченко',
+    givenName: 'Тарас',
+    patronymicName: 'Григорович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Франко',
-    firstName: 'Іван',
-    middleName: 'Якович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Франко',
+    givenName: 'Іван',
+    patronymicName: 'Якович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Нечуй-Левицький',
-    firstName: 'Іван',
-    middleName: 'Семенович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Нечуй-Левицький',
+    givenName: 'Іван',
+    patronymicName: 'Семенович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Рудченко',
-    firstName: 'Панас',
-    middleName: 'Якович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Рудченко',
+    givenName: 'Панас',
+    patronymicName: 'Якович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Рудченко',
-    firstName: 'Іван',
-    middleName: 'Якович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Рудченко',
+    givenName: 'Іван',
+    patronymicName: 'Якович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: "Лозов'яга",
-    firstName: 'Іван',
-    middleName: 'Павлович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: "Лозов'яга",
+    givenName: 'Іван',
+    patronymicName: 'Павлович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Котляревський',
-    firstName: 'Іван',
-    middleName: 'Петрович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Котляревський',
+    givenName: 'Іван',
+    patronymicName: 'Петрович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Сосюра',
-    firstName: 'Володимир',
-    middleName: 'Миколайович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Сосюра',
+    givenName: 'Володимир',
+    patronymicName: 'Миколайович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Тичина',
-    firstName: 'Павло',
-    middleName: 'Григорович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Тичина',
+    givenName: 'Павло',
+    patronymicName: 'Григорович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Симоненко',
-    firstName: 'Василь',
-    middleName: 'Андрійович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Симоненко',
+    givenName: 'Василь',
+    patronymicName: 'Андрійович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Фітільов',
-    firstName: 'Микола',
-    middleName: 'Григорович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Фітільов',
+    givenName: 'Микола',
+    patronymicName: 'Григорович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Коцюбинський',
-    firstName: 'Михайло',
-    middleName: 'Михайлович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Коцюбинський',
+    givenName: 'Михайло',
+    patronymicName: 'Михайлович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Сковорода',
-    firstName: 'Григорій',
-    middleName: 'Савич',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Сковорода',
+    givenName: 'Григорій',
+    patronymicName: 'Савич',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Куліш',
-    firstName: 'Пантелеймон',
-    middleName: 'Олександрович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Куліш',
+    givenName: 'Пантелеймон',
+    patronymicName: 'Олександрович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Глібов',
-    firstName: 'Леонід',
-    middleName: 'Іванович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Глібов',
+    givenName: 'Леонід',
+    patronymicName: 'Іванович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Гончар',
-    firstName: 'Олександр',
-    middleName: 'Терентійович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Гончар',
+    givenName: 'Олександр',
+    patronymicName: 'Терентійович',
   },
   {
-    gender: shevchenko.Gender.Male,
-    lastName: 'Довженко',
-    firstName: 'Олександр',
-    middleName: 'Петрович',
+    gender: GrammaticalGender.MASCULINE,
+    familyName: 'Довженко',
+    givenName: 'Олександр',
+    patronymicName: 'Петрович',
   },
   {
-    gender: shevchenko.Gender.Female,
-    lastName: 'Косач-Квітка',
-    firstName: 'Лариса',
-    middleName: 'Петрівна',
+    gender: GrammaticalGender.FEMININE,
+    familyName: 'Косач-Квітка',
+    givenName: 'Лариса',
+    patronymicName: 'Петрівна',
   },
   {
-    gender: shevchenko.Gender.Female,
-    lastName: 'Косач',
-    firstName: 'Ольга',
-    middleName: 'Петрівна',
+    gender: GrammaticalGender.FEMININE,
+    familyName: 'Косач',
+    givenName: 'Ольга',
+    patronymicName: 'Петрівна',
   },
   {
-    gender: shevchenko.Gender.Female,
-    lastName: 'Вілінська',
-    firstName: 'Марія',
-    middleName: 'Олександрівна',
+    gender: GrammaticalGender.FEMININE,
+    familyName: 'Вілінська',
+    givenName: 'Марія',
+    patronymicName: 'Олександрівна',
   },
   {
-    gender: shevchenko.Gender.Female,
-    lastName: 'Кобилянська',
-    firstName: 'Ольга',
-    middleName: 'Юліанівна',
+    gender: GrammaticalGender.FEMININE,
+    familyName: 'Кобилянська',
+    givenName: 'Ольга',
+    patronymicName: 'Юліанівна',
   },
 ];
 
-const anthroponym = ref(shevchenko.inVocative(anthroponyms[0]));
+const shevchenkoAnthroponym = anthroponyms[0];
+
+const anthroponym = ref();
 
 // Shuffle the array of anthroponyms before the preview.
 anthroponyms.sort(() => (Math.random() > 0.5 ? 1 : -1));
 
 let index = 0;
-function previewNextAnthroponym(): void {
+async function previewNextAnthroponym(): Promise<void> {
   index = index + 1;
   if (index > anthroponyms.length - 1) {
     index = 0;
   }
-  anthroponym.value = shevchenko.inVocative(anthroponyms[index]);
+  anthroponym.value = await inVocative(anthroponyms[index]);
 }
+
+onMounted(async () => {
+  anthroponym.value = await inVocative(shevchenkoAnthroponym);
+});
 
 useIntervalFn(previewNextAnthroponym, 5_000);
 </script>
 
 <template>
   <transition name="preview" mode="out-in">
-    <span :key="`${anthroponym.firstName}${anthroponym.middleName}${anthroponym.lastName}`">
-      {{ anthroponym.firstName }} {{ anthroponym.middleName }} {{ anthroponym.lastName }}
+    <span v-if="anthroponym" :key="`${anthroponym.givenName}${anthroponym.patronymicName}${anthroponym.familyName}`">
+      {{ anthroponym.givenName }} {{ anthroponym.patronymicName }} {{ anthroponym.familyName }}
     </span>
   </transition>
 </template>

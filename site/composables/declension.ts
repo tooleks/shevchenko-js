@@ -1,8 +1,7 @@
 import { createSharedComposable } from '@vueuse/core';
 import { reactive } from 'vue';
 import {
-  Anthroponym,
-  Gender,
+  GrammaticalGender,
   inNominative,
   inGenitive,
   inDative,
@@ -10,27 +9,25 @@ import {
   inAblative,
   inLocative,
   inVocative,
+  DeclensionInput,
+  DeclensionOutput
 } from 'shevchenko';
-import maleFirstNames from '~/data/male-first-names.json';
-import femaleFirstNames from '~/data/female-first-names.json';
 
-export type GenderlessAnthroponym = Omit<Anthroponym, 'gender'>;
-
-export const shevchenkoAnthroponym: Anthroponym = {
-  gender: Gender.Male,
-  lastName: 'Шевченко',
-  firstName: 'Тарас',
-  middleName: 'Григорович',
+export const shevchenkoAnthroponym: DeclensionInput = {
+  gender: GrammaticalGender.MASCULINE,
+  familyName: 'Шевченко',
+  givenName: 'Тарас',
+  patronymicName: 'Григорович',
 };
 
 export interface DeclensionResults {
-  nominativeCase: Anthroponym;
-  genitiveCase: Anthroponym;
-  dativeCase: Anthroponym;
-  accusativeCase: Anthroponym;
-  ablativeCase: Anthroponym;
-  locativeCase: Anthroponym;
-  vocativeCase: Anthroponym;
+  nominativeCase: DeclensionOutput | null;
+  genitiveCase: DeclensionOutput | null;
+  dativeCase: DeclensionOutput | null;
+  accusativeCase: DeclensionOutput | null;
+  ablativeCase: DeclensionOutput | null;
+  locativeCase: DeclensionOutput | null;
+  vocativeCase: DeclensionOutput | null;
 }
 
 /**
@@ -38,87 +35,82 @@ export interface DeclensionResults {
  * Returns false otherwise.
  */
 export function isDefinedAnthroponym(
-  anthroponym: Partial<Anthroponym>,
-): anthroponym is Anthroponym {
+  anthroponym: Partial<DeclensionInput>,
+): anthroponym is DeclensionInput {
   return Boolean(
     anthroponym.gender &&
-    Object.values(Gender).includes(anthroponym.gender) &&
-    (anthroponym.firstName || anthroponym.middleName || anthroponym.lastName),
+    Object.values(GrammaticalGender).includes(anthroponym.gender) &&
+    (anthroponym.familyName || anthroponym.givenName || anthroponym.patronymicName),
   );
 }
 
-export function isShevchenkoAnthroponym(anthroponym: Partial<Anthroponym>): boolean {
+export function isShevchenkoAnthroponym(anthroponym: Partial<DeclensionInput>): boolean {
   return (
     anthroponym.gender === shevchenkoAnthroponym.gender &&
-    anthroponym.lastName === shevchenkoAnthroponym.lastName &&
-    anthroponym.firstName === shevchenkoAnthroponym.firstName &&
-    anthroponym.middleName === shevchenkoAnthroponym.middleName
+    anthroponym.familyName === shevchenkoAnthroponym.familyName &&
+    anthroponym.givenName === shevchenkoAnthroponym.givenName &&
+    anthroponym.patronymicName === shevchenkoAnthroponym.patronymicName
   );
 }
 
-export const useDeclension = createSharedComposable((predefinedAnthroponym: Anthroponym) => {
-  let anthroponym: Anthroponym = reactive({
-    gender: Gender.Male,
-    lastName: '',
-    firstName: '',
-    middleName: '',
+export const useDeclension = createSharedComposable(async (predefinedAnthroponym: DeclensionInput) => {
+  let anthroponym: DeclensionInput = reactive({
+    gender: GrammaticalGender.MASCULINE,
+    familyName: '',
+    givenName: '',
+    patronymicName: '',
   });
 
-  let initialAnthroponym: Anthroponym = reactive(shevchenkoAnthroponym);
+  let initialAnthroponym: DeclensionInput = reactive(shevchenkoAnthroponym);
   if (isDefinedAnthroponym(predefinedAnthroponym)) {
     initialAnthroponym = reactive(predefinedAnthroponym);
     anthroponym = reactive(predefinedAnthroponym);
   }
 
   const declensionResults: DeclensionResults = reactive({
-    nominativeCase: inNominative(initialAnthroponym),
-    genitiveCase: inGenitive(initialAnthroponym),
-    dativeCase: inDative(initialAnthroponym),
-    accusativeCase: inAccusative(initialAnthroponym),
-    ablativeCase: inAblative(initialAnthroponym),
-    locativeCase: inLocative(initialAnthroponym),
-    vocativeCase: inVocative(initialAnthroponym),
+    nominativeCase: null,
+    genitiveCase: null,
+    dativeCase: null,
+    accusativeCase: null,
+    ablativeCase: null,
+    locativeCase: null,
+    vocativeCase: null,
   });
 
-  function setAnthroponym(source: Anthroponym): void {
-    anthroponym.gender = source.gender;
-    anthroponym.lastName = source.lastName;
-    anthroponym.firstName = source.firstName;
-    anthroponym.middleName = source.middleName;
+  async function inflect(input: DeclensionInput): Promise<void> {
+    anthroponym.gender = input.gender;
+    anthroponym.familyName = input.familyName;
+    anthroponym.givenName = input.givenName;
+    anthroponym.patronymicName = input.patronymicName;
+
+    const [
+      nominativeCase,
+      genitiveCase,
+      dativeCase,
+      accusativeCase,
+      ablativeCase,
+      locativeCase,
+      vocativeCase,
+    ] = await Promise.all([
+      inNominative(anthroponym),
+      inGenitive(anthroponym),
+      inDative(anthroponym),
+      inAccusative(anthroponym),
+      inAblative(anthroponym),
+      inLocative(anthroponym),
+      inVocative(anthroponym),
+    ]);
+
+    declensionResults.nominativeCase = nominativeCase;
+    declensionResults.genitiveCase = genitiveCase;
+    declensionResults.dativeCase = dativeCase;
+    declensionResults.accusativeCase = accusativeCase;
+    declensionResults.ablativeCase = ablativeCase;
+    declensionResults.locativeCase = locativeCase;
+    declensionResults.vocativeCase = vocativeCase;
   }
 
-  function inflect(source: Anthroponym): void {
-    setAnthroponym(source);
-    declensionResults.nominativeCase = inNominative(anthroponym);
-    declensionResults.genitiveCase = inGenitive(anthroponym);
-    declensionResults.dativeCase = inDative(anthroponym);
-    declensionResults.accusativeCase = inAccusative(anthroponym);
-    declensionResults.ablativeCase = inAblative(anthroponym);
-    declensionResults.locativeCase = inLocative(anthroponym);
-    declensionResults.vocativeCase = inVocative(anthroponym);
-  }
+  await inflect(initialAnthroponym);
 
-  function detectGender(anthroponym: GenderlessAnthroponym): Gender | null {
-    if (anthroponym.middleName) {
-      const middleName = anthroponym.middleName.replace(/[`"]/g, "'").toLocaleLowerCase();
-      if (/(и|і)ч$/.test(middleName)) {
-        return Gender.Male;
-      } else if (/на$/.test(middleName)) {
-        return Gender.Female;
-      }
-    }
-
-    if (anthroponym.firstName) {
-      const firstName = anthroponym.firstName.replace(/[`"]/g, "'").toLocaleLowerCase();
-      if (maleFirstNames.includes(firstName)) {
-        return Gender.Male;
-      } else if (femaleFirstNames.includes(firstName)) {
-        return Gender.Female;
-      }
-    }
-
-    return null;
-  }
-
-  return { anthroponym, declensionResults, inflect, detectGender };
+  return { anthroponym, declensionResults, inflect };
 });
