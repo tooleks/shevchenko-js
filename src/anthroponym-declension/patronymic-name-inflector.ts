@@ -1,19 +1,13 @@
 import { GrammaticalCase, GrammaticalGender } from '../language';
-import {
-  DeclensionRule,
-  DeclensionRuleInflector,
-  isGenderApplicable,
-  isStriclyApplicable,
-  isWordApplicable,
-} from '../word-declension';
+import { WordInflector } from '../word-declension';
 import { NameInflector } from './name-inflector';
 
 export class PatronymicNameInflector extends NameInflector {
-  private readonly rules: DeclensionRule[];
+  private readonly wordInflector: WordInflector;
 
-  constructor(rules: DeclensionRule[]) {
+  constructor(wordInflector: WordInflector) {
     super();
-    this.rules = rules;
+    this.wordInflector = wordInflector;
   }
 
   /**
@@ -23,16 +17,12 @@ export class PatronymicNameInflector extends NameInflector {
     patronymicName: string,
     gender: GrammaticalGender,
     grammaticalCase: GrammaticalCase,
-  ): string {
-    const [rule] = this.rules
-      .filter((rule) => isGenderApplicable(rule, gender))
-      .filter((rule) => isStriclyApplicable(rule, 'patronymicName'))
-      .filter((rule) => isWordApplicable(rule, patronymicName));
-
-    if (rule == null) {
-      return patronymicName;
-    }
-
-    return new DeclensionRuleInflector(rule).inflect(patronymicName, grammaticalCase);
+  ): Promise<string> {
+    return this.wordInflector.inflect(patronymicName, {
+      grammaticalCase: grammaticalCase,
+      gender: gender,
+      application: 'patronymicName',
+      strict: true,
+    });
   }
 }

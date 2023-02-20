@@ -34,5 +34,5 @@ export abstract class NameInflector {
     gender: GrammaticalGender,
     grammaticalCase: GrammaticalCase,
     isLastWord: boolean,
-  ): Promise<string> | string;
+  ): Promise<string>;
 }

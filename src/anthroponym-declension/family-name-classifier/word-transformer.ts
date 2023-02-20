@@ -1,4 +1,4 @@
-import { AlphabetEncoding, Letter } from '../language';
+import { AlphabetEncoding, Letter } from '../../language';
 
 export class WordTransformer {
   private readonly vectorSize: number;
@@ -9,6 +9,9 @@ export class WordTransformer {
     this.unknownCharcode = unknownCharcode;
   }
 
+  /**
+   * Vectorizes a given word for ML processing.
+   */
   encode(word: string): Uint8Array {
     const values = new Uint8Array(this.vectorSize);
 

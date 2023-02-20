@@ -2,19 +2,19 @@ import { createReadStream } from 'fs';
 import { join as joinPath } from 'path';
 import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
-import { ALPHABET_SIZE, WordClass } from '../../language';
-import { SplitData, splitData } from '../data.utils';
+import { ALPHABET_SIZE, WordClass } from '../../../language';
+import { SplitData, splitData } from '../data-utils';
+import { FamilyNameClass } from '../family-name-class';
+import { FamilyNameClassTransformer } from '../family-name-class-transformer';
 import { ModelBundleSaver } from '../model-bundle-saver';
 import { MODEL_INPUT_SIZE } from '../model-config';
-import { WordClassTransformer } from '../word-class-transformer';
 import { WordTransformer } from '../word-transformer';
 
 const TRAINING_DATASET_FILEPATH = joinPath(__dirname, '../datasets/training.csv');
 const MODEL_ARTIFACTS_SOURCE = 'file://' + joinPath(__dirname, '../artifacts');
 
-export interface DataItem {
+export interface DataItem extends FamilyNameClass {
   familyName: string;
-  wordClass: WordClass;
   wordEnding: string;
 }
 
@@ -35,11 +35,11 @@ async function loadData(): Promise<SplitData<DataItem>> {
 }
 
 const wordTransformer = new WordTransformer(MODEL_INPUT_SIZE);
-const wordClassTransformer = new WordClassTransformer();
+const familyNameClassTransformer = new FamilyNameClassTransformer();
 function transformDataEntry(dataItem: DataItem) {
   return {
     xs: wordTransformer.encode(dataItem.familyName),
-    ys: wordClassTransformer.encode(dataItem.wordClass),
+    ys: familyNameClassTransformer.encode({ wordClass: dataItem.wordClass }),
   };
 }
 

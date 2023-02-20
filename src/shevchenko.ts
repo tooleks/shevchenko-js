@@ -1,4 +1,4 @@
-import { anthroponymInflector } from './bootstrap';
+import { anthroponymInflector } from './anthroponym-declension/bootstrap';
 import {
   DeclensionInput,
   DeclensionOutput,

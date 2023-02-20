@@ -1,4 +1,4 @@
-# Word Class Recoginition Module
+# Family Name Classifier Module
 
 This module implements part of speech (also known as word class) recognition of Ukrainian family names.
 

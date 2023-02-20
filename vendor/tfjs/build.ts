@@ -2,7 +2,7 @@ import { exec } from 'child_process';
 import { readFile, writeFile } from 'fs/promises';
 import { join as joinPath } from 'path';
 import * as tf from '@tensorflow/tfjs';
-import { ModelBundleLoader, WordClassRecognizer } from '../../src/word-class-recognition';
+import { FamilyNameClassifier, ModelBundleLoader } from '../../src/family-name-classifier';
 
 const TFJS_CONFIG_FILENAME = 'custom_tfjs_config.json';
 const TFJS_CONFIG_FILEPATH = joinPath(__dirname, TFJS_CONFIG_FILENAME);
@@ -11,8 +11,8 @@ const TFJS_BUNDLE_FILEPATH = joinPath(__dirname, 'custom_tfjs.js');
 async function detectUsedKernels(): Promise<string[]> {
   const profileInfo = await tf.profile(async () => {
     const modelBundleLoader = new ModelBundleLoader();
-    const wordClassRecognizer = new WordClassRecognizer(modelBundleLoader);
-    await wordClassRecognizer.recognize('шевченко');
+    const wordClassRecognizer = new FamilyNameClassifier(modelBundleLoader);
+    await wordClassRecognizer.classify('шевченко');
   });
 
   return profileInfo.kernelNames;

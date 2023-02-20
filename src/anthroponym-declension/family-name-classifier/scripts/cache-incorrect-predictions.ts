@@ -3,9 +3,9 @@ import { writeFile } from 'fs/promises';
 import { join as joinPath } from 'path';
 import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
+import { FamilyNameClassTransformer } from '../family-name-class-transformer';
 import { ModelBundleLoader } from '../model-bundle-loader';
 import { MODEL_INPUT_SIZE } from '../model-config';
-import { WordClassTransformer } from '../word-class-transformer';
 import { WordTransformer } from '../word-transformer';
 
 const TRAINING_DATASET_FILEPATH = joinPath(__dirname, '../datasets/training.csv');
@@ -19,14 +19,14 @@ async function retrieveIncorrectPredictions(): Promise<IncorrectPredictions> {
 
   const model = await tf.loadLayersModel(new ModelBundleLoader());
   const wordTransformer = new WordTransformer(MODEL_INPUT_SIZE);
-  const wordClassTransformer = new WordClassTransformer();
+  const familyNameClassTransformer = new FamilyNameClassTransformer();
 
   const incorrectPredictions: IncorrectPredictions = {};
   for await (const dataRow of dataParser) {
     const input = wordTransformer.encode(dataRow['Family Name']);
     const output = await (model.predict(tf.tensor2d([input])) as tf.Tensor).data();
-    const prediction = wordClassTransformer.decode(output);
-    if (prediction !== dataRow['Word Class']) {
+    const familyNameClass = familyNameClassTransformer.decode(output);
+    if (familyNameClass.wordClass !== dataRow['Word Class']) {
       incorrectPredictions[dataRow['Family Name']] = dataRow['Word Class'];
     }
   }
