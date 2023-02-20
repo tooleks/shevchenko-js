@@ -22,7 +22,7 @@ export class PatronymicNameInflector extends NameInflector {
       grammaticalCase: grammaticalCase,
       gender: gender,
       application: 'patronymicName',
-      strict: true,
+      customRuleFilter: (declensionRule) => declensionRule.application.includes('patronymicName'),
     });
   }
 }

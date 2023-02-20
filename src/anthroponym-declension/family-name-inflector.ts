@@ -1,10 +1,10 @@
 import { GrammaticalCase, GrammaticalGender, isMonosyllable } from '../language';
 import { WordInflector } from '../word-declension';
-import { FamilyNameClassifier } from './family-name-classifier';
+import { FamilyNameClass, FamilyNameClassifier } from './family-name-classifier';
 import { NameInflector } from './name-inflector';
 
-const UNKNOWN_FEMININE_WORD_CLASS_PATTERN = /[ая]$/i;
-const UNKNOWN_MASCULINE_WORD_CLASS_PATTERN = /(ой|ий|ій|их)$/i;
+const UNCERTAIN_FEMININE_FAMILY_NAME_PATTERN = /[ая]$/i;
+const UNCERTAIN_MASCULINE_FAMILY_NAME_PATTERN = /(ой|ий|ій|их)$/i;
 
 export class FamilyNameInflector extends NameInflector {
   private readonly wordInflector: WordInflector;
@@ -29,24 +29,28 @@ export class FamilyNameInflector extends NameInflector {
       return familyName;
     }
 
+    let familyNameClass: FamilyNameClass | null = null;
+    if (this.isUncertainFamilyNameClass(familyName, gender)) {
+      familyNameClass = await this.familyNameClassifier.classify(familyName);
+    }
+
     return this.wordInflector.inflect(familyName, {
       grammaticalCase: grammaticalCase,
       gender: gender,
+      wordClass: familyNameClass?.wordClass,
       application: 'familyName',
-      filter: async (declensionRule) => {
-        const uknownWordClass =
-          (gender === GrammaticalGender.FEMININE &&
-            UNKNOWN_FEMININE_WORD_CLASS_PATTERN.test(familyName)) ||
-          (gender === GrammaticalGender.MASCULINE &&
-            UNKNOWN_MASCULINE_WORD_CLASS_PATTERN.test(familyName));
-
-        if (uknownWordClass) {
-          const familyNameClass = await this.familyNameClassifier.classify(familyName);
-          return declensionRule.wordClass === familyNameClass.wordClass;
-        }
-
-        return true;
-      },
     });
+  }
+
+  /**
+   * Determines whether a given family name could be both a noun or adjective word class.
+   */
+  private isUncertainFamilyNameClass(familyName: string, gender: string): boolean {
+    return (
+      (gender === GrammaticalGender.FEMININE &&
+        UNCERTAIN_FEMININE_FAMILY_NAME_PATTERN.test(familyName)) ||
+      (gender === GrammaticalGender.MASCULINE &&
+        UNCERTAIN_MASCULINE_FAMILY_NAME_PATTERN.test(familyName))
+    );
   }
 }

@@ -1,30 +1,19 @@
-import { GrammaticalCase, GrammaticalGender } from '../language';
+import { GrammaticalCase, GrammaticalGender, WordClass } from '../language';
 import { DeclensionRuleInflector } from './declension-rule-inflector';
 import { DeclensionRule } from './declension-types';
 
-/**
- * Returns a new array with all elements that pass the async test implemented by the provided function.
- */
-async function filterAsync<T>(
-  array: T[],
-  predicate: (value: T, index: number, array: T[]) => Promise<boolean>,
-): Promise<T[]> {
-  const results = await Promise.all(array.map(predicate));
-  return array.filter((_v, index) => results[index]);
-}
-
-export type PipelineFilter = (
+export type CustomRuleFilter = (
   declensionRule: DeclensionRule,
   index: number,
   declensionRules: DeclensionRule[],
-) => Promise<boolean>;
+) => boolean;
 
-export interface InflectParams {
+export interface DeclensionParams {
   grammaticalCase: GrammaticalCase;
   gender: GrammaticalGender;
+  wordClass?: WordClass;
   application?: string;
-  strict?: boolean;
-  filter?: PipelineFilter;
+  customRuleFilter?: CustomRuleFilter;
 }
 
 export class WordInflector {
@@ -34,31 +23,30 @@ export class WordInflector {
     this.declensionRules = declensionRules;
   }
 
-  async inflect(word: string, params: InflectParams): Promise<string> {
-    const matchedRules = this.declensionRules
+  async inflect(word: string, params: DeclensionParams): Promise<string> {
+    const [matchedRule] = this.declensionRules
       .filter((declensionRule) => {
         return declensionRule.gender.includes(params.gender);
       })
-      .filter((rule) => {
-        if (!params.application) {
-          return true;
-        }
-
-        if (!params.strict) {
-          return rule.application.length === 0 || rule.application.includes(params.application);
-        }
-
-        return rule.application.includes(params.application);
+      .filter((declensionRule) => {
+        return (
+          !params.application ||
+          declensionRule.application.length === 0 ||
+          declensionRule.application.includes(params.application)
+        );
       })
       .filter((declensionRule) => {
-        const wordPattern = new RegExp(declensionRule.pattern.find, 'gi');
-        return wordPattern.test(word);
+        return new RegExp(declensionRule.pattern.find, 'gi').test(word);
+      })
+      .filter((declensionRule) => {
+        return !params.wordClass || declensionRule.wordClass === params.wordClass;
+      })
+      .filter((declensionRule, index, declensionRules) => {
+        return (
+          !params.customRuleFilter ||
+          params.customRuleFilter(declensionRule, index, declensionRules)
+        );
       });
-
-    let [matchedRule] = matchedRules;
-    if (params.filter) {
-      [matchedRule] = await filterAsync(matchedRules, params.filter);
-    }
 
     if (matchedRule == null) {
       return word;
