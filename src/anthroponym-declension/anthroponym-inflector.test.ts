@@ -4,8 +4,6 @@ import testData from './anthroponym-inflector.test-data.json';
 import { anthroponymInflector } from './bootstrap';
 
 describe('AnthroponymInflector', () => {
-  it('shoudl', () => expect(true).toBe(true));
-
   testData.forEach((dataItem) => {
     const anthroponym = dataItem.grammaticalCases.nominative as Anthroponym;
     const gender = dataItem.gender as GrammaticalGender;
