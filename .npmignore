@@ -12,6 +12,7 @@
 # Test
 /test
 *.test.ts
+*.test-data.json
 
 # Build config
 .github
