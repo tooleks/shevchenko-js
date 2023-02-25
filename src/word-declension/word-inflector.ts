@@ -2,11 +2,9 @@ import { GrammaticalCase, GrammaticalGender, WordClass } from '../language';
 import { DeclensionRuleInflector } from './declension-rule-inflector';
 import { DeclensionRule } from './declension-types';
 
-export type CustomRuleFilter = (
-  declensionRule: DeclensionRule,
-  index: number,
-  declensionRules: DeclensionRule[],
-) => boolean;
+export interface CustomRuleFilter {
+  (declensionRule: DeclensionRule, index: number, declensionRules: DeclensionRule[]): boolean;
+}
 
 export interface DeclensionParams {
   grammaticalCase: GrammaticalCase;
@@ -23,6 +21,9 @@ export class WordInflector {
     this.declensionRules = declensionRules;
   }
 
+  /**
+   * Inflects a given word according to the specified parameters.
+   */
   async inflect(word: string, params: DeclensionParams): Promise<string> {
     const [matchedRule] = this.declensionRules
       .filter((declensionRule) => {
