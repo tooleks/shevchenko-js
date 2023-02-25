@@ -27,7 +27,7 @@ async function loadData(): Promise<SplitData<DataItem>> {
     data.push({
       familyName: dataRow['Family Name'],
       wordClass: dataRow['Word Class'] as WordClass,
-      wordEnding: dataRow['Family Name'].slice(-4),
+      wordEnding: dataRow['Family Name'].slice(-2),
     });
   }
 

@@ -2,10 +2,10 @@ import { WordClass } from '../../language';
 import { FamilyNameClass } from './family-name-class';
 
 export class FamilyNameClassTransformer {
-  encode(familyNameCategory: FamilyNameClass): Uint8Array {
+  encode(familyNameClass: FamilyNameClass): Uint8Array {
     const values = new Uint8Array(1);
 
-    switch (familyNameCategory.wordClass) {
+    switch (familyNameClass.wordClass) {
       case WordClass.NOUN:
         values[0] = 1;
         break;
@@ -13,7 +13,7 @@ export class FamilyNameClassTransformer {
         values[0] = 0;
         break;
       default:
-        throw new TypeError(`Invalid word class: "${familyNameCategory.wordClass}".`);
+        throw new TypeError(`Invalid word class: "${familyNameClass.wordClass}".`);
     }
 
     return values;
