@@ -17,9 +17,7 @@ type GivenName = keyof typeof givenNamesGenders;
  */
 export function detectGender(anthroponym: Anthroponym): GrammaticalGender | null {
   if (anthroponym.patronymicName) {
-    const patronymicName = anthroponym.patronymicName
-      .replace(APOSTROPHE_VARIATION_PATTERN, "'")
-      .toLocaleLowerCase();
+    const patronymicName = anthroponym.patronymicName.toLocaleLowerCase();
 
     if (MASCULINE_PATRONYMIC_PATTERN.test(patronymicName)) {
       return GrammaticalGender.MASCULINE;
