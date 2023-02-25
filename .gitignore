@@ -6,7 +6,8 @@
 node_modules
 npm-debug.log
 
+# Test
+/coverage
+
 # Output bundle
 /dist
-
-job-title-declension

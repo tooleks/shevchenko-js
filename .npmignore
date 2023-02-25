@@ -10,6 +10,7 @@
 /site
 
 # Test
+/coverage
 /test
 *.test.ts
 *.test-data.json

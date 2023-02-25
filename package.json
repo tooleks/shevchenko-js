@@ -10,7 +10,7 @@
     "prebuild": "rimraf ./dist",
     "build": "rollup -c",
     "lint": "eslint --fix ./src",
-    "test": "jest ./src"
+    "test": "jest"
   },
   "keywords": [
     "ukrainian-language",
