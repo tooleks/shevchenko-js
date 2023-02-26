@@ -18,7 +18,9 @@ export class WordInflector {
   private readonly declensionRules: DeclensionRule[];
 
   constructor(declensionRules: DeclensionRule[]) {
-    this.declensionRules = declensionRules;
+    this.declensionRules = [...declensionRules].sort(
+      (firstRule, secondRule) => secondRule.priority - firstRule.priority,
+    );
   }
 
   /**
