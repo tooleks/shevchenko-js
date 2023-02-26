@@ -47,7 +47,7 @@
   "grammaticalCase.nominative": "Nominative",
   "grammaticalCase.vocative": "Vocative",
   "howItWorks": "How It Works?",
-  "declensionForm.instructionMessage": "Select a grammatical gender and fill in a personal name in a nominative case.",
+  "declensionForm.instructionMessage": "Select a grammatical gender and fill in a personal name in a nominative case",
   "declensionForm.copyMessage": "Use the buttons below to copy the declension results.",
   "installation": "Installation",
   "issueReport": "Issue Report",
