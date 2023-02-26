@@ -1,6 +1,13 @@
+# IDE
 .idea
+.vscode
+
+# NPM
 node_modules
 npm-debug.log
+
+# Test
+/coverage
+
+# Output bundle
 /dist
-/docs/server
-/docs/nitro.json

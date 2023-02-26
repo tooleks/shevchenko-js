@@ -1,0 +1,39 @@
+{
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "postgenerate": "node ./scripts/postgenerate.js",
+    "publish": "node ./scripts/publish.js",
+    "serve": "serve .output/public",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "eslint --fix \"**/*.{ts,vue}\""
+  },
+  "devDependencies": {
+    "@nuxtjs/eslint-config-typescript": "^11.0.0",
+    "@types/showdown": "^2.0.0",
+    "@typescript-eslint/eslint-plugin": "^5.42.0",
+    "@typescript-eslint/parser": "^5.42.0",
+    "@vue/eslint-config-typescript": "^11.0.2",
+    "@vueuse/core": "^9.4.0",
+    "@vueuse/nuxt": "^9.4.0",
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-config-xo": "^0.42.0",
+    "eslint-config-xo-typescript": "^0.53.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-unicorn": "^43.0.2",
+    "eslint-plugin-vue": "^9.7.0",
+    "nuxt": "^3.0.0",
+    "prettier": "^2.7.1",
+    "sass": "^1.56.0",
+    "serve": "^14.0.1",
+    "shevchenko": "../",
+    "showdown": "^2.1.0",
+    "typescript": "^4.8.4",
+    "vue-i18n": "^9.2.2",
+    "vue-router": "^4.1.6"
+  }
+}

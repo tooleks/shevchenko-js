@@ -1,64 +1,95 @@
-import { anthroponymInflector } from './bootstrap';
-import { Anthroponym, GrammaticalCase, validateAnthroponym } from './core';
+import { anthroponymInflector } from './anthroponym-declension/bootstrap';
+import {
+  DeclensionInput,
+  DeclensionOutput,
+  GenderDetectionInput,
+  GenderDetectionOutput,
+} from './contracts';
+import { detectGender as autoDetectGender } from './gender-detection';
+import { validateDeclensionInput, validateGenderDetectionInput } from './input-validation';
+import { GrammaticalCase } from './language';
 
-export { Anthroponym, Gender } from './core';
-export { detectGender, GenderlessAnthroponym } from './gender-detection';
+export * from './contracts';
+export { GrammaticalGender, GrammaticalCase } from './language';
+export { Anthroponym } from './anthroponym-declension';
 
 /**
- * Inflects the anthroponym in nominative grammatical case.
+ * Inflects an anthroponym in nominative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
-export function inNominative(anthroponym: Anthroponym): Anthroponym {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Nominative);
+export async function inNominative(input: DeclensionInput): Promise<DeclensionOutput> {
+  validateDeclensionInput(input);
+  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.NOMINATIVE);
 }
 
 /**
- * Inflects the anthroponym in genitive grammatical case.
+ * Inflects an anthroponym in genitive grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
-export function inGenitive(anthroponym: Anthroponym): Anthroponym {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Genitive);
+export async function inGenitive(input: DeclensionInput): Promise<DeclensionOutput> {
+  validateDeclensionInput(input);
+  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.GENITIVE);
 }
 
 /**
- * Inflects the anthroponym in dative grammatical case.
+ * Inflects an anthroponym in dative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
-export function inDative(anthroponym: Anthroponym): Anthroponym {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Dative);
+export async function inDative(input: DeclensionInput): Promise<DeclensionOutput> {
+  validateDeclensionInput(input);
+  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.DATIVE);
 }
 
 /**
- * Inflects the anthroponym in accusative grammatical case.
+ * Inflects an anthroponym in accusative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
-export function inAccusative(anthroponym: Anthroponym): Anthroponym {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Accusative);
+export async function inAccusative(input: DeclensionInput): Promise<DeclensionOutput> {
+  validateDeclensionInput(input);
+  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.ACCUSATIVE);
 }
 
 /**
- * Inflects the anthroponym in ablative grammatical case.
+ * Inflects an anthroponym in ablative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
-export function inAblative(anthroponym: Anthroponym): Anthroponym {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Ablative);
+export async function inAblative(input: DeclensionInput): Promise<DeclensionOutput> {
+  validateDeclensionInput(input);
+  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.ABLATIVE);
 }
 
 /**
- * Inflects the anthroponym in locative grammatical case.
+ * Inflects an anthroponym in locative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
-export function inLocative(anthroponym: Anthroponym): Anthroponym {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Locative);
+export async function inLocative(input: DeclensionInput): Promise<DeclensionOutput> {
+  validateDeclensionInput(input);
+  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.LOCATIVE);
 }
 
 /**
- * Inflects the anthroponym in vocative grammatical case.
+ * Inflects an anthroponym in vocative grammatical case.
+ *
+ * @throws {TypeError} Input validation error.
  */
-export function inVocative(anthroponym: Anthroponym): Anthroponym {
-  validateAnthroponym(anthroponym);
-  return anthroponymInflector.inflect(anthroponym, GrammaticalCase.Vocative);
+export async function inVocative(input: DeclensionInput): Promise<DeclensionOutput> {
+  validateDeclensionInput(input);
+  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.VOCATIVE);
 }
 
-// Not a part of public API.
-export * as Internal from './internal';
+/**
+ * Returns the grammatical gender of an anthroponym.
+ * Returns null if the grammatical gender cannot be detected.
+ *
+ * @throws {TypeError} Input validation error.
+ */
+export async function detectGender(input: GenderDetectionInput): Promise<GenderDetectionOutput> {
+  validateGenderDetectionInput(input);
+  return autoDetectGender(input);
+}

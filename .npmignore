@@ -1,13 +1,28 @@
+# IDE
 .idea
-/docs/
-/resources/
-/tests/
-/.gitignore
-/.npmignore
-/gulpfile.js
-/rollup.config.js
-/tsconfig.declaration.json
-/tsconfig.json
-/tsconfig.legacy.json
-/tsconfig.module.json
-/tslint.json
+.vscode
+
+# Vendor
+/vendor
+
+# Site
+/docs
+/site
+
+# Test
+/coverage
+/test
+*.test.ts
+*.test-data.json
+
+# Build config
+.github
+.eslintrc.json
+.prettierrc.json
+jest.config.js
+rollup.config.js
+tsconfig*.json
+
+# Data and logs
+*.csv
+*.log

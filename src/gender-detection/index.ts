@@ -1,1 +1,1 @@
-export { detectGender, GenderlessAnthroponym } from './detect-gender';
+export * from './detect-gender';

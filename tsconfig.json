@@ -1,15 +1,12 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "lib": [
-      "DOM",
-      "ES2017"
-    ],
-    "module": "ESNext",
+    "module": "CommonJS",
     "moduleResolution": "Node",
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
+    "skipDefaultLibCheck": true,
     "target": "ES2017"
   }
 }

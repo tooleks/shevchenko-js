@@ -1,12 +1,12 @@
-import { Anthroponym, Gender } from '../core';
-import givenNamesGendersJson from './given-names-genders.json';
+import { Anthroponym } from '../anthroponym-declension';
+import { GrammaticalGender } from '../language';
+import givenNamesGenders from './given-names-genders.json';
 
-const MASCULINE_PATRONYMIC_PATTERN = /(и|і)ч$/;
+const MASCULINE_PATRONYMIC_PATTERN = /[иі]ч$/;
 const FEMININE_PATRONYMIC_PATTERN = /на$/;
 const APOSTROPHE_VARIATION_PATTERN = /[`"]/g;
 
-type KnownGivenName = keyof typeof givenNamesGendersJson;
-export type GenderlessAnthroponym = Omit<Anthroponym, 'gender'>;
+type GivenName = keyof typeof givenNamesGenders;
 
 /**
  * Detects the grammatical gender of the anthroponym using
@@ -15,27 +15,25 @@ export type GenderlessAnthroponym = Omit<Anthroponym, 'gender'>;
  * Returns the grammatical gender of the anthroponym.
  * Returns null if the grammatical gender of the anthroponym cannot be detected.
  */
-export function detectGender(anthroponym: GenderlessAnthroponym): Gender | null {
-  if (anthroponym.middleName) {
-    const patronymicName = anthroponym.middleName
-      .replace(APOSTROPHE_VARIATION_PATTERN, "'")
-      .toLocaleLowerCase();
+export function detectGender(anthroponym: Anthroponym): GrammaticalGender | null {
+  if (anthroponym.patronymicName) {
+    const patronymicName = anthroponym.patronymicName.toLocaleLowerCase();
 
     if (MASCULINE_PATRONYMIC_PATTERN.test(patronymicName)) {
-      return Gender.Male;
+      return GrammaticalGender.MASCULINE;
     } else if (FEMININE_PATRONYMIC_PATTERN.test(patronymicName)) {
-      return Gender.Female;
+      return GrammaticalGender.FEMININE;
     }
   }
 
-  if (anthroponym.firstName) {
-    const givenName = anthroponym.firstName
+  if (anthroponym.givenName) {
+    const givenName = anthroponym.givenName
       .replace(APOSTROPHE_VARIATION_PATTERN, "'")
-      .toLocaleLowerCase() as KnownGivenName;
+      .toLocaleLowerCase() as GivenName;
 
-    const gender = givenNamesGendersJson[givenName];
+    const gender = givenNamesGenders[givenName];
     if (gender != null) {
-      return gender as Gender;
+      return gender as GrammaticalGender;
     }
   }
 

@@ -1,5 +1,7 @@
-import json from '@rollup/plugin-json';
+import { dirname, resolve as resolvePath } from 'path';
+import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
+import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
 import typescript from '@rollup/plugin-typescript';
 import { terser } from 'rollup-plugin-terser';
@@ -12,14 +14,14 @@ const banner = `
  * @version ${pkg.version}
  * @author ${pkg.author}
  * @license ${pkg.license}
- * @copyright ${new Date().getFullYear()} ${pkg.author}
+ * @copyright 2017-${new Date().getFullYear()} ${pkg.author}
  * @see {@link ${pkg.repository.url}}
-*/
+ */
 `;
 
 export default [
   {
-    input: './src/shevchenko.ts',
+    input: './src/index.ts',
     output: {
       name: pkg.name,
       file: pkg.browser,
@@ -28,39 +30,55 @@ export default [
       sourcemap: true,
     },
     plugins: [
+      alias({
+        entries: [
+          {
+            find: /@tensorflow\/tfjs$/,
+            replacement: resolvePath(__dirname, './vendor/tfjs/custom_tfjs.js'),
+          },
+          {
+            find: /@tensorflow\/tfjs-core$/,
+            replacement: resolvePath(__dirname, './vendor/tfjs/custom_tfjs_core.js'),
+          },
+        ],
+      }),
       json(),
-      typescript({ tsconfig: './tsconfig.legacy.json' }),
+      typescript({ tsconfig: './tsconfig.module.json', target: 'ES2015' }),
       resolve(),
       commonjs(),
       terser(),
     ],
   },
   {
-    input: './src/shevchenko.ts',
+    input: './src/index.ts',
     output: {
-      file: pkg.main,
+      dir: dirname(pkg.main),
       format: 'cjs',
       banner: banner.trim(),
       sourcemap: true,
+      preserveModules: true,
     },
-    plugins: [
-      json(),
-      typescript({ tsconfig: './tsconfig.legacy.json' }),
-    ],
+    plugins: [json(), typescript({ tsconfig: './tsconfig.module.json' })],
     external: Object.getOwnPropertyNames(pkg.dependencies),
   },
   {
-    input: './src/shevchenko.ts',
+    input: './src/index.ts',
     output: {
-      file: pkg.module,
+      dir: dirname(pkg.module),
       format: 'es',
       banner: banner.trim(),
       sourcemap: true,
+      preserveModules: true,
     },
     plugins: [
       json(),
-      typescript({ tsconfig: './tsconfig.module.json' }),
+      typescript({
+        tsconfig: './tsconfig.module.json',
+        declaration: true,
+        declarationMap: true,
+        declarationDir: dirname(pkg.module),
+      }),
     ],
     external: Object.getOwnPropertyNames(pkg.dependencies),
-  }
+  },
 ];
