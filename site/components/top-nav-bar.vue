@@ -64,11 +64,11 @@ const { buildPageUrl } = useRouteUtils();
           <div class="dropdown-menu" aria-labelledby="navbar-dropdown-links" role="menu">
             <a
               class="dropdown-item"
-              :href="appConfig.library.npmUrl"
+              :href="appConfig.library.wikiUrl"
               target="_blank"
               role="menuitem"
             >
-              NPM
+              Wiki
             </a>
 
             <a
@@ -78,6 +78,15 @@ const { buildPageUrl } = useRouteUtils();
               role="menuitem"
             >
               GitHub
+            </a>
+
+            <a
+              class="dropdown-item"
+              :href="appConfig.library.npmUrl"
+              target="_blank"
+              role="menuitem"
+            >
+              NPM
             </a>
 
             <a

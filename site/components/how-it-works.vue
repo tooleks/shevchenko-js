@@ -5,9 +5,11 @@ import Showdown from 'showdown';
 const appConfig = useAppConfig();
 const converter = new Showdown.Converter();
 
-const { data, pending } = await useFetch<string>(appConfig.library.wikiUrl, {
-  server: true,
-  lazy: false,
+const { data, pending } = await useFetch<string>(appConfig.library.howItWorksUrl, {
+  headers: {
+    // See https://github.com/orgs/community/discussions/46758#discussioncomment-4950782
+    'Accept-Encoding': 'deflate',
+  },
 });
 
 const contents = computed(() => {

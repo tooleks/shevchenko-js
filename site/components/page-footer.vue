@@ -13,11 +13,11 @@ const appConfig = useAppConfig();
           </p>
 
           <li class="d-inline mr-2" role="presentation">
-            <a :href="appConfig.library.npmUrl" target="_blank" role="menuitem">NPM</a>
+            <a :href="appConfig.library.gitHubUrl" target="_blank" role="menuitem">GitHub</a>
           </li>
 
           <li class="d-inline mr-2" role="presentation">
-            <a :href="appConfig.library.gitHubUrl" target="_blank" role="menuitem">GitHub</a>
+            <a :href="appConfig.library.npmUrl" target="_blank" role="menuitem">NPM</a>
           </li>
 
           <li class="d-inline mr-2" role="presentation">
