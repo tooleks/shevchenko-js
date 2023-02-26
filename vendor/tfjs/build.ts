@@ -2,7 +2,10 @@ import { exec } from 'child_process';
 import { readFile, writeFile } from 'fs/promises';
 import { join as joinPath } from 'path';
 import * as tf from '@tensorflow/tfjs';
-import { FamilyNameClassifier, ModelBundleLoader } from '../../src/family-name-classifier';
+import {
+  FamilyNameClassifier,
+  ModelBundleLoader,
+} from '../../src/anthroponym-declension/family-name-classifier';
 
 const TFJS_CONFIG_FILENAME = 'custom_tfjs_config.json';
 const TFJS_CONFIG_FILEPATH = joinPath(__dirname, TFJS_CONFIG_FILENAME);
