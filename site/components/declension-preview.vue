@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import { useIntervalFn } from '@vueuse/core';
-import { GrammaticalGender,DeclensionInput, inVocative } from 'shevchenko';
+import { GrammaticalGender, DeclensionInput, inVocative } from 'shevchenko';
 
 const anthroponyms: DeclensionInput[] = [
   {
@@ -157,7 +157,10 @@ useIntervalFn(previewNextAnthroponym, 5_000);
 
 <template>
   <transition name="preview" mode="out-in">
-    <span v-if="anthroponym" :key="`${anthroponym.givenName}${anthroponym.patronymicName}${anthroponym.familyName}`">
+    <span
+      v-if="anthroponym"
+      :key="`${anthroponym.givenName}${anthroponym.patronymicName}${anthroponym.familyName}`"
+    >
       {{ anthroponym.givenName }} {{ anthroponym.patronymicName }} {{ anthroponym.familyName }}
     </span>
   </transition>

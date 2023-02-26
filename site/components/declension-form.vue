@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useToggle } from '@vueuse/core';
-import { Anthroponym, GrammaticalGender,DeclensionInput, detectGender } from 'shevchenko';
+import { GrammaticalGender, DeclensionInput, detectGender } from 'shevchenko';
 import { onMounted, PropType, toRefs } from 'vue';
 import {
   shevchenkoAnthroponym,
@@ -16,7 +16,7 @@ const { initialAnthroponym } = toRefs(props);
 
 const emit = defineEmits(['declension']);
 
-const { anthroponym,  inflect } = await useDeclension(initialAnthroponym.value);
+const { anthroponym, inflect } = await useDeclension(initialAnthroponym.value);
 const [isGenderError, showGenderError] = useToggle(false);
 
 const AUTO_GENDER_OPTION = undefined;
@@ -53,7 +53,7 @@ async function onInflect(): Promise<void> {
   let { gender, familyName, givenName, patronymicName } = formData;
 
   if (gender == null) {
-    gender = await detectGender({ familyName, givenName, patronymicName }) ?? AUTO_GENDER_OPTION;
+    gender = (await detectGender({ familyName, givenName, patronymicName })) ?? AUTO_GENDER_OPTION;
     if (gender == null) {
       showGenderError(true);
       return;
