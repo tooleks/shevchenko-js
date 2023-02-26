@@ -3,7 +3,7 @@ const appConfig = useAppConfig();
 
 const usageExample = `
 const input = {
-  gender: 'masculine', // Grammatical gender: 'masculine' or 'feminine'
+  gender: 'masculine', // Grammatical gender: 'masculine' or 'feminine'.
   givenName: 'Тарас',
   patronymicName: 'Григорович',
   familyName: 'Шевченко'
