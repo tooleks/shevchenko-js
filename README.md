@@ -22,7 +22,6 @@ const input = {
   familyName: 'Шевченко'
 };
 
-// Available declension functions: inNominative, inGenitive, inDative, inAccusative, inAblative, inLocative, inVocative
 const output = await shevchenko.inVocative(input);
 
 console.log(output); // { givenName: "Тарасе", patronymicName: "Григоровичу", familyName: "Шевченку" }
