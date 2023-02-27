@@ -1,3 +1,5 @@
+import library from './node_modules/shevchenko/package.json';
+
 const BASE_URL = 'https://shevchenko-js.tooleks.com'; // 'https://tooleks.github.io/shevchenko-js'
 
 export default {
@@ -6,7 +8,8 @@ export default {
     email: 'tooleks@gmail.com',
   },
   library: {
-    name: 'shevchenko',
+    name: library.name,
+    version: library.version,
     releaseYear: 2017,
     npmUrl: 'https://www.npmjs.com/package/shevchenko',
     gitHubUrl: 'https://github.com/tooleks/shevchenko-js',
