@@ -28,11 +28,5 @@ const appConfig = useAppConfig();
         <UsageExample />
       </div>
     </div>
-
-    <div class="row">
-      <div class="col">
-        <ApiSpec />
-      </div>
-    </div>
   </section>
 </template>
