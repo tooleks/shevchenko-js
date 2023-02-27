@@ -64,6 +64,15 @@ const { buildPageUrl } = useRouteUtils();
           <div class="dropdown-menu" aria-labelledby="navbar-dropdown-links" role="menu">
             <a
               class="dropdown-item"
+              :href="appConfig.library.apiSpecUrl"
+              target="_blank"
+              role="menuitem"
+            >
+              {{ $t('apiSpec') }}
+            </a>
+
+            <a
+              class="dropdown-item"
               :href="appConfig.library.wikiUrl"
               target="_blank"
               role="menuitem"

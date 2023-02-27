@@ -6,7 +6,6 @@
     "resolveJsonModule": true,
     "sourceMap": true,
     "strict": true,
-    "skipDefaultLibCheck": true,
     "target": "ES2017"
   }
 }

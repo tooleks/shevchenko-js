@@ -25,11 +25,3 @@ Serve the static site from `.output/public` directory:
 ```bash
 npm run serve
 ```
-
-## Publishing
-
-Publish the static site artifacts to public `/docs` directory.
-
-```bash
-npm run publish
-```

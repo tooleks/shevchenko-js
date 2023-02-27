@@ -63,5 +63,6 @@
   "action.copyLink": "Copy link address",
   "action.navigateToFullVersion": "Navigate to full version",
   "library.version": "Library version: {version}",
-  "action.shareDeclensionResult": "Share declension result"
+  "action.shareDeclensionResult": "Share declension result",
+  "apiSpec": "API spec"
 }

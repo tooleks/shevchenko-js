@@ -22,6 +22,7 @@
 jest.config.js
 rollup.config.js
 tsconfig*.json
+typedoc.js
 
 # Data and logs
 *.csv
