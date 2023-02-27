@@ -3,13 +3,17 @@ import { computed } from 'vue';
 
 const appConfig = useAppConfig();
 
-const { data, pending } = await useFetch(appConfig.library.gitHubStatsUrl, {
-  server: false,
-  lazy: true,
-});
+interface GitHubRepositoryDetails {
+  open_issues_count: number;
+}
+
+const { data, pending } = await useLazyFetch<GitHubRepositoryDetails>(appConfig.content.gitHubUrl);
 
 const issueCount = computed(() => {
-  return data.value ? data.value.open_issues_count : 0;
+  if (data.value == null) {
+    return 0;
+  }
+  return data.value.open_issues_count;
 });
 </script>
 

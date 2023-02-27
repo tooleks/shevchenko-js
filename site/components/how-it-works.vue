@@ -12,12 +12,11 @@ const contents = computed(() => {
   if (data.value == null) {
     return '';
   }
-
   return converter.makeHtml(data.value);
 });
 
 const { locale } = useI18n();
-const isVisible = computed(() => locale.value === 'uk-UA')
+const isVisible = computed(() => locale.value === 'uk-UA');
 </script>
 
 <template>
