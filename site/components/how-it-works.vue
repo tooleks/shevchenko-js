@@ -1,42 +1,27 @@
 <script setup lang="ts">
 import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import Showdown from 'showdown';
 
 const appConfig = useAppConfig();
 const converter = new Showdown.Converter();
 
-const { data } = await useFetch<string>(appConfig.library.howItWorksUrl, {
-  server: true,
-});
-
-/**
- * Static copy of the wiki page until https://github.com/orgs/community/discussions/46758#discussioncomment-4950782 is fixed.
- */
-const staticContents = `
-Бібліотека містить понад вісімдесят граматичних правил для відмінювання прізвищ, імен по батькові. Належне правило обирається за граматичним відмінком, родом, закінченням слова, частиною мови, сферою застосування та пріоритетом.
-
-При відмінюванні жіночих прізвищ із закінченнями на -**а**, -**я** та чоловічих прізвищ із закінченнями на -**ой**, -**ій**, -**ий**, -**их** для класифікації прізвищ іменникового та прикметникового походження використовуються модель машинного навчання, навчена на більш як сорока тисячах прізвищ. Тому прізвища іменникового та прикметникового походжень відмінюються як іменники та прикметники відповідно: Дин**я** (називний) → Дин**і** (родовий), Син**я** (називний) → Син**ьої** (родовий), Р**ий** (називний) → Ри**я** (родовий), Бур**ий** (називний) → Бур**ого** (родовий).
-
-При відмінюванні відбуваються зміни голосних та приголосних звуків згідно з правилами української мови: Сивок**і**нь (називний) → Сивок**о**ня (родовий), Гич**ка** (називний) → Гич**ці** (давальний).
-
-Складні імена та прізвища, утворені поєднанням двох самостійних частин відмінюються за правилами відмінювання кожної складової частини: Анн**а**-Марі**я** (називний) → Анн**и**-Марі**ї** (родовий), Нечу**й**-Левицьк**ий** (називний) → Нечу**я**-Левицьк**ого** (родовий). Але коли перша частина прізвища — односкладове слово, то відмінюється, як правило, лише друга частина: Дра**й**-Хмар**а** (називний) → Дра**й**-Хмар**и** (родовий).
-`;
+const { data } = await useFetch<string>(appConfig.content.howItWorksUrl);
 
 const contents = computed(() => {
-  if (staticContents) {
-    return converter.makeHtml(staticContents);
-  }
-
   if (data.value == null) {
     return '';
   }
 
   return converter.makeHtml(data.value);
 });
+
+const { locale } = useI18n();
+const isVisible = computed(() => locale.value === 'uk-UA')
 </script>
 
 <template>
-  <section v-if="$i18n.locale === 'uk-UA'" id="how-it-works" class="my-4">
+  <section v-if="isVisible" id="how-it-works" class="my-4">
     <div class="row">
       <div class="col">
         <h2>{{ $t('howItWorks') }}</h2>
