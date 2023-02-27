@@ -29,7 +29,7 @@
                   class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-md-between"
                 >
                   {{ $t('action.shareDeclensionResult') }}
-                  <ShareLinks buttons-class="mt-1 mt-md-0" />
+                  <ShareLinks buttons-class="mt-1 mt-md-0 mr-md-2" />
                 </div>
               </td>
             </tr>
