@@ -82,9 +82,18 @@ const linkedInShareLink = computed(() => {
 <style lang="scss" scoped>
 .btn {
   &--share {
-    width: 45px;
+    margin: 0 0.75em;
+    padding: 0;
     border: 0;
     text-align: center;
+
+    &:first-child {
+      margin-left: 0;
+    }
+
+    &:last-child {
+      margin-right: 0;
+    }
   }
 }
 

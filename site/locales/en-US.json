@@ -61,5 +61,7 @@
   "error404.instructionMessage": "The requested page was not found",
   "action.backToHome": "Navigate to homepage",
   "action.copyLink": "Copy link address",
-  "action.navigateToFullVersion": "Navigate to full version"
+  "action.navigateToFullVersion": "Navigate to full version",
+  "library.version": "Library version: {version}",
+  "action.shareDeclensionResult": "Share declension result"
 }

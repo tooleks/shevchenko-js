@@ -1,19 +1,13 @@
 <template>
   <section id="demo" class="my-4">
     <div class="row mb-3">
-      <div class="col-12 col-lg-9">
+      <div class="col-12">
         <h2 class="mb-0">
           {{ $t('demo') }}
           <small class="d-block h6 text-muted mt-2 mb-0 sentence-capitalize">
             {{ $t('demo.message') }}
           </small>
         </h2>
-      </div>
-
-      <div class="col-12 col-lg-3">
-        <div class="d-flex">
-          <ShareLinks buttons-class="ml-auto" />
-        </div>
       </div>
     </div>
 
@@ -25,6 +19,21 @@
       <div class="col-lg-7">
         <div class="card mb-2">
           <DeclensionResults />
+        </div>
+
+        <div class="card">
+          <table class="table table-borderless mb-0">
+            <tr>
+              <td>
+                <div
+                  class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-md-between"
+                >
+                  {{ $t('action.shareDeclensionResult') }}
+                  <ShareLinks buttons-class="mt-1 mt-md-0" />
+                </div>
+              </td>
+            </tr>
+          </table>
         </div>
       </div>
     </div>

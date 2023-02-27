@@ -63,5 +63,7 @@
   "error404.instructionMessage": "Сторінки за заданою адресою не існує",
   "action.backToHome": "Повернутися на головну сторінку",
   "action.copyLink": "Скопіювати адресу посилання",
-  "action.navigateToFullVersion": "Перейти до повної версії"
+  "action.navigateToFullVersion": "Перейти до повної версії",
+  "library.version": "Версія бібіліотеки: {version}",
+  "action.shareDeclensionResult": "Поділитися результатом відмінювання"
 }
