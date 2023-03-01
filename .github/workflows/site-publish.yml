@@ -1,0 +1,27 @@
+name: GitHub Pages
+
+on:
+  workflow_dispatch:
+  release:
+    types: [created]
+
+jobs:
+  publish-github-pages:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 16
+      - name: Generate website
+        run: cd ./site && npm run generate
+      - name: Publish website
+        run: npm run docs
+      - uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          commit_message: "chore(site): publish website"
+          commit_user_name: ci
+          commit_user_email: ci@tooleks.com
+          commit_author: CI <ci@tooleks.com>
