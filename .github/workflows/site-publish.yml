@@ -16,9 +16,14 @@ jobs:
         with:
           node-version: 16
       - name: Generate website
-        run: cd ./site && npm run generate
+        run: |
+          cd ./site
+          npm ci
+          npm run generate
       - name: Publish website
-        run: npm run docs
+        run: |
+          npm ci
+          npm run docs
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
           commit_message: "chore(site): publish website"
