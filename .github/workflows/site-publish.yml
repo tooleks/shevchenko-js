@@ -15,14 +15,14 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: 16
-      - name: Install dependencies
+      - name: Prepare package
         run: |
           npm ci
-          cd ./site
-          npm ci
+          npm run build
       - name: Generate website
         run: |
           cd ./site
+          npm ci
           npm run generate
       - name: Publish website
         run: npm run docs
