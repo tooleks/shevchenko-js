@@ -38,6 +38,7 @@
     "vue-router": "^4.1.6"
   },
   "dependencies": {
+    "country-code-emoji": "^2.3.0",
     "parse-author": "^2.0.0"
   }
 }

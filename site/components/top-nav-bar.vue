@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { useRouteUtils } from '~/composables/route-utils';
+import { useLocaleEmoji } from '~/composables/locale-country-code';
 
 const appConfig = useAppConfig();
 const { buildPageUrl } = useRouteUtils();
+const { getLocaleEmoji } = useLocaleEmoji();
 </script>
 
 <template>
@@ -148,7 +150,7 @@ const { buildPageUrl } = useRouteUtils();
             aria-haspopup="true"
             aria-expanded="false"
           >
-            <i class="fa fa-globe" aria-hidden="true"></i>
+            {{ getLocaleEmoji($i18n.locale) }}
             {{ $i18n.locale }}
           </a>
 
@@ -160,6 +162,7 @@ const { buildPageUrl } = useRouteUtils();
               :href="buildPageUrl(locale === 'uk-UA' ? '/' : `/${locale}`)"
               role="menuitem"
             >
+              {{ getLocaleEmoji(locale) }}
               {{ $t(`locale.${locale}`) }} ({{ locale }})
             </a>
           </div>
