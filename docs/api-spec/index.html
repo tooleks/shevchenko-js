@@ -16,24 +16,79 @@
 <a href="#shevchenko" id="shevchenko" style="color: inherit; text-decoration: none;">
   <h1>shevchenko</h1>
 </a>
-<p>JavaScript бібліотека для відмінювання українських антропонімів / JavaScript library for declension of Ukrainian anthroponyms</p>
+<p>JavaScript library for declension of Ukrainian anthroponyms</p>
 
-<a href="#документація--documentation" id="документація--documentation" style="color: inherit; text-decoration: none;">
-  <h2>Документація / Documentation</h2>
+<a href="#links" id="links" style="color: inherit; text-decoration: none;">
+  <h2>Links</h2>
 </a>
-<p><a href="https://tooleks.github.io/shevchenko-js">Українська</a> / <a href="https://tooleks.github.io/shevchenko-js/en.html">English</a></p>
+<ul>
+<li><a href="https://shevchenko-js.tooleks.com/en-US">Try it out</a> / <a href="https://shevchenko-js.tooleks.com">Демонстрація</a></li>
+<li><a href="https://shevchenko-js.tooleks.com/api-spec">API specs</a></li>
+</ul>
 
-<a href="#встановлення--installation" id="встановлення--installation" style="color: inherit; text-decoration: none;">
-  <h2>Встановлення / Installation</h2>
+<a href="#user-guide" id="user-guide" style="color: inherit; text-decoration: none;">
+  <h2>User Guide</h2>
 </a>
+
+<a href="#installation" id="installation" style="color: inherit; text-decoration: none;">
+  <h3>Installation</h3>
+</a>
+
+<a href="#npm" id="npm" style="color: inherit; text-decoration: none;">
+  <h4>npm</h4>
+</a>
+<p>To install the library using <a href="https://docs.npmjs.com">npm</a> package manager, use the following command:</p>
 <pre><code class="language-bash"><span class="hl-0">npm </span><span class="hl-1">install</span><span class="hl-0"> </span><span class="hl-1">--save</span><span class="hl-0"> </span><span class="hl-1">shevchenko</span>
 </code></pre>
 
-<a href="#приклад-використання--usage-example" id="приклад-використання--usage-example" style="color: inherit; text-decoration: none;">
-  <h2>Приклад використання / Usage Example</h2>
+<a href="#import" id="import" style="color: inherit; text-decoration: none;">
+  <h3>Import</h3>
 </a>
-<pre><code class="language-JavaScript"><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">input</span><span class="hl-0"> = {</span><br/><span class="hl-0">  </span><span class="hl-4">gender:</span><span class="hl-0"> </span><span class="hl-1">&#39;masculine&#39;</span><span class="hl-0">, </span><span class="hl-5">// Grammatical gender: &#39;masculine&#39; or &#39;feminine&#39;.</span><br/><span class="hl-0">  </span><span class="hl-4">givenName:</span><span class="hl-0"> </span><span class="hl-1">&#39;Тарас&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-4">patronymicName:</span><span class="hl-0"> </span><span class="hl-1">&#39;Григорович&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">  </span><span class="hl-4">familyName:</span><span class="hl-0"> </span><span class="hl-1">&#39;Шевченко&#39;</span><br/><span class="hl-0">};</span><br/><br/><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">output</span><span class="hl-0"> = </span><span class="hl-6">await</span><span class="hl-0"> </span><span class="hl-4">shevchenko</span><span class="hl-0">.</span><span class="hl-7">inVocative</span><span class="hl-0">(</span><span class="hl-4">input</span><span class="hl-0">);</span><br/><br/><span class="hl-4">console</span><span class="hl-0">.</span><span class="hl-7">log</span><span class="hl-0">(</span><span class="hl-4">output</span><span class="hl-0">); </span><span class="hl-5">// { givenName: &quot;Тарасе&quot;, patronymicName: &quot;Григоровичу&quot;, familyName: &quot;Шевченку&quot; }</span>
+<p>The library comes in three formats: CommonJS module, ECMAScript module, and a minified UMD bundle. You can select the format that best suits your needs.</p>
+
+<a href="#commonjs" id="commonjs" style="color: inherit; text-decoration: none;">
+  <h4>CommonJS</h4>
+</a>
+<p>To import the library as a CommonJS module, use the following code:</p>
+<pre><code class="language-JavaScript"><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">shevchenko</span><span class="hl-0"> = </span><span class="hl-4">require</span><span class="hl-0">(</span><span class="hl-1">&#39;shevchenko&#39;</span><span class="hl-0">);</span>
 </code></pre>
+
+<a href="#ecmascript" id="ecmascript" style="color: inherit; text-decoration: none;">
+  <h4>ECMAScript</h4>
+</a>
+<p>To import the library as an ECMAScript module, use the following code:</p>
+<pre><code class="language-JavaScript"><span class="hl-5">import</span><span class="hl-0"> </span><span class="hl-2">*</span><span class="hl-0"> </span><span class="hl-5">as</span><span class="hl-0"> </span><span class="hl-6">shevchenko</span><span class="hl-0"> </span><span class="hl-5">from</span><span class="hl-0"> </span><span class="hl-1">&#39;shevchenko&#39;</span><span class="hl-0">;</span>
+</code></pre>
+
+<a href="#umd" id="umd" style="color: inherit; text-decoration: none;">
+  <h4>UMD</h4>
+</a>
+<p>To import the library as a UMD bundle, include the following script tag in your HTML code:</p>
+<pre><code class="language-HTML"><span class="hl-7">&lt;</span><span class="hl-0">‍script type=&quot;text/javascript&quot; src=&quot;https://unpkg.com/shevchenko&quot;&gt;</span><span class="hl-7">&lt;</span><span class="hl-0">‍/script&gt;</span>
+</code></pre>
+
+<a href="#use-cases" id="use-cases" style="color: inherit; text-decoration: none;">
+  <h3>Use Cases</h3>
+</a>
+
+<a href="#personal-names-declension" id="personal-names-declension" style="color: inherit; text-decoration: none;">
+  <h4>Personal names declension</h4>
+</a>
+<p>This example shows how to use the library to decline Ukrainian anthroponyms. The example code takes an input object that includes grammatical gender, given name, patronymic name, and family name of a person. Then, it passes the input object to the <code>shevchenko.inVocative()</code> method, which returns the declined version of the input anthroponym in vocative case. Finally, it logs the output object to the console.</p>
+<pre><code class="language-JavaScript"><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">shevchenko</span><span class="hl-0"> = </span><span class="hl-4">require</span><span class="hl-0">(</span><span class="hl-1">&#39;shevchenko&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-2">async</span><span class="hl-0"> </span><span class="hl-2">function</span><span class="hl-0"> </span><span class="hl-4">main</span><span class="hl-0">() {</span><br/><span class="hl-0">  </span><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">input</span><span class="hl-0"> = {</span><br/><span class="hl-0">    </span><span class="hl-6">gender:</span><span class="hl-0"> </span><span class="hl-1">&#39;masculine&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">    </span><span class="hl-6">givenName:</span><span class="hl-0"> </span><span class="hl-1">&#39;Тарас&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">    </span><span class="hl-6">patronymicName:</span><span class="hl-0"> </span><span class="hl-1">&#39;Григорович&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">    </span><span class="hl-6">familyName:</span><span class="hl-0"> </span><span class="hl-1">&#39;Шевченко&#39;</span><br/><span class="hl-0">  };</span><br/><br/><span class="hl-0">  </span><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">output</span><span class="hl-0"> = </span><span class="hl-5">await</span><span class="hl-0"> </span><span class="hl-6">shevchenko</span><span class="hl-0">.</span><span class="hl-4">inVocative</span><span class="hl-0">(</span><span class="hl-6">input</span><span class="hl-0">);</span><br/><br/><span class="hl-0">  </span><span class="hl-6">console</span><span class="hl-0">.</span><span class="hl-4">log</span><span class="hl-0">(</span><span class="hl-6">output</span><span class="hl-0">); </span><span class="hl-8">// { givenName: &quot;Тарасе&quot;, patronymicName: &quot;Григоровичу&quot;, familyName: &quot;Шевченку&quot; }</span><br/><span class="hl-0">}</span><br/><br/><span class="hl-4">main</span><span class="hl-0">().</span><span class="hl-4">catch</span><span class="hl-0">((</span><span class="hl-6">error</span><span class="hl-0">) </span><span class="hl-2">=&gt;</span><span class="hl-0"> </span><span class="hl-6">console</span><span class="hl-0">.</span><span class="hl-4">error</span><span class="hl-0">(</span><span class="hl-6">error</span><span class="hl-0">));</span>
+</code></pre>
+
+<a href="#automatic-grammatical-gender-detection" id="automatic-grammatical-gender-detection" style="color: inherit; text-decoration: none;">
+  <h4>Automatic grammatical gender detection</h4>
+</a>
+<p>This example shows how to use the library to automatically detect the grammatical gender of a Ukrainian anthroponym. The example code takes an input object that includes given name, patronymic name, and family name of a person. Then, it passes the input object to the <code>shevchenko.detectGender()</code> method, which returns the detected gender of the input anthroponym. If the method fails to detect the grammatical gender, it throws an error. Finally, it logs the declined version of the input object in vocative case to the console.</p>
+<pre><code class="language-JavaScript"><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">shevchenko</span><span class="hl-0"> = </span><span class="hl-4">require</span><span class="hl-0">(</span><span class="hl-1">&#39;shevchenko&#39;</span><span class="hl-0">);</span><br/><br/><span class="hl-2">async</span><span class="hl-0"> </span><span class="hl-2">function</span><span class="hl-0"> </span><span class="hl-4">main</span><span class="hl-0">() {</span><br/><span class="hl-0">  </span><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">anthroponym</span><span class="hl-0"> = {</span><br/><span class="hl-0">    </span><span class="hl-6">givenName:</span><span class="hl-0"> </span><span class="hl-1">&#39;Лариса&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">    </span><span class="hl-6">patronymicName:</span><span class="hl-0"> </span><span class="hl-1">&#39;Петрівна&#39;</span><span class="hl-0">,</span><br/><span class="hl-0">    </span><span class="hl-6">familyName:</span><span class="hl-0"> </span><span class="hl-1">&#39;Косач-Квітка&#39;</span><br/><span class="hl-0">  };</span><br/><br/><span class="hl-0">  </span><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">gender</span><span class="hl-0"> = </span><span class="hl-5">await</span><span class="hl-0"> </span><span class="hl-6">shevchenko</span><span class="hl-0">.</span><span class="hl-4">detectGender</span><span class="hl-0">(</span><span class="hl-6">anthroponym</span><span class="hl-0">); </span><span class="hl-8">// &quot;feminine&quot;</span><br/><span class="hl-0">  </span><span class="hl-5">if</span><span class="hl-0"> (</span><span class="hl-6">gender</span><span class="hl-0"> == </span><span class="hl-2">null</span><span class="hl-0">) {</span><br/><span class="hl-0">    </span><span class="hl-5">throw</span><span class="hl-0"> </span><span class="hl-2">new</span><span class="hl-0"> </span><span class="hl-4">Error</span><span class="hl-0">(</span><span class="hl-1">&#39;Failed to detect grammatical gender.&#39;</span><span class="hl-0">);</span><br/><span class="hl-0">  }</span><br/><br/><span class="hl-0">  </span><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">input</span><span class="hl-0"> = { ...</span><span class="hl-6">anthroponym</span><span class="hl-0">, </span><span class="hl-6">gender</span><span class="hl-0"> };</span><br/><br/><span class="hl-0">  </span><span class="hl-2">const</span><span class="hl-0"> </span><span class="hl-3">output</span><span class="hl-0"> = </span><span class="hl-5">await</span><span class="hl-0"> </span><span class="hl-6">shevchenko</span><span class="hl-0">.</span><span class="hl-4">inVocative</span><span class="hl-0">(</span><span class="hl-6">input</span><span class="hl-0">);</span><br/><br/><span class="hl-0">  </span><span class="hl-6">console</span><span class="hl-0">.</span><span class="hl-4">log</span><span class="hl-0">(</span><span class="hl-6">output</span><span class="hl-0">); </span><span class="hl-8">// { givenName: &quot;Ларисо&quot;, patronymicName: &quot;Петрівно&quot;, familyName: &quot;Косач-Квітко&quot; }</span><br/><span class="hl-0">}</span><br/><br/><span class="hl-4">main</span><span class="hl-0">().</span><span class="hl-4">catch</span><span class="hl-0">((</span><span class="hl-6">error</span><span class="hl-0">) </span><span class="hl-2">=&gt;</span><span class="hl-0"> </span><span class="hl-6">console</span><span class="hl-0">.</span><span class="hl-4">error</span><span class="hl-0">(</span><span class="hl-6">error</span><span class="hl-0">));</span>
+</code></pre>
+
+<a href="#usage-via-http" id="usage-via-http" style="color: inherit; text-decoration: none;">
+  <h4>Usage via HTTP</h4>
+</a>
+<p>The library can be integrated into your project via HTTP API. Please refer to <a href="https://github.com/tooleks/shevchenko-http">https://github.com/tooleks/shevchenko-http</a> repository for more examples.</p>
 </div></div>
 <div class="col-4 col-menu menu-sticky-wrap menu-highlight">
 <div class="tsd-navigation settings">
