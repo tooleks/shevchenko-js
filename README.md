@@ -5,7 +5,8 @@ JavaScript library for declension of Ukrainian anthroponyms
 ## Links
 
 * [Try it out](https://shevchenko-js.tooleks.com/en-US) / [Демонстрація](https://shevchenko-js.tooleks.com)
-* [API specs](https://shevchenko-js.tooleks.com/api-spec)
+* [API Spec](https://shevchenko-js.tooleks.com/api-spec)
+* [Migration Guide (v2 → v3)](../../wiki/Migration-Guide)
 
 ## User Guide
 
