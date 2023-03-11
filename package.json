@@ -51,6 +51,7 @@
     "@tensorflow/tfjs": "^4.1.0"
   },
   "devDependencies": {
+    "@janniks/typedoc-theme-stacks": "^1.2.3",
     "@rollup/plugin-alias": "^4.0.3",
     "@rollup/plugin-commonjs": "^16.0.0",
     "@rollup/plugin-json": "^4.1.0",
