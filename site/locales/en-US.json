@@ -62,7 +62,6 @@
   "action.backToHome": "Navigate to homepage",
   "action.copyLink": "Copy link address",
   "action.navigateToFullVersion": "Navigate to full version",
-  "library.version": "Library version: {version}",
   "action.shareDeclensionResult": "Share the declension result",
   "apiSpec": "API Specification"
 }
