@@ -206,7 +206,7 @@ Family Name,Word Class
 бодрих,adjective
 больших,adjective
 валуйських,adjective
-войтих,adjective
+войтих,noun
 грязних,adjective
 даровських,adjective
 дубровських,adjective
@@ -857,7 +857,7 @@ Family Name,Word Class
 дерий,noun
 одерий,noun
 жегрий,noun
-порий,adjective
+порий,noun
 жарий,adjective
 ярий,adjective
 ферий,noun
@@ -3088,7 +3088,7 @@ Family Name,Word Class
 книгницький,adjective
 коптілий,adjective
 костянецький,adjective
-крічфалушій,adjective
+крічфалушій,noun
 курський,adjective
 ластовський,adjective
 лащевський,adjective
@@ -3329,7 +3329,7 @@ Family Name,Word Class
 калабський,adjective
 калієвський,adjective
 калужний,adjective
-карагеоргій,adjective
+карагеоргій,noun
 княгницький,adjective
 корчевий,adjective
 косаревський,adjective
@@ -6357,7 +6357,7 @@ Family Name,Word Class
 поздній,adjective
 політицький,adjective
 політучий,adjective
-польчій,adjective
+польчій,noun
 поляцький,adjective
 поросесій,noun
 потицький,adjective
@@ -8012,7 +8012,7 @@ Family Name,Word Class
 семянівський,adjective
 сесмій,noun
 сивинський,adjective
-сивній,adjective
+сивній,noun
 ситніцький,adjective
 сімаковський,adjective
 сіроокий,adjective
@@ -9176,7 +9176,7 @@ Family Name,Word Class
 єжевський,adjective
 ємчицький,adjective
 єнацький,adjective
-жамардій,adjective
+жамардій,noun
 жамський,adjective
 жарновський,adjective
 желамський,adjective
@@ -9516,7 +9516,7 @@ Family Name,Word Class
 гєцой,noun
 глухой,adjective
 горевой,adjective
-іоніцой,noun
+іоніцой,adjective
 кутовой,adjective
 реуцой,noun
 копаной,adjective
@@ -9549,7 +9549,7 @@ Family Name,Word Class
 большой,adjective
 воскобой,noun
 дурбой,noun
-кальной,noun
+кальной,adjective
 концевой,adjective
 луговськой,adjective
 ольховой,adjective
@@ -30749,7 +30749,7 @@ Family Name,Word Class
 людера,noun
 ляка,noun
 лякішева,adjective
-магдалина,adjective
+магдалина,noun
 маївка,noun
 макаришина,adjective
 макарцева,adjective
@@ -31915,7 +31915,7 @@ Family Name,Word Class
 шавкова,adjective
 шавлова,adjective
 шайтанова,adjective
-шалева,adjective
+шалева,noun
 шангіна,adjective
 шапілова,adjective
 шарупа,noun
@@ -31986,7 +31986,6 @@ Family Name,Word Class
 анурова,adjective
 арапіна,adjective
 чукча,noun
-пір'їна,noun
 псина,noun
 арбора,noun
 арепєва,adjective
@@ -32607,7 +32606,7 @@ Family Name,Word Class
 пікіна,adjective
 пінькова,adjective
 піхтерьова,adjective
-планіда,adjective
+планіда,noun
 платунова,adjective
 плахутіна,adjective
 победінська,adjective
@@ -32706,7 +32705,7 @@ Family Name,Word Class
 сакова,adjective
 салабуда,noun
 салабута,noun
-салайда,adjective
+салайда,noun
 салівонова,adjective
 салінська,adjective
 самедова,adjective
@@ -33429,7 +33428,7 @@ Family Name,Word Class
 ковецька,adjective
 ковиліна,adjective
 кожумяка,noun
-козачухна,noun
+козачухна,adjective
 козікова,adjective
 козінова,adjective
 колозіна,adjective
@@ -34022,7 +34021,7 @@ Family Name,Word Class
 хіхлуха,noun
 хлиста,noun
 хлистунова,adjective
-хоботня,adjective
+хоботня,noun
 холоділова,adjective
 хомська,adjective
 хоружая,adjective
@@ -34241,7 +34240,7 @@ Family Name,Word Class
 бізоня,noun
 бізяєва,adjective
 білазерська,adjective
-білява,noun
+білява,adjective
 біріна,adjective
 бірта,noun
 біята,noun
@@ -34384,9 +34383,9 @@ Family Name,Word Class
 гаця,noun
 гашина,adjective
 гвоздієвська,adjective
-гевела,adjective
+гевела,noun
 гелетка,noun
-гирява,noun
+гирява,adjective
 гісса,noun
 главна,adjective
 гладкая,adjective
@@ -35420,7 +35419,7 @@ Family Name,Word Class
 харовська,adjective
 хасьянова,adjective
 хваста,noun
-хилобока,adjective
+хилобока,noun
 хіоара,noun
 хлиніна,adjective
 хлопяча,adjective
@@ -37772,7 +37771,7 @@ Family Name,Word Class
 даніла,noun
 данчина,adjective
 дараганова,adjective
-дацева,noun
+дацева,adjective
 дацьковська,adjective
 дашкіна,adjective
 дворічанська,adjective
@@ -37797,7 +37796,7 @@ Family Name,Word Class
 деревльова,adjective
 деревляна,adjective
 деревцова,adjective
-дерена,adjective
+дерена,noun
 держанівська,adjective
 держирука,noun
 дєнісова,adjective
