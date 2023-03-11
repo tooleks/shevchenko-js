@@ -2,8 +2,6 @@ name: GitHub Pages
 
 on:
   workflow_dispatch:
-  release:
-    types: [created]
 
 jobs:
   publish-github-pages:
