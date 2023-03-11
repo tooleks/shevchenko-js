@@ -15,13 +15,11 @@ export default {
   library: {
     name: library.name,
     version: library.version,
-    apiSpecUrl: `${BASE_URL}/api-spec`,
+    apiSpecificationUrl: `${BASE_URL}/api-spec`,
     npmUrl: 'https://www.npmjs.com/package/shevchenko',
     gitHubUrl: 'https://github.com/tooleks/shevchenko-js',
-    wikiUrl: 'https://github.com/tooleks/shevchenko-js/wiki',
     issuesUrl: 'https://github.com/tooleks/shevchenko-js/issues',
     licenseUrl: 'https://github.com/tooleks/shevchenko-js/blob/master/LICENSE',
-    runKitUrl: 'https://runkit.com/tooleks/shevchenko',
     cdnUrl: 'https://unpkg.com/shevchenko',
   },
   content: {

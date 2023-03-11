@@ -66,20 +66,11 @@ const { getLocaleEmoji } = useLocaleEmoji();
           <div class="dropdown-menu" aria-labelledby="navbar-dropdown-links" role="menu">
             <a
               class="dropdown-item"
-              :href="appConfig.library.apiSpecUrl"
+              :href="appConfig.library.apiSpecificationUrl"
               target="_blank"
               role="menuitem"
             >
               {{ $t('apiSpec') }}
-            </a>
-
-            <a
-              class="dropdown-item"
-              :href="appConfig.library.wikiUrl"
-              target="_blank"
-              role="menuitem"
-            >
-              Wiki
             </a>
 
             <a
@@ -98,15 +89,6 @@ const { getLocaleEmoji } = useLocaleEmoji();
               role="menuitem"
             >
               NPM
-            </a>
-
-            <a
-              class="dropdown-item"
-              :href="appConfig.library.runKitUrl"
-              target="_blank"
-              role="menuitem"
-            >
-              RunKit
             </a>
           </div>
         </li>

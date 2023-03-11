@@ -18,8 +18,8 @@
   "action.share.onLinkedIn": "Share on LinkedIn",
   "action.share.onTwitter": "Share on Twitter",
   "action.tryItOut": "Try it out",
-  "anthroponym.givenName": "Given Name / First Name",
-  "anthroponym.familyName": "Family Name / Last Name",
+  "anthroponym.givenName": "Given Name (First Name)",
+  "anthroponym.familyName": "Family Name (Last Name)",
   "anthroponym.patronymicName": "Patronymic Name",
   "browser": "Browser",
   "action.contactMe": "Contact Me",
@@ -63,6 +63,6 @@
   "action.copyLink": "Copy link address",
   "action.navigateToFullVersion": "Navigate to full version",
   "library.version": "Library version: {version}",
-  "action.shareDeclensionResult": "Share declension result",
-  "apiSpec": "API spec"
+  "action.shareDeclensionResult": "Share the declension result",
+  "apiSpec": "API Specification"
 }

@@ -79,7 +79,6 @@ async function onInflect(): Promise<void> {
             class="radio-inline mr-2"
             v-for="genderOption in genderOptions"
             :key="genderOption"
-            :title="$t('gender.message.autoDetection')"
           >
             <input v-model="formData.gender" type="radio" name="gender" :value="genderOption" />
             {{ $t(`gender.${genderOption}`) }}
