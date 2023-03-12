@@ -9,5 +9,4 @@ module.exports = {
   excludeExternals: true,
   externalPattern: ['**/node_modules/**'],
   includeVersion: true,
-  theme: 'stacks',
 };
