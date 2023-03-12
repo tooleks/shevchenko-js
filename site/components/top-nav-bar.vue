@@ -30,7 +30,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
       <span class="navbar-toggler-icon"></span>
     </button>
 
-    <div class="collapse navbar-collapse" id="navbar-supported-content">
+    <div id="navbar-supported-content" class="collapse navbar-collapse">
       <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" role="menubar">
         <li class="nav-item" role="presentation">
           <NuxtLink class="nav-link" :to="{ hash: '#demo' }" role="menuitem">
@@ -52,9 +52,9 @@ const { getLocaleEmoji } = useLocaleEmoji();
 
         <li class="nav-item dropdown" role="presentation">
           <a
+            id="navbar-dropdown-links"
             class="nav-link dropdown-toggle"
             href="#"
-            id="navbar-dropdown-links"
             data-toggle="dropdown"
             role="menuitem"
             aria-haspopup="true"
@@ -95,9 +95,9 @@ const { getLocaleEmoji } = useLocaleEmoji();
 
         <li class="nav-item dropdown" role="presentation">
           <a
+            id="navbar-dropdown-feedback"
             class="nav-link dropdown-toggle"
             href="#"
-            id="navbar-dropdown-feedback"
             data-toggle="dropdown"
             role="menuitem"
             aria-haspopup="true"
@@ -124,9 +124,9 @@ const { getLocaleEmoji } = useLocaleEmoji();
 
         <li class="nav-item dropdown" role="presentation">
           <a
+            id="navbar-dropdown-locale"
             class="nav-link dropdown-toggle"
             href="#"
-            id="navbar-dropdown-locale"
             data-toggle="dropdown"
             role="menuitem"
             aria-haspopup="true"

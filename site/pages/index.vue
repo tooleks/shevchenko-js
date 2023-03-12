@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed, onMounted } from 'vue';
 import { useI18n } from 'vue-i18n';
+import { DeclensionInput } from 'shevchenko';
 import { usePageI18n } from '~/composables/page-i18n';
 import { buildPageUrl, useRouteUtils } from '~/composables/route-utils';
 import { usePageMeta } from '~/composables/page-meta';
-import { DeclensionInput } from 'shevchenko';
 
 usePageI18n({
   locale: 'uk-UA',

@@ -29,7 +29,8 @@ const isVisible = computed(() => locale.value === 'uk-UA');
 
     <div class="row">
       <div class="col">
-        <div v-html="contents" class="mt-3"></div>
+        <!-- eslint-disable-next-line vue/no-v-html -->
+        <div class="mt-3" v-html="contents"></div>
       </div>
     </div>
   </section>

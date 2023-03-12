@@ -10,12 +10,11 @@
     "useAppConfig": "readonly"
   },
   "extends": [
+    "@nuxtjs/eslint-config-typescript",
     "plugin:prettier/recommended",
-    "eslint:recommended",
-    "plugin:vue/vue3-essential",
-    "@vue/eslint-config-typescript",
     "plugin:import/typescript"
   ],
+  "parser": "vue-eslint-parser",
   "parserOptions": {
     "parser": "@typescript-eslint/parser"
   },
@@ -23,6 +22,9 @@
     "vue"
   ],
   "rules": {
+    "vue/html-indent": "off",
+    "vue/max-attributes-per-line": "off",
+    "vue/singleline-html-element-content-newline": "off",
     "vue/no-multiple-template-root": "off"
   }
 }

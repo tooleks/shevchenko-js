@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { useDeclension } from '~/composables/declension';
 import { DeclensionOutput } from 'shevchenko';
+import { useDeclension } from '~/composables/declension';
 
 const { declensionResults } = await useDeclension();
 
 function convertAnthroponymToString(anthroponym: DeclensionOutput): string {
-  let output: string[] = [];
+  const output: string[] = [];
 
   if (anthroponym.familyName) {
     output.push(anthroponym.familyName);

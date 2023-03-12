@@ -5,7 +5,7 @@ import { computed, toRefs } from 'vue';
 const props = defineProps({
   source: { type: String, required: true },
   trim: { type: Boolean, default: true },
-  buttonId: { type: String, required: false },
+  buttonId: { type: String, default: null },
   buttonClass: { type: String, default: 'btn btn-btn btn-link py-0 px-1' },
   buttonTitle: { type: String, default: null },
   iconClass: { type: String, default: 'fa fa-clipboard' },
@@ -25,12 +25,12 @@ const { copy, copied } = useClipboard({
 
 <template>
   <button
+    :id="buttonId"
     type="button"
     :title="buttonTitle ?? $t('action.copy')"
     :aria-label="$t('action.copy')"
-    @click="copy()"
-    :id="buttonId"
     :class="buttonClass"
+    @click="copy()"
   >
     <i v-if="copied" aria-hidden="true" class="fa fa-check"></i>
     <i v-else aria-hidden="true" :class="iconClass"></i>

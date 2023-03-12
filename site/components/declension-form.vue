@@ -50,6 +50,7 @@ onMounted(() => {
 });
 
 async function onInflect(): Promise<void> {
+  // eslint-disable-next-line prefer-const
   let { gender, familyName, givenName, patronymicName } = formData;
 
   if (gender == null) {
@@ -76,9 +77,9 @@ async function onInflect(): Promise<void> {
 
         <div class="form-group">
           <label
-            class="radio-inline mr-2"
             v-for="genderOption in genderOptions"
             :key="genderOption"
+            class="radio-inline mr-2"
           >
             <input v-model="formData.gender" type="radio" name="gender" :value="genderOption" />
             {{ $t(`gender.${genderOption}`) }}
@@ -105,11 +106,11 @@ async function onInflect(): Promise<void> {
             {{ $t('anthroponym.familyName') }}
           </label>
           <input
+            id="family-name"
             v-model.trim="formData.familyName"
             type="text"
             class="form-control"
             name="family-name"
-            id="family-name"
             :placeholder="shevchenkoAnthroponym.familyName"
           />
         </div>
@@ -119,11 +120,11 @@ async function onInflect(): Promise<void> {
             {{ $t('anthroponym.givenName') }}
           </label>
           <input
+            id="given-name"
             v-model.trim="formData.givenName"
             type="text"
             class="form-control"
             name="given-name"
-            id="given-name"
             :placeholder="shevchenkoAnthroponym.givenName"
           />
         </div>
@@ -133,11 +134,11 @@ async function onInflect(): Promise<void> {
             {{ $t('anthroponym.patronymicName') }}
           </label>
           <input
+            id="patronymic-name"
             v-model.trim="formData.patronymicName"
             type="text"
             class="form-control"
             name="patronymic-name"
-            id="patronymic-name"
             :placeholder="shevchenkoAnthroponym.patronymicName"
           />
         </div>

@@ -18,7 +18,7 @@ export default defineNuxtPlugin(({ vueApp }) => {
       return message != null ? message : null;
     },
     locale: defaultLocale,
-    fallbackLocale: fallbackLocale,
+    fallbackLocale,
     messages: { 'en-US': enUS, 'uk-UA': ukUA },
   });
 
