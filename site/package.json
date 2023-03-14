@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
+    "@types/jquery": "^3.5.16",
     "@types/parse-author": "^2.0.1",
     "@types/showdown": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^5.42.0",

@@ -1,14 +1,20 @@
 <script setup lang="ts">
-import { onMounted } from 'vue';
+import { computed, watch, onMounted } from 'vue';
+import $ from 'jquery';
 
 const appConfig = useAppConfig();
 const route = useRoute();
 
-onMounted(() => {
-  if (route.hash === '#about') {
+const isAboutLink = computed(() => route.hash === '#about');
+
+function showAboutModal(): void {
+  if (isAboutLink.value) {
     $('#about-modal').modal('show');
   }
-});
+}
+
+onMounted(() => showAboutModal());
+watch(isAboutLink, () => showAboutModal());
 </script>
 
 <template>
@@ -35,22 +41,6 @@ onMounted(() => {
           <p>
             {{ $t('about.modalMessage') }}
           </p>
-        </div>
-
-        <div class="modal-footer">
-          <nav>
-            <ul class="list-unstyled mb-0" role="menubar">
-              <p class="d-inline mr-2 mb-0">
-                <PageCopyright />
-              </p>
-
-              <p class="d-inline mr-2 mb-0">
-                <ContactMeButton data-dismiss="modal" button-class="btn btn-link p-0">
-                  {{ $t('action.contactMe') }}
-                </ContactMeButton>
-              </p>
-            </ul>
-          </nav>
         </div>
       </div>
     </div>
