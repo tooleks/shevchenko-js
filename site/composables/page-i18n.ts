@@ -8,4 +8,10 @@ export interface PageI18nOptions {
 export const usePageI18n = (options: PageI18nOptions) => {
   const { locale } = useI18n();
   locale.value = options.locale;
+
+  useHead({
+    htmlAttrs: {
+      lang: options.locale.toLowerCase().split('-')[0],
+    },
+  });
 };
