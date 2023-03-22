@@ -64,6 +64,6 @@
   "action.navigateToFullVersion": "Navigate to full version",
   "action.shareDeclensionResult": "Share the declension result",
   "apiSpec": "API Specification",
-  "declensionForm.patronymicName.correctionNotice": "Do you want to replace {incorrectSpelling} with {correctSpelling} according to the latest spelling rules?",
+  "declensionForm.correctionNotice": "Do you want to replace {incorrectSpelling} with {correctSpelling} according to the latest spelling rules?",
   "declensionForm.confirmCorrection": "Yes, fix it"
 }
