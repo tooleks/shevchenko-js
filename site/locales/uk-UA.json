@@ -65,5 +65,7 @@
   "action.copyLink": "Скопіювати адресу посилання",
   "action.navigateToFullVersion": "Перейти до повної версії",
   "action.shareDeclensionResult": "Поділитися результатом відмінювання",
-  "apiSpec": "Специфікація API"
+  "apiSpec": "Специфікація API",
+  "declensionForm.correctionNotice": "Бажаєте виправити {incorrectSpelling} на {correctSpelling} згідно з правилами правопису 2019 року?",
+  "declensionForm.confirmCorrection": "Так, виправити"
 }

@@ -1,24 +1,43 @@
 <script setup lang="ts">
 import { useToggle } from '@vueuse/core';
+import { isEqual } from 'lodash';
 import { GrammaticalGender, DeclensionInput, detectGender } from 'shevchenko';
-import { onMounted, PropType, toRefs } from 'vue';
-import {
-  shevchenkoAnthroponym,
-  useDeclension,
-  isShevchenkoAnthroponym,
-} from '~/composables/declension';
+import { onMounted, PropType, toRefs, reactive } from 'vue';
+import { useDeclension } from '~/composables/declension';
 
 const props = defineProps({
-  initialAnthroponym: { type: Object as PropType<DeclensionInput>, default: () => ({}) },
+  storedDeclensionInput: { type: Object as PropType<DeclensionInput>, default: () => ({}) },
 });
 
-const { initialAnthroponym } = toRefs(props);
+const { storedDeclensionInput } = toRefs(props);
 
 const emit = defineEmits(['declension']);
 
-const { anthroponym, inflect } = await useDeclension(initialAnthroponym.value);
-const [isGenderError, showGenderError] = useToggle(false);
+const defaultDeclensionInput: DeclensionInput = {
+  gender: GrammaticalGender.MASCULINE,
+  familyName: 'Шевченко',
+  givenName: 'Тарас',
+  patronymicName: 'Григорович',
+};
 
+function isDefaultDeclensionInput(
+  declensionInput: Partial<DeclensionInput>,
+): declensionInput is DeclensionInput {
+  return isEqual(declensionInput, defaultDeclensionInput);
+}
+
+function isValidDeclensionInput(
+  declensionInput: Partial<DeclensionInput>,
+): declensionInput is DeclensionInput {
+  return Boolean(
+    (declensionInput.gender == null ||
+      Object.values(GrammaticalGender).includes(declensionInput.gender)) &&
+      (declensionInput.familyName || declensionInput.givenName || declensionInput.patronymicName),
+  );
+}
+
+const { declensionInput, inflect } = await useDeclension(defaultDeclensionInput);
+const [isGenderError, showGenderError] = useToggle(false);
 const AUTO_GENDER_OPTION = undefined;
 const genderOptions = [AUTO_GENDER_OPTION, ...Object.values(GrammaticalGender)];
 
@@ -29,29 +48,37 @@ interface FormData {
   patronymicName?: string;
 }
 
-const formData: FormData = {
+const formData = reactive<FormData>({
   gender: AUTO_GENDER_OPTION,
   familyName: '',
   givenName: '',
   patronymicName: '',
-};
-
-function setFormData(data: FormData): void {
-  formData.gender = data.gender;
-  formData.familyName = data.familyName;
-  formData.givenName = data.givenName;
-  formData.patronymicName = data.patronymicName;
-}
-
-onMounted(() => {
-  if (!isShevchenkoAnthroponym(initialAnthroponym.value)) {
-    setFormData(initialAnthroponym.value);
-  }
 });
 
-async function onInflect(): Promise<void> {
-  // eslint-disable-next-line prefer-const
-  let { gender, familyName, givenName, patronymicName } = formData;
+function fillFormData(formDataChange: FormData): void {
+  formData.gender = formDataChange.gender;
+  formData.familyName = formDataChange.familyName;
+  formData.givenName = formDataChange.givenName;
+  formData.patronymicName = formDataChange.patronymicName;
+}
+
+async function handleInflectAction(): Promise<void> {
+  let gender: FormData['gender'];
+  let familyName: FormData['familyName'];
+  let givenName: FormData['givenName'];
+  let patronymicName: FormData['patronymicName'];
+
+  if (isValidDeclensionInput(formData)) {
+    gender = formData.gender;
+    familyName = formData.familyName;
+    givenName = formData.givenName;
+    patronymicName = formData.patronymicName;
+  } else {
+    gender = defaultDeclensionInput.gender;
+    familyName = defaultDeclensionInput.familyName;
+    givenName = defaultDeclensionInput.givenName;
+    patronymicName = defaultDeclensionInput.patronymicName;
+  }
 
   if (gender == null) {
     gender = (await detectGender({ familyName, givenName, patronymicName })) ?? AUTO_GENDER_OPTION;
@@ -63,12 +90,27 @@ async function onInflect(): Promise<void> {
 
   showGenderError(false);
   await inflect({ gender, familyName, givenName, patronymicName });
-  emit('declension', anthroponym);
+  emit('declension', declensionInput);
 }
+
+async function handlePatronymicNameCorrection(correctPatronymicName: string): Promise<void> {
+  fillFormData({ ...formData, patronymicName: correctPatronymicName });
+  await handleInflectAction();
+}
+
+onMounted(async () => {
+  if (
+    isValidDeclensionInput(storedDeclensionInput.value) &&
+    !isDefaultDeclensionInput(storedDeclensionInput.value)
+  ) {
+    fillFormData(storedDeclensionInput.value);
+    await handleInflectAction();
+  }
+});
 </script>
 
 <template>
-  <form id="declension-form" @submit.prevent="onInflect">
+  <form id="declension-form" @submit.prevent="handleInflectAction">
     <div class="card">
       <div class="card-body">
         <div class="alert alert-info" role="alert">
@@ -84,19 +126,15 @@ async function onInflect(): Promise<void> {
             <input v-model="formData.gender" type="radio" name="gender" :value="genderOption" />
             {{ $t(`gender.${genderOption}`) }}
             <span v-if="genderOption === AUTO_GENDER_OPTION">
-              ({{ $t(`gender.${anthroponym.gender}`) }})
+              ({{ $t(`gender.${declensionInput.gender}`) }})
             </span>
           </label>
 
-          <small
-            v-if="isGenderError"
-            v-show="formData.gender === AUTO_GENDER_OPTION"
-            class="form-text text-danger"
-          >
+          <small v-if="isGenderError" class="form-text text-danger">
             {{ $t('gender.message.detectionFailed') }}
           </small>
 
-          <small v-else class="form-text text-muted">
+          <small v-else-if="formData.gender === AUTO_GENDER_OPTION" class="form-text text-muted">
             {{ $t('gender.message.autoDetection') }}
           </small>
         </div>
@@ -105,13 +143,14 @@ async function onInflect(): Promise<void> {
           <label for="family-name">
             {{ $t('anthroponym.familyName') }}
           </label>
+
           <input
             id="family-name"
             v-model.trim="formData.familyName"
             type="text"
             class="form-control"
             name="family-name"
-            :placeholder="shevchenkoAnthroponym.familyName"
+            :placeholder="defaultDeclensionInput.familyName"
           />
         </div>
 
@@ -119,13 +158,14 @@ async function onInflect(): Promise<void> {
           <label for="given-name">
             {{ $t('anthroponym.givenName') }}
           </label>
+
           <input
             id="given-name"
             v-model.trim="formData.givenName"
             type="text"
             class="form-control"
             name="given-name"
-            :placeholder="shevchenkoAnthroponym.givenName"
+            :placeholder="defaultDeclensionInput.givenName"
           />
         </div>
 
@@ -133,13 +173,19 @@ async function onInflect(): Promise<void> {
           <label for="patronymic-name">
             {{ $t('anthroponym.patronymicName') }}
           </label>
+
           <input
             id="patronymic-name"
             v-model.trim="formData.patronymicName"
             type="text"
             class="form-control"
             name="patronymic-name"
-            :placeholder="shevchenkoAnthroponym.patronymicName"
+            :placeholder="defaultDeclensionInput.patronymicName"
+          />
+
+          <DeclensionFormSpellingNotice
+            :anthroponym="formData"
+            @patronymic-name-correction="handlePatronymicNameCorrection"
           />
         </div>
       </div>

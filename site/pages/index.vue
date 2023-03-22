@@ -46,11 +46,11 @@ useHead({
   ],
 });
 
-async function storeDeclensionInput(input: Partial<DeclensionInput>): Promise<void> {
+async function storeDeclensionInput(declensionInput: Partial<DeclensionInput>): Promise<void> {
   // For some reason, the route query is not updated when all query keys remain the same.
   // The next line of code forcibly resets the route query to fix the bug.
   await router.replace({ query: {} });
-  await router.replace({ query: { ...input } });
+  await router.replace({ query: { ...declensionInput } });
 }
 
 onMounted(() => storeDeclensionInput(route.query));
@@ -59,7 +59,7 @@ onMounted(() => storeDeclensionInput(route.query));
 <template>
   <PageHeader />
   <PreviewBanner />
-  <DeclensionDemo :initial-anthroponym="$route.query" @declension="storeDeclensionInput" />
+  <DeclensionDemo :stored-declension-input="$route.query" @declension="storeDeclensionInput" />
   <HowItWorks />
   <LibraryDocs />
   <PageFooter />

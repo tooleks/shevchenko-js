@@ -63,5 +63,7 @@
   "action.copyLink": "Copy link address",
   "action.navigateToFullVersion": "Navigate to full version",
   "action.shareDeclensionResult": "Share the declension result",
-  "apiSpec": "API Specification"
+  "apiSpec": "API Specification",
+  "declensionForm.patronymicName.correctionNotice": "Do you want to replace {incorrectSpelling} with {correctSpelling} according to the latest spelling rules?",
+  "declensionForm.confirmCorrection": "Yes, fix it"
 }

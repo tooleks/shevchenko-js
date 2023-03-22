@@ -1,7 +1,6 @@
 import { createSharedComposable } from '@vueuse/core';
 import { reactive } from 'vue';
 import {
-  GrammaticalGender,
   inNominative,
   inGenitive,
   inDative,
@@ -13,13 +12,6 @@ import {
   DeclensionOutput,
 } from 'shevchenko';
 
-export const shevchenkoAnthroponym: DeclensionInput = {
-  gender: GrammaticalGender.MASCULINE,
-  familyName: 'Шевченко',
-  givenName: 'Тарас',
-  patronymicName: 'Григорович',
-};
-
 export interface DeclensionResults {
   nominativeCase: DeclensionOutput | null;
   genitiveCase: DeclensionOutput | null;
@@ -30,45 +22,16 @@ export interface DeclensionResults {
   vocativeCase: DeclensionOutput | null;
 }
 
-/**
- * Returns true if the given anthroponym is correctly defined.
- * Returns false otherwise.
- */
-export function isDefinedAnthroponym(
-  anthroponym: Partial<DeclensionInput>,
-): anthroponym is DeclensionInput {
-  return Boolean(
-    anthroponym.gender &&
-      Object.values(GrammaticalGender).includes(anthroponym.gender) &&
-      (anthroponym.familyName || anthroponym.givenName || anthroponym.patronymicName),
-  );
-}
-
-export function isShevchenkoAnthroponym(anthroponym: Partial<DeclensionInput>): boolean {
-  return (
-    anthroponym.gender === shevchenkoAnthroponym.gender &&
-    anthroponym.familyName === shevchenkoAnthroponym.familyName &&
-    anthroponym.givenName === shevchenkoAnthroponym.givenName &&
-    anthroponym.patronymicName === shevchenkoAnthroponym.patronymicName
-  );
-}
-
 export const useDeclension = createSharedComposable(
-  async (predefinedAnthroponym: DeclensionInput) => {
-    let anthroponym: DeclensionInput = reactive({
-      gender: GrammaticalGender.MASCULINE,
-      familyName: '',
-      givenName: '',
-      patronymicName: '',
+  async (defaultDeclensionInput: DeclensionInput) => {
+    const declensionInput = reactive<DeclensionInput>({
+      gender: defaultDeclensionInput.gender,
+      familyName: defaultDeclensionInput.familyName,
+      givenName: defaultDeclensionInput.givenName,
+      patronymicName: defaultDeclensionInput.patronymicName,
     });
 
-    let initialAnthroponym: DeclensionInput = reactive(shevchenkoAnthroponym);
-    if (isDefinedAnthroponym(predefinedAnthroponym)) {
-      initialAnthroponym = reactive(predefinedAnthroponym);
-      anthroponym = reactive(predefinedAnthroponym);
-    }
-
-    const declensionResults: DeclensionResults = reactive({
+    const declensionResults = reactive<DeclensionResults>({
       nominativeCase: null,
       genitiveCase: null,
       dativeCase: null,
@@ -78,41 +41,41 @@ export const useDeclension = createSharedComposable(
       vocativeCase: null,
     });
 
-    async function inflect(input: DeclensionInput): Promise<void> {
-      anthroponym.gender = input.gender;
-      anthroponym.familyName = input.familyName;
-      anthroponym.givenName = input.givenName;
-      anthroponym.patronymicName = input.patronymicName;
+    async function inflect(declensionInputChange: DeclensionInput): Promise<void> {
+      declensionInput.gender = declensionInputChange.gender;
+      declensionInput.familyName = declensionInputChange.familyName;
+      declensionInput.givenName = declensionInputChange.givenName;
+      declensionInput.patronymicName = declensionInputChange.patronymicName;
 
       const [
-        nominativeCase,
-        genitiveCase,
-        dativeCase,
-        accusativeCase,
-        ablativeCase,
-        locativeCase,
-        vocativeCase,
+        nominativeCaseResult,
+        genitiveCaseResult,
+        dativeCaseResult,
+        accusativeCaseResult,
+        ablativeCaseResult,
+        locativeCaseResult,
+        vocativeCaseResult,
       ] = await Promise.all([
-        inNominative(anthroponym),
-        inGenitive(anthroponym),
-        inDative(anthroponym),
-        inAccusative(anthroponym),
-        inAblative(anthroponym),
-        inLocative(anthroponym),
-        inVocative(anthroponym),
+        inNominative(declensionInput),
+        inGenitive(declensionInput),
+        inDative(declensionInput),
+        inAccusative(declensionInput),
+        inAblative(declensionInput),
+        inLocative(declensionInput),
+        inVocative(declensionInput),
       ]);
 
-      declensionResults.nominativeCase = nominativeCase;
-      declensionResults.genitiveCase = genitiveCase;
-      declensionResults.dativeCase = dativeCase;
-      declensionResults.accusativeCase = accusativeCase;
-      declensionResults.ablativeCase = ablativeCase;
-      declensionResults.locativeCase = locativeCase;
-      declensionResults.vocativeCase = vocativeCase;
+      declensionResults.nominativeCase = nominativeCaseResult;
+      declensionResults.genitiveCase = genitiveCaseResult;
+      declensionResults.dativeCase = dativeCaseResult;
+      declensionResults.accusativeCase = accusativeCaseResult;
+      declensionResults.ablativeCase = ablativeCaseResult;
+      declensionResults.locativeCase = locativeCaseResult;
+      declensionResults.vocativeCase = vocativeCaseResult;
     }
 
-    await inflect(initialAnthroponym);
+    await inflect(defaultDeclensionInput);
 
-    return { anthroponym, declensionResults, inflect };
+    return { declensionInput, declensionResults, inflect };
   },
 );

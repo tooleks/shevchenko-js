@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { DeclensionOutput } from 'shevchenko';
+import { Anthroponym } from 'shevchenko';
 import { useDeclension } from '~/composables/declension';
 
 const { declensionResults } = await useDeclension();
 
-function convertAnthroponymToString(anthroponym: DeclensionOutput): string {
+function concatAnthroponym(anthroponym: Anthroponym): string {
   const output: string[] = [];
 
   if (anthroponym.familyName) {
@@ -50,7 +50,7 @@ function convertAnthroponymToString(anthroponym: DeclensionOutput): string {
         <CopyButton
           v-if="declensionResults.nominativeCase"
           :button-id="'copy-nominative-case-button'"
-          :source="convertAnthroponymToString(declensionResults.nominativeCase)"
+          :source="concatAnthroponym(declensionResults.nominativeCase)"
         />
       </td>
     </tr>
@@ -64,7 +64,7 @@ function convertAnthroponymToString(anthroponym: DeclensionOutput): string {
         <CopyButton
           v-if="declensionResults.genitiveCase"
           :button-id="'copy-genitive-case-button'"
-          :source="convertAnthroponymToString(declensionResults.genitiveCase)"
+          :source="concatAnthroponym(declensionResults.genitiveCase)"
         />
       </td>
     </tr>
@@ -78,7 +78,7 @@ function convertAnthroponymToString(anthroponym: DeclensionOutput): string {
         <CopyButton
           v-if="declensionResults.dativeCase"
           :button-id="'copy-dative-case-button'"
-          :source="convertAnthroponymToString(declensionResults.dativeCase)"
+          :source="concatAnthroponym(declensionResults.dativeCase)"
         />
       </td>
     </tr>
@@ -92,7 +92,7 @@ function convertAnthroponymToString(anthroponym: DeclensionOutput): string {
         <CopyButton
           v-if="declensionResults.accusativeCase"
           :button-id="'copy-accusative-case-button'"
-          :source="convertAnthroponymToString(declensionResults.accusativeCase)"
+          :source="concatAnthroponym(declensionResults.accusativeCase)"
         />
       </td>
     </tr>
@@ -106,7 +106,7 @@ function convertAnthroponymToString(anthroponym: DeclensionOutput): string {
         <CopyButton
           v-if="declensionResults.ablativeCase"
           :button-id="'copy-ablative-case-button'"
-          :source="convertAnthroponymToString(declensionResults.ablativeCase)"
+          :source="concatAnthroponym(declensionResults.ablativeCase)"
         />
       </td>
     </tr>
@@ -120,7 +120,7 @@ function convertAnthroponymToString(anthroponym: DeclensionOutput): string {
         <CopyButton
           v-if="declensionResults.locativeCase"
           :button-id="'copy-locative-case-button'"
-          :source="convertAnthroponymToString(declensionResults.locativeCase)"
+          :source="concatAnthroponym(declensionResults.locativeCase)"
         />
       </td>
     </tr>
@@ -134,7 +134,7 @@ function convertAnthroponymToString(anthroponym: DeclensionOutput): string {
         <CopyButton
           v-if="declensionResults.vocativeCase"
           :button-id="'copy-vocative-case-button'"
-          :source="convertAnthroponymToString(declensionResults.vocativeCase)"
+          :source="concatAnthroponym(declensionResults.vocativeCase)"
         />
       </td>
     </tr>

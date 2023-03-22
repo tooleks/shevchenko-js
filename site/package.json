@@ -38,6 +38,7 @@
     "country-code-emoji": "^2.3.0",
     "font-awesome": "^4.7.0",
     "jquery": "^3.5.0",
+    "lodash": "^4.17.21",
     "parse-author": "^2.0.0",
     "popper.js": "^1.14.6",
     "shevchenko": "../",
