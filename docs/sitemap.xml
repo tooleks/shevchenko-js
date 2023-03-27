@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+
+<url>
+  <loc>https://shevchenko-js.tooleks.com/</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/en-US/</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/index.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/modules.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/enums/GrammaticalCase.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/enums/GrammaticalGender.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/interfaces/Anthroponym.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/types/DeclensionInput.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/types/DeclensionOutput.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/types/GenderDetectionInput.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/types/GenderDetectionOutput.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/functions/detectGender.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/functions/inAblative.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/functions/inAccusative.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/functions/inDative.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/functions/inGenitive.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/functions/inLocative.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/functions/inNominative.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+<url>
+  <loc>https://shevchenko-js.tooleks.com/api-spec/functions/inVocative.html</loc>
+  <lastmod>2023-03-27T19:48:04+00:00</lastmod>
+  <priority>0.64</priority>
+</url>
+
+
+</urlset>
