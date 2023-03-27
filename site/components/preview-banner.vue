@@ -12,7 +12,7 @@ const appConfig = useAppConfig();
     </h1>
 
     <p>
-      {{ $t('site.title') }}
+      {{ $t('site.longTitle') }}
     </p>
 
     <p>

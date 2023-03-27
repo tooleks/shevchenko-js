@@ -1,5 +1,6 @@
 {
-  "site.title": "JavaScript library for declension of Ukrainian anthroponyms",
+  "site.title": "Declension of Ukrainian anthroponyms",
+  "site.longTitle": "JavaScript library for declension of Ukrainian anthroponyms",
   "site.description": "Online declension of Ukrainian family names (last names), given names (first names), and patronymic names.",
   "site.keywords": "ukrainian language, anthroponym declension, personal name declension, given name declension, first name declension, patronymic name declension, patronymic declension, family name declension, surname declension, word declension, declension, word inflection, nominative case, genitive case, dative case, accusative case, ablative case, locative case, vocative case",
   "action.close": "Close",

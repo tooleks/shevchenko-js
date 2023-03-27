@@ -13,7 +13,7 @@ export default {
     copyright: `© 2017-${currentYear} ${author.name}`,
   },
   library: {
-    name: library.name,
+    name: `${library.name}.js`,
     version: library.version,
     apiSpecificationUrl: `${BASE_URL}/api-spec`,
     npmUrl: 'https://www.npmjs.com/package/shevchenko',

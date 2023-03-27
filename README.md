@@ -1,4 +1,4 @@
-# shevchenko
+# shevchenko.js
 
 JavaScript library for declension of Ukrainian anthroponyms
 

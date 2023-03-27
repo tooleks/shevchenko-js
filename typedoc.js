@@ -1,3 +1,6 @@
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const library = require('./package.json');
+
 /** @type {import('typedoc').TypeDocOptions} */
 module.exports = {
   entryPoints: ['./src/index.ts'],
@@ -8,6 +11,7 @@ module.exports = {
   },
   excludeExternals: true,
   externalPattern: ['**/node_modules/**'],
+  name: `${library.name}.js`,
   includeVersion: true,
   gaID: 'G-RZ36XWPBER',
   sidebarLinks: {
