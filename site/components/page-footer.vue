@@ -11,7 +11,7 @@ const appConfig = useAppConfig();
         <ul class="list-unstyled mb-0" role="menubar">
           <li class="d-inline mr-2" role="presentation">
             <span class="text-muted">
-              {{ `${appConfig.library.name} v${appConfig.library.version}` }}
+              {{ `${appConfig.library.displayName} v${appConfig.library.version}` }}
             </span>
           </li>
 

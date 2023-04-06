@@ -5,7 +5,7 @@ const appConfig = useAppConfig();
 <template>
   <section id="preview" class="jumbotron my-3">
     <h1 class="text-truncate">
-      {{ appConfig.library.name }}
+      {{ appConfig.library.displayName }}
       <span class="d-none d-lg-inline">
         <small class="text-muted"><DeclensionPreview :aria-hidden="true" /></small>
       </span>

@@ -13,9 +13,9 @@ const { getLocaleEmoji } = useLocaleEmoji();
       <img
         class="navbar-brand__logo"
         src="~/assets/img/shevchenko_pixelized_304x304.jpg"
-        :alt="appConfig.library.name"
+        :alt="appConfig.library.displayName"
       />
-      <span class="hidden-sm">{{ appConfig.library.name }}</span>
+      <span class="hidden-sm">{{ appConfig.library.displayName }}</span>
     </a>
 
     <button
