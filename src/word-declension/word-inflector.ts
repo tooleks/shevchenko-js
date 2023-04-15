@@ -27,7 +27,20 @@ export class WordInflector {
    * Inflects a given word according to the specified parameters.
    */
   async inflect(word: string, params: DeclensionParams): Promise<string> {
-    const [matchedRule] = this.declensionRules
+    const [matchingRule] = await this.findMatchingRules(word, params);
+
+    if (matchingRule == null) {
+      return word;
+    }
+
+    return new DeclensionRuleInflector(matchingRule).inflect(word, params.grammaticalCase);
+  }
+
+  /**
+   * Finds matching declension rules for the given word.
+   */
+  async findMatchingRules(word: string, params: DeclensionParams): Promise<DeclensionRule[]> {
+    const matchingRules = this.declensionRules
       .filter((declensionRule) => {
         return declensionRule.gender.includes(params.gender);
       })
@@ -51,10 +64,6 @@ export class WordInflector {
         );
       });
 
-    if (matchedRule == null) {
-      return word;
-    }
-
-    return new DeclensionRuleInflector(matchedRule).inflect(word, params.grammaticalCase);
+    return matchingRules;
   }
 }

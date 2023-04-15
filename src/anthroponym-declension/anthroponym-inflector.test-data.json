@@ -7158,5 +7158,85 @@
         "patronymicName": "Василівно"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Клок",
+        "givenName": "Флор",
+        "patronymicName": "Устимович"
+      },
+      "genitive": {
+        "familyName": "Клока",
+        "givenName": "Флора",
+        "patronymicName": "Устимовича"
+      },
+      "dative": {
+        "familyName": "Клоку",
+        "givenName": "Флору",
+        "patronymicName": "Устимовичу"
+      },
+      "accusative": {
+        "familyName": "Клока",
+        "givenName": "Флора",
+        "patronymicName": "Устимовича"
+      },
+      "ablative": {
+        "familyName": "Клоком",
+        "givenName": "Флором",
+        "patronymicName": "Устимовичем"
+      },
+      "locative": {
+        "familyName": "Клокові",
+        "givenName": "Флорові",
+        "patronymicName": "Устимовичу"
+      },
+      "vocative": {
+        "familyName": "Клоку",
+        "givenName": "Флоре",
+        "patronymicName": "Устимовичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Бурячок",
+        "givenName": "Спас",
+        "patronymicName": "Северинович"
+      },
+      "genitive": {
+        "familyName": "Бурячка",
+        "givenName": "Спаса",
+        "patronymicName": "Севериновича"
+      },
+      "dative": {
+        "familyName": "Бурячку",
+        "givenName": "Спасу",
+        "patronymicName": "Севериновичу"
+      },
+      "accusative": {
+        "familyName": "Бурячка",
+        "givenName": "Спаса",
+        "patronymicName": "Севериновича"
+      },
+      "ablative": {
+        "familyName": "Бурячком",
+        "givenName": "Спасом",
+        "patronymicName": "Севериновичем"
+      },
+      "locative": {
+        "familyName": "Бурячкові",
+        "givenName": "Спасові",
+        "patronymicName": "Севериновичу"
+      },
+      "vocative": {
+        "familyName": "Бурячку",
+        "givenName": "Спасе",
+        "patronymicName": "Севериновичу"
+      }
+    }
   }
 ]

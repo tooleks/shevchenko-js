@@ -5854,7 +5854,7 @@
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -ок",
     "examples": [
-      "сашок"
+      "бурячок"
     ],
     "wordClass": "noun",
     "gender": [
@@ -5863,7 +5863,7 @@
     "priority": 2,
     "application": [],
     "pattern": {
-      "find": "ок$",
+      "find": "(а|е|є|и|і|ї|о|у|ю|я).*ок$",
       "modify": "(.{1})(.{1})$"
     },
     "grammaticalCases": {
