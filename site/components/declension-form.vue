@@ -130,9 +130,9 @@ onMounted(async () => {
             </span>
           </label>
 
-          <small v-if="isGenderError" class="form-text text-danger">
+          <div v-if="isGenderError" class="alert alert-danger">
             {{ $t('gender.message.detectionFailed') }}
-          </small>
+          </div>
 
           <small v-else-if="formData.gender === AUTO_GENDER_OPTION" class="form-text text-muted">
             {{ $t('gender.message.autoDetection') }}
