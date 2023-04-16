@@ -41,9 +41,9 @@ export enum AlphabetEncoding {
 /**
  * Size of Ukrainian alphabet.
  */
-export const ALPHABET_SIZE = 33;
+export const ALPHABET_SIZE = Object.keys(AlphabetEncoding).length / 2;
 
 /**
- * Letter of Ukrainian alphabet.
+ * A letter of Ukrainian alphabet.
  */
 export type Letter = keyof typeof AlphabetEncoding;
