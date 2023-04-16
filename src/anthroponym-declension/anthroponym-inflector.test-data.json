@@ -7238,5 +7238,45 @@
         "patronymicName": "Севериновичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Толок",
+        "givenName": "Ничипір",
+        "patronymicName": "Милославович"
+      },
+      "genitive": {
+        "familyName": "Толока",
+        "givenName": "Ничипіра",
+        "patronymicName": "Милославовича"
+      },
+      "dative": {
+        "familyName": "Толоку",
+        "givenName": "Ничипіру",
+        "patronymicName": "Милославовичу"
+      },
+      "accusative": {
+        "familyName": "Толока",
+        "givenName": "Ничипіра",
+        "patronymicName": "Милославовича"
+      },
+      "ablative": {
+        "familyName": "Толоком",
+        "givenName": "Ничипіром",
+        "patronymicName": "Милославовичем"
+      },
+      "locative": {
+        "familyName": "Толокові",
+        "givenName": "Ничипірові",
+        "patronymicName": "Милославовичу"
+      },
+      "vocative": {
+        "familyName": "Толоку",
+        "givenName": "Ничипіре",
+        "patronymicName": "Милославовичу"
+      }
+    }
   }
 ]
