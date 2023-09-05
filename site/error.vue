@@ -7,7 +7,7 @@ const { t: $t } = useI18n();
 const { buildPageTitle } = usePageMeta();
 
 const pageTitle = computed(() => {
-  const title = $t('error404.pageTitle').toString();
+  const title = $t('error.404.title').toString();
   return buildPageTitle(title);
 });
 
