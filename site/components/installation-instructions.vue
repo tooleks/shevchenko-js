@@ -9,7 +9,7 @@ const browserScriptCode = `<‍script type="text/javascript" src="${appConfig.li
 <template>
   <div id="installation" class="card my-3">
     <div class="card-body">
-      <h5 class="card-title mb-3">{{ $t('installation') }}</h5>
+      <h5 class="card-title mb-3">{{ $t('documentation.installation') }}</h5>
 
       <h6 class="card-subtitle mb-2 text-muted">npm</h6>
       <div class="d-flex align-items-center mb-3">

@@ -24,9 +24,15 @@ const appConfig = useAppConfig();
           </li>
 
           <li class="d-inline mr-2" role="presentation">
-            <ContactMeButton role="menuitem">
-              {{ $t('action.contactMe') }}
-            </ContactMeButton>
+            <ModalButton class="btn btn-link p-0" role="menuitem" modal-id="contact-us-modal">
+              {{ $t('contactUs') }}
+            </ModalButton>
+          </li>
+
+          <li class="d-inline" role="presentation">
+            <ModalButton class="btn btn-link p-0" role="menuitem" modal-id="about-modal">
+              {{ $t('aboutUs') }}
+            </ModalButton>
           </li>
         </ul>
       </div>

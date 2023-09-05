@@ -23,14 +23,16 @@ const isVisible = computed(() => locale.value === 'uk-UA');
   <section v-if="isVisible" id="how-it-works" class="my-4">
     <div class="row">
       <div class="col">
-        <h2>{{ $t('howItWorks') }}</h2>
+        <h2>{{ $t('documentation.howItWorks') }}</h2>
       </div>
     </div>
 
     <div class="row">
       <div class="col">
-        <!-- eslint-disable-next-line vue/no-v-html -->
-        <div class="mt-3" v-html="contents"></div>
+        <div class="card mt-3">
+          <!-- eslint-disable-next-line vue/no-v-html -->
+          <div class="card-body" v-html="contents"></div>
+        </div>
       </div>
     </div>
   </section>

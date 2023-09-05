@@ -1,16 +1,15 @@
-import parseAuthor from 'parse-author';
 import library from './node_modules/shevchenko/package.json';
 
 const BASE_URL = 'https://shevchenko-js.tooleks.com'; // 'https://tooleks.github.io/shevchenko-js'
 
 const currentYear = new Date().getFullYear();
-const author = parseAuthor(library.author);
+const websiteName = new URL(BASE_URL).hostname;
 
 export default {
   website: {
     url: BASE_URL,
     email: 'tooleks@gmail.com',
-    copyright: `© 2017-${currentYear} ${author.name}`,
+    copyright: `© 2017-${currentYear} ${websiteName}`,
   },
   library: {
     displayName: `${library.name}.js`,

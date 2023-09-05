@@ -37,7 +37,7 @@ const correctPatronymicNameSpelling = computed(() => {
     class="form-text text-muted"
   >
     {{
-      $t('declensionForm.correctionNotice', {
+      $t('declension.correctionMessage', {
         incorrectSpelling: anthroponym.patronymicName,
         correctSpelling: correctPatronymicNameSpelling,
       })
@@ -47,7 +47,7 @@ const correctPatronymicNameSpelling = computed(() => {
       type="button"
       @click="$emit('patronymic-name-correction', correctPatronymicNameSpelling)"
     >
-      {{ $t('declensionForm.confirmCorrection') }}
+      {{ $t('declension.confirmCorrection') }}
     </button>
   </small>
 </template>

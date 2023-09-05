@@ -34,8 +34,8 @@ function concatAnthroponym(anthroponym: Anthroponym): string {
         <span class="py-0 px-1">
           <i
             class="fa fa-info-circle"
-            :title="$t('declensionForm.copyMessage')"
-            :aria-label="$t('declensionForm.copyMessage')"
+            :title="$t('declension.copyResult')"
+            :aria-label="$t('declension.copyResult')"
           ></i>
         </span>
       </th>

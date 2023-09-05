@@ -10,7 +10,7 @@ const appConfig = useAppConfig();
           {{ $t('documentation') }}
           <small class="d-block h6 mt-2 mb-0 text-decoration-none">
             <a :href="appConfig.library.apiSpecificationUrl" target="_blank">
-              {{ $t('action.navigateToFullVersion') }}
+              {{ $t('documentation.navigateToFullVersion') }}
             </a>
           </small>
         </h2>

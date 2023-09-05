@@ -114,7 +114,7 @@ onMounted(async () => {
     <div class="card">
       <div class="card-body">
         <div class="alert alert-info" role="alert">
-          {{ $t('declensionForm.instructionMessage') }}
+          {{ $t('declension.instruction') }}
         </div>
 
         <div class="form-group">
@@ -124,18 +124,18 @@ onMounted(async () => {
             class="radio-inline mr-2"
           >
             <input v-model="formData.gender" type="radio" name="gender" :value="genderOption" />
-            {{ $t(`gender.${genderOption}`) }}
+            {{ $t(`grammaticalGender.${genderOption}`) }}
             <span v-if="genderOption === AUTO_GENDER_OPTION">
-              ({{ $t(`gender.${declensionInput.gender}`) }})
+              ({{ $t(`grammaticalGender.${declensionInput.gender}`) }})
             </span>
           </label>
 
           <div v-if="isGenderError" class="alert alert-danger">
-            {{ $t('gender.message.detectionFailed') }}
+            {{ $t('grammaticalGender.detectionFailed') }}
           </div>
 
           <small v-else-if="formData.gender === AUTO_GENDER_OPTION" class="form-text text-muted">
-            {{ $t('gender.message.autoDetection') }}
+            {{ $t('grammaticalGender.autoDetection') }}
           </small>
         </div>
 
@@ -192,12 +192,12 @@ onMounted(async () => {
 
       <div class="card-footer">
         <button type="submit" class="btn btn-primary">
-          {{ $t('action.inflect') }}
+          {{ $t('declension.inflect') }}
         </button>
 
-        <ContactMeButton button-class="btn btn-link pull-right">
+        <ModalButton class="btn btn-link pull-right" modal-id="contact-us-modal">
           {{ $t('foundBug') }}
-        </ContactMeButton>
+        </ModalButton>
       </div>
     </div>
   </form>

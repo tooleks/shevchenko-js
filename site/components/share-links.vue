@@ -50,7 +50,7 @@ const linkedInShareLink = computed(() => {
     <a
       class="btn btn-lg btn-link btn--share"
       :href="facebookShareLink"
-      :title="$t('action.share.onFacebook')"
+      :title="$t('socialShare.facebook')"
       target="_blank"
       role="menuitem"
     >
@@ -60,7 +60,7 @@ const linkedInShareLink = computed(() => {
     <a
       class="btn btn-lg btn-link btn--share"
       :href="twitterShareLink"
-      :title="$t('action.share.onTwitter')"
+      :title="$t('socialShare.twitter')"
       target="_blank"
       role="menuitem"
     >
@@ -70,7 +70,7 @@ const linkedInShareLink = computed(() => {
     <a
       class="btn btn-lg btn-link btn--share"
       :href="linkedInShareLink"
-      :title="$t('action.share.onLinkedIn')"
+      :title="$t('socialShare.linkedIn')"
       target="_blank"
       role="menuitem"
     >

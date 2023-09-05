@@ -12,12 +12,12 @@ const appConfig = useAppConfig();
     </h1>
 
     <p>
-      {{ $t('site.longTitle') }}
+      {{ $t('website.longTitle') }}
     </p>
 
     <p>
       <NuxtLink class="btn btn-lg btn-primary" :to="{ hash: '#demo' }" role="button">
-        {{ $t('demo') }}
+        {{ $t('liveDemo') }}
       </NuxtLink>
 
       <NuxtLink
@@ -25,7 +25,7 @@ const appConfig = useAppConfig();
         :to="{ hash: '#usage-example' }"
         role="button"
       >
-        {{ $t('usageExample') }}
+        {{ $t('documentation.usageExample') }}
       </NuxtLink>
     </p>
   </section>

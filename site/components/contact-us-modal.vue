@@ -7,14 +7,14 @@ const { t: $t } = useI18n();
 
 const mailtoUrl = computed(() => {
   const url = new URL(`mailto:${appConfig.website.email}`);
-  url.searchParams.set('subject', $t('contactMe.messageSubject').toString());
+  url.searchParams.set('subject', $t('contactUs.messageSubject').toString());
   return url.toString();
 });
 </script>
 
 <template>
   <div
-    id="contact-me-modal"
+    id="contact-us-modal"
     class="modal fade"
     tabindex="-1"
     role="dialog"
@@ -24,7 +24,7 @@ const mailtoUrl = computed(() => {
       <div class="modal-content">
         <div class="modal-header">
           <h4 id="contact-me-label" class="modal-title">
-            {{ $t('contactMe.modalTitle') }}
+            {{ $t('contactUs') }}
           </h4>
 
           <button type="button" class="close" data-dismiss="modal" :aria-label="$t('action.close')">
@@ -34,7 +34,7 @@ const mailtoUrl = computed(() => {
 
         <div class="modal-body">
           <p>
-            {{ $t('contactMe.modalMessage') }}
+            {{ $t('contactUs.message') }}
           </p>
 
           <div class="input-group mb-3">
@@ -43,7 +43,7 @@ const mailtoUrl = computed(() => {
               readonly
               type="email"
               class="form-control"
-              :aria-label="$t('contactMe.recipientEmail')"
+              :aria-label="$t('contactUs.recipientEmail')"
             />
           </div>
         </div>

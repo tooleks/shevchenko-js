@@ -23,7 +23,7 @@ main().catch((error) => console.error(error));
   <div id="usage-example" class="card my-3">
     <div class="card-body">
       <h5 class="card-title mb-3">
-        {{ $t('usageExample') }}
+        {{ $t('documentation.usageExample') }}
       </h5>
       <pre class="mb-0">{{ usageExample.trim() }}</pre>
     </div>

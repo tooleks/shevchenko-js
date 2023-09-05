@@ -3,9 +3,9 @@
     <div class="row mb-3">
       <div class="col-12">
         <h2 class="mb-0">
-          {{ $t('demo') }}
+          {{ $t('liveDemo') }}
           <small class="d-block h6 text-muted mt-2 mb-0 sentence-capitalize">
-            {{ $t('demo.message') }}
+            {{ $t('liveDemo.message') }}
           </small>
         </h2>
       </div>
@@ -28,7 +28,7 @@
                 <div
                   class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-md-between"
                 >
-                  {{ $t('action.shareDeclensionResult') }}
+                  {{ $t('declension.shareResult') }}
                   <ShareLinks buttons-class="mt-1 mt-md-0 mr-md-2" />
                 </div>
               </td>

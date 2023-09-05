@@ -34,7 +34,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
       <ul class="navbar-nav mt-2 mt-lg-0 ml-auto" role="menubar">
         <li class="nav-item" role="presentation">
           <NuxtLink class="nav-link" :to="{ hash: '#demo' }" role="menuitem">
-            {{ $t('demo') }}
+            {{ $t('liveDemo') }}
           </NuxtLink>
         </li>
 
@@ -46,7 +46,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
 
         <li class="nav-item" role="presentation">
           <a class="nav-link" :href="appConfig.library.licenseUrl" target="_blank" role="menuitem">
-            {{ $t('license') }}
+            {{ $t('library.license') }}
           </a>
         </li>
 
@@ -60,7 +60,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
             aria-haspopup="true"
             aria-expanded="false"
           >
-            {{ $t('links') }}
+            {{ $t('library.links') }}
           </a>
 
           <div class="dropdown-menu" aria-labelledby="navbar-dropdown-links" role="menu">
@@ -70,7 +70,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
               target="_blank"
               role="menuitem"
             >
-              {{ $t('apiSpec') }}
+              {{ $t('documentation.apiSpec') }}
             </a>
 
             <a
@@ -113,12 +113,16 @@ const { getLocaleEmoji } = useLocaleEmoji();
               target="_blank"
               role="menuitem"
             >
-              {{ $t('issueReport') }} <GithubIssueCount />
+              {{ $t('library.issueReport') }} <GithubIssueCount />
             </a>
 
-            <ContactMeButton button-class="dropdown-item" role="menuitem">
-              {{ $t('action.contactMe') }}
-            </ContactMeButton>
+            <ModalButton class="dropdown-item" role="menuitem" modal-id="contact-us-modal">
+              {{ $t('contactUs') }}
+            </ModalButton>
+
+            <ModalButton class="dropdown-item" role="menuitem" modal-id="about-modal">
+              {{ $t('aboutUs') }}
+            </ModalButton>
           </div>
         </li>
 
@@ -131,6 +135,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
             role="menuitem"
             aria-haspopup="true"
             aria-expanded="false"
+            :title="$t('website.language')"
           >
             {{ getLocaleEmoji($i18n.locale) }}
             {{ $i18n.locale }}
@@ -145,7 +150,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
               role="menuitem"
             >
               {{ getLocaleEmoji(locale) }}
-              {{ $t(`locale.${locale}`) }} ({{ locale }})
+              {{ $t(`website.locale.${locale}`) }} ({{ locale }})
             </a>
           </div>
         </li>
