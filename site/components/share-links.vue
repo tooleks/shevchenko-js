@@ -42,75 +42,69 @@ const linkedInShareLink = computed(() => {
   <div class="btn-group" :class="buttonsClass" role="menubar">
     <CopyButton
       :source="pageShareLink"
-      button-class="btn btn-lg btn-link btn--share"
+      button-class="btn btn-lg btn-link btn-share"
       :button-title="$t('action.copyLink')"
       icon-class="fa fa-link"
     />
 
     <a
-      class="btn btn-lg btn-link btn--share"
+      class="btn btn-lg btn-link btn-share"
       :href="facebookShareLink"
       :title="$t('socialShare.facebook')"
       target="_blank"
       role="menuitem"
     >
-      <i class="fa fa-facebook fa-facebook--branded" aria-hidden="true"></i>
+      <i class="fa fa-facebook color-facebook" aria-hidden="true"></i>
     </a>
 
     <a
-      class="btn btn-lg btn-link btn--share"
+      class="btn btn-lg btn-link btn-share"
       :href="twitterShareLink"
       :title="$t('socialShare.twitter')"
       target="_blank"
       role="menuitem"
     >
-      <i class="fa fa-twitter fa-twitter--branded" aria-hidden="true"></i>
+      <i class="fa fa-twitter color-twitter" aria-hidden="true"></i>
     </a>
 
     <a
-      class="btn btn-lg btn-link btn--share"
+      class="btn btn-lg btn-link btn-share"
       :href="linkedInShareLink"
       :title="$t('socialShare.linkedIn')"
       target="_blank"
       role="menuitem"
     >
-      <i class="fa fa-linkedin fa-linkedin--branded" aria-hidden="true"></i>
+      <i class="fa fa-linkedin color-linkedin" aria-hidden="true"></i>
     </a>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.btn {
-  &--share {
-    margin: 0 0.75em;
-    padding: 0;
-    border: 0;
-    text-align: center;
+.btn-share {
+  margin: 0 0.75em;
+  padding: 0;
+  border: 0;
+  text-align: center;
 
-    &:first-child {
-      margin-left: 0;
-    }
+  &:first-child {
+    margin-left: 0;
+  }
 
-    &:last-child {
-      margin-right: 0;
-    }
+  &:last-child {
+    margin-right: 0;
   }
 }
 
-.fa-facebook {
-  &--branded {
+.color {
+  &-facebook {
     color: #4867aa;
   }
-}
 
-.fa-twitter {
-  &--branded {
+  &-twitter {
     color: #1da1f2;
   }
-}
 
-.fa-linkedin {
-  &--branded {
+  &-linkedin {
     color: #0077b5;
   }
 }

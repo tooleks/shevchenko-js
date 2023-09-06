@@ -9,28 +9,52 @@ const appConfig = useAppConfig();
     <div class="row mb-1">
       <div class="col-12">
         <ul class="list-unstyled mb-0" role="menubar">
-          <li class="d-inline mr-2" role="presentation">
+          <li class="d-inline mr-3" role="presentation">
             <span class="text-muted">
               {{ `${appConfig.library.displayName} v${appConfig.library.version}` }}
             </span>
           </li>
 
-          <li class="d-inline mr-2" role="presentation">
-            <a :href="appConfig.library.gitHubUrl" target="_blank" role="menuitem">GitHub</a>
+          <li class="d-inline align-middle mr-2" role="presentation">
+            <a
+              :href="appConfig.library.gitHubUrl"
+              class="text-decoration-none"
+              target="_blank"
+              role="menuitem"
+            >
+              <span aria-hidden="true" class="logo-icon logo-icon-github"></span>
+              GitHub
+            </a>
+          </li>
+
+          <li class="d-inline align-middle mr-2" role="presentation">
+            <a
+              :href="appConfig.library.npmUrl"
+              class="text-decoration-none"
+              target="_blank"
+              role="menuitem"
+            >
+              <span aria-hidden="true" class="logo-icon logo-icon-npm"></span>
+              NPM
+            </a>
           </li>
 
           <li class="d-inline mr-2" role="presentation">
-            <a :href="appConfig.library.npmUrl" target="_blank" role="menuitem">NPM</a>
-          </li>
-
-          <li class="d-inline mr-2" role="presentation">
-            <ModalButton class="btn btn-link p-0" role="menuitem" modal-id="contact-us-modal">
+            <ModalButton
+              class="btn btn-link text-decoration-none p-0"
+              role="menuitem"
+              modal-id="contact-us-modal"
+            >
               {{ $t('contactUs') }}
             </ModalButton>
           </li>
 
           <li class="d-inline" role="presentation">
-            <ModalButton class="btn btn-link p-0" role="menuitem" modal-id="about-modal">
+            <ModalButton
+              class="btn btn-link text-decoration-none p-0"
+              role="menuitem"
+              modal-id="about-modal"
+            >
               {{ $t('aboutUs') }}
             </ModalButton>
           </li>
@@ -45,3 +69,20 @@ const appConfig = useAppConfig();
     </div>
   </section>
 </template>
+
+<style lang="scss" scoped>
+.logo-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-size: 100%;
+
+  &-github {
+    background-image: url('~/assets/img/github.svg');
+  }
+
+  &-npm {
+    background-image: url('~/assets/img/npm.svg');
+  }
+}
+</style>

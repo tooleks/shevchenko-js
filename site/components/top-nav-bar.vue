@@ -11,11 +11,11 @@ const { getLocaleEmoji } = useLocaleEmoji();
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <a class="navbar-brand" :href="appConfig.website.url">
       <img
-        class="navbar-brand__logo"
+        class="navbar-logo"
         src="~/assets/img/shevchenko_pixelized_304x304.jpg"
         :alt="appConfig.library.displayName"
       />
-      <span class="hidden-sm">{{ appConfig.library.displayName }}</span>
+      <span>{{ appConfig.library.displayName }}</span>
     </a>
 
     <button
@@ -79,6 +79,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
               target="_blank"
               role="menuitem"
             >
+              <span aria-hidden="true" class="logo-icon logo-icon-github"></span>
               GitHub
             </a>
 
@@ -88,6 +89,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
               target="_blank"
               role="menuitem"
             >
+              <span aria-hidden="true" class="logo-icon logo-icon-npm"></span>
               NPM
             </a>
           </div>
@@ -161,13 +163,28 @@ const { getLocaleEmoji } = useLocaleEmoji();
 
 <style lang="scss" scoped>
 .navbar-brand {
+  width: 50px;
+  height: 50px;
   padding: 0;
+}
 
-  &__logo {
-    display: inline;
-    width: 50px;
-    height: 50px;
-    margin-right: 10px;
+.navbar-logo {
+  height: 100%;
+  margin-right: 10px;
+}
+
+.logo-icon {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  background-size: 100%;
+
+  &-github {
+    background-image: url('~/assets/img/github.svg');
+  }
+
+  &-npm {
+    background-image: url('~/assets/img/npm.svg');
   }
 }
 </style>
