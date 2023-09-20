@@ -7558,5 +7558,45 @@
         "patronymicName": "Оскаровичу"
       }
     }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Гузеря",
+        "givenName": "Зейнаб",
+        "patronymicName": "Едгарівна"
+      },
+      "genitive": {
+        "familyName": "Гузері",
+        "givenName": "Зейнабі",
+        "patronymicName": "Едгарівни"
+      },
+      "dative": {
+        "familyName": "Гузері",
+        "givenName": "Зейнабі",
+        "patronymicName": "Едгарівні"
+      },
+      "accusative": {
+        "familyName": "Гузерю",
+        "givenName": "Зейнабі",
+        "patronymicName": "Едгарівну"
+      },
+      "ablative": {
+        "familyName": "Гузерею",
+        "givenName": "Зейнабі",
+        "patronymicName": "Едгарівною"
+      },
+      "locative": {
+        "familyName": "Гузері",
+        "givenName": "Зейнабі",
+        "patronymicName": "Едгарівні"
+      },
+      "vocative": {
+        "familyName": "Гузере",
+        "givenName": "Зейнабі",
+        "patronymicName": "Едгарівно"
+      }
+    }
   }
 ]
