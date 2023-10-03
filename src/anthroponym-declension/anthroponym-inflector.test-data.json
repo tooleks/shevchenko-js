@@ -7598,5 +7598,45 @@
         "patronymicName": "Едгарівно"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Моток",
+        "givenName": "Артем",
+        "patronymicName": "Атрейович"
+      },
+      "genitive": {
+        "familyName": "Мотка",
+        "givenName": "Артема",
+        "patronymicName": "Атрейовича"
+      },
+      "dative": {
+        "familyName": "Мотку",
+        "givenName": "Артему",
+        "patronymicName": "Атрейовичу"
+      },
+      "accusative": {
+        "familyName": "Мотка",
+        "givenName": "Артема",
+        "patronymicName": "Атрейовича"
+      },
+      "ablative": {
+        "familyName": "Мотком",
+        "givenName": "Артемом",
+        "patronymicName": "Атрейовичем"
+      },
+      "locative": {
+        "familyName": "Моткові",
+        "givenName": "Артемові",
+        "patronymicName": "Атрейовичу"
+      },
+      "vocative": {
+        "familyName": "Мотку",
+        "givenName": "Артеме",
+        "patronymicName": "Атрейовичу"
+      }
+    }
   }
 ]
