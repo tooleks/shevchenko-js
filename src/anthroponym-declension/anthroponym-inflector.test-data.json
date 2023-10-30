@@ -7638,5 +7638,45 @@
         "patronymicName": "Атрейовичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Забродній",
+        "givenName": "Афанасій",
+        "patronymicName": "Харитонович"
+      },
+      "genitive": {
+        "familyName": "Заброднього",
+        "givenName": "Афанасія",
+        "patronymicName": "Харитоновича"
+      },
+      "dative": {
+        "familyName": "Забродньому",
+        "givenName": "Афанасію",
+        "patronymicName": "Харитоновичу"
+      },
+      "accusative": {
+        "familyName": "Заброднього",
+        "givenName": "Афанасія",
+        "patronymicName": "Харитоновича"
+      },
+      "ablative": {
+        "familyName": "Заброднім",
+        "givenName": "Афанасієм",
+        "patronymicName": "Харитоновичем"
+      },
+      "locative": {
+        "familyName": "Забродньому",
+        "givenName": "Афанасієві",
+        "patronymicName": "Харитоновичу"
+      },
+      "vocative": {
+        "familyName": "Забродній",
+        "givenName": "Афанасію",
+        "patronymicName": "Харитоновичу"
+      }
+    }
   }
 ]
