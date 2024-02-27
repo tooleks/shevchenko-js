@@ -508,7 +508,7 @@
         "patronymicName": "Івановичем"
       },
       "locative": {
-        "familyName": "Глібову",
+        "familyName": "Глібові",
         "givenName": "Леонідові",
         "patronymicName": "Івановичу"
       },
@@ -1316,46 +1316,6 @@
         "familyName": "Ковалишине",
         "givenName": "Ігорю",
         "patronymicName": "Сидоровичу"
-      }
-    }
-  },
-  {
-    "gender": "masculine",
-    "grammaticalCases": {
-      "nominative": {
-        "familyName": "Ковалів",
-        "givenName": "Семен",
-        "patronymicName": "Ігорович"
-      },
-      "genitive": {
-        "familyName": "Коваліва",
-        "givenName": "Семена",
-        "patronymicName": "Ігоровича"
-      },
-      "dative": {
-        "familyName": "Коваліву",
-        "givenName": "Семену",
-        "patronymicName": "Ігоровичу"
-      },
-      "accusative": {
-        "familyName": "Коваліва",
-        "givenName": "Семена",
-        "patronymicName": "Ігоровича"
-      },
-      "ablative": {
-        "familyName": "Ковалівим",
-        "givenName": "Семеном",
-        "patronymicName": "Ігоровичем"
-      },
-      "locative": {
-        "familyName": "Коваліву",
-        "givenName": "Семенові",
-        "patronymicName": "Ігоровичу"
-      },
-      "vocative": {
-        "familyName": "Коваліве",
-        "givenName": "Семене",
-        "patronymicName": "Ігоровичу"
       }
     }
   },
@@ -2396,46 +2356,6 @@
         "familyName": "Осоко",
         "givenName": "Катрю",
         "patronymicName": "Єгорівно"
-      }
-    }
-  },
-  {
-    "gender": "masculine",
-    "grammaticalCases": {
-      "nominative": {
-        "familyName": "Павлов",
-        "givenName": "Василь",
-        "patronymicName": "Петрович"
-      },
-      "genitive": {
-        "familyName": "Павлова",
-        "givenName": "Василя",
-        "patronymicName": "Петровича"
-      },
-      "dative": {
-        "familyName": "Павлову",
-        "givenName": "Василю",
-        "patronymicName": "Петровичу"
-      },
-      "accusative": {
-        "familyName": "Павлова",
-        "givenName": "Василя",
-        "patronymicName": "Петровича"
-      },
-      "ablative": {
-        "familyName": "Павловим",
-        "givenName": "Василем",
-        "patronymicName": "Петровичем"
-      },
-      "locative": {
-        "familyName": "Павлову",
-        "givenName": "Василеві",
-        "patronymicName": "Петровичу"
-      },
-      "vocative": {
-        "familyName": "Павлове",
-        "givenName": "Василю",
-        "patronymicName": "Петровичу"
       }
     }
   },
@@ -4188,7 +4108,7 @@
         "patronymicName": "Григоровичем"
       },
       "locative": {
-        "familyName": "Фітільову",
+        "familyName": "Фітільові",
         "givenName": "Миколі",
         "patronymicName": "Григоровичу"
       },
@@ -7676,6 +7596,246 @@
         "familyName": "Забродній",
         "givenName": "Афанасію",
         "patronymicName": "Харитоновичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Павлов",
+        "givenName": "Василь",
+        "patronymicName": "Петрович"
+      },
+      "genitive": {
+        "familyName": "Павлова",
+        "givenName": "Василя",
+        "patronymicName": "Петровича"
+      },
+      "dative": {
+        "familyName": "Павлову",
+        "givenName": "Василю",
+        "patronymicName": "Петровичу"
+      },
+      "accusative": {
+        "familyName": "Павлова",
+        "givenName": "Василя",
+        "patronymicName": "Петровича"
+      },
+      "ablative": {
+        "familyName": "Павловим",
+        "givenName": "Василем",
+        "patronymicName": "Петровичем"
+      },
+      "locative": {
+        "familyName": "Павлові",
+        "givenName": "Василеві",
+        "patronymicName": "Петровичу"
+      },
+      "vocative": {
+        "familyName": "Павлове",
+        "givenName": "Василю",
+        "patronymicName": "Петровичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Ковалів",
+        "givenName": "Семен",
+        "patronymicName": "Ігорович"
+      },
+      "genitive": {
+        "familyName": "Коваліва",
+        "givenName": "Семена",
+        "patronymicName": "Ігоровича"
+      },
+      "dative": {
+        "familyName": "Коваліву",
+        "givenName": "Семену",
+        "patronymicName": "Ігоровичу"
+      },
+      "accusative": {
+        "familyName": "Коваліва",
+        "givenName": "Семена",
+        "patronymicName": "Ігоровича"
+      },
+      "ablative": {
+        "familyName": "Ковалівим",
+        "givenName": "Семеном",
+        "patronymicName": "Ігоровичем"
+      },
+      "locative": {
+        "familyName": "Коваліві",
+        "givenName": "Семенові",
+        "patronymicName": "Ігоровичу"
+      },
+      "vocative": {
+        "familyName": "Коваліве",
+        "givenName": "Семене",
+        "patronymicName": "Ігоровичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Кирчів",
+        "givenName": "Денис",
+        "patronymicName": "Ростиславович"
+      },
+      "genitive": {
+        "familyName": "Кирчіва",
+        "givenName": "Дениса",
+        "patronymicName": "Ростиславовича"
+      },
+      "dative": {
+        "familyName": "Кирчіву",
+        "givenName": "Денису",
+        "patronymicName": "Ростиславовичу"
+      },
+      "accusative": {
+        "familyName": "Кирчіва",
+        "givenName": "Дениса",
+        "patronymicName": "Ростиславовича"
+      },
+      "ablative": {
+        "familyName": "Кирчівим",
+        "givenName": "Денисом",
+        "patronymicName": "Ростиславовичем"
+      },
+      "locative": {
+        "familyName": "Кирчіві",
+        "givenName": "Денисові",
+        "patronymicName": "Ростиславовичу"
+      },
+      "vocative": {
+        "familyName": "Кирчіве",
+        "givenName": "Денисе",
+        "patronymicName": "Ростиславовичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Русин",
+        "givenName": "Платон",
+        "patronymicName": "Отісович"
+      },
+      "genitive": {
+        "familyName": "Русина",
+        "givenName": "Платона",
+        "patronymicName": "Отісовича"
+      },
+      "dative": {
+        "familyName": "Русину",
+        "givenName": "Платону",
+        "patronymicName": "Отісовичу"
+      },
+      "accusative": {
+        "familyName": "Русина",
+        "givenName": "Платона",
+        "patronymicName": "Отісовича"
+      },
+      "ablative": {
+        "familyName": "Русином",
+        "givenName": "Платоном",
+        "patronymicName": "Отісовичем"
+      },
+      "locative": {
+        "familyName": "Русинові",
+        "givenName": "Платону",
+        "patronymicName": "Отісовичу"
+      },
+      "vocative": {
+        "familyName": "Русине",
+        "givenName": "Платоне",
+        "patronymicName": "Отісовичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Гаршин",
+        "givenName": "Веремій",
+        "patronymicName": "Платонович"
+      },
+      "genitive": {
+        "familyName": "Гаршина",
+        "givenName": "Веремія",
+        "patronymicName": "Платоновича"
+      },
+      "dative": {
+        "familyName": "Гаршинові",
+        "givenName": "Веремію",
+        "patronymicName": "Платоновичу"
+      },
+      "accusative": {
+        "familyName": "Гаршина",
+        "givenName": "Веремія",
+        "patronymicName": "Платоновича"
+      },
+      "ablative": {
+        "familyName": "Гаршиним",
+        "givenName": "Веремієм",
+        "patronymicName": "Платоновичем"
+      },
+      "locative": {
+        "familyName": "Гаршині",
+        "givenName": "Веремієві",
+        "patronymicName": "Платоновичу"
+      },
+      "vocative": {
+        "familyName": "Гаршине",
+        "givenName": "Веремію",
+        "patronymicName": "Платоновичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Нікітін",
+        "givenName": "Савелій",
+        "patronymicName": "Веремійович"
+      },
+      "genitive": {
+        "familyName": "Нікітіна",
+        "givenName": "Савелія",
+        "patronymicName": "Веремійовича"
+      },
+      "dative": {
+        "familyName": "Нікітіну",
+        "givenName": "Савелію",
+        "patronymicName": "Веремійовичу"
+      },
+      "accusative": {
+        "familyName": "Нікітіна",
+        "givenName": "Савелія",
+        "patronymicName": "Веремійовича"
+      },
+      "ablative": {
+        "familyName": "Нікітіним",
+        "givenName": "Савелієм",
+        "patronymicName": "Веремійовичем"
+      },
+      "locative": {
+        "familyName": "Нікітіні",
+        "givenName": "Савелієві",
+        "patronymicName": "Веремійовичу"
+      },
+      "vocative": {
+        "familyName": "Нікітіне",
+        "givenName": "Савелію",
+        "patronymicName": "Веремійовичу"
       }
     }
   }

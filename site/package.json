@@ -1,12 +1,9 @@
 {
   "private": true,
   "scripts": {
-    "build": "nuxt build",
-    "dev": "nuxt dev",
     "generate": "nuxt generate",
     "postgenerate": "node ./scripts/postgenerate.js",
     "serve": "serve .output/public",
-    "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint --fix \"**/*.{ts,vue}\""
   },

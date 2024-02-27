@@ -2968,7 +2968,9 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "application": [
+      "givenName"
+    ],
     "pattern": {
       "find": ".ків$",
       "modify": "(.{1})(.{1})$"
@@ -5783,9 +5785,10 @@
     }
   },
   {
-    "description": "друга відміна / чоловічий рід / тверда група/ на -ов",
+    "description": "друга відміна / чоловічий рід / тверда група / на -ов, -ев (-єв), -ів (-їв), -ін (-їн)",
     "examples": [
-      "павлов"
+      "павлов",
+      "нікітін"
     ],
     "wordClass": "noun",
     "gender": [
@@ -5796,7 +5799,7 @@
       "familyName"
     ],
     "pattern": {
-      "find": "ов$",
+      "find": "([ое]в|[ії]в|[ії]н)$",
       "modify": "(.{1})$"
     },
     "grammaticalCases": {
@@ -5834,6 +5837,12 @@
         }
       ],
       "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        },
         {
           "0": {
             "action": "append",
@@ -5852,9 +5861,9 @@
     }
   },
   {
-    "description": "друга відміна / чоловічий рід / тверда група / на -ів",
+    "description": "друга відміна / чоловічий рід / тверда група / на -ин",
     "examples": [
-      "ковалів"
+      "гаршин"
     ],
     "wordClass": "noun",
     "gender": [
@@ -5865,7 +5874,7 @@
       "familyName"
     ],
     "pattern": {
-      "find": "ів$",
+      "find": "[^у][^с]ин$",
       "modify": "(.{1})$"
     },
     "grammaticalCases": {
@@ -5879,6 +5888,12 @@
         }
       ],
       "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
         {
           "0": {
             "action": "append",
@@ -5903,6 +5918,12 @@
         }
       ],
       "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        },
         {
           "0": {
             "action": "append",
