@@ -63,7 +63,7 @@
     "@types/lodash": "^4.14.191",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
-    "axios": "^0.21.0",
+    "axios": "^1.6.0",
     "csv": "^6.2.7",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
