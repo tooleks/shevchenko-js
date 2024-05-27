@@ -54,7 +54,7 @@ To import the library as a UMD bundle, include the following script tag in your 
 
 #### Personal names declension
 
-This example shows how to use the library to decline Ukrainian anthroponyms. The example code takes an input object that includes grammatical gender, given name, patronymic name, and family name of a person. Then, it passes the input object to the `shevchenko.inVocative()` method, which returns the declined version of the input anthroponym in vocative case. Finally, it logs the output object to the console.
+This example shows how to use the library to decline Ukrainian anthroponyms.
 
 ```JavaScript
 const shevchenko = require('shevchenko');
@@ -77,7 +77,7 @@ main().catch((error) => console.error(error));
 
 #### Automatic grammatical gender detection
 
-This example shows how to use the library to automatically detect the grammatical gender of a Ukrainian anthroponym. The example code takes an input object that includes given name, patronymic name, and family name of a person. Then, it passes the input object to the `shevchenko.detectGender()` method, which returns the detected gender of the input anthroponym. If the method fails to detect the grammatical gender, it throws an error. Finally, it logs the declined version of the input object in vocative case to the console.
+This example shows how to use the library to automatically detect the grammatical gender of a Ukrainian anthroponym.
 
 ```JavaScript
 const shevchenko = require('shevchenko');
