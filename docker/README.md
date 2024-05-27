@@ -19,9 +19,13 @@ docker run --name shevchenko -p 3000:3000 -d tooleks/shevchenko
 To verify the installation, run the following command:
 
 ```
-wget -q --header="Content-Type: application/json" \
-     --post-data='{"gender": "masculine", "givenName": "Тарас", "patronymicName": "Григорович", "familyName": "Шевченко"}' \
-     http://localhost:3000/vocative -O -
+wget -qO- http://localhost:3000/ 2>&1
+```
+
+The example output:
+
+```
+{"name":"shevchenko","version":"3.0.8"}
 ```
 
 ## Public Endpoints

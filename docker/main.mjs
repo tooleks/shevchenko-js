@@ -1,10 +1,20 @@
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 import express from 'express';
 import * as shevchenko from 'shevchenko';
 
+const meta = loadMeta();
 const app = express();
 const port = process.env.WEBAPI_PORT ?? 3000;
 
 app.use(express.json());
+
+function loadMeta() {
+  const meta = path.join(import.meta.dirname, 'node_modules/shevchenko/package.json');
+  const file = fs.readFileSync(meta);
+  const pkg = JSON.parse(file);
+  return { name: pkg.name, version: pkg.version };
+}
 
 async function resolveGender(anthroponym) {
   if (anthroponym.gender) {
@@ -12,6 +22,14 @@ async function resolveGender(anthroponym) {
   }
   return shevchenko.detectGender(anthroponym);
 }
+
+app.get('/', (req, res, next) => {
+  try {
+    res.status(200).send(meta);
+  } catch (err) {
+    next(err);
+  }
+});
 
 app.post('/nominative', async (req, res, next) => {
   try {
