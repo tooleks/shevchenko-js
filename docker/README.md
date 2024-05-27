@@ -6,25 +6,25 @@ The official HTTP API of [shevchenko.js](https://shevchenko-js.tooleks.com) libr
 
 To pull the Docker image, use the following command:
 
-```
+```shell
 docker pull tooleks/shevchenko
 ```
 
 To start the Docker container, use the following command:
 
-```
+```shell
 docker run --name shevchenko -p 3000:3000 -d tooleks/shevchenko
 ```
 
 To verify the installation, run the following command:
 
-```
+```shell
 wget -qO- http://localhost:3000/ 2>&1
 ```
 
 The example output:
 
-```
+```JSON
 {"name":"shevchenko","version":"3.0.8"}
 ```
 
@@ -48,7 +48,7 @@ This example shows how to use the API to decline Ukrainian anthroponyms.
 
 #### HTTP Request
 
-```
+```HTTP
 POST http://localhost:3000/vocative
 Content-Type: application/json
 
@@ -62,7 +62,7 @@ Content-Type: application/json
 
 #### HTTP Response
 
-```
+```HTTP
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
@@ -79,7 +79,7 @@ This example shows how to use the API to automatically detect the grammatical ge
 
 #### HTTP Request
 
-```
+```HTTP
 POST http://localhost:3000/vocative
 Content-Type: application/json
 
@@ -92,7 +92,7 @@ Content-Type: application/json
 
 #### HTTP Response
 
-```
+```HTTP
 HTTP/1.1 200 OK
 Content-Type: application/json; charset=utf-8
 
