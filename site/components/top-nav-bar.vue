@@ -99,7 +99,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
               target="_blank"
               role="menuitem"
             >
-              <span aria-hidden="true" class="logo-icon logo-icon-github"></span>
+              <span aria-hidden="true" class="logo-icon logo-icon-docker"></span>
               Docker Hub
             </a>
           </div>
@@ -188,13 +188,19 @@ const { getLocaleEmoji } = useLocaleEmoji();
   width: 1em;
   height: 1em;
   background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  &-npm {
+    background-image: url('~/assets/img/npm.svg');
+  }
 
   &-github {
     background-image: url('~/assets/img/github.svg');
   }
 
-  &-npm {
-    background-image: url('~/assets/img/npm.svg');
+  &-docker {
+    background-image: url('~/assets/img/docker.svg');
   }
 }
 </style>
