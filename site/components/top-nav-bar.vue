@@ -75,6 +75,16 @@ const { getLocaleEmoji } = useLocaleEmoji();
 
             <a
               class="dropdown-item"
+              :href="appConfig.library.npmUrl"
+              target="_blank"
+              role="menuitem"
+            >
+              <span aria-hidden="true" class="logo-icon logo-icon-npm"></span>
+              NPM
+            </a>
+
+            <a
+              class="dropdown-item"
               :href="appConfig.library.gitHubUrl"
               target="_blank"
               role="menuitem"
@@ -85,12 +95,12 @@ const { getLocaleEmoji } = useLocaleEmoji();
 
             <a
               class="dropdown-item"
-              :href="appConfig.library.npmUrl"
+              :href="appConfig.library.dockerHubUrl"
               target="_blank"
               role="menuitem"
             >
-              <span aria-hidden="true" class="logo-icon logo-icon-npm"></span>
-              NPM
+              <span aria-hidden="true" class="logo-icon logo-icon-github"></span>
+              Docker Hub
             </a>
           </div>
         </li>
