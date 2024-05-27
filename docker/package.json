@@ -1,0 +1,23 @@
+{
+  "name": "shevchenko-http-api",
+  "version": "0.0.0",
+  "description": "shevchenko.js HTTP API",
+  "main": "./main.mjs",
+  "scripts": {
+    "start": "node ./main.mjs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tooleks/shevchenko-js.git"
+  },
+  "author": "Oleksandr Tolochko <tooleks@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/tooleks/shevchenko-js/issues"
+  },
+  "homepage": "https://github.com/tooleks/shevchenko-js#readme",
+  "dependencies": {
+    "express": "^4.19.2",
+    "shevchenko": "^3.0.8"
+  }
+}

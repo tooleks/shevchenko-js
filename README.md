@@ -104,6 +104,6 @@ async function main() {
 main().catch((error) => console.error(error));
 ```
 
-#### Usage via HTTP
+#### Usage via HTTP API
 
-The library can be integrated into your project via HTTP API. Please refer to [https://github.com/tooleks/shevchenko-http](https://github.com/tooleks/shevchenko-http) repository for more examples.
+The library can be integrated into your project via HTTP API. Please refer to [shevchenko](https://hub.docker.com/r/tooleks/shevchenko) Docker image for the additional instructions.

@@ -1,0 +1,78 @@
+@host = localhost:3000
+
+### Inflects an anthroponym in nominative grammatical case.
+POST http://{{host}}/nominative
+Content-Type: application/json
+
+{
+    "gender": "masculine",
+    "givenName": "Тарас",
+    "patronymicName": "Григорович",
+    "familyName": "Шевченко"
+}
+
+### Inflects an anthroponym in genitive grammatical case.
+POST http://{{host}}/genitive
+Content-Type: application/json
+
+{
+    "gender": "masculine",
+    "givenName": "Тарас",
+    "patronymicName": "Григорович",
+    "familyName": "Шевченко"
+}
+
+### Inflects an anthroponym in dative grammatical case.
+POST http://{{host}}/dative
+Content-Type: application/json
+
+{
+    "gender": "masculine",
+    "givenName": "Тарас",
+    "patronymicName": "Григорович",
+    "familyName": "Шевченко"
+}
+
+### Inflects an anthroponym in accusative grammatical case.
+POST http://{{host}}/accusative
+Content-Type: application/json
+
+{
+    "gender": "masculine",
+    "givenName": "Тарас",
+    "patronymicName": "Григорович",
+    "familyName": "Шевченко"
+}
+
+### Inflects an anthroponym in ablative grammatical case.
+POST http://{{host}}/ablative
+Content-Type: application/json
+
+{
+    "gender": "masculine",
+    "givenName": "Тарас",
+    "patronymicName": "Григорович",
+    "familyName": "Шевченко"
+}
+
+### Inflects an anthroponym in locative grammatical case.
+POST http://{{host}}/locative
+Content-Type: application/json
+
+{
+    "gender": "masculine",
+    "givenName": "Тарас",
+    "patronymicName": "Григорович",
+    "familyName": "Шевченко"
+}
+
+### Inflects an anthroponym in vocative grammatical case.
+POST http://{{host}}/vocative
+Content-Type: application/json
+
+{
+    "gender": "masculine",
+    "givenName": "Тарас",
+    "patronymicName": "Григорович",
+    "familyName": "Шевченко"
+}
