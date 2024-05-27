@@ -1,8 +1,8 @@
 import { WordClass } from '../../language';
 
-export interface FamilyNameClass {
+export type FamilyNameClass = {
   /**
    * The word class of the classified family name.
    */
   wordClass: WordClass;
-}
+};

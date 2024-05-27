@@ -1,25 +1,27 @@
 import { GrammaticalCase, GrammaticalGender, WordClass } from '../language';
 import { DeclensionRuleInflector } from './declension-rule-inflector';
-import { DeclensionRule } from './declension-types';
+import { ApplicationType, DeclensionRule } from './declension-types';
 
-export interface CustomRuleFilter {
-  (declensionRule: DeclensionRule, index: number, declensionRules: DeclensionRule[]): boolean;
-}
+export type CustomRuleFilter = (
+  declensionRule: DeclensionRule,
+  index: number,
+  declensionRules: DeclensionRule[],
+) => boolean;
 
-export interface DeclensionParams {
+export type DeclensionParams = {
   grammaticalCase: GrammaticalCase;
   gender: GrammaticalGender;
   wordClass?: WordClass;
-  applicationType?: string;
+  applicationType?: ApplicationType;
   customRuleFilter?: CustomRuleFilter;
-}
+};
 
 export class WordInflector {
   private readonly declensionRules: DeclensionRule[];
 
   constructor(declensionRules: DeclensionRule[]) {
     this.declensionRules = [...declensionRules].sort(
-      (firstRule, secondRule) => secondRule.priority - firstRule.priority,
+      (firstRule, lastRule) => lastRule.priority - firstRule.priority,
     );
   }
 

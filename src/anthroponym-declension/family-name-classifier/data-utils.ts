@@ -1,10 +1,10 @@
 /**
- * An interface representing a split of a dataset into training and validation sets.
+ * Represents a split of a dataset into training and validation sets.
  */
-export interface SplitData<T> {
+export type SplitData<T> = {
   trainingData: T[];
   validationData: T[];
-}
+};
 
 /**
  * Splits an array of objects into training and validation datasets, grouped by a specific feature and shuffled randomly within each group.

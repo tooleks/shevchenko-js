@@ -1,22 +1,24 @@
 import { GrammaticalCase, GrammaticalGender, WordClass } from '../language';
 
-export interface DeclensionRule {
+export type DeclensionRule = {
   description: string;
   examples: string[];
   wordClass: WordClass;
   gender: GrammaticalGender[];
   priority: number;
-  applicationType: string[];
+  applicationType: ApplicationType[];
   pattern: DeclensionPattern;
   grammaticalCases: GrammaticalCases;
-}
+};
 
-export interface DeclensionPattern {
+export type ApplicationType = 'givenName' | 'patronymicName' | 'familyName';
+
+export type DeclensionPattern = {
   find: string;
   modify: string;
-}
+};
 
-export interface GrammaticalCases {
+export type GrammaticalCases = {
   [GrammaticalCase.NOMINATIVE]: InflectionCommands[];
   [GrammaticalCase.GENITIVE]: InflectionCommands[];
   [GrammaticalCase.DATIVE]: InflectionCommands[];
@@ -24,16 +26,16 @@ export interface GrammaticalCases {
   [GrammaticalCase.ABLATIVE]: InflectionCommands[];
   [GrammaticalCase.LOCATIVE]: InflectionCommands[];
   [GrammaticalCase.VOCATIVE]: InflectionCommands[];
-}
+};
 
-export interface InflectionCommands {
+export type InflectionCommands = {
   [groupIndex: string]: InflectionCommand;
-}
+};
 
-export interface InflectionCommand {
+export type InflectionCommand = {
   action: InflectionCommandAction;
   value: string;
-}
+};
 
 export enum InflectionCommandAction {
   REPLACE = 'replace',

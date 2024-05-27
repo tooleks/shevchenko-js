@@ -1,5 +1,5 @@
 import { GrammaticalGender } from '../language';
-import { DeclensionRule } from './declension-types';
+import { ApplicationType, DeclensionRule } from './declension-types';
 
 /**
  * Determines if a given declension rule applies to a specified gender.
@@ -11,14 +11,17 @@ export function isGenderApplicable(rule: DeclensionRule, gender: GrammaticalGend
 /**
  * Determines if a given declension rule applies to a specified application type.
  */
-export function isApplicable(rule: DeclensionRule, applicationType: string): boolean {
+export function isApplicable(rule: DeclensionRule, applicationType: ApplicationType): boolean {
   return rule.applicationType.length === 0 || rule.applicationType.includes(applicationType);
 }
 
 /**
  * Determines if a given declension rule strictly applies to a specified application type.
  */
-export function isStriclyApplicable(rule: DeclensionRule, applicationType: string): boolean {
+export function isStriclyApplicable(
+  rule: DeclensionRule,
+  applicationType: ApplicationType,
+): boolean {
   return rule.applicationType.includes(applicationType);
 }
 

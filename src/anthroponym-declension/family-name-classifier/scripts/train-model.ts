@@ -1,5 +1,5 @@
-import { createReadStream } from 'fs';
-import { join as joinPath } from 'path';
+import { createReadStream } from 'node:fs';
+import { join as joinPath } from 'node:path';
 import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
 import { ALPHABET_SIZE, WordClass } from '../../../language';
@@ -13,10 +13,10 @@ import { WordTransformer } from '../word-transformer';
 const TRAINING_DATASET_FILEPATH = joinPath(__dirname, '../datasets/training.csv');
 const MODEL_ARTIFACTS_SOURCE = 'file://' + joinPath(__dirname, '../artifacts');
 
-export interface DataItem extends FamilyNameClass {
+export type DataItem = FamilyNameClass & {
   familyName: string;
   wordEnding: string;
-}
+};
 
 async function loadData(): Promise<SplitData<DataItem>> {
   const data: DataItem[] = [];

@@ -20,15 +20,15 @@ function replaceMacro(text: string): string {
 }
 
 const ruleFiles = [
-  'adjective-declension-rules.json',
-  'exception-declension-rules.json',
-  'noun-declension-rules.json',
+  '../adjective-declension-rules.json',
+  '../exception-declension-rules.json',
+  '../noun-declension-rules.json',
 ];
 
 const rules = [];
 
 for (const ruleFile of ruleFiles) {
-  const fileName = path.join(__dirname, '..', ruleFile);
+  const fileName = path.join(__dirname, ruleFile);
   const fileContents = fs.readFileSync(fileName, 'utf-8');
   const transformedFileContents = replaceMacro(fileContents);
   rules.push(...JSON.parse(transformedFileContents));

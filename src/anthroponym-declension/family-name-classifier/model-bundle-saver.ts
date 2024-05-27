@@ -1,18 +1,18 @@
-import { writeFile } from 'fs/promises';
-import * as path from 'path';
+import { writeFile } from 'node:fs/promises';
+import * as path from 'node:path';
 import * as tf from '@tensorflow/tfjs';
 
 const MODEL_BUNDLE_FILEPATH = path.join(__dirname, 'artifacts/model.bundle.json');
 
 type ModelMetadata = Omit<tf.io.ModelJSON, 'modelTopology' | 'weightsManifest'>;
 
-interface ModelBundle {
+type ModelBundle = {
   modelInfo: tf.io.ModelArtifactsInfo;
   modelTopology: Record<string, unknown>;
   weightSpecs: tf.io.WeightsManifestEntry[];
   weightData: string;
   modelMetadata: ModelMetadata;
-}
+};
 
 // Use Buffer on Node.js instead of Blob/atob/btoa
 const useNodeBuffer =

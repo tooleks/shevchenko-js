@@ -1,6 +1,6 @@
-import { createReadStream } from 'fs';
-import { writeFile } from 'fs/promises';
-import { join as joinPath } from 'path';
+import { createReadStream } from 'node:fs';
+import { writeFile } from 'node:fs/promises';
+import { join as joinPath } from 'node:path';
 import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
 import { FamilyNameClassTransformer } from '../family-name-class-transformer';
