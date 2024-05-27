@@ -21,7 +21,7 @@ export class GivenNameInflector extends NameInflector {
     return this.wordInflector.inflect(givenName, {
       grammaticalCase: grammaticalCase,
       gender: gender,
-      application: 'givenName',
+      applicationType: 'givenName',
     });
   }
 }

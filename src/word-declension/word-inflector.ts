@@ -10,7 +10,7 @@ export interface DeclensionParams {
   grammaticalCase: GrammaticalCase;
   gender: GrammaticalGender;
   wordClass?: WordClass;
-  application?: string;
+  applicationType?: string;
   customRuleFilter?: CustomRuleFilter;
 }
 
@@ -46,9 +46,9 @@ export class WordInflector {
       })
       .filter((declensionRule) => {
         return (
-          !params.application ||
-          declensionRule.application.length === 0 ||
-          declensionRule.application.includes(params.application)
+          !params.applicationType ||
+          declensionRule.applicationType.length === 0 ||
+          declensionRule.applicationType.includes(params.applicationType)
         );
       })
       .filter((declensionRule) => {

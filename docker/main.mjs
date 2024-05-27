@@ -10,9 +10,9 @@ const port = process.env.WEBAPI_PORT ?? 3000;
 app.use(express.json());
 
 function loadMeta() {
-  const meta = path.join(import.meta.dirname, 'node_modules/shevchenko/package.json');
-  const file = fs.readFileSync(meta);
-  const pkg = JSON.parse(file);
+  const fileName = path.join(import.meta.dirname, 'node_modules/shevchenko/package.json');
+  const fileContents = fs.readFileSync(fileName);
+  const pkg = JSON.parse(fileContents, 'utf-8');
   return { name: pkg.name, version: pkg.version };
 }
 

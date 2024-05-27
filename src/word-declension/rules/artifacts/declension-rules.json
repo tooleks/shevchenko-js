@@ -9,7 +9,7 @@
       "feminine"
     ],
     "priority": 6,
-    "application": [
+    "applicationType": [
       "givenName"
     ],
     "pattern": {
@@ -72,7 +72,7 @@
       "masculine"
     ],
     "priority": 6,
-    "application": [
+    "applicationType": [
       "givenName"
     ],
     "pattern": {
@@ -186,7 +186,7 @@
       "feminine"
     ],
     "priority": 6,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -256,7 +256,7 @@
       "feminine"
     ],
     "priority": 6,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -325,7 +325,7 @@
       "masculine"
     ],
     "priority": 6,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(а|е|є|и|і|ї|о|у|ю|я)вень$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -437,7 +437,7 @@
       "masculine"
     ],
     "priority": 6,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(а|е|є|и|і|ї|о|у|ю|я)лець$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -549,7 +549,7 @@
       "masculine"
     ],
     "priority": 6,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(к|п|кр|пл|др|жив)іт$",
       "modify": "(.{1})(.{1})$"
@@ -660,7 +660,7 @@
       "masculine"
     ],
     "priority": 6,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "грім$",
       "modify": "(.{1})(.{1})$"
@@ -771,7 +771,7 @@
       "masculine"
     ],
     "priority": 6,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(дзвін|хрін)$",
       "modify": "(.{1})(.{1})$"
@@ -882,7 +882,7 @@
       "masculine"
     ],
     "priority": 6,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "батіг$",
       "modify": "(.{1})(.{1})$"
@@ -993,7 +993,7 @@
       "masculine"
     ],
     "priority": 6,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "сокіл$",
       "modify": "(.{1})(.{1})$"
@@ -1094,7 +1094,7 @@
       "masculine"
     ],
     "priority": 6,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "кріль$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -1206,7 +1206,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "^(ігор|лазар)$",
       "modify": "(.{1})$"
@@ -1285,7 +1285,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -1363,7 +1363,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(а|е|є|и|і|ї|о|у|ю|я)(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)е(ц|н)ь$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -1474,7 +1474,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)е(ц|н)ь$",
       "modify": "(.{1})$"
@@ -1554,7 +1554,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(рід|плід)$",
       "modify": "(.{1})(.{1})$"
@@ -1667,7 +1667,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "^(б|в|г|ґ|д|дз|дж|ж|з|й|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)(а|е|є|и|і|ї|о|у|ю|я)ніс$",
       "modify": "(.{1})$"
@@ -1747,7 +1747,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(з|яв|г)ір$",
       "modify": "(.{1})(.{1})$"
@@ -1858,7 +1858,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "орел$",
       "modify": "(.{1})(.{1})$"
@@ -1959,7 +1959,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "якір$",
       "modify": "(.{1})(.{1})$"
@@ -2080,7 +2080,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": ".бідь$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -2191,7 +2191,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": ".мінь$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -2302,7 +2302,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "сіль$",
       "modify": "(.{1})$"
@@ -2381,7 +2381,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "кінь$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -2492,7 +2492,7 @@
       "masculine"
     ],
     "priority": 5,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "куліш$",
       "modify": "(.{1})$"
@@ -2560,7 +2560,7 @@
       "feminine"
     ],
     "priority": 4,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -2622,7 +2622,7 @@
       "feminine"
     ],
     "priority": 4,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -2684,7 +2684,7 @@
       "feminine"
     ],
     "priority": 4,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -2746,7 +2746,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(а|е|є|и|і|ї|о|у|ю|я)єць$",
       "modify": "(.{1})(.{1})(.{1})$"
@@ -2857,7 +2857,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "віз$",
       "modify": "(.{1})(.{1})$"
@@ -2968,7 +2968,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [
+    "applicationType": [
       "givenName"
     ],
     "pattern": {
@@ -3081,7 +3081,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": ".(к|р)іп$",
       "modify": "(.{1})(.{1})$"
@@ -3192,7 +3192,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "піп$",
       "modify": "(.{1})(.{1})$"
@@ -3303,7 +3303,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "ніс$",
       "modify": "(.{1})(.{1})$"
@@ -3414,7 +3414,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "віл$",
       "modify": "(.{1})(.{1})$"
@@ -3525,7 +3525,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "ріг$",
       "modify": "(.{1})(.{1})$"
@@ -3636,7 +3636,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "хід$",
       "modify": "(.{1})(.{1})$"
@@ -3749,7 +3749,7 @@
       "feminine"
     ],
     "priority": 4,
-    "application": [
+    "applicationType": [
       "givenName"
     ],
     "pattern": {
@@ -3809,7 +3809,7 @@
       "feminine"
     ],
     "priority": 4,
-    "application": [
+    "applicationType": [
       "givenName"
     ],
     "pattern": {
@@ -3878,7 +3878,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "ишин$",
       "modify": "(.{1})$"
@@ -3945,7 +3945,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(аго|ово)$",
       "modify": "(.{1})$"
@@ -3970,7 +3970,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "тер$",
       "modify": "(.{1})(.{1})$"
@@ -4061,7 +4061,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "світ$",
       "modify": "(.{1})$"
@@ -4129,7 +4129,7 @@
       "masculine"
     ],
     "priority": 4,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(в|д)ір$",
       "modify": "(.{1})$"
@@ -4208,7 +4208,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -4270,7 +4270,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "их$",
       "modify": "(.{1})$"
@@ -4295,7 +4295,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "га$",
       "modify": "(.{1})(.{1})$"
@@ -4370,7 +4370,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "кіш$",
       "modify": "(.{1})(.{1})$"
@@ -4462,7 +4462,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "ьо$",
       "modify": "(.{2})$"
@@ -4522,7 +4522,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "бусел$",
       "modify": "(.{1})(.{1})$"
@@ -4625,7 +4625,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "е[вмн]$",
       "modify": "(.{1})$"
@@ -4692,7 +4692,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "пес$",
       "modify": "(.{1})(.{1})$"
@@ -4783,7 +4783,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "ко$",
       "modify": "(.{1})$"
@@ -4862,7 +4862,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "ий$",
       "modify": "(.{1})$"
@@ -4935,7 +4935,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "йо$",
       "modify": "(.{2})$"
@@ -4995,7 +4995,7 @@
       "masculine"
     ],
     "priority": 3,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "бо$",
       "modify": "(.{1})$"
@@ -5056,7 +5056,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -5118,7 +5118,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -5180,7 +5180,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -5242,7 +5242,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -5304,7 +5304,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -5366,7 +5366,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -5429,7 +5429,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "patronymicName",
       "familyName"
     ],
@@ -5499,7 +5499,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "patronymicName",
       "familyName"
     ],
@@ -5587,7 +5587,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "patronymicName"
     ],
     "pattern": {
@@ -5656,7 +5656,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "givenName"
     ],
     "pattern": {
@@ -5725,7 +5725,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "givenName"
     ],
     "pattern": {
@@ -5795,7 +5795,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -5870,7 +5870,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [
+    "applicationType": [
       "familyName"
     ],
     "pattern": {
@@ -5951,7 +5951,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "яр$",
       "modify": "(.{1})$"
@@ -6030,7 +6030,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(о|ь|(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ))$",
       "modify": "(.{2})$"
@@ -6055,7 +6055,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "((?<=(а|е|є|и|і|ї|о|у|ю|я).*(а|е|є|и|і|ї|о|у|ю|я).*л)|(?<=(а|е|є|и|і|ї|о|у|ю|я).*[^л]))ок$",
       "modify": "(.{1})(.{1})$"
@@ -6156,7 +6156,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "е(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)$",
       "modify": "(.{1})$"
@@ -6224,7 +6224,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)я$",
       "modify": "(.{1})$"
@@ -6293,7 +6293,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "((а|е|є|и|і|ї|о|у|ю|я)|ь|й)я$",
       "modify": "(.{1})$"
@@ -6361,7 +6361,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(дж|ж|ч|ш)$",
       "modify": "(.{1})$"
@@ -6447,7 +6447,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(свекор|цукор)$",
       "modify": "(.{1})(.{1})$"
@@ -6558,7 +6558,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "снігир$",
       "modify": "(.{1})$"
@@ -6638,7 +6638,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "к$",
       "modify": "(.{1})$"
@@ -6717,7 +6717,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "х$",
       "modify": "(.{1})$"
@@ -6790,7 +6790,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "соловей$",
       "modify": "(.{1})(.{1})$"
@@ -6912,7 +6912,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "ха$",
       "modify": "(.{1})(.{1})$"
@@ -6994,7 +6994,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "ка$",
       "modify": "(.{1})(.{1})$"
@@ -7075,7 +7075,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "журавель$",
       "modify": "(.{3})$"
@@ -7155,7 +7155,7 @@
       "masculine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)о$",
       "modify": "(.{1})$"
@@ -7222,7 +7222,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(г|ґ)а$",
       "modify": "(.{1})(.{1})$"
@@ -7298,7 +7298,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "ле$",
       "modify": "(.{1})$"
@@ -7359,7 +7359,7 @@
       "feminine"
     ],
     "priority": 2,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(дж|ж|ч|ш|щ)а$",
       "modify": "(.{1})$"
@@ -7426,7 +7426,7 @@
       "masculine"
     ],
     "priority": 1,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)$",
       "modify": "(.{1})$"
@@ -7506,7 +7506,7 @@
       "feminine"
     ],
     "priority": 1,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "а$",
       "modify": "(.{1})$"
@@ -7573,7 +7573,7 @@
       "masculine"
     ],
     "priority": 1,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "й$",
       "modify": "(.{1})$"
@@ -7658,7 +7658,7 @@
       "masculine"
     ],
     "priority": 1,
-    "application": [],
+    "applicationType": [],
     "pattern": {
       "find": "ь$",
       "modify": "(.{1})$"
@@ -7726,7 +7726,7 @@
       "feminine"
     ],
     "priority": 1,
-    "application": [
+    "applicationType": [
       "givenName"
     ],
     "pattern": {

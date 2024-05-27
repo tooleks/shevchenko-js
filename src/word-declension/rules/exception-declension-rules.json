@@ -1,0 +1,842 @@
+[
+  {
+    "description": "чоловічі по батькові та прізвища / на -ич",
+    "examples": [
+      "валерійович",
+      "риндич"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "patronymicName",
+      "familyName"
+    ],
+    "pattern": {
+      "find": "ич$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "чоловічі по батькові та прізвища / на -іч",
+    "examples": [
+      "ілліч"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "patronymicName",
+      "familyName"
+    ],
+    "pattern": {
+      "find": "іч$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "жіночі по батькові / на -на",
+    "examples": [
+      "юріївна"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "patronymicName"
+    ],
+    "pattern": {
+      "find": "на$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "и"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "жіночі імена / на -(твердий приголосний)я",
+    "examples": [
+      "неля"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "givenName"
+    ],
+    "pattern": {
+      "find": "[твердий_приголосний]я$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ею"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "чоловічі імена / на -ня",
+    "examples": [
+      "женя"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "givenName"
+    ],
+    "pattern": {
+      "find": "ня$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ею"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "жіноче ім'я любов",
+    "examples": [
+      "любов"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 6,
+    "applicationType": [
+      "givenName"
+    ],
+    "pattern": {
+      "find": "^любов$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "'ю"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "чоловічі імена ігор, лазар",
+    "examples": [
+      "ігор",
+      "лазар"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "^(ігор|лазар)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "чоловічі імена федір, сидір",
+    "examples": [
+      "федір",
+      "сидір"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [
+      "givenName"
+    ],
+    "pattern": {
+      "find": "^(федір|сидір)$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "слово суддя",
+    "examples": [
+      "суддя"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 6,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "^суддя$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ею"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "слово рілля",
+    "examples": [
+      "рілля"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 6,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "^рілля$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ею"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "слово сіль",
+    "examples": [
+      "сіль"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "^сіль$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [],
+      "ablative": [
+        {
+          "2": {
+            "action": "replace",
+            "value": "лю"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  }
+]

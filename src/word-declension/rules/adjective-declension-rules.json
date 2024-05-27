@@ -1,0 +1,649 @@
+[
+  {
+    "description": "чоловічий рід / на -ой, -ий",
+    "examples": [
+      "толстой",
+      "сухомлинський"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "(ой|ий)$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ого"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ому"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ого"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "им"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ому"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "чоловічий рід / на -кій (помилкова транслітерація)",
+    "examples": [
+      "дідківській"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "кій$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ого"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ому"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ого"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "им"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ому"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "чоловічий рід / на -ій",
+    "examples": [
+      "заболотній"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "ій$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ього"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьому"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ього"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ім"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьому"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "жіночий рід / на -(твердий приголосний)ька",
+    "examples": [
+      "ільницька",
+      "сумська"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 4,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "[твердий_приголосний]ька$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ої"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "жіночий рід / на -ова",
+    "examples": [
+      "іванова"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 4,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "ова$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ої"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "жіночий рід / на -іна",
+    "examples": [
+      "зеленкіна"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 4,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "іна$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ої"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "жіночий рід / на -(твердий приголосний)а",
+    "examples": [
+      "зелена"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "[твердий_приголосний]а$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ої"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "жіночий рід / на -(твердий приголосний)я",
+    "examples": [
+      "задорожня"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "[твердий_приголосний]я$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьої"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "жіночий рід / на -ая",
+    "examples": [
+      "толстая"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "ая$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ої"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ую"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "жіночий рід / на -яя",
+    "examples": [
+      "заболотняя"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "яя$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьої"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ій"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "множина / на -их",
+    "examples": [
+      "седих"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "их$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [],
+      "dative": [],
+      "accusative": [],
+      "ablative": [],
+      "locative": [],
+      "vocative": []
+    }
+  }
+]

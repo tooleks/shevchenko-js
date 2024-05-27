@@ -9,17 +9,17 @@ export function isGenderApplicable(rule: DeclensionRule, gender: GrammaticalGend
 }
 
 /**
- * Determines if a given declension rule applies to a specified application.
+ * Determines if a given declension rule applies to a specified application type.
  */
-export function isApplicable(rule: DeclensionRule, application: string): boolean {
-  return rule.application.length === 0 || rule.application.includes(application);
+export function isApplicable(rule: DeclensionRule, applicationType: string): boolean {
+  return rule.applicationType.length === 0 || rule.applicationType.includes(applicationType);
 }
 
 /**
- * Determines if a given declension rule strictly applies to a specified application.
+ * Determines if a given declension rule strictly applies to a specified application type.
  */
-export function isStriclyApplicable(rule: DeclensionRule, application: string): boolean {
-  return rule.application.includes(application);
+export function isStriclyApplicable(rule: DeclensionRule, applicationType: string): boolean {
+  return rule.applicationType.includes(applicationType);
 }
 
 /**

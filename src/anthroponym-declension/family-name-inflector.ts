@@ -38,7 +38,7 @@ export class FamilyNameInflector extends NameInflector {
       grammaticalCase: grammaticalCase,
       gender: gender,
       wordClass: familyNameClass?.wordClass,
-      application: 'familyName',
+      applicationType: 'familyName',
     });
   }
 

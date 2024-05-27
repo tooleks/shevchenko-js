@@ -1,0 +1,6301 @@
+[
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(голосний)(твердий приголосний)е(ц|н)ь",
+    "examples": [
+      "половець"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "[голосний][твердий_приголосний]е(ц|н)ь$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(голосний)вень",
+    "examples": [
+      "півень"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "[голосний]вень$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(твердий приголосний)(твердий приголосний)е(ц|н)ь",
+    "examples": [
+      "жнець"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "[твердий_приголосний][твердий_приголосний]е(ц|н)ь$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(голосний)лець",
+    "examples": [
+      "стрілець",
+      "білець"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "[голосний]лець$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ь"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(голосний)єць",
+    "examples": [
+      "заєць"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "[голосний]єць$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -(к|п|кр|пл|др|жив)іт",
+    "examples": [
+      "кіт",
+      "кріт"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "(к|п|кр|пл|др|жив)іт$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -грім",
+    "examples": [
+      "грім"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "грім$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -віз",
+    "examples": [
+      "узвіз"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "віз$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ків",
+    "examples": [
+      "яків"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [
+      "givenName"
+    ],
+    "pattern": {
+      "find": ".ків$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -(к|р)іп",
+    "examples": [
+      "прокіп"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": ".(к|р)іп$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -піп",
+    "examples": [
+      "прокіп"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "піп$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -(рід|плід)",
+    "examples": [
+      "рід",
+      "плід"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "(рід|плід)$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -(дзвін|хрін)",
+    "examples": [
+      "дзвін"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "(дзвін|хрін)$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ніс",
+    "examples": [
+      "кривоніс"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "ніс$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / чоловічі прізвища на -ніс, без чергування",
+    "examples": [
+      "ханіс",
+      "деніс",
+      "маніс"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "^[приголосний][голосний]ніс$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -(з|яв)ір",
+    "examples": [
+      "дивозір",
+      "явір"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "(з|яв|г)ір$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -віл",
+    "examples": [
+      "рябовіл"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "віл$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ріг",
+    "examples": [
+      "пиріг"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "ріг$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "replace",
+            "value": "зі"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -хід",
+    "examples": [
+      "прихід"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "хід$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -батіг",
+    "examples": [
+      "батіг"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "батіг$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "replace",
+            "value": "зі"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "replace",
+            "value": "гу"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -орел",
+    "examples": [
+      "орел"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "орел$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "л"
+          },
+          "1": {
+            "action": "replace",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "л"
+          },
+          "1": {
+            "action": "replace",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "л"
+          },
+          "1": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "л"
+          },
+          "1": {
+            "action": "replace",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "л"
+          },
+          "1": {
+            "action": "replace",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "л"
+          },
+          "1": {
+            "action": "replace",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "л"
+          },
+          "1": {
+            "action": "replace",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -якір",
+    "examples": [
+      "якір"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "якір$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ю"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -сокіл",
+    "examples": [
+      "сокіл"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "сокіл$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -бідь",
+    "examples": [
+      "лебідь"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": ".бідь$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -мінь",
+    "examples": [
+      "кремінь"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": ".мінь$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -кріль",
+    "examples": [
+      "кріль"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "кріль$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / жіночий рід / м'яка група / на -(голосний)ль",
+    "examples": [
+      "мішель",
+      "ніколь",
+      "cесіль"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 4,
+    "applicationType": [
+      "givenName"
+    ],
+    "pattern": {
+      "find": "[голосний]ль$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "лл"
+          },
+          "1": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "друга відміна / жіночий рід / м'яка група / на (губний_приголосний)",
+    "examples": [
+      "зейнаб",
+      "руф"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 4,
+    "applicationType": [
+      "givenName"
+    ],
+    "pattern": {
+      "find": "[губний_приголосний]$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -сіль",
+    "examples": [
+      "кисіль"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "сіль$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -кінь",
+    "examples": [
+      "кінь"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "кінь$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -га",
+    "examples": [
+      "нога"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "га$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "и"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "з"
+          },
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "з"
+          },
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "о"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ов, -ев (-єв), -ів (-їв), -ін (-їн)",
+    "examples": [
+      "павлов",
+      "нікітін"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "([оеє]в|[ії]в|[ії]н)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "им"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ин",
+    "examples": [
+      "гаршин"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "[^у][^с]ин$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "им"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ишин",
+    "examples": [
+      "ковалишин"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "ишин$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "им"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -(аго|ово)",
+    "examples": [
+      "живаго"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "(аго|ово)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [],
+      "dative": [],
+      "accusative": [],
+      "ablative": [],
+      "locative": [],
+      "vocative": []
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -яр",
+    "examples": [
+      "скляр"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "яр$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -кіш",
+    "examples": [
+      "розкіш"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "кіш$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -ьо",
+    "examples": [
+      "іваньо",
+      "кузьо"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "ьо$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "м"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "друга відміна / жіночий рід / тверда, м'яка група / на -(о|ь|твердий приголосний)",
+    "examples": [
+      "шевченко"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "(о|ь|[твердий_приголосний])$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [],
+      "dative": [],
+      "accusative": [],
+      "ablative": [],
+      "locative": [],
+      "vocative": []
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ок",
+    "examples": [
+      "бурячок"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "((?<=[голосний].*[голосний].*л)|(?<=[голосний].*[^л]))ок$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -е(тверда_прилосона)",
+    "examples": [
+      "марек"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "е[твердий_приголосний]$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / бусел",
+    "examples": [
+      "бусел"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "бусел$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -е[вмн]",
+    "examples": [
+      "артем",
+      "семен",
+      "лев"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "е[вмн]$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -тер",
+    "examples": [
+      "вітер"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "тер$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -пес",
+    "examples": [
+      "пес"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "пес$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(твердий приголосний)я",
+    "examples": [
+      "гмиря"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "[твердий_приголосний]я$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ею"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий, жіночий роди / м'яка група / на -(голосний|ь|й)я",
+    "examples": [
+      "юлія",
+      "майя"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "([голосний]|ь|й)я$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "єю"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "є"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / мішана група / на -(дж|ж|ч|ш)",
+    "examples": [
+      "януш",
+      "джордж"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "(дж|ж|ч|ш)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ко",
+    "examples": [
+      "марко"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "ко$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -(твердий приголосний)",
+    "examples": [
+      "олександр"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 1,
+    "applicationType": [],
+    "pattern": {
+      "find": "[твердий_приголосний]$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / (свекор|цукор)",
+    "examples": [
+      "свекор",
+      "цукор"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "(свекор|цукор)$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / снігир",
+    "examples": [
+      "снігир"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "снігир$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "ю"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "ю"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -к",
+    "examples": [
+      "кузик",
+      "мисяк"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "к$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -х",
+    "examples": [
+      "кожух"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "х$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "перша відміна / чоловічий, жіночий роди / тверда група / на -а",
+    "examples": [
+      "анна"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 1,
+    "applicationType": [],
+    "pattern": {
+      "find": "а$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "и"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -й",
+    "examples": [
+      "валерій"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 1,
+    "applicationType": [],
+    "pattern": {
+      "find": "й$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "єві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "єм"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "єві"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / соловей",
+    "examples": [
+      "соловей"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "соловей$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "'я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "'єві"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "'ю"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "'я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "'єм"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "'ї"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "'ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "'єві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "'ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -ий",
+    "examples": [
+      "батий"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "ий$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "єм"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "перша відміна / чоловічий, жіночий роди / тверда група / на -ха",
+    "examples": [
+      "старуха"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "ха$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "и"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "с"
+          },
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "с"
+          },
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "о"
+          }
+        },
+        {
+          "1": {
+            "action": "replace",
+            "value": "а"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "перша відміна / чоловічий, жіночий роди / тверда група / на -ка",
+    "examples": [
+      "прилука"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "ка$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "и"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ц"
+          },
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ц"
+          },
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "о"
+          }
+        },
+        {
+          "1": {
+            "action": "replace",
+            "value": "а"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -ь",
+    "examples": [
+      "петрунь"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 1,
+    "applicationType": [],
+    "pattern": {
+      "find": "ь$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / журавель",
+    "examples": [
+      "журавель"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "журавель$",
+      "modify": "(.{3})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ля"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "леві"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "лю"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ля"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "лем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "лю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "лю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "перша відміна / чоловічий рід / тверда група / на -(твердий приголосний)о",
+    "examples": [
+      "петро",
+      "павло"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "[твердий_приголосний]о$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "перша відміна / чоловічий рід / тверда група / на -йо",
+    "examples": [
+      "йойо"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "йо$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "м"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ві"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "перша відміна / чоловічий рід / тверда група / на -бо",
+    "examples": [
+      "голембо"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "бо$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "и"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "перша відміна / жіночий рід / тверда група / на -(г|ґ)а",
+    "examples": [
+      "ольга"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "(г|ґ)а$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "и"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "з"
+          },
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "ою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "з"
+          },
+          "1": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "о"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "перша відміна / чоловічий рід / тверда група / на -світ",
+    "examples": [
+      "світ"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "світ$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "перша відміна / чоловічий рід / тверда група / на -ле",
+    "examples": [
+      "поле"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "ле$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -куліш",
+    "examples": [
+      "куліш"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [],
+    "pattern": {
+      "find": "куліш$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "перша відміна / чоловічий, жіночий роди / мішана група / на -а",
+    "examples": [
+      "мойша"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "(дж|ж|ч|ш|щ)а$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ею"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "чоловічі імена / на -(в|д)ір",
+    "examples": [
+      "дір",
+      "вір"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "(в|д)ір$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "жіночі імена / на -('|`)я",
+    "examples": [
+      "дар'я",
+      "мар'я"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 1,
+    "applicationType": [
+      "givenName"
+    ],
+    "pattern": {
+      "find": "('|`)я$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "єю"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "є"
+          }
+        }
+      ]
+    }
+  }
+]

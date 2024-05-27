@@ -6,7 +6,7 @@ export interface DeclensionRule {
   wordClass: WordClass;
   gender: GrammaticalGender[];
   priority: number;
-  application: string[];
+  applicationType: string[];
   pattern: DeclensionPattern;
   grammaticalCases: GrammaticalCases;
 }

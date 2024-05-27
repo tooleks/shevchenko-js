@@ -21,8 +21,9 @@ export class PatronymicNameInflector extends NameInflector {
     return this.wordInflector.inflect(patronymicName, {
       grammaticalCase: grammaticalCase,
       gender: gender,
-      application: 'patronymicName',
-      customRuleFilter: (declensionRule) => declensionRule.application.includes('patronymicName'),
+      applicationType: 'patronymicName',
+      customRuleFilter: (declensionRule) =>
+        declensionRule.applicationType.includes('patronymicName'),
     });
   }
 }
