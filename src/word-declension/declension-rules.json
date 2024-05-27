@@ -5799,7 +5799,7 @@
       "familyName"
     ],
     "pattern": {
-      "find": "([ое]в|[ії]в|[ії]н)$",
+      "find": "([оеє]в|[ії]в|[ії]н)$",
       "modify": "(.{1})$"
     },
     "grammaticalCases": {

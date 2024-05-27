@@ -7749,7 +7749,7 @@
       },
       "locative": {
         "familyName": "Русинові",
-        "givenName": "Платону",
+        "givenName": "Платонові",
         "patronymicName": "Отісовичу"
       },
       "vocative": {
@@ -7836,6 +7836,47 @@
         "familyName": "Нікітіне",
         "givenName": "Савелію",
         "patronymicName": "Веремійовичу"
+      }
+    }
+  },
+
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Андреєв",
+        "givenName": "Матвій",
+        "patronymicName": "Давидович"
+      },
+      "genitive": {
+        "familyName": "Андреєва",
+        "givenName": "Матвія",
+        "patronymicName": "Давидовича"
+      },
+      "dative": {
+        "familyName": "Андреєву",
+        "givenName": "Матвію",
+        "patronymicName": "Давидовичу"
+      },
+      "accusative": {
+        "familyName": "Андреєва",
+        "givenName": "Матвія",
+        "patronymicName": "Давидовича"
+      },
+      "ablative": {
+        "familyName": "Андреєвим",
+        "givenName": "Матвієм",
+        "patronymicName": "Давидовичем"
+      },
+      "locative": {
+        "familyName": "Андреєві",
+        "givenName": "Матвієві",
+        "patronymicName": "Давидовичу"
+      },
+      "vocative": {
+        "familyName": "Андреєве",
+        "givenName": "Матвію",
+        "patronymicName": "Давидовичу"
       }
     }
   }

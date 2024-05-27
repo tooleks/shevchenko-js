@@ -11,3 +11,6 @@ npm-debug.log
 
 # Output bundle
 /dist
+
+# Etc.
+/quick-test.ts
