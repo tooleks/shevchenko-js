@@ -201,6 +201,7 @@ const { getLocaleEmoji } = useLocaleEmoji();
 
   &-docker {
     background-image: url('~/assets/img/docker.svg');
+    background-position: bottom;
   }
 }
 </style>
