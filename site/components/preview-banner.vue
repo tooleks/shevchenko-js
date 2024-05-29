@@ -3,7 +3,7 @@ const appConfig = useAppConfig();
 </script>
 
 <template>
-  <section id="preview" class="jumbotron my-3">
+  <section id="preview" class="px-3 px-lg-4 py-4 my-3 bg-light rounded-3">
     <h1 class="text-truncate">
       {{ appConfig.library.displayName }}
       <span class="d-none d-lg-inline">

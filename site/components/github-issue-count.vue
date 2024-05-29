@@ -18,5 +18,5 @@ const issueCount = computed(() => {
 </script>
 
 <template>
-  <span v-if="!pending" class="badge badge-info">{{ issueCount }}</span>
+  <span v-if="!pending" class="badge bg-secondary">{{ issueCount }}</span>
 </template>

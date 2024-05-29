@@ -110,37 +110,46 @@ onMounted(async () => {
 </script>
 
 <template>
-  <form id="declension-form" @submit.prevent="handleInflectAction">
-    <div class="card">
-      <div class="card-body">
+  <form
+    id="declension-form"
+    class="card flex-grow-1 flex-fill"
+    @submit.prevent="handleInflectAction"
+  >
+    <div class="card-body d-flex flex-column justify-content-between">
+      <div class="mb-4">
         <div class="alert alert-info" role="alert">
           {{ $t('declension.instruction') }}
         </div>
 
-        <div class="form-group">
-          <label
-            v-for="genderOption in genderOptions"
-            :key="genderOption"
-            class="radio-inline mr-2"
-          >
-            <input v-model="formData.gender" type="radio" name="gender" :value="genderOption" />
-            {{ $t(`grammaticalGender.${genderOption}`) }}
-            <span v-if="genderOption === AUTO_GENDER_OPTION">
-              ({{ $t(`grammaticalGender.${declensionInput.gender}`) }})
-            </span>
-          </label>
+        <div class="mb-3">
+          <div class="mb-2">
+            <label
+              v-for="genderOption in genderOptions"
+              :key="genderOption"
+              class="radio-inline me-2"
+            >
+              <input v-model="formData.gender" type="radio" name="gender" :value="genderOption" />
+              {{ $t(`grammaticalGender.${genderOption}`) }}
+              <span v-if="genderOption === AUTO_GENDER_OPTION">
+                ({{ $t(`grammaticalGender.${declensionInput.gender}`) }})
+              </span>
+            </label>
+          </div>
 
           <div v-if="isGenderError" class="alert alert-danger">
             {{ $t('grammaticalGender.detectionFailed') }}
           </div>
 
-          <small v-else-if="formData.gender === AUTO_GENDER_OPTION" class="form-text text-muted">
+          <small
+            v-else-if="formData.gender === AUTO_GENDER_OPTION"
+            class="d-block form-text text-muted"
+          >
             {{ $t('grammaticalGender.autoDetection') }}
           </small>
         </div>
 
-        <div class="form-group">
-          <label for="family-name">
+        <div class="mb-3">
+          <label class="form-label" for="family-name">
             {{ $t('anthroponym.familyName') }}
           </label>
 
@@ -154,8 +163,8 @@ onMounted(async () => {
           />
         </div>
 
-        <div class="form-group">
-          <label for="given-name">
+        <div class="mb-3">
+          <label class="form-label" for="given-name">
             {{ $t('anthroponym.givenName') }}
           </label>
 
@@ -169,8 +178,8 @@ onMounted(async () => {
           />
         </div>
 
-        <div class="form-group">
-          <label for="patronymic-name">
+        <div class="mb-0">
+          <label class="form-label" for="patronymic-name">
             {{ $t('anthroponym.patronymicName') }}
           </label>
 
@@ -190,7 +199,7 @@ onMounted(async () => {
         </div>
       </div>
 
-      <div class="card-footer">
+      <div>
         <button type="submit" class="btn btn-primary">
           {{ $t('declension.inflect') }}
         </button>

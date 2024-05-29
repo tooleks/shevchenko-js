@@ -9,13 +9,13 @@ const appConfig = useAppConfig();
     <div class="row mb-1">
       <div class="col-12">
         <ul class="list-unstyled mb-0" role="menubar">
-          <li class="d-block mb-1 d-md-inline mr-md-3 mb-md-0" role="presentation">
+          <li class="d-block mb-1 d-md-inline me-md-3 mb-md-0" role="presentation">
             <span class="text-muted">
               {{ `${appConfig.library.displayName} v${appConfig.library.version}` }}
             </span>
           </li>
 
-          <li class="d-inline align-middle mr-2" role="presentation">
+          <li class="d-inline align-middle me-2" role="presentation">
             <a
               :href="appConfig.library.npmUrl"
               class="text-decoration-none"
@@ -27,7 +27,7 @@ const appConfig = useAppConfig();
             </a>
           </li>
 
-          <li class="d-inline align-middle mr-2" role="presentation">
+          <li class="d-inline align-middle me-2" role="presentation">
             <a
               :href="appConfig.library.gitHubUrl"
               class="text-decoration-none"
@@ -39,7 +39,7 @@ const appConfig = useAppConfig();
             </a>
           </li>
 
-          <li class="d-inline align-middle mr-2" role="presentation">
+          <li class="d-inline align-middle me-2" role="presentation">
             <a
               :href="appConfig.library.dockerHubUrl"
               class="text-decoration-none"
@@ -47,11 +47,11 @@ const appConfig = useAppConfig();
               role="menuitem"
             >
               <span aria-hidden="true" class="logo-icon logo-icon-docker"></span>
-              Docker Hub
+              Docker Hub <span class="badge bg-primary">{{ $t('new') }}</span>
             </a>
           </li>
 
-          <li class="d-inline mr-2" role="presentation">
+          <li class="d-inline me-2" role="presentation">
             <ModalButton
               class="btn btn-link text-decoration-none p-0"
               role="menuitem"

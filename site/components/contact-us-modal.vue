@@ -19,17 +19,21 @@ const mailtoUrl = computed(() => {
     tabindex="-1"
     role="dialog"
     aria-labelledby="contact-me-label"
+    aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 id="contact-me-label" class="modal-title">
+          <h5 id="contact-me-label" class="modal-title">
             {{ $t('contactUs') }}
-          </h4>
+          </h5>
 
-          <button type="button" class="close" data-dismiss="modal" :aria-label="$t('action.close')">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            :aria-label="$t('action.close')"
+          ></button>
         </div>
 
         <div class="modal-body">
@@ -49,7 +53,7 @@ const mailtoUrl = computed(() => {
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">
+          <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">
             {{ $t('action.close') }}
           </button>
 

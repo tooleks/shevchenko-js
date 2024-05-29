@@ -1,6 +1,6 @@
 # shevchenko.js HTTP API
 
-The official HTTP API of [shevchenko.js](https://shevchenko-js.tooleks.com) library.
+HTTP API to interact with [shevchenko.js](https://shevchenko-js.tooleks.com) library.
 
 ## Installation
 

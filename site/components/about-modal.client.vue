@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, watch, onMounted } from 'vue';
-import $ from 'jquery';
+import * as bootstrap from 'bootstrap';
 
 const route = useRoute();
 
@@ -13,11 +13,13 @@ function autoShowAboutModal(): void {
 }
 
 function showAboutModal(): void {
-  $('#about-modal').modal('show');
+  const modal = new bootstrap.Modal('#about-modal');
+  modal.show();
 }
 
 function hideAboutModal(): void {
-  $('#about-modal').modal('hide');
+  const modal = new bootstrap.Modal('#about-modal');
+  modal.hide();
 }
 
 onMounted(() => autoShowAboutModal());
@@ -31,17 +33,21 @@ watch(isAboutLink, () => autoShowAboutModal());
     tabindex="-1"
     role="dialog"
     aria-labelledby="about-label"
+    aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h4 id="about-label" class="modal-title">
+          <h5 id="about-label" class="modal-title">
             {{ $t('aboutUs') }}
-          </h4>
+          </h5>
 
-          <button type="button" class="close" data-dismiss="modal" :aria-label="$t('action.close')">
-            <span aria-hidden="true">&times;</span>
-          </button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            :aria-label="$t('action.close')"
+          ></button>
         </div>
 
         <div class="modal-body">

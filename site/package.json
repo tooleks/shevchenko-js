@@ -9,7 +9,7 @@
   },
   "devDependencies": {
     "@nuxtjs/eslint-config-typescript": "^11.0.0",
-    "@types/jquery": "^3.5.16",
+    "@types/bootstrap": "^5.2.10",
     "@types/showdown": "^2.0.0",
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
@@ -30,12 +30,10 @@
     "typescript": "^4.8.4"
   },
   "dependencies": {
-    "bootstrap": "^4.6.2",
+    "bootstrap": "^5.3.3",
     "country-code-emoji": "^2.3.0",
     "font-awesome": "^4.7.0",
-    "jquery": "^3.6.4",
     "lodash": "^4.17.21",
-    "popper.js": "^1.14.6",
     "shevchenko": "../",
     "showdown": "^2.1.0",
     "vue-i18n": "^9.2.2",

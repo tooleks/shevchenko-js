@@ -1,5 +1,5 @@
 <template>
-  <div class="jumbotron my-3">
+  <div class="px-3 px-lg-4 py-4 my-3 bg-light rounded-3">
     <h1 class="text-truncate">
       {{ $t('error.404.title') }}
     </h1>

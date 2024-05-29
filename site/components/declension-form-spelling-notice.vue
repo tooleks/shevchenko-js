@@ -34,7 +34,7 @@ const correctPatronymicNameSpelling = computed(() => {
 <template>
   <small
     v-if="anthroponym.patronymicName !== correctPatronymicNameSpelling"
-    class="form-text text-muted"
+    class="d-block form-text text-muted"
   >
     {{
       $t('declension.correctionMessage', {

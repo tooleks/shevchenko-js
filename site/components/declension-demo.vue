@@ -12,28 +12,24 @@
     </div>
 
     <div class="row">
-      <div class="col-lg-5 mb-2 mb-lg-0">
+      <div class="col-lg-5 mb-2 mb-lg-0 d-flex">
         <DeclensionForm v-bind="$attrs" />
       </div>
 
-      <div class="col-lg-7">
-        <div class="card mb-2">
-          <DeclensionResults />
-        </div>
+      <div class="col-lg-7 d-flex">
+        <div class="card flex-grow-1 flex-fill">
+          <div class="card-body d-flex flex-column justify-content-between">
+            <DeclensionResults class="mb-3" />
 
-        <div class="card">
-          <table class="table table-borderless mb-0">
-            <tr>
-              <td>
-                <div
-                  class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-md-between"
-                >
-                  {{ $t('declension.shareResult') }}
-                  <ShareLinks buttons-class="mt-1 mt-md-0 mr-md-2" />
-                </div>
-              </td>
-            </tr>
-          </table>
+            <div class="alert alert-light mb-0" role="alert">
+              <div
+                class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-md-between"
+              >
+                {{ $t('declension.shareResult') }}
+                <ShareLinks buttons-class="mt-1 mt-md-0 me-md-2" />
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>

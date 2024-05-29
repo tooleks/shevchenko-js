@@ -5,7 +5,7 @@ defineProps({
 </script>
 
 <template>
-  <a href="#" data-toggle="modal" :data-target="`#${modalId}`">
+  <a href="#" data-bs-toggle="modal" :data-bs-target="`#${modalId}`">
     <slot />
   </a>
 </template>
