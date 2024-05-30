@@ -1,4 +1,4 @@
-import { dirname, resolve as resolvePath } from 'path';
+import * as path from 'node:path';
 import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
@@ -34,11 +34,11 @@ export default [
         entries: [
           {
             find: /@tensorflow\/tfjs$/,
-            replacement: resolvePath(__dirname, './vendor/tfjs/custom_tfjs.js'),
+            replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs.js'),
           },
           {
             find: /@tensorflow\/tfjs-core$/,
-            replacement: resolvePath(__dirname, './vendor/tfjs/custom_tfjs_core.js'),
+            replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs_core.js'),
           },
         ],
       }),
@@ -52,7 +52,7 @@ export default [
   {
     input: './src/index.ts',
     output: {
-      dir: dirname(pkg.main),
+      dir: path.dirname(pkg.main),
       format: 'cjs',
       banner: banner.trim(),
       sourcemap: true,
@@ -64,7 +64,7 @@ export default [
   {
     input: './src/index.ts',
     output: {
-      dir: dirname(pkg.module),
+      dir: path.dirname(pkg.module),
       format: 'es',
       banner: banner.trim(),
       sourcemap: true,
@@ -76,7 +76,7 @@ export default [
         tsconfig: './tsconfig.module.json',
         declaration: true,
         declarationMap: true,
-        declarationDir: dirname(pkg.module),
+        declarationDir: path.dirname(pkg.module),
       }),
     ],
     external: Object.getOwnPropertyNames(pkg.dependencies),

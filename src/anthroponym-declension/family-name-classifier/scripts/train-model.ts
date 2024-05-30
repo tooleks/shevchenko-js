@@ -1,5 +1,5 @@
-import { createReadStream } from 'node:fs';
-import { join as joinPath } from 'node:path';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
 import { ALPHABET_SIZE, WordClass } from '../../../language';
@@ -10,8 +10,8 @@ import { ModelBundleSaver } from '../model-bundle-saver';
 import { MODEL_INPUT_SIZE } from '../model-config';
 import { WordTransformer } from '../word-transformer';
 
-const TRAINING_DATASET_FILEPATH = joinPath(__dirname, '../datasets/training.csv');
-const MODEL_ARTIFACTS_SOURCE = 'file://' + joinPath(__dirname, '../artifacts');
+const TRAINING_DATASET_FILEPATH = path.join(__dirname, '../datasets/training.csv');
+const MODEL_ARTIFACTS_SOURCE = 'file://' + path.join(__dirname, '../artifacts');
 
 export type DataItem = FamilyNameClass & {
   familyName: string;
@@ -21,7 +21,7 @@ export type DataItem = FamilyNameClass & {
 async function loadData(): Promise<SplitData<DataItem>> {
   const data: DataItem[] = [];
   const dataParser = createCsvParser({ columns: true });
-  createReadStream(TRAINING_DATASET_FILEPATH).pipe(dataParser);
+  fs.createReadStream(TRAINING_DATASET_FILEPATH).pipe(dataParser);
 
   for await (const dataRow of dataParser) {
     data.push({

@@ -1,8 +1,8 @@
-const { copyFileSync } = require('fs');
-const { join: joinPath } = require('path');
+const fs = require('node:fs');
+const path = require('node:path');
 
 // Create /en-US -> /en.html route alias.
-copyFileSync(
-  joinPath(__dirname, '../.output/public/en-US/index.html'),
-  joinPath(__dirname, '../.output/public/en.html')
+fs.copyFileSync(
+  path.join(__dirname, '../.output/public/en-US/index.html'),
+  path.join(__dirname, '../.output/public/en.html'),
 );

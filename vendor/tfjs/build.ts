@@ -1,6 +1,6 @@
-import { exec } from 'child_process';
-import { readFile, writeFile } from 'fs/promises';
-import { join as joinPath } from 'path';
+import { exec } from 'node:child_process';
+import * as fs from 'node:fs/promises';
+import * as path from 'node:path';
 import * as tf from '@tensorflow/tfjs';
 import {
   FamilyNameClassifier,
@@ -8,8 +8,8 @@ import {
 } from '../../src/anthroponym-declension/family-name-classifier';
 
 const TFJS_CONFIG_FILENAME = 'custom_tfjs_config.json';
-const TFJS_CONFIG_FILEPATH = joinPath(__dirname, TFJS_CONFIG_FILENAME);
-const TFJS_BUNDLE_FILEPATH = joinPath(__dirname, 'custom_tfjs.js');
+const TFJS_CONFIG_FILEPATH = path.join(__dirname, TFJS_CONFIG_FILENAME);
+const TFJS_BUNDLE_FILEPATH = path.join(__dirname, 'custom_tfjs.js');
 
 async function detectUsedKernels(): Promise<string[]> {
   const profileInfo = await tf.profile(async () => {
@@ -22,11 +22,11 @@ async function detectUsedKernels(): Promise<string[]> {
 }
 
 async function configureUsedKernels(kernels: string[]): Promise<void> {
-  let json = await readFile(TFJS_CONFIG_FILEPATH, 'utf-8');
+  let json = await fs.readFile(TFJS_CONFIG_FILEPATH, 'utf-8');
   const config = JSON.parse(json);
   config.kernels = kernels;
   json = JSON.stringify(config, null, 2);
-  await writeFile(TFJS_CONFIG_FILEPATH, json, 'utf-8');
+  await fs.writeFile(TFJS_CONFIG_FILEPATH, json, 'utf-8');
 }
 
 function buildCustomBundle(): Promise<void> {
@@ -48,11 +48,11 @@ function buildCustomBundle(): Promise<void> {
 
 async function addLayersExport(): Promise<void> {
   const exports = ["export * from '@tensorflow/tfjs-layers';"];
-  let code = await readFile(TFJS_BUNDLE_FILEPATH, 'utf-8');
+  let code = await fs.readFile(TFJS_BUNDLE_FILEPATH, 'utf-8');
   for (const exportEntry of exports) {
     code += `\n${exportEntry}`;
   }
-  await writeFile(TFJS_BUNDLE_FILEPATH, code, 'utf-8');
+  await fs.writeFile(TFJS_BUNDLE_FILEPATH, code, 'utf-8');
 }
 
 async function main(): Promise<void> {

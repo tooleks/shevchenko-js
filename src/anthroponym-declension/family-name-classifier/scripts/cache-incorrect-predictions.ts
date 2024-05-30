@@ -1,6 +1,6 @@
 import { createReadStream } from 'node:fs';
-import { writeFile } from 'node:fs/promises';
-import { join as joinPath } from 'node:path';
+import * as fs from 'node:fs/promises';
+import * as path from 'node:path';
 import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
 import { FamilyNameClassTransformer } from '../family-name-class-transformer';
@@ -8,8 +8,8 @@ import { ModelBundleLoader } from '../model-bundle-loader';
 import { MODEL_INPUT_SIZE } from '../model-config';
 import { WordTransformer } from '../word-transformer';
 
-const TRAINING_DATASET_FILEPATH = joinPath(__dirname, '../datasets/training.csv');
-const INCORRECT_PREDICTIONS_FILEPATH = joinPath(__dirname, '../cache/incorrect-predictions.json');
+const TRAINING_DATASET_FILEPATH = path.join(__dirname, '../datasets/training.csv');
+const INCORRECT_PREDICTIONS_FILEPATH = path.join(__dirname, '../cache/incorrect-predictions.json');
 
 type IncorrectPredictions = Record<string, string>;
 
@@ -35,7 +35,7 @@ async function retrieveIncorrectPredictions(): Promise<IncorrectPredictions> {
 }
 
 async function saveIncorrectPredictions(cache: IncorrectPredictions): Promise<void> {
-  await writeFile(INCORRECT_PREDICTIONS_FILEPATH, JSON.stringify(cache, null, 2), 'utf-8');
+  await fs.writeFile(INCORRECT_PREDICTIONS_FILEPATH, JSON.stringify(cache, null, 2), 'utf-8');
 }
 
 async function main(): Promise<void> {
