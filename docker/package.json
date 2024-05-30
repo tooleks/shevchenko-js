@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/tooleks/shevchenko-js.git"
   },
-  "author": "Oleksandr Tolochko <tooleks@gmail.com>",
+  "author": "Oleksandr Tolochko <shevchenko-js@tooleks.com>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/tooleks/shevchenko-js/issues"

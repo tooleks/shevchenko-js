@@ -37,11 +37,10 @@
     "type": "git",
     "url": "git+https://github.com/tooleks/shevchenko-js.git"
   },
-  "author": "Oleksandr Tolochko <tooleks@gmail.com>",
+  "author": "Oleksandr Tolochko <shevchenko-js@tooleks.com>",
   "contributors": [
-    "Anna Tolochko <anya.pogorelova@gmail.com>",
-    "Tetyana Tolochko",
-    "spetrik <sergei.petrik@gmail.com> (https://github.com/spetrik)"
+    "Anna Tolochko",
+    "Tetyana Tolochko"
   ],
   "license": "MIT",
   "bugs": {

@@ -8,7 +8,7 @@ const websiteName = new URL(BASE_URL).hostname;
 export default {
   website: {
     url: BASE_URL,
-    email: 'tooleks@gmail.com',
+    email: 'shevchenko-js@tooleks.com',
     copyright: `© 2017-${currentYear} ${websiteName}`,
   },
   library: {
