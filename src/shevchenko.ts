@@ -19,10 +19,10 @@ export { Anthroponym } from './anthroponym-declension';
  * @example
  * ```ts
  * const anthroponym = await shevchenko.inNominative({
- *   "gender": shevchenko.GrammaticalGender.MASCULINE,
- *   "givenName": "Тарас",
- *   "patronymicName": "Григорович",
- *   "familyName": "Шевченко"
+ *   gender: shevchenko.GrammaticalGender.MASCULINE,
+ *   givenName: 'Тарас',
+ *   patronymicName: 'Григорович',
+ *   familyName: 'Шевченко',
  * });
  * ```
  * @throws {TypeError} Input validation error.
@@ -38,10 +38,10 @@ export async function inNominative(input: DeclensionInput): Promise<DeclensionOu
  * @example
  * ```ts
  * const anthroponym = await shevchenko.inGenitive({
- *   "gender": shevchenko.GrammaticalGender.MASCULINE,
- *   "givenName": "Тарас",
- *   "patronymicName": "Григорович",
- *   "familyName": "Шевченко"
+ *   gender: shevchenko.GrammaticalGender.MASCULINE,
+ *   givenName: 'Тарас',
+ *   patronymicName: 'Григорович',
+ *   familyName: 'Шевченко',
  * });
  * ```
  * @throws {TypeError} Input validation error.
@@ -57,10 +57,10 @@ export async function inGenitive(input: DeclensionInput): Promise<DeclensionOutp
  * @example
  * ```ts
  * const anthroponym = await shevchenko.inDative({
- *   "gender": shevchenko.GrammaticalGender.MASCULINE,
- *   "givenName": "Тарас",
- *   "patronymicName": "Григорович",
- *   "familyName": "Шевченко"
+ *   gender: shevchenko.GrammaticalGender.MASCULINE,
+ *   givenName: 'Тарас',
+ *   patronymicName: 'Григорович',
+ *   familyName: 'Шевченко',
  * });
  * ```
  * @throws {TypeError} Input validation error.
@@ -76,10 +76,10 @@ export async function inDative(input: DeclensionInput): Promise<DeclensionOutput
  * @example
  * ```ts
  * const anthroponym = await shevchenko.inAccusative({
- *   "gender": shevchenko.GrammaticalGender.MASCULINE,
- *   "givenName": "Тарас",
- *   "patronymicName": "Григорович",
- *   "familyName": "Шевченко"
+ *   gender: shevchenko.GrammaticalGender.MASCULINE,
+ *   givenName: 'Тарас',
+ *   patronymicName: 'Григорович',
+ *   familyName: 'Шевченко',
  * });
  * ```
  * @throws {TypeError} Input validation error.
@@ -95,10 +95,10 @@ export async function inAccusative(input: DeclensionInput): Promise<DeclensionOu
  * @example
  * ```ts
  * const anthroponym = await shevchenko.inAblative({
- *   "gender": shevchenko.GrammaticalGender.MASCULINE,
- *   "givenName": "Тарас",
- *   "patronymicName": "Григорович",
- *   "familyName": "Шевченко"
+ *   gender: shevchenko.GrammaticalGender.MASCULINE,
+ *   givenName: 'Тарас',
+ *   patronymicName: 'Григорович',
+ *   familyName: 'Шевченко',
  * });
  * ```
  * @throws {TypeError} Input validation error.
@@ -114,10 +114,10 @@ export async function inAblative(input: DeclensionInput): Promise<DeclensionOutp
  * @example
  * ```ts
  * const anthroponym = await shevchenko.inLocative({
- *   "gender": shevchenko.GrammaticalGender.MASCULINE,
- *   "givenName": "Тарас",
- *   "patronymicName": "Григорович",
- *   "familyName": "Шевченко"
+ *   gender: shevchenko.GrammaticalGender.MASCULINE,
+ *   givenName: 'Тарас',
+ *   patronymicName: 'Григорович',
+ *   familyName: 'Шевченко',
  * });
  * ```
  * @throws {TypeError} Input validation error.
@@ -133,10 +133,10 @@ export async function inLocative(input: DeclensionInput): Promise<DeclensionOutp
  * @example
  * ```ts
  * const anthroponym = await shevchenko.inVocative({
- *   "gender": shevchenko.GrammaticalGender.MASCULINE,
- *   "givenName": "Тарас",
- *   "patronymicName": "Григорович",
- *   "familyName": "Шевченко"
+ *   gender: shevchenko.GrammaticalGender.MASCULINE,
+ *   givenName: 'Тарас',
+ *   patronymicName: 'Григорович',
+ *   familyName: 'Шевченко',
  * });
  * ```
  * @throws {TypeError} Input validation error.
@@ -153,9 +153,9 @@ export async function inVocative(input: DeclensionInput): Promise<DeclensionOutp
  * @example
  * ```ts
  * const gender = await shevchenko.detectGender({
- *   "givenName": "Тарас",
- *   "patronymicName": "Григорович",
- *   "familyName": "Шевченко"
+ *   givenName: 'Тарас',
+ *   patronymicName: 'Григорович',
+ *   familyName: 'Шевченко',
  * });
  * ```
  * @throws {TypeError} Input validation error.
