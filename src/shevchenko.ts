@@ -16,6 +16,15 @@ export { Anthroponym } from './anthroponym-declension';
 /**
  * Inflects an anthroponym in nominative grammatical case.
  *
+ * @example
+ * ```ts
+ * const anthroponym = await shevchenko.inNominative({
+ *   "gender": shevchenko.GrammaticalGender.MASCULINE,
+ *   "givenName": "Тарас",
+ *   "patronymicName": "Григорович",
+ *   "familyName": "Шевченко"
+ * });
+ * ```
  * @throws {TypeError} Input validation error.
  */
 export async function inNominative(input: DeclensionInput): Promise<DeclensionOutput> {
@@ -26,6 +35,15 @@ export async function inNominative(input: DeclensionInput): Promise<DeclensionOu
 /**
  * Inflects an anthroponym in genitive grammatical case.
  *
+ * @example
+ * ```ts
+ * const anthroponym = await shevchenko.inGenitive({
+ *   "gender": shevchenko.GrammaticalGender.MASCULINE,
+ *   "givenName": "Тарас",
+ *   "patronymicName": "Григорович",
+ *   "familyName": "Шевченко"
+ * });
+ * ```
  * @throws {TypeError} Input validation error.
  */
 export async function inGenitive(input: DeclensionInput): Promise<DeclensionOutput> {
@@ -36,6 +54,15 @@ export async function inGenitive(input: DeclensionInput): Promise<DeclensionOutp
 /**
  * Inflects an anthroponym in dative grammatical case.
  *
+ * @example
+ * ```ts
+ * const anthroponym = await shevchenko.inDative({
+ *   "gender": shevchenko.GrammaticalGender.MASCULINE,
+ *   "givenName": "Тарас",
+ *   "patronymicName": "Григорович",
+ *   "familyName": "Шевченко"
+ * });
+ * ```
  * @throws {TypeError} Input validation error.
  */
 export async function inDative(input: DeclensionInput): Promise<DeclensionOutput> {
@@ -46,6 +73,15 @@ export async function inDative(input: DeclensionInput): Promise<DeclensionOutput
 /**
  * Inflects an anthroponym in accusative grammatical case.
  *
+ * @example
+ * ```ts
+ * const anthroponym = await shevchenko.inAccusative({
+ *   "gender": shevchenko.GrammaticalGender.MASCULINE,
+ *   "givenName": "Тарас",
+ *   "patronymicName": "Григорович",
+ *   "familyName": "Шевченко"
+ * });
+ * ```
  * @throws {TypeError} Input validation error.
  */
 export async function inAccusative(input: DeclensionInput): Promise<DeclensionOutput> {
@@ -56,6 +92,15 @@ export async function inAccusative(input: DeclensionInput): Promise<DeclensionOu
 /**
  * Inflects an anthroponym in ablative grammatical case.
  *
+ * @example
+ * ```ts
+ * const anthroponym = await shevchenko.inAblative({
+ *   "gender": shevchenko.GrammaticalGender.MASCULINE,
+ *   "givenName": "Тарас",
+ *   "patronymicName": "Григорович",
+ *   "familyName": "Шевченко"
+ * });
+ * ```
  * @throws {TypeError} Input validation error.
  */
 export async function inAblative(input: DeclensionInput): Promise<DeclensionOutput> {
@@ -66,6 +111,15 @@ export async function inAblative(input: DeclensionInput): Promise<DeclensionOutp
 /**
  * Inflects an anthroponym in locative grammatical case.
  *
+ * @example
+ * ```ts
+ * const anthroponym = await shevchenko.inLocative({
+ *   "gender": shevchenko.GrammaticalGender.MASCULINE,
+ *   "givenName": "Тарас",
+ *   "patronymicName": "Григорович",
+ *   "familyName": "Шевченко"
+ * });
+ * ```
  * @throws {TypeError} Input validation error.
  */
 export async function inLocative(input: DeclensionInput): Promise<DeclensionOutput> {
@@ -76,6 +130,15 @@ export async function inLocative(input: DeclensionInput): Promise<DeclensionOutp
 /**
  * Inflects an anthroponym in vocative grammatical case.
  *
+ * @example
+ * ```ts
+ * const anthroponym = await shevchenko.inVocative({
+ *   "gender": shevchenko.GrammaticalGender.MASCULINE,
+ *   "givenName": "Тарас",
+ *   "patronymicName": "Григорович",
+ *   "familyName": "Шевченко"
+ * });
+ * ```
  * @throws {TypeError} Input validation error.
  */
 export async function inVocative(input: DeclensionInput): Promise<DeclensionOutput> {
@@ -87,6 +150,14 @@ export async function inVocative(input: DeclensionInput): Promise<DeclensionOutp
  * Returns the grammatical gender of an anthroponym.
  * Returns null if the grammatical gender cannot be detected.
  *
+ * @example
+ * ```ts
+ * const gender = await shevchenko.detectGender({
+ *   "givenName": "Тарас",
+ *   "patronymicName": "Григорович",
+ *   "familyName": "Шевченко"
+ * });
+ * ```
  * @throws {TypeError} Input validation error.
  */
 export async function detectGender(input: GenderDetectionInput): Promise<GenderDetectionOutput> {
