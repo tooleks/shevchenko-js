@@ -115,6 +115,17 @@ app.post('/vocative', async (req, res, next) => {
   }
 });
 
+app.post('/gender', async (req, res, next) => {
+  try {
+    const detectedGender = await shevchenko.detectGender(req.body);
+    res.status(200).send({
+      gender: detectedGender,
+    });
+  } catch (err) {
+    next(err);
+  }
+});
+
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 app.use((err, req, res, next) => {
   console.error(err);
