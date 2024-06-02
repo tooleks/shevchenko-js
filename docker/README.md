@@ -25,7 +25,7 @@ wget -qO- http://localhost:3000/ 2>&1
 The example output:
 
 ```JSON
-{"name":"shevchenko","version":"3.0.8"}
+{"name":"shevchenko","version":"X.X.X"}
 ```
 
 ## Public Endpoints
