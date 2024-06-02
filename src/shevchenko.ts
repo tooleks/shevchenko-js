@@ -6,10 +6,16 @@ import {
   GenderDetectionOutput,
 } from './contracts';
 import { detectGender as autoDetectGender } from './gender-detection';
-import { validateDeclensionInput, validateGenderDetectionInput } from './input-validation';
+import {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  InputValidationError,
+  validateDeclensionInput,
+  validateGenderDetectionInput,
+} from './input-validation';
 import { GrammaticalCase } from './language';
 
 export * from './contracts';
+export { InputValidationError } from './input-validation';
 export { GrammaticalGender, GrammaticalCase } from './language';
 export { Anthroponym } from './anthroponym-declension';
 
@@ -25,11 +31,18 @@ export { Anthroponym } from './anthroponym-declension';
  *   familyName: 'Шевченко',
  * });
  * ```
- * @throws {TypeError} Input validation error.
+ * @throws {InputValidationError} Input validation error.
  */
-export async function inNominative(input: DeclensionInput): Promise<DeclensionOutput> {
+export async function inNominative<T extends DeclensionInput>(
+  input: T,
+): Promise<DeclensionOutput<T>> {
   validateDeclensionInput(input);
-  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.NOMINATIVE);
+  const result = await anthroponymInflector.inflect(
+    input,
+    input.gender,
+    GrammaticalCase.NOMINATIVE,
+  );
+  return result as DeclensionOutput<T>;
 }
 
 /**
@@ -44,11 +57,14 @@ export async function inNominative(input: DeclensionInput): Promise<DeclensionOu
  *   familyName: 'Шевченко',
  * });
  * ```
- * @throws {TypeError} Input validation error.
+ * @throws {InputValidationError} Input validation error.
  */
-export async function inGenitive(input: DeclensionInput): Promise<DeclensionOutput> {
+export async function inGenitive<T extends DeclensionInput>(
+  input: T,
+): Promise<DeclensionOutput<T>> {
   validateDeclensionInput(input);
-  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.GENITIVE);
+  const result = await anthroponymInflector.inflect(input, input.gender, GrammaticalCase.GENITIVE);
+  return result as DeclensionOutput<T>;
 }
 
 /**
@@ -63,11 +79,12 @@ export async function inGenitive(input: DeclensionInput): Promise<DeclensionOutp
  *   familyName: 'Шевченко',
  * });
  * ```
- * @throws {TypeError} Input validation error.
+ * @throws {InputValidationError} Input validation error.
  */
-export async function inDative(input: DeclensionInput): Promise<DeclensionOutput> {
+export async function inDative<T extends DeclensionInput>(input: T): Promise<DeclensionOutput<T>> {
   validateDeclensionInput(input);
-  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.DATIVE);
+  const result = await anthroponymInflector.inflect(input, input.gender, GrammaticalCase.DATIVE);
+  return result as DeclensionOutput<T>;
 }
 
 /**
@@ -82,11 +99,18 @@ export async function inDative(input: DeclensionInput): Promise<DeclensionOutput
  *   familyName: 'Шевченко',
  * });
  * ```
- * @throws {TypeError} Input validation error.
+ * @throws {InputValidationError} Input validation error.
  */
-export async function inAccusative(input: DeclensionInput): Promise<DeclensionOutput> {
+export async function inAccusative<T extends DeclensionInput>(
+  input: T,
+): Promise<DeclensionOutput<T>> {
   validateDeclensionInput(input);
-  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.ACCUSATIVE);
+  const result = await anthroponymInflector.inflect(
+    input,
+    input.gender,
+    GrammaticalCase.ACCUSATIVE,
+  );
+  return result as DeclensionOutput<T>;
 }
 
 /**
@@ -101,11 +125,14 @@ export async function inAccusative(input: DeclensionInput): Promise<DeclensionOu
  *   familyName: 'Шевченко',
  * });
  * ```
- * @throws {TypeError} Input validation error.
+ * @throws {InputValidationError} Input validation error.
  */
-export async function inAblative(input: DeclensionInput): Promise<DeclensionOutput> {
+export async function inAblative<T extends DeclensionInput>(
+  input: T,
+): Promise<DeclensionOutput<T>> {
   validateDeclensionInput(input);
-  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.ABLATIVE);
+  const result = await anthroponymInflector.inflect(input, input.gender, GrammaticalCase.ABLATIVE);
+  return result as DeclensionOutput<T>;
 }
 
 /**
@@ -120,11 +147,14 @@ export async function inAblative(input: DeclensionInput): Promise<DeclensionOutp
  *   familyName: 'Шевченко',
  * });
  * ```
- * @throws {TypeError} Input validation error.
+ * @throws {InputValidationError} Input validation error.
  */
-export async function inLocative(input: DeclensionInput): Promise<DeclensionOutput> {
+export async function inLocative<T extends DeclensionInput>(
+  input: T,
+): Promise<DeclensionOutput<T>> {
   validateDeclensionInput(input);
-  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.LOCATIVE);
+  const result = await anthroponymInflector.inflect(input, input.gender, GrammaticalCase.LOCATIVE);
+  return result as DeclensionOutput<T>;
 }
 
 /**
@@ -139,11 +169,14 @@ export async function inLocative(input: DeclensionInput): Promise<DeclensionOutp
  *   familyName: 'Шевченко',
  * });
  * ```
- * @throws {TypeError} Input validation error.
+ * @throws {InputValidationError} Input validation error.
  */
-export async function inVocative(input: DeclensionInput): Promise<DeclensionOutput> {
+export async function inVocative<T extends DeclensionInput>(
+  input: T,
+): Promise<DeclensionOutput<T>> {
   validateDeclensionInput(input);
-  return anthroponymInflector.inflect(input, input.gender, GrammaticalCase.VOCATIVE);
+  const result = await anthroponymInflector.inflect(input, input.gender, GrammaticalCase.VOCATIVE);
+  return result as DeclensionOutput<T>;
 }
 
 /**
@@ -158,7 +191,7 @@ export async function inVocative(input: DeclensionInput): Promise<DeclensionOutp
  *   familyName: 'Шевченко',
  * });
  * ```
- * @throws {TypeError} Input validation error.
+ * @throws {InputValidationError} Input validation error.
  */
 export async function detectGender(input: GenderDetectionInput): Promise<GenderDetectionOutput> {
   validateGenderDetectionInput(input);

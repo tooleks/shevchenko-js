@@ -1,20 +1,28 @@
-import { Anthroponym } from './anthroponym-declension';
 import { GrammaticalGender } from './language';
 
 /**
  * The input parameters for anthroponym declension.
  */
-export type DeclensionInput = Anthroponym & { gender: GrammaticalGender };
+export type DeclensionInput = {
+  gender: GrammaticalGender;
+  givenName?: string;
+  patronymicName?: string;
+  familyName?: string;
+};
 
 /**
  * The output result of anthroponym declension.
  */
-export type DeclensionOutput = Anthroponym;
+export type DeclensionOutput<T extends DeclensionInput = DeclensionInput> = Omit<T, 'gender'>;
 
 /**
  * The input parameters for gender detection.
  */
-export type GenderDetectionInput = Anthroponym;
+export type GenderDetectionInput = {
+  givenName?: string;
+  patronymicName?: string;
+  familyName?: string;
+};
 
 /**
  * The output result of gender detection.

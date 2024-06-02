@@ -1,16 +1,20 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { DeclensionInput } from './contracts';
-import { validateDeclensionInput, validateGenderDetectionInput } from './input-validation';
+import {
+  InputValidationError,
+  validateDeclensionInput,
+  validateGenderDetectionInput,
+} from './input-validation';
 
 describe('validateDeclensionInput', () => {
-  it('should throw a type error when called with empty arguments list', () => {
+  it('should throw an input validation error when called with empty arguments list', () => {
     // @ts-ignore
     expect(() => validateDeclensionInput()).toThrow(
-      new TypeError('The input type must be an object.'),
+      new InputValidationError('The input type must be an object.'),
     );
   });
 
-  it('should throw a type error if unsupported gender provided', () => {
+  it('should throw an input validation error if unsupported gender provided', () => {
     // @ts-ignore
     const input = {
       gender: 'animate',
@@ -20,7 +24,7 @@ describe('validateDeclensionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateDeclensionInput(input)).toThrow(
-      new TypeError(
+      new InputValidationError(
         'The "gender" parameter must be one of the following: "masculine", "feminine".',
       ),
     );
@@ -33,7 +37,7 @@ describe('validateDeclensionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateDeclensionInput(input)).toThrow(
-      new TypeError(
+      new InputValidationError(
         'At least one of the following parameters must present: "givenName", "patronymicName", "familyName".',
       ),
     );
@@ -49,7 +53,7 @@ describe('validateDeclensionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateDeclensionInput(input)).toThrow(
-      new TypeError('The "givenName" parameter must be a string.'),
+      new InputValidationError('The "givenName" parameter must be a string.'),
     );
   });
 
@@ -63,7 +67,7 @@ describe('validateDeclensionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateDeclensionInput(input)).toThrow(
-      new TypeError('The "patronymicName" parameter must be a string.'),
+      new InputValidationError('The "patronymicName" parameter must be a string.'),
     );
   });
 
@@ -77,7 +81,7 @@ describe('validateDeclensionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateDeclensionInput(input)).toThrow(
-      new TypeError('The "familyName" parameter must be a string.'),
+      new InputValidationError('The "familyName" parameter must be a string.'),
     );
   });
 
@@ -125,10 +129,10 @@ describe('validateDeclensionInput', () => {
 });
 
 describe('validateGenderDetectionInput', () => {
-  it('should throw a type error when called with empty arguments list', () => {
+  it('should throw an input validation error when called with empty arguments list', () => {
     // @ts-ignore
     expect(() => validateGenderDetectionInput()).toThrow(
-      new TypeError('The input type must be an object.'),
+      new InputValidationError('The input type must be an object.'),
     );
   });
 
@@ -137,7 +141,7 @@ describe('validateGenderDetectionInput', () => {
     const input = {} as DeclensionInput;
 
     expect(() => validateGenderDetectionInput(input)).toThrow(
-      new TypeError(
+      new InputValidationError(
         'At least one of the following parameters must present: "givenName", "patronymicName", "familyName".',
       ),
     );
@@ -152,7 +156,7 @@ describe('validateGenderDetectionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateGenderDetectionInput(input)).toThrow(
-      new TypeError('The "givenName" parameter must be a string.'),
+      new InputValidationError('The "givenName" parameter must be a string.'),
     );
   });
 
@@ -165,7 +169,7 @@ describe('validateGenderDetectionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateGenderDetectionInput(input)).toThrow(
-      new TypeError('The "patronymicName" parameter must be a string.'),
+      new InputValidationError('The "patronymicName" parameter must be a string.'),
     );
   });
 
@@ -178,7 +182,7 @@ describe('validateGenderDetectionInput', () => {
     } as DeclensionInput;
 
     expect(() => validateGenderDetectionInput(input)).toThrow(
-      new TypeError('The "familyName" parameter must be a string.'),
+      new InputValidationError('The "familyName" parameter must be a string.'),
     );
   });
 

@@ -1,80 +1,94 @@
-import { Anthroponym } from './anthroponym-declension';
 import { DeclensionInput, GenderDetectionInput } from './contracts';
 import { GrammaticalGender } from './language';
+
+export class InputValidationError extends TypeError {}
 
 /**
  * Validates if a given value is a valid input for declension.
  *
- * @throws {TypeError}
+ * @throws {InputValidationError}
  */
-export function validateDeclensionInput(input: DeclensionInput): void {
-  validateObject(input);
-  validateGender(input.gender);
-  validateAnthroponym(input);
+export function validateDeclensionInput(value: unknown): asserts value is DeclensionInput {
+  if (!isObject(value)) {
+    throw new InputValidationError('The input type must be an object.');
+  }
+
+  if (!isIn(value.gender, Object.values(GrammaticalGender))) {
+    throw new InputValidationError(
+      `The "gender" parameter must be one of the following: "${GrammaticalGender.MASCULINE}", "${GrammaticalGender.FEMININE}".`,
+    );
+  }
+
+  if (
+    !isDefined(value.givenName) &&
+    !isDefined(value.patronymicName) &&
+    !isDefined(value.familyName)
+  ) {
+    throw new InputValidationError(
+      'At least one of the following parameters must present: "givenName", "patronymicName", "familyName".',
+    );
+  }
+
+  if (isDefined(value.givenName) && !isString(value.givenName)) {
+    throw new InputValidationError('The "givenName" parameter must be a string.');
+  }
+
+  if (isDefined(value.patronymicName) && !isString(value.patronymicName)) {
+    throw new InputValidationError('The "patronymicName" parameter must be a string.');
+  }
+
+  if (isDefined(value.familyName) && !isString(value.familyName)) {
+    throw new InputValidationError('The "familyName" parameter must be a string.');
+  }
 }
 
 /**
  * Validates if a given value is a valid input for gender detection.
  *
- * @throws {TypeError}
+ * @throws {InputValidationError}
  */
-export function validateGenderDetectionInput(input: GenderDetectionInput): void {
-  validateObject(input);
-  validateAnthroponym(input);
-}
-
-/**
- * Validates if a given value is an object.
- *
- * @throws {TypeError}
- */
-function validateObject(object: unknown): void {
-  if (typeof object !== 'object' || object == null) {
-    throw new TypeError('The input type must be an object.');
+export function validateGenderDetectionInput(
+  value: unknown,
+): asserts value is GenderDetectionInput {
+  if (!isObject(value)) {
+    throw new InputValidationError('The input type must be an object.');
   }
-}
 
-/**
- * Validates if a given value is a valid grammatical gender.
- *
- * @throws {TypeError}
- */
-function validateGender(gender: GrammaticalGender): void {
-  if (![GrammaticalGender.MASCULINE, GrammaticalGender.FEMININE].includes(gender)) {
-    throw new TypeError(
-      `The "gender" parameter must be one of the following: "${GrammaticalGender.MASCULINE}", "${GrammaticalGender.FEMININE}".`,
-    );
-  }
-}
-
-/**
- * Validates if a given value is a valid anthroponym.
- *
- * @throws {TypeError}
- */
-function validateAnthroponym(anthroponym: Anthroponym): void {
   if (
-    typeof anthroponym.givenName === 'undefined' &&
-    typeof anthroponym.patronymicName === 'undefined' &&
-    typeof anthroponym.familyName === 'undefined'
+    !isDefined(value.givenName) &&
+    !isDefined(value.patronymicName) &&
+    !isDefined(value.familyName)
   ) {
-    throw new TypeError(
+    throw new InputValidationError(
       'At least one of the following parameters must present: "givenName", "patronymicName", "familyName".',
     );
   }
 
-  if (typeof anthroponym.givenName !== 'undefined' && typeof anthroponym.givenName !== 'string') {
-    throw new TypeError('The "givenName" parameter must be a string.');
+  if (isDefined(value.givenName) && !isString(value.givenName)) {
+    throw new InputValidationError('The "givenName" parameter must be a string.');
   }
 
-  if (
-    typeof anthroponym.patronymicName !== 'undefined' &&
-    typeof anthroponym.patronymicName !== 'string'
-  ) {
-    throw new TypeError('The "patronymicName" parameter must be a string.');
+  if (isDefined(value.patronymicName) && !isString(value.patronymicName)) {
+    throw new InputValidationError('The "patronymicName" parameter must be a string.');
   }
 
-  if (typeof anthroponym.familyName !== 'undefined' && typeof anthroponym.familyName !== 'string') {
-    throw new TypeError('The "familyName" parameter must be a string.');
+  if (isDefined(value.familyName) && !isString(value.familyName)) {
+    throw new InputValidationError('The "familyName" parameter must be a string.');
   }
+}
+
+function isDefined<T>(value: T | undefined): value is T {
+  return typeof value !== 'undefined';
+}
+
+function isObject(value: unknown): value is Record<string, unknown> {
+  return value != null && typeof value === 'object';
+}
+
+function isString(value: unknown): value is string {
+  return typeof value === 'string';
+}
+
+function isIn<T>(value: unknown, values: T[]): value is T {
+  return values.includes(value as T);
 }

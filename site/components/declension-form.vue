@@ -41,12 +41,12 @@ const [isGenderError, showGenderError] = useToggle(false);
 const AUTO_GENDER_OPTION = undefined;
 const genderOptions = [AUTO_GENDER_OPTION, ...Object.values(GrammaticalGender)];
 
-interface FormData {
+type FormData = {
   gender: GrammaticalGender | typeof AUTO_GENDER_OPTION;
   familyName?: string;
   givenName?: string;
   patronymicName?: string;
-}
+};
 
 const formData = reactive<FormData>({
   gender: AUTO_GENDER_OPTION,

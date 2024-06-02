@@ -3,9 +3,9 @@ import { computed } from 'vue';
 
 const appConfig = useAppConfig();
 
-interface GitHubRepositoryDetails {
+type GitHubRepositoryDetails = {
   open_issues_count: number;
-}
+};
 
 const { data, pending } = await useLazyFetch<GitHubRepositoryDetails>(appConfig.content.gitHubUrl);
 

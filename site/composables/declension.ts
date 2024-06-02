@@ -12,7 +12,7 @@ import {
   DeclensionOutput,
 } from 'shevchenko';
 
-export interface DeclensionResults {
+export type DeclensionResults = {
   nominativeCase: DeclensionOutput | null;
   genitiveCase: DeclensionOutput | null;
   dativeCase: DeclensionOutput | null;
@@ -20,7 +20,7 @@ export interface DeclensionResults {
   ablativeCase: DeclensionOutput | null;
   locativeCase: DeclensionOutput | null;
   vocativeCase: DeclensionOutput | null;
-}
+};
 
 export const useDeclension = createSharedComposable(
   async (defaultDeclensionInput: DeclensionInput) => {
