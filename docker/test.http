@@ -76,3 +76,13 @@ Content-Type: application/json
     "patronymicName": "Григорович",
     "familyName": "Шевченко"
 }
+
+### Returns the grammatical gender of an anthroponym.
+POST http://{{host}}/gender
+Content-Type: application/json
+
+{
+    "givenName": "Тарас",
+    "patronymicName": "Григорович",
+    "familyName": "Шевченко"
+}

@@ -38,6 +38,7 @@ http://localhost:3000/accusative
 http://localhost:3000/ablative
 http://localhost:3000/locative
 http://localhost:3000/vocative
+http://localhost:3000/gender
 ```
 
 ## Usage Example
