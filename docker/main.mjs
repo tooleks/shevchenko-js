@@ -117,8 +117,12 @@ app.post('/vocative', async (req, res, next) => {
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
 app.use((err, req, res, next) => {
-  console.error(err);
-  res.status(500).send({ message: err.message });
+  if (err instanceof shevchenko.InputValidationError) {
+    res.status(422).send({ message: err.message });
+  } else {
+    console.error(err);
+    res.status(500).send({ message: 'Internal Server Error' });
+  }
 });
 
 app.listen(port, () => {
