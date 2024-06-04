@@ -81,22 +81,22 @@ const { getLocaleEmoji } = useLocaleEmoji();
 
               <a
                 class="dropdown-item"
-                :href="appConfig.library.npmUrl"
-                target="_blank"
-                role="menuitem"
-              >
-                <span aria-hidden="true" class="logo-icon logo-icon-npm"></span>
-                NPM
-              </a>
-
-              <a
-                class="dropdown-item"
                 :href="appConfig.library.gitHubUrl"
                 target="_blank"
                 role="menuitem"
               >
                 <span aria-hidden="true" class="logo-icon logo-icon-github"></span>
                 GitHub
+              </a>
+
+              <a
+                class="dropdown-item"
+                :href="appConfig.library.npmUrl"
+                target="_blank"
+                role="menuitem"
+              >
+                <span aria-hidden="true" class="logo-icon logo-icon-npm"></span>
+                NPM
               </a>
 
               <a

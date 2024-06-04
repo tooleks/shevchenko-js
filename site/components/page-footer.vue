@@ -17,18 +17,6 @@ const appConfig = useAppConfig();
 
           <li class="d-inline align-middle me-2" role="presentation">
             <a
-              :href="appConfig.library.npmUrl"
-              class="text-decoration-none"
-              target="_blank"
-              role="menuitem"
-            >
-              <span aria-hidden="true" class="logo-icon logo-icon-npm"></span>
-              NPM
-            </a>
-          </li>
-
-          <li class="d-inline align-middle me-2" role="presentation">
-            <a
               :href="appConfig.library.gitHubUrl"
               class="text-decoration-none"
               target="_blank"
@@ -36,6 +24,18 @@ const appConfig = useAppConfig();
             >
               <span aria-hidden="true" class="logo-icon logo-icon-github"></span>
               GitHub
+            </a>
+          </li>
+
+          <li class="d-inline align-middle me-2" role="presentation">
+            <a
+              :href="appConfig.library.npmUrl"
+              class="text-decoration-none"
+              target="_blank"
+              role="menuitem"
+            >
+              <span aria-hidden="true" class="logo-icon logo-icon-npm"></span>
+              NPM
             </a>
           </li>
 
