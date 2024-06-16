@@ -3303,12 +3303,12 @@
         "patronymicName": "Петровича"
       },
       "ablative": {
-        "familyName": "Склярем",
+        "familyName": "Скляром",
         "givenName": "Віром",
         "patronymicName": "Петровичем"
       },
       "locative": {
-        "familyName": "Скляреві",
+        "familyName": "Склярові",
         "givenName": "Вірові",
         "patronymicName": "Петровичу"
       },
@@ -7839,7 +7839,46 @@
       }
     }
   },
-
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Кобзар",
+        "givenName": "Микола",
+        "patronymicName": "Васильович"
+      },
+      "genitive": {
+        "familyName": "Кобзаря",
+        "givenName": "Миколи",
+        "patronymicName": "Васильовича"
+      },
+      "dative": {
+        "familyName": "Кобзарю",
+        "givenName": "Миколі",
+        "patronymicName": "Васильовичу"
+      },
+      "accusative": {
+        "familyName": "Кобзаря",
+        "givenName": "Миколу",
+        "patronymicName": "Васильовича"
+      },
+      "ablative": {
+        "familyName": "Кобзарем",
+        "givenName": "Миколою",
+        "patronymicName": "Васильовичем"
+      },
+      "locative": {
+        "familyName": "Кобзареві",
+        "givenName": "Миколі",
+        "patronymicName": "Васильовичу"
+      },
+      "vocative": {
+        "familyName": "Кобзарю",
+        "givenName": "Миколо",
+        "patronymicName": "Васильовичу"
+      }
+    }
+  },
   {
     "gender": "masculine",
     "grammaticalCases": {
