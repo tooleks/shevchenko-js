@@ -50,7 +50,8 @@ This example shows how to use the API to decline Ukrainian anthroponyms.
 #### HTTP Request
 
 ```HTTP
-POST http://localhost:3000/vocative
+POST /vocative HTTP/1.1
+Host: localhost:3000
 Content-Type: application/json
 
 {
@@ -81,7 +82,8 @@ This example shows how to use the API to automatically detect the grammatical ge
 #### HTTP Request
 
 ```HTTP
-POST http://localhost:3000/vocative
+POST /vocative HTTP/1.1
+Host: localhost:3000
 Content-Type: application/json
 
 {
