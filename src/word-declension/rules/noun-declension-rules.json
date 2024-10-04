@@ -3465,18 +3465,112 @@
     }
   },
   {
-    "description": "друга відміна / чоловічий рід / тверда група / на -яр",
+    "description": "чоловічі прізвища на -(ар|яр) як іменники м'якої групи",
     "examples": [
-      "скляр"
+      "кожухар",
+      "кобзар",
+      "золяр",
+      "бондар",
+      "дігтяр",
+      "крамар"
     ],
     "wordClass": "noun",
     "gender": [
       "masculine"
     ],
     "priority": 2,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "(ар|яр)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "чоловічі прізвища на -(ар|яр) як іменники твердої групи",
+    "examples": [
+      "скляр",
+      "гайдар",
+      "гончар"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
     "applicationType": [],
     "pattern": {
-      "find": "яр$",
+      "find": "(скляр|гайдар|гончар)$",
       "modify": "(.{1})$"
     },
     "grammaticalCases": {
@@ -3499,7 +3593,7 @@
         {
           "0": {
             "action": "append",
-            "value": "еві"
+            "value": "ові"
           }
         }
       ],
@@ -3515,7 +3609,7 @@
         {
           "0": {
             "action": "append",
-            "value": "ем"
+            "value": "ом"
           }
         }
       ],
@@ -3523,7 +3617,7 @@
         {
           "0": {
             "action": "append",
-            "value": "еві"
+            "value": "ові"
           }
         },
         {
