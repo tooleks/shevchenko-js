@@ -7958,5 +7958,45 @@
         "patronymicName": "Власовичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Єгер",
+        "givenName": "Аркадій",
+        "patronymicName": "Владиславович"
+      },
+      "genitive": {
+        "familyName": "Єгеря",
+        "givenName": "Аркадія",
+        "patronymicName": "Владиславовича"
+      },
+      "dative": {
+        "familyName": "Єгерю",
+        "givenName": "Аркадію",
+        "patronymicName": "Владиславовичу"
+      },
+      "accusative": {
+        "familyName": "Єгеря",
+        "givenName": "Аркадія",
+        "patronymicName": "Владиславовича"
+      },
+      "ablative": {
+        "familyName": "Єгерем",
+        "givenName": "Аркадієм",
+        "patronymicName": "Владиславовичем"
+      },
+      "locative": {
+        "familyName": "Єгереві",
+        "givenName": "Аркадієві",
+        "patronymicName": "Владиславовичу"
+      },
+      "vocative": {
+        "familyName": "Єгерю",
+        "givenName": "Аркадію",
+        "patronymicName": "Владиславовичу"
+      }
+    }
   }
 ]
