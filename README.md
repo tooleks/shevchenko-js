@@ -1,6 +1,6 @@
 # shevchenko.js
 
-JavaScript library for declension of Ukrainian anthroponyms
+JavaScript library for declension of Ukrainian anthroponyms.
 
 ## Links
 
