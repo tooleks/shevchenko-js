@@ -3,7 +3,7 @@ import { GrammaticalCase } from './language';
 import { WordInflector } from './word-declension';
 import { wordInflector } from './word-declension/bootstrap';
 
-type FieldName = keyof Omit<DeclensionInput, 'gender'>;
+export type FieldName = keyof Omit<DeclensionInput, 'gender'>;
 
 export type AfterInflectHook = <T extends DeclensionInput>(
   grammaticalCase: GrammaticalCase,
@@ -26,6 +26,14 @@ const registeredExtensions: ShevchenkoExtension[] = [];
 export function registerExtension(extensionFactory: ExtensionFactory): void {
   const extension = extensionFactory({ wordInflector });
   registeredExtensions.push(extension);
+}
+
+export function getCustomFieldNames(): FieldName[] {
+  const fieldNames: FieldName[] = [];
+  for (const extension of registeredExtensions) {
+    fieldNames.push(...extension.fieldNames);
+  }
+  return fieldNames;
 }
 
 export async function afterInflect<T extends DeclensionInput>(
