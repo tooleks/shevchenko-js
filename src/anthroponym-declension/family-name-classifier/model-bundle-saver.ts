@@ -67,7 +67,7 @@ export class ModelBundleSaver implements tf.io.IOHandler {
     modelBundle.weightSpecs = modelArtifacts.weightSpecs;
 
     // Save weight data.
-    if (modelArtifacts.weightData == null) {
+    if (modelArtifacts.weightData == null || !(modelArtifacts.weightData instanceof ArrayBuffer)) {
       throw new Error(`The binary weight values are missing.`);
     }
     modelBundle.weightData = arrayBufferToBase64String(modelArtifacts.weightData);
