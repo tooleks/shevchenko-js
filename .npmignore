@@ -2,6 +2,9 @@
 .idea
 .vscode
 
+# Source
+/src
+
 # Vendor
 /vendor
 

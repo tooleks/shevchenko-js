@@ -27,7 +27,7 @@ export default [
       file: pkg.browser,
       format: 'umd',
       banner: banner.trim(),
-      sourcemap: true,
+      sourcemap: false,
     },
     plugins: [
       alias({
@@ -55,7 +55,7 @@ export default [
       dir: path.dirname(pkg.main),
       format: 'cjs',
       banner: banner.trim(),
-      sourcemap: true,
+      sourcemap: false,
       preserveModules: true,
     },
     plugins: [json(), typescript({ tsconfig: './tsconfig.module.json' })],
@@ -67,7 +67,7 @@ export default [
       dir: path.dirname(pkg.module),
       format: 'es',
       banner: banner.trim(),
-      sourcemap: true,
+      sourcemap: false,
       preserveModules: true,
     },
     plugins: [
@@ -75,7 +75,7 @@ export default [
       typescript({
         tsconfig: './tsconfig.module.json',
         declaration: true,
-        declarationMap: true,
+        declarationMap: false,
         declarationDir: path.dirname(pkg.module),
       }),
     ],
