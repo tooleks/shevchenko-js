@@ -1,44 +1,48 @@
 import { DeclensionInput, GenderDetectionInput } from './contracts';
+import { FieldName, getCustomFieldNames } from './extension';
 import { GrammaticalGender } from './language';
 
 export class InputValidationError extends TypeError {}
+
+const fieldNames: FieldName[] = ['givenName', 'patronymicName', 'familyName'];
 
 /**
  * Validates if a given value is a valid input for declension.
  *
  * @throws {InputValidationError}
  */
-export function validateDeclensionInput(value: unknown): asserts value is DeclensionInput {
-  if (!isObject(value)) {
+export function validateDeclensionInput(input: unknown): asserts input is DeclensionInput {
+  if (!isObject(input)) {
     throw new InputValidationError('The input type must be an object.');
   }
 
-  if (!isIn(value.gender, Object.values(GrammaticalGender))) {
+  const isGenderValid = Object.values(GrammaticalGender).includes(
+    input.gender as GrammaticalGender,
+  );
+
+  if (!isGenderValid) {
     throw new InputValidationError(
-      `The "gender" parameter must be one of the following: "${GrammaticalGender.MASCULINE}", "${GrammaticalGender.FEMININE}".`,
+      `The "gender" parameter must be one of the following:` +
+        ` "${Object.values(GrammaticalGender).join('", "')}".`,
     );
   }
 
-  if (
-    !isDefined(value.givenName) &&
-    !isDefined(value.patronymicName) &&
-    !isDefined(value.familyName)
-  ) {
+  const mergedFieldNames = [...fieldNames, ...getCustomFieldNames()];
+
+  const hasFields = mergedFieldNames.some(
+    (fieldName) => fieldName in input && typeof input[fieldName] !== 'undefined',
+  );
+
+  if (!hasFields) {
     throw new InputValidationError(
-      'At least one of the following parameters must present: "givenName", "patronymicName", "familyName".',
+      `At least one of the following parameters must present: "${mergedFieldNames.join('", "')}".`,
     );
   }
 
-  if (isDefined(value.givenName) && !isString(value.givenName)) {
-    throw new InputValidationError('The "givenName" parameter must be a string.');
-  }
-
-  if (isDefined(value.patronymicName) && !isString(value.patronymicName)) {
-    throw new InputValidationError('The "patronymicName" parameter must be a string.');
-  }
-
-  if (isDefined(value.familyName) && !isString(value.familyName)) {
-    throw new InputValidationError('The "familyName" parameter must be a string.');
+  for (const fieldName of mergedFieldNames) {
+    if (fieldName in input && typeof input[fieldName] !== 'string') {
+      throw new InputValidationError(`The "${fieldName}" parameter must be a string.`);
+    }
   }
 }
 
@@ -48,47 +52,29 @@ export function validateDeclensionInput(value: unknown): asserts value is Declen
  * @throws {InputValidationError}
  */
 export function validateGenderDetectionInput(
-  value: unknown,
-): asserts value is GenderDetectionInput {
-  if (!isObject(value)) {
+  input: unknown,
+): asserts input is GenderDetectionInput {
+  if (!isObject(input)) {
     throw new InputValidationError('The input type must be an object.');
   }
 
-  if (
-    !isDefined(value.givenName) &&
-    !isDefined(value.patronymicName) &&
-    !isDefined(value.familyName)
-  ) {
+  const hasFields = fieldNames.some(
+    (fieldName) => fieldName in input && typeof input[fieldName] !== 'undefined',
+  );
+
+  if (!hasFields) {
     throw new InputValidationError(
-      'At least one of the following parameters must present: "givenName", "patronymicName", "familyName".',
+      `At least one of the following parameters must present: "${fieldNames.join('", "')}".`,
     );
   }
 
-  if (isDefined(value.givenName) && !isString(value.givenName)) {
-    throw new InputValidationError('The "givenName" parameter must be a string.');
+  for (const fieldName of fieldNames) {
+    if (fieldName in input && typeof input[fieldName] !== 'string') {
+      throw new InputValidationError(`The "${fieldName}" parameter must be a string.`);
+    }
   }
-
-  if (isDefined(value.patronymicName) && !isString(value.patronymicName)) {
-    throw new InputValidationError('The "patronymicName" parameter must be a string.');
-  }
-
-  if (isDefined(value.familyName) && !isString(value.familyName)) {
-    throw new InputValidationError('The "familyName" parameter must be a string.');
-  }
-}
-
-function isDefined<T>(value: T | undefined): value is T {
-  return typeof value !== 'undefined';
 }
 
 function isObject(value: unknown): value is Record<string, unknown> {
-  return value != null && typeof value === 'object';
-}
-
-function isString(value: unknown): value is string {
-  return typeof value === 'string';
-}
-
-function isIn<T>(value: unknown, values: T[]): value is T {
-  return values.includes(value as T);
+  return typeof value === 'object' && value != null;
 }
