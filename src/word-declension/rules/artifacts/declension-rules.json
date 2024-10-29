@@ -4053,6 +4053,85 @@
     }
   },
   {
+    "description": "друга відміна / чоловічий рід / тверда група / на -єгер",
+    "examples": [
+      "єгер"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "єгер$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
     "description": "перша відміна / чоловічий рід / тверда група / на -світ",
     "examples": [
       "світ"
