@@ -7839,7 +7839,6 @@
       }
     }
   },
-
   {
     "gender": "masculine",
     "grammaticalCases": {
@@ -7877,6 +7876,86 @@
         "familyName": "Андреєве",
         "givenName": "Матвію",
         "patronymicName": "Давидовичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Буймистер",
+        "givenName": "Альфред",
+        "patronymicName": "Вальдемарович"
+      },
+      "genitive": {
+        "familyName": "Буймистра",
+        "givenName": "Альфреда",
+        "patronymicName": "Вальдемаровича"
+      },
+      "dative": {
+        "familyName": "Буймистру",
+        "givenName": "Альфреду",
+        "patronymicName": "Вальдемаровичу"
+      },
+      "accusative": {
+        "familyName": "Буймистра",
+        "givenName": "Альфреда",
+        "patronymicName": "Вальдемаровича"
+      },
+      "ablative": {
+        "familyName": "Буймистром",
+        "givenName": "Альфредом",
+        "patronymicName": "Вальдемаровичем"
+      },
+      "locative": {
+        "familyName": "Буймистрові",
+        "givenName": "Альфредові",
+        "patronymicName": "Вальдемаровичу"
+      },
+      "vocative": {
+        "familyName": "Буймистре",
+        "givenName": "Альфреде",
+        "patronymicName": "Вальдемаровичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Ріхтер",
+        "givenName": "Фелікс",
+        "patronymicName": "Власович"
+      },
+      "genitive": {
+        "familyName": "Ріхтера",
+        "givenName": "Фелікса",
+        "patronymicName": "Власовича"
+      },
+      "dative": {
+        "familyName": "Ріхтеру",
+        "givenName": "Феліксу",
+        "patronymicName": "Власовичу"
+      },
+      "accusative": {
+        "familyName": "Ріхтера",
+        "givenName": "Фелікса",
+        "patronymicName": "Власовича"
+      },
+      "ablative": {
+        "familyName": "Ріхтером",
+        "givenName": "Феліксом",
+        "patronymicName": "Власовичем"
+      },
+      "locative": {
+        "familyName": "Ріхтерові",
+        "givenName": "Феліксові",
+        "patronymicName": "Власовичу"
+      },
+      "vocative": {
+        "familyName": "Ріхтере",
+        "givenName": "Феліксе",
+        "patronymicName": "Власовичу"
       }
     }
   }

@@ -3963,7 +3963,8 @@
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -тер",
     "examples": [
-      "вітер"
+      "вітер",
+      "буймистер"
     ],
     "wordClass": "noun",
     "gender": [
@@ -3972,7 +3973,7 @@
     "priority": 4,
     "applicationType": [],
     "pattern": {
-      "find": "тер$",
+      "find": "[іс]тер$",
       "modify": "(.{1})(.{1})$"
     },
     "grammaticalCases": {
@@ -4513,6 +4514,73 @@
     }
   },
   {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ред",
+    "examples": [
+      "альфред"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "ред$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
     "description": "друга відміна / чоловічий рід / тверда група / бусел",
     "examples": [
       "бусел"
@@ -4628,6 +4696,73 @@
     "applicationType": [],
     "pattern": {
       "find": "е[вмн]$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ер",
+    "examples": [
+      "ріхтер"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "ер$",
       "modify": "(.{1})$"
     },
     "grammaticalCases": {
