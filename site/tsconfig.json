@@ -3,7 +3,7 @@
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
     "target": "ES5",
-    "module": "CommonJS",
+    "module": "ESNext",
     "skipLibCheck": false,
     "allowSyntheticDefaultImports": true,
     "strict": true

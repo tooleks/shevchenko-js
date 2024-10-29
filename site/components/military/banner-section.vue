@@ -7,12 +7,13 @@ const appConfig = useAppConfig();
     <h1 class="text-truncate">
       {{ appConfig.library.displayName }}
       <span class="d-none d-lg-inline">
-        <small class="text-muted"><DeclensionPreview :aria-hidden="true" /></small>
+        <small class="text-muted"><MilitaryDeclensionSlideshow :aria-hidden="true" /></small>
       </span>
     </h1>
 
     <p>
-      {{ $t('website.longTitle') }}
+      {{ $t('website.longTitle.military') }}
+      <i class="fa fa-flask ms-1 text-primary" :aria-label="$t('beta')" :title="$t('beta')"></i>
     </p>
 
     <p>

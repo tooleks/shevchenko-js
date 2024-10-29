@@ -2,6 +2,8 @@ name: Generate Static Website
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: '0 0 1 1 *'
 
 jobs:
   publish-github-pages:
@@ -21,7 +23,7 @@ jobs:
         run: |
           cd ./site
           npm ci
-          npm run generate
+          WEBSITE_URL=${{vars.WEBSITE_URL}} WEBSITE_EMAIL=${{vars.WEBSITE_EMAIL}} npm run generate
       - name: Publish website
         run: npm run docs
       - uses: stefanzweifel/git-auto-commit-action@v4

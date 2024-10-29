@@ -1,0 +1,55 @@
+@import "~/node_modules/bootstrap/scss/functions";
+@import "~/node_modules/bootstrap/scss/variables";
+
+$military: #6b623c;
+$military-rgb: #{red($military)}, #{green($military)}, #{blue($military)};
+
+$custom-colors: (
+  "military": $military
+);
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+
+[data-bs-theme="military"] {
+  :root {
+    --bs-primary: #{$military};
+    --bs-primary-rgb: #{$military-rgb};
+  }
+
+  a {
+    --bs-link-color-rgb: #{$military-rgb};
+
+    &:hover {
+      --bs-link-color-rgb: #{$military-rgb};
+    }
+  }
+
+  .text-primary {
+    --bs-primary-rgb: #{$military-rgb};
+  }
+
+  .bg-primary {
+    --bs-primary-rgb: #{$military-rgb};
+  }
+
+  .btn-primary {
+    --bs-btn-bg: #{$military};
+    --bs-btn-border-color: #{$military};
+    --bs-btn-hover-bg: #{darken($military, 10%)};
+    --bs-btn-hover-border-color: #{darken($military, 10%)};
+    --bs-btn-active-bg: #{darken($military, 20%)};
+    --bs-btn-active-border-color: #{darken($military, 20%)};
+  }
+
+  .btn-link {
+    --bs-btn-color: #{$military};
+    --bs-link-hover-color: #{darken($military, 10%)};
+    --bs-btn-active-color: #{darken($military, 20%)};
+  }
+
+  .dropdown-item {
+    &:active {
+      --bs-dropdown-link-active-bg: #{$military};
+    }
+  }
+}

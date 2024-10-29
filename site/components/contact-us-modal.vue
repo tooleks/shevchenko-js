@@ -7,7 +7,10 @@ const { t: $t } = useI18n();
 
 const mailtoUrl = computed(() => {
   const url = new URL(`mailto:${appConfig.website.email}`);
-  url.searchParams.set('subject', $t('contactUs.messageSubject').toString());
+  url.searchParams.set(
+    'subject',
+    $t('contactUs.messageSubject', { appName: appConfig.library.displayName }).toString(),
+  );
   return url.toString();
 });
 </script>

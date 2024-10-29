@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed } from 'vue';
+import { computed, type PropType } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { usePageI18n } from '~/composables/page-i18n';
 import { buildPageUrl, useRouteUtils } from '~/composables/route-utils';
@@ -19,7 +19,7 @@ const { pageUrl } = useRouteUtils();
 const { buildPageTitle } = usePageMeta();
 
 const pageTitle = computed(() => {
-  const title = $t('website.title').toString();
+  const title = $t('website.title.military').toString();
   return buildPageTitle(title);
 });
 
@@ -30,8 +30,8 @@ useHead({
     { rel: 'canonical', href: buildPageUrl(route.href) },
   ],
   meta: [
-    { name: 'description', content: $t('website.description') },
-    { name: 'keywords', content: $t('website.keywords') },
+    { name: 'description', content: $t('website.description.military') },
+    { name: 'keywords', content: $t('website.keywords.military') },
     { property: 'og:image', content: buildPageUrl('/preview-608x608.jpg') },
     { property: 'og:image:width', content: '608' },
     { property: 'og:image:height', content: '608' },
@@ -39,21 +39,23 @@ useHead({
     { property: 'og:url', content: pageUrl },
     { property: 'og:site_name', content: appConfig.library.name },
     { property: 'og:title', content: pageTitle },
-    { property: 'og:description', content: $t('website.description') },
+    { property: 'og:description', content: $t('website.description.military') },
     { name: 'twitter:image', content: buildPageUrl('/preview-608x608.jpg') },
     { name: 'twitter:card', content: 'summary' },
     { name: 'twitter:title', content: pageTitle },
     { name: 'twitter:description', content: pageTitle },
   ],
+  bodyAttrs: {
+    'data-bs-theme': 'military',
+  },
 });
 </script>
 
 <template>
   <PageHeader />
-  <BannerSection />
-  <DeclensionDemoSection />
-  <HowItWorksSection />
-  <DocsSection />
+  <MilitaryBannerSection />
+  <MilitaryDeclensionDemoSection />
+  <MilitaryDocsSection />
   <PageFooter />
   <AboutModal />
   <ContactUsModal />
