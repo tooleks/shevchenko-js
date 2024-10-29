@@ -6,21 +6,66 @@ export type LocaleName = 'en-US' | 'uk-UA';
 type MessageSchema = typeof enUS;
 type MessageDictionary = any;
 
-export const defaultLocale: LocaleName = 'uk-UA';
-export const fallbackLocale: LocaleName = 'en-US';
+export const DEFAULT_LOCALE: LocaleName = 'uk-UA';
+export const FALLBACK_LOCALE: LocaleName = 'en-US';
 
 export default defineNuxtPlugin(({ vueApp }) => {
   const i18n = createI18n<MessageSchema, LocaleName>({
     legacy: false,
     globalInjection: true,
-    messageResolver: (messages: MessageDictionary, path) => {
-      const message = messages[path];
+    messageResolver: (dict: MessageDictionary, path: string) => {
+      const message = dict[path];
       return message != null ? message : null;
     },
-    locale: defaultLocale,
-    fallbackLocale,
-    messages: { 'en-US': enUS, 'uk-UA': ukUA },
+    locale: DEFAULT_LOCALE,
+    fallbackLocale: FALLBACK_LOCALE,
+    messages: {
+      'en-US': enUS,
+      'uk-UA': ukUA,
+    },
   });
 
   vueApp.use(i18n);
+
+  const router = useRouter();
+  const originalResolve = router.resolve.bind(router);
+
+  // @ts-ignore
+  router.resolve = (to, current, append) => {
+    // @ts-ignore
+    const resolved = originalResolve(to, current, append);
+    resolved.href = getI18nPath(i18n.global.locale.value, resolved.href);
+    return resolved;
+  };
+
+  router.beforeEach((to, from, next) => {
+    if (from == null) {
+      next();
+      return;
+    }
+
+    const fullPath = getI18nPath(i18n.global.locale.value, to.fullPath);
+    if (fullPath !== to.fullPath) {
+      next(fullPath);
+      return;
+    }
+
+    next();
+  });
 });
+
+/**
+ * Returns the full path with a locale prefix.
+ */
+export function getI18nPath(locale: string, fullPath: string): string {
+  if (locale === DEFAULT_LOCALE) {
+    return fullPath;
+  }
+
+  const localePrefix = `/${locale}`;
+  if (fullPath.startsWith(localePrefix)) {
+    return fullPath;
+  }
+
+  return `${localePrefix}${fullPath}`;
+}

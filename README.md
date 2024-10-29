@@ -10,6 +10,10 @@ JavaScript library for declension of Ukrainian anthroponyms.
 * [License](https://github.com/tooleks/shevchenko-js/blob/main/LICENSE)
 * [Migration Guide (v2 → v3)](https://github.com/tooleks/shevchenko-js/wiki/Migration-Guide)
 
+## Extensions
+
+* [Military extension](https://github.com/tooleks/shevchenko-ext-military) - declension of Ukrainian military ranks and appointments
+
 ## User Guide
 
 ### Installation

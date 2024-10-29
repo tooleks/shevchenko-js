@@ -40,7 +40,7 @@ export function validateDeclensionInput(input: unknown): asserts input is Declen
   }
 
   for (const fieldName of mergedFieldNames) {
-    if (fieldName in input && typeof input[fieldName] !== 'string') {
+    if (typeof input[fieldName] !== 'undefined' && typeof input[fieldName] !== 'string') {
       throw new InputValidationError(`The "${fieldName}" parameter must be a string.`);
     }
   }
@@ -69,7 +69,7 @@ export function validateGenderDetectionInput(
   }
 
   for (const fieldName of fieldNames) {
-    if (fieldName in input && typeof input[fieldName] !== 'string') {
+    if (typeof input[fieldName] !== 'undefined' && typeof input[fieldName] !== 'string') {
       throw new InputValidationError(`The "${fieldName}" parameter must be a string.`);
     }
   }

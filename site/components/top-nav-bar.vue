@@ -1,23 +1,22 @@
 <script setup lang="ts">
-import { useRouteUtils } from '~/composables/route-utils';
+import { buildPageUrl } from '~/composables/route-utils';
 import { useLocaleEmoji } from '~/composables/locale-country-code';
 
 const appConfig = useAppConfig();
-const { buildPageUrl } = useRouteUtils();
 const { getLocaleEmoji } = useLocaleEmoji();
 </script>
 
 <template>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-xl navbar-light bg-light">
     <div class="container-fluid">
-      <a class="navbar-brand" :href="appConfig.website.url">
+      <NuxtLink class="navbar-brand" :to="{ name: 'index' }">
         <img
           class="navbar-logo"
           src="~/assets/img/shevchenko_pixelized_304x304.jpg"
           :alt="appConfig.library.displayName"
         />
         <span>{{ appConfig.library.displayName }}</span>
-      </a>
+      </NuxtLink>
 
       <button
         class="navbar-toggler"
@@ -34,13 +33,28 @@ const { getLocaleEmoji } = useLocaleEmoji();
       <div id="navbar-supported-content" class="collapse navbar-collapse">
         <ul class="navbar-nav mt-2 mt-lg-0 ms-auto" role="menubar">
           <li class="nav-item" role="presentation">
-            <NuxtLink class="nav-link" :to="{ hash: '#demo' }" role="menuitem">
+            <NuxtLink
+              class="nav-link"
+              :to="{ name: 'military' }"
+              exact-active-class="active"
+              role="menuitem"
+            >
+              {{ $t('forMilitary') }} <span class="badge bg-military">{{ $t('new') }}</span>
+            </NuxtLink>
+          </li>
+
+          <li class="nav-item" role="presentation">
+            <NuxtLink class="nav-link" :to="{ name: 'index', hash: '#demo' }" role="menuitem">
               {{ $t('liveDemo') }}
             </NuxtLink>
           </li>
 
           <li class="nav-item" role="presentation">
-            <NuxtLink class="nav-link" :to="{ hash: '#documentation' }" role="menuitem">
+            <NuxtLink
+              class="nav-link"
+              :to="{ name: 'index', hash: '#documentation' }"
+              role="menuitem"
+            >
               {{ $t('documentation') }}
             </NuxtLink>
           </li>

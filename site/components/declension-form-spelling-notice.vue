@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { PropType, toRefs, computed } from 'vue';
-import { Anthroponym } from 'shevchenko';
+import { type PropType, toRefs, computed } from 'vue';
+import * as shevchenko from 'shevchenko';
 
 const props = defineProps({
-  anthroponym: { type: Object as PropType<Anthroponym>, required: true },
+  anthroponym: { type: Object as PropType<shevchenko.DeclensionInput>, required: true },
 });
 
 defineEmits(['patronymic-name-correction']);
