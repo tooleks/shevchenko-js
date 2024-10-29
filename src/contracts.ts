@@ -13,12 +13,12 @@ import { GrammaticalGender } from './language';
  * }
  * ```
  */
-export type DeclensionInput = {
+export interface DeclensionInput {
   gender: GrammaticalGender;
   givenName?: string;
   patronymicName?: string;
   familyName?: string;
-};
+}
 
 /**
  * The output result of anthroponym declension.
@@ -46,11 +46,11 @@ export type DeclensionOutput<T extends DeclensionInput = DeclensionInput> = Omit
  * }
  * ```
  */
-export type GenderDetectionInput = {
+export interface GenderDetectionInput {
   givenName?: string;
   patronymicName?: string;
   familyName?: string;
-};
+}
 
 /**
  * The output result of gender detection.

@@ -1,7 +1,7 @@
 import { DeclensionRule } from './declension-types';
+import { RuleBasedWordInflector } from './rule-based-word-inflector';
 import untypedDeclensionRules from './rules/artifacts/declension-rules.json';
-import { WordInflector } from './word-inflector';
 
 const declensionRules = untypedDeclensionRules as DeclensionRule[];
 
-export const wordInflector = new WordInflector(declensionRules);
+export const wordInflector = new RuleBasedWordInflector(declensionRules);
