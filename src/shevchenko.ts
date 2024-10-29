@@ -5,6 +5,7 @@ import {
   GenderDetectionInput,
   GenderDetectionOutput,
 } from './contracts';
+import { afterInflect } from './extension';
 import { detectGender as autoDetectGender } from './gender-detection';
 import {
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
@@ -14,10 +15,36 @@ import {
 } from './input-validation';
 import { GrammaticalCase } from './language';
 
-export * from './contracts';
+export {
+  DeclensionInput,
+  DeclensionOutput,
+  GenderDetectionInput,
+  GenderDetectionOutput,
+} from './contracts';
 export { InputValidationError } from './input-validation';
-export { GrammaticalGender, GrammaticalCase } from './language';
-export { Anthroponym } from './anthroponym-declension';
+export { GrammaticalCase, GrammaticalGender, WordClass } from './language';
+export { WordInflector } from './word-declension';
+export {
+  registerExtension,
+  ShevchenkoExtension,
+  ExtensionFactory,
+  AfterInflectHook,
+} from './extension';
+
+/**
+ * Inflects an anthroponym in the given grammatical case.
+ *
+ * @throws {InputValidationError} Input validation error.
+ */
+async function inGrammaticalCase<T extends DeclensionInput>(
+  grammaticalCase: GrammaticalCase,
+  input: T,
+): Promise<DeclensionOutput<T>> {
+  validateDeclensionInput(input);
+  const output = await anthroponymInflector.inflect(input, input.gender, grammaticalCase);
+  const afterOutput = await afterInflect(grammaticalCase, input);
+  return { ...output, ...afterOutput };
+}
 
 /**
  * Inflects an anthroponym in nominative grammatical case.
@@ -36,13 +63,7 @@ export { Anthroponym } from './anthroponym-declension';
 export async function inNominative<T extends DeclensionInput>(
   input: T,
 ): Promise<DeclensionOutput<T>> {
-  validateDeclensionInput(input);
-  const result = await anthroponymInflector.inflect(
-    input,
-    input.gender,
-    GrammaticalCase.NOMINATIVE,
-  );
-  return result as DeclensionOutput<T>;
+  return inGrammaticalCase(GrammaticalCase.NOMINATIVE, input);
 }
 
 /**
@@ -62,9 +83,7 @@ export async function inNominative<T extends DeclensionInput>(
 export async function inGenitive<T extends DeclensionInput>(
   input: T,
 ): Promise<DeclensionOutput<T>> {
-  validateDeclensionInput(input);
-  const result = await anthroponymInflector.inflect(input, input.gender, GrammaticalCase.GENITIVE);
-  return result as DeclensionOutput<T>;
+  return inGrammaticalCase(GrammaticalCase.GENITIVE, input);
 }
 
 /**
@@ -82,9 +101,7 @@ export async function inGenitive<T extends DeclensionInput>(
  * @throws {InputValidationError} Input validation error.
  */
 export async function inDative<T extends DeclensionInput>(input: T): Promise<DeclensionOutput<T>> {
-  validateDeclensionInput(input);
-  const result = await anthroponymInflector.inflect(input, input.gender, GrammaticalCase.DATIVE);
-  return result as DeclensionOutput<T>;
+  return inGrammaticalCase(GrammaticalCase.DATIVE, input);
 }
 
 /**
@@ -104,13 +121,7 @@ export async function inDative<T extends DeclensionInput>(input: T): Promise<Dec
 export async function inAccusative<T extends DeclensionInput>(
   input: T,
 ): Promise<DeclensionOutput<T>> {
-  validateDeclensionInput(input);
-  const result = await anthroponymInflector.inflect(
-    input,
-    input.gender,
-    GrammaticalCase.ACCUSATIVE,
-  );
-  return result as DeclensionOutput<T>;
+  return inGrammaticalCase(GrammaticalCase.ACCUSATIVE, input);
 }
 
 /**
@@ -130,9 +141,7 @@ export async function inAccusative<T extends DeclensionInput>(
 export async function inAblative<T extends DeclensionInput>(
   input: T,
 ): Promise<DeclensionOutput<T>> {
-  validateDeclensionInput(input);
-  const result = await anthroponymInflector.inflect(input, input.gender, GrammaticalCase.ABLATIVE);
-  return result as DeclensionOutput<T>;
+  return inGrammaticalCase(GrammaticalCase.ABLATIVE, input);
 }
 
 /**
@@ -152,9 +161,7 @@ export async function inAblative<T extends DeclensionInput>(
 export async function inLocative<T extends DeclensionInput>(
   input: T,
 ): Promise<DeclensionOutput<T>> {
-  validateDeclensionInput(input);
-  const result = await anthroponymInflector.inflect(input, input.gender, GrammaticalCase.LOCATIVE);
-  return result as DeclensionOutput<T>;
+  return inGrammaticalCase(GrammaticalCase.LOCATIVE, input);
 }
 
 /**
@@ -174,9 +181,7 @@ export async function inLocative<T extends DeclensionInput>(
 export async function inVocative<T extends DeclensionInput>(
   input: T,
 ): Promise<DeclensionOutput<T>> {
-  validateDeclensionInput(input);
-  const result = await anthroponymInflector.inflect(input, input.gender, GrammaticalCase.VOCATIVE);
-  return result as DeclensionOutput<T>;
+  return inGrammaticalCase(GrammaticalCase.VOCATIVE, input);
 }
 
 /**
