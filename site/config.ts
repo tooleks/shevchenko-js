@@ -1,6 +1,6 @@
 import pkg from './node_modules/shevchenko/package.json';
 
-const BASE_URL = process.env.WEBSITE_URL ?? 'http://localhost:3000';
+const BASE_URL = 'https://shevchenko-js.tooleks.com';
 
 const currentYear = new Date().getFullYear();
 const websiteName = new URL(BASE_URL).hostname;
@@ -8,7 +8,7 @@ const websiteName = new URL(BASE_URL).hostname;
 export default {
   website: {
     url: BASE_URL,
-    email: process.env.WEBSITE_EMAIL,
+    email: 'shevchenko-js@tooleks.com',
     copyright: `© 2017-${currentYear} ${websiteName}`,
   },
   library: {
