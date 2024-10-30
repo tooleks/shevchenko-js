@@ -1,4 +1,4 @@
-import{G as J,P as yn,y as x,Q as $n,R as wn,S as Ze,U as E,u as b,V as be,W as Tn,X as On,Y as en,l as ie,Z as An,D as A,d as L,I as nn,o as $,a as w,g as an,t as h,f as r,b as Sn,_ as ae,$ as fe,E as ve,J as In,h as te,z as Pn,A as jn,a0 as tn,q as sn,F as En,a1 as mn,a2 as Te,a3 as Oe,a4 as Ae,a5 as Se,k as Cn,w as Nn,a6 as Ie,s as xn,e as Ln,L as Rn}from"./CgFnsaur.js";/**
+import{G as J,P as yn,y as x,Q as $n,R as wn,S as Ze,U as E,u as b,V as be,W as Tn,X as On,Y as en,l as ie,Z as An,D as A,d as L,I as nn,o as $,a as w,g as an,t as h,f as r,b as Sn,_ as ae,$ as fe,E as ve,J as In,h as te,z as Pn,A as jn,a0 as tn,q as sn,F as En,a1 as mn,a2 as Te,a3 as Oe,a4 as Ae,a5 as Se,k as Cn,w as Nn,a6 as Ie,s as xn,e as Ln,L as Rn}from"./BARnzZKj.js";/**
  * @file JavaScript library for declension of Ukrainian anthroponyms
  * @module shevchenko
  * @version 3.1.0
