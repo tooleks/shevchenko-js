@@ -27,27 +27,28 @@ useHead({
   title: pageTitle,
   link: [
     //
-    { rel: 'canonical', href: buildPageUrl(route.href) },
-  ],
-  meta: [
-    { name: 'description', content: $t('website.description.military') },
-    { name: 'keywords', content: $t('website.keywords.military') },
-    { property: 'og:image', content: buildPageUrl('/preview-608x608.jpg') },
-    { property: 'og:image:width', content: '608' },
-    { property: 'og:image:height', content: '608' },
-    { property: 'og:type', content: 'website' },
-    { property: 'og:url', content: pageUrl },
-    { property: 'og:site_name', content: appConfig.library.name },
-    { property: 'og:title', content: pageTitle },
-    { property: 'og:description', content: $t('website.description.military') },
-    { name: 'twitter:image', content: buildPageUrl('/preview-608x608.jpg') },
-    { name: 'twitter:card', content: 'summary' },
-    { name: 'twitter:title', content: pageTitle },
-    { name: 'twitter:description', content: pageTitle },
+    { rel: 'canonical', href: buildPageUrl(route.fullPath) },
   ],
   bodyAttrs: {
     'data-bs-theme': 'military',
   },
+});
+
+useSeoMeta({
+  description: $t('website.description.military'),
+  keywords: $t('website.keywords.military'),
+  ogImage: buildPageUrl('/preview-608x608.jpg'),
+  ogImageWidth: 608,
+  ogImageHeight: 608,
+  ogType: 'website',
+  ogUrl: pageUrl,
+  ogSiteName: appConfig.library.name,
+  ogTitle: pageTitle,
+  ogDescription: $t('website.description.military'),
+  twitterImage: buildPageUrl('/preview-608x608.jpg'),
+  twitterCard: 'summary',
+  twitterTitle: pageTitle,
+  twitterDescription: pageTitle,
 });
 </script>
 
