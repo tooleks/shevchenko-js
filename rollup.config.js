@@ -3,8 +3,8 @@ import alias from '@rollup/plugin-alias';
 import commonjs from '@rollup/plugin-commonjs';
 import json from '@rollup/plugin-json';
 import resolve from '@rollup/plugin-node-resolve';
+import terser from '@rollup/plugin-terser';
 import typescript from '@rollup/plugin-typescript';
-import { terser } from 'rollup-plugin-terser';
 import pkg from './package.json';
 
 const banner = `
@@ -26,6 +26,7 @@ export default [
       name: pkg.name,
       file: pkg.browser,
       format: 'umd',
+      exports: 'named',
       banner: banner.trim(),
       sourcemap: false,
     },
@@ -54,6 +55,7 @@ export default [
     output: {
       dir: path.dirname(pkg.main),
       format: 'cjs',
+      exports: 'named',
       banner: banner.trim(),
       sourcemap: false,
       preserveModules: true,

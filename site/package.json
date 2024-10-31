@@ -15,8 +15,8 @@
     "@typescript-eslint/eslint-plugin": "^5.42.0",
     "@typescript-eslint/parser": "^5.42.0",
     "@vue/eslint-config-typescript": "^11.0.2",
-    "@vueuse/core": "^9.4.0",
-    "@vueuse/nuxt": "^9.4.0",
+    "@vueuse/core": "^11.2.0",
+    "@vueuse/nuxt": "^11.2.0",
     "eslint": "^8.26.0",
     "eslint-config-prettier": "^8.5.0",
     "eslint-config-xo": "^0.42.0",
@@ -27,7 +27,7 @@
     "nuxt": "^3.13.2",
     "prettier": "^2.7.1",
     "sass": "~1.32.0",
-    "serve": "^14.0.1",
+    "serve": "^14.2.4",
     "typescript": "^4.8.4"
   },
   "dependencies": {
@@ -39,7 +39,7 @@
     "shevchenko": "file:..",
     "shevchenko-ext-military": "^0.0.0-beta.0",
     "showdown": "^2.1.0",
-    "vue-i18n": "^9.2.2",
-    "vue-router": "^4.1.6"
+    "vue-i18n": "^10.0.4",
+    "vue-router": "^4.4.5"
   }
 }

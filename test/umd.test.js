@@ -14,4 +14,19 @@ describe('UMD module', () => {
     expect(shevchenko.inVocative).toBeDefined();
     expect(shevchenko.detectGender).toBeDefined();
   });
+
+  it('should perform the declension', async () => {
+    const result = await shevchenko.inVocative({
+      gender: await shevchenko.detectGender({ patronymicName: 'Григорович' }),
+      familyName: 'Шевченко',
+      givenName: 'Тарас',
+      patronymicName: 'Григорович',
+    });
+
+    expect(result).toStrictEqual({
+      familyName: 'Шевченку',
+      givenName: 'Тарасе',
+      patronymicName: 'Григоровичу',
+    });
+  });
 });
