@@ -2,6 +2,9 @@ name: Generate Static Website
 
 on:
   workflow_dispatch:
+  workflow_run:
+    workflows: ["Publish Docker Image"]
+    types: [completed]
 
 jobs:
   publish-github-pages:
@@ -18,13 +21,15 @@ jobs:
       - name: Build package
         run: |
           npm ci
-          npm run build
-          npm run docs
+          npm run build          
       - name: Generate website
         run: |
           cd ./site
           npm ci
           npm run generate
+      - name: Generate docs
+        run: |
+          npm run docs
       - name: Check in the changes
         run: |
           git config --global user.name "github-actions"
