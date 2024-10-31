@@ -1,1 +1,0 @@
-import{_ as t,a as o,a2 as s,o as a}from"./BgtUCu0x.js";const c={},n={class:"container"};function r(e,_){return a(),o("div",n,[s(e.$slots,"default")])}const d=t(c,[["render",r]]);export{d as default};
