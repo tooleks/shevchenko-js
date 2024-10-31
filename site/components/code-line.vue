@@ -5,6 +5,6 @@ defineProps({
 </script>
 
 <template>
-  <pre v-source-code class="mb-0"><code>{{ code }}</code></pre>
+  <pre v-highlight-js class="mb-0"><code>{{ code }}</code></pre>
   <CopyButton :source="code" class="ms-1" />
 </template>

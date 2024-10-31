@@ -6,7 +6,7 @@ defineProps({
 
 <template>
   <div class="position-relative">
-    <pre v-source-code class="mb-0"><code>{{ code }}</code></pre>
+    <pre v-highlight-js class="mb-0"><code>{{ code }}</code></pre>
     <CopyButton :source="code" class="position-absolute top-0 end-0" />
   </div>
 </template>

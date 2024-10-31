@@ -4,7 +4,7 @@ import javascript from 'highlight.js/lib/languages/javascript';
 hljs.registerLanguage('javascript', javascript);
 
 export default defineNuxtPlugin(({ vueApp }) => {
-  vueApp.directive('source-code', {
+  vueApp.directive('highlight-js', {
     deep: true,
     beforeMount(element: HTMLElement, binding) {
       if (process.client) {
