@@ -2,8 +2,6 @@ name: Generate Static Website
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: '0 0 1 1 *'
 
 jobs:
   publish-github-pages:
@@ -11,24 +9,26 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
-          node-version: 20
-      - name: Prepare package
+          node-version: 22
+      - name: Build package
         run: |
           npm ci
           npm run build
+          npm run docs
       - name: Generate website
         run: |
           cd ./site
           npm ci
           npm run generate
-      - name: Publish website
-        run: npm run docs
-      - uses: stefanzweifel/git-auto-commit-action@v4
-        with:
-          commit_message: "chore(site): publish website"
-          commit_user_name: ci
-          commit_user_email: ci@tooleks.com
-          commit_author: CI <ci@tooleks.com>
+      - name: Check in the changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add .
+          git commit -m "chore(site): publish website"
+          git push origin
