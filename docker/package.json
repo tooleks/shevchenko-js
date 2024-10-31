@@ -17,7 +17,7 @@
   },
   "homepage": "https://github.com/tooleks/shevchenko-js#readme",
   "dependencies": {
-    "express": "^4.19.2",
+    "express": "^4.21.1",
     "shevchenko": "^3.0.9"
   }
 }
