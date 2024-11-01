@@ -1,9 +1,12 @@
 <script setup lang="ts">
+import { countryCodeEmoji } from 'country-code-emoji';
 import { buildPageUrl } from '~/composables/route-utils';
-import { useLocaleEmoji } from '~/composables/locale-country-code';
 
 const appConfig = useAppConfig();
-const { getLocaleEmoji } = useLocaleEmoji();
+
+function getLocaleEmoji(locale: string): string {
+  return countryCodeEmoji(locale.split('-')[1]);
+}
 </script>
 
 <template>

@@ -1,13 +1,12 @@
 import pkg from './node_modules/shevchenko/package.json';
 
-const BASE_URL = 'https://shevchenko-js.tooleks.com';
-
+const baseUrl = 'https://shevchenko-js.tooleks.com';
+const websiteName = new URL(baseUrl).hostname;
 const currentYear = new Date().getFullYear();
-const websiteName = new URL(BASE_URL).hostname;
 
 export default {
   website: {
-    url: BASE_URL,
+    url: baseUrl,
     email: 'shevchenko-js@tooleks.com',
     copyright: `© 2017-${currentYear} ${websiteName}`,
   },
@@ -15,7 +14,7 @@ export default {
     displayName: `${pkg.name}.js`,
     name: pkg.name,
     version: pkg.version,
-    apiSpecificationUrl: `${BASE_URL}/api-spec`,
+    apiSpecificationUrl: `${baseUrl}/api-spec`,
     npmUrl: 'https://www.npmjs.com/package/shevchenko',
     gitHubUrl: 'https://github.com/tooleks/shevchenko-js',
     dockerHubUrl: 'https://hub.docker.com/r/tooleks/shevchenko',

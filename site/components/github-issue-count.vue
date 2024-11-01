@@ -7,7 +7,7 @@ type GitHubRepositoryDetails = {
   open_issues_count: number;
 };
 
-const { data, pending } = await useLazyFetch<GitHubRepositoryDetails>(appConfig.content.gitHubUrl);
+const { data, status } = await useLazyFetch<GitHubRepositoryDetails>(appConfig.content.gitHubUrl);
 
 const issueCount = computed(() => {
   if (data.value == null) {
@@ -15,8 +15,10 @@ const issueCount = computed(() => {
   }
   return data.value.open_issues_count;
 });
+
+const isPending = computed(() => status.value === 'pending');
 </script>
 
 <template>
-  <span v-if="!pending" class="badge bg-secondary">{{ issueCount }}</span>
+  <span v-if="!isPending" class="badge bg-secondary">{{ issueCount }}</span>
 </template>

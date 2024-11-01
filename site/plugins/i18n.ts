@@ -3,11 +3,11 @@ import enUS from '~/locales/en-US.json';
 import ukUA from '~/locales/uk-UA.json';
 
 export type LocaleName = 'en-US' | 'uk-UA';
-type MessageSchema = typeof enUS;
+type MessageSchema = typeof enUS & typeof ukUA;
 type MessageDictionary = any;
 
-export const DEFAULT_LOCALE: LocaleName = 'uk-UA';
-export const FALLBACK_LOCALE: LocaleName = 'en-US';
+const DEFAULT_LOCALE: LocaleName = 'uk-UA';
+const FALLBACK_LOCALE: LocaleName = 'en-US';
 
 export default defineNuxtPlugin(({ vueApp }) => {
   const i18n = createI18n<MessageSchema, LocaleName>({
@@ -27,11 +27,13 @@ export default defineNuxtPlugin(({ vueApp }) => {
 
   vueApp.use(i18n);
 
+  // Overrides to auto-include the locale prefix.
+
   const router = useRouter();
   const originalResolve = router.resolve.bind(router);
 
   // @ts-ignore
-  router.resolve = (to, current, append) => {
+  router.resolve = function (to, current, append) {
     // @ts-ignore
     const resolved = originalResolve(to, current, append);
     resolved.href = getI18nPath(i18n.global.locale.value, resolved.href);
@@ -57,7 +59,7 @@ export default defineNuxtPlugin(({ vueApp }) => {
 /**
  * Returns the full path with a locale prefix.
  */
-export function getI18nPath(locale: string, fullPath: string): string {
+function getI18nPath(locale: LocaleName, fullPath: string): string {
   if (locale === DEFAULT_LOCALE) {
     return fullPath;
   }

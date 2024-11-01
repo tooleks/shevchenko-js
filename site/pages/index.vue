@@ -1,9 +1,7 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { usePageI18n } from '~/composables/page-i18n';
 import { buildPageUrl, useRouteUtils } from '~/composables/route-utils';
-import { usePageMeta } from '~/composables/page-meta';
 import type { LocaleName } from '~/plugins/i18n';
 
 const props = defineProps({
@@ -16,12 +14,7 @@ const appConfig = useAppConfig();
 const route = useRoute();
 const { t: $t } = useI18n();
 const { pageUrl } = useRouteUtils();
-const { buildPageTitle } = usePageMeta();
-
-const pageTitle = computed(() => {
-  const title = $t('website.title').toString();
-  return buildPageTitle(title);
-});
+const pageTitle = computed(() => $t('website.title'));
 
 useHead({
   title: pageTitle,
@@ -50,12 +43,8 @@ useSeoMeta({
 </script>
 
 <template>
-  <PageHeader />
   <BannerSection />
   <DeclensionDemoSection />
   <HowItWorksSection />
   <DocsSection />
-  <PageFooter />
-  <AboutModal />
-  <ContactUsModal />
 </template>

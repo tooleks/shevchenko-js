@@ -4,8 +4,6 @@ const appConfig = useAppConfig();
 
 <template>
   <section id="footer">
-    <hr />
-
     <div class="row mb-1">
       <div class="col-12">
         <ul class="list-unstyled mb-0" role="menubar">

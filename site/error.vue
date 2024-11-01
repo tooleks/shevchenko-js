@@ -1,15 +1,8 @@
 <script setup lang="ts">
-import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { usePageMeta } from './composables/page-meta';
 
 const { t: $t } = useI18n();
-const { buildPageTitle } = usePageMeta();
-
-const pageTitle = computed(() => {
-  const title = $t('error.404.title').toString();
-  return buildPageTitle(title);
-});
+const pageTitle = computed(() => $t('error.404.title'));
 
 useHead({
   title: pageTitle,
@@ -17,9 +10,19 @@ useHead({
 </script>
 
 <template>
-  <NuxtLayout name="default">
-    <PageHeader />
-    <Error404 />
-    <PageFooter />
+  <NuxtLayout>
+    <div class="px-3 px-lg-4 py-4 my-3 bg-light rounded-3">
+      <h1 class="text-truncate">
+        {{ $t('error.404.title') }}
+      </h1>
+
+      <p>
+        {{ $t('error.404.message') }}
+      </p>
+
+      <NuxtLink :to="{ name: 'index' }" class="btn btn-primary">
+        {{ $t('action.backToHome') }}
+      </NuxtLink>
+    </div>
   </NuxtLayout>
 </template>

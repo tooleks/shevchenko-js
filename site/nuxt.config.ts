@@ -1,10 +1,12 @@
 import { buildPageUrl } from './composables/route-utils';
+import config from './config';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
   css: ['~/assets/style/main.scss'],
   app: {
     head: {
+      titleTemplate: `${config.library.displayName} - %s`,
       charset: 'utf-8',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },

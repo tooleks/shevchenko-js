@@ -3,9 +3,11 @@ import config from '../config';
 /**
  * Builds the absolute page URL for the given path.
  */
-export const buildPageUrl = (fullPath = '') => config.website.url + fullPath;
+export function buildPageUrl(fullPath = ''): string {
+  return config.website.url + fullPath;
+}
 
-export const useRouteUtils = () => {
+export function useRouteUtils() {
   const route = useRoute();
 
   /**
@@ -14,4 +16,4 @@ export const useRouteUtils = () => {
   const pageUrl = computed(() => buildPageUrl(route.fullPath));
 
   return { buildPageUrl, pageUrl };
-};
+}

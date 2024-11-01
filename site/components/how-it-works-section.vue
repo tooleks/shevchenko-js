@@ -3,8 +3,11 @@ import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 import Showdown from 'showdown';
 
-const appConfig = useAppConfig();
 const converter = new Showdown.Converter();
+
+const appConfig = useAppConfig();
+const { locale } = useI18n();
+const isVisible = computed(() => locale.value === 'uk-UA');
 
 const { data } = await useFetch<string>(appConfig.content.howItWorksUrl);
 
@@ -14,9 +17,6 @@ const contents = computed(() => {
   }
   return converter.makeHtml(data.value);
 });
-
-const { locale } = useI18n();
-const isVisible = computed(() => locale.value === 'uk-UA');
 </script>
 
 <template>
