@@ -1,0 +1,1 @@
+import{_ as t}from"./PeTUVE70.js";import{r as s}from"./B17-uKz3.js";import"./ErTTMfST.js";import"./nTugnUoi.js";import"./B-OnWB1P.js";const n={...t,setup(p,r){const o=s({locale:"en-US"});return t.setup.call(this,o,r)}};export{n as default};
