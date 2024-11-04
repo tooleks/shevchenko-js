@@ -23,6 +23,9 @@ jobs:
           npm ci
           npm run build          
       - name: Generate website
+        env:
+          NUXT_PUBLIC_SITE_URL: ${{vars.NUXT_PUBLIC_SITE_URL}}
+          NUXT_PUBLIC_SITE_EMAIL: ${{vars.NUXT_PUBLIC_SITE_EMAIL}}
         run: |
           cd ./site
           npm ci

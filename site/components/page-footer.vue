@@ -1,5 +1,15 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+
 const appConfig = useAppConfig();
+const runtimeConfig = useRuntimeConfig();
+const currentTime = useNow({ interval: 60_000 });
+
+const currentYear = computed(() => currentTime.value.getFullYear());
+const siteName = computed(() => {
+  const siteUrl = new URL(runtimeConfig.public.siteUrl);
+  return siteUrl.hostname;
+});
 </script>
 
 <template>
@@ -73,9 +83,7 @@ const appConfig = useAppConfig();
     </div>
 
     <div class="row mb-3">
-      <div class="col-12">
-        {{ appConfig.website.copyright }}
-      </div>
+      <div class="col-12">&copy; 2017-{{ currentYear }} {{ siteName }}</div>
     </div>
   </section>
 </template>

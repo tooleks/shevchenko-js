@@ -1,29 +1,32 @@
 <script setup lang="ts">
 import { computed, watch, onMounted } from 'vue';
 import * as bootstrap from 'bootstrap';
+import { querySelectorUntil } from '~/utils/dom';
 
 const route = useRoute();
 
-const isAboutLink = computed(() => route.hash === '#about');
+const isAboutUrl = computed(() => route.hash === '#about');
 
 function autoShowAboutModal(): void {
-  if (isAboutLink.value) {
+  if (isAboutUrl.value) {
     showAboutModal();
   }
 }
 
-function showAboutModal(): void {
-  const modal = new bootstrap.Modal('#about-modal');
+async function showAboutModal(): Promise<void> {
+  const modalElement = await querySelectorUntil('#about-modal');
+  const modal = new bootstrap.Modal(modalElement);
   modal.show();
 }
 
-function hideAboutModal(): void {
-  const modal = new bootstrap.Modal('#about-modal');
+async function hideAboutModal(): Promise<void> {
+  const modalElement = await querySelectorUntil('#about-modal');
+  const modal = new bootstrap.Modal(modalElement);
   modal.hide();
 }
 
 onMounted(() => autoShowAboutModal());
-watch(isAboutLink, () => autoShowAboutModal());
+watch(isAboutUrl, () => autoShowAboutModal());
 </script>
 
 <template>
@@ -38,9 +41,9 @@ watch(isAboutLink, () => autoShowAboutModal());
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 id="about-label" class="modal-title">
+          <h2 id="about-label" class="modal-title h5">
             {{ $t('aboutUs') }}
-          </h5>
+          </h2>
 
           <button
             type="button"
@@ -57,18 +60,18 @@ watch(isAboutLink, () => autoShowAboutModal());
 
           <div class="list-group">
             <span class="list-group-item list-group-item-light flex-column align-items-start">
-              <h5 class="mb-1">{{ $t('aboutUs.author1') }}</h5>
+              <p class="h5 mb-1">{{ $t('aboutUs.author1') }}</p>
               <p class="mb-1">{{ $t('aboutUs.author1.responsibility') }}</p>
             </span>
 
             <span class="list-group-item flex-column align-items-start">
               <div class="d-flex w-100 justify-content-between">
-                <h5 class="mb-1">{{ $t('aboutUs.author2') }}</h5>
+                <p class="h5 mb-1">{{ $t('aboutUs.author2') }}</p>
                 <ModalButton
                   modal-id="contact-us-modal"
                   :aria-label="$t('action.write')"
                   :title="$t('action.write')"
-                  @click="hideAboutModal"
+                  @click="hideAboutModal()"
                 >
                   <i aria-hidden="true" class="fa fa-envelope"></i>
                 </ModalButton>
@@ -77,7 +80,7 @@ watch(isAboutLink, () => autoShowAboutModal());
             </span>
 
             <span class="list-group-item flex-column align-items-start">
-              <h5 class="mb-1">{{ $t('aboutUs.author3') }}</h5>
+              <p class="h5 mb-1">{{ $t('aboutUs.author3') }}</p>
               <p class="mb-1">{{ $t('aboutUs.author3.responsibility') }}</p>
             </span>
           </div>

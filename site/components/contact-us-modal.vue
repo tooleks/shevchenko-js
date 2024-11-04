@@ -2,14 +2,15 @@
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
 
+const runtimeConfig = useRuntimeConfig();
 const appConfig = useAppConfig();
 const { t: $t } = useI18n();
 
 const mailtoUrl = computed(() => {
-  const url = new URL(`mailto:${appConfig.website.email}`);
+  const url = new URL(`mailto:${runtimeConfig.public.siteEmail}`);
   url.searchParams.set(
     'subject',
-    $t('contactUs.messageSubject', { appName: appConfig.library.displayName }).toString(),
+    $t('contactUs.messageSubject', { appName: appConfig.library.displayName }),
   );
   return url.toString();
 });
@@ -27,9 +28,9 @@ const mailtoUrl = computed(() => {
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 id="contact-me-label" class="modal-title">
+          <h2 id="contact-me-label" class="modal-title h5">
             {{ $t('contactUs') }}
-          </h5>
+          </h2>
 
           <button
             type="button"
@@ -46,7 +47,7 @@ const mailtoUrl = computed(() => {
 
           <div class="input-group mb-3">
             <input
-              :value="appConfig.website.email"
+              :value="runtimeConfig.public.siteEmail"
               readonly
               type="email"
               class="form-control"

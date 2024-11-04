@@ -1,8 +1,9 @@
 <script setup lang="ts">
 import { countryCodeEmoji } from 'country-code-emoji';
-import { buildPageUrl } from '~/composables/route-utils';
+import { useAbsoluteUrl } from '~/composables/absolute-url';
 
 const appConfig = useAppConfig();
+const { getAbsoluteUrl } = useAbsoluteUrl();
 
 function getLocaleEmoji(locale: string): string {
   return countryCodeEmoji(locale.split('-')[1]);
@@ -89,7 +90,7 @@ function getLocaleEmoji(locale: string): string {
             <div class="dropdown-menu" aria-labelledby="navbar-dropdown-links" role="menu">
               <a
                 class="dropdown-item"
-                :href="appConfig.library.apiSpecificationUrl"
+                :href="getAbsoluteUrl(appConfig.library.apiSpecPath)"
                 target="_blank"
                 role="menuitem"
               >
@@ -181,7 +182,7 @@ function getLocaleEmoji(locale: string): string {
                 v-for="locale of $i18n.availableLocales"
                 :key="locale"
                 class="dropdown-item"
-                :href="buildPageUrl(locale === 'uk-UA' ? '/' : `/${locale}`)"
+                :href="getAbsoluteUrl(locale === 'uk-UA' ? '/' : `/${locale}`)"
                 role="menuitem"
               >
                 {{ getLocaleEmoji(locale) }}

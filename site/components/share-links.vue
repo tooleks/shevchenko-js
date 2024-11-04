@@ -1,36 +1,36 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useRouteUtils } from '~/composables/route-utils';
+import { useAbsoluteUrl } from '~/composables/absolute-url';
 
 defineProps({
   buttonsClass: { type: String, default: null },
 });
 
 const { t: $t } = useI18n();
-const { pageUrl } = useRouteUtils();
+const { absoluteUrl } = useAbsoluteUrl();
 
 const facebookShareLink = computed(() => {
   const shareLink = new URL('https://www.facebook.com');
   shareLink.pathname = '/sharer/sharer.php';
-  shareLink.searchParams.set('u', pageUrl.value);
+  shareLink.searchParams.set('u', absoluteUrl.value);
   return shareLink.toString();
 });
 
 const twitterShareLink = computed(() => {
   const shareLink = new URL('https://twitter.com');
   shareLink.pathname = '/home';
-  shareLink.searchParams.set('status', pageUrl.value);
+  shareLink.searchParams.set('status', absoluteUrl.value);
   return shareLink.toString();
 });
 
 const linkedInShareLink = computed(() => {
   const shareLink = new URL('https://www.linkedin.com');
   shareLink.pathname = '/shareArticle';
-  shareLink.searchParams.set('mini', true.toString());
-  shareLink.searchParams.set('url', pageUrl.value);
+  shareLink.searchParams.set('mini', String(true));
+  shareLink.searchParams.set('url', absoluteUrl.value);
   shareLink.searchParams.set('title', '');
-  shareLink.searchParams.set('summary', $t('app.name').toString());
+  shareLink.searchParams.set('summary', $t('app.name'));
   shareLink.searchParams.set('source', '');
   return shareLink.toString();
 });
@@ -39,7 +39,7 @@ const linkedInShareLink = computed(() => {
 <template>
   <div class="btn-group" :class="buttonsClass" role="menubar">
     <CopyButton
-      :source="pageUrl"
+      :source="absoluteUrl"
       button-class="btn btn-lg btn-link btn-share"
       :button-title="$t('action.copyLink')"
       icon-class="fa fa-link"

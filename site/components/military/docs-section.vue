@@ -45,7 +45,7 @@ main().catch((error) => console.error(error));
     <div class="row">
       <div class="col">
         <DocsInstallationCard>
-          <h6 class="card-subtitle mb-2 text-muted">npm</h6>
+          <h4 class="card-subtitle h6 mb-2 text-muted">npm</h4>
           <div class="d-flex align-items-center mb-0">
             <CodeLine :code="npmInstallCommand" />
           </div>

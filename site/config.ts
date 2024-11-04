@@ -1,20 +1,11 @@
 import pkg from './node_modules/shevchenko/package.json';
 
-const baseUrl = 'https://shevchenko-js.tooleks.com';
-const websiteName = new URL(baseUrl).hostname;
-const currentYear = new Date().getFullYear();
-
 export default {
-  website: {
-    url: baseUrl,
-    email: 'shevchenko-js@tooleks.com',
-    copyright: `© 2017-${currentYear} ${websiteName}`,
-  },
   library: {
     displayName: `${pkg.name}.js`,
     name: pkg.name,
     version: pkg.version,
-    apiSpecificationUrl: `${baseUrl}/api-spec`,
+    apiSpecPath: '/api-spec',
     npmUrl: 'https://www.npmjs.com/package/shevchenko',
     gitHubUrl: 'https://github.com/tooleks/shevchenko-js',
     dockerHubUrl: 'https://hub.docker.com/r/tooleks/shevchenko',

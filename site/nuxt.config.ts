@@ -1,9 +1,20 @@
-import { buildPageUrl } from './composables/route-utils';
+import { getAbsoluteUrl } from './composables/absolute-url';
 import config from './config';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
 export default defineNuxtConfig({
-  css: ['~/assets/style/main.scss'],
+  // https://github.com/nuxt/nuxt/pull/24504#issuecomment-1870925896
+  nitro: {
+    prerender: {
+      ignore: ['/manifest.json'],
+    },
+  },
+  runtimeConfig: {
+    public: {
+      siteUrl: 'http://localhost:3000',
+      siteEmail: 'admin@localhost',
+    },
+  },
   app: {
     head: {
       titleTemplate: `${config.library.displayName} - %s`,
@@ -11,69 +22,92 @@ export default defineNuxtConfig({
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
         { name: 'msapplication-TileColor', content: '#ffffff' },
-        { name: 'msapplication-TileImage', content: buildPageUrl('/ms-icon-144x144.png') },
+        {
+          name: 'msapplication-TileImage',
+          content: getAbsoluteUrl('/ms-icon-144x144.png', process.env.NUXT_PUBLIC_SITE_URL),
+        },
         { name: 'theme-color', content: '#ffffff' },
       ],
       link: [
-        { rel: 'apple-touch-icon', sizes: '57x57', href: buildPageUrl('/apple-icon-57x57.png') },
-        { rel: 'apple-touch-icon', sizes: '60x60', href: buildPageUrl('/apple-icon-60x60.png') },
-        { rel: 'apple-touch-icon', sizes: '72x72', href: buildPageUrl('/apple-icon-72x72.png') },
-        { rel: 'apple-touch-icon', sizes: '76x76', href: buildPageUrl('/apple-icon-76x76.png') },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '57x57',
+          href: getAbsoluteUrl('/apple-icon-57x57.png', process.env.NUXT_PUBLIC_SITE_URL),
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '60x60',
+          href: getAbsoluteUrl('/apple-icon-60x60.png', process.env.NUXT_PUBLIC_SITE_URL),
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '72x72',
+          href: getAbsoluteUrl('/apple-icon-72x72.png', process.env.NUXT_PUBLIC_SITE_URL),
+        },
+        {
+          rel: 'apple-touch-icon',
+          sizes: '76x76',
+          href: getAbsoluteUrl('/apple-icon-76x76.png', process.env.NUXT_PUBLIC_SITE_URL),
+        },
         {
           rel: 'apple-touch-icon',
           sizes: '114x114',
-          href: buildPageUrl('/apple-icon-114x114.png'),
+          href: getAbsoluteUrl('/apple-icon-114x114.png', process.env.NUXT_PUBLIC_SITE_URL),
         },
         {
           rel: 'apple-touch-icon',
           sizes: '120x120',
-          href: buildPageUrl('/apple-icon-120x120.png'),
+          href: getAbsoluteUrl('/apple-icon-120x120.png', process.env.NUXT_PUBLIC_SITE_URL),
         },
         {
           rel: 'apple-touch-icon',
           sizes: '144x144',
-          href: buildPageUrl('/apple-icon-144x144.png'),
+          href: getAbsoluteUrl('/apple-icon-144x144.png', process.env.NUXT_PUBLIC_SITE_URL),
         },
         {
           rel: 'apple-touch-icon',
           sizes: '152x152',
-          href: buildPageUrl('/apple-icon-152x152.png'),
+          href: getAbsoluteUrl('/apple-icon-152x152.png', process.env.NUXT_PUBLIC_SITE_URL),
         },
         {
           rel: 'apple-touch-icon',
           sizes: '180x180',
-          href: buildPageUrl('/apple-icon-180x180.png'),
+          href: getAbsoluteUrl('/apple-icon-180x180.png', process.env.NUXT_PUBLIC_SITE_URL),
         },
         {
           rel: 'icon',
           type: 'image/png',
           sizes: '192x192',
-          href: buildPageUrl('/android-icon-192x192.png'),
+          href: getAbsoluteUrl('/android-icon-192x192.png', process.env.NUXT_PUBLIC_SITE_URL),
         },
         {
           rel: 'icon',
           type: 'image/png',
           sizes: '32x32',
-          href: buildPageUrl('/favicon-32x32.png'),
+          href: getAbsoluteUrl('/favicon-32x32.png', process.env.NUXT_PUBLIC_SITE_URL),
         },
         {
           rel: 'icon',
           type: 'image/png',
           sizes: '96x96',
-          href: buildPageUrl('/favicon-96x96.png'),
+          href: getAbsoluteUrl('/favicon-96x96.png', process.env.NUXT_PUBLIC_SITE_URL),
         },
         {
           rel: 'icon',
           type: 'image/png',
           sizes: '16x16',
-          href: buildPageUrl('/favicon-16x16.png'),
+          href: getAbsoluteUrl('/favicon-16x16.png', process.env.NUXT_PUBLIC_SITE_URL),
         },
-        { rel: 'manifest', href: buildPageUrl('/manifest.json') },
+        {
+          rel: 'manifest',
+          href: getAbsoluteUrl('/manifest.json', process.env.NUXT_PUBLIC_SITE_URL),
+        },
       ],
       script: [
         { src: 'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js' },
       ],
     },
   },
+  css: ['~/assets/style/main.scss'],
   modules: ['@vueuse/nuxt'],
 });

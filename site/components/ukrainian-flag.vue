@@ -1,5 +1,5 @@
 <template>
-  <div class="flag flag--ukraine"></div>
+  <div class="flag flag-ua"></div>
 </template>
 
 <style lang="scss" scoped>
@@ -12,7 +12,7 @@ $color-field: #ffcc00;
   width: 100%;
   height: 30px;
 
-  &--ukraine {
+  &-ua {
     &::before {
       position: absolute;
       top: 0;

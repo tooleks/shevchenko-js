@@ -1,5 +1,8 @@
 <script setup lang="ts">
+import { useAbsoluteUrl } from '~/composables/absolute-url';
+
 const appConfig = useAppConfig();
+const { getAbsoluteUrl } = useAbsoluteUrl();
 
 const npmInstallCommand = `npm install --save ${appConfig.library.name}`;
 const nodeRequireCode = `const shevchenko = require("${appConfig.library.name}");`;
@@ -31,7 +34,7 @@ main().catch((error) => console.error(error));
         <h2>
           {{ $t('documentation') }}
           <small class="d-block h6 mt-2 mb-0 text-decoration-none">
-            <a :href="appConfig.library.apiSpecificationUrl" target="_blank">
+            <a :href="getAbsoluteUrl(appConfig.library.apiSpecPath)" target="_blank">
               {{ $t('documentation.navigateToFullVersion') }}
             </a>
           </small>
@@ -42,17 +45,17 @@ main().catch((error) => console.error(error));
     <div class="row">
       <div class="col">
         <DocsInstallationCard>
-          <h6 class="card-subtitle mb-2 text-muted">npm</h6>
+          <h4 class="card-subtitle h6 mb-2 text-muted">npm</h4>
           <div class="d-flex align-items-center mb-3">
             <CodeLine :code="npmInstallCommand" />
           </div>
 
-          <h6 class="card-subtitle mb-2 text-muted">Node.js</h6>
+          <h4 class="card-subtitle h6 mb-2 text-muted">Node.js</h4>
           <div class="d-flex align-items-center mb-3">
             <CodeLine :code="nodeRequireCode" />
           </div>
 
-          <h6 class="card-subtitle mb-2 text-muted">{{ $t('browser') }}</h6>
+          <h4 class="card-subtitle h6 mb-2 text-muted">{{ $t('browser') }}</h4>
           <div class="d-flex align-items-center mb-0">
             <CodeLine :code="browserScriptCode" />
           </div>
