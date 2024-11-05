@@ -1,12 +1,33 @@
 <script setup lang="ts">
 import { countryCodeEmoji } from 'country-code-emoji';
+import { useI18n } from 'vue-i18n';
 import { useAbsoluteUrl } from '~/composables/absolute-url';
+import { DEFAULT_LOCALE, type LocaleName } from '~/plugins/i18n';
 
 const appConfig = useAppConfig();
+const route = useRoute();
+const i18n = useI18n();
 const { getAbsoluteUrl } = useAbsoluteUrl();
 
 function getLocaleEmoji(locale: string): string {
   return countryCodeEmoji(locale.split('-')[1]);
+}
+
+function getLocaleUrl(switchLocale: LocaleName): string {
+  let fullPath = route.fullPath;
+
+  for (const availableLocale of i18n.availableLocales) {
+    const localePrefixPattern = new RegExp(`^/${availableLocale}`, 'i');
+    if (localePrefixPattern.test(fullPath)) {
+      fullPath = fullPath.replace(localePrefixPattern, '');
+    }
+  }
+
+  if (switchLocale !== DEFAULT_LOCALE) {
+    fullPath = `/${switchLocale}${fullPath}`;
+  }
+
+  return getAbsoluteUrl(fullPath);
 }
 </script>
 
@@ -182,7 +203,7 @@ function getLocaleEmoji(locale: string): string {
                 v-for="locale of $i18n.availableLocales"
                 :key="locale"
                 class="dropdown-item"
-                :href="getAbsoluteUrl(locale === 'uk-UA' ? '/' : `/${locale}`)"
+                :href="getLocaleUrl(locale)"
                 role="menuitem"
               >
                 {{ getLocaleEmoji(locale) }}
