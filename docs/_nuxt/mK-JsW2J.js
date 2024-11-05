@@ -1,0 +1,1 @@
+import{_ as t}from"./BOyf6jMy.js";import{r as s}from"./DaSCrtzF.js";import"./C_2xsKnz.js";import"./MHztW_iR.js";const c={...t,setup(a,r){const o=s({locale:"en-US"});return t.setup.call(this,o,r)}};export{c as default};

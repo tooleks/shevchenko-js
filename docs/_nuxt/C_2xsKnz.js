@@ -1,4 +1,4 @@
-import{B as Ce,C as Xe,G as J,D as Ze,q as E,E as Qe,H as en,I as nn,j as an,d as H,A as xe,z as G,u as g,o as h,a as b,f as mn,t as L,e as o,b as sn,J as Ne,y as Le,g as le,K as Me,n as Re,F as tn,L as De}from"./CKB3kLD9.js";import{d as cn,_ as Z,e as un,c as ln}from"./BIMrxWXI.js";function Pm(e,n){const{title:i,titleTemplate:a,...s}=e;return Ce({title:i,titleTemplate:a,_flatMeta:s},{...n,transform(m){const t=Xe({...m._flatMeta});return delete m._flatMeta,{...m,meta:t}}})}/**
+import{B as Ce,C as Xe,G as J,D as Ze,q as E,E as Qe,H as en,I as nn,j as an,d as H,A as xe,z as G,u as g,o as h,a as b,f as mn,t as L,e as o,b as sn,J as Ne,y as Le,g as le,K as Me,n as Re,F as tn,L as De}from"./DaSCrtzF.js";import{d as cn,_ as Z,e as un,c as ln}from"./MHztW_iR.js";function Pm(e,n){const{title:i,titleTemplate:a,...s}=e;return Ce({title:i,titleTemplate:a,_flatMeta:s},{...n,transform(m){const t=Xe({...m._flatMeta});return delete m._flatMeta,{...m,meta:t}}})}/**
  * @file JavaScript library for declension of Ukrainian anthroponyms
  * @module shevchenko
  * @version 3.1.0
