@@ -43,8 +43,13 @@ useSeoMeta({
 </script>
 
 <template>
+  <PageHeader />
   <BannerSection />
   <DeclensionDemoSection />
   <HowItWorksSection />
   <DocsSection />
+  <hr />
+  <PageFooter />
+  <AboutModal />
+  <ContactUsModal />
 </template>

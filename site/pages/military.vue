@@ -47,7 +47,12 @@ useSeoMeta({
 </script>
 
 <template>
+  <PageHeader />
   <MilitaryBannerSection />
   <MilitaryDeclensionDemoSection />
   <MilitaryDocsSection />
+  <hr />
+  <PageFooter />
+  <AboutModal />
+  <ContactUsModal />
 </template>
