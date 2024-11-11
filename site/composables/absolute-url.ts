@@ -14,7 +14,7 @@ export function useAbsoluteUrl() {
   /**
    * The absolute URL of the current page.
    */
-  const absoluteUrl = computed(() => getAbsoluteUrl(route.fullPath));
+  const absoluteUrl = computed(() => _getAbsoluteUrl(route.fullPath));
 
   function _getAbsoluteUrl(fullPath: string): string {
     return getAbsoluteUrl(fullPath, runtimeConfig.public.siteUrl);
