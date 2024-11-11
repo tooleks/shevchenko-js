@@ -5,8 +5,8 @@ import { isEqual } from 'lodash-es';
 
 const demoDeclensionInput: shevchenko.DeclensionInput = {
   gender: shevchenko.GrammaticalGender.MASCULINE,
-  militaryRank: 'солдат',
   militaryAppointment: 'помічник гранатометника',
+  militaryRank: 'солдат',
   familyName: 'Шевченко',
   givenName: 'Тарас',
   patronymicName: 'Григорович',
@@ -28,8 +28,8 @@ const [hasGenderDetectionError, showGenderDetectionError] = useToggle(false);
 type FormData = {
   gender: shevchenko.GrammaticalGender | typeof GENDER_AUTO_DETECT;
   autoDetectedGender: shevchenko.GrammaticalGender;
-  militaryRank?: string;
   militaryAppointment?: string;
+  militaryRank?: string;
   familyName?: string;
   givenName?: string;
   patronymicName?: string;
@@ -38,8 +38,8 @@ type FormData = {
 const formData = reactive<FormData>({
   gender: GENDER_AUTO_DETECT,
   autoDetectedGender: demoDeclensionInput.gender,
-  militaryRank: '',
   militaryAppointment: '',
+  militaryRank: '',
   familyName: '',
   givenName: '',
   patronymicName: '',
@@ -48,8 +48,8 @@ const formData = reactive<FormData>({
 function fillFormData(formDataChange: FormData): void {
   formData.gender = formDataChange.gender;
   formData.autoDetectedGender = formDataChange.autoDetectedGender;
-  formData.militaryRank = formDataChange.militaryRank;
   formData.militaryAppointment = formDataChange.militaryAppointment;
+  formData.militaryRank = formDataChange.militaryRank;
   formData.familyName = formDataChange.familyName;
   formData.givenName = formDataChange.givenName;
   formData.patronymicName = formDataChange.patronymicName;
@@ -59,8 +59,8 @@ function isValidFormData(formData: Partial<FormData>): formData is FormData {
   return Boolean(
     (formData.gender === GENDER_AUTO_DETECT ||
       Object.values(shevchenko.GrammaticalGender).includes(formData.gender)) &&
-      (formData?.militaryRank ||
-        formData?.militaryAppointment ||
+      (formData?.militaryAppointment ||
+        formData?.militaryRank ||
         formData.familyName ||
         formData.givenName ||
         formData.patronymicName),
@@ -71,23 +71,23 @@ async function handleFormSubmit(): Promise<void> {
   showGenderDetectionError(false);
 
   let gender: FormData['gender'] | null;
-  let militaryRank: FormData['militaryRank'];
   let militaryAppointment: FormData['militaryAppointment'];
+  let militaryRank: FormData['militaryRank'];
   let familyName: FormData['familyName'];
   let givenName: FormData['givenName'];
   let patronymicName: FormData['patronymicName'];
 
   if (isValidFormData(formData)) {
     gender = formData.gender;
-    militaryRank = formData.militaryRank;
     militaryAppointment = formData.militaryAppointment;
+    militaryRank = formData.militaryRank;
     familyName = formData.familyName;
     givenName = formData.givenName;
     patronymicName = formData.patronymicName;
   } else {
     gender = demoDeclensionInput.gender;
-    militaryRank = demoDeclensionInput.militaryRank;
     militaryAppointment = demoDeclensionInput.militaryAppointment;
+    militaryRank = demoDeclensionInput.militaryRank;
     familyName = demoDeclensionInput.familyName;
     givenName = demoDeclensionInput.givenName;
     patronymicName = demoDeclensionInput.patronymicName;
@@ -103,8 +103,8 @@ async function handleFormSubmit(): Promise<void> {
 
   const declensionInput: shevchenko.DeclensionInput = {
     gender,
-    militaryRank,
     militaryAppointment,
+    militaryRank,
     familyName,
     givenName,
     patronymicName,
@@ -172,12 +172,12 @@ async function inflect(declensionInput: shevchenko.DeclensionInput): Promise<voi
 function getDeclensionResultString(declensionResult: shevchenko.DeclensionOutput): string {
   const resultParts: string[] = [];
 
-  if (declensionResult.militaryRank) {
-    resultParts.push(declensionResult.militaryRank);
-  }
-
   if (declensionResult.militaryAppointment) {
     resultParts.push(declensionResult.militaryAppointment);
+  }
+
+  if (declensionResult.militaryRank) {
+    resultParts.push(declensionResult.militaryRank);
   }
 
   if (declensionResult.familyName) {
@@ -265,21 +265,6 @@ await inflect(demoDeclensionInput);
               </div>
 
               <div class="mb-3">
-                <label class="form-label" for="military-rank">
-                  {{ $t('anthroponym.militaryRank') }}
-                </label>
-
-                <input
-                  id="military-rank"
-                  v-model.trim="formData.militaryRank"
-                  type="text"
-                  class="form-control"
-                  name="military-rank"
-                  :placeholder="demoDeclensionInput.militaryRank"
-                />
-              </div>
-
-              <div class="mb-3">
                 <label class="form-label" for="military-appointment">
                   {{ $t('anthroponym.militaryAppointment') }}
                 </label>
@@ -291,6 +276,21 @@ await inflect(demoDeclensionInput);
                   class="form-control"
                   name="military-appointment"
                   :placeholder="demoDeclensionInput.militaryAppointment"
+                />
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label" for="military-rank">
+                  {{ $t('anthroponym.militaryRank') }}
+                </label>
+
+                <input
+                  id="military-rank"
+                  v-model.trim="formData.militaryRank"
+                  type="text"
+                  class="form-control"
+                  name="military-rank"
+                  :placeholder="demoDeclensionInput.militaryRank"
                 />
               </div>
 
@@ -384,13 +384,13 @@ await inflect(demoDeclensionInput);
                     <td class="w-100">
                       <span
                         v-if="
-                          declensionResults[grammaticalCase]?.militaryRank ||
-                          declensionResults[grammaticalCase]?.militaryAppointment
+                          declensionResults[grammaticalCase]?.militaryAppointment ||
+                          declensionResults[grammaticalCase]?.militaryRank
                         "
                         class="text-nowrap"
                       >
-                        {{ declensionResults[grammaticalCase]?.militaryRank }}
-                        {{ declensionResults[grammaticalCase]?.militaryAppointment }}<br />
+                        {{ declensionResults[grammaticalCase]?.militaryAppointment }}
+                        {{ declensionResults[grammaticalCase]?.militaryRank }}<br />
                       </span>
 
                       <span class="text-nowrap">

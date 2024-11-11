@@ -5,43 +5,43 @@ import { useDeclensionSlideshow } from '~/composables/declension-slideshow';
 const anthroponyms: shevchenko.DeclensionInput[] = [
   {
     gender: shevchenko.GrammaticalGender.MASCULINE,
-    militaryRank: 'солдат',
     militaryAppointment: 'помічник гранатометника',
+    militaryRank: 'солдат',
   },
   {
     gender: shevchenko.GrammaticalGender.MASCULINE,
-    militaryRank: 'старший солдат',
     militaryAppointment: 'старший вогнеметник',
-  },
-  {
-    gender: shevchenko.GrammaticalGender.MASCULINE,
     militaryRank: 'старший солдат',
+  },
+  {
+    gender: shevchenko.GrammaticalGender.MASCULINE,
     militaryAppointment: 'механік-водій',
+    militaryRank: 'старший солдат',
   },
   {
     gender: shevchenko.GrammaticalGender.MASCULINE,
-    militaryRank: 'молодший сержант',
     militaryAppointment: 'бойовий медик взводу',
+    militaryRank: 'молодший сержант',
   },
   {
     gender: shevchenko.GrammaticalGender.MASCULINE,
-    militaryRank: 'сержант',
     militaryAppointment: 'командир відділення',
+    militaryRank: 'сержант',
   },
   {
     gender: shevchenko.GrammaticalGender.MASCULINE,
-    militaryRank: 'штаб-сержант',
     militaryAppointment: 'льотчик',
+    militaryRank: 'штаб-сержант',
   },
   {
     gender: shevchenko.GrammaticalGender.MASCULINE,
-    militaryRank: 'штаб-старшина',
     militaryAppointment: 'командир десантного катера',
+    militaryRank: 'штаб-старшина',
   },
   {
     gender: shevchenko.GrammaticalGender.MASCULINE,
-    militaryRank: 'головний старшина',
     militaryAppointment: 'командир морського катера',
+    militaryRank: 'головний старшина',
   },
 ];
 
@@ -50,8 +50,8 @@ const anthroponym = useDeclensionSlideshow(anthroponyms, shevchenko.inAccusative
 
 <template>
   <transition name="preview" mode="out-in">
-    <span v-if="anthroponym" :key="`${anthroponym.militaryRank}${anthroponym.militaryAppointment}`">
-      {{ anthroponym.militaryRank }} - {{ anthroponym.militaryAppointment }}
+    <span v-if="anthroponym" :key="`${anthroponym.militaryAppointment}${anthroponym.militaryRank}`">
+      {{ anthroponym.militaryAppointment }} - {{ anthroponym.militaryRank }}
     </span>
   </transition>
 </template>

@@ -323,23 +323,10 @@ await inflect(demoDeclensionInput);
                   <tr v-for="grammaticalCase in shevchenko.GrammaticalCase" :key="grammaticalCase">
                     <th class="text-nowrap">{{ $t(`grammaticalCase.${grammaticalCase}`) }}</th>
 
-                    <td class="w-100">
-                      <span
-                        v-if="
-                          declensionResults[grammaticalCase]?.militaryRank ||
-                          declensionResults[grammaticalCase]?.militaryAppointment
-                        "
-                        class="text-nowrap"
-                      >
-                        {{ declensionResults[grammaticalCase]?.militaryRank }}
-                        {{ declensionResults[grammaticalCase]?.militaryAppointment }}<br />
-                      </span>
-
-                      <span class="text-nowrap">
-                        {{ declensionResults[grammaticalCase]?.familyName }}
-                        {{ declensionResults[grammaticalCase]?.givenName }}
-                        {{ declensionResults[grammaticalCase]?.patronymicName }}
-                      </span>
+                    <td class="w-100 text-nowrap">
+                      {{ declensionResults[grammaticalCase]?.familyName }}
+                      {{ declensionResults[grammaticalCase]?.givenName }}
+                      {{ declensionResults[grammaticalCase]?.patronymicName }}
                     </td>
 
                     <td class="text-end">

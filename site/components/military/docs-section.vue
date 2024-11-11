@@ -11,8 +11,8 @@ shevchenko.registerExtension(militaryExtension);
 async function main() {
   const input = {
     gender: 'masculine',
-    militaryRank: 'солдат',
     militaryAppointment: 'помічник гранатометника',
+    militaryRank: 'солдат',
     familyName: 'Шевченко',
     givenName: 'Тарас',
     patronymicName: 'Григорович',
@@ -20,7 +20,7 @@ async function main() {
 
   const output = await shevchenko.inGenitive(input);
 
-  console.log(output); // { militaryRank: "солдата", militaryAppointment: "помічника гранатометника", familyName: "Шевченка", givenName: "Тараса", patronymicName: "Григоровича" }
+  console.log(output); // { militaryAppointment: "помічника гранатометника", militaryRank: "солдата", familyName: "Шевченка", givenName: "Тараса", patronymicName: "Григоровича" }
 }
 
 main().catch((error) => console.error(error));
