@@ -2,9 +2,9 @@
 
 JavaScript library for declension of Ukrainian anthroponyms.
 
-![NPM Version](https://img.shields.io/npm/v/shevchenko)
-![NPM Downloads](https://img.shields.io/npm/dm/shevchenko?label=npm%20downloads)
-![Docker Pulls](https://img.shields.io/docker/pulls/tooleks/shevchenko)
+[![NPM Version](https://img.shields.io/npm/v/shevchenko?label=release)](https://github.com/tooleks/shevchenko-js/releases)
+[![NPM Downloads](https://img.shields.io/npm/dm/shevchenko?label=npm%20downloads)](https://www.npmjs.com/package/shevchenko)
+[![Docker Pulls](https://img.shields.io/docker/pulls/tooleks/shevchenko)](https://hub.docker.com/r/tooleks/shevchenko)
 
 ## Links
 
