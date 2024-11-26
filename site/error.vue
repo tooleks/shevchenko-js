@@ -11,6 +11,8 @@ useHead({
 
 <template>
   <NuxtLayout>
+    <PageHeader />
+
     <div class="px-3 px-lg-4 py-4 my-3 bg-light rounded-3">
       <h1 class="text-truncate">
         {{ $t('error.404.title') }}
@@ -24,5 +26,10 @@ useHead({
         {{ $t('action.backToHome') }}
       </NuxtLink>
     </div>
+
+    <hr />
+    <PageFooter />
+    <AboutModal />
+    <ContactUsModal />
   </NuxtLayout>
 </template>
