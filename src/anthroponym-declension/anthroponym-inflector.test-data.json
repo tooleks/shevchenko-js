@@ -8198,5 +8198,45 @@
         "patronymicName": "Савелійовичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Міщанин",
+        "givenName": "Демид",
+        "patronymicName": "Тадейович"
+      },
+      "genitive": {
+        "familyName": "Міщанина",
+        "givenName": "Демида",
+        "patronymicName": "Тадейовича"
+      },
+      "dative": {
+        "familyName": "Міщанину",
+        "givenName": "Демиду",
+        "patronymicName": "Тадейовичу"
+      },
+      "accusative": {
+        "familyName": "Міщанина",
+        "givenName": "Демида",
+        "patronymicName": "Тадейовича"
+      },
+      "ablative": {
+        "familyName": "Міщанином",
+        "givenName": "Демидом",
+        "patronymicName": "Тадейовичем"
+      },
+      "locative": {
+        "familyName": "Міщанинові",
+        "givenName": "Демидові",
+        "patronymicName": "Тадейовичу"
+      },
+      "vocative": {
+        "familyName": "Міщанине",
+        "givenName": "Демиде",
+        "patronymicName": "Тадейовичу"
+      }
+    }
   }
 ]
