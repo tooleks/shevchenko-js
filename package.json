@@ -1,6 +1,6 @@
 {
   "name": "shevchenko",
-  "version": "3.1.0",
+  "version": "3.1.1",
   "description": "JavaScript library for declension of Ukrainian anthroponyms",
   "browser": "./dist/umd/shevchenko.min.js",
   "main": "./dist/cjs/shevchenko.js",
