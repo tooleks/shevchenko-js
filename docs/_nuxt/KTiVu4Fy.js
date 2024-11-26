@@ -1,4 +1,4 @@
-import{J as Ce,P as Je,G as W,Q as Ze,z as E,R as Qe,S as en,U as nn,m as an,V as mn,d as H,I as xe,D as G,u as g,o as h,a as b,g as sn,t as L,f as o,b as tn,_ as Z,W as cn,X as Ne,C as Le,H as un,h as le,Y as Me,s as Re,F as ln,Z as De}from"./D385-yHz.js";function jm(e,n){const{title:i,titleTemplate:a,...s}=e;return Ce({title:i,titleTemplate:a,_flatMeta:s},{...n,transform(m){const t=Je({...m._flatMeta});return delete m._flatMeta,{...m,meta:t}}})}/**
+import{J as Ce,P as Je,G as W,Q as Ze,z as E,R as Qe,S as en,U as nn,m as an,V as mn,d as H,I as xe,D as G,u as g,o as h,a as b,g as sn,t as L,f as o,b as tn,_ as Z,W as cn,X as Ne,C as Le,H as un,h as le,Y as Me,s as Re,F as ln,Z as De}from"./Btpeqsxn.js";function jm(e,n){const{title:i,titleTemplate:a,...s}=e;return Ce({title:i,titleTemplate:a,_flatMeta:s},{...n,transform(m){const t=Je({...m._flatMeta});return delete m._flatMeta,{...m,meta:t}}})}/**
  * @file JavaScript library for declension of Ukrainian anthroponyms
  * @module shevchenko
  * @version 3.1.1
