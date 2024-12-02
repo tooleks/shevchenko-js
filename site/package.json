@@ -39,7 +39,7 @@
     "shevchenko": "file:..",
     "shevchenko-ext-military": "^0.0.0-beta.2",
     "showdown": "^2.1.0",
-    "vue-i18n": "^10.0.4",
+    "vue-i18n": "^10.0.5",
     "vue-router": "^4.4.5"
   }
 }
