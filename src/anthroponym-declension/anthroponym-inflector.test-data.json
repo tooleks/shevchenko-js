@@ -8238,5 +8238,45 @@
         "patronymicName": "Тадейовичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Литвин",
+        "givenName": "Назар",
+        "patronymicName": "Всеволодович"
+      },
+      "genitive": {
+        "familyName": "Литвина",
+        "givenName": "Назара",
+        "patronymicName": "Всеволодовича"
+      },
+      "dative": {
+        "familyName": "Литвину",
+        "givenName": "Назару",
+        "patronymicName": "Всеволодовичу"
+      },
+      "accusative": {
+        "familyName": "Литвина",
+        "givenName": "Назара",
+        "patronymicName": "Всеволодовича"
+      },
+      "ablative": {
+        "familyName": "Литвином",
+        "givenName": "Назаром",
+        "patronymicName": "Всеволодовичем"
+      },
+      "locative": {
+        "familyName": "Литвинові",
+        "givenName": "Назарові",
+        "patronymicName": "Всеволодовичу"
+      },
+      "vocative": {
+        "familyName": "Литвине",
+        "givenName": "Назаре",
+        "patronymicName": "Всеволодовичу"
+      }
+    }
   }
 ]
