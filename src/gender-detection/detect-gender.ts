@@ -1,40 +1,33 @@
 import { Anthroponym } from '../anthroponym-declension';
 import { GrammaticalGender } from '../language';
-import givenNamesGenders from './given-names-genders.json';
+import givenNameRules from './artifacts/given-name-rules.json';
+import patronymicNameRules from './artifacts/patronymic-name-rules.json';
+import { GrammaticalGenderDetector } from './grammatical-gender-detector';
 
-const MASCULINE_PATRONYMIC_PATTERN = /[иі]ч$/;
-const FEMININE_PATRONYMIC_PATTERN = /на$/;
-const APOSTROPHE_VARIATION_PATTERN = /[`"]/g;
+const givenNameDetector = new GrammaticalGenderDetector({
+  masculinePattern: new RegExp(givenNameRules.masculine, 'i'),
+  femininePattern: new RegExp(givenNameRules.feminine, 'i'),
+});
 
-type GivenName = keyof typeof givenNamesGenders;
+const patronymicNameDetector = new GrammaticalGenderDetector({
+  masculinePattern: new RegExp(patronymicNameRules.masculine, 'i'),
+  femininePattern: new RegExp(patronymicNameRules.feminine, 'i'),
+});
 
 /**
  * Detects the grammatical gender of the anthroponym using
- * patronymic name endings and the dictionary of known given names.
+ * patronymic name or given name endings.
  *
  * Returns the grammatical gender of the anthroponym.
  * Returns null if the grammatical gender of the anthroponym cannot be detected.
  */
 export function detectGender(anthroponym: Anthroponym): GrammaticalGender | null {
   if (anthroponym.patronymicName) {
-    const patronymicName = anthroponym.patronymicName.toLocaleLowerCase();
-
-    if (MASCULINE_PATRONYMIC_PATTERN.test(patronymicName)) {
-      return GrammaticalGender.MASCULINE;
-    } else if (FEMININE_PATRONYMIC_PATTERN.test(patronymicName)) {
-      return GrammaticalGender.FEMININE;
-    }
+    return patronymicNameDetector.detect(anthroponym.patronymicName.toLocaleLowerCase());
   }
 
   if (anthroponym.givenName) {
-    const givenName = anthroponym.givenName
-      .replace(APOSTROPHE_VARIATION_PATTERN, "'")
-      .toLocaleLowerCase() as GivenName;
-
-    const gender = givenNamesGenders[givenName];
-    if (gender != null) {
-      return gender as GrammaticalGender;
-    }
+    return givenNameDetector.detect(anthroponym.givenName.toLocaleLowerCase());
   }
 
   return null;

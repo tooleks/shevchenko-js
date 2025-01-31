@@ -1,8 +1,11 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
+import { APOSTROPHE_PATTERN } from '../../../language';
+
+const RULES_FILE = path.join(__dirname, '../artifacts/declension-rules.json');
 
 const MACRO = new Map([
-  [/\[апостроф\]/g, "['’ʼ]"],
+  [/\[апостроф\]/g, APOSTROPHE_PATTERN.source],
   [/\[голосний\]/g, '[аеєиіїоуюя]'],
   [/\[приголосний\]/g, '([бвгґджзйклмнпрстфхцчшщ]|дз|дж)'],
   [/\[твердий_приголосний\]/g, '([бвгґджзклмнпрстфхцчшщ]|дз|дж)'],
@@ -34,5 +37,4 @@ for (const ruleFile of ruleFiles) {
 
 rules.sort((firstRule, lastRule) => lastRule.priority - firstRule.priority);
 
-const fileName = path.join(__dirname, '../artifacts/declension-rules.json');
-fs.writeFileSync(fileName, JSON.stringify(rules, null, 2), 'utf-8');
+fs.writeFileSync(RULES_FILE, JSON.stringify(rules, null, 2), 'utf-8');

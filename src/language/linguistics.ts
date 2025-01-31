@@ -1,10 +1,11 @@
-export const PATTERN_VOWELS = /[аоуеиіяюєї]/gi;
+export const VOWEL_PATTERN = /[аоуеиіяюєї]/gi;
+export const APOSTROPHE_PATTERN = /['’ʼ]/gi;
 
 /**
  * Returns a number of syllables in a given word.
  */
 function countSyllables(word: string): number {
-  const matches = word.match(PATTERN_VOWELS);
+  const matches = word.match(VOWEL_PATTERN);
   if (matches == null) {
     return 0;
   }
