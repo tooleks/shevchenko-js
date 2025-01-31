@@ -6604,7 +6604,7 @@
     }
   },
   {
-    "description": "жіночі імена / на -('|`)я",
+    "description": "жіночі імена / на -'я",
     "examples": [
       "дар'я",
       "мар'я"
@@ -6618,7 +6618,7 @@
       "givenName"
     ],
     "pattern": {
-      "find": "('|`)я$",
+      "find": "[апостроф]я$",
       "modify": "(.{1})$"
     },
     "grammaticalCases": {

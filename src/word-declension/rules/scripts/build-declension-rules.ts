@@ -1,20 +1,18 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
-const MACRO = {
-  '\\[голосний\\]': '(а|е|є|и|і|ї|о|у|ю|я)',
-  '\\[приголосний\\]': '(б|в|г|ґ|д|дз|дж|ж|з|й|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)',
-  '\\[твердий_приголосний\\]': '(б|в|г|ґ|д|дз|дж|ж|з|к|л|м|н|п|р|с|т|ф|х|ц|ч|ш|щ)',
-  '\\[губний_приголосний\\]': '(б|п|в|м|ф)',
-} as const;
-type MacroName = keyof typeof MACRO;
+const MACRO = new Map([
+  [/\[апостроф\]/g, "['’ʼ]"],
+  [/\[голосний\]/g, '[аеєиіїоуюя]'],
+  [/\[приголосний\]/g, '([бвгґджзйклмнпрстфхцчшщ]|дз|дж)'],
+  [/\[твердий_приголосний\]/g, '([бвгґджзклмнпрстфхцчшщ]|дз|дж)'],
+  [/\[губний_приголосний\]/g, '[бпвмф]'],
+]);
 
 function replaceMacro(text: string): string {
   let result = text;
-  const macroNames = Object.keys(MACRO) as MacroName[];
-  for (const macroName of macroNames) {
-    const searchPattern = new RegExp(macroName, 'g');
-    result = result.replace(searchPattern, MACRO[macroName]);
+  for (const [macro, value] of MACRO.entries()) {
+    result = result.replace(macro, value);
   }
   return result;
 }
