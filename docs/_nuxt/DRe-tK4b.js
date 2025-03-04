@@ -1,7 +1,7 @@
-import{J as Ce,P as Ye,G as fe,Q as Ze,z as E,R as Qe,S as et,U as tt,V as nt,m as rt,W as at,d as H,I as xe,D as G,u as g,o as b,a as y,g as ot,t as M,f as d,b as st,_ as Y,X as it,Y as Le,C as Me,H as ct,h as ce,Z as Ne,s as De,F as ut,$ as Re}from"./hDUEPIq3.js";function Ta(e,t){const{title:n,titleTemplate:r,...o}=e;return Ce({title:n,titleTemplate:r,_flatMeta:o},{...t,transform(a){const s=Ye({...a._flatMeta});return delete a._flatMeta,{...a,meta:s}}})}/**
+import{J as Ce,P as Ye,G as fe,Q as Ze,z as E,R as Qe,S as et,U as tt,V as nt,m as rt,W as at,d as H,I as xe,D as G,u as g,o as b,a as y,g as ot,t as M,f as d,b as st,_ as Y,X as it,Y as Le,C as Me,H as ct,h as ce,Z as Ne,s as De,F as ut,$ as Re}from"./C5XUrM9R.js";function Ta(e,t){const{title:n,titleTemplate:r,...o}=e;return Ce({title:n,titleTemplate:r,_flatMeta:o},{...t,transform(a){const s=Ye({...a._flatMeta});return delete a._flatMeta,{...a,meta:s}}})}/**
  * @file JavaScript library for declension of Ukrainian anthroponyms
  * @module shevchenko
- * @version 3.1.3
+ * @version 3.1.4
  * @author Oleksandr Tolochko <shevchenko-js@tooleks.com>
  * @license MIT
  * @copyright 2017-2025 Oleksandr Tolochko <shevchenko-js@tooleks.com>
@@ -9,7 +9,7 @@ import{J as Ce,P as Ye,G as fe,Q as Ze,z as E,R as Qe,S as et,U as tt,V as nt,m 
  */class P extends TypeError{}const W=["givenName","patronymicName","familyName"];function lt(e){if(!Ge(e))throw new P("The input type must be an object.");if(!Object.values(fe).includes(e.gender))throw new P(`The "gender" parameter must be one of the following: "${Object.values(fe).join('", "')}".`);const n=[...W,...Ze()];if(!n.some(o=>o in e&&typeof e[o]<"u"))throw new P(`At least one of the following parameters must present: "${n.join('", "')}".`);for(const o of n)if(typeof e[o]<"u"&&typeof e[o]!="string")throw new P(`The "${o}" parameter must be a string.`)}function ft(e){if(!Ge(e))throw new P("The input type must be an object.");if(!W.some(n=>n in e&&typeof e[n]<"u"))throw new P(`At least one of the following parameters must present: "${W.join('", "')}".`);for(const n of W)if(typeof e[n]<"u"&&typeof e[n]!="string")throw new P(`The "${n}" parameter must be a string.`)}function Ge(e){return typeof e=="object"&&e!=null}/**
  * @file JavaScript library for declension of Ukrainian anthroponyms
  * @module shevchenko
- * @version 3.1.3
+ * @version 3.1.4
  * @author Oleksandr Tolochko <shevchenko-js@tooleks.com>
  * @license MIT
  * @copyright 2017-2025 Oleksandr Tolochko <shevchenko-js@tooleks.com>
