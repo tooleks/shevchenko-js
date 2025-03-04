@@ -8278,5 +8278,45 @@
         "patronymicName": "Всеволодовичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Дорогобуг",
+        "givenName": "Адріян",
+        "patronymicName": "Яремович"
+      },
+      "genitive": {
+        "familyName": "Дорогобуга",
+        "givenName": "Адріяна",
+        "patronymicName": "Яремовича"
+      },
+      "dative": {
+        "familyName": "Дорогобугу",
+        "givenName": "Адріяну",
+        "patronymicName": "Яремовичу"
+      },
+      "accusative": {
+        "familyName": "Дорогобуга",
+        "givenName": "Адріяна",
+        "patronymicName": "Яремовича"
+      },
+      "ablative": {
+        "familyName": "Дорогобугом",
+        "givenName": "Адріяном",
+        "patronymicName": "Яремовичем"
+      },
+      "locative": {
+        "familyName": "Дорогобугові",
+        "givenName": "Адріянові",
+        "patronymicName": "Яремовичу"
+      },
+      "vocative": {
+        "familyName": "Дорогобугу",
+        "givenName": "Адріяне",
+        "patronymicName": "Яремовичу"
+      }
+    }
   }
 ]
