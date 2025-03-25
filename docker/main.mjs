@@ -2,7 +2,9 @@ import * as fs from 'node:fs';
 import * as path from 'node:path';
 import express from 'express';
 import * as shevchenko from 'shevchenko';
+import { militaryExtension } from 'shevchenko-ext-military';
 
+shevchenko.registerExtension(militaryExtension);
 const meta = loadMeta();
 const app = express();
 const port = process.env.WEBAPI_PORT ?? 3000;
