@@ -8438,5 +8438,45 @@
         "patronymicName": "Романівно"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Іваніс",
+        "givenName": "Лук'ян",
+        "patronymicName": "Порфирійович"
+      },
+      "genitive": {
+        "familyName": "Іваніса",
+        "givenName": "Лук'яна",
+        "patronymicName": "Порфирійовича"
+      },
+      "dative": {
+        "familyName": "Іванісу",
+        "givenName": "Лук'яну",
+        "patronymicName": "Порфирійовичу"
+      },
+      "accusative": {
+        "familyName": "Іваніса",
+        "givenName": "Лук'яна",
+        "patronymicName": "Порфирійовича"
+      },
+      "ablative": {
+        "familyName": "Іванісом",
+        "givenName": "Лук'яном",
+        "patronymicName": "Порфирійовичем"
+      },
+      "locative": {
+        "familyName": "Іванісові",
+        "givenName": "Лук'янові",
+        "patronymicName": "Порфирійовичу"
+      },
+      "vocative": {
+        "familyName": "Іванісе",
+        "givenName": "Лук'яне",
+        "patronymicName": "Порфирійовичу"
+      }
+    }
   }
 ]
