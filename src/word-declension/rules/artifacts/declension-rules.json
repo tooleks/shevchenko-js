@@ -3869,6 +3869,82 @@
     }
   },
   {
+    "description": "друга відміна / чоловічий рід / тверда група / на -ов, -ев (-єв), -ів (-їв), -ін (-їн)",
+    "examples": [
+      "павлов",
+      "нікітін"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 4,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "([оеє]в|[ії]в|[ії]н)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "им"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
     "description": "друга відміна / чоловічий рід / тверда група / на -ишин",
     "examples": [
       "ковалишин"
@@ -6157,82 +6233,6 @@
           "0": {
             "action": "append",
             "value": "у"
-          }
-        }
-      ]
-    }
-  },
-  {
-    "description": "друга відміна / чоловічий рід / тверда група / на -ов, -ев (-єв), -ів (-їв), -ін (-їн)",
-    "examples": [
-      "павлов",
-      "нікітін"
-    ],
-    "wordClass": "noun",
-    "gender": [
-      "masculine"
-    ],
-    "priority": 2,
-    "applicationType": [
-      "familyName"
-    ],
-    "pattern": {
-      "find": "([оеє]в|[ії]в|[ії]н)$",
-      "modify": "(.{1})$"
-    },
-    "grammaticalCases": {
-      "nominative": [],
-      "genitive": [
-        {
-          "0": {
-            "action": "append",
-            "value": "а"
-          }
-        }
-      ],
-      "dative": [
-        {
-          "0": {
-            "action": "append",
-            "value": "у"
-          }
-        }
-      ],
-      "accusative": [
-        {
-          "0": {
-            "action": "append",
-            "value": "а"
-          }
-        }
-      ],
-      "ablative": [
-        {
-          "0": {
-            "action": "append",
-            "value": "им"
-          }
-        }
-      ],
-      "locative": [
-        {
-          "0": {
-            "action": "append",
-            "value": "і"
-          }
-        },
-        {
-          "0": {
-            "action": "append",
-            "value": "у"
-          }
-        }
-      ],
-      "vocative": [
-        {
-          "0": {
-            "action": "append",
-            "value": "е"
           }
         }
       ]

@@ -8358,5 +8358,45 @@
         "patronymicName": "Радомировичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Півнев",
+        "givenName": "Радомир",
+        "patronymicName": "Енейович"
+      },
+      "genitive": {
+        "familyName": "Півнева",
+        "givenName": "Радомира",
+        "patronymicName": "Енейовича"
+      },
+      "dative": {
+        "familyName": "Півневу",
+        "givenName": "Радомиру",
+        "patronymicName": "Енейовичу"
+      },
+      "accusative": {
+        "familyName": "Півнева",
+        "givenName": "Радомира",
+        "patronymicName": "Енейовича"
+      },
+      "ablative": {
+        "familyName": "Півневим",
+        "givenName": "Радомиром",
+        "patronymicName": "Енейовичем"
+      },
+      "locative": {
+        "familyName": "Півневі",
+        "givenName": "Радомирові",
+        "patronymicName": "Енейовичу"
+      },
+      "vocative": {
+        "familyName": "Півневе",
+        "givenName": "Радомире",
+        "patronymicName": "Енейовичу"
+      }
+    }
   }
 ]
