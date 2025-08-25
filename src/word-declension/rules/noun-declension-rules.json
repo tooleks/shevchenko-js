@@ -2246,107 +2246,6 @@
     }
   },
   {
-    "description": "друга відміна / чоловічий рід / тверда група / на -орел",
-    "examples": [
-      "орел"
-    ],
-    "wordClass": "noun",
-    "gender": [
-      "masculine"
-    ],
-    "priority": 5,
-    "applicationType": [],
-    "pattern": {
-      "find": "орел$",
-      "modify": "(.{1})(.{1})$"
-    },
-    "grammaticalCases": {
-      "nominative": [],
-      "genitive": [
-        {
-          "0": {
-            "action": "replace",
-            "value": "л"
-          },
-          "1": {
-            "action": "replace",
-            "value": "а"
-          }
-        }
-      ],
-      "dative": [
-        {
-          "0": {
-            "action": "replace",
-            "value": "л"
-          },
-          "1": {
-            "action": "replace",
-            "value": "ові"
-          }
-        },
-        {
-          "0": {
-            "action": "replace",
-            "value": "л"
-          },
-          "1": {
-            "action": "replace",
-            "value": "у"
-          }
-        }
-      ],
-      "accusative": [
-        {
-          "0": {
-            "action": "replace",
-            "value": "л"
-          },
-          "1": {
-            "action": "replace",
-            "value": "а"
-          }
-        }
-      ],
-      "ablative": [
-        {
-          "0": {
-            "action": "replace",
-            "value": "л"
-          },
-          "1": {
-            "action": "replace",
-            "value": "ом"
-          }
-        }
-      ],
-      "locative": [
-        {
-          "0": {
-            "action": "replace",
-            "value": "л"
-          },
-          "1": {
-            "action": "replace",
-            "value": "ові"
-          }
-        }
-      ],
-      "vocative": [
-        {
-          "0": {
-            "action": "replace",
-            "value": "л"
-          },
-          "1": {
-            "action": "replace",
-            "value": "е"
-          }
-        }
-      ]
-    }
-  },
-  {
     "description": "друга відміна / чоловічий рід / тверда група / на -якір",
     "examples": [
       "якір"
@@ -4121,10 +4020,11 @@
     }
   },
   {
-    "description": "друга відміна / чоловічий рід / тверда група / бусел, дятел",
+    "description": "друга відміна / чоловічий рід / тверда група / бусел, дятел, орел",
     "examples": [
       "бусел",
-      "дятел"
+      "дятел",
+      "орел"
     ],
     "wordClass": "noun",
     "gender": [
@@ -4133,7 +4033,7 @@
     "priority": 3,
     "applicationType": [],
     "pattern": {
-      "find": "(бус|дят)ел$",
+      "find": "(бус|дят|ор)ел$",
       "modify": "(.{1})(.{1})$"
     },
     "grammaticalCases": {
