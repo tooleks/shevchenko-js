@@ -8398,5 +8398,45 @@
         "patronymicName": "Енейовичу"
       }
     }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Яцина",
+        "givenName": "Оксана",
+        "patronymicName": "Романівна"
+      },
+      "genitive": {
+        "familyName": "Яцини",
+        "givenName": "Оксани",
+        "patronymicName": "Романівни"
+      },
+      "dative": {
+        "familyName": "Яцині",
+        "givenName": "Оксані",
+        "patronymicName": "Романівні"
+      },
+      "accusative": {
+        "familyName": "Яцину",
+        "givenName": "Оксану",
+        "patronymicName": "Романівну"
+      },
+      "ablative": {
+        "familyName": "Яциною",
+        "givenName": "Оксаною",
+        "patronymicName": "Романівною"
+      },
+      "locative": {
+        "familyName": "Яцині",
+        "givenName": "Оксані",
+        "patronymicName": "Романівні"
+      },
+      "vocative": {
+        "familyName": "Яцино",
+        "givenName": "Оксано",
+        "patronymicName": "Романівно"
+      }
+    }
   }
 ]
