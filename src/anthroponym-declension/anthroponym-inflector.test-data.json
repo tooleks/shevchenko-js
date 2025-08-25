@@ -8318,5 +8318,45 @@
         "patronymicName": "Яремовичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Токар",
+        "givenName": "Арей",
+        "patronymicName": "Радомирович"
+      },
+      "genitive": {
+        "familyName": "Токаря",
+        "givenName": "Арея",
+        "patronymicName": "Радомировича"
+      },
+      "dative": {
+        "familyName": "Токарю",
+        "givenName": "Арею",
+        "patronymicName": "Радомировичу"
+      },
+      "accusative": {
+        "familyName": "Токаря",
+        "givenName": "Арея",
+        "patronymicName": "Радомировича"
+      },
+      "ablative": {
+        "familyName": "Токарем",
+        "givenName": "Ареєм",
+        "patronymicName": "Радомировичем"
+      },
+      "locative": {
+        "familyName": "Токареві",
+        "givenName": "Ареєві",
+        "patronymicName": "Радомировичу"
+      },
+      "vocative": {
+        "familyName": "Токарю",
+        "givenName": "Арею",
+        "patronymicName": "Радомировичу"
+      }
+    }
   }
 ]
