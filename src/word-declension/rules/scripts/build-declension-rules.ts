@@ -24,6 +24,7 @@ const ruleFiles = [
   '../adjective-declension-rules.json',
   '../exception-declension-rules.json',
   '../noun-declension-rules.json',
+  '../numeral-declension-rules.json',
 ];
 
 const rules = [];

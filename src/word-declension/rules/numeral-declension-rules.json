@@ -1,0 +1,455 @@
+[
+  {
+    "description": "порядкові числівники / чоловічий рід / на -й",
+    "examples": [
+      "1/2/3/4/5/6/7/8/9-й"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 10,
+    "applicationType": [],
+    "pattern": {
+      "find": "\\d+-й$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "го"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "му"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "м"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "му"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "порядкові числівники / жіночий рід / на -ва, -ша, -га, -та, -ма, -на",
+    "examples": [
+      "0-ва",
+      "1-ша",
+      "2-га",
+      "4/5/6-та",
+      "7/8-ма",
+      "9-та",
+      "…000-на"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 20,
+    "applicationType": [],
+    "pattern": {
+      "find": "\\d+-[вшгтмн]а$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "й"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "й"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "порядкові числівники / жіночий рід / на -а",
+    "examples": [
+      "0/1/2/4/5/6/7/8/9-а"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 10,
+    "applicationType": [],
+    "pattern": {
+      "find": "\\d+-а$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "у"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "порядкові числівники / жіночий рід / на -тя",
+    "examples": [
+      "3-тя"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 20,
+    "applicationType": [],
+    "pattern": {
+      "find": "\\d+-тя$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "й"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "1": {
+            "action": "replace",
+            "value": "й"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "порядкові числівники / жіночий рід / на -я",
+    "examples": [
+      "3-я"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 20,
+    "applicationType": [],
+    "pattern": {
+      "find": "\\d+-я$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ї"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "й"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "порядкові числівники / жіночий рід / на -ве, -ше, -ге, -тє, -те, -ме, -не",
+    "examples": [
+      "0-ве",
+      "1-ше",
+      "2-ге",
+      "3-тє",
+      "4/5/6-те",
+      "7/8-ме",
+      "9-те",
+      "…000-не"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 20,
+    "applicationType": [],
+    "pattern": {
+      "find": "\\d+-([вшгтмн]е|тє)$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "го"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "му"
+          }
+        }
+      ],
+      "accusative": [],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "м"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "му"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "порядкові числівники / жіночий рід / на -е, -є",
+    "examples": [
+      "0/1/2/3/4/5/6/7/8/9-е"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 20,
+    "applicationType": [],
+    "pattern": {
+      "find": "\\d+-[еє]$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "го"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "му"
+          }
+        }
+      ],
+      "accusative": [],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "м"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "му"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  }
+]

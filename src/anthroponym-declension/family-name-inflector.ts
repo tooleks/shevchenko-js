@@ -3,7 +3,7 @@ import { WordInflector } from '../word-declension';
 import { FamilyNameClass, FamilyNameClassifier } from './family-name-classifier';
 import { NameInflector } from './name-inflector';
 
-const UNCERTAIN_FEMININE_FAMILY_NAME_PATTERN = /[ая]$/i;
+const UNCERTAIN_FEMININE_FAMILY_NAME_PATTERN = /^(?!\d).*?[ая]$/i;
 const UNCERTAIN_MASCULINE_FAMILY_NAME_PATTERN = /(ой|ий|ій|их)$/i;
 
 export class FamilyNameInflector extends NameInflector {

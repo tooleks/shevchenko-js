@@ -8478,5 +8478,239 @@
         "patronymicName": "Порфирійовичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "3-й"
+      },
+      "genitive": {
+        "familyName": "3-го"
+      },
+      "dative": {
+        "familyName": "3-му"
+      },
+      "accusative": {
+        "familyName": "3-й"
+      },
+      "ablative": {
+        "familyName": "3-м"
+      },
+      "locative": {
+        "familyName": "3-му"
+      },
+      "vocative": {
+        "familyName": "3-й"
+      }
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "1-ша"
+      },
+      "genitive": {
+        "familyName": "1-ї"
+      },
+      "dative": {
+        "familyName": "1-й"
+      },
+      "accusative": {
+        "familyName": "1-шу"
+      },
+      "ablative": {
+        "familyName": "1-ю"
+      },
+      "locative": {
+        "familyName": "1-й"
+      },
+      "vocative": {
+        "familyName": "1-ша"
+      }
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "9-а"
+      },
+      "genitive": {
+        "familyName": "9-ї"
+      },
+      "dative": {
+        "familyName": "9-й"
+      },
+      "accusative": {
+        "familyName": "9-у"
+      },
+      "ablative": {
+        "familyName": "9-ю"
+      },
+      "locative": {
+        "familyName": "9-й"
+      },
+      "vocative": {
+        "familyName": "9-а"
+      }
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "3-тя"
+      },
+      "genitive": {
+        "familyName": "3-ї"
+      },
+      "dative": {
+        "familyName": "3-й"
+      },
+      "accusative": {
+        "familyName": "3-тю"
+      },
+      "ablative": {
+        "familyName": "3-ю"
+      },
+      "locative": {
+        "familyName": "3-й"
+      },
+      "vocative": {
+        "familyName": "3-тя"
+      }
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "3-я"
+      },
+      "genitive": {
+        "familyName": "3-ї"
+      },
+      "dative": {
+        "familyName": "3-й"
+      },
+      "accusative": {
+        "familyName": "3-ю"
+      },
+      "ablative": {
+        "familyName": "3-ю"
+      },
+      "locative": {
+        "familyName": "3-й"
+      },
+      "vocative": {
+        "familyName": "3-я"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "1-ше"
+      },
+      "genitive": {
+        "familyName": "1-го"
+      },
+      "dative": {
+        "familyName": "1-му"
+      },
+      "accusative": {
+        "familyName": "1-ше"
+      },
+      "ablative": {
+        "familyName": "1-м"
+      },
+      "locative": {
+        "familyName": "1-му"
+      },
+      "vocative": {
+        "familyName": "1-ше"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "1-е"
+      },
+      "genitive": {
+        "familyName": "1-го"
+      },
+      "dative": {
+        "familyName": "1-му"
+      },
+      "accusative": {
+        "familyName": "1-е"
+      },
+      "ablative": {
+        "familyName": "1-м"
+      },
+      "locative": {
+        "familyName": "1-му"
+      },
+      "vocative": {
+        "familyName": "1-е"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "3-тє"
+      },
+      "genitive": {
+        "familyName": "3-го"
+      },
+      "dative": {
+        "familyName": "3-му"
+      },
+      "accusative": {
+        "familyName": "3-тє"
+      },
+      "ablative": {
+        "familyName": "3-м"
+      },
+      "locative": {
+        "familyName": "3-му"
+      },
+      "vocative": {
+        "familyName": "3-тє"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "3-є"
+      },
+      "genitive": {
+        "familyName": "3-го"
+      },
+      "dative": {
+        "familyName": "3-му"
+      },
+      "accusative": {
+        "familyName": "3-є"
+      },
+      "ablative": {
+        "familyName": "3-м"
+      },
+      "locative": {
+        "familyName": "3-му"
+      },
+      "vocative": {
+        "familyName": "3-є"
+      }
+    }
   }
 ]
