@@ -40,9 +40,9 @@ async function inGrammaticalCase<T extends DeclensionInput>(
   grammaticalCase: GrammaticalCase,
   input: T,
 ): Promise<DeclensionOutput<T>> {
-  validateDeclensionInput(input);
-  const output = await anthroponymInflector.inflect(input, input.gender, grammaticalCase);
-  const afterOutput = await afterInflect(grammaticalCase, input);
+  const validInput = validateDeclensionInput(input);
+  const output = await anthroponymInflector.inflect(validInput, validInput.gender, grammaticalCase);
+  const afterOutput = await afterInflect(grammaticalCase, validInput);
   return { ...output, ...afterOutput };
 }
 
@@ -199,6 +199,6 @@ export async function inVocative<T extends DeclensionInput>(
  * @throws {InputValidationError} Input validation error.
  */
 export async function detectGender(input: GenderDetectionInput): Promise<GenderDetectionOutput> {
-  validateGenderDetectionInput(input);
-  return autoDetectGender(input);
+  const validInput = validateGenderDetectionInput(input);
+  return autoDetectGender(validInput);
 }
