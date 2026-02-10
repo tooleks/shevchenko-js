@@ -7,18 +7,22 @@ export class InputValidationError extends TypeError {}
 const fieldNames: FieldName[] = ['givenName', 'patronymicName', 'familyName'];
 
 /**
- * Validates if a given value is a valid input for declension.
+ * Validates and normalizes declension input.
  *
- * @throws {InputValidationError}
+ * Validates that the input is a valid declension input object and normalizes all string fields
+ * to NFC (Canonical Decomposition followed by Canonical Composition) form to ensure Unicode
+ * characters are in a consistent form for reliable pattern matching with Cyrillic characters.
+ *
+ * @param input - The input to validate and normalize
+ * @returns A new validated and normalized input object
+ * @throws {InputValidationError} If validation fails
  */
-export function validateDeclensionInput(input: unknown): asserts input is DeclensionInput {
+export function validateDeclensionInput<T extends DeclensionInput>(input: T): T {
   if (!isObject(input)) {
     throw new InputValidationError('The input type must be an object.');
   }
 
-  const isGenderValid = Object.values(GrammaticalGender).includes(
-    input.gender as GrammaticalGender,
-  );
+  const isGenderValid = Object.values(GrammaticalGender).includes(input.gender);
 
   if (!isGenderValid) {
     throw new InputValidationError(
@@ -44,16 +48,31 @@ export function validateDeclensionInput(input: unknown): asserts input is Declen
       throw new InputValidationError(`The "${fieldName}" parameter must be a string.`);
     }
   }
+
+  const validInput: T = { ...input };
+
+  for (const fieldName of mergedFieldNames) {
+    const fieldValue = validInput[fieldName];
+    if (typeof fieldValue === 'string') {
+      validInput[fieldName] = fieldValue.normalize('NFC');
+    }
+  }
+
+  return validInput;
 }
 
 /**
- * Validates if a given value is a valid input for gender detection.
+ * Validates and normalizes gender detection input.
  *
- * @throws {InputValidationError}
+ * Validates that the input is a valid gender detection input object and normalizes all string
+ * fields to NFC (Canonical Decomposition followed by Canonical Composition) form to ensure
+ * Unicode characters are in a consistent form for reliable pattern matching with Cyrillic characters.
+ *
+ * @param input - The input to validate and normalize
+ * @returns A new validated and normalized input object
+ * @throws {InputValidationError} If validation fails
  */
-export function validateGenderDetectionInput(
-  input: unknown,
-): asserts input is GenderDetectionInput {
+export function validateGenderDetectionInput<T extends GenderDetectionInput>(input: T): T {
   if (!isObject(input)) {
     throw new InputValidationError('The input type must be an object.');
   }
@@ -73,6 +92,17 @@ export function validateGenderDetectionInput(
       throw new InputValidationError(`The "${fieldName}" parameter must be a string.`);
     }
   }
+
+  const validInput: T = { ...input };
+
+  for (const fieldName of fieldNames) {
+    const fieldValue = validInput[fieldName];
+    if (typeof fieldValue === 'string') {
+      validInput[fieldName] = fieldValue.normalize('NFC');
+    }
+  }
+
+  return validInput;
 }
 
 function isObject(value: unknown): value is Record<string, unknown> {

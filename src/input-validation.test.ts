@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
-import { DeclensionInput } from './contracts';
+import { DeclensionInput, GenderDetectionInput } from './contracts';
 import {
   InputValidationError,
   validateDeclensionInput,
   validateGenderDetectionInput,
 } from './input-validation';
+import { GrammaticalGender } from './language';
 
 describe('validateDeclensionInput', () => {
   it('should throw an input validation error when called with empty arguments list', () => {
@@ -92,7 +93,7 @@ describe('validateDeclensionInput', () => {
       givenName: 'Тарас',
     } as DeclensionInput;
 
-    expect(validateDeclensionInput(input)).toBe(undefined);
+    expect(() => validateDeclensionInput(input)).not.toThrow();
   });
 
   it('should pass the validation if a patronymic name provided', () => {
@@ -102,7 +103,7 @@ describe('validateDeclensionInput', () => {
       patronymicName: 'Григорович',
     } as DeclensionInput;
 
-    expect(validateDeclensionInput(input)).toBe(undefined);
+    expect(() => validateDeclensionInput(input)).not.toThrow();
   });
 
   it('should pass the validation if a family name provided', () => {
@@ -112,7 +113,7 @@ describe('validateDeclensionInput', () => {
       familyName: 'Шевченко',
     } as DeclensionInput;
 
-    expect(validateDeclensionInput(input)).toBe(undefined);
+    expect(() => validateDeclensionInput(input)).not.toThrow();
   });
 
   it('should pass the validation if a full name provided', () => {
@@ -124,7 +125,158 @@ describe('validateDeclensionInput', () => {
       familyName: 'Шевченко',
     } as DeclensionInput;
 
-    expect(validateDeclensionInput(input)).toBe(undefined);
+    expect(() => validateDeclensionInput(input)).not.toThrow();
+  });
+
+  describe('return value', () => {
+    it('should return a new object with the same properties', () => {
+      const input = {
+        gender: GrammaticalGender.MASCULINE,
+        givenName: 'Тарас',
+        patronymicName: 'Григорович',
+        familyName: 'Шевченко',
+      };
+
+      const result = validateDeclensionInput(input);
+
+      expect(result).not.toBe(input);
+      expect(result).toEqual(input);
+    });
+
+    it('should return object with normalized gender', () => {
+      const input = {
+        gender: GrammaticalGender.FEMININE,
+        givenName: 'Леся',
+      };
+
+      const result = validateDeclensionInput(input);
+
+      expect(result.gender).toBe(GrammaticalGender.FEMININE);
+    });
+
+    it('should preserve all provided name fields', () => {
+      const input = {
+        gender: GrammaticalGender.MASCULINE,
+        givenName: 'Тарас',
+        patronymicName: 'Григорович',
+        familyName: 'Шевченко',
+      };
+
+      const result = validateDeclensionInput(input);
+
+      expect(result.givenName).toBe('Тарас');
+      expect(result.patronymicName).toBe('Григорович');
+      expect(result.familyName).toBe('Шевченко');
+    });
+
+    it('should preserve undefined fields as undefined', () => {
+      const input: DeclensionInput = {
+        gender: GrammaticalGender.MASCULINE,
+        givenName: 'Тарас',
+      };
+
+      const result = validateDeclensionInput(input);
+
+      expect(result.givenName).toBe('Тарас');
+      expect(result.patronymicName).toBeUndefined();
+      expect(result.familyName).toBeUndefined();
+    });
+  });
+
+  describe('value normalization', () => {
+    const nfdForm = {
+      givenName: 'Геннадій',
+      patronymicName: 'Валерійович',
+      familyName: 'Чорний',
+    };
+
+    const nfcForm = {
+      givenName: 'Геннадій',
+      patronymicName: 'Валерійович',
+      familyName: 'Чорний',
+    };
+
+    it('should have different NFD and NFC forms', () => {
+      expect(nfdForm.givenName).not.toBe(nfcForm.givenName);
+      expect(nfdForm.patronymicName).not.toBe(nfcForm.patronymicName);
+      expect(nfdForm.familyName).not.toBe(nfcForm.familyName);
+    });
+
+    it('should normalize givenName to NFC form', () => {
+      const input = {
+        gender: GrammaticalGender.MASCULINE,
+        givenName: nfdForm.givenName,
+      };
+
+      const result = validateDeclensionInput(input);
+
+      expect(result.givenName).toBe(nfcForm.givenName);
+    });
+
+    it('should normalize patronymicName to NFC form', () => {
+      const input = {
+        gender: GrammaticalGender.MASCULINE,
+        patronymicName: nfdForm.patronymicName,
+      };
+
+      const result = validateDeclensionInput(input);
+
+      expect(result.patronymicName).toBe(nfcForm.patronymicName);
+    });
+
+    it('should normalize familyName to NFC form', () => {
+      const input = {
+        gender: GrammaticalGender.MASCULINE,
+        familyName: nfdForm.familyName,
+      };
+
+      const result = validateDeclensionInput(input);
+
+      expect(result.familyName).toBe(nfcForm.familyName);
+    });
+
+    it('should normalize all name fields simultaneously', () => {
+      const input = {
+        gender: GrammaticalGender.FEMININE,
+        givenName: nfdForm.givenName,
+        patronymicName: nfdForm.patronymicName,
+        familyName: nfdForm.familyName,
+      };
+
+      const result = validateDeclensionInput(input);
+
+      expect(result.givenName).toBe(nfcForm.givenName);
+      expect(result.patronymicName).toBe(nfcForm.patronymicName);
+      expect(result.familyName).toBe(nfcForm.familyName);
+    });
+
+    it('should handle already normalized strings', () => {
+      const input = {
+        gender: GrammaticalGender.MASCULINE,
+        givenName: nfcForm.givenName,
+        patronymicName: nfcForm.patronymicName,
+        familyName: nfcForm.familyName,
+      };
+
+      const result = validateDeclensionInput(input);
+
+      expect(result.givenName).toBe(nfcForm.givenName);
+      expect(result.patronymicName).toBe(nfcForm.patronymicName);
+      expect(result.familyName).toBe(nfcForm.familyName);
+    });
+
+    it('should not normalize undefined fields', () => {
+      const input: DeclensionInput = {
+        gender: GrammaticalGender.MASCULINE,
+        givenName: nfdForm.givenName,
+      };
+
+      const result = validateDeclensionInput(input);
+
+      expect(result.givenName).toBe(nfcForm.givenName);
+      expect(result.patronymicName).toBeUndefined();
+      expect(result.familyName).toBeUndefined();
+    });
   });
 });
 
@@ -192,7 +344,7 @@ describe('validateGenderDetectionInput', () => {
       givenName: 'Тарас',
     } as DeclensionInput;
 
-    expect(validateGenderDetectionInput(input)).toBe(undefined);
+    expect(() => validateGenderDetectionInput(input)).not.toThrow();
   });
 
   it('should pass the validation if a patronymic name provided', () => {
@@ -201,7 +353,7 @@ describe('validateGenderDetectionInput', () => {
       patronymicName: 'Григорович',
     } as DeclensionInput;
 
-    expect(validateGenderDetectionInput(input)).toBe(undefined);
+    expect(() => validateGenderDetectionInput(input)).not.toThrow();
   });
 
   it('should pass the validation if a family name provided', () => {
@@ -210,7 +362,7 @@ describe('validateGenderDetectionInput', () => {
       familyName: 'Шевченко',
     } as DeclensionInput;
 
-    expect(validateGenderDetectionInput(input)).toBe(undefined);
+    expect(() => validateGenderDetectionInput(input)).not.toThrow();
   });
 
   it('should pass the validation if a full name provided', () => {
@@ -221,6 +373,137 @@ describe('validateGenderDetectionInput', () => {
       familyName: 'Шевченко',
     } as DeclensionInput;
 
-    expect(validateGenderDetectionInput(input)).toBe(undefined);
+    expect(() => validateGenderDetectionInput(input)).not.toThrow();
+  });
+
+  describe('return value', () => {
+    it('should return a new object with the same properties', () => {
+      const input = {
+        givenName: 'Тарас',
+        patronymicName: 'Григорович',
+        familyName: 'Шевченко',
+      };
+
+      const result = validateGenderDetectionInput(input);
+
+      expect(result).not.toBe(input);
+      expect(result).toEqual(input);
+    });
+
+    it('should preserve all provided name fields', () => {
+      const input = {
+        givenName: 'Тарас',
+        patronymicName: 'Григорович',
+        familyName: 'Шевченко',
+      };
+
+      const result = validateGenderDetectionInput(input);
+
+      expect(result.givenName).toBe('Тарас');
+      expect(result.patronymicName).toBe('Григорович');
+      expect(result.familyName).toBe('Шевченко');
+    });
+
+    it('should preserve undefined fields as undefined', () => {
+      const input: GenderDetectionInput = {
+        givenName: 'Тарас',
+      };
+
+      const result = validateGenderDetectionInput(input);
+
+      expect(result.givenName).toBe('Тарас');
+      expect(result.patronymicName).toBeUndefined();
+      expect(result.familyName).toBeUndefined();
+    });
+  });
+
+  describe('value normalization', () => {
+    const nfdForm = {
+      givenName: 'Геннадій',
+      patronymicName: 'Валерійович',
+      familyName: 'Чорний',
+    };
+
+    const nfcForm = {
+      givenName: 'Геннадій',
+      patronymicName: 'Валерійович',
+      familyName: 'Чорний',
+    };
+
+    it('should have different NFD and NFC forms', () => {
+      expect(nfdForm.givenName).not.toBe(nfcForm.givenName);
+      expect(nfdForm.patronymicName).not.toBe(nfcForm.patronymicName);
+      expect(nfdForm.familyName).not.toBe(nfcForm.familyName);
+    });
+
+    it('should normalize givenName to NFC form', () => {
+      const input = {
+        givenName: nfdForm.givenName,
+      };
+
+      const result = validateGenderDetectionInput(input);
+
+      expect(result.givenName).toBe(nfcForm.givenName);
+    });
+
+    it('should normalize patronymicName to NFC form', () => {
+      const input = {
+        patronymicName: nfdForm.patronymicName,
+      };
+
+      const result = validateGenderDetectionInput(input);
+
+      expect(result.patronymicName).toBe(nfcForm.patronymicName);
+    });
+
+    it('should normalize familyName to NFC form', () => {
+      const input = {
+        familyName: nfdForm.familyName,
+      };
+
+      const result = validateGenderDetectionInput(input);
+
+      expect(result.familyName).toBe(nfcForm.familyName);
+    });
+
+    it('should normalize all name fields simultaneously', () => {
+      const input = {
+        givenName: nfdForm.givenName,
+        patronymicName: nfdForm.patronymicName,
+        familyName: nfdForm.familyName,
+      };
+
+      const result = validateGenderDetectionInput(input);
+
+      expect(result.givenName).toBe(nfcForm.givenName);
+      expect(result.patronymicName).toBe(nfcForm.patronymicName);
+      expect(result.familyName).toBe(nfcForm.familyName);
+    });
+
+    it('should handle already normalized strings', () => {
+      const input = {
+        givenName: nfcForm.givenName,
+        patronymicName: nfcForm.patronymicName,
+        familyName: nfcForm.familyName,
+      };
+
+      const result = validateGenderDetectionInput(input);
+
+      expect(result.givenName).toBe(nfcForm.givenName);
+      expect(result.patronymicName).toBe(nfcForm.patronymicName);
+      expect(result.familyName).toBe(nfcForm.familyName);
+    });
+
+    it('should not normalize undefined fields', () => {
+      const input: GenderDetectionInput = {
+        givenName: nfdForm.givenName,
+      };
+
+      const result = validateGenderDetectionInput(input);
+
+      expect(result.givenName).toBe(nfcForm.givenName);
+      expect(result.patronymicName).toBeUndefined();
+      expect(result.familyName).toBeUndefined();
+    });
   });
 });
