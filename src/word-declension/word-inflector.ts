@@ -26,13 +26,21 @@ export class WordInflector {
   }
 
   async inflect(word: string, params: DeclensionParams): Promise<string> {
-    const [matchingRule] = await this.findMatchingRules(word, params);
+    // Normalize to NFC (Canonical Decomposition followed by Canonical Composition) to ensure
+    // Unicode characters are in a consistent form. This is critical for reliable pattern matching
+    // with Cyrillic characters, as some characters (e.g., 'і', 'ї') can be represented in multiple
+    // Unicode forms (composed vs. decomposed), which would cause regex patterns to fail.
+    const normalizedWord = word.normalize('NFC');
 
+    const [matchingRule] = await this.findMatchingRules(normalizedWord, params);
     if (matchingRule == null) {
-      return word;
+      return normalizedWord;
     }
 
-    return new DeclensionRuleInflector(matchingRule).inflect(word, params.grammaticalCase);
+    return new DeclensionRuleInflector(matchingRule).inflect(
+      normalizedWord,
+      params.grammaticalCase,
+    );
   }
 
   /**
