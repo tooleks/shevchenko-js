@@ -49,7 +49,10 @@
   },
   "homepage": "https://tooleks.github.io/shevchenko-js",
   "dependencies": {
-    "@tensorflow/tfjs": "^4.1.0"
+    "@tensorflow/tfjs-core": "^4.1.0",
+    "@tensorflow/tfjs-layers": "^4.1.0",
+    "@tensorflow/tfjs-backend-cpu": "^4.1.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.1.0"
   },
   "devDependencies": {
     "@janniks/typedoc-theme-stacks": "^1.2.3",
