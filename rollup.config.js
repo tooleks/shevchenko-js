@@ -34,8 +34,12 @@ export default [
       alias({
         entries: [
           {
-            find: /@tensorflow\/tfjs$/,
-            replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs.js'),
+            find: /@tensorflow\/tfjs-backend-cpu$/,
+            replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs_backend_cpu.js'),
+          },
+          {
+            find: /@tensorflow\/tfjs-backend-webgl$/,
+            replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs_backend_webgl.js'),
           },
           {
             find: /@tensorflow\/tfjs-core$/,

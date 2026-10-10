@@ -1,4 +1,7 @@
-import * as tf from '@tensorflow/tfjs';
+import * as tf from '@tensorflow/tfjs-core';
+import { LayersModel, loadLayersModel } from '@tensorflow/tfjs-layers';
+import '@tensorflow/tfjs-backend-cpu';
+import '@tensorflow/tfjs-backend-webgl';
 import incorrectPredictionsCache from './cache/incorrect-predictions.json';
 import { FamilyNameClass } from './family-name-class';
 import { FamilyNameClassTransformer } from './family-name-class-transformer';
@@ -13,7 +16,7 @@ type IncorrectPredictionWord = keyof typeof incorrectPredictionsCache;
 
 export class FamilyNameClassifier {
   private readonly modelLoader: tf.io.IOHandler;
-  private modelPromise: Promise<tf.LayersModel> | null;
+  private modelPromise: Promise<LayersModel> | null;
   private readonly wordTransformer: WordTransformer;
   private readonly familyNameClassTransformer: FamilyNameClassTransformer;
 
@@ -59,9 +62,9 @@ export class FamilyNameClassifier {
   /**
    * Loads the model from the storage. If called multiple times, resolves the same model instance.
    */
-  private async loadModel(): Promise<tf.LayersModel> {
+  private async loadModel(): Promise<LayersModel> {
     if (this.modelPromise == null) {
-      this.modelPromise = tf.loadLayersModel(this.modelLoader);
+      this.modelPromise = loadLayersModel(this.modelLoader);
     }
     return this.modelPromise;
   }

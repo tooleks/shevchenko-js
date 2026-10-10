@@ -1,6 +1,6 @@
 import { writeFile } from 'node:fs/promises';
 import * as path from 'node:path';
-import * as tf from '@tensorflow/tfjs';
+import * as tf from '@tensorflow/tfjs-core';
 
 const MODEL_BUNDLE_FILEPATH = path.join(__dirname, 'artifacts/model.bundle.json');
 
