@@ -8363,6 +8363,86 @@
     "gender": "masculine",
     "grammaticalCases": {
       "nominative": {
+        "familyName": "Лікар",
+        "givenName": "Андрій",
+        "patronymicName": "Іванович"
+      },
+      "genitive": {
+        "familyName": "Лікаря",
+        "givenName": "Андрія",
+        "patronymicName": "Івановича"
+      },
+      "dative": {
+        "familyName": "Лікарю",
+        "givenName": "Андрію",
+        "patronymicName": "Івановичу"
+      },
+      "accusative": {
+        "familyName": "Лікаря",
+        "givenName": "Андрія",
+        "patronymicName": "Івановича"
+      },
+      "ablative": {
+        "familyName": "Лікарем",
+        "givenName": "Андрієм",
+        "patronymicName": "Івановичем"
+      },
+      "locative": {
+        "familyName": "Лікареві",
+        "givenName": "Андрієві",
+        "patronymicName": "Івановичу"
+      },
+      "vocative": {
+        "familyName": "Лікарю",
+        "givenName": "Андрію",
+        "patronymicName": "Івановичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Слюсар",
+        "givenName": "Богдан",
+        "patronymicName": "Васильович"
+      },
+      "genitive": {
+        "familyName": "Слюсаря",
+        "givenName": "Богдана",
+        "patronymicName": "Васильовича"
+      },
+      "dative": {
+        "familyName": "Слюсарю",
+        "givenName": "Богдану",
+        "patronymicName": "Васильовичу"
+      },
+      "accusative": {
+        "familyName": "Слюсаря",
+        "givenName": "Богдана",
+        "patronymicName": "Васильовича"
+      },
+      "ablative": {
+        "familyName": "Слюсарем",
+        "givenName": "Богданом",
+        "patronymicName": "Васильовичем"
+      },
+      "locative": {
+        "familyName": "Слюсареві",
+        "givenName": "Богданові",
+        "patronymicName": "Васильовичу"
+      },
+      "vocative": {
+        "familyName": "Слюсарю",
+        "givenName": "Богдане",
+        "patronymicName": "Васильовичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
         "familyName": "Півнев",
         "givenName": "Радомир",
         "patronymicName": "Енейович"
