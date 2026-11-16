@@ -1,9 +1,7 @@
 <script setup lang="ts">
 import { computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import Showdown from 'showdown';
-
-const converter = new Showdown.Converter();
+import { marked } from 'marked';
 
 const appConfig = useAppConfig();
 const { locale } = useI18n();
@@ -15,7 +13,7 @@ const contents = computed(() => {
   if (data.value == null) {
     return '';
   }
-  return converter.makeHtml(data.value);
+  return marked.parse(data.value, { async: false });
 });
 </script>
 
