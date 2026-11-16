@@ -1,4 +1,5 @@
-# Runs the tests and stages the package on npm when a GitHub release is created.
+# Runs the tests and stages the package on npm when a GitHub release is created,
+# or when run manually from the Actions tab (stages the version in package.json of the selected ref).
 # Authenticates with npm trusted publishing (OIDC), so no npm token is stored in the repository.
 # The staged version is not public until a maintainer approves it with 2FA:
 #   npm stage list shevchenko
@@ -11,6 +12,7 @@
 name: Publish Node.js Package
 
 on:
+  workflow_dispatch:
   release:
     types: [created]
 
