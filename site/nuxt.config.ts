@@ -109,5 +109,15 @@ export default defineNuxtConfig({
     },
   },
   css: ['~/assets/style/main.scss'],
+  vite: {
+    css: {
+      preprocessorOptions: {
+        scss: {
+          // Hide deprecation warnings coming from Bootstrap's own Sass sources.
+          quietDeps: true,
+        },
+      },
+    },
+  },
   modules: ['@vueuse/nuxt'],
 });
