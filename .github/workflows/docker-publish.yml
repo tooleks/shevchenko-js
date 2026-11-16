@@ -8,25 +8,27 @@ on:
 
 jobs:
   build-and-push:
+    # Skip when triggered by a failed or cancelled npm publish
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
         # Add support for more platforms with QEMU (optional)
         # https://github.com/docker/setup-qemu-action
       - name: Set up QEMU
-        uses: docker/setup-qemu-action@v3
+        uses: docker/setup-qemu-action@v4
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v3
+        uses: docker/setup-buildx-action@v4
       - name: Login to DockerHub
-        uses: docker/login-action@v3
+        uses: docker/login-action@v4
         with:
           username: ${{secrets.DOCKERHUB_USERNAME}}
           password: ${{secrets.DOCKERHUB_TOKEN}}
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
           node-version: 22
       - name: Update package version
@@ -38,14 +40,19 @@ jobs:
           git config --global user.name "github-actions"
           git config --global user.email "github-actions@github.com"
           git add .
-          git commit -m "chore(docker): bump package version"
-          git push origin
+          if git diff --cached --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore(docker): bump package version"
+            git push origin
+          fi
       - name: Retrieve the release version
         id: npm-version
-        uses: martinbeentjes/npm-get-version-action@v1.3.1
+        run: echo "current-version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
       - name: Build and push Docker image
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v7
         with:
           context: ./docker
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{secrets.DOCKERHUB_USERNAME}}/shevchenko:latest,${{secrets.DOCKERHUB_USERNAME}}/shevchenko:${{steps.npm-version.outputs.current-version}}
