@@ -64,7 +64,6 @@
     "@types/lodash": "^4.14.191",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
     "@typescript-eslint/parser": "^5.48.2",
-    "axios": "^1.6.0",
     "csv": "^6.2.7",
     "eslint": "^8.32.0",
     "eslint-config-prettier": "^8.6.0",
@@ -77,6 +76,7 @@
     "rollup": "^4.24.3",
     "ts-jest": "^29.0.5",
     "ts-node": "^10.9.1",
+    "tslib": "^2.9.1",
     "typedoc": "^0.23.26",
     "typescript": "^4.1.2"
   }
