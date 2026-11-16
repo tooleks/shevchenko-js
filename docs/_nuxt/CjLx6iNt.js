@@ -1,7 +1,7 @@
-import{J as Ee,P as Ye,G as fe,Q as Ze,z as C,R as Qe,S as et,U as tt,V as nt,m as rt,W as at,d as V,I as xe,D as F,u as _,o as b,a as y,g as ot,t as N,f as d,b as st,_ as Y,X as it,Y as Le,C as Ne,H as ct,h as ce,Z as Me,s as De,F as ut,$ as Re}from"./BVe3yqvx.js";function Ta(e,t){const{title:n,titleTemplate:r,...o}=e;return Ee({title:n,titleTemplate:r,_flatMeta:o},{...t,transform(a){const s=Ye({...a._flatMeta});return delete a._flatMeta,{...a,meta:s}}})}/**
+import{J as Ee,P as Ye,G as fe,Q as Ze,z as C,R as Qe,S as et,U as tt,V as nt,m as rt,W as at,d as V,I as xe,D as F,u as _,o as b,a as y,g as ot,t as N,f as d,b as st,_ as Y,X as it,Y as Le,C as Ne,H as ct,h as ce,Z as Me,s as De,F as ut,$ as Re}from"./Od20BDwa.js";function Ta(e,t){const{title:n,titleTemplate:r,...o}=e;return Ee({title:n,titleTemplate:r,_flatMeta:o},{...t,transform(a){const s=Ye({...a._flatMeta});return delete a._flatMeta,{...a,meta:s}}})}/**
  * @file JavaScript library for declension of Ukrainian anthroponyms
  * @module shevchenko
- * @version 3.2.2
+ * @version 3.2.3
  * @author Oleksandr Tolochko <shevchenko-js@tooleks.com>
  * @license MIT
  * @copyright 2017-2026 Oleksandr Tolochko <shevchenko-js@tooleks.com>
@@ -9,7 +9,7 @@ import{J as Ee,P as Ye,G as fe,Q as Ze,z as C,R as Qe,S as et,U as tt,V as nt,m 
  */class P extends TypeError{}const G=["givenName","patronymicName","familyName"];function lt(e){if(!Ge(e))throw new P("The input type must be an object.");if(!Object.values(fe).includes(e.gender))throw new P(`The "gender" parameter must be one of the following: "${Object.values(fe).join('", "')}".`);const n=[...G,...Ze()];if(!n.some(a=>a in e&&typeof e[a]<"u"))throw new P(`At least one of the following parameters must present: "${n.join('", "')}".`);for(const a of n)if(typeof e[a]<"u"&&typeof e[a]!="string")throw new P(`The "${a}" parameter must be a string.`);const o=Object.assign({},e);for(const a of n){const s=o[a];typeof s=="string"&&(o[a]=s.normalize("NFC"))}return o}function ft(e){if(!Ge(e))throw new P("The input type must be an object.");if(!G.some(r=>r in e&&typeof e[r]<"u"))throw new P(`At least one of the following parameters must present: "${G.join('", "')}".`);for(const r of G)if(typeof e[r]<"u"&&typeof e[r]!="string")throw new P(`The "${r}" parameter must be a string.`);const n=Object.assign({},e);for(const r of G){const o=n[r];typeof o=="string"&&(n[r]=o.normalize("NFC"))}return n}function Ge(e){return typeof e=="object"&&e!=null}/**
  * @file JavaScript library for declension of Ukrainian anthroponyms
  * @module shevchenko
- * @version 3.2.2
+ * @version 3.2.3
  * @author Oleksandr Tolochko <shevchenko-js@tooleks.com>
  * @license MIT
  * @copyright 2017-2026 Oleksandr Tolochko <shevchenko-js@tooleks.com>
