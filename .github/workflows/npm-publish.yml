@@ -1,5 +1,12 @@
-# This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
-# For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
+# Runs the tests and stages the package on npm when a GitHub release is created.
+# Authenticates with npm trusted publishing (OIDC), so no npm token is stored in the repository.
+# The staged version is not public until a maintainer approves it with 2FA:
+#   npm stage list shevchenko
+#   npm stage approve <stage-id>
+# Requires npm CLI with `npm stage` support (bundled with Node.js 24) and a trusted publisher
+# for this repository and workflow file with stage publishing allowed:
+#   npm trust github shevchenko --repo tooleks/shevchenko-js --file npm-publish.yml --allow-stage-publish
+# For more information see: https://docs.npmjs.com/trusted-publishers
 
 name: Publish Node.js Package
 
@@ -16,7 +23,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22
+          node-version: 24
       - name: Run tests
         run: |
           npm ci
@@ -27,18 +34,19 @@ jobs:
   publish-npm:
     needs: build
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      id-token: write # required for npm trusted publishing (OIDC)
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: 22
+          node-version: 24
           registry-url: https://registry.npmjs.org/
-      - name: Publish package
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.npm_token}}
+      - name: Stage package for publishing
         run: |
           npm ci
           npm run build
-          npm publish
+          npm stage publish
