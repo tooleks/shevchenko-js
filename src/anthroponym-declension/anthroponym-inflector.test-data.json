@@ -8403,6 +8403,46 @@
     "gender": "masculine",
     "grammaticalCases": {
       "nominative": {
+        "familyName": "Пікар",
+        "givenName": "Ікар",
+        "patronymicName": "Іванович"
+      },
+      "genitive": {
+        "familyName": "Пікара",
+        "givenName": "Ікара",
+        "patronymicName": "Івановича"
+      },
+      "dative": {
+        "familyName": "Пікару",
+        "givenName": "Ікару",
+        "patronymicName": "Івановичу"
+      },
+      "accusative": {
+        "familyName": "Пікара",
+        "givenName": "Ікара",
+        "patronymicName": "Івановича"
+      },
+      "ablative": {
+        "familyName": "Пікаром",
+        "givenName": "Ікаром",
+        "patronymicName": "Івановичем"
+      },
+      "locative": {
+        "familyName": "Пікарові",
+        "givenName": "Ікарові",
+        "patronymicName": "Івановичу"
+      },
+      "vocative": {
+        "familyName": "Пікаре",
+        "givenName": "Ікаре",
+        "patronymicName": "Івановичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
         "familyName": "Слюсар",
         "givenName": "Богдан",
         "patronymicName": "Васильович"
