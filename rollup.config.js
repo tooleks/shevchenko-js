@@ -41,10 +41,6 @@ export default [
             find: /@tensorflow\/tfjs-backend-webgl$/,
             replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs_backend_webgl.js'),
           },
-          {
-            find: /@tensorflow\/tfjs-core$/,
-            replacement: path.resolve(__dirname, './vendor/tfjs/custom_tfjs_core.js'),
-          },
         ],
       }),
       json(),
