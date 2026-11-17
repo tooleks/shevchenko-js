@@ -1,6 +1,9 @@
 {
   "name": "shevchenko-js",
   "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "features": {
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
   "forwardPorts": [
     3000
   ],
