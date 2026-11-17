@@ -10,7 +10,7 @@ export default {
     gitHubUrl: 'https://github.com/tooleks/shevchenko-js',
     dockerHubUrl: 'https://hub.docker.com/r/tooleks/shevchenko',
     issuesUrl: 'https://github.com/tooleks/shevchenko-js/issues',
-    licenseUrl: 'https://github.com/tooleks/shevchenko-js/blob/master/LICENSE',
+    licenseUrl: 'https://github.com/tooleks/shevchenko-js/blob/main/LICENSE',
     cdnUrl: 'https://unpkg.com/shevchenko',
   },
   militaryExtension: {

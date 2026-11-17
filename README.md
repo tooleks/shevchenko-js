@@ -22,29 +22,23 @@ JavaScript library for declension of Ukrainian anthroponyms.
 
 ### Installation
 
-#### npm
-
-To install the library using [npm](https://docs.npmjs.com) package manager, use the following command:
+Install the library with [npm](https://docs.npmjs.com):
 
 ```bash
-npm install --save shevchenko
+npm install shevchenko
 ```
 
 ### Import
 
-The library comes in three formats: CommonJS module, ECMAScript module, and a minified UMD bundle. You can select the format that best suits your needs.
+The library is available as a CommonJS module, an ECMAScript module, and a minified UMD bundle.
 
 #### CommonJS
-
-To import the library as a CommonJS module, use the following code:
 
 ```JavaScript
 const shevchenko = require('shevchenko');
 ```
 
-#### ECMAScript
-
-To import the library as an ECMAScript module, use the following code:
+#### ECMAScript module
 
 ```JavaScript
 import * as shevchenko from 'shevchenko';
@@ -52,17 +46,17 @@ import * as shevchenko from 'shevchenko';
 
 #### UMD
 
-To import the library as a UMD bundle, include the following script tag in your HTML code:
+Load the bundle with a script tag. It exposes the library as the global `shevchenko` variable.
 
 ```HTML
-<‍script type="text/javascript" src="https://unpkg.com/shevchenko"><‍/script>
+<script type="text/javascript" src="https://unpkg.com/shevchenko"></script>
 ```
 
 ### Use Cases
 
-#### Personal names declension
+#### Declining names
 
-This example shows how to use the library to decline Ukrainian anthroponyms.
+This example declines a full name in the vocative case.
 
 ```JavaScript
 const shevchenko = require('shevchenko');
@@ -83,9 +77,9 @@ async function main() {
 main().catch((error) => console.error(error));
 ```
 
-#### Automatic grammatical gender detection
+#### Detecting grammatical gender
 
-This example shows how to use the library to automatically detect the grammatical gender of a Ukrainian anthroponym.
+This example detects the grammatical gender of a name before declining it.
 
 ```JavaScript
 const shevchenko = require('shevchenko');
@@ -112,6 +106,6 @@ async function main() {
 main().catch((error) => console.error(error));
 ```
 
-#### Usage via HTTP API
+#### Using the HTTP API
 
-The library can be integrated into your project via HTTP API. Please refer to [shevchenko](https://hub.docker.com/r/tooleks/shevchenko) Docker image for the additional instructions.
+The library is also available as an HTTP API. See the [shevchenko](https://hub.docker.com/r/tooleks/shevchenko) Docker image for setup instructions.
