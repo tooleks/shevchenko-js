@@ -1,20 +1,9 @@
-# Runs the tests and stages the package on npm when a GitHub release is created,
-# or when run manually from the Actions tab (stages the version in package.json of the selected ref).
-# Authenticates with npm trusted publishing (OIDC), so no npm token is stored in the repository.
-# The staged version is not public until a maintainer approves it with 2FA:
-#   npm stage list shevchenko
-#   npm stage approve <stage-id>
-# Requires npm CLI with `npm stage` support (bundled with Node.js 24 and later) and a trusted publisher
-# for this repository and workflow file with stage publishing allowed:
-#   npm trust github shevchenko --repo tooleks/shevchenko-js --file npm-publish.yml --allow-stage-publish
-# For more information see: https://docs.npmjs.com/trusted-publishers
-
 name: Publish Node.js Package
 
 on:
   workflow_dispatch:
   release:
-    types: [created]
+    types: [released]
 
 jobs:
   build:
@@ -52,3 +41,47 @@ jobs:
           npm ci
           npm run build
           npm stage publish
+
+  wait-for-approval:
+    needs: publish-npm
+    runs-on: ubuntu-latest
+    timeout-minutes: 360
+    permissions:
+      contents: read
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v7
+      - name: Retrieve the package version
+        id: version
+        run: echo "version=$(node -p "require('./package.json').version")" >> "$GITHUB_OUTPUT"
+      - name: Wait for the staged package to be approved
+        env:
+          VERSION: ${{ steps.version.outputs.version }}
+        run: |
+          echo "Waiting for shevchenko@$VERSION to be approved on npm"
+          deadline=$((SECONDS + 350 * 60))
+          until npm view "shevchenko@$VERSION" version --prefer-online > /dev/null 2>&1; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::shevchenko@$VERSION was not approved in time. After approving it, re-run failed jobs."
+              exit 1
+            fi
+            sleep 30
+          done
+          echo "shevchenko@$VERSION is published"
+
+  publish-docker:
+    needs: wait-for-approval
+    permissions:
+      contents: write
+    uses: ./.github/workflows/docker-publish.yml
+    with:
+      version: ${{ needs.wait-for-approval.outputs.version }}
+    secrets: inherit
+
+  generate-site:
+    needs: publish-docker
+    permissions:
+      contents: write
+    uses: ./.github/workflows/site-generate.yml
