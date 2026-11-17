@@ -8998,5 +8998,45 @@
         "patronymicName": "Григоровичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Карпець",
+        "givenName": "Богдан",
+        "patronymicName": "Петрович"
+      },
+      "genitive": {
+        "familyName": "Карпця",
+        "givenName": "Богдана",
+        "patronymicName": "Петровича"
+      },
+      "dative": {
+        "familyName": "Карпцю",
+        "givenName": "Богдану",
+        "patronymicName": "Петровичу"
+      },
+      "accusative": {
+        "familyName": "Карпця",
+        "givenName": "Богдана",
+        "patronymicName": "Петровича"
+      },
+      "ablative": {
+        "familyName": "Карпцем",
+        "givenName": "Богданом",
+        "patronymicName": "Петровичем"
+      },
+      "locative": {
+        "familyName": "Карпцю",
+        "givenName": "Богданові",
+        "patronymicName": "Петровичу"
+      },
+      "vocative": {
+        "familyName": "Карпцю",
+        "givenName": "Богдане",
+        "patronymicName": "Петровичу"
+      }
+    }
   }
 ]
