@@ -26,7 +26,6 @@
 .github
 .eslintrc.json
 .prettierrc.json
-jest.config.js
 rollup.config.js
 tsconfig*.json
 typedoc.js

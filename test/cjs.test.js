@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const shevchenko = require('../dist/cjs');
+import { describe, expect, it } from 'vitest';
+import * as shevchenko from '../dist/cjs';
 
 describe('CJS module', () => {
   it('should export public API', () => {

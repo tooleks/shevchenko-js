@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { WordClass } from '../../language';
 import { FamilyNameClass } from './family-name-class';
 import { FamilyNameClassTransformer } from './family-name-class-transformer';

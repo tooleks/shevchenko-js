@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
+import { describe, expect, it } from 'vitest';
 import { DeclensionInput, GenderDetectionInput } from './contracts';
 import {
   InputValidationError,

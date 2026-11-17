@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { ALPHABET_SIZE, AlphabetEncoding } from './alphabet';
 
 describe('AlphabetEncoding', () => {

@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { GrammaticalGender } from '../language';
 import givenNamesGenders from './data/given-names-genders.json';
 import { detectGender } from './detect-gender';

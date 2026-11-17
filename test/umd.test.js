@@ -1,5 +1,5 @@
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const shevchenko = require('../dist/umd/shevchenko.min');
+import { describe, expect, it } from 'vitest';
+import * as shevchenko from '../dist/umd/shevchenko.min';
 
 describe('UMD module', () => {
   it('should export public API', () => {

@@ -1,3 +1,4 @@
+import { describe, expect, it } from 'vitest';
 import { copyLetterCase } from './letter-case';
 
 describe('copyLetterCase', () => {
