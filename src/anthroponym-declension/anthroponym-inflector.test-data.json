@@ -8598,5 +8598,325 @@
         "patronymicName": "Порфирійовичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Сегень",
+        "givenName": "Тарас",
+        "patronymicName": "Григорович"
+      },
+      "genitive": {
+        "familyName": "Сегеня",
+        "givenName": "Тараса",
+        "patronymicName": "Григоровича"
+      },
+      "dative": {
+        "familyName": "Сегеню",
+        "givenName": "Тарасу",
+        "patronymicName": "Григоровичу"
+      },
+      "accusative": {
+        "familyName": "Сегеня",
+        "givenName": "Тараса",
+        "patronymicName": "Григоровича"
+      },
+      "ablative": {
+        "familyName": "Сегенем",
+        "givenName": "Тарасом",
+        "patronymicName": "Григоровичем"
+      },
+      "locative": {
+        "familyName": "Сегеню",
+        "givenName": "Тарасові",
+        "patronymicName": "Григоровичу"
+      },
+      "vocative": {
+        "familyName": "Сегеню",
+        "givenName": "Тарасе",
+        "patronymicName": "Григоровичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Олень",
+        "givenName": "Петро",
+        "patronymicName": "Іванович"
+      },
+      "genitive": {
+        "familyName": "Оленя",
+        "givenName": "Петра",
+        "patronymicName": "Івановича"
+      },
+      "dative": {
+        "familyName": "Оленю",
+        "givenName": "Петру",
+        "patronymicName": "Івановичу"
+      },
+      "accusative": {
+        "familyName": "Оленя",
+        "givenName": "Петра",
+        "patronymicName": "Івановича"
+      },
+      "ablative": {
+        "familyName": "Оленем",
+        "givenName": "Петром",
+        "patronymicName": "Івановичем"
+      },
+      "locative": {
+        "familyName": "Оленю",
+        "givenName": "Петрові",
+        "patronymicName": "Івановичу"
+      },
+      "vocative": {
+        "familyName": "Оленю",
+        "givenName": "Петре",
+        "patronymicName": "Івановичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Мелень",
+        "givenName": "Богдан",
+        "patronymicName": "Петрович"
+      },
+      "genitive": {
+        "familyName": "Меленя",
+        "givenName": "Богдана",
+        "patronymicName": "Петровича"
+      },
+      "dative": {
+        "familyName": "Меленю",
+        "givenName": "Богдану",
+        "patronymicName": "Петровичу"
+      },
+      "accusative": {
+        "familyName": "Меленя",
+        "givenName": "Богдана",
+        "patronymicName": "Петровича"
+      },
+      "ablative": {
+        "familyName": "Меленем",
+        "givenName": "Богданом",
+        "patronymicName": "Петровичем"
+      },
+      "locative": {
+        "familyName": "Меленю",
+        "givenName": "Богданові",
+        "patronymicName": "Петровичу"
+      },
+      "vocative": {
+        "familyName": "Меленю",
+        "givenName": "Богдане",
+        "patronymicName": "Петровичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Кремень",
+        "givenName": "Петро",
+        "patronymicName": "Григорович"
+      },
+      "genitive": {
+        "familyName": "Кременя",
+        "givenName": "Петра",
+        "patronymicName": "Григоровича"
+      },
+      "dative": {
+        "familyName": "Кременю",
+        "givenName": "Петру",
+        "patronymicName": "Григоровичу"
+      },
+      "accusative": {
+        "familyName": "Кременя",
+        "givenName": "Петра",
+        "patronymicName": "Григоровича"
+      },
+      "ablative": {
+        "familyName": "Кременем",
+        "givenName": "Петром",
+        "patronymicName": "Григоровичем"
+      },
+      "locative": {
+        "familyName": "Кременю",
+        "givenName": "Петрові",
+        "patronymicName": "Григоровичу"
+      },
+      "vocative": {
+        "familyName": "Кременю",
+        "givenName": "Петре",
+        "patronymicName": "Григоровичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Корень",
+        "givenName": "Тарас",
+        "patronymicName": "Іванович"
+      },
+      "genitive": {
+        "familyName": "Кореня",
+        "givenName": "Тараса",
+        "patronymicName": "Івановича"
+      },
+      "dative": {
+        "familyName": "Кореню",
+        "givenName": "Тарасу",
+        "patronymicName": "Івановичу"
+      },
+      "accusative": {
+        "familyName": "Кореня",
+        "givenName": "Тараса",
+        "patronymicName": "Івановича"
+      },
+      "ablative": {
+        "familyName": "Коренем",
+        "givenName": "Тарасом",
+        "patronymicName": "Івановичем"
+      },
+      "locative": {
+        "familyName": "Кореню",
+        "givenName": "Тарасові",
+        "patronymicName": "Івановичу"
+      },
+      "vocative": {
+        "familyName": "Кореню",
+        "givenName": "Тарасе",
+        "patronymicName": "Івановичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Корінь",
+        "givenName": "Богдан",
+        "patronymicName": "Григорович"
+      },
+      "genitive": {
+        "familyName": "Кореня",
+        "givenName": "Богдана",
+        "patronymicName": "Григоровича"
+      },
+      "dative": {
+        "familyName": "Кореню",
+        "givenName": "Богдану",
+        "patronymicName": "Григоровичу"
+      },
+      "accusative": {
+        "familyName": "Кореня",
+        "givenName": "Богдана",
+        "patronymicName": "Григоровича"
+      },
+      "ablative": {
+        "familyName": "Коренем",
+        "givenName": "Богданом",
+        "patronymicName": "Григоровичем"
+      },
+      "locative": {
+        "familyName": "Кореню",
+        "givenName": "Богданові",
+        "patronymicName": "Григоровичу"
+      },
+      "vocative": {
+        "familyName": "Кореню",
+        "givenName": "Богдане",
+        "patronymicName": "Григоровичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Гребінь",
+        "givenName": "Тарас",
+        "patronymicName": "Петрович"
+      },
+      "genitive": {
+        "familyName": "Гребеня",
+        "givenName": "Тараса",
+        "patronymicName": "Петровича"
+      },
+      "dative": {
+        "familyName": "Гребеню",
+        "givenName": "Тарасу",
+        "patronymicName": "Петровичу"
+      },
+      "accusative": {
+        "familyName": "Гребеня",
+        "givenName": "Тараса",
+        "patronymicName": "Петровича"
+      },
+      "ablative": {
+        "familyName": "Гребенем",
+        "givenName": "Тарасом",
+        "patronymicName": "Петровичем"
+      },
+      "locative": {
+        "familyName": "Гребеню",
+        "givenName": "Тарасові",
+        "patronymicName": "Петровичу"
+      },
+      "vocative": {
+        "familyName": "Гребеню",
+        "givenName": "Тарасе",
+        "patronymicName": "Петровичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Селегень",
+        "givenName": "Петро",
+        "patronymicName": "Петрович"
+      },
+      "genitive": {
+        "familyName": "Селегеня",
+        "givenName": "Петра",
+        "patronymicName": "Петровича"
+      },
+      "dative": {
+        "familyName": "Селегеню",
+        "givenName": "Петру",
+        "patronymicName": "Петровичу"
+      },
+      "accusative": {
+        "familyName": "Селегеня",
+        "givenName": "Петра",
+        "patronymicName": "Петровича"
+      },
+      "ablative": {
+        "familyName": "Селегенем",
+        "givenName": "Петром",
+        "patronymicName": "Петровичем"
+      },
+      "locative": {
+        "familyName": "Селегеню",
+        "givenName": "Петрові",
+        "patronymicName": "Петровичу"
+      },
+      "vocative": {
+        "familyName": "Селегеню",
+        "givenName": "Петре",
+        "patronymicName": "Петровичу"
+      }
+    }
   }
 ]

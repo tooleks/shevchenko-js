@@ -2579,9 +2579,11 @@
     }
   },
   {
-    "description": "друга відміна / чоловічий рід / м'яка група / на -мінь",
+    "description": "друга відміна / чоловічий рід / м'яка група / на -мінь, корінь, гребінь, ступінь",
     "examples": [
-      "кремінь"
+      "кремінь",
+      "корінь",
+      "гребінь"
     ],
     "wordClass": "noun",
     "gender": [
@@ -2590,7 +2592,7 @@
     "priority": 5,
     "applicationType": [],
     "pattern": {
-      "find": ".мінь$",
+      "find": "(.мінь|корінь|гребінь|ступінь)$",
       "modify": "(.{1})(.{1})(.{1})$"
     },
     "grammaticalCases": {
@@ -2682,6 +2684,168 @@
             "value": "е"
           },
           "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(голосний)(л|м)ень, корень, гребень, ступень",
+    "examples": [
+      "олень",
+      "тюлень",
+      "кремень",
+      "корень"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "([голосний](л|м)ень|корень|гребень|ступень)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(голосний)гень",
+    "examples": [
+      "сегень",
+      "селегень"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "[голосний]гень$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
             "action": "replace",
             "value": "ю"
           }
