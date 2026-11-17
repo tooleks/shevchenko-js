@@ -9078,5 +9078,45 @@
         "patronymicName": "Григоровичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Золотар",
+        "givenName": "Петро",
+        "patronymicName": "Іванович"
+      },
+      "genitive": {
+        "familyName": "Золотаря",
+        "givenName": "Петра",
+        "patronymicName": "Івановича"
+      },
+      "dative": {
+        "familyName": "Золотарю",
+        "givenName": "Петру",
+        "patronymicName": "Івановичу"
+      },
+      "accusative": {
+        "familyName": "Золотаря",
+        "givenName": "Петра",
+        "patronymicName": "Івановича"
+      },
+      "ablative": {
+        "familyName": "Золотарем",
+        "givenName": "Петром",
+        "patronymicName": "Івановичем"
+      },
+      "locative": {
+        "familyName": "Золотареві",
+        "givenName": "Петрові",
+        "patronymicName": "Івановичу"
+      },
+      "vocative": {
+        "familyName": "Золотарю",
+        "givenName": "Петре",
+        "patronymicName": "Івановичу"
+      }
+    }
   }
 ]
