@@ -301,6 +301,121 @@
     }
   },
   {
+    "description": "друга відміна / чоловічий рід / м'яка група / на -(голосний)(р|в)(б|п)ець",
+    "examples": [
+      "стовпець",
+      "карпець",
+      "щербець",
+      "бербець",
+      "вербець"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "[голосний](р|в)(б|п)ець$",
+      "modify": "(.{1})(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "я"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "еві"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": ""
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
+    }
+  },
+  {
     "description": "друга відміна / чоловічий рід / м'яка група / на -(голосний)лець",
     "examples": [
       "стрілець",
