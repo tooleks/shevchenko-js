@@ -1,6 +1,6 @@
 {
   "name": "shevchenko-js",
-  "image": "mcr.microsoft.com/devcontainers/javascript-node:22",
+  "image": "mcr.microsoft.com/devcontainers/javascript-node:26",
   "features": {
     "ghcr.io/devcontainers/features/github-cli:1": {}
   },

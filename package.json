@@ -49,10 +49,10 @@
   },
   "homepage": "https://tooleks.github.io/shevchenko-js",
   "dependencies": {
-    "@tensorflow/tfjs-core": "^4.1.0",
-    "@tensorflow/tfjs-layers": "^4.1.0",
-    "@tensorflow/tfjs-backend-cpu": "^4.1.0",
-    "@tensorflow/tfjs-backend-webgl": "^4.1.0"
+    "@tensorflow/tfjs-core": "^4.22.0",
+    "@tensorflow/tfjs-layers": "^4.22.0",
+    "@tensorflow/tfjs-backend-cpu": "^4.22.0",
+    "@tensorflow/tfjs-backend-webgl": "^4.22.0"
   },
   "devDependencies": {
     "@janniks/typedoc-theme-stacks": "^1.2.3",
@@ -62,7 +62,7 @@
     "@rollup/plugin-node-resolve": "^15.3.0",
     "@rollup/plugin-terser": "^0.4.4",
     "@rollup/plugin-typescript": "^12.1.1",
-    "@tensorflow/tfjs-node": "^4.2.0",
+    "@tensorflow/tfjs-node": "^4.22.0",
     "@types/jest": "^29.4.0",
     "@types/lodash": "^4.14.191",
     "@typescript-eslint/eslint-plugin": "^5.48.2",
