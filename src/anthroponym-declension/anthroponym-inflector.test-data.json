@@ -8918,5 +8918,85 @@
         "patronymicName": "Петровичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Северин",
+        "givenName": "Тарас",
+        "patronymicName": "Іванович"
+      },
+      "genitive": {
+        "familyName": "Северина",
+        "givenName": "Тараса",
+        "patronymicName": "Івановича"
+      },
+      "dative": {
+        "familyName": "Северину",
+        "givenName": "Тарасу",
+        "patronymicName": "Івановичу"
+      },
+      "accusative": {
+        "familyName": "Северина",
+        "givenName": "Тараса",
+        "patronymicName": "Івановича"
+      },
+      "ablative": {
+        "familyName": "Северином",
+        "givenName": "Тарасом",
+        "patronymicName": "Івановичем"
+      },
+      "locative": {
+        "familyName": "Северинові",
+        "givenName": "Тарасові",
+        "patronymicName": "Івановичу"
+      },
+      "vocative": {
+        "familyName": "Северине",
+        "givenName": "Тарасе",
+        "patronymicName": "Івановичу"
+      }
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Сиверин",
+        "givenName": "Петро",
+        "patronymicName": "Григорович"
+      },
+      "genitive": {
+        "familyName": "Сиверина",
+        "givenName": "Петра",
+        "patronymicName": "Григоровича"
+      },
+      "dative": {
+        "familyName": "Сиверину",
+        "givenName": "Петру",
+        "patronymicName": "Григоровичу"
+      },
+      "accusative": {
+        "familyName": "Сиверина",
+        "givenName": "Петра",
+        "patronymicName": "Григоровича"
+      },
+      "ablative": {
+        "familyName": "Сиверином",
+        "givenName": "Петром",
+        "patronymicName": "Григоровичем"
+      },
+      "locative": {
+        "familyName": "Сиверинові",
+        "givenName": "Петрові",
+        "patronymicName": "Григоровичу"
+      },
+      "vocative": {
+        "familyName": "Сиверине",
+        "givenName": "Петре",
+        "patronymicName": "Григоровичу"
+      }
+    }
   }
 ]

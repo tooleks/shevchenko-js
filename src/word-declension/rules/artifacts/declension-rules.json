@@ -6320,7 +6320,7 @@
       "familyName"
     ],
     "pattern": {
-      "find": "(?<!ус|в|н)ин$",
+      "find": "(?<!ус|в|н|с[еи]вер)ин$",
       "modify": "(.{1})$"
     },
     "grammaticalCases": {
