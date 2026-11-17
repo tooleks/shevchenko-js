@@ -11,7 +11,7 @@ export abstract class NameInflector {
   ): Promise<string> {
     const inflectedNameParts: string[] = [];
 
-    const nameParts = name.split('-');
+    const nameParts = name.split(/(?<!\d)-/);
     for (let index = 0; index < nameParts.length; index += 1) {
       const inflectedNamePart = await this.inflectNamePart(
         nameParts[index],

@@ -10,7 +10,7 @@ export type CustomRuleFilter = (
 
 export type DeclensionParams = {
   grammaticalCase: GrammaticalCase;
-  gender: GrammaticalGender;
+  gender?: GrammaticalGender;
   wordClass?: WordClass;
   applicationType?: ApplicationType;
   customRuleFilter?: CustomRuleFilter;
@@ -44,7 +44,7 @@ export class WordInflector {
   ): Promise<DeclensionRule[]> {
     const matchingRules = this.declensionRules
       .filter((declensionRule) => {
-        return declensionRule.gender.includes(params.gender);
+        return !params.gender || declensionRule.gender.includes(params.gender);
       })
       .filter((declensionRule) => {
         return (
