@@ -9038,5 +9038,45 @@
         "patronymicName": "Петровичу"
       }
     }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": {
+        "familyName": "Бобер",
+        "givenName": "Тарас",
+        "patronymicName": "Григорович"
+      },
+      "genitive": {
+        "familyName": "Бобра",
+        "givenName": "Тараса",
+        "patronymicName": "Григоровича"
+      },
+      "dative": {
+        "familyName": "Бобру",
+        "givenName": "Тарасу",
+        "patronymicName": "Григоровичу"
+      },
+      "accusative": {
+        "familyName": "Бобра",
+        "givenName": "Тараса",
+        "patronymicName": "Григоровича"
+      },
+      "ablative": {
+        "familyName": "Бобром",
+        "givenName": "Тарасом",
+        "patronymicName": "Григоровичем"
+      },
+      "locative": {
+        "familyName": "Боброві",
+        "givenName": "Тарасові",
+        "patronymicName": "Григоровичу"
+      },
+      "vocative": {
+        "familyName": "Бобре",
+        "givenName": "Тарасе",
+        "patronymicName": "Григоровичу"
+      }
+    }
   }
 ]
