@@ -2,14 +2,9 @@ name: Publish Docker Image
 
 on:
   workflow_dispatch:
-  workflow_run:
-    workflows: ["Publish Node.js Package"]
-    types: [completed]
 
 jobs:
   build-and-push:
-    # Skip when triggered by a failed or cancelled npm publish
-    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
     permissions:
       contents: write
@@ -30,7 +25,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v7
         with:
-          node-version: 22
+          node-version: 26
       - name: Update package version
         run: |
           cd ./docker

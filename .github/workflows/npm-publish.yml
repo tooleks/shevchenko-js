@@ -4,7 +4,7 @@
 # The staged version is not public until a maintainer approves it with 2FA:
 #   npm stage list shevchenko
 #   npm stage approve <stage-id>
-# Requires npm CLI with `npm stage` support (bundled with Node.js 24) and a trusted publisher
+# Requires npm CLI with `npm stage` support (bundled with Node.js 24 and later) and a trusted publisher
 # for this repository and workflow file with stage publishing allowed:
 #   npm trust github shevchenko --repo tooleks/shevchenko-js --file npm-publish.yml --allow-stage-publish
 # For more information see: https://docs.npmjs.com/trusted-publishers
@@ -21,11 +21,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
       - name: Run tests
         run: |
           npm ci
@@ -41,11 +41,11 @@ jobs:
       id-token: write # required for npm trusted publishing (OIDC)
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
       - name: Setup Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v7
         with:
-          node-version: 24
+          node-version: 26
           registry-url: https://registry.npmjs.org/
       - name: Stage package for publishing
         run: |

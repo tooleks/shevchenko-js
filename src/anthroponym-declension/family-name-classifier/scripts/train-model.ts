@@ -1,6 +1,5 @@
 import * as fs from 'node:fs';
 import * as path from 'node:path';
-import * as tf from '@tensorflow/tfjs-node';
 import { parse as createCsvParser } from 'csv';
 import { ALPHABET_SIZE, WordClass } from '../../../language';
 import { SplitData, splitData } from '../data-utils';
@@ -9,6 +8,7 @@ import { FamilyNameClassTransformer } from '../family-name-class-transformer';
 import { ModelBundleSaver } from '../model-bundle-saver';
 import { MODEL_INPUT_SIZE } from '../model-config';
 import { WordTransformer } from '../word-transformer';
+import * as tf from './tfjs-node-compat';
 
 const TRAINING_DATASET_FILEPATH = path.join(__dirname, '../datasets/training.csv');
 const MODEL_ARTIFACTS_SOURCE = 'file://' + path.join(__dirname, '../artifacts');
