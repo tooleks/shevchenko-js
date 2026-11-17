@@ -1,0 +1,230 @@
+[
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": "3-й",
+      "genitive": "3-го",
+      "dative": "3-му",
+      "accusative": "3-й",
+      "ablative": "3-м",
+      "locative": "3-му",
+      "vocative": "3-й"
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": "1-ша",
+      "genitive": "1-ї",
+      "dative": "1-й",
+      "accusative": "1-шу",
+      "ablative": "1-ю",
+      "locative": "1-й",
+      "vocative": "1-ша"
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": "9-а",
+      "genitive": "9-ї",
+      "dative": "9-й",
+      "accusative": "9-у",
+      "ablative": "9-ю",
+      "locative": "9-й",
+      "vocative": "9-а"
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": "3-тя",
+      "genitive": "3-ї",
+      "dative": "3-й",
+      "accusative": "3-тю",
+      "ablative": "3-ю",
+      "locative": "3-й",
+      "vocative": "3-тя"
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": "3-я",
+      "genitive": "3-ї",
+      "dative": "3-й",
+      "accusative": "3-ю",
+      "ablative": "3-ю",
+      "locative": "3-й",
+      "vocative": "3-я"
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": "1-ше",
+      "genitive": "1-го",
+      "dative": "1-му",
+      "accusative": "1-ше",
+      "ablative": "1-м",
+      "locative": "1-му",
+      "vocative": "1-ше"
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": "1-е",
+      "genitive": "1-го",
+      "dative": "1-му",
+      "accusative": "1-е",
+      "ablative": "1-м",
+      "locative": "1-му",
+      "vocative": "1-е"
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": "3-тє",
+      "genitive": "3-го",
+      "dative": "3-му",
+      "accusative": "3-тє",
+      "ablative": "3-м",
+      "locative": "3-му",
+      "vocative": "3-тє"
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": "3-є",
+      "genitive": "3-го",
+      "dative": "3-му",
+      "accusative": "3-є",
+      "ablative": "3-м",
+      "locative": "3-му",
+      "vocative": "3-є"
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": "40-ва",
+      "genitive": "40-ї",
+      "dative": "40-й",
+      "accusative": "40-ву",
+      "ablative": "40-ю",
+      "locative": "40-й",
+      "vocative": "40-ва"
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": "2-га",
+      "genitive": "2-ї",
+      "dative": "2-й",
+      "accusative": "2-гу",
+      "ablative": "2-ю",
+      "locative": "2-й",
+      "vocative": "2-га"
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": "5-та",
+      "genitive": "5-ї",
+      "dative": "5-й",
+      "accusative": "5-ту",
+      "ablative": "5-ю",
+      "locative": "5-й",
+      "vocative": "5-та"
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": "7-ма",
+      "genitive": "7-ї",
+      "dative": "7-й",
+      "accusative": "7-му",
+      "ablative": "7-ю",
+      "locative": "7-й",
+      "vocative": "7-ма"
+    }
+  },
+  {
+    "gender": "feminine",
+    "grammaticalCases": {
+      "nominative": "1000-на",
+      "genitive": "1000-ї",
+      "dative": "1000-й",
+      "accusative": "1000-ну",
+      "ablative": "1000-ю",
+      "locative": "1000-й",
+      "vocative": "1000-на"
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": "40-ве",
+      "genitive": "40-го",
+      "dative": "40-му",
+      "accusative": "40-ве",
+      "ablative": "40-м",
+      "locative": "40-му",
+      "vocative": "40-ве"
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": "2-ге",
+      "genitive": "2-го",
+      "dative": "2-му",
+      "accusative": "2-ге",
+      "ablative": "2-м",
+      "locative": "2-му",
+      "vocative": "2-ге"
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": "5-те",
+      "genitive": "5-го",
+      "dative": "5-му",
+      "accusative": "5-те",
+      "ablative": "5-м",
+      "locative": "5-му",
+      "vocative": "5-те"
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": "8-ме",
+      "genitive": "8-го",
+      "dative": "8-му",
+      "accusative": "8-ме",
+      "ablative": "8-м",
+      "locative": "8-му",
+      "vocative": "8-ме"
+    }
+  },
+  {
+    "gender": "masculine",
+    "grammaticalCases": {
+      "nominative": "1000-не",
+      "genitive": "1000-го",
+      "dative": "1000-му",
+      "accusative": "1000-не",
+      "ablative": "1000-м",
+      "locative": "1000-му",
+      "vocative": "1000-не"
+    }
+  }
+]
