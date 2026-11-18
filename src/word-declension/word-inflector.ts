@@ -66,6 +66,25 @@ export class WordInflector {
         );
       });
 
-    return matchingRules;
+    return matchingRules.sort(
+      (firstRule, lastRule) =>
+        lastRule.priority - firstRule.priority ||
+        this.rankApplicationType(lastRule, params.applicationType) -
+          this.rankApplicationType(firstRule, params.applicationType),
+    );
+  }
+
+  /**
+   * Breaks ties between rules of equal priority: rules for the requested application type win,
+   * and general rules win when no application type is requested.
+   */
+  private rankApplicationType(
+    declensionRule: DeclensionRule,
+    applicationType?: ApplicationType,
+  ): number {
+    if (applicationType) {
+      return declensionRule.applicationType.includes(applicationType) ? 1 : 0;
+    }
+    return declensionRule.applicationType.length === 0 ? 1 : 0;
   }
 }
