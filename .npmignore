@@ -33,3 +33,6 @@ typedoc.js
 # Data and logs
 *.csv
 *.log
+
+# Private data
+/.issues
