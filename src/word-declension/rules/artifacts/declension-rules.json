@@ -4631,6 +4631,12 @@
             "action": "append",
             "value": "у"
           }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
         }
       ],
       "accusative": [
@@ -4650,6 +4656,18 @@
         }
       ],
       "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        },
         {
           "0": {
             "action": "append",
@@ -7155,13 +7173,13 @@
         {
           "0": {
             "action": "append",
-            "value": "ові"
+            "value": "у"
           }
         },
         {
           "0": {
             "action": "append",
-            "value": "у"
+            "value": "ові"
           }
         }
       ],
@@ -7182,6 +7200,12 @@
         }
       ],
       "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        },
         {
           "0": {
             "action": "append",
