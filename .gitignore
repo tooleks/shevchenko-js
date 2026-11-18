@@ -12,5 +12,5 @@ npm-debug.log
 # Output bundle
 /dist
 
-# Private data
-/.issues
+# Private context
+/.context
