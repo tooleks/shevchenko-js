@@ -6848,16 +6848,15 @@
   {
     "description": "друга відміна / чоловічий рід / тверда група / на -уг",
     "examples": [
-      "товстолуг"
+      "товстолуг",
+      "дорогобуг"
     ],
     "wordClass": "noun",
     "gender": [
       "masculine"
     ],
     "priority": 2,
-    "applicationType": [
-      "familyName"
-    ],
+    "applicationType": [],
     "pattern": {
       "find": "уг$",
       "modify": "(.{1})$"
