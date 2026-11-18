@@ -18,8 +18,24 @@ describe('WordInflector', () => {
     ).toBe('Гончара');
   });
 
-  it('should prefer a general rule over an application-specific rule of equal priority when no application type is requested', async () => {
+  it('should ignore application-specific rules when no application type is requested', async () => {
     expect(await wordInflector.inflect('гайдар', params)).toBe('гайдаря');
     expect(await wordInflector.inflect('гончар', params)).toBe('гончаря');
+    expect(
+      await wordInflector.inflect('улов', { ...params, grammaticalCase: GrammaticalCase.ABLATIVE }),
+    ).toBe('уловом');
+  });
+
+  it('should apply general adjective rules when no application type is requested', async () => {
+    expect(
+      await wordInflector.inflect('старший', { ...params, wordClass: WordClass.ADJECTIVE }),
+    ).toBe('старшого');
+    expect(
+      await wordInflector.inflect('головна', {
+        ...params,
+        gender: GrammaticalGender.FEMININE,
+        wordClass: WordClass.ADJECTIVE,
+      }),
+    ).toBe('головної');
   });
 });

@@ -1,4 +1,4 @@
-import { GrammaticalCase, GrammaticalGender } from '../language';
+import { GrammaticalCase, GrammaticalGender, WordClass } from '../language';
 import { WordInflector } from '../word-declension';
 import { NameInflector } from './name-inflector';
 
@@ -21,6 +21,7 @@ export class GivenNameInflector extends NameInflector {
     return this.wordInflector.inflect(givenName, {
       grammaticalCase: grammaticalCase,
       gender: gender,
+      wordClass: WordClass.NOUN,
       applicationType: 'givenName',
     });
   }
