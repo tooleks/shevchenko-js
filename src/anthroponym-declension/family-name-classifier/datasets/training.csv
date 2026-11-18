@@ -17,7 +17,7 @@ Family Name,Word Class
 золотих,adjective
 гаврих,noun
 косих,adjective
-пяних,noun
+пяних,adjective
 кузьміних,adjective
 ільїних,adjective
 руських,adjective
@@ -25,7 +25,7 @@ Family Name,Word Class
 борзих,adjective
 малих,adjective
 сєрих,adjective
-білих,noun
+білих,adjective
 рябих,adjective
 старих,adjective
 дарнопих,noun
@@ -37,7 +37,7 @@ Family Name,Word Class
 жидких,adjective
 сухих,adjective
 тонких,adjective
-черемних,noun
+черемних,adjective
 боровських,adjective
 жарких,adjective
 сирих,adjective
@@ -153,7 +153,7 @@ Family Name,Word Class
 високих,adjective
 лісних,adjective
 любих,noun
-сизих,noun
+сизих,adjective
 третіних,adjective
 безматерних,adjective
 бєльських,adjective
