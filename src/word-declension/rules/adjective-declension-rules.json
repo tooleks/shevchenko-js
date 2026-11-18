@@ -10,9 +10,7 @@
       "masculine"
     ],
     "priority": 2,
-    "applicationType": [
-      "familyName"
-    ],
+    "applicationType": [],
     "pattern": {
       "find": "(ой|ий)$",
       "modify": "(.{2})$"
@@ -134,9 +132,7 @@
       "masculine"
     ],
     "priority": 2,
-    "applicationType": [
-      "familyName"
-    ],
+    "applicationType": [],
     "pattern": {
       "find": "ій$",
       "modify": "(.{2})$"
@@ -383,9 +379,7 @@
       "feminine"
     ],
     "priority": 2,
-    "applicationType": [
-      "familyName"
-    ],
+    "applicationType": [],
     "pattern": {
       "find": "[твердий_приголосний]а$",
       "modify": "(.{1})$"
@@ -445,9 +439,7 @@
       "feminine"
     ],
     "priority": 2,
-    "applicationType": [
-      "familyName"
-    ],
+    "applicationType": [],
     "pattern": {
       "find": "[твердий_приголосний]я$",
       "modify": "(.{1})$"

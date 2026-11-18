@@ -6324,9 +6324,7 @@
       "masculine"
     ],
     "priority": 2,
-    "applicationType": [
-      "familyName"
-    ],
+    "applicationType": [],
     "pattern": {
       "find": "(ой|ий)$",
       "modify": "(.{2})$"
@@ -6386,9 +6384,7 @@
       "masculine"
     ],
     "priority": 2,
-    "applicationType": [
-      "familyName"
-    ],
+    "applicationType": [],
     "pattern": {
       "find": "ій$",
       "modify": "(.{2})$"
@@ -6448,9 +6444,7 @@
       "feminine"
     ],
     "priority": 2,
-    "applicationType": [
-      "familyName"
-    ],
+    "applicationType": [],
     "pattern": {
       "find": "([бвгґджзклмнпрстфхцчшщ]|дз|дж)а$",
       "modify": "(.{1})$"
@@ -6510,9 +6504,7 @@
       "feminine"
     ],
     "priority": 2,
-    "applicationType": [
-      "familyName"
-    ],
+    "applicationType": [],
     "pattern": {
       "find": "([бвгґджзклмнпрстфхцчшщ]|дз|дж)я$",
       "modify": "(.{1})$"

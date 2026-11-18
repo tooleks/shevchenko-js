@@ -48,9 +48,9 @@ export class WordInflector {
       })
       .filter((declensionRule) => {
         return (
-          !params.applicationType ||
           declensionRule.applicationType.length === 0 ||
-          declensionRule.applicationType.includes(params.applicationType)
+          (!!params.applicationType &&
+            declensionRule.applicationType.includes(params.applicationType))
         );
       })
       .filter((declensionRule) => {
@@ -75,16 +75,12 @@ export class WordInflector {
   }
 
   /**
-   * Breaks ties between rules of equal priority: rules for the requested application type win,
-   * and general rules win when no application type is requested.
+   * Breaks ties between rules of equal priority in favour of rules for the requested application type.
    */
   private rankApplicationType(
     declensionRule: DeclensionRule,
     applicationType?: ApplicationType,
   ): number {
-    if (applicationType) {
-      return declensionRule.applicationType.includes(applicationType) ? 1 : 0;
-    }
-    return declensionRule.applicationType.length === 0 ? 1 : 0;
+    return applicationType && declensionRule.applicationType.includes(applicationType) ? 1 : 0;
   }
 }
