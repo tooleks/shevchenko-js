@@ -1,13 +1,11 @@
 {
   "штих": "noun",
-  "пяних": "noun",
   "белих": "adjective",
   "борзих": "adjective",
   "малих": "adjective",
   "старих": "adjective",
   "дарнопих": "noun",
   "сухих": "adjective",
-  "черемних": "noun",
   "сирих": "adjective",
   "плохих": "adjective",
   "целих": "adjective",
@@ -1143,5 +1141,7 @@
   "бухая": "adjective",
   "самотня": "adjective",
   "панібудьласка": "noun",
-  "яцина": "noun"
+  "яцина": "noun",
+  "сизих": "adjective",
+  "білих": "adjective"
 }
