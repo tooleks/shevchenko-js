@@ -3725,6 +3725,33 @@
     }
   },
   {
+    "description": "незмінювані / чоловічий, жіночий роди / іншомовні прізвища на -(голосний)а",
+    "examples": [
+      "делакруа",
+      "моруа"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "[голосний]а$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [],
+      "dative": [],
+      "accusative": [],
+      "ablative": [],
+      "locative": [],
+      "vocative": []
+    }
+  },
+  {
     "description": "друга відміна / чоловічий рід / тверда група / на -яр",
     "examples": [
       "скляр"

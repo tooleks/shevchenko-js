@@ -762,6 +762,36 @@
     }
   },
   {
+    "description": "незмінювані іншомовні прізвища гюго, лонгфелло, руссо, дюма, золя",
+    "examples": [
+      "гюго",
+      "лонгфелло",
+      "руссо",
+      "дюма",
+      "золя"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 6,
+    "applicationType": [],
+    "pattern": {
+      "find": "^(гюго|лонгфелло|руссо|дюма|золя)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [],
+      "dative": [],
+      "accusative": [],
+      "ablative": [],
+      "locative": [],
+      "vocative": []
+    }
+  },
+  {
     "description": "друга відміна / чоловічий рід / м'яка група / на -(голосний)вень",
     "examples": [
       "півень"
@@ -4649,6 +4679,33 @@
     "applicationType": [],
     "pattern": {
       "find": "(аго|ово)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [],
+      "dative": [],
+      "accusative": [],
+      "ablative": [],
+      "locative": [],
+      "vocative": []
+    }
+  },
+  {
+    "description": "незмінювані / чоловічий, жіночий роди / іншомовні прізвища на -(голосний)а",
+    "examples": [
+      "делакруа",
+      "моруа"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine",
+      "feminine"
+    ],
+    "priority": 4,
+    "applicationType": [],
+    "pattern": {
+      "find": "[аеєиіїоуюя]а$",
       "modify": "(.{1})$"
     },
     "grammaticalCases": {
