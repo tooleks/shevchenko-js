@@ -4202,6 +4202,18 @@
             "action": "replace",
             "value": "ю"
           }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьові"
+          }
         }
       ],
       "accusative": [
@@ -4215,8 +4227,14 @@
       "ablative": [
         {
           "0": {
-            "action": "append",
-            "value": "м"
+            "action": "replace",
+            "value": "ем"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьом"
           }
         }
       ],
@@ -4224,11 +4242,36 @@
         {
           "0": {
             "action": "replace",
+            "value": "еві"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
             "value": "ю"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
           }
         }
       ],
-      "vocative": []
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ]
     }
   },
   {
