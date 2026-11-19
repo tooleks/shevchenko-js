@@ -446,9 +446,9 @@
     }
   },
   {
-    "description": "жіноче ім'я любов",
+    "description": "жіноче ім'я либідь",
     "examples": [
-      "любов"
+      "либідь"
     ],
     "wordClass": "noun",
     "gender": [
@@ -459,15 +459,19 @@
       "givenName"
     ],
     "pattern": {
-      "find": "^любов$",
-      "modify": "(.{1})$"
+      "find": "^либідь$",
+      "modify": "(.{1})(.{1})(.{1})$"
     },
     "grammaticalCases": {
       "nominative": [],
       "genitive": [
         {
           "0": {
-            "action": "append",
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
             "value": "і"
           }
         }
@@ -475,7 +479,11 @@
       "dative": [
         {
           "0": {
-            "action": "append",
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
             "value": "і"
           }
         }
@@ -483,16 +491,24 @@
       "accusative": [],
       "ablative": [
         {
-          "0": {
-            "action": "append",
-            "value": "'ю"
+          "1": {
+            "action": "replace",
+            "value": "дд"
+          },
+          "2": {
+            "action": "replace",
+            "value": "ю"
           }
         }
       ],
       "locative": [
         {
           "0": {
-            "action": "append",
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
             "value": "і"
           }
         }
@@ -500,7 +516,11 @@
       "vocative": [
         {
           "0": {
-            "action": "append",
+            "action": "replace",
+            "value": "е"
+          },
+          "2": {
+            "action": "replace",
             "value": "е"
           }
         }
@@ -4587,11 +4607,11 @@
     }
   },
   {
-    "description": "друга відміна / жіночий рід / м'яка група / на -(голосний)ль",
+    "description": "третя відміна / жіночий рід / на -(голосний)ль",
     "examples": [
       "мішель",
       "ніколь",
-      "cесіль"
+      "сесіль"
     ],
     "wordClass": "noun",
     "gender": [
@@ -4644,11 +4664,18 @@
           }
         }
       ],
-      "vocative": []
+      "vocative": [
+        {
+          "1": {
+            "action": "replace",
+            "value": "е"
+          }
+        }
+      ]
     }
   },
   {
-    "description": "друга відміна / жіночий рід / м'яка група / на (губний_приголосний)",
+    "description": "третя відміна / жіночий рід / на -(б|п|в|ф)",
     "examples": [
       "зейнаб",
       "руф"
@@ -4662,7 +4689,7 @@
       "givenName"
     ],
     "pattern": {
-      "find": "[бпвмф]$",
+      "find": "[бпвф]$",
       "modify": "(.{1})$"
     },
     "grammaticalCases": {
@@ -4683,19 +4710,12 @@
           }
         }
       ],
-      "accusative": [
-        {
-          "0": {
-            "action": "append",
-            "value": "і"
-          }
-        }
-      ],
+      "accusative": [],
       "ablative": [
         {
           "0": {
             "action": "append",
-            "value": "і"
+            "value": "'ю"
           }
         }
       ],
@@ -4711,7 +4731,7 @@
         {
           "0": {
             "action": "append",
-            "value": "і"
+            "value": "е"
           }
         }
       ]
@@ -5416,6 +5436,77 @@
       "ablative": [],
       "locative": [],
       "vocative": []
+    }
+  },
+  {
+    "description": "жіночі імена / на -(твердий приголосний)я з кличним на -е: катря, мотря, настя, хівря, вівдя, текля, христя, зоря",
+    "examples": [
+      "катря",
+      "мотря",
+      "настя"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 3,
+    "applicationType": [
+      "givenName"
+    ],
+    "pattern": {
+      "find": "^(катря|мотря|настя|хівря|вівдя|текля|христя|зоря)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ею"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "і"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "е"
+          }
+        }
+      ]
     }
   },
   {
