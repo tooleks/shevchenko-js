@@ -508,10 +508,11 @@
     }
   },
   {
-    "description": "чоловічі імена федір, сидір",
+    "description": "чоловічі імена федір, сидір, антін, нестір, ничипір, тихін",
     "examples": [
       "федір",
-      "сидір"
+      "сидір",
+      "антін"
     ],
     "wordClass": "noun",
     "gender": [
@@ -522,7 +523,7 @@
       "givenName"
     ],
     "pattern": {
-      "find": "^(федір|сидір)$",
+      "find": "^(федір|сидір|антін|нестір|ничипір|тихін)$",
       "modify": "(.{1})(.{1})$"
     },
     "grammaticalCases": {
@@ -594,6 +595,119 @@
           "1": {
             "action": "append",
             "value": "ові"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
+    "description": "чоловіче ім'я тиміш",
+    "examples": [
+      "тиміш"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 6,
+    "applicationType": [
+      "givenName"
+    ],
+    "pattern": {
+      "find": "^тиміш$",
+      "modify": "(.{1})(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "еві"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "ем"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "о"
+          },
+          "1": {
+            "action": "append",
+            "value": "еві"
           }
         },
         {
