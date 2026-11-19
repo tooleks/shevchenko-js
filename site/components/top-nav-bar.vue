@@ -64,7 +64,7 @@ function getLocaleUrl(switchLocale: LocaleName): string {
               exact-active-class="active"
               role="menuitem"
             >
-              {{ $t('forMilitary') }} <span class="badge bg-military">{{ $t('new') }}</span>
+              {{ $t('forMilitary') }} <span class="badge bg-military">{{ $t('beta') }}</span>
             </NuxtLink>
           </li>
 
@@ -145,7 +145,7 @@ function getLocaleUrl(switchLocale: LocaleName): string {
                 role="menuitem"
               >
                 <span aria-hidden="true" class="logo-icon logo-icon-docker"></span>
-                Docker Hub <span class="badge bg-primary">{{ $t('new') }}</span>
+                Docker Hub
               </a>
             </div>
           </li>

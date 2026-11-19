@@ -13,7 +13,7 @@ const appConfig = useAppConfig();
 
     <p>
       {{ $t('website.longTitle.military') }}
-      <i class="fa fa-flask ms-1 text-primary" :aria-label="$t('beta')" :title="$t('beta')"></i>
+      <span class="badge bg-primary">{{ $t('beta') }}</span>
     </p>
 
     <p>

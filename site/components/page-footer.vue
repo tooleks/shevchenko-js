@@ -55,7 +55,7 @@ const siteName = computed(() => {
               role="menuitem"
             >
               <span aria-hidden="true" class="logo-icon logo-icon-docker"></span>
-              Docker Hub <span class="badge bg-primary">{{ $t('new') }}</span>
+              Docker Hub
             </a>
           </li>
 
