@@ -126,7 +126,6 @@
   "большой": "adjective",
   "половой": "adjective",
   "чорной": "adjective",
-  "косогой": "adjective",
   "золотой": "adjective",
   "лановой": "adjective",
   "яловой": "adjective",
@@ -141,7 +140,6 @@
   "гнідой": "adjective",
   "молокопой": "noun",
   "золотобой": "noun",
-  "ярковой": "noun",
   "аміхалакіой": "noun",
   "седой": "adjective",
   "крутой": "adjective",
@@ -1143,5 +1141,9 @@
   "панібудьласка": "noun",
   "яцина": "noun",
   "сизих": "adjective",
-  "білих": "adjective"
+  "білих": "adjective",
+  "іоніцой": "noun",
+  "аксеной": "noun",
+  "драгой": "adjective",
+  "тонкой": "adjective"
 }

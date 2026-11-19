@@ -9463,7 +9463,7 @@ Family Name,Word Class
 толстой,adjective
 самотой,noun
 недобой,noun
-драгой,noun
+драгой,adjective
 кошевой,adjective
 садовой,adjective
 лупой,noun
@@ -9516,7 +9516,7 @@ Family Name,Word Class
 гєцой,noun
 глухой,adjective
 горевой,adjective
-іоніцой,adjective
+іоніцой,noun
 кутовой,adjective
 реуцой,noun
 копаной,adjective
@@ -9534,7 +9534,7 @@ Family Name,Word Class
 грабовой,adjective
 гуртовой,adjective
 негой,noun
-аксеной,adjective
+аксеной,noun
 благой,adjective
 вільбой,noun
 водостой,noun
@@ -9557,7 +9557,7 @@ Family Name,Word Class
 чорной,adjective
 шаброй,noun
 драпой,noun
-косогой,adjective
+косогой,noun
 бабой,noun
 барбой,noun
 береговой,adjective
@@ -9614,7 +9614,7 @@ Family Name,Word Class
 станцой,noun
 тихопой,noun
 тодосой,noun
-тонкой,noun
+тонкой,adjective
 хмелевськой,adjective
 андріой,noun
 баштовой,adjective
@@ -9629,7 +9629,7 @@ Family Name,Word Class
 пуховой,adjective
 чимпой,noun
 чорнобой,noun
-ярковой,noun
+ярковой,adjective
 александрой,noun
 аміхалакіой,noun
 дебой,noun
