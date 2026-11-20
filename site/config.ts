@@ -18,7 +18,8 @@ export default {
     gitHubUrl: 'https://github.com/tooleks/shevchenko-ext-military',
   },
   content: {
-    gitHubUrl: 'https://api.github.com/repos/tooleks/shevchenko-js',
+    gitHubRepository: 'tooleks/shevchenko-js',
+    gitHubIssueSearchUrl: 'https://api.github.com/search/issues',
     howItWorksUrl: 'https://raw.githubusercontent.com/wiki/tooleks/shevchenko-js/Принцип-роботи.md',
   },
 };

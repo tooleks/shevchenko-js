@@ -17,13 +17,6 @@ const facebookShareLink = computed(() => {
   return shareLink.toString();
 });
 
-const twitterShareLink = computed(() => {
-  const shareLink = new URL('https://twitter.com');
-  shareLink.pathname = '/home';
-  shareLink.searchParams.set('status', absoluteUrl.value);
-  return shareLink.toString();
-});
-
 const linkedInShareLink = computed(() => {
   const shareLink = new URL('https://www.linkedin.com');
   shareLink.pathname = '/shareArticle';
@@ -57,16 +50,6 @@ const linkedInShareLink = computed(() => {
 
     <a
       class="btn btn-lg btn-link btn-share"
-      :href="twitterShareLink"
-      :title="$t('socialShare.twitter')"
-      target="_blank"
-      role="menuitem"
-    >
-      <i class="fa fa-twitter color-twitter" aria-hidden="true"></i>
-    </a>
-
-    <a
-      class="btn btn-lg btn-link btn-share"
       :href="linkedInShareLink"
       :title="$t('socialShare.linkedIn')"
       target="_blank"
@@ -96,10 +79,6 @@ const linkedInShareLink = computed(() => {
 .color {
   &-facebook {
     color: #4867aa;
-  }
-
-  &-twitter {
-    color: #1da1f2;
   }
 
   &-linkedin {
