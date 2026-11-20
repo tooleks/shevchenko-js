@@ -219,28 +219,29 @@ await inflect(demoDeclensionInput);
       </div>
     </div>
 
-    <div class="row">
-      <div class="col-lg-5 mb-2 mb-lg-0 d-flex">
-        <form
-          id="declension-form"
-          class="card flex-grow-1 flex-fill"
-          @submit.prevent="handleFormSubmit"
-        >
-          <div class="card-body d-flex flex-column justify-content-between">
+    <div class="card">
+      <div class="card-body">
+        <div class="row">
+          <form
+            id="declension-form"
+            class="col-lg-5 pe-lg-4 d-flex flex-column justify-content-between"
+            @submit.prevent="handleFormSubmit"
+          >
             <div class="mb-4">
-              <div class="alert alert-info" role="alert">
+              <p class="text-muted">
                 {{ $t('declension.instruction') }}
-              </div>
+              </p>
 
               <div class="mb-3">
                 <div class="mb-2">
                   <label
                     v-for="genderOption in genderOptions"
                     :key="genderOption"
-                    class="radio-inline me-2"
+                    class="form-check form-check-inline"
                   >
                     <input
                       v-model="formData.gender"
+                      class="form-check-input"
                       type="radio"
                       name="gender"
                       :value="genderOption"
@@ -252,9 +253,14 @@ await inflect(demoDeclensionInput);
                   </label>
                 </div>
 
-                <div v-if="hasGenderDetectionError" class="alert alert-danger">
+                <small
+                  v-if="hasGenderDetectionError"
+                  class="d-block form-text text-danger"
+                  role="alert"
+                >
+                  <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
                   {{ $t('grammaticalGender.detectionFailed') }}
-                </div>
+                </small>
 
                 <small
                   v-else-if="formData.gender === GENDER_AUTO_DETECT"
@@ -275,7 +281,11 @@ await inflect(demoDeclensionInput);
                   type="text"
                   class="form-control"
                   name="military-appointment"
-                  :placeholder="demoDeclensionInput.militaryAppointment"
+                  :placeholder="
+                    $t('declension.placeholder', {
+                      example: demoDeclensionInput.militaryAppointment,
+                    })
+                  "
                 />
               </div>
 
@@ -290,7 +300,9 @@ await inflect(demoDeclensionInput);
                   type="text"
                   class="form-control"
                   name="military-rank"
-                  :placeholder="demoDeclensionInput.militaryRank"
+                  :placeholder="
+                    $t('declension.placeholder', { example: demoDeclensionInput.militaryRank })
+                  "
                 />
               </div>
 
@@ -305,7 +317,9 @@ await inflect(demoDeclensionInput);
                   type="text"
                   class="form-control"
                   name="family-name"
-                  :placeholder="demoDeclensionInput.familyName"
+                  :placeholder="
+                    $t('declension.placeholder', { example: demoDeclensionInput.familyName })
+                  "
                 />
               </div>
 
@@ -320,7 +334,9 @@ await inflect(demoDeclensionInput);
                   type="text"
                   class="form-control"
                   name="given-name"
-                  :placeholder="demoDeclensionInput.givenName"
+                  :placeholder="
+                    $t('declension.placeholder', { example: demoDeclensionInput.givenName })
+                  "
                 />
               </div>
 
@@ -335,7 +351,9 @@ await inflect(demoDeclensionInput);
                   type="text"
                   class="form-control"
                   name="patronymic-name"
-                  :placeholder="demoDeclensionInput.patronymicName"
+                  :placeholder="
+                    $t('declension.placeholder', { example: demoDeclensionInput.patronymicName })
+                  "
                 />
 
                 <DeclensionFormSpellingNotice
@@ -349,20 +367,14 @@ await inflect(demoDeclensionInput);
               <button type="submit" class="btn btn-primary">
                 {{ $t('declension.inflect') }}
               </button>
-
-              <ModalButton class="btn btn-link pull-right" modal-id="contact-us-modal">
-                {{ $t('foundBug') }}
-              </ModalButton>
             </div>
-          </div>
-        </form>
-      </div>
+          </form>
 
-      <div class="col-lg-7 d-flex">
-        <div class="card flex-grow-1 flex-fill">
-          <div class="card-body d-flex flex-column justify-content-between">
-            <div class="table-responsive mb-3">
-              <table class="table">
+          <div
+            class="col-lg-7 column-divider-lg mt-4 pt-4 mt-lg-0 pt-lg-0 ps-lg-4 d-flex flex-column justify-content-between"
+          >
+            <div class="table-responsive">
+              <table class="table mb-0">
                 <tbody>
                   <tr>
                     <th class="border-top-0 rounded text-nowrap">{{ $t('grammaticalCase') }}</th>
@@ -412,13 +424,14 @@ await inflect(demoDeclensionInput);
               </table>
             </div>
 
-            <div class="alert alert-light mb-0" role="alert">
-              <div
-                class="d-flex flex-column flex-md-row align-items-start align-items-md-center justify-content-md-between"
-              >
-                {{ $t('declension.shareResult') }}
-                <ShareLinks buttons-class="mt-1 mt-md-0 me-md-2" />
-              </div>
+            <div
+              class="d-flex flex-wrap align-items-center justify-content-between column-gap-3 mt-3"
+            >
+              <ModalButton class="btn btn-link px-0" modal-id="contact-us-modal">
+                {{ $t('foundBug') }}
+              </ModalButton>
+
+              <ShareLinks>{{ $t('declension.shareResult') }}</ShareLinks>
             </div>
           </div>
         </div>

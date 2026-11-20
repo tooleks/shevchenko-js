@@ -1,14 +1,24 @@
 <script setup lang="ts">
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
 import { useAbsoluteUrl } from '~/composables/absolute-url';
 
 defineProps({
   buttonsClass: { type: String, default: null },
 });
 
-const { t: $t } = useI18n();
 const { absoluteUrl } = useAbsoluteUrl();
+
+const viberShareLink = computed(() => {
+  const shareLink = new URL('viber://forward');
+  shareLink.searchParams.set('text', absoluteUrl.value);
+  return shareLink.toString();
+});
+
+const whatsAppShareLink = computed(() => {
+  const shareLink = new URL('https://wa.me');
+  shareLink.searchParams.set('text', absoluteUrl.value);
+  return shareLink.toString();
+});
 
 const facebookShareLink = computed(() => {
   const shareLink = new URL('https://www.facebook.com');
@@ -16,30 +26,42 @@ const facebookShareLink = computed(() => {
   shareLink.searchParams.set('u', absoluteUrl.value);
   return shareLink.toString();
 });
-
-const linkedInShareLink = computed(() => {
-  const shareLink = new URL('https://www.linkedin.com');
-  shareLink.pathname = '/shareArticle';
-  shareLink.searchParams.set('mini', String(true));
-  shareLink.searchParams.set('url', absoluteUrl.value);
-  shareLink.searchParams.set('title', '');
-  shareLink.searchParams.set('summary', $t('app.name'));
-  shareLink.searchParams.set('source', '');
-  return shareLink.toString();
-});
 </script>
 
 <template>
   <div class="btn-group" :class="buttonsClass" role="menubar">
+    <span v-if="$slots.default" class="btn btn-light pe-none text-muted">
+      <slot />
+    </span>
+
     <CopyButton
       :source="absoluteUrl"
-      button-class="btn btn-lg btn-link btn-share"
+      button-class="btn btn-light text-primary"
       :button-title="$t('action.copyLink')"
       icon-class="fa fa-link"
     />
 
     <a
-      class="btn btn-lg btn-link btn-share"
+      class="btn btn-light"
+      :href="viberShareLink"
+      :title="$t('socialShare.viber')"
+      role="menuitem"
+    >
+      <img class="icon" src="~/assets/img/viber.svg" alt="" aria-hidden="true" />
+    </a>
+
+    <a
+      class="btn btn-light"
+      :href="whatsAppShareLink"
+      :title="$t('socialShare.whatsApp')"
+      target="_blank"
+      role="menuitem"
+    >
+      <i class="fa fa-whatsapp color-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <a
+      class="btn btn-light"
       :href="facebookShareLink"
       :title="$t('socialShare.facebook')"
       target="_blank"
@@ -47,42 +69,23 @@ const linkedInShareLink = computed(() => {
     >
       <i class="fa fa-facebook color-facebook" aria-hidden="true"></i>
     </a>
-
-    <a
-      class="btn btn-lg btn-link btn-share"
-      :href="linkedInShareLink"
-      :title="$t('socialShare.linkedIn')"
-      target="_blank"
-      role="menuitem"
-    >
-      <i class="fa fa-linkedin color-linkedin" aria-hidden="true"></i>
-    </a>
   </div>
 </template>
 
 <style lang="scss" scoped>
-.btn-share {
-  margin: 0 0.75em;
-  padding: 0;
-  border: 0;
-  text-align: center;
-
-  &:first-child {
-    margin-left: 0;
-  }
-
-  &:last-child {
-    margin-right: 0;
-  }
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
 }
 
 .color {
-  &-facebook {
-    color: #4867aa;
+  &-whatsapp {
+    color: #25d366;
   }
 
-  &-linkedin {
-    color: #0077b5;
+  &-facebook {
+    color: #4867aa;
   }
 }
 </style>

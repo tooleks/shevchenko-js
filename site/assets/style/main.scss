@@ -6,3 +6,12 @@
 :root {
   min-width: 320px;
 }
+
+.column-divider-lg {
+  border-top: var(--bs-border-width) solid var(--bs-border-color);
+
+  @include media-breakpoint-up(lg) {
+    border-top: 0;
+    border-left: var(--bs-border-width) solid var(--bs-border-color);
+  }
+}
