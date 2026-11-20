@@ -3,22 +3,28 @@ import { computed } from 'vue';
 
 const appConfig = useAppConfig();
 
-type GitHubRepositoryDetails = {
-  open_issues_count: number;
+type GitHubIssueSearchResult = {
+  total_count: number;
 };
 
-const { data, status } = await useLazyFetch<GitHubRepositoryDetails>(appConfig.content.gitHubUrl);
+const { data, status } = await useLazyFetch<GitHubIssueSearchResult>(
+  appConfig.content.gitHubIssueSearchUrl,
+  {
+    query: { q: `repo:${appConfig.content.gitHubRepository} type:issue state:open`, per_page: 1 },
+    server: false,
+  },
+);
 
 const issueCount = computed(() => {
   if (data.value == null) {
     return 0;
   }
-  return data.value.open_issues_count;
+  return data.value.total_count;
 });
 
-const isPending = computed(() => status.value === 'pending');
+const isLoaded = computed(() => status.value === 'success');
 </script>
 
 <template>
-  <span v-if="!isPending" class="badge bg-secondary">{{ issueCount }}</span>
+  <span v-if="isLoaded" class="badge bg-secondary">{{ issueCount }}</span>
 </template>
