@@ -3555,6 +3555,89 @@
     }
   },
   {
+    "description": "друга відміна / чоловічий рід / тверда група / неслов'янські прізвища на -ов, -ін: бюлов, дарвін, кельвін, чаплін",
+    "examples": [
+      "бюлов",
+      "дарвін",
+      "чаплін"
+    ],
+    "wordClass": "noun",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 5,
+    "applicationType": [
+      "familyName"
+    ],
+    "pattern": {
+      "find": "^(бюлов|дарвін|кельвін|чаплін)$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "ові"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "а"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "ом"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "і"
+          }
+        },
+        {
+          "0": {
+            "action": "append",
+            "value": "у"
+          }
+        }
+      ],
+      "vocative": [
+        {
+          "0": {
+            "action": "append",
+            "value": "е"
+          }
+        }
+      ]
+    }
+  },
+  {
     "description": "друга відміна / чоловічий рід / тверда група / на -ов, -ев (-єв), -ів (-їв), -ін (-їн)",
     "examples": [
       "павлов",
@@ -4903,7 +4986,7 @@
     }
   },
   {
-    "description": "друга відміна / чоловічий рід / тверда група / на -тер, бобер",
+    "description": "друга відміна / чоловічий рід / тверда група / на -вітер, бобер, цехмістер, буймістер",
     "examples": [
       "вітер",
       "буймистер",
@@ -4916,7 +4999,7 @@
     "priority": 4,
     "applicationType": [],
     "pattern": {
-      "find": "([іс]тер|бобер)$",
+      "find": "(вітер|бобер|ц[еи]хмістер|буйм[іи]стер)$",
       "modify": "(.{1})(.{1})$"
     },
     "grammaticalCases": {
