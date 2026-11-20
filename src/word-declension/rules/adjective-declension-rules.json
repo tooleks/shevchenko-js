@@ -183,6 +183,140 @@
     }
   },
   {
+    "description": "чоловічий рід / на -їй",
+    "examples": [
+      "безкраїй",
+      "довговіїй"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "їй$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "його"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "йому"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "його"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "їм"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "йому"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "їм"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "чоловічий рід / на -лиций",
+    "examples": [
+      "білолиций",
+      "круглолиций"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "masculine"
+    ],
+    "priority": 3,
+    "applicationType": [],
+    "pattern": {
+      "find": "лиций$",
+      "modify": "(.{2})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ього"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьому"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ього"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "им"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ьому"
+          }
+        },
+        {
+          "0": {
+            "action": "replace",
+            "value": "ім"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
     "description": "жіночий рід / на -(твердий приголосний)ька",
     "examples": [
       "ільницька",
@@ -483,6 +617,68 @@
           "0": {
             "action": "replace",
             "value": "ій"
+          }
+        }
+      ],
+      "vocative": []
+    }
+  },
+  {
+    "description": "жіночий рід / на -(а|і|и)я",
+    "examples": [
+      "безкрая",
+      "довговія",
+      "короткошия"
+    ],
+    "wordClass": "adjective",
+    "gender": [
+      "feminine"
+    ],
+    "priority": 2,
+    "applicationType": [],
+    "pattern": {
+      "find": "[аіи]я$",
+      "modify": "(.{1})$"
+    },
+    "grammaticalCases": {
+      "nominative": [],
+      "genitive": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "йої"
+          }
+        }
+      ],
+      "dative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "їй"
+          }
+        }
+      ],
+      "accusative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "ю"
+          }
+        }
+      ],
+      "ablative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "йою"
+          }
+        }
+      ],
+      "locative": [
+        {
+          "0": {
+            "action": "replace",
+            "value": "їй"
           }
         }
       ],
