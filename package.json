@@ -7,7 +7,7 @@
   "module": "./dist/es/shevchenko.js",
   "types": "./dist/es/shevchenko.d.ts",
   "scripts": {
-    "prebuild": "rm -rf ./dist",
+    "prebuild": "rm -rf ./dist && ts-node src/word-declension/rules/scripts/build-declension-rules.ts",
     "build": "rollup -c --bundleConfigAsCjs",
     "lint": "eslint --fix ./src",
     "test": "vitest run",
