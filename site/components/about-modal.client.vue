@@ -73,7 +73,7 @@ watch(isAboutUrl, () => autoShowAboutModal());
                   :title="$t('action.write')"
                   @click="hideAboutModal()"
                 >
-                  <i aria-hidden="true" class="fa fa-envelope"></i>
+                  <i aria-hidden="true" class="fa-solid fa-envelope"></i>
                 </ModalButton>
               </div>
               <p class="mb-1">{{ $t('aboutUs.author2.responsibility') }}</p>

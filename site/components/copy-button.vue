@@ -31,7 +31,7 @@ const { copy, copied } = useClipboard({
     :class="buttonClass"
     @click="copy()"
   >
-    <i v-if="copied" aria-hidden="true" class="fa fa-check"></i>
-    <i v-else aria-hidden="true" class="fa fa-clipboard"></i>
+    <i v-if="copied" aria-hidden="true" class="fa-solid fa-check"></i>
+    <i v-else aria-hidden="true" class="fa-solid fa-copy"></i>
   </button>
 </template>

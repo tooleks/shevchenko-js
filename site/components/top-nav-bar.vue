@@ -124,7 +124,7 @@ function getLocaleUrl(switchLocale: LocaleName): string {
                 target="_blank"
                 role="menuitem"
               >
-                <span aria-hidden="true" class="logo-icon logo-icon-github"></span>
+                <i aria-hidden="true" class="fa-brands fa-github color-github"></i>
                 GitHub
               </a>
 
@@ -134,7 +134,7 @@ function getLocaleUrl(switchLocale: LocaleName): string {
                 target="_blank"
                 role="menuitem"
               >
-                <span aria-hidden="true" class="logo-icon logo-icon-npm"></span>
+                <i aria-hidden="true" class="fa-brands fa-npm color-npm"></i>
                 NPM
               </a>
 
@@ -144,7 +144,7 @@ function getLocaleUrl(switchLocale: LocaleName): string {
                 target="_blank"
                 role="menuitem"
               >
-                <span aria-hidden="true" class="logo-icon logo-icon-docker"></span>
+                <i aria-hidden="true" class="fa-brands fa-docker color-docker"></i>
                 Docker Hub
               </a>
             </div>
@@ -227,27 +227,5 @@ function getLocaleUrl(switchLocale: LocaleName): string {
 .navbar-logo {
   height: 100%;
   margin-right: 10px;
-}
-
-.logo-icon {
-  display: inline-block;
-  width: 1em;
-  height: 1em;
-  background-size: 100%;
-  background-position: center center;
-  background-repeat: no-repeat;
-
-  &-npm {
-    background-image: url('~/assets/img/npm.svg');
-  }
-
-  &-github {
-    background-image: url('~/assets/img/github.svg');
-  }
-
-  &-docker {
-    background-image: url('~/assets/img/docker.svg');
-    background-position: bottom;
-  }
 }
 </style>

@@ -1,6 +1,5 @@
 @import "./military.scss";
 @import "bootstrap";
-@import "font-awesome";
 @import "./highlight-js.scss";
 
 :root {
@@ -13,5 +12,31 @@
   @include media-breakpoint-up(lg) {
     border-top: 0;
     border-left: var(--bs-border-width) solid var(--bs-border-color);
+  }
+}
+
+.color {
+  &-docker {
+    color: #1d63ed;
+  }
+
+  &-facebook {
+    color: #4867aa;
+  }
+
+  &-github {
+    color: #24292f;
+  }
+
+  &-npm {
+    color: #c12127;
+  }
+
+  &-viber {
+    color: #7360f2;
+  }
+
+  &-whatsapp {
+    color: #25d366;
   }
 }

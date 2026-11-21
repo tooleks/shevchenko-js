@@ -62,7 +62,7 @@ const mailtoUrl = computed(() => {
           </button>
 
           <a target="_blank" :href="mailtoUrl" class="btn btn-primary">
-            <i aria-hidden="true" class="fa fa-paper-plane"></i> {{ $t('action.write') }}
+            <i aria-hidden="true" class="fa-solid fa-paper-plane"></i> {{ $t('action.write') }}
           </a>
         </div>
       </div>

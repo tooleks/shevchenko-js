@@ -258,7 +258,7 @@ await inflect(demoDeclensionInput);
                   class="d-block form-text text-danger"
                   role="alert"
                 >
-                  <i class="fa fa-exclamation-circle" aria-hidden="true"></i>
+                  <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
                   {{ $t('grammaticalGender.detectionFailed') }}
                 </small>
 
@@ -382,7 +382,7 @@ await inflect(demoDeclensionInput);
                     <th class="border-top-0 text-end">
                       <span class="py-0 px-1">
                         <i
-                          class="fa fa-info-circle"
+                          class="fa-solid fa-circle-info"
                           :title="$t('declension.copyResult')"
                           :aria-label="$t('declension.copyResult')"
                         ></i>
@@ -431,7 +431,7 @@ await inflect(demoDeclensionInput);
                 {{ $t('foundBug') }}
               </ModalButton>
 
-              <ShareLinks>{{ $t('declension.shareResult') }}</ShareLinks>
+              <ShareButton />
             </div>
           </div>
         </div>

@@ -108,7 +108,12 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ['~/assets/style/main.scss'],
+  css: [
+    '~/assets/style/main.scss',
+    '@fortawesome/fontawesome-free/css/fontawesome.css',
+    '@fortawesome/fontawesome-free/css/solid.css',
+    '@fortawesome/fontawesome-free/css/brands.css',
+  ],
   vite: {
     css: {
       preprocessorOptions: {
