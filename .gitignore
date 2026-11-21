@@ -12,5 +12,6 @@ npm-debug.log
 # Output bundle
 /dist
 
-# Private context
+# Dev
+/.claude
 /.context

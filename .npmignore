@@ -34,5 +34,6 @@ typedoc.js
 *.csv
 *.log
 
-# Private context
+# Dev
+/.claude
 /.context
