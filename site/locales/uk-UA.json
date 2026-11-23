@@ -118,7 +118,6 @@
   "military.docs.usageExample.description": "Відмінювання посади, звання та повного імені в родовому відмінку.",
   "military.resources.sourceCode.title": "Вихідний код",
   "military.resources.sourceCode.text": "Код і релізи розширення на GitHub.",
-  "military.resources.npm.text": "Пакет розширення в реєстрі npm.",
   "military.resources.library.title": "Бібліотека shevchenko.js",
   "military.resources.library.text": "Відмінювання прізвищ, імен та по батькові.",
   "slideshow.pause": "Призупинити слайдшоу",

@@ -37,7 +37,7 @@ Example:
 ```js
 import * as shevchenko from 'shevchenko';
 
-const output = await shevchenko.inVocative({
+const vocative = await shevchenko.inVocative({
   gender: 'masculine',
   givenName: 'Тарас',
   patronymicName: 'Григорович',

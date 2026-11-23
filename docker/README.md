@@ -45,7 +45,7 @@ http://localhost:3000/gender
 
 ### Personal names declension
 
-This example shows how to use the API to decline Ukrainian anthroponyms.
+This example shows how to use the API to decline Ukrainian personal names.
 
 #### HTTP Request
 

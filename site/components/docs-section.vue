@@ -39,16 +39,15 @@ const declensionExample = `
 const shevchenko = require('${appConfig.library.name}');
 
 async function main() {
-  const input = {
-    gender: 'masculine',
+  const name = {
     givenName: 'Тарас',
     patronymicName: 'Григорович',
     familyName: 'Шевченко'
   };
 
-  const output = await shevchenko.inVocative(input);
+  const vocative = await shevchenko.inVocative({ ...name, gender: 'masculine' });
 
-  console.log(output); // { givenName: "Тарасе", patronymicName: "Григоровичу", familyName: "Шевченку" }
+  console.log(vocative); // { givenName: "Тарасе", patronymicName: "Григоровичу", familyName: "Шевченку" }
 }
 
 main().catch((error) => console.error(error));
@@ -58,22 +57,20 @@ const genderDetectionExample = `
 const shevchenko = require('${appConfig.library.name}');
 
 async function main() {
-  const anthroponym = {
+  const name = {
     givenName: 'Лариса',
     patronymicName: 'Петрівна',
     familyName: 'Косач-Квітка'
   };
 
-  const gender = await shevchenko.detectGender(anthroponym); // "feminine"
+  const gender = await shevchenko.detectGender(name); // "feminine"
   if (gender == null) {
     throw new Error('Failed to detect grammatical gender.');
   }
 
-  const input = { ...anthroponym, gender };
+  const vocative = await shevchenko.inVocative({ ...name, gender });
 
-  const output = await shevchenko.inVocative(input);
-
-  console.log(output); // { givenName: "Ларисо", patronymicName: "Петрівно", familyName: "Косач-Квітко" }
+  console.log(vocative); // { givenName: "Ларисо", patronymicName: "Петрівно", familyName: "Косач-Квітко" }
 }
 
 main().catch((error) => console.error(error));

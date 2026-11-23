@@ -33,18 +33,16 @@ const { militaryExtension } = require('${extensionName}');
 shevchenko.registerExtension(militaryExtension);
 
 async function main() {
-  const input = {
+  const genitive = await shevchenko.inGenitive({
     gender: 'masculine',
     militaryAppointment: 'помічник гранатометника',
     militaryRank: 'солдат',
     familyName: 'Шевченко',
     givenName: 'Тарас',
     patronymicName: 'Григорович',
-  };
+  });
 
-  const output = await shevchenko.inGenitive(input);
-
-  console.log(output); // { militaryAppointment: "помічника гранатометника", militaryRank: "солдата", familyName: "Шевченка", givenName: "Тараса", patronymicName: "Григоровича" }
+  console.log(genitive); // { militaryAppointment: "помічника гранатометника", militaryRank: "солдата", familyName: "Шевченка", givenName: "Тараса", patronymicName: "Григоровича" }
 }
 
 main().catch((error) => console.error(error));
@@ -90,14 +88,6 @@ const resources = computed<Resource[]>(() => [
     title: $t('military.resources.sourceCode.title'),
     text: $t('military.resources.sourceCode.text'),
     to: appConfig.militaryExtension.gitHubUrl,
-    isExternal: true,
-  },
-  {
-    id: 'npm',
-    icon: 'fa-brands fa-npm',
-    title: 'npm',
-    text: $t('military.resources.npm.text'),
-    to: appConfig.militaryExtension.npmUrl,
     isExternal: true,
   },
   {

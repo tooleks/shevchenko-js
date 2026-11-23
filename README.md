@@ -1,6 +1,6 @@
 # shevchenko.js
 
-JavaScript library for declension of Ukrainian anthroponyms.
+JavaScript library for the declension of Ukrainian personal names.
 
 [![NPM Version](https://img.shields.io/npm/v/shevchenko?label=release)](https://github.com/tooleks/shevchenko-js/releases)
 [![NPM Downloads](https://img.shields.io/npm/dm/shevchenko?label=npm%20downloads)](https://www.npmjs.com/package/shevchenko)
@@ -9,16 +9,15 @@ JavaScript library for declension of Ukrainian anthroponyms.
 ## Links
 
 * [Try it out](https://shevchenko-js.tooleks.com/en-US/) / [Демонстрація](https://shevchenko-js.tooleks.com)
-* [API Specification](https://shevchenko-js.tooleks.com/api-spec/)
-* [Source Code](https://github.com/tooleks/shevchenko-js)
+* [API specification](https://shevchenko-js.tooleks.com/api-spec/)
+* [Source code](https://github.com/tooleks/shevchenko-js)
 * [License](https://github.com/tooleks/shevchenko-js/blob/main/LICENSE)
-* [Migration Guide (v2 → v3)](https://github.com/tooleks/shevchenko-js/wiki/Migration-Guide)
 
 ## Extensions
 
-* [Military extension](https://github.com/tooleks/shevchenko-ext-military) - declension of Ukrainian military ranks and appointments
+* [Military extension](https://github.com/tooleks/shevchenko-ext-military) — declension of Ukrainian military ranks and appointments
 
-## User Guide
+## User guide
 
 ### Installation
 
@@ -30,7 +29,7 @@ npm install shevchenko
 
 ### Import
 
-The library is available as a CommonJS module, an ECMAScript module, and a minified UMD bundle.
+The library is available as a CommonJS module, an ECMAScript module and a minified UMD bundle.
 
 #### CommonJS
 
@@ -46,13 +45,13 @@ import * as shevchenko from 'shevchenko';
 
 #### UMD
 
-Load the bundle with a script tag. It exposes the library as the global `shevchenko` variable.
+Load the bundle with a `<script>` tag. It exposes the library as the global `shevchenko` variable.
 
 ```HTML
 <script type="text/javascript" src="https://unpkg.com/shevchenko"></script>
 ```
 
-### Use Cases
+### Use cases
 
 #### Declining names
 
@@ -62,16 +61,15 @@ This example declines a full name in the vocative case.
 const shevchenko = require('shevchenko');
 
 async function main() {
-  const input = {
-    gender: 'masculine',
+  const name = {
     givenName: 'Тарас',
     patronymicName: 'Григорович',
     familyName: 'Шевченко'
   };
 
-  const output = await shevchenko.inVocative(input);
+  const vocative = await shevchenko.inVocative({ ...name, gender: 'masculine' });
 
-  console.log(output); // { givenName: "Тарасе", patronymicName: "Григоровичу", familyName: "Шевченку" }
+  console.log(vocative); // { givenName: "Тарасе", patronymicName: "Григоровичу", familyName: "Шевченку" }
 }
 
 main().catch((error) => console.error(error));
@@ -85,22 +83,20 @@ This example detects the grammatical gender of a name before declining it.
 const shevchenko = require('shevchenko');
 
 async function main() {
-  const anthroponym = {
+  const name = {
     givenName: 'Лариса',
     patronymicName: 'Петрівна',
     familyName: 'Косач-Квітка'
   };
 
-  const gender = await shevchenko.detectGender(anthroponym); // "feminine"
+  const gender = await shevchenko.detectGender(name); // "feminine"
   if (gender == null) {
     throw new Error('Failed to detect grammatical gender.');
   }
 
-  const input = { ...anthroponym, gender };
+  const vocative = await shevchenko.inVocative({ ...name, gender });
 
-  const output = await shevchenko.inVocative(input);
-
-  console.log(output); // { givenName: "Ларисо", patronymicName: "Петрівно", familyName: "Косач-Квітко" }
+  console.log(vocative); // { givenName: "Ларисо", patronymicName: "Петрівно", familyName: "Косач-Квітко" }
 }
 
 main().catch((error) => console.error(error));
@@ -108,4 +104,4 @@ main().catch((error) => console.error(error));
 
 #### Using the HTTP API
 
-The library is also available as an HTTP API. See the [shevchenko](https://hub.docker.com/r/tooleks/shevchenko) Docker image for setup instructions.
+The library is also available as an HTTP API. See the [tooleks/shevchenko](https://hub.docker.com/r/tooleks/shevchenko) Docker image for setup instructions.

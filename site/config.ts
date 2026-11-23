@@ -16,7 +16,6 @@ export default {
   militaryExtension: {
     name: 'shevchenko-ext-military',
     gitHubUrl: 'https://github.com/tooleks/shevchenko-ext-military',
-    npmUrl: 'https://www.npmjs.com/package/shevchenko-ext-military',
   },
   content: {
     gitHubRepository: 'tooleks/shevchenko-js',
