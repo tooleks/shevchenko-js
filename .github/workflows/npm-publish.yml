@@ -83,5 +83,7 @@ jobs:
   generate-site:
     needs: publish-docker
     permissions:
-      contents: write
+      contents: read
+      pages: write
+      id-token: write
     uses: ./.github/workflows/site-generate.yml

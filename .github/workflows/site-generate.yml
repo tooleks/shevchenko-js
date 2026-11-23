@@ -5,11 +5,10 @@ on:
   workflow_call:
 
 jobs:
-  publish-github-pages:
+  build:
     runs-on: ubuntu-latest
-    concurrency: site-generate
     permissions:
-      contents: write
+      contents: read
     steps:
       - name: Checkout repository
         uses: actions/checkout@v7
@@ -22,7 +21,7 @@ jobs:
       - name: Build package
         run: |
           npm ci
-          npm run build          
+          npm run build
       - name: Generate website
         env:
           NUXT_PUBLIC_SITE_URL: ${{vars.NUXT_PUBLIC_SITE_URL}}
@@ -34,15 +33,22 @@ jobs:
       - name: Generate docs
         run: |
           npm run docs
-      - name: Check in the changes
-        run: |
-          git config --global user.name "github-actions"
-          git config --global user.email "github-actions@github.com"
-          git add .
-          if git diff --cached --quiet; then
-            echo "No changes to commit"
-          else
-            git commit -m "chore(site): publish website"
-            git pull --rebase
-            git push origin
-          fi
+      - name: Upload website
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ./docs
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    concurrency: site-generate
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
