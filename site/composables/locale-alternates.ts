@@ -1,5 +1,5 @@
 import { useAbsoluteUrl } from '~/composables/absolute-url';
-import { DEFAULT_LOCALE, LOCALES, type LocaleName } from '~/plugins/i18n';
+import { DEFAULT_LOCALE, LOCALES, type LocaleName } from '~/utils/locale';
 
 export function useLocaleAlternates(path: string) {
   const { getAbsoluteUrl } = useAbsoluteUrl();

@@ -3,14 +3,8 @@ import { useI18n } from 'vue-i18n';
 import { useCurrentLocale } from '~/composables/current-locale';
 import { useLocaleAlternates } from '~/composables/locale-alternates';
 import { useAbsoluteUrl } from '~/composables/absolute-url';
-import type { LocaleName } from '~/plugins/i18n';
 
-const props = defineProps({
-  locale: { type: String as PropType<LocaleName>, default: 'uk-UA' },
-});
-
-const { locale } = toRefs(props);
-useCurrentLocale(locale);
+const locale = useCurrentLocale();
 const { getLocaleUrl } = useLocaleAlternates('/');
 const appConfig = useAppConfig();
 const { t: $t } = useI18n();

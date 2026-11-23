@@ -1,4 +1,5 @@
 import { getAbsoluteUrl } from './composables/absolute-url';
+import { DEFAULT_LOCALE, LOCALES } from './utils/locale';
 import config from './config';
 
 // https://v3.nuxtjs.org/api/configuration/nuxt.config
@@ -13,6 +14,25 @@ export default defineNuxtConfig({
         // Page routes without a trailing slash would overwrite the same "index.html" files.
         /^\/[^.?]*[^/]$/,
       ],
+    },
+  },
+  hooks: {
+    'pages:extend'(pages) {
+      const defaultLocalePages = [...pages];
+      for (const locale of LOCALES) {
+        if (locale === DEFAULT_LOCALE) {
+          continue;
+        }
+
+        for (const page of defaultLocalePages) {
+          pages.push({
+            ...page,
+            name: `${locale}-${page.name}`,
+            path: `/${locale}${page.path === '/' ? '' : page.path}`,
+            meta: { ...page.meta, locale },
+          });
+        }
+      }
     },
   },
   // GitHub Pages redirects "/path" to "/path/", so internal links must end with a slash.

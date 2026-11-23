@@ -1,17 +1,21 @@
 import { createI18n } from 'vue-i18n';
 import enUS from '~/locales/en-US.json';
 import ukUA from '~/locales/uk-UA.json';
+import { DEFAULT_LOCALE, type LocaleName } from '~/utils/locale';
 
-export type LocaleName = 'en-US' | 'uk-UA';
+declare module 'vue-router' {
+  interface RouteMeta {
+    locale?: LocaleName;
+  }
+}
+
 type MessageSchema = typeof enUS & typeof ukUA;
 type MessageDictionary = any;
 
-export const DEFAULT_LOCALE: LocaleName = 'uk-UA';
-export const LOCALES: LocaleName[] = ['uk-UA', 'en-US'];
 const FALLBACK_LOCALE: LocaleName = 'en-US';
 
 export default defineNuxtPlugin(({ vueApp }) => {
-  const i18n = createI18n<MessageSchema, LocaleName>({
+  const i18n = createI18n<MessageSchema, LocaleName, false>({
     legacy: false,
     globalInjection: true,
     messageResolver: (dict: MessageDictionary, path: string) => {
@@ -54,6 +58,11 @@ export default defineNuxtPlugin(({ vueApp }) => {
     }
 
     next();
+  });
+
+  // Runs before the first render, so the layout is rendered in the page locale too.
+  router.beforeEach((to) => {
+    i18n.global.locale.value = to.meta.locale ?? DEFAULT_LOCALE;
   });
 });
 

@@ -1,25 +1,27 @@
 import { useI18n } from 'vue-i18n';
-import { type MaybeRef } from 'vue';
-import { LOCALES, type LocaleName } from '~/plugins/i18n';
+import { computed } from 'vue';
+import { LOCALES, type LocaleName } from '~/utils/locale';
 
 function getOpenGraphLocale(locale: LocaleName): string {
   return locale.replace('-', '_');
 }
 
-export function useCurrentLocale(locale: MaybeRef<LocaleName>) {
+export function useCurrentLocale() {
   const i18n = useI18n();
-  i18n.locale.value = unref(locale);
+  const locale = computed(() => i18n.locale.value as LocaleName);
 
   useHead({
     htmlAttrs: {
-      lang: unref(locale).toLowerCase().split('-')[0],
+      lang: computed(() => locale.value.toLowerCase().split('-')[0]),
     },
   });
 
   useSeoMeta({
-    ogLocale: getOpenGraphLocale(unref(locale)),
-    ogLocaleAlternate: LOCALES.filter((alternate) => alternate !== unref(locale)).map(
-      getOpenGraphLocale,
+    ogLocale: computed(() => getOpenGraphLocale(locale.value)),
+    ogLocaleAlternate: computed(() =>
+      LOCALES.filter((alternate) => alternate !== locale.value).map(getOpenGraphLocale),
     ),
   });
+
+  return locale;
 }

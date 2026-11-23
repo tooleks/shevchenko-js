@@ -2,7 +2,7 @@
 import { ref, watch } from 'vue';
 import { useI18n } from 'vue-i18n';
 import { useAbsoluteUrl } from '~/composables/absolute-url';
-import { DEFAULT_LOCALE, LOCALES, type LocaleName } from '~/plugins/i18n';
+import { DEFAULT_LOCALE, LOCALES, type LocaleName } from '~/utils/locale';
 
 const appConfig = useAppConfig();
 const route = useRoute();
