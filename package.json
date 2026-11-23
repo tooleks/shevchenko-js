@@ -47,7 +47,7 @@
   "bugs": {
     "url": "https://github.com/tooleks/shevchenko-js/issues"
   },
-  "homepage": "https://tooleks.github.io/shevchenko-js",
+  "homepage": "https://shevchenko-js.tooleks.com",
   "dependencies": {
     "@tensorflow/tfjs-backend-cpu": "^4.22.0",
     "@tensorflow/tfjs-backend-webgl": "^4.22.0",
