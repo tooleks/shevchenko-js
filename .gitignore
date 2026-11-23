@@ -12,6 +12,9 @@ npm-debug.log
 # Output bundle
 /dist
 
+# Website
+/docs
+
 # Dev
 /.claude
 /.context
