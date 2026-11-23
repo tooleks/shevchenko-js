@@ -432,6 +432,8 @@ await inflect(demoDeclensionInput);
           </ul>
 
           <div class="demo-results-footer">
+            <p class="demo-disclaimer">{{ $t('declension.disclaimer') }}</p>
+
             <ModalButton class="demo-bug-link" modal-id="contact-us-modal">
               <i class="fa-solid fa-bug" aria-hidden="true"></i>
               {{ $t('foundBug') }}
@@ -614,6 +616,13 @@ await inflect(demoDeclensionInput);
   gap: 0.75rem 1rem;
   margin-top: auto;
   padding-top: 1.25rem;
+}
+
+.demo-disclaimer {
+  flex-basis: 100%;
+  margin: 0;
+  color: var(--site-muted);
+  font-size: 0.8125rem;
 }
 
 .demo-bug-link {
