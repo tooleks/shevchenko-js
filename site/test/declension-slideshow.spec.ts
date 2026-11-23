@@ -3,7 +3,7 @@ import * as shevchenko from 'shevchenko';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import DeclensionSlideshow, { type SlideshowField } from '~/components/declension-slideshow.vue';
 
-const SLIDE_DURATION = 5_000;
+const SLIDE_DURATION = 10_000;
 
 const fields: SlideshowField[] = ['givenName', 'familyName'];
 
@@ -30,11 +30,18 @@ function getSlide(wrapper: Wrapper): string {
   return wrapper.get('.slideshow-name-output').text();
 }
 
+function setVisibility(state: DocumentVisibilityState): void {
+  Object.defineProperty(document, 'visibilityState', { value: state, configurable: true });
+  document.dispatchEvent(new Event('visibilitychange'));
+}
+
 beforeEach(() => {
   vi.useFakeTimers({ shouldAdvanceTime: true });
 });
 
 afterEach(() => {
+  setVisibility('visible');
+  window.dispatchEvent(new Event('focus'));
   vi.useRealTimers();
 });
 
@@ -82,6 +89,35 @@ describe('declension slideshow', () => {
     expect(getSlide(wrapper)).toBe('Тарасе Шевченку');
 
     await slideshow.trigger('pointerleave', { pointerType: 'mouse' });
+    await vi.advanceTimersByTimeAsync(SLIDE_DURATION);
+
+    await vi.waitFor(() => expect(getSlide(wrapper)).toBe('Іване Франку'));
+  });
+
+  it('pauses while the page is hidden', async () => {
+    const wrapper = await mountSuspended(DeclensionSlideshow, { props });
+
+    setVisibility('hidden');
+    await vi.advanceTimersByTimeAsync(SLIDE_DURATION);
+
+    expect(getSlide(wrapper)).toBe('Тарасе Шевченку');
+
+    setVisibility('visible');
+    await vi.advanceTimersByTimeAsync(SLIDE_DURATION);
+
+    await vi.waitFor(() => expect(getSlide(wrapper)).toBe('Іване Франку'));
+  });
+
+  it('pauses while the window is not focused', async () => {
+    const wrapper = await mountSuspended(DeclensionSlideshow, { props });
+
+    window.dispatchEvent(new Event('blur'));
+    await vi.advanceTimersByTimeAsync(SLIDE_DURATION);
+
+    expect(getSlide(wrapper)).toBe('Тарасе Шевченку');
+    expect(wrapper.get('.slideshow-progress').classes()).toContain('slideshow-progress-paused');
+
+    window.dispatchEvent(new Event('focus'));
     await vi.advanceTimersByTimeAsync(SLIDE_DURATION);
 
     await vi.waitFor(() => expect(getSlide(wrapper)).toBe('Іване Франку'));

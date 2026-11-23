@@ -10,7 +10,8 @@ const props = defineProps({
   fields: { type: Array as PropType<SlideshowField[]>, required: true },
 });
 
-const SLIDE_DURATION = 5_000;
+const SLIDE_DURATION = 10_000;
+const slideDurationCss = `${SLIDE_DURATION}ms`;
 
 const inflectors: Record<shevchenko.GrammaticalCase, typeof shevchenko.inNominative> = {
   [shevchenko.GrammaticalCase.NOMINATIVE]: shevchenko.inNominative,
@@ -72,7 +73,16 @@ const preferredMotion = usePreferredReducedMotion();
 const isReducedMotion = computed(() => isMounted.value && preferredMotion.value === 'reduce');
 const isPaused = ref(false);
 const isHovered = ref(false);
-const isPlaying = computed(() => isMounted.value && !isPaused.value && !isHovered.value);
+const documentVisibility = useDocumentVisibility();
+const isWindowFocused = useWindowFocus();
+const isPlaying = computed(
+  () =>
+    isMounted.value &&
+    !isPaused.value &&
+    !isHovered.value &&
+    documentVisibility.value === 'visible' &&
+    isWindowFocused.value,
+);
 
 function setHovered(event: PointerEvent, hovered: boolean): void {
   if (event.pointerType === 'mouse') {
@@ -119,6 +129,14 @@ await showSlide(slideIndex);
         >
           <i :class="isPaused ? 'fa-solid fa-play' : 'fa-solid fa-pause'" aria-hidden="true"></i>
         </button>
+
+        <span
+          v-if="isMounted && !isPaused"
+          :key="progressCycle"
+          class="slideshow-progress"
+          :class="{ 'slideshow-progress-paused': !isPlaying }"
+          aria-hidden="true"
+        ></span>
       </div>
 
       <transition name="slideshow" mode="out-in">
@@ -136,13 +154,6 @@ await showSlide(slideIndex);
           </p>
         </div>
       </transition>
-
-      <span
-        v-if="isMounted && !isPaused"
-        :key="progressCycle"
-        class="slideshow-progress"
-        aria-hidden="true"
-      ></span>
     </div>
   </div>
 </template>
@@ -177,6 +188,7 @@ await showSlide(slideIndex);
 }
 
 .slideshow-header {
+  position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -216,17 +228,17 @@ await showSlide(slideIndex);
   height: 1.75rem;
   margin-left: auto;
   padding: 0;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 0.5rem;
+  border: 0;
+  border-radius: 50%;
   background: transparent;
-  color: #94a3b8;
+  color: #64748b;
   font-size: 0.6875rem;
   cursor: pointer;
   transition: color 0.15s, background-color 0.15s;
 
   &:hover {
-    background: #1e293b;
-    color: #fff;
+    background: rgba(255, 255, 255, 0.06);
+    color: #e2e8f0;
   }
 
   &:focus-visible {
@@ -288,19 +300,17 @@ await showSlide(slideIndex);
 
 .slideshow-progress {
   position: absolute;
-  bottom: 0;
+  bottom: -1px;
   left: 0;
   width: 100%;
-  height: 3px;
-  background: linear-gradient(90deg, var(--site-blue), var(--site-yellow));
+  height: 2px;
+  background: rgba(255, 255, 255, 0.2);
   transform-origin: left;
-  animation: slideshow-progress 5s linear forwards;
+  animation: slideshow-progress v-bind(slideDurationCss) linear forwards;
 }
 
-@media (hover: hover) {
-  .slideshow:hover .slideshow-progress {
-    animation-play-state: paused;
-  }
+.slideshow-progress-paused {
+  animation-play-state: paused;
 }
 
 @keyframes slideshow-progress {
@@ -315,23 +325,23 @@ await showSlide(slideIndex);
 
 .slideshow-enter-active,
 .slideshow-leave-active {
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
 .slideshow-enter-from {
   opacity: 0;
-  transform: translateY(8px);
+  transform: translateY(4px);
 }
 
 .slideshow-leave-to {
   opacity: 0;
-  transform: translateY(-8px);
+  transform: translateY(-4px);
 }
 
 @media (prefers-reduced-motion: reduce) {
   .slideshow-enter-active,
   .slideshow-leave-active {
-    transition: opacity 0.2s;
+    transition: opacity 0.45s ease;
   }
 
   .slideshow-enter-from,
