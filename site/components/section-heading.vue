@@ -15,7 +15,7 @@ defineProps({
 <style lang="scss" scoped>
 .section-heading {
   max-width: 48rem;
-  margin-bottom: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 .section-title {

@@ -57,7 +57,7 @@ defineProps({
   position: relative;
   isolation: isolate;
   overflow: hidden;
-  padding-block: clamp(3rem, 7vw, 6rem);
+  padding-block: clamp(2rem, 4vw, 3.75rem);
 
   &::before,
   &::after {
