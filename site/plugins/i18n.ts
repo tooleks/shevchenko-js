@@ -7,6 +7,7 @@ type MessageSchema = typeof enUS & typeof ukUA;
 type MessageDictionary = any;
 
 export const DEFAULT_LOCALE: LocaleName = 'uk-UA';
+export const LOCALES: LocaleName[] = ['uk-UA', 'en-US'];
 const FALLBACK_LOCALE: LocaleName = 'en-US';
 
 export default defineNuxtPlugin(({ vueApp }) => {

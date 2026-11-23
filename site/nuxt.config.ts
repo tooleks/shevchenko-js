@@ -17,7 +17,8 @@ export default defineNuxtConfig({
   },
   app: {
     head: {
-      titleTemplate: `${config.library.displayName} - %s`,
+      titleTemplate: `${config.library.displayName} — %s`,
+      htmlAttrs: { lang: 'uk' },
       charset: 'utf-8',
       meta: [
         { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -103,13 +104,13 @@ export default defineNuxtConfig({
           href: getAbsoluteUrl('/manifest.json', process.env.NUXT_PUBLIC_SITE_URL),
         },
       ],
-      script: [
-        { src: 'https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js' },
-      ],
     },
   },
   css: [
     '~/assets/style/main.scss',
+    '@fontsource-variable/onest',
+    '@fontsource-variable/jetbrains-mono',
+    '~/assets/style/site.scss',
     '@fortawesome/fontawesome-free/css/fontawesome.css',
     '@fortawesome/fontawesome-free/css/solid.css',
     '@fortawesome/fontawesome-free/css/brands.css',

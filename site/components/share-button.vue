@@ -102,17 +102,17 @@ function shareByEmail() {
 
       <a class="dropdown-item" :href="whatsAppShareLink" target="_blank" role="menuitem">
         <i class="fa-brands fa-whatsapp color-whatsapp me-1" aria-hidden="true"></i>
-        WhatsApp
+        WhatsApp <NewTabHint />
       </a>
 
       <a class="dropdown-item" :href="threadsShareLink" target="_blank" role="menuitem">
         <i class="fa-brands fa-threads me-1" aria-hidden="true"></i>
-        Threads
+        Threads <NewTabHint />
       </a>
 
       <a class="dropdown-item" :href="facebookShareLink" target="_blank" role="menuitem">
         <i class="fa-brands fa-facebook color-facebook me-1" aria-hidden="true"></i>
-        Facebook
+        Facebook <NewTabHint />
       </a>
 
       <button type="button" class="dropdown-item" role="menuitem" @click="shareByEmail()">
