@@ -18,4 +18,6 @@ export function useLocaleAlternates(path: string) {
       { rel: 'alternate', hreflang: 'x-default', href: getLocaleUrl(DEFAULT_LOCALE) },
     ],
   });
+
+  return { getLocaleUrl };
 }

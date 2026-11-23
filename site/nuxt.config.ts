@@ -6,7 +6,19 @@ export default defineNuxtConfig({
   // https://github.com/nuxt/nuxt/pull/24504#issuecomment-1870925896
   nitro: {
     prerender: {
-      ignore: ['/manifest.json'],
+      // The crawler does not follow the absolute URLs of the locale switcher.
+      routes: ['/en-US/'],
+      ignore: [
+        '/manifest.json',
+        // Page routes without a trailing slash would overwrite the same "index.html" files.
+        /^\/[^.?]*[^/]$/,
+      ],
+    },
+  },
+  // GitHub Pages redirects "/path" to "/path/", so internal links must end with a slash.
+  experimental: {
+    defaults: {
+      nuxtLink: { trailingSlash: 'append' },
     },
   },
   runtimeConfig: {

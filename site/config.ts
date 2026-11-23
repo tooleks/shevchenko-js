@@ -5,7 +5,7 @@ export default {
     displayName: `${pkg.name}.js`,
     name: pkg.name,
     version: pkg.version,
-    apiSpecPath: '/api-spec',
+    apiSpecPath: '/api-spec/',
     npmUrl: 'https://www.npmjs.com/package/shevchenko',
     gitHubUrl: 'https://github.com/tooleks/shevchenko-js',
     dockerHubUrl: 'https://hub.docker.com/r/tooleks/shevchenko',

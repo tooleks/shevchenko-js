@@ -11,11 +11,11 @@ const props = defineProps({
 
 const { locale } = toRefs(props);
 useCurrentLocale(locale);
-useLocaleAlternates('/');
+const { getLocaleUrl } = useLocaleAlternates('/');
 const appConfig = useAppConfig();
-const route = useRoute();
 const { t: $t } = useI18n();
-const { absoluteUrl, getAbsoluteUrl } = useAbsoluteUrl();
+const { getAbsoluteUrl } = useAbsoluteUrl();
+const canonicalUrl = computed(() => getLocaleUrl(locale.value));
 const pageTitle = computed(() => $t('website.title'));
 const pageDescription = computed(() => $t('website.description'));
 
@@ -23,7 +23,7 @@ useHead({
   title: pageTitle,
   link: [
     //
-    { rel: 'canonical', href: getAbsoluteUrl(route.fullPath) },
+    { rel: 'canonical', href: canonicalUrl },
   ],
 });
 
@@ -34,7 +34,7 @@ useSeoMeta({
   ogImageWidth: 608,
   ogImageHeight: 608,
   ogType: 'website',
-  ogUrl: absoluteUrl,
+  ogUrl: canonicalUrl,
   ogSiteName: appConfig.library.displayName,
   ogTitle: pageTitle,
   ogDescription: pageDescription,
