@@ -142,14 +142,14 @@ await showSlide(slideIndex);
       <transition name="slideshow" mode="out-in">
         <div v-if="slide" :key="slideKey" class="slideshow-body" aria-hidden="true">
           <div class="slideshow-label">{{ $t('grammaticalCase.nominative') }}</div>
-          <p class="slideshow-name slideshow-name-input">{{ slide.nominative }}</p>
+          <p class="slideshow-name slideshow-name-input" lang="uk">{{ slide.nominative }}</p>
 
           <div class="slideshow-arrow">
             <i class="fa-solid fa-arrow-down"></i>
           </div>
 
           <div class="slideshow-label">{{ $t(`grammaticalCase.${grammaticalCase}`) }}</div>
-          <p class="slideshow-name slideshow-name-output">
+          <p class="slideshow-name slideshow-name-output" lang="uk">
             <DeclinedText :base="slide.nominative" :text="slide.inflected" />
           </p>
         </div>

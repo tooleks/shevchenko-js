@@ -283,6 +283,7 @@ await inflect(demoDeclensionInput);
               id="family-name"
               v-model.trim="formData.familyName"
               type="text"
+              lang="uk"
               class="form-control"
               name="family-name"
               autocomplete="off"
@@ -301,6 +302,7 @@ await inflect(demoDeclensionInput);
               id="given-name"
               v-model.trim="formData.givenName"
               type="text"
+              lang="uk"
               class="form-control"
               name="given-name"
               autocomplete="off"
@@ -319,6 +321,7 @@ await inflect(demoDeclensionInput);
               id="patronymic-name"
               v-model.trim="formData.patronymicName"
               type="text"
+              lang="uk"
               class="form-control"
               name="patronymic-name"
               autocomplete="off"
@@ -343,29 +346,30 @@ await inflect(demoDeclensionInput);
             {{ $t('declension.results') }}
           </h3>
 
-          <ul class="case-list">
-            <li
+          <dl class="case-list">
+            <div
               v-for="grammaticalCase in shevchenko.GrammaticalCase"
               :key="grammaticalCase"
               class="case-row"
               :data-grammatical-case="grammaticalCase"
             >
-              <span class="case-name">{{ $t(`grammaticalCase.${grammaticalCase}`) }}</span>
+              <dt class="case-name">{{ $t(`grammaticalCase.${grammaticalCase}`) }}</dt>
 
-              <span class="case-value">
+              <dd class="case-value" lang="uk">
                 <template v-if="declensionResults[grammaticalCase]">
                   {{ getDeclensionResultString(declensionResults[grammaticalCase]) }}
                 </template>
-              </span>
+              </dd>
 
-              <CopyButton
-                v-if="declensionResults[grammaticalCase]"
-                :button-id="`copy-${grammaticalCase}-case-button`"
-                button-class="case-copy"
-                :source="getDeclensionResultString(declensionResults[grammaticalCase])"
-              />
-            </li>
-          </ul>
+              <dd v-if="declensionResults[grammaticalCase]" class="case-actions">
+                <CopyButton
+                  :button-id="`copy-${grammaticalCase}-case-button`"
+                  button-class="case-copy"
+                  :source="getDeclensionResultString(declensionResults[grammaticalCase])"
+                />
+              </dd>
+            </div>
+          </dl>
 
           <div class="demo-results-footer">
             <p class="demo-disclaimer">{{ $t('declension.disclaimer') }}</p>
@@ -469,8 +473,6 @@ await inflect(demoDeclensionInput);
 
 .case-list {
   margin: 0;
-  padding: 0;
-  list-style: none;
 }
 
 .case-row {
@@ -504,15 +506,20 @@ await inflect(demoDeclensionInput);
 
 .case-value {
   grid-area: value;
+  margin: 0;
   color: var(--site-ink);
   font-size: 1.0625rem;
   font-weight: 600;
   overflow-wrap: anywhere;
 }
 
+.case-actions {
+  grid-area: copy;
+  margin: 0;
+}
+
 .case-copy {
   display: grid;
-  grid-area: copy;
   place-items: center;
   width: 2.25rem;
   height: 2.25rem;
