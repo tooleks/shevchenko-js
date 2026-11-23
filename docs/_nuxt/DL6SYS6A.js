@@ -1,1 +1,0 @@
-import{_ as t}from"./C_BL6O_h.js";import{r as s}from"./BukgCDAV.js";import"./C6RmXKoC.js";import"./BSDl_4vx.js";const c={...t,setup(a,r){const o=s({locale:"en-US"});return t.setup.call(this,o,r)}};export{c as default};
