@@ -1,13 +1,41 @@
 <script setup lang="ts">
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
 import { useAbsoluteUrl } from '~/composables/absolute-url';
+import type { CodeTab } from '~/components/code-tabs.vue';
+import type { DocsStep } from '~/components/docs-steps.vue';
+import type { Resource } from '~/components/resource-cards.vue';
 
 const appConfig = useAppConfig();
+const { t: $t } = useI18n();
 const { getAbsoluteUrl } = useAbsoluteUrl();
 
-const npmInstallCommand = `npm install --save ${appConfig.library.name}`;
-const nodeRequireCode = `const shevchenko = require("${appConfig.library.name}");`;
-const browserScriptCode = `<‍script type="text/javascript" src="${appConfig.library.cdnUrl}"><‍/script>`;
-const usageExample = `
+const apiSpecUrl = computed(() => getAbsoluteUrl(appConfig.library.apiSpecPath));
+
+const npmInstallCommand = `npm install ${appConfig.library.name}`;
+
+const importTabs = computed<CodeTab[]>(() => [
+  {
+    id: 'import-commonjs',
+    label: 'CommonJS',
+    description: $t('home.docs.import.commonJs'),
+    code: `const shevchenko = require('${appConfig.library.name}');`,
+  },
+  {
+    id: 'import-es-modules',
+    label: 'ES Modules',
+    description: $t('home.docs.import.esModules'),
+    code: `import * as shevchenko from '${appConfig.library.name}';`,
+  },
+  {
+    id: 'import-browser',
+    label: $t('browser'),
+    description: $t('home.docs.import.browser', { var: appConfig.library.name }),
+    code: `\x3Cscript type="text/javascript" src="${appConfig.library.cdnUrl}">\x3C/script>`,
+  },
+]);
+
+const declensionExample = `
 const shevchenko = require('${appConfig.library.name}');
 
 async function main() {
@@ -25,50 +53,101 @@ async function main() {
 
 main().catch((error) => console.error(error));
 `;
+
+const genderDetectionExample = `
+const shevchenko = require('${appConfig.library.name}');
+
+async function main() {
+  const anthroponym = {
+    givenName: 'Лариса',
+    patronymicName: 'Петрівна',
+    familyName: 'Косач-Квітка'
+  };
+
+  const gender = await shevchenko.detectGender(anthroponym); // "feminine"
+  if (gender == null) {
+    throw new Error('Failed to detect grammatical gender.');
+  }
+
+  const input = { ...anthroponym, gender };
+
+  const output = await shevchenko.inVocative(input);
+
+  console.log(output); // { givenName: "Ларисо", patronymicName: "Петрівно", familyName: "Косач-Квітко" }
+}
+
+main().catch((error) => console.error(error));
+`;
+
+const exampleTabs = computed<CodeTab[]>(() => [
+  {
+    id: 'declension-example',
+    label: $t('home.docs.declensionExample'),
+    description: $t('home.docs.declensionExample.description'),
+    code: declensionExample.trim(),
+  },
+  {
+    id: 'gender-detection-example',
+    label: $t('home.docs.genderDetectionExample'),
+    description: $t('home.docs.genderDetectionExample.description'),
+    code: genderDetectionExample.trim(),
+  },
+]);
+
+const steps = computed<DocsStep[]>(() => [
+  {
+    id: 'installation',
+    title: $t('documentation.installation'),
+    description: $t('home.docs.installation.description'),
+    code: npmInstallCommand,
+  },
+  { id: 'import', title: $t('home.docs.import'), tabs: importTabs.value },
+  { id: 'usage-example', title: $t('documentation.usageExample'), tabs: exampleTabs.value },
+]);
+
+const resources = computed<Resource[]>(() => [
+  {
+    id: 'apiSpec',
+    icon: 'fa-solid fa-book-open',
+    title: $t('documentation.apiSpec'),
+    text: $t('home.resources.apiSpec.text'),
+    to: apiSpecUrl.value,
+    isExternal: true,
+  },
+  {
+    id: 'sourceCode',
+    icon: 'fa-brands fa-github',
+    title: $t('home.resources.sourceCode.title'),
+    text: $t('home.resources.sourceCode.text'),
+    to: appConfig.library.gitHubUrl,
+    isExternal: true,
+  },
+  {
+    id: 'httpApi',
+    icon: 'fa-brands fa-docker',
+    title: $t('home.resources.httpApi.title'),
+    text: $t('home.resources.httpApi.text'),
+    to: appConfig.library.dockerHubUrl,
+    isExternal: true,
+  },
+  {
+    id: 'military',
+    icon: 'fa-solid fa-shield-halved',
+    title: $t('home.resources.military.title'),
+    text: $t('home.resources.military.text'),
+    to: { name: 'military' },
+    isExternal: false,
+    badge: $t('beta'),
+  },
+]);
 </script>
 
 <template>
-  <section id="documentation" class="my-4">
-    <div class="row">
-      <div class="col">
-        <h2>
-          {{ $t('documentation') }}
-          <small class="d-block h6 mt-2 mb-0 text-decoration-none">
-            <a :href="getAbsoluteUrl(appConfig.library.apiSpecPath)" target="_blank">
-              {{ $t('documentation.navigateToFullVersion') }}
-            </a>
-          </small>
-        </h2>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <DocsInstallationCard>
-          <h4 class="card-subtitle h6 mb-2 text-muted">npm</h4>
-          <div class="d-flex align-items-center mb-3">
-            <CodeLine :code="npmInstallCommand" />
-          </div>
-
-          <h4 class="card-subtitle h6 mb-2 text-muted">Node.js</h4>
-          <div class="d-flex align-items-center mb-3">
-            <CodeLine :code="nodeRequireCode" />
-          </div>
-
-          <h4 class="card-subtitle h6 mb-2 text-muted">{{ $t('browser') }}</h4>
-          <div class="d-flex align-items-center mb-0">
-            <CodeLine :code="browserScriptCode" />
-          </div>
-        </DocsInstallationCard>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <DocsUsageExampleCard>
-          <CodeBlock :code="usageExample.trim()" />
-        </DocsUsageExampleCard>
-      </div>
+  <section id="documentation" class="site-section site-section-muted">
+    <div class="container">
+      <SectionHeading :title="$t('documentation')" :subtitle="$t('home.docs.subtitle')" />
+      <DocsSteps :steps="steps" />
+      <ResourceCards :resources="resources" />
     </div>
   </section>
 </template>

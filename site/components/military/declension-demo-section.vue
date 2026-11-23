@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from 'vue';
+import { computed, nextTick, reactive, ref } from 'vue';
 import * as shevchenko from 'shevchenko';
 import { isEqual } from 'lodash-es';
 
@@ -45,6 +45,16 @@ const formData = reactive<FormData>({
   patronymicName: '',
 });
 
+const genderDescriptionId = computed(() => {
+  if (hasGenderDetectionError.value) {
+    return 'gender-detection-error';
+  }
+  if (formData.gender === GENDER_AUTO_DETECT) {
+    return 'gender-auto-detection-hint';
+  }
+  return undefined;
+});
+
 function fillFormData(formDataChange: FormData): void {
   formData.gender = formDataChange.gender;
   formData.autoDetectedGender = formDataChange.autoDetectedGender;
@@ -59,15 +69,18 @@ function isValidFormData(formData: Partial<FormData>): formData is FormData {
   return Boolean(
     (formData.gender === GENDER_AUTO_DETECT ||
       Object.values(shevchenko.GrammaticalGender).includes(formData.gender)) &&
-      (formData?.militaryAppointment ||
-        formData?.militaryRank ||
+      (formData.militaryAppointment ||
+        formData.militaryRank ||
         formData.familyName ||
         formData.givenName ||
         formData.patronymicName),
   );
 }
 
-async function handleFormSubmit(): Promise<void> {
+/**
+ * Inflects the form data and returns whether the declension results were updated.
+ */
+async function inflectFormData(): Promise<boolean> {
   showGenderDetectionError(false);
 
   let gender: FormData['gender'] | null;
@@ -96,7 +109,7 @@ async function handleFormSubmit(): Promise<void> {
   gender ??= await shevchenko.detectGender({ familyName, givenName, patronymicName });
   if (gender == null) {
     showGenderDetectionError(true);
-    return;
+    return false;
   }
 
   formData.autoDetectedGender = gender;
@@ -114,6 +127,34 @@ async function handleFormSubmit(): Promise<void> {
 
   // Store the declension input in query params for autofill.
   await router.replace({ query: { ...declensionInput } });
+
+  return true;
+}
+
+const declensionResultsElement = ref<HTMLElement | null>(null);
+const declensionResultsTitleElement = ref<HTMLElement | null>(null);
+const genderDetectionErrorElement = ref<HTMLElement | null>(null);
+const preferredMotion = usePreferredReducedMotion();
+
+async function inflectAndReveal(shouldFocusResults: boolean): Promise<void> {
+  const isInflected = await inflectFormData();
+
+  await nextTick();
+  const scrollTarget = isInflected
+    ? declensionResultsElement.value
+    : genderDetectionErrorElement.value;
+  scrollTarget?.scrollIntoView({
+    behavior: preferredMotion.value === 'reduce' ? 'auto' : 'smooth',
+    block: isInflected ? 'start' : 'center',
+  });
+
+  if (isInflected && shouldFocusResults) {
+    declensionResultsTitleElement.value?.focus({ preventScroll: true });
+  }
+}
+
+async function handleFormSubmit(): Promise<void> {
+  await inflectAndReveal(true);
 }
 
 async function handlePatronymicNameCorrection(correctedPatronymicName: string): Promise<void> {
@@ -199,7 +240,7 @@ onMounted(async () => {
   // Autofill the form using the query params.
   if (isValidFormData(route.query) && !isDemoDeclensionInput(route.query)) {
     fillFormData(route.query);
-    await handleFormSubmit();
+    await inflectAndReveal(false);
   }
 });
 
@@ -207,232 +248,196 @@ await inflect(demoDeclensionInput);
 </script>
 
 <template>
-  <section id="demo" class="my-4">
-    <div class="row mb-3">
-      <div class="col-12">
-        <h2 class="mb-0">
-          {{ $t('liveDemo') }}
-          <small class="d-block h6 text-muted mt-2 mb-0 sentence-capitalize">
-            {{ $t('liveDemo.message.military') }}
-          </small>
-        </h2>
-      </div>
-    </div>
+  <section id="demo" class="site-section site-section-muted">
+    <div class="container">
+      <SectionHeading :title="$t('liveDemo')" :subtitle="$t('declension.instruction.military')" />
 
-    <div class="card">
-      <div class="card-body">
-        <div class="row">
-          <form
-            id="declension-form"
-            class="col-lg-5 pe-lg-4 d-flex flex-column justify-content-between"
-            @submit.prevent="handleFormSubmit"
-          >
-            <div class="mb-4">
-              <p class="text-muted">
-                {{ $t('declension.instruction') }}
-              </p>
+      <div class="demo">
+        <form id="declension-form" class="demo-form" @submit.prevent="handleFormSubmit">
+          <fieldset class="demo-field">
+            <legend class="form-label">{{ $t('grammaticalGender') }}</legend>
 
-              <div class="mb-3">
-                <div class="mb-2">
-                  <label
-                    v-for="genderOption in genderOptions"
-                    :key="genderOption"
-                    class="form-check form-check-inline"
-                  >
-                    <input
-                      v-model="formData.gender"
-                      class="form-check-input"
-                      type="radio"
-                      name="gender"
-                      :value="genderOption"
-                    />
-                    {{ $t(`grammaticalGender.${genderOption}`) }}
-                    <span v-if="genderOption === GENDER_AUTO_DETECT">
-                      ({{ $t(`grammaticalGender.${formData.autoDetectedGender}`) }})
-                    </span>
-                  </label>
-                </div>
-
-                <small
-                  v-if="hasGenderDetectionError"
-                  class="d-block form-text text-danger"
-                  role="alert"
-                >
-                  <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
-                  {{ $t('grammaticalGender.detectionFailed') }}
-                </small>
-
-                <small
-                  v-else-if="formData.gender === GENDER_AUTO_DETECT"
-                  class="d-block form-text text-muted"
-                >
-                  {{ $t('grammaticalGender.autoDetection') }}
-                </small>
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label" for="military-appointment">
-                  {{ $t('anthroponym.militaryAppointment') }}
-                </label>
-
+            <div class="segmented">
+              <div
+                v-for="genderOption in genderOptions"
+                :key="genderOption ?? 'auto'"
+                class="segmented-item"
+              >
                 <input
-                  id="military-appointment"
-                  v-model.trim="formData.militaryAppointment"
-                  type="text"
-                  class="form-control"
-                  name="military-appointment"
-                  :placeholder="
-                    $t('declension.placeholder', {
-                      example: demoDeclensionInput.militaryAppointment,
-                    })
-                  "
+                  :id="`gender-${genderOption ?? 'auto'}`"
+                  v-model="formData.gender"
+                  class="btn-check"
+                  type="radio"
+                  name="gender"
+                  autocomplete="off"
+                  :value="genderOption"
+                  :aria-describedby="genderDescriptionId"
                 />
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label" for="military-rank">
-                  {{ $t('anthroponym.militaryRank') }}
+                <label class="segmented-option" :for="`gender-${genderOption ?? 'auto'}`">
+                  {{ $t(`grammaticalGender.${genderOption}`) }}
+                  <span v-if="genderOption === GENDER_AUTO_DETECT" class="demo-detected-gender">
+                    ({{ $t(`grammaticalGender.${formData.autoDetectedGender}`) }})
+                  </span>
                 </label>
-
-                <input
-                  id="military-rank"
-                  v-model.trim="formData.militaryRank"
-                  type="text"
-                  class="form-control"
-                  name="military-rank"
-                  :placeholder="
-                    $t('declension.placeholder', { example: demoDeclensionInput.militaryRank })
-                  "
-                />
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label" for="family-name">
-                  {{ $t('anthroponym.familyName') }}
-                </label>
-
-                <input
-                  id="family-name"
-                  v-model.trim="formData.familyName"
-                  type="text"
-                  class="form-control"
-                  name="family-name"
-                  :placeholder="
-                    $t('declension.placeholder', { example: demoDeclensionInput.familyName })
-                  "
-                />
-              </div>
-
-              <div class="mb-3">
-                <label class="form-label" for="given-name">
-                  {{ $t('anthroponym.givenName') }}
-                </label>
-
-                <input
-                  id="given-name"
-                  v-model.trim="formData.givenName"
-                  type="text"
-                  class="form-control"
-                  name="given-name"
-                  :placeholder="
-                    $t('declension.placeholder', { example: demoDeclensionInput.givenName })
-                  "
-                />
-              </div>
-
-              <div class="mb-0">
-                <label class="form-label" for="patronymic-name">
-                  {{ $t('anthroponym.patronymicName') }}
-                </label>
-
-                <input
-                  id="patronymic-name"
-                  v-model.trim="formData.patronymicName"
-                  type="text"
-                  class="form-control"
-                  name="patronymic-name"
-                  :placeholder="
-                    $t('declension.placeholder', { example: demoDeclensionInput.patronymicName })
-                  "
-                />
-
-                <DeclensionFormSpellingNotice
-                  :anthroponym="formData"
-                  @patronymic-name-correction="handlePatronymicNameCorrection"
-                />
               </div>
             </div>
 
-            <div>
-              <button type="submit" class="btn btn-primary">
-                {{ $t('declension.inflect') }}
-              </button>
-            </div>
-          </form>
-
-          <div
-            class="col-lg-7 column-divider-lg mt-4 pt-4 mt-lg-0 pt-lg-0 ps-lg-4 d-flex flex-column justify-content-between"
-          >
-            <div class="table-responsive">
-              <table class="table mb-0">
-                <tbody>
-                  <tr>
-                    <th class="border-top-0 rounded text-nowrap">{{ $t('grammaticalCase') }}</th>
-                    <th class="border-top-0 w-100">{{ $t('declension.results') }}</th>
-                    <th class="border-top-0 text-end">
-                      <span class="py-0 px-1">
-                        <i
-                          class="fa-solid fa-circle-info"
-                          :title="$t('declension.copyResult')"
-                          :aria-label="$t('declension.copyResult')"
-                        ></i>
-                      </span>
-                    </th>
-                  </tr>
-
-                  <tr v-for="grammaticalCase in shevchenko.GrammaticalCase" :key="grammaticalCase">
-                    <th class="text-nowrap">{{ $t(`grammaticalCase.${grammaticalCase}`) }}</th>
-
-                    <td class="w-100">
-                      <span
-                        v-if="
-                          declensionResults[grammaticalCase]?.militaryAppointment ||
-                          declensionResults[grammaticalCase]?.militaryRank
-                        "
-                        class="text-nowrap"
-                      >
-                        {{ declensionResults[grammaticalCase]?.militaryAppointment }}
-                        {{ declensionResults[grammaticalCase]?.militaryRank }}<br />
-                      </span>
-
-                      <span class="text-nowrap">
-                        {{ declensionResults[grammaticalCase]?.familyName }}
-                        {{ declensionResults[grammaticalCase]?.givenName }}
-                        {{ declensionResults[grammaticalCase]?.patronymicName }}
-                      </span>
-                    </td>
-
-                    <td class="text-end">
-                      <CopyButton
-                        v-if="declensionResults[grammaticalCase]"
-                        :button-id="`copy-${grammaticalCase}-case-button`"
-                        :source="getDeclensionResultString(declensionResults[grammaticalCase])"
-                      />
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-
-            <div
-              class="d-flex flex-wrap align-items-center justify-content-between column-gap-3 mt-3"
+            <small
+              v-if="hasGenderDetectionError"
+              id="gender-detection-error"
+              ref="genderDetectionErrorElement"
+              class="d-block form-text text-danger"
+              role="alert"
             >
-              <ModalButton class="btn btn-link px-0" modal-id="contact-us-modal">
-                {{ $t('foundBug') }}
-              </ModalButton>
+              <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+              {{ $t('grammaticalGender.detectionFailed') }}
+            </small>
 
-              <ShareButton />
-            </div>
+            <small
+              v-else-if="formData.gender === GENDER_AUTO_DETECT"
+              id="gender-auto-detection-hint"
+              class="d-block form-text text-muted"
+            >
+              {{ $t('grammaticalGender.autoDetection') }}
+            </small>
+          </fieldset>
+
+          <div class="demo-field">
+            <label class="form-label" for="military-appointment">
+              {{ $t('anthroponym.militaryAppointment') }}
+            </label>
+
+            <input
+              id="military-appointment"
+              v-model.trim="formData.militaryAppointment"
+              type="text"
+              class="form-control"
+              name="military-appointment"
+              autocomplete="off"
+              :placeholder="
+                $t('declension.placeholder', { example: demoDeclensionInput.militaryAppointment })
+              "
+            />
+          </div>
+
+          <div class="demo-field">
+            <label class="form-label" for="military-rank">
+              {{ $t('anthroponym.militaryRank') }}
+            </label>
+
+            <input
+              id="military-rank"
+              v-model.trim="formData.militaryRank"
+              type="text"
+              class="form-control"
+              name="military-rank"
+              autocomplete="off"
+              :placeholder="
+                $t('declension.placeholder', { example: demoDeclensionInput.militaryRank })
+              "
+            />
+          </div>
+
+          <div class="demo-field">
+            <label class="form-label" for="family-name">
+              {{ $t('anthroponym.familyName') }}
+            </label>
+
+            <input
+              id="family-name"
+              v-model.trim="formData.familyName"
+              type="text"
+              class="form-control"
+              name="family-name"
+              autocomplete="off"
+              :placeholder="
+                $t('declension.placeholder', { example: demoDeclensionInput.familyName })
+              "
+            />
+          </div>
+
+          <div class="demo-field">
+            <label class="form-label" for="given-name">
+              {{ $t('anthroponym.givenName') }}
+            </label>
+
+            <input
+              id="given-name"
+              v-model.trim="formData.givenName"
+              type="text"
+              class="form-control"
+              name="given-name"
+              autocomplete="off"
+              :placeholder="
+                $t('declension.placeholder', { example: demoDeclensionInput.givenName })
+              "
+            />
+          </div>
+
+          <div class="demo-field">
+            <label class="form-label" for="patronymic-name">
+              {{ $t('anthroponym.patronymicName') }}
+            </label>
+
+            <input
+              id="patronymic-name"
+              v-model.trim="formData.patronymicName"
+              type="text"
+              class="form-control"
+              name="patronymic-name"
+              autocomplete="off"
+              :placeholder="
+                $t('declension.placeholder', { example: demoDeclensionInput.patronymicName })
+              "
+            />
+
+            <PatronymicSpellingNotice
+              :anthroponym="formData"
+              @patronymic-name-correction="handlePatronymicNameCorrection"
+            />
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-lg demo-submit">
+            {{ $t('declension.inflect') }}
+          </button>
+        </form>
+
+        <div id="declension-results" ref="declensionResultsElement" class="demo-results">
+          <h3 ref="declensionResultsTitleElement" class="demo-results-title" tabindex="-1">
+            {{ $t('declension.results') }}
+          </h3>
+
+          <ul class="case-list">
+            <li
+              v-for="grammaticalCase in shevchenko.GrammaticalCase"
+              :key="grammaticalCase"
+              class="case-row"
+              :data-grammatical-case="grammaticalCase"
+            >
+              <span class="case-name">{{ $t(`grammaticalCase.${grammaticalCase}`) }}</span>
+
+              <span class="case-value">
+                <template v-if="declensionResults[grammaticalCase]">
+                  {{ getDeclensionResultString(declensionResults[grammaticalCase]) }}
+                </template>
+              </span>
+
+              <CopyButton
+                v-if="declensionResults[grammaticalCase]"
+                :button-id="`copy-${grammaticalCase}-case-button`"
+                button-class="case-copy"
+                :source="getDeclensionResultString(declensionResults[grammaticalCase])"
+              />
+            </li>
+          </ul>
+
+          <div class="demo-results-footer">
+            <ModalButton class="demo-bug-link" modal-id="contact-us-modal">
+              <i class="fa-solid fa-bug" aria-hidden="true"></i>
+              {{ $t('foundBug') }}
+            </ModalButton>
+
+            <ShareButton />
           </div>
         </div>
       </div>
@@ -441,7 +446,188 @@ await inflect(demoDeclensionInput);
 </template>
 
 <style lang="scss" scoped>
-.sentence-capitalize:first-letter {
-  text-transform: capitalize;
+.demo {
+  display: grid;
+  border: 1px solid var(--site-line);
+  border-radius: var(--site-radius-xl);
+  background: #fff;
+  box-shadow: var(--site-shadow-lg);
+
+  @media (min-width: 992px) {
+    grid-template-columns: 5fr 7fr;
+  }
+}
+
+.demo-form,
+.demo-results {
+  min-width: 0;
+  padding: 1.5rem;
+
+  @media (min-width: 768px) {
+    padding: 2rem 2.25rem;
+  }
+}
+
+.demo-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.demo-field {
+  min-width: 0;
+  margin: 0;
+}
+
+.segmented-item {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.demo-detected-gender {
+  color: var(--site-muted);
+  font-weight: 400;
+}
+
+.demo-submit {
+  margin-top: auto;
+
+  @media (max-width: 991.98px) {
+    width: 100%;
+  }
+
+  @media (min-width: 992px) {
+    align-self: flex-start;
+  }
+}
+
+.demo-results {
+  display: flex;
+  flex-direction: column;
+  border-top: 1px solid var(--site-line);
+  border-radius: 0 0 var(--site-radius-xl) var(--site-radius-xl);
+  background: linear-gradient(180deg, var(--site-surface), #fff 12rem);
+
+  @media (min-width: 992px) {
+    border-top: 0;
+    border-left: 1px solid var(--site-line);
+    border-radius: 0 var(--site-radius-xl) var(--site-radius-xl) 0;
+  }
+}
+
+.demo-results-title {
+  margin: 0 0 0.5rem;
+  color: var(--site-muted);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.case-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.case-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-areas:
+    'name copy'
+    'value copy';
+  align-items: center;
+  column-gap: 0.75rem;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--site-line);
+
+  &:last-child {
+    border-bottom: 0;
+  }
+
+  @media (min-width: 576px) {
+    grid-template-columns: 11rem minmax(0, 1fr) auto;
+    grid-template-areas: 'name value copy';
+    min-height: 3.5rem;
+  }
+}
+
+.case-name {
+  grid-area: name;
+  color: var(--site-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.case-value {
+  grid-area: value;
+  color: var(--site-ink);
+  font-size: 1.0625rem;
+  font-weight: 600;
+  overflow-wrap: anywhere;
+}
+
+.case-copy {
+  display: grid;
+  grid-area: copy;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  padding: 0;
+  border: 1px solid transparent;
+  border-radius: 0.5rem;
+  background: transparent;
+  color: var(--site-muted);
+  cursor: pointer;
+  transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+
+  &:hover {
+    border-color: var(--site-line);
+    background: #fff;
+    color: var(--site-ink);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--site-primary);
+    outline-offset: 1px;
+  }
+
+  :deep(.fa-check) {
+    color: #16a34a;
+  }
+}
+
+.case-row:hover .case-copy {
+  color: var(--site-ink);
+}
+
+.demo-results-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem 1rem;
+  margin-top: auto;
+  padding-top: 1.25rem;
+}
+
+.demo-bug-link {
+  color: var(--site-muted);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+
+  i {
+    margin-right: 0.25rem;
+  }
+
+  &:hover {
+    color: var(--site-ink);
+  }
 }
 </style>

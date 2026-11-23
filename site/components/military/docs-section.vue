@@ -1,10 +1,34 @@
 <script setup lang="ts">
-const appConfig = useAppConfig();
+import { computed } from 'vue';
+import { useI18n } from 'vue-i18n';
+import type { DocsStep } from '~/components/docs-steps.vue';
+import type { Resource } from '~/components/resource-cards.vue';
 
-const npmInstallCommand = `npm install --save ${appConfig.library.name}@^3.1.0 ${appConfig.militaryExtension.name}`;
+const appConfig = useAppConfig();
+const { t: $t } = useI18n();
+
+const libraryName = appConfig.library.name;
+const extensionName = appConfig.militaryExtension.name;
+
+const npmInstallCommand = `npm install ${libraryName} ${extensionName}`;
+
+const commonJsImport = `
+const shevchenko = require('${libraryName}');
+const { militaryExtension } = require('${extensionName}');
+
+shevchenko.registerExtension(militaryExtension);
+`;
+
+const esModulesImport = `
+import * as shevchenko from '${libraryName}';
+import { militaryExtension } from '${extensionName}';
+
+shevchenko.registerExtension(militaryExtension);
+`;
+
 const usageExample = `
-const shevchenko = require('${appConfig.library.name}');
-const { militaryExtension } = require('${appConfig.militaryExtension.name}');
+const shevchenko = require('${libraryName}');
+const { militaryExtension } = require('${extensionName}');
 
 shevchenko.registerExtension(militaryExtension);
 
@@ -25,40 +49,74 @@ async function main() {
 
 main().catch((error) => console.error(error));
 `;
+
+const steps = computed<DocsStep[]>(() => [
+  {
+    id: 'installation',
+    title: $t('documentation.installation'),
+    description: $t('military.docs.installation.description'),
+    code: npmInstallCommand,
+  },
+  {
+    id: 'import',
+    title: $t('home.docs.import'),
+    tabs: [
+      {
+        id: 'import-commonjs',
+        label: 'CommonJS',
+        description: $t('military.docs.import.description'),
+        code: commonJsImport.trim(),
+      },
+      {
+        id: 'import-es-modules',
+        label: 'ES Modules',
+        description: $t('military.docs.import.description'),
+        code: esModulesImport.trim(),
+      },
+    ],
+  },
+  {
+    id: 'usage-example',
+    title: $t('documentation.usageExample'),
+    description: $t('military.docs.usageExample.description'),
+    code: usageExample.trim(),
+  },
+]);
+
+const resources = computed<Resource[]>(() => [
+  {
+    id: 'sourceCode',
+    icon: 'fa-brands fa-github',
+    title: $t('military.resources.sourceCode.title'),
+    text: $t('military.resources.sourceCode.text'),
+    to: appConfig.militaryExtension.gitHubUrl,
+    isExternal: true,
+  },
+  {
+    id: 'npm',
+    icon: 'fa-brands fa-npm',
+    title: 'npm',
+    text: $t('military.resources.npm.text'),
+    to: appConfig.militaryExtension.npmUrl,
+    isExternal: true,
+  },
+  {
+    id: 'library',
+    icon: 'fa-solid fa-signature',
+    title: $t('military.resources.library.title'),
+    text: $t('military.resources.library.text'),
+    to: { name: 'index' },
+    isExternal: false,
+  },
+]);
 </script>
 
 <template>
-  <section id="documentation" class="my-4">
-    <div class="row">
-      <div class="col">
-        <h2>
-          {{ $t('documentation') }}
-          <small class="d-block h6 mt-2 mb-0 text-decoration-none">
-            <a :href="appConfig.militaryExtension.gitHubUrl" target="_blank">
-              {{ $t('documentation.navigateToExtensionPage') }}
-            </a>
-          </small>
-        </h2>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <DocsInstallationCard>
-          <h4 class="card-subtitle h6 mb-2 text-muted">npm</h4>
-          <div class="d-flex align-items-center mb-0">
-            <CodeLine :code="npmInstallCommand" />
-          </div>
-        </DocsInstallationCard>
-      </div>
-    </div>
-
-    <div class="row">
-      <div class="col">
-        <DocsUsageExampleCard>
-          <CodeBlock :code="usageExample.trim()" />
-        </DocsUsageExampleCard>
-      </div>
+  <section id="documentation" class="site-section site-section-muted">
+    <div class="container">
+      <SectionHeading :title="$t('documentation')" :subtitle="$t('military.docs.subtitle')" />
+      <DocsSteps :steps="steps" />
+      <ResourceCards :resources="resources" />
     </div>
   </section>
 </template>

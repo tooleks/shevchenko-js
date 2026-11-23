@@ -1,4 +1,0 @@
-<template>
-  <UkrainianFlag />
-  <TopNavBar />
-</template>
