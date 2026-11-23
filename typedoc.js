@@ -15,10 +15,9 @@ module.exports = {
   includeVersion: true,
   gaID: 'G-RZ36XWPBER',
   sidebarLinks: {
-    ['Try it out']: 'https://shevchenko-js.tooleks.com/en-US',
-    ['API Specification']: 'https://shevchenko-js.tooleks.com/api-spec',
+    ['Try it out']: 'https://shevchenko-js.tooleks.com/en-US/',
+    ['API Specification']: 'https://shevchenko-js.tooleks.com/api-spec/',
     ['Source Code']: 'https://github.com/tooleks/shevchenko-js',
     ['License']: 'https://github.com/tooleks/shevchenko-js/blob/main/LICENSE',
-    ['Migration Guide']: 'https://github.com/tooleks/shevchenko-js/wiki/Migration-Guide',
   },
 };
